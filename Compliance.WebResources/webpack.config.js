@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = {
+var config = {
 	mode: 'development',
 	entry: './src/index.ts',
 
@@ -29,3 +29,11 @@ module.exports = {
 		extensions: ['.tsx', '.ts', '.js']
 	}
 };
+
+module.exports = (env, argv) => {
+    if (argv.mode === 'development') {
+        config.devtool = 'source-map';
+    }
+
+    return config;
+}
