@@ -4,7 +4,7 @@
       "SolutionName": "Compliance",
       "Managed": false,
       "TargetVersion": null,
-      "ExportAutoNumberingSettings": false,
+      "ExportAutoNumberingSettings: false,
       "ExportCalendarSettings": false,
       "ExportCustomizationSettings": false,
       "ExportEmailTrackingSettings": false,
