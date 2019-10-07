@@ -338,6 +338,42 @@
             <Description description="Identificateur unique des instances d'entité" languagecode="1036" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="opc_intakedisposition">
+          <Type>picklist</Type>
+          <Name>opc_intakedisposition</Name>
+          <LogicalName>opc_intakedisposition</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>opc_intakedisposition</OptionSetName>
+          <displaynames>
+            <displayname description="Disposition" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Defines the dispositions to move out of the intake phase." languagecode="1033" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="opc_number">
           <Type>nvarchar</Type>
           <Name>opc_number</Name>
@@ -561,6 +597,42 @@
             <Description description="Identificateur unique de l'utilisateur propriétaire de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="processid">
+          <Type>uniqueidentifier</Type>
+          <Name>processid</Name>
+          <LogicalName>processid</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IsCustomizable>0</IsCustomizable>
+          <IsRenameable>0</IsRenameable>
+          <CanModifySearchSettings>0</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>0</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>0</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsLocalizable>0</IsLocalizable>
+          <displaynames>
+            <displayname description="Process Id" languagecode="1033" />
+            <displayname description="ID de processus" languagecode="1036" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Contains the id of the process associated with the entity." languagecode="1033" />
+            <Description description="Contient l’ID du processus associé à l’entité." languagecode="1036" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="statecode">
           <Type>state</Type>
           <Name>statecode</Name>
@@ -765,7 +837,7 @@
       </attributes>
       <EntitySetName>opc_complaints</EntitySetName>
       <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>
-      <IsBusinessProcessEnabled>0</IsBusinessProcessEnabled>
+      <IsBusinessProcessEnabled>1</IsBusinessProcessEnabled>
       <IsRequiredOffline>0</IsRequiredOffline>
       <IsInteractionCentricEnabled>0</IsInteractionCentricEnabled>
       <IsCollaboration>0</IsCollaboration>
