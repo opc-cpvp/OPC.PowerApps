@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{73b8dd2c-0c1d-478f-9d8a-0c4d8722c969}" Name="Complaint - Business Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/Complaint-BusinessProcess-73B8DD2C-0C1D-478F-9D8A-0C4D8722C969.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
+  <RunAs>1</RunAs>
+  <UniqueName>opc_complaint_businessprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <PrimaryEntity>opc_complaint</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Complaint - Business Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{74396559-3cdf-417f-8762-d6336bdfce43}">
+      <label languagecode="1033" description="Intake" />
+    </steplabels>
+    <steplabels id="{556ce79c-9065-4117-9ee4-bb6238f6b18d}">
+      <label languagecode="1033" description="Disposition" />
+    </steplabels>
+    <steplabels id="{74c10959-00ea-4317-a16d-475108b16189}">
+      <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{c1602234-a173-4f68-9b07-900546ac475b}">
+      <label languagecode="1033" description="Disposition" />
+    </steplabels>
+  </labels>
+  <ProcessTriggers />
+</Workflow>
