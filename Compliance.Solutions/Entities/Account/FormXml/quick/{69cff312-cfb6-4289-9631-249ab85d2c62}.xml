@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform unmodified="1">
+    <formid>{69cff312-cfb6-4289-9631-249ab85d2c62}</formid>
+    <IntroducedVersion>7.0.0.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab name="hierarchy" verticallayout="true" id="{ee701130-9f7e-4c91-b842-ac167874416d}" IsUserDefined="0">
+          <labels>
+            <label description="Hierarchy" languagecode="1033" />
+            <label description="Hiérarchie" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="account tile" showlabel="false" showbar="false" id="{7d0de66d-72fd-4e03-8a38-941bc343a644}" IsUserDefined="0">
+                  <labels>
+                    <label description="Information" languagecode="1033" />
+                    <label description="Informations" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{14783db0-8a16-4ee9-9d02-c58887109913}">
+                        <labels>
+                          <label description="Primary Contact" languagecode="1033" />
+                          <label description="Contact principal" languagecode="1036" />
+                        </labels>
+                        <control id="primarycontactid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="primarycontactid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7dbb897d-ae3b-4f49-b03c-b51042b70931}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
+                        </labels>
+                        <control id="ownerid" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="ownerid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Account Hierarchy Tile Form" languagecode="1033" />
+      <LocalizedName description="Formulaire de vignette de la hiérarchie du compte" languagecode="1036" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This is the account hierarchy definition." languagecode="1033" />
+      <Description description="Voici la définition de la hiérarchie de compte." languagecode="1036" />
+    </Descriptions>
+  </systemform>
+</forms>
