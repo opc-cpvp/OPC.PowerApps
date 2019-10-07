@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compliance.Package", "Compl
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Compliance.WebResources", "Compliance.WebResources\Compliance.WebResources.njsproj", "{86188757-841A-4711-884A-01AA88D51B72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compliance.Solutions", "Compliance.Solutions\Compliance.Solutions.csproj", "{FD76EFAF-39EE-4F3C-BED7-DC4548CB8FD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compliance.Solution", "Compliance.Solution\Compliance.Solution.csproj", "{FD76EFAF-39EE-4F3C-BED7-DC4548CB8FD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
