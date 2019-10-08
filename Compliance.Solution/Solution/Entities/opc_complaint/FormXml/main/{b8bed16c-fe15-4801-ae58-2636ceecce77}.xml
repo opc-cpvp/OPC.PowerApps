@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b8bed16c-fe15-4801-ae58-2636ceecce77}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{0c52c678-2992-4f10-a134-a8e0c7a14cd1}" IsUserDefined="1" name="general_tab">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="Général" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c6ea7ba6-d402-451b-9ae9-a79575e343c1}" name="general_section">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="Général" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{db996129-67e2-43c2-8ed8-38fd056aae0f}" locklevel="0">
+                        <labels>
+                          <label description="Number" languagecode="1033" />
+                        </labels>
+                        <control id="opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a6d93dc7-e2f2-4896-95de-1a9e56671204}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Complainant" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4c7ab1c0-ea6d-438d-818d-6b6cf50ba6be}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Complainant Representative" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b7eaa1ef-a333-4619-8654-f52b0dc2e439}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Respondent" languagecode="1033" />
+                        </labels>
+                        <control id="opc_accountid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_accountid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="documents_tab" id="d8d9df1f-43cb-4cc8-aa4b-cc3ab6fea5a6" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Documents" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="documents_section" id="87dc9e22-7809-41f7-89b9-eb3c963f5e96" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Documents" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{95d4334c-142a-47b3-b668-d8bf53172c29}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Documents" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
+                        </labels>
+                        <control id="SubgridControl1570557025307" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>sharepointdocument</TargetEntityType>
+                            <ViewId>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewId>
+                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_complaint_SharePointDocuments</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="allegations_tab" id="4eed6aeb-af57-42aa-aac6-6bdc1c057b4e" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Allegations/Concerns" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="allegation_section" id="b247f9bb-96df-4f28-ad38-1c92563db9b3" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Allegations" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{f152b4da-969e-4bc5-ba0b-5fd14065461d}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Allegations/Concerns" languagecode="1033" />
+                        </labels>
+                        <control id="SubgridControl1570455205666" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_allegation</TargetEntityType>
+                            <ViewId>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF}</ViewId>
+                            <ViewIds>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF}</ViewIds>
+                            <EnableViewPicker>true</EnableViewPicker>
+                            <RelationshipName>opc_complaint_allegations_complaint</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="issues_tab" id="35d836ab-6fba-468c-a6ff-74acefc1ffb9" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Issues" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="issues_tab" id="a67e1937-09bc-4288-8f7e-f13e905107be" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Issues" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{4974057c-71c4-4cc9-a75a-6af4762adee1}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Issues" languagecode="1033" />
+                        </labels>
+                        <control id="SubgridControl1570455352989" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_issue</TargetEntityType>
+                            <ViewId>{59BFC1E0-7B74-4B23-B9D0-2079E1F9B782}</ViewId>
+                            <ViewIds>{59BFC1E0-7B74-4B23-B9D0-2079E1F9B782}</ViewIds>
+                            <EnableViewPicker>true</EnableViewPicker>
+                            <RelationshipName>opc_complaint_issues_complaint</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="recommendations_tab" id="52c49046-b671-4b2c-a532-3dd342e317aa" IsUserDefined="0" locklevel="0" showlabel="true" visible="true">
+          <labels>
+            <label description="Recommendations" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="recommendations_seciton" id="c1c098a9-81f5-459b-b167-292472da59a5" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Recommendations" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{9c2c4e8a-6b4c-4b64-bc1c-5e13e1272a99}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="New SG control 1570455487438" languagecode="1033" />
+                        </labels>
+                        <control id="SubgridControl1570455487438" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_recommendation</TargetEntityType>
+                            <ViewId>{28BA351C-678B-4582-84DF-35C9AF97421D}</ViewId>
+                            <ViewIds>{28BA351C-678B-4582-84DF-35C9AF97421D}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_complaint_recommendations_complaint</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{341fa2b4-9a5c-4bc9-9019-d9d6aa2a16bd}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{227d55de-62e3-4c3a-ab1d-b8f189afeaba}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b1cb90bc-7f7a-4509-a06d-2fb8a600305a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b08b0d6c-55e9-4749-b781-621eda704983}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{037eb5aa-ad7e-406d-ae54-ef22e5678692}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{844332d8-8c03-40aa-9a8f-fdf8d1eecbf7}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8d260de0-f564-4248-b2ce-0697442b7196}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{590b0174-91d0-4f2b-b9df-dc8b4023ae6d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true" />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
