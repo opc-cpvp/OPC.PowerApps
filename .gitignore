@@ -360,3 +360,6 @@ MigrationBackup/
 
 # Webpack build output
 dist/
+
+# XrmDefinitelyTyped redistributables
+XrmDefinitelyTyped/XrmDefinitelyTyped/
