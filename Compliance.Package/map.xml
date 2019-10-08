@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping>
-  <FileToFile map="WebResources\compliance\js\compliance.min.js" to="..\Compliance.WebResources\dist\compliance.min.js" />
+  <FileToFile map="WebResources\opc_\compliance\js\compliance.min.js" to="..\Compliance.WebResources\dist\compliance.min.js" />
 </Mapping>
