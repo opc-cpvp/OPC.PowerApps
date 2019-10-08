@@ -159,7 +159,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExportSolutions.json" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

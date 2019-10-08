@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="InstallDependencies" BeforeTargets="BeforeBuild">
+    <Exec Command="npm install" />
+  </Target>
+
+  <Target Name="BuildDebug" BeforeTargets="AfterBuild" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Exec Command="npm run build" />
+  </Target>
+
+  <Target Name="BuildRelease" BeforeTargets="AfterBuild" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Exec Command="npm run build:prod" />
+  </Target>
+</Project>
