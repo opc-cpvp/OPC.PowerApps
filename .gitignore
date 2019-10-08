@@ -358,8 +358,13 @@ MigrationBackup/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Webpack build output
-dist/
-
 # XrmDefinitelyTyped redistributables
 XrmDefinitelyTyped/XrmDefinitelyTyped/
+
+# Webpack build output
+*.WebResources/dist/
+
+# Ignore unpacked WebResources except for metadata files
+*.Solution/Solution/WebResources/*
+!*.Solution/Solution/WebResources/*.xml
+!*.Solution/Solution/WebResources/**/*.xml
