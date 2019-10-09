@@ -5,7 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 var config = {
 	mode: 'development',
-	entry: './src/index.ts',
+	entry: {
+        compliance: './src/index.ts'
+    },
 
 	output: {
 		filename: '[name].min.js',
