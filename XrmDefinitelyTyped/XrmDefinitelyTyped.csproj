@@ -51,5 +51,8 @@
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
