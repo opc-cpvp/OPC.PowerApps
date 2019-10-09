@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{66913965-b84b-44ab-9af7-03ba5f05ef69}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{74396559-3cdf-417f-8762-d6336bdfce43}" name="StageStep3" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{74396559-3cdf-417f-8762-d6336bdfce43}" name="StageStep3_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{556ce79c-9065-4117-9ee4-bb6238f6b18d}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:opc_intakedisposition" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_intakedisposition" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{4be677f4-e899-44c6-8629-72d0887839e5}" name="StageStep7" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{4be677f4-e899-44c6-8629-72d0887839e5}" name="StageStep7_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{bcc9212d-339d-48c1-83b1-46ed89a467ec}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:opc_intakedisposition" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_intakedisposition" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ec18b06d-411f-4adb-aa04-2b475663075d}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:opc_acceptancedate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="opc_acceptancedate" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{ce0893f1-f3d2-4640-92e7-d9889f4ea773}" name="StageStep13" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{ce0893f1-f3d2-4640-92e7-d9889f4ea773}" name="StageStep13_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{632f5f6e-53f4-4819-9b02-dd218a49e16d}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{e3aeee6a-a47d-4836-84f2-d478a494b113}" name="StageStep17" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{e3aeee6a-a47d-4836-84f2-d478a494b113}" name="StageStep17_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6ed7cb09-e087-4555-b2ac-57e1a002b9c8}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statecode" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="statecode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{4326b0f6-bfa3-42a7-8833-e760ddafb288}" name="StageStep21" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{4326b0f6-bfa3-42a7-8833-e760ddafb288}" name="StageStep21_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{15d48cf0-35cc-4808-b597-7c7f6c592bb5}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statecode" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="statecode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{003f666b-7b74-418d-b86f-dab7fc7c8eca}" name="StageStep25" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{003f666b-7b74-418d-b86f-dab7fc7c8eca}" name="StageStep25_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{29a481b5-4f29-4934-92b2-c8eddbf721aa}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statecode" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="statecode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{23a86aa2-850a-497f-b764-119c511b9535}" name="StageStep29" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{23a86aa2-850a-497f-b764-119c511b9535}" name="StageStep29_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e7796102-44c8-4e7f-9644-c8d8a2886ebf}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{9ce6539e-a2b9-46f5-a970-0b8e17891528}" name="StageStep33" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{9ce6539e-a2b9-46f5-a970-0b8e17891528}" name="StageStep33_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d20b80a3-f011-471f-944b-af1a3c429dd1}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statecode" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="statecode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{54cb43d1-1195-4d9a-944e-9eec286a4c97}" name="StageStep37" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{54cb43d1-1195-4d9a-944e-9eec286a4c97}" name="StageStep37_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f20e3890-cf7a-45fb-a330-963c81918d76}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statecode" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="statecode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{604795e8-bcb9-4d0d-91b3-b4219d0718c0}" name="StageStep41" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{604795e8-bcb9-4d0d-91b3-b4219d0718c0}" name="StageStep41_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5700d0d1-74b2-4dd1-b18e-34753134b5f9}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statecode" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="statecode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{0067902b-373a-4e7b-9479-aa392a49d65a}" name="StageStep45" locklevel="0" expanded="true" visible="false">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{0067902b-373a-4e7b-9479-aa392a49d65a}" name="StageStep45_section1">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5e852149-d1fa-4d8a-8333-7a97a4442268}" showlabel="true" visible="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_complaint_businessprocess:statecode" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="statecode" relationship="bpf_opc_complaint_opc_complaint_businessprocess" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
