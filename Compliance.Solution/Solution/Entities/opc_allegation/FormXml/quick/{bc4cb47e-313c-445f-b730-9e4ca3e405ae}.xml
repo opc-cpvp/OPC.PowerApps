@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="Low">
       <tabs>
         <tab verticallayout="true" id="{458743ab-812b-4d71-bfaf-ab027d7e1b08}" IsUserDefined="1">
           <labels>
@@ -23,9 +23,29 @@
                     <row>
                       <cell id="{d5732691-a7d1-47cd-b160-443adde12609}">
                         <labels>
-                          <label description="name" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a5e06289-bce3-4893-ba11-a18c15e9bc82}" showlabel="true" locklevel="0" rowspan="5" auto="true">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="opc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{e5c37807-3d47-4dab-b684-19203678dd1e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Disposition" languagecode="1033" />
+                        </labels>
+                        <control id="opc_allegationdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_allegationdisposition" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -44,6 +64,7 @@
           </columns>
         </tab>
       </tabs>
+      <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

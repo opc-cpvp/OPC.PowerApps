@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{73b8dd2c-0c1d-478f-9d8a-0c4d8722c969}" Name="Complaint - Business Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/Complaint-BusinessProcess-73B8DD2C-0C1D-478F-9D8A-0C4D8722C969.xaml</XamlFileName>
+<Workflow WorkflowId="{73b8dd2c-0c1d-478f-9d8a-0c4d8722c969}" Name="Complaint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/Complaint-73B8DD2C-0C1D-478F-9D8A-0C4D8722C969.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>4</Category>
@@ -23,14 +23,23 @@
   <BusinessProcessType>0</BusinessProcessType>
   <PrimaryEntity>opc_complaint</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Complaint - Business Process" />
+    <LocalizedName languagecode="1033" description="Complaint" />
   </LocalizedNames>
   <labels>
     <steplabels id="{74396559-3cdf-417f-8762-d6336bdfce43}">
-      <label languagecode="1033" description="Monitor" />
+      <label languagecode="1033" description="Intake" />
     </steplabels>
     <steplabels id="{556ce79c-9065-4117-9ee4-bb6238f6b18d}">
+      <label languagecode="1033" description="Recommendation" />
+    </steplabels>
+    <steplabels id="{4be677f4-e899-44c6-8629-72d0887839e5}">
+      <label languagecode="1033" description="Acceptance" />
+    </steplabels>
+    <steplabels id="{bcc9212d-339d-48c1-83b1-46ed89a467ec}">
       <label languagecode="1033" description="Disposition" />
+    </steplabels>
+    <steplabels id="{ec18b06d-411f-4adb-aa04-2b475663075d}">
+      <label languagecode="1033" description="Acceptance Date" />
     </steplabels>
     <steplabels id="{ce0893f1-f3d2-4640-92e7-d9889f4ea773}">
       <label languagecode="1033" description="Early Resolution" />
@@ -45,7 +54,7 @@
       <label languagecode="1033" description="Status" />
     </steplabels>
     <steplabels id="{4326b0f6-bfa3-42a7-8833-e760ddafb288}">
-      <label languagecode="1033" description="Monitoring" />
+      <label languagecode="1033" description="Compliance Monitoring" />
     </steplabels>
     <steplabels id="{15d48cf0-35cc-4808-b597-7c7f6c592bb5}">
       <label languagecode="1033" description="Status" />
@@ -55,6 +64,12 @@
     </steplabels>
     <steplabels id="{29a481b5-4f29-4934-92b2-c8eddbf721aa}">
       <label languagecode="1033" description="Status" />
+    </steplabels>
+    <steplabels id="{23a86aa2-850a-497f-b764-119c511b9535}">
+      <label languagecode="1033" description="Early Resolution" />
+    </steplabels>
+    <steplabels id="{e7796102-44c8-4e7f-9644-c8d8a2886ebf}">
+      <label languagecode="1033" description="Status Reason" />
     </steplabels>
     <steplabels id="{9ce6539e-a2b9-46f5-a970-0b8e17891528}">
       <label languagecode="1033" description="Investigation" />
@@ -82,9 +97,9 @@
     </steplabels>
   </labels>
   <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{0e66be7b-fde9-e911-a812-000d3af46757}">
+    <ProcessTrigger processtriggerid="{2cce84bc-92ea-e911-a812-000d3af46489}">
       <controltype>1</controltype>
-      <methodid>{74396559-3cdf-417f-8762-d6336bdfce43}</methodid>
+      <methodid>{4be677f4-e899-44c6-8629-72d0887839e5}</methodid>
       <scope>1</scope>
       <controlname>opc_intakedisposition</controlname>
       <event>change</event>
@@ -92,9 +107,9 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>opc_complaint</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{0f66be7b-fde9-e911-a812-000d3af46757}">
+    <ProcessTrigger processtriggerid="{2dce84bc-92ea-e911-a812-000d3af46489}">
       <controltype>1</controltype>
-      <methodid>{74396559-3cdf-417f-8762-d6336bdfce43}</methodid>
+      <methodid>{4be677f4-e899-44c6-8629-72d0887839e5}</methodid>
       <scope>1</scope>
       <controlname>opc_intakedisposition</controlname>
       <event>change</event>
@@ -102,9 +117,9 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>opc_complaint</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{1066be7b-fde9-e911-a812-000d3af46757}">
+    <ProcessTrigger processtriggerid="{2ece84bc-92ea-e911-a812-000d3af46489}">
       <controltype>1</controltype>
-      <methodid>{74396559-3cdf-417f-8762-d6336bdfce43}</methodid>
+      <methodid>{4be677f4-e899-44c6-8629-72d0887839e5}</methodid>
       <scope>1</scope>
       <controlname>opc_intakedisposition</controlname>
       <event>change</event>
@@ -112,9 +127,19 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>opc_complaint</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{1166be7b-fde9-e911-a812-000d3af46757}">
+    <ProcessTrigger processtriggerid="{2fce84bc-92ea-e911-a812-000d3af46489}">
       <controltype>1</controltype>
       <methodid>{ce0893f1-f3d2-4640-92e7-d9889f4ea773}</methodid>
+      <scope>1</scope>
+      <controlname>statuscode</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>opc_complaint</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{30ce84bc-92ea-e911-a812-000d3af46489}">
+      <controltype>1</controltype>
+      <methodid>{23a86aa2-850a-497f-b764-119c511b9535}</methodid>
       <scope>1</scope>
       <controlname>statuscode</controlname>
       <event>change</event>

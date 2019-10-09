@@ -361,10 +361,11 @@ MigrationBackup/
 # XrmDefinitelyTyped redistributables
 XrmDefinitelyTyped/XrmDefinitelyTyped/
 
-# Webpack build output
+# Igmpre Webpack build output
 *.WebResources/dist/
 
 # Ignore unpacked WebResources except for metadata files
-*.Solution/Solution/WebResources/*
-!*.Solution/Solution/WebResources/*.xml
-!*.Solution/Solution/WebResources/**/*.xml
+*.Solution/Solution/WebResources/**/*
+!*.Solution/Solution/WebResources/**/
+*.Solution/Solution/WebResources/**/*.*
+!*.Solution/Solution/WebResources/**/*.data.xml

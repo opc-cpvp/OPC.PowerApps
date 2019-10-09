@@ -7,7 +7,7 @@
     </LocalizedNames>
     <Descriptions />
     <Version>1.0.0.0</Version>
-    <Managed>2</Managed>
+    <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
       <LocalizedNames>
@@ -85,6 +85,7 @@
       <RootComponent type="1" schemaName="opc_complaint_businessprocess" behavior="0" />
       <RootComponent type="1" schemaName="opc_issue" behavior="0" />
       <RootComponent type="1" schemaName="opc_recommendation" behavior="0" />
+      <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_intakedisposition" behavior="0" />
       <RootComponent type="29" id="{73b8dd2c-0c1d-478f-9d8a-0c4d8722c969}" behavior="0" />
       <RootComponent type="61" schemaName="opc_/compliance/js/compliance.min.js" behavior="0" />

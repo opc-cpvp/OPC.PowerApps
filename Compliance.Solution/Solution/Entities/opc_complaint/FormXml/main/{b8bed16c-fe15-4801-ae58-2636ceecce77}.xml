@@ -123,9 +123,9 @@
                         <control id="SubgridControl1570455205666" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>opc_allegation</TargetEntityType>
-                            <ViewId>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF}</ViewId>
-                            <ViewIds>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF}</ViewIds>
-                            <EnableViewPicker>true</EnableViewPicker>
+                            <ViewId>{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewId>
+                            <ViewIds>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF},{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_complaint_allegations_complaint</RelationshipName>
                           </parameters>
                         </control>
@@ -159,7 +159,7 @@
                             <TargetEntityType>opc_issue</TargetEntityType>
                             <ViewId>{59BFC1E0-7B74-4B23-B9D0-2079E1F9B782}</ViewId>
                             <ViewIds>{59BFC1E0-7B74-4B23-B9D0-2079E1F9B782}</ViewIds>
-                            <EnableViewPicker>true</EnableViewPicker>
+                            <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_complaint_issues_complaint</RelationshipName>
                           </parameters>
                         </control>
