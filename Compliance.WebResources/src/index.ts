@@ -4,3 +4,6 @@
 /// <reference path="../@types/xrmdefinitelytyped/metadata.d.ts" />
 
 import "../js/lib/xrmquery/dg.xrmquery.web.promise.min.js";
+
+// All forms.
+export { Complaint } from "./ComplaintMainForm";
