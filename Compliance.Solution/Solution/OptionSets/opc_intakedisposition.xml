@@ -21,5 +21,10 @@
         <label description="Investigation" languagecode="1033" />
       </labels>
     </option>
+    <option value="924340002">
+      <labels>
+        <label description="Decline to investigation" languagecode="1033" />
+      </labels>
+    </option>
   </options>
 </optionset>

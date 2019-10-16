@@ -779,7 +779,7 @@
               <Description description="Statut de l'élément Complaint" languagecode="1036" />
             </Descriptions>
             <states>
-              <state value="0" defaultstatus="1" invariantname="Active">
+              <state value="0" defaultstatus="924340015" invariantname="Active">
                 <labels>
                   <label description="Active" languagecode="1033" />
                   <label description="Actif" languagecode="1036" />
@@ -842,10 +842,44 @@
               <Description description="Raison du statut de l'élément Complaint" languagecode="1036" />
             </Descriptions>
             <statuses>
-              <status value="1" state="0" TransitionData="" Color="#0000ff">
+              <status value="924340010" state="0" TransitionData="" Color="#0000ff">
                 <labels>
-                  <label description="Active" languagecode="1033" />
-                  <label description="Actif" languagecode="1036" />
+                  <label description="Discontinued" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340014" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Early resolved" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340015" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Intake resolved" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340012" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Investigation completed" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340008" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="No jurisdiction" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340013" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Settled" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340016" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Unresponsive inquirer" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340011" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Withdrawn" languagecode="1033" />
                 </labels>
               </status>
               <status value="924340001" state="1" TransitionData="" Color="#0000ff">

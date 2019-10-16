@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.9424" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.9621" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Compliance</UniqueName>
     <LocalizedNames>
@@ -88,6 +88,7 @@
       <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_intakedisposition" behavior="0" />
       <RootComponent type="29" id="{73b8dd2c-0c1d-478f-9d8a-0c4d8722c969}" behavior="0" />
+      <RootComponent type="60" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" behavior="0" />
       <RootComponent type="61" schemaName="opc_/compliance/js/compliance.min.js" behavior="0" />
       <RootComponent type="62" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="80" schemaName="opc_compliance" behavior="0" />
