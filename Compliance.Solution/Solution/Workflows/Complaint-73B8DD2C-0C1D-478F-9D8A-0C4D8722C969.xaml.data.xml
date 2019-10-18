@@ -29,8 +29,14 @@
     <steplabels id="{74396559-3cdf-417f-8762-d6336bdfce43}">
       <label languagecode="1033" description="Intake" />
     </steplabels>
+    <steplabels id="{984bbbfd-1493-431b-8627-a36e55eb16c1}">
+      <label languagecode="1033" description="Recommend to registrar" />
+    </steplabels>
     <steplabels id="{556ce79c-9065-4117-9ee4-bb6238f6b18d}">
       <label languagecode="1033" description="Recommend to" />
+    </steplabels>
+    <steplabels id="{5b455c68-2e76-4f61-8871-50ad7f3ea052}">
+      <label languagecode="1033" description="Reason to decline" />
     </steplabels>
     <steplabels id="{318080c1-5c47-49e0-8e6b-bd7452949c94}">
       <label languagecode="1033" description="Reason" />
@@ -39,7 +45,7 @@
       <label languagecode="1033" description="Acceptance" />
     </steplabels>
     <steplabels id="{bcc9212d-339d-48c1-83b1-46ed89a467ec}">
-      <label languagecode="1033" description="Send to" />
+      <label languagecode="1033" description="Decision" />
     </steplabels>
     <steplabels id="{ec18b06d-411f-4adb-aa04-2b475663075d}">
       <label languagecode="1033" description="Acceptance Date" />
@@ -96,14 +102,30 @@
       <label languagecode="1033" description="Status" />
     </steplabels>
     <steplabels id="{0067902b-373a-4e7b-9479-aa392a49d65a}">
-      <label languagecode="1033" description="Close" />
+      <label languagecode="1033" description="Closed" />
     </steplabels>
     <steplabels id="{5e852149-d1fa-4d8a-8333-7a97a4442268}">
       <label languagecode="1033" description="Reason" />
     </steplabels>
+    <steplabels id="{a2eb8e3a-dc0d-4c6e-86a2-06f1c4f5c0a7}">
+      <label languagecode="1033" description="Closed" />
+    </steplabels>
+    <steplabels id="{d926e9d3-9501-4d82-aa95-7dbdb4c2ddbd}">
+      <label languagecode="1033" description="Reason" />
+    </steplabels>
   </labels>
   <ProcessTriggers>
-    <ProcessTrigger processtriggerid="{065295c5-5aef-e911-a812-000d3af46fff}">
+    <ProcessTrigger processtriggerid="{c37fb6ee-13f1-e911-a812-000d3af46757}">
+      <controltype>1</controltype>
+      <methodid>{74396559-3cdf-417f-8762-d6336bdfce43}</methodid>
+      <scope>1</scope>
+      <controlname>opc_recommendtoregistrar</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>opc_complaint</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{c47fb6ee-13f1-e911-a812-000d3af46757}">
       <controltype>1</controltype>
       <methodid>{4be677f4-e899-44c6-8629-72d0887839e5}</methodid>
       <scope>1</scope>
@@ -113,7 +135,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>opc_complaint</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{075295c5-5aef-e911-a812-000d3af46fff}">
+    <ProcessTrigger processtriggerid="{c57fb6ee-13f1-e911-a812-000d3af46757}">
       <controltype>1</controltype>
       <methodid>{4be677f4-e899-44c6-8629-72d0887839e5}</methodid>
       <scope>1</scope>
@@ -123,7 +145,7 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>opc_complaint</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{085295c5-5aef-e911-a812-000d3af46fff}">
+    <ProcessTrigger processtriggerid="{c67fb6ee-13f1-e911-a812-000d3af46757}">
       <controltype>1</controltype>
       <methodid>{4be677f4-e899-44c6-8629-72d0887839e5}</methodid>
       <scope>1</scope>
@@ -133,17 +155,17 @@
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>opc_complaint</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{095295c5-5aef-e911-a812-000d3af46fff}">
+    <ProcessTrigger processtriggerid="{c77fb6ee-13f1-e911-a812-000d3af46757}">
       <controltype>1</controltype>
       <methodid>{ce0893f1-f3d2-4640-92e7-d9889f4ea773}</methodid>
       <scope>1</scope>
-      <controlname>statuscode</controlname>
+      <controlname>opc_complaintdisposition</controlname>
       <event>change</event>
       <pipelinestage>0</pipelinestage>
       <iscustomizable>1</iscustomizable>
       <primaryentitytypecode>opc_complaint</primaryentitytypecode>
     </ProcessTrigger>
-    <ProcessTrigger processtriggerid="{0a5295c5-5aef-e911-a812-000d3af46fff}">
+    <ProcessTrigger processtriggerid="{c87fb6ee-13f1-e911-a812-000d3af46757}">
       <controltype>1</controltype>
       <methodid>{23a86aa2-850a-497f-b764-119c511b9535}</methodid>
       <scope>1</scope>

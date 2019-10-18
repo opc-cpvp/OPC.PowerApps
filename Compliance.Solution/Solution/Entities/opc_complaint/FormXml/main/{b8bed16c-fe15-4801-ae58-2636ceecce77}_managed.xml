@@ -282,7 +282,7 @@
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
-            <Handler functionName="Complaint.form_OnLoad" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{b04c9ede-d355-22d3-5bbe-2e9740a222bb}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="compliance.Complaint.MainForm.form_OnLoad" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{b04c9ede-d355-22d3-5bbe-2e9740a222bb}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

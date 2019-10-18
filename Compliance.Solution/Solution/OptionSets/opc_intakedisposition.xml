@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<optionset Name="opc_intakedisposition" localizedName="Intake Disposition" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<optionset Name="opc_intakedisposition" localizedName="Recommendation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <OptionSetType>picklist</OptionSetType>
   <IsGlobal>1</IsGlobal>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <displaynames>
-    <displayname description="Intake Disposition" languagecode="1033" />
+    <displayname description="Recommendation" languagecode="1033" />
   </displaynames>
   <Descriptions>
     <Description description="" languagecode="1033" />
@@ -13,17 +13,17 @@
   <options>
     <option value="924340000">
       <labels>
-        <label description="Early Resolution" languagecode="1033" />
+        <label description="Move to Early Resolution" languagecode="1033" />
       </labels>
     </option>
     <option value="924340001">
       <labels>
-        <label description="Investigation" languagecode="1033" />
+        <label description="Move to Investigation" languagecode="1033" />
       </labels>
     </option>
     <option value="924340002">
       <labels>
-        <label description="Decline to investigation" languagecode="1033" />
+        <label description="Decline to investigate" languagecode="1033" />
       </labels>
     </option>
   </options>

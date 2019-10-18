@@ -86,6 +86,8 @@
       <RootComponent type="1" schemaName="opc_issue" behavior="0" />
       <RootComponent type="1" schemaName="opc_recommendation" behavior="0" />
       <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
+      <RootComponent type="9" schemaName="opc_complaintdisposition" behavior="0" />
+      <RootComponent type="9" schemaName="opc_declinereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_intakedisposition" behavior="0" />
       <RootComponent type="29" id="{73b8dd2c-0c1d-478f-9d8a-0c4d8722c969}" behavior="0" />
       <RootComponent type="60" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" behavior="0" />
