@@ -9,7 +9,8 @@ var config = {
         compliance: './src/index.ts'
     },
 
-	output: {
+    output: {
+        library: '[name]',
 		filename: '[name].min.js',
 		path: path.resolve(__dirname, 'dist')
 	},

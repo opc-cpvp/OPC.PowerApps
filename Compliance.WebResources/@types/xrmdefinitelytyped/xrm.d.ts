@@ -2147,6 +2147,13 @@ declare namespace Xrm {
     confirmed: boolean;
   }
 
+  interface OpenFormResult {
+    /**
+     * Identifies the record displayed or created
+     */
+    savedEntityReference: Lookup[];
+  }
+
   /**
    * Contains methods for multi-page dialogs and task flow, and some methods moved from the Xrm.Utility namespace.
    */
@@ -2185,7 +2192,7 @@ declare namespace Xrm {
      * @param formParameters A dictionary object that passes extra parameters to the form.
      * See examples at: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/set-field-values-using-parameters-passed-form
      */
-    openForm(entityFormOptions: EntityFormOptions, formParameters?: any): Then<Lookup | Lookup[]>;
+    openForm(entityFormOptions: EntityFormOptions, formParameters?: any): Then<OpenFormResult | undefined>;
 
     /**
      * Opens a URL, including file URLs.

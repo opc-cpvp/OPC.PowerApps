@@ -2,6 +2,9 @@
 $cred = Get-Credential
 
 # Prompt for organization
+if(!(Get-Module -Name Microsoft.Xrm.Data.PowerShell)){
+	Install-Module -Name Microsoft.Xrm.Data.PowerShell -Force -AllowClobber
+}
 Connect-CrmOnlineDiscovery $cred
 
 # Set the connection timeout to 5 minutes

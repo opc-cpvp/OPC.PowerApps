@@ -138,52 +138,6 @@ declare const enum account_address2_freighttermscode {
 declare const enum account_territorycode {
   DefaultValue = 1,
 }
-declare const enum opc_allegation_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_allegation_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum opc_complaint_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_intakedisposition {
-  RecommendingtoEarlyResolution = 924340000,
-  RecommendingtoInvestigation = 924340001,
-  Nomoreactionrequired = 924340003,
-}
-declare const enum opc_complaint_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum opc_complaint_businessprocess_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_complaint_businessprocess_statuscode {
-  Active = 1,
-  Finished = 2,
-  Aborted = 3,
-}
-declare const enum opc_issue_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_issue_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum opc_recommendation_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_recommendation_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum contact_address3_addresstypecode {
   DefaultValue = 1,
 }
@@ -292,6 +246,101 @@ declare const enum contact_address2_freighttermscode {
 declare const enum contact_territorycode {
   DefaultValue = 1,
 }
+declare const enum opc_allegation_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_allegationdisposition {
+  Suitable = 924340000,
+  Noactionrequired = 924340001,
+  Nojurisdiction = 924340002,
+  RedirectedtoInformationCenter = 924340003,
+  RedirectedtoInstitution = 924340004,
+  Resolved = 924340005,
+  Unresponsiveinquirer = 924340006,
+}
+declare const enum opc_allegation_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_complaint_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_intakedisposition {
+  MovetoEarlyResolution = 924340000,
+  MovetoInvestigation = 924340001,
+  Declinetoinvestigate = 924340002,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
+}
+declare const enum opc_declinereason {
+  Nojurisdiction = 924340000,
+}
+declare const enum opc_complaint_statuscode {
+  Nojurisdiction = 924340000,
+  Resolvedatearlyresolution = 924340001,
+  Discontinued = 924340002,
+  Withdrawn = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Investigationcompleted = 924340006,
+  Unresponsiveinquirer = 924340007,
+  Active = 924340010,
+}
+declare const enum opc_complaint_businessprocess_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_complaint_businessprocess_statuscode {
+  Active = 1,
+  Finished = 2,
+  Aborted = 3,
+}
+declare const enum opc_issue_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_issue_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_recommendation_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_recommendation_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum activityparty_participationtypemask {
+  Sender = 1,
+  ToRecipient = 2,
+  CCRecipient = 3,
+  BCCRecipient = 4,
+  Requiredattendee = 5,
+  Optionalattendee = 6,
+  Organizer = 7,
+  Regarding = 8,
+  Owner = 9,
+  Resource = 10,
+  Customer = 11,
+}
+declare const enum activityparty_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
+}
 declare const enum connection_statuscode {
   Active = 1,
   Inactive = 2,
@@ -345,26 +394,6 @@ declare const enum connection_record2objecttypecode {
 declare const enum connection_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum activityparty_participationtypemask {
-  Sender = 1,
-  ToRecipient = 2,
-  CCRecipient = 3,
-  BCCRecipient = 4,
-  Requiredattendee = 5,
-  Optionalattendee = 6,
-  Organizer = 7,
-  Regarding = 8,
-  Owner = 9,
-  Resource = 10,
-  Customer = 11,
-}
-declare const enum activityparty_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
 }
 declare namespace Form.account.Quick {
   namespace AccountHierarchyTileForm {
@@ -1046,522 +1075,6 @@ declare namespace Form.account.Main {
     getControl(controlName: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
     getControl(controlName: "websiteurl"): Xrm.StringControl;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_allegation.Quick {
-  namespace Information {
-    namespace Tabs {
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_allegation.Main {
-  namespace Information {
-    namespace Tabs {
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_complaint.Main {
-  namespace Information {
-    namespace Tabs {
-      interface allegations_tab extends Xrm.SectionCollectionBase {
-        get(name: "allegation_section"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface general_tab extends Xrm.SectionCollectionBase {
-        get(name: "general_section"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface issues_tab extends Xrm.SectionCollectionBase {
-        get(name: "issues_tab"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface recommendations_tab extends Xrm.SectionCollectionBase {
-        get(name: "recommendations_seciton"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_accountid"): Xrm.LookupAttribute<"account">;
-      get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
-      get(name: "opc_number"): Xrm.Attribute<string>;
-      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: "statecode"): Xrm.OptionSetAttribute<opc_complaint_statecode> | null;
-      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "SubgridControl1570455205666"): Xrm.SubGridControl<"opc_allegation">;
-      get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
-      get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
-      get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-      get(name: "header_process_statecode"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode1"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode2"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode3"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode4"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode5"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode6"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "opc_accountid"): Xrm.LookupControl<"account">;
-      get(name: "opc_number"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "allegations_tab"): Xrm.PageTab<Tabs.allegations_tab>;
-      get(name: "general_tab"): Xrm.PageTab<Tabs.general_tab>;
-      get(name: "issues_tab"): Xrm.PageTab<Tabs.issues_tab>;
-      get(name: "recommendations_tab"): Xrm.PageTab<Tabs.recommendations_tab>;
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account">;
-    getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
-    getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_complaint_statecode> | null;
-    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "SubgridControl1570455205666"): Xrm.SubGridControl<"opc_allegation">;
-    getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
-    getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
-    getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-    getControl(controlName: "header_process_statecode"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode1"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode2"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode3"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode4"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode5"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode6"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
-    getControl(controlName: "opc_number"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_complaint.Quick {
-  namespace Information {
-    namespace Tabs {
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
-      get(name: "opc_number"): Xrm.Attribute<string>;
-      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: "statecode"): Xrm.OptionSetAttribute<opc_complaint_statecode> | null;
-      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-      get(name: "header_process_statecode"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode1"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode2"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode3"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode4"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode5"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statecode6"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-      get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "opc_number"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
-    getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_complaint_statecode> | null;
-    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-    getControl(controlName: "header_process_statecode"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode1"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode2"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode3"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode4"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode5"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statecode6"): Xrm.OptionSetControl<opc_complaint_statecode> | null;
-    getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "opc_number"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_complaint_businessprocess.Main {
-  namespace Information {
-    namespace Tabs {
-      interface StageStep11 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep11_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep15 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep15_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep19 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep19_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep23 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep23_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep27 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep27_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep3 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep3_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep31 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep31_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep35 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep35_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep39 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep39_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep7 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep7_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<number>;
-      get(name: "statecode"): Xrm.OptionSetAttribute<opc_complaint_businessprocess_statecode>;
-      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_businessprocess_statuscode>;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_intakedisposition"): Xrm.OptionSetControl<number>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statecode"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statecode1"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statecode2"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statecode3"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statecode4"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statecode5"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statecode6"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statuscode"): Xrm.OptionSetControl<opc_complaint_businessprocess_statuscode>;
-      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statuscode1"): Xrm.OptionSetControl<opc_complaint_businessprocess_statuscode>;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "StageStep11"): Xrm.PageTab<Tabs.StageStep11>;
-      get(name: "StageStep15"): Xrm.PageTab<Tabs.StageStep15>;
-      get(name: "StageStep19"): Xrm.PageTab<Tabs.StageStep19>;
-      get(name: "StageStep23"): Xrm.PageTab<Tabs.StageStep23>;
-      get(name: "StageStep27"): Xrm.PageTab<Tabs.StageStep27>;
-      get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
-      get(name: "StageStep31"): Xrm.PageTab<Tabs.StageStep31>;
-      get(name: "StageStep35"): Xrm.PageTab<Tabs.StageStep35>;
-      get(name: "StageStep39"): Xrm.PageTab<Tabs.StageStep39>;
-      get(name: "StageStep7"): Xrm.PageTab<Tabs.StageStep7>;
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<number>;
-    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_complaint_businessprocess_statecode>;
-    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_businessprocess_statuscode>;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_intakedisposition"): Xrm.OptionSetControl<number>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statecode"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statecode1"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statecode2"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statecode3"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statecode4"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statecode5"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statecode6"): Xrm.OptionSetControl<opc_complaint_businessprocess_statecode>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statuscode"): Xrm.OptionSetControl<opc_complaint_businessprocess_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statuscode1"): Xrm.OptionSetControl<opc_complaint_businessprocess_statuscode>;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_issue.Quick {
-  namespace Information {
-    namespace Tabs {
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_issue.Main {
-  namespace Information {
-    namespace Tabs {
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_recommendation.Main {
-  namespace Information {
-    namespace Tabs {
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_recommendation.Quick {
-  namespace Information {
-    namespace Tabs {
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -2786,6 +2299,632 @@ declare namespace Form.contact.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.opc_allegation.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+      get(name: "opc_description"): Xrm.Attribute<string>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+      get(name: "opc_description"): Xrm.StringControl;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+    getAttribute(attributeName: "opc_description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+    getControl(controlName: "opc_description"): Xrm.StringControl;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_allegation.Main {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+      get(name: "opc_description"): Xrm.Attribute<string>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+      get(name: "opc_description"): Xrm.StringControl;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+    getAttribute(attributeName: "opc_description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+    getControl(controlName: "opc_description"): Xrm.StringControl;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_complaint.Main {
+  namespace Information {
+    namespace Tabs {
+      interface allegations_tab extends Xrm.SectionCollectionBase {
+        get(name: "allegation_section"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface documents_tab extends Xrm.SectionCollectionBase {
+        get(name: "documents_section"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface general_tab extends Xrm.SectionCollectionBase {
+        get(name: "general_section"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface issues_tab extends Xrm.SectionCollectionBase {
+        get(name: "issues_tab"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface recommendations_tab extends Xrm.SectionCollectionBase {
+        get(name: "recommendations_seciton"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_acceptancedate"): Xrm.DateAttribute | null;
+      get(name: "opc_accountid"): Xrm.LookupAttribute<"account">;
+      get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
+      get(name: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
+      get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+      get(name: "opc_number"): Xrm.Attribute<string>;
+      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "SubgridControl1570455205666"): Xrm.SubGridControl<"opc_allegation">;
+      get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
+      get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
+      get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+      get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
+      get(name: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition10"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition2"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition3"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition4"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition5"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition6"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition7"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition8"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition9"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
+      get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+      get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+      get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+      get(name: "opc_accountid"): Xrm.LookupControl<"account">;
+      get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
+      get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
+      get(name: "opc_number"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "allegations_tab"): Xrm.PageTab<Tabs.allegations_tab>;
+      get(name: "documents_tab"): Xrm.PageTab<Tabs.documents_tab>;
+      get(name: "general_tab"): Xrm.PageTab<Tabs.general_tab>;
+      get(name: "issues_tab"): Xrm.PageTab<Tabs.issues_tab>;
+      get(name: "recommendations_tab"): Xrm.PageTab<Tabs.recommendations_tab>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute | null;
+    getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account">;
+    getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
+    getAttribute(attributeName: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
+    getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+    getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "SubgridControl1570455205666"): Xrm.SubGridControl<"opc_allegation">;
+    getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
+    getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
+    getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+    getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
+    getControl(controlName: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition10"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition2"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition3"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition4"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition5"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition6"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition7"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition8"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition9"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
+    getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+    getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+    getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+    getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
+    getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "opc_number"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_complaint.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_acceptancedate"): Xrm.DateAttribute | null;
+      get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
+      get(name: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
+      get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+      get(name: "opc_number"): Xrm.Attribute<string>;
+      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
+      get(name: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition10"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition2"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition3"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition4"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition5"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition6"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition7"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition8"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition9"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
+      get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+      get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+      get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+      get(name: "opc_number"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute | null;
+    getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
+    getAttribute(attributeName: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
+    getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+    getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
+    getControl(controlName: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition10"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition2"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition3"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition4"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition5"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition6"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition7"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition8"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition9"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
+    getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+    getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+    getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+    getControl(controlName: "opc_number"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_complaint_businessprocess.Main {
+  namespace Information {
+    namespace Tabs {
+      interface StageStep13 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep13_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep21 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep21_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep25 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep25_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep29 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep29_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep3 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep3_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep33 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep33_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep37 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep37_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep41 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep41_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep45 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep45_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep49 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep49_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep53 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep53_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep57 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep57_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_acceptancedate"): Xrm.DateAttribute;
+      get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_declinereason"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_businessprocess_statuscode>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_acceptancedate"): Xrm.DateControl;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition1"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition10"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition2"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition3"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition4"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition5"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition6"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition7"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition8"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition9"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_declinereason"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_intakedisposition"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_complaint_businessprocess:statuscode"): Xrm.OptionSetControl<opc_complaint_businessprocess_statuscode>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "StageStep13"): Xrm.PageTab<Tabs.StageStep13>;
+      get(name: "StageStep21"): Xrm.PageTab<Tabs.StageStep21>;
+      get(name: "StageStep25"): Xrm.PageTab<Tabs.StageStep25>;
+      get(name: "StageStep29"): Xrm.PageTab<Tabs.StageStep29>;
+      get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
+      get(name: "StageStep33"): Xrm.PageTab<Tabs.StageStep33>;
+      get(name: "StageStep37"): Xrm.PageTab<Tabs.StageStep37>;
+      get(name: "StageStep41"): Xrm.PageTab<Tabs.StageStep41>;
+      get(name: "StageStep45"): Xrm.PageTab<Tabs.StageStep45>;
+      get(name: "StageStep49"): Xrm.PageTab<Tabs.StageStep49>;
+      get(name: "StageStep53"): Xrm.PageTab<Tabs.StageStep53>;
+      get(name: "StageStep57"): Xrm.PageTab<Tabs.StageStep57>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute;
+    getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_declinereason"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_businessprocess_statuscode>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_acceptancedate"): Xrm.DateControl;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition1"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition10"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition2"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition3"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition4"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition5"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition6"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition7"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition8"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_complaintdisposition9"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_declinereason"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_intakedisposition"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_complaint_businessprocess:statuscode"): Xrm.OptionSetControl<opc_complaint_businessprocess_statuscode>;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_issue.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_issue.Main {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_recommendation.Main {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_recommendation.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.connection.Main {
   namespace Information {
     namespace Tabs {
@@ -2909,6 +3048,29 @@ interface Account_Create extends Account {
 }
 interface Account_Update extends Account {
 }
+interface Contact_Base extends WebEntity {
+}
+interface Contact_Fixed extends WebEntity_Fixed {
+  contactid: string;
+}
+interface Contact extends Contact_Base, Contact_Relationships {
+}
+interface Contact_Relationships {
+}
+interface Contact_Result extends Contact_Base, Contact_Relationships {
+}
+interface Contact_FormattedResult {
+}
+interface Contact_Select {
+}
+interface Contact_Expand {
+}
+interface Contact_Filter {
+}
+interface Contact_Create extends Contact {
+}
+interface Contact_Update extends Contact {
+}
 interface opc_allegation_Base extends WebEntity {
 }
 interface opc_allegation_Fixed extends WebEntity_Fixed {
@@ -3024,28 +3186,28 @@ interface opc_recommendation_Create extends opc_recommendation {
 }
 interface opc_recommendation_Update extends opc_recommendation {
 }
-interface Contact_Base extends WebEntity {
+interface ActivityParty_Base extends WebEntity {
 }
-interface Contact_Fixed extends WebEntity_Fixed {
-  contactid: string;
+interface ActivityParty_Fixed extends WebEntity_Fixed {
+  activitypartyid: string;
 }
-interface Contact extends Contact_Base, Contact_Relationships {
+interface ActivityParty extends ActivityParty_Base, ActivityParty_Relationships {
 }
-interface Contact_Relationships {
+interface ActivityParty_Relationships {
 }
-interface Contact_Result extends Contact_Base, Contact_Relationships {
+interface ActivityParty_Result extends ActivityParty_Base, ActivityParty_Relationships {
 }
-interface Contact_FormattedResult {
+interface ActivityParty_FormattedResult {
 }
-interface Contact_Select {
+interface ActivityParty_Select {
 }
-interface Contact_Expand {
+interface ActivityParty_Expand {
 }
-interface Contact_Filter {
+interface ActivityParty_Filter {
 }
-interface Contact_Create extends Contact {
+interface ActivityParty_Create extends ActivityParty {
 }
-interface Contact_Update extends Contact {
+interface ActivityParty_Update extends ActivityParty {
 }
 interface Connection_Base extends WebEntity {
 }
@@ -3069,29 +3231,6 @@ interface Connection_Filter {
 interface Connection_Create extends Connection {
 }
 interface Connection_Update extends Connection {
-}
-interface ActivityParty_Base extends WebEntity {
-}
-interface ActivityParty_Fixed extends WebEntity_Fixed {
-  activitypartyid: string;
-}
-interface ActivityParty extends ActivityParty_Base, ActivityParty_Relationships {
-}
-interface ActivityParty_Relationships {
-}
-interface ActivityParty_Result extends ActivityParty_Base, ActivityParty_Relationships {
-}
-interface ActivityParty_FormattedResult {
-}
-interface ActivityParty_Select {
-}
-interface ActivityParty_Expand {
-}
-interface ActivityParty_Filter {
-}
-interface ActivityParty_Create extends ActivityParty {
-}
-interface ActivityParty_Update extends ActivityParty {
 }
 interface Account_Base extends WebEntity {
   accountcategorycode?: account_accountcategorycode | null;
@@ -3645,600 +3784,6 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   accounts: WebMappingCUDA<Account_Create,Account_Update,Account_Select>;
 }
-interface opc_allegation_Base extends WebEntity {
-  createdon?: Date | null;
-  importsequencenumber?: number | null;
-  modifiedon?: Date | null;
-  opc_allegationid?: string | null;
-  opc_name?: string | null;
-  overriddencreatedon?: Date | null;
-  statecode?: opc_allegation_statecode | null;
-  statuscode?: opc_allegation_statuscode | null;
-  timezoneruleversionnumber?: number | null;
-  utcconversiontimezonecode?: number | null;
-  versionnumber?: number | null;
-}
-interface opc_allegation_Relationships {
-}
-interface opc_allegation extends opc_allegation_Base, opc_allegation_Relationships {
-  opc_complaintid_bind$opc_complaints?: string | null;
-  ownerid_bind$systemusers?: string | null;
-  ownerid_bind$teams?: string | null;
-}
-interface opc_allegation_Create extends opc_allegation {
-}
-interface opc_allegation_Update extends opc_allegation {
-}
-interface opc_allegation_Select {
-  createdby_guid: WebAttribute<opc_allegation_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
-  createdon: WebAttribute<opc_allegation_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
-  createdonbehalfby_guid: WebAttribute<opc_allegation_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
-  importsequencenumber: WebAttribute<opc_allegation_Select, { importsequencenumber: number | null }, {  }>;
-  modifiedby_guid: WebAttribute<opc_allegation_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
-  modifiedon: WebAttribute<opc_allegation_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
-  modifiedonbehalfby_guid: WebAttribute<opc_allegation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_allegationid: WebAttribute<opc_allegation_Select, { opc_allegationid: string | null }, {  }>;
-  opc_complaintid_guid: WebAttribute<opc_allegation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
-  opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
-  overriddencreatedon: WebAttribute<opc_allegation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
-  ownerid_guid: WebAttribute<opc_allegation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
-  owningbusinessunit_guid: WebAttribute<opc_allegation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
-  owningteam_guid: WebAttribute<opc_allegation_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
-  owninguser_guid: WebAttribute<opc_allegation_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
-  statecode: WebAttribute<opc_allegation_Select, { statecode: opc_allegation_statecode | null }, { statecode_formatted?: string }>;
-  statuscode: WebAttribute<opc_allegation_Select, { statuscode: opc_allegation_statuscode | null }, { statuscode_formatted?: string }>;
-  timezoneruleversionnumber: WebAttribute<opc_allegation_Select, { timezoneruleversionnumber: number | null }, {  }>;
-  utcconversiontimezonecode: WebAttribute<opc_allegation_Select, { utcconversiontimezonecode: number | null }, {  }>;
-  versionnumber: WebAttribute<opc_allegation_Select, { versionnumber: number | null }, {  }>;
-}
-interface opc_allegation_Filter {
-  createdby_guid: XQW.Guid;
-  createdon: Date;
-  createdonbehalfby_guid: XQW.Guid;
-  importsequencenumber: number;
-  modifiedby_guid: XQW.Guid;
-  modifiedon: Date;
-  modifiedonbehalfby_guid: XQW.Guid;
-  opc_allegationid: XQW.Guid;
-  opc_complaintid_guid: XQW.Guid;
-  opc_name: string;
-  overriddencreatedon: Date;
-  ownerid_guid: XQW.Guid;
-  owningbusinessunit_guid: XQW.Guid;
-  owningteam_guid: XQW.Guid;
-  owninguser_guid: XQW.Guid;
-  statecode: opc_allegation_statecode;
-  statuscode: opc_allegation_statuscode;
-  timezoneruleversionnumber: number;
-  utcconversiontimezonecode: number;
-  versionnumber: number;
-}
-interface opc_allegation_Expand {
-  opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
-}
-interface opc_allegation_FormattedResult {
-  createdby_formatted?: string;
-  createdon_formatted?: string;
-  createdonbehalfby_formatted?: string;
-  modifiedby_formatted?: string;
-  modifiedon_formatted?: string;
-  modifiedonbehalfby_formatted?: string;
-  opc_complaintid_formatted?: string;
-  overriddencreatedon_formatted?: string;
-  ownerid_formatted?: string;
-  owningbusinessunit_formatted?: string;
-  owningteam_formatted?: string;
-  owninguser_formatted?: string;
-  statecode_formatted?: string;
-  statuscode_formatted?: string;
-}
-interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Relationships {
-  "@odata.etag": string;
-  createdby_guid: string | null;
-  createdonbehalfby_guid: string | null;
-  modifiedby_guid: string | null;
-  modifiedonbehalfby_guid: string | null;
-  opc_complaintid_guid: string | null;
-  ownerid_guid: string | null;
-  owningbusinessunit_guid: string | null;
-  owningteam_guid: string | null;
-  owninguser_guid: string | null;
-}
-interface opc_allegation_RelatedOne {
-  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-}
-interface opc_allegation_RelatedMany {
-}
-interface WebEntitiesRetrieve {
-  opc_allegations: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
-}
-interface WebEntitiesRelated {
-  opc_allegations: WebMappingRelated<opc_allegation_RelatedOne,opc_allegation_RelatedMany>;
-}
-interface WebEntitiesCUDA {
-  opc_allegations: WebMappingCUDA<opc_allegation_Create,opc_allegation_Update,opc_allegation_Select>;
-}
-interface opc_complaint_Base extends WebEntity {
-  createdon?: Date | null;
-  importsequencenumber?: number | null;
-  modifiedon?: Date | null;
-  opc_complaintid?: string | null;
-  opc_intakedisposition?: opc_intakedisposition | null;
-  opc_number?: string | null;
-  overriddencreatedon?: Date | null;
-  processid?: string | null;
-  statecode?: opc_complaint_statecode | null;
-  statuscode?: opc_complaint_statuscode | null;
-  timezoneruleversionnumber?: number | null;
-  utcconversiontimezonecode?: number | null;
-  versionnumber?: number | null;
-}
-interface opc_complaint_Relationships {
-  bpf_opc_complaint_opc_complaint_businessprocess?: opc_complaint_businessprocess_Result[] | null;
-  opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
-  opc_complaint_issues_complaint?: opc_issue_Result[] | null;
-  opc_complaint_recommendations_complaint?: opc_recommendation_Result[] | null;
-}
-interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships {
-  opc_accountid_bind$accounts?: string | null;
-  ownerid_bind$systemusers?: string | null;
-  ownerid_bind$teams?: string | null;
-}
-interface opc_complaint_Create extends opc_complaint {
-}
-interface opc_complaint_Update extends opc_complaint {
-}
-interface opc_complaint_Select {
-  createdby_guid: WebAttribute<opc_complaint_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
-  createdon: WebAttribute<opc_complaint_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
-  createdonbehalfby_guid: WebAttribute<opc_complaint_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
-  importsequencenumber: WebAttribute<opc_complaint_Select, { importsequencenumber: number | null }, {  }>;
-  modifiedby_guid: WebAttribute<opc_complaint_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
-  modifiedon: WebAttribute<opc_complaint_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
-  modifiedonbehalfby_guid: WebAttribute<opc_complaint_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_accountid_guid: WebAttribute<opc_complaint_Select, { opc_accountid_guid: string | null }, { opc_accountid_formatted?: string }>;
-  opc_complaintid: WebAttribute<opc_complaint_Select, { opc_complaintid: string | null }, {  }>;
-  opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
-  opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
-  overriddencreatedon: WebAttribute<opc_complaint_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
-  ownerid_guid: WebAttribute<opc_complaint_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
-  owningbusinessunit_guid: WebAttribute<opc_complaint_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
-  owningteam_guid: WebAttribute<opc_complaint_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
-  owninguser_guid: WebAttribute<opc_complaint_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
-  processid: WebAttribute<opc_complaint_Select, { processid: string | null }, {  }>;
-  statecode: WebAttribute<opc_complaint_Select, { statecode: opc_complaint_statecode | null }, { statecode_formatted?: string }>;
-  statuscode: WebAttribute<opc_complaint_Select, { statuscode: opc_complaint_statuscode | null }, { statuscode_formatted?: string }>;
-  timezoneruleversionnumber: WebAttribute<opc_complaint_Select, { timezoneruleversionnumber: number | null }, {  }>;
-  utcconversiontimezonecode: WebAttribute<opc_complaint_Select, { utcconversiontimezonecode: number | null }, {  }>;
-  versionnumber: WebAttribute<opc_complaint_Select, { versionnumber: number | null }, {  }>;
-}
-interface opc_complaint_Filter {
-  createdby_guid: XQW.Guid;
-  createdon: Date;
-  createdonbehalfby_guid: XQW.Guid;
-  importsequencenumber: number;
-  modifiedby_guid: XQW.Guid;
-  modifiedon: Date;
-  modifiedonbehalfby_guid: XQW.Guid;
-  opc_accountid_guid: XQW.Guid;
-  opc_complaintid: XQW.Guid;
-  opc_intakedisposition: opc_intakedisposition;
-  opc_number: string;
-  overriddencreatedon: Date;
-  ownerid_guid: XQW.Guid;
-  owningbusinessunit_guid: XQW.Guid;
-  owningteam_guid: XQW.Guid;
-  owninguser_guid: XQW.Guid;
-  processid: XQW.Guid;
-  statecode: opc_complaint_statecode;
-  statuscode: opc_complaint_statuscode;
-  timezoneruleversionnumber: number;
-  utcconversiontimezonecode: number;
-  versionnumber: number;
-}
-interface opc_complaint_Expand {
-  bpf_opc_complaint_opc_complaint_businessprocess: WebExpand<opc_complaint_Expand, opc_complaint_businessprocess_Select, opc_complaint_businessprocess_Filter, { bpf_opc_complaint_opc_complaint_businessprocess: opc_complaint_businessprocess_Result[] }>;
-  opc_accountid: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_accountid: Account_Result }>;
-  opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
-  opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
-  opc_complaint_recommendations_complaint: WebExpand<opc_complaint_Expand, opc_recommendation_Select, opc_recommendation_Filter, { opc_complaint_recommendations_complaint: opc_recommendation_Result[] }>;
-}
-interface opc_complaint_FormattedResult {
-  createdby_formatted?: string;
-  createdon_formatted?: string;
-  createdonbehalfby_formatted?: string;
-  modifiedby_formatted?: string;
-  modifiedon_formatted?: string;
-  modifiedonbehalfby_formatted?: string;
-  opc_accountid_formatted?: string;
-  opc_intakedisposition_formatted?: string;
-  overriddencreatedon_formatted?: string;
-  ownerid_formatted?: string;
-  owningbusinessunit_formatted?: string;
-  owningteam_formatted?: string;
-  owninguser_formatted?: string;
-  statecode_formatted?: string;
-  statuscode_formatted?: string;
-}
-interface opc_complaint_Result extends opc_complaint_Base, opc_complaint_Relationships {
-  "@odata.etag": string;
-  createdby_guid: string | null;
-  createdonbehalfby_guid: string | null;
-  modifiedby_guid: string | null;
-  modifiedonbehalfby_guid: string | null;
-  opc_accountid_guid: string | null;
-  ownerid_guid: string | null;
-  owningbusinessunit_guid: string | null;
-  owningteam_guid: string | null;
-  owninguser_guid: string | null;
-}
-interface opc_complaint_RelatedOne {
-  opc_accountid: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
-}
-interface opc_complaint_RelatedMany {
-  bpf_opc_complaint_opc_complaint_businessprocess: WebMappingRetrieve<opc_complaint_businessprocess_Select,opc_complaint_businessprocess_Expand,opc_complaint_businessprocess_Filter,opc_complaint_businessprocess_Fixed,opc_complaint_businessprocess_Result,opc_complaint_businessprocess_FormattedResult>;
-  opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
-  opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
-  opc_complaint_recommendations_complaint: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
-}
-interface WebEntitiesRetrieve {
-  opc_complaints: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-}
-interface WebEntitiesRelated {
-  opc_complaints: WebMappingRelated<opc_complaint_RelatedOne,opc_complaint_RelatedMany>;
-}
-interface WebEntitiesCUDA {
-  opc_complaints: WebMappingCUDA<opc_complaint_Create,opc_complaint_Update,opc_complaint_Select>;
-}
-interface opc_complaint_businessprocess_Base extends WebEntity {
-  activestagestartedon?: Date | null;
-  bpf_duration?: number | null;
-  bpf_name?: string | null;
-  businessprocessflowinstanceid?: string | null;
-  completedon?: Date | null;
-  createdon?: Date | null;
-  importsequencenumber?: number | null;
-  modifiedon?: Date | null;
-  overriddencreatedon?: Date | null;
-  statecode?: opc_complaint_businessprocess_statecode | null;
-  statuscode?: opc_complaint_businessprocess_statuscode | null;
-  timezoneruleversionnumber?: number | null;
-  traversedpath?: string | null;
-  utcconversiontimezonecode?: number | null;
-  versionnumber?: number | null;
-}
-interface opc_complaint_businessprocess_Relationships {
-}
-interface opc_complaint_businessprocess extends opc_complaint_businessprocess_Base, opc_complaint_businessprocess_Relationships {
-  activestageid_bind$processstages?: string | null;
-  bpf_opc_complaintid_bind$opc_complaints?: string | null;
-  processid_bind$workflows?: string | null;
-}
-interface opc_complaint_businessprocess_Create extends opc_complaint_businessprocess {
-}
-interface opc_complaint_businessprocess_Update extends opc_complaint_businessprocess {
-}
-interface opc_complaint_businessprocess_Select {
-  activestageid_guid: WebAttribute<opc_complaint_businessprocess_Select, { activestageid_guid: string | null }, { activestageid_formatted?: string }>;
-  activestagestartedon: WebAttribute<opc_complaint_businessprocess_Select, { activestagestartedon: Date | null }, { activestagestartedon_formatted?: string }>;
-  bpf_duration: WebAttribute<opc_complaint_businessprocess_Select, { bpf_duration: number | null }, {  }>;
-  bpf_name: WebAttribute<opc_complaint_businessprocess_Select, { bpf_name: string | null }, {  }>;
-  bpf_opc_complaintid_guid: WebAttribute<opc_complaint_businessprocess_Select, { bpf_opc_complaintid_guid: string | null }, { bpf_opc_complaintid_formatted?: string }>;
-  businessprocessflowinstanceid: WebAttribute<opc_complaint_businessprocess_Select, { businessprocessflowinstanceid: string | null }, {  }>;
-  completedon: WebAttribute<opc_complaint_businessprocess_Select, { completedon: Date | null }, { completedon_formatted?: string }>;
-  createdby_guid: WebAttribute<opc_complaint_businessprocess_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
-  createdon: WebAttribute<opc_complaint_businessprocess_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
-  createdonbehalfby_guid: WebAttribute<opc_complaint_businessprocess_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
-  importsequencenumber: WebAttribute<opc_complaint_businessprocess_Select, { importsequencenumber: number | null }, {  }>;
-  modifiedby_guid: WebAttribute<opc_complaint_businessprocess_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
-  modifiedon: WebAttribute<opc_complaint_businessprocess_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
-  modifiedonbehalfby_guid: WebAttribute<opc_complaint_businessprocess_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  organizationid_guid: WebAttribute<opc_complaint_businessprocess_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
-  overriddencreatedon: WebAttribute<opc_complaint_businessprocess_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
-  processid_guid: WebAttribute<opc_complaint_businessprocess_Select, { processid_guid: string | null }, { processid_formatted?: string }>;
-  statecode: WebAttribute<opc_complaint_businessprocess_Select, { statecode: opc_complaint_businessprocess_statecode | null }, { statecode_formatted?: string }>;
-  statuscode: WebAttribute<opc_complaint_businessprocess_Select, { statuscode: opc_complaint_businessprocess_statuscode | null }, { statuscode_formatted?: string }>;
-  timezoneruleversionnumber: WebAttribute<opc_complaint_businessprocess_Select, { timezoneruleversionnumber: number | null }, {  }>;
-  traversedpath: WebAttribute<opc_complaint_businessprocess_Select, { traversedpath: string | null }, {  }>;
-  utcconversiontimezonecode: WebAttribute<opc_complaint_businessprocess_Select, { utcconversiontimezonecode: number | null }, {  }>;
-  versionnumber: WebAttribute<opc_complaint_businessprocess_Select, { versionnumber: number | null }, {  }>;
-}
-interface opc_complaint_businessprocess_Filter {
-  activestageid_guid: XQW.Guid;
-  activestagestartedon: Date;
-  bpf_duration: number;
-  bpf_name: string;
-  bpf_opc_complaintid_guid: XQW.Guid;
-  businessprocessflowinstanceid: XQW.Guid;
-  completedon: Date;
-  createdby_guid: XQW.Guid;
-  createdon: Date;
-  createdonbehalfby_guid: XQW.Guid;
-  importsequencenumber: number;
-  modifiedby_guid: XQW.Guid;
-  modifiedon: Date;
-  modifiedonbehalfby_guid: XQW.Guid;
-  organizationid_guid: XQW.Guid;
-  overriddencreatedon: Date;
-  processid_guid: XQW.Guid;
-  statecode: opc_complaint_businessprocess_statecode;
-  statuscode: opc_complaint_businessprocess_statuscode;
-  timezoneruleversionnumber: number;
-  traversedpath: string;
-  utcconversiontimezonecode: number;
-  versionnumber: number;
-}
-interface opc_complaint_businessprocess_Expand {
-  bpf_opc_complaintid: WebExpand<opc_complaint_businessprocess_Expand, opc_complaint_Select, opc_complaint_Filter, { bpf_opc_complaintid: opc_complaint_Result }>;
-}
-interface opc_complaint_businessprocess_FormattedResult {
-  activestageid_formatted?: string;
-  activestagestartedon_formatted?: string;
-  bpf_opc_complaintid_formatted?: string;
-  completedon_formatted?: string;
-  createdby_formatted?: string;
-  createdon_formatted?: string;
-  createdonbehalfby_formatted?: string;
-  modifiedby_formatted?: string;
-  modifiedon_formatted?: string;
-  modifiedonbehalfby_formatted?: string;
-  organizationid_formatted?: string;
-  overriddencreatedon_formatted?: string;
-  processid_formatted?: string;
-  statecode_formatted?: string;
-  statuscode_formatted?: string;
-}
-interface opc_complaint_businessprocess_Result extends opc_complaint_businessprocess_Base, opc_complaint_businessprocess_Relationships {
-  "@odata.etag": string;
-  activestageid_guid: string | null;
-  bpf_opc_complaintid_guid: string | null;
-  createdby_guid: string | null;
-  createdonbehalfby_guid: string | null;
-  modifiedby_guid: string | null;
-  modifiedonbehalfby_guid: string | null;
-  organizationid_guid: string | null;
-  processid_guid: string | null;
-}
-interface opc_complaint_businessprocess_RelatedOne {
-  bpf_opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-}
-interface opc_complaint_businessprocess_RelatedMany {
-}
-interface WebEntitiesRetrieve {
-  opc_complaint_businessprocesses: WebMappingRetrieve<opc_complaint_businessprocess_Select,opc_complaint_businessprocess_Expand,opc_complaint_businessprocess_Filter,opc_complaint_businessprocess_Fixed,opc_complaint_businessprocess_Result,opc_complaint_businessprocess_FormattedResult>;
-}
-interface WebEntitiesRelated {
-  opc_complaint_businessprocesses: WebMappingRelated<opc_complaint_businessprocess_RelatedOne,opc_complaint_businessprocess_RelatedMany>;
-}
-interface WebEntitiesCUDA {
-  opc_complaint_businessprocesses: WebMappingCUDA<opc_complaint_businessprocess_Create,opc_complaint_businessprocess_Update,opc_complaint_businessprocess_Select>;
-}
-interface opc_issue_Base extends WebEntity {
-  createdon?: Date | null;
-  importsequencenumber?: number | null;
-  modifiedon?: Date | null;
-  opc_issueid?: string | null;
-  opc_name?: string | null;
-  overriddencreatedon?: Date | null;
-  statecode?: opc_issue_statecode | null;
-  statuscode?: opc_issue_statuscode | null;
-  timezoneruleversionnumber?: number | null;
-  utcconversiontimezonecode?: number | null;
-  versionnumber?: number | null;
-}
-interface opc_issue_Relationships {
-}
-interface opc_issue extends opc_issue_Base, opc_issue_Relationships {
-  opc_complaintid_bind$opc_complaints?: string | null;
-  ownerid_bind$systemusers?: string | null;
-  ownerid_bind$teams?: string | null;
-}
-interface opc_issue_Create extends opc_issue {
-}
-interface opc_issue_Update extends opc_issue {
-}
-interface opc_issue_Select {
-  createdby_guid: WebAttribute<opc_issue_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
-  createdon: WebAttribute<opc_issue_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
-  createdonbehalfby_guid: WebAttribute<opc_issue_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
-  importsequencenumber: WebAttribute<opc_issue_Select, { importsequencenumber: number | null }, {  }>;
-  modifiedby_guid: WebAttribute<opc_issue_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
-  modifiedon: WebAttribute<opc_issue_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
-  modifiedonbehalfby_guid: WebAttribute<opc_issue_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_complaintid_guid: WebAttribute<opc_issue_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
-  opc_issueid: WebAttribute<opc_issue_Select, { opc_issueid: string | null }, {  }>;
-  opc_name: WebAttribute<opc_issue_Select, { opc_name: string | null }, {  }>;
-  overriddencreatedon: WebAttribute<opc_issue_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
-  ownerid_guid: WebAttribute<opc_issue_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
-  owningbusinessunit_guid: WebAttribute<opc_issue_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
-  owningteam_guid: WebAttribute<opc_issue_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
-  owninguser_guid: WebAttribute<opc_issue_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
-  statecode: WebAttribute<opc_issue_Select, { statecode: opc_issue_statecode | null }, { statecode_formatted?: string }>;
-  statuscode: WebAttribute<opc_issue_Select, { statuscode: opc_issue_statuscode | null }, { statuscode_formatted?: string }>;
-  timezoneruleversionnumber: WebAttribute<opc_issue_Select, { timezoneruleversionnumber: number | null }, {  }>;
-  utcconversiontimezonecode: WebAttribute<opc_issue_Select, { utcconversiontimezonecode: number | null }, {  }>;
-  versionnumber: WebAttribute<opc_issue_Select, { versionnumber: number | null }, {  }>;
-}
-interface opc_issue_Filter {
-  createdby_guid: XQW.Guid;
-  createdon: Date;
-  createdonbehalfby_guid: XQW.Guid;
-  importsequencenumber: number;
-  modifiedby_guid: XQW.Guid;
-  modifiedon: Date;
-  modifiedonbehalfby_guid: XQW.Guid;
-  opc_complaintid_guid: XQW.Guid;
-  opc_issueid: XQW.Guid;
-  opc_name: string;
-  overriddencreatedon: Date;
-  ownerid_guid: XQW.Guid;
-  owningbusinessunit_guid: XQW.Guid;
-  owningteam_guid: XQW.Guid;
-  owninguser_guid: XQW.Guid;
-  statecode: opc_issue_statecode;
-  statuscode: opc_issue_statuscode;
-  timezoneruleversionnumber: number;
-  utcconversiontimezonecode: number;
-  versionnumber: number;
-}
-interface opc_issue_Expand {
-  opc_complaintid: WebExpand<opc_issue_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
-}
-interface opc_issue_FormattedResult {
-  createdby_formatted?: string;
-  createdon_formatted?: string;
-  createdonbehalfby_formatted?: string;
-  modifiedby_formatted?: string;
-  modifiedon_formatted?: string;
-  modifiedonbehalfby_formatted?: string;
-  opc_complaintid_formatted?: string;
-  overriddencreatedon_formatted?: string;
-  ownerid_formatted?: string;
-  owningbusinessunit_formatted?: string;
-  owningteam_formatted?: string;
-  owninguser_formatted?: string;
-  statecode_formatted?: string;
-  statuscode_formatted?: string;
-}
-interface opc_issue_Result extends opc_issue_Base, opc_issue_Relationships {
-  "@odata.etag": string;
-  createdby_guid: string | null;
-  createdonbehalfby_guid: string | null;
-  modifiedby_guid: string | null;
-  modifiedonbehalfby_guid: string | null;
-  opc_complaintid_guid: string | null;
-  ownerid_guid: string | null;
-  owningbusinessunit_guid: string | null;
-  owningteam_guid: string | null;
-  owninguser_guid: string | null;
-}
-interface opc_issue_RelatedOne {
-  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-}
-interface opc_issue_RelatedMany {
-}
-interface WebEntitiesRetrieve {
-  opc_issues: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
-}
-interface WebEntitiesRelated {
-  opc_issues: WebMappingRelated<opc_issue_RelatedOne,opc_issue_RelatedMany>;
-}
-interface WebEntitiesCUDA {
-  opc_issues: WebMappingCUDA<opc_issue_Create,opc_issue_Update,opc_issue_Select>;
-}
-interface opc_recommendation_Base extends WebEntity {
-  createdon?: Date | null;
-  importsequencenumber?: number | null;
-  modifiedon?: Date | null;
-  opc_name?: string | null;
-  opc_recommendationid?: string | null;
-  overriddencreatedon?: Date | null;
-  statecode?: opc_recommendation_statecode | null;
-  statuscode?: opc_recommendation_statuscode | null;
-  timezoneruleversionnumber?: number | null;
-  utcconversiontimezonecode?: number | null;
-  versionnumber?: number | null;
-}
-interface opc_recommendation_Relationships {
-}
-interface opc_recommendation extends opc_recommendation_Base, opc_recommendation_Relationships {
-  opc_complaintid_bind$opc_complaints?: string | null;
-  ownerid_bind$systemusers?: string | null;
-  ownerid_bind$teams?: string | null;
-}
-interface opc_recommendation_Create extends opc_recommendation {
-}
-interface opc_recommendation_Update extends opc_recommendation {
-}
-interface opc_recommendation_Select {
-  createdby_guid: WebAttribute<opc_recommendation_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
-  createdon: WebAttribute<opc_recommendation_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
-  createdonbehalfby_guid: WebAttribute<opc_recommendation_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
-  importsequencenumber: WebAttribute<opc_recommendation_Select, { importsequencenumber: number | null }, {  }>;
-  modifiedby_guid: WebAttribute<opc_recommendation_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
-  modifiedon: WebAttribute<opc_recommendation_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
-  modifiedonbehalfby_guid: WebAttribute<opc_recommendation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_complaintid_guid: WebAttribute<opc_recommendation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
-  opc_name: WebAttribute<opc_recommendation_Select, { opc_name: string | null }, {  }>;
-  opc_recommendationid: WebAttribute<opc_recommendation_Select, { opc_recommendationid: string | null }, {  }>;
-  overriddencreatedon: WebAttribute<opc_recommendation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
-  ownerid_guid: WebAttribute<opc_recommendation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
-  owningbusinessunit_guid: WebAttribute<opc_recommendation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
-  owningteam_guid: WebAttribute<opc_recommendation_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
-  owninguser_guid: WebAttribute<opc_recommendation_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
-  statecode: WebAttribute<opc_recommendation_Select, { statecode: opc_recommendation_statecode | null }, { statecode_formatted?: string }>;
-  statuscode: WebAttribute<opc_recommendation_Select, { statuscode: opc_recommendation_statuscode | null }, { statuscode_formatted?: string }>;
-  timezoneruleversionnumber: WebAttribute<opc_recommendation_Select, { timezoneruleversionnumber: number | null }, {  }>;
-  utcconversiontimezonecode: WebAttribute<opc_recommendation_Select, { utcconversiontimezonecode: number | null }, {  }>;
-  versionnumber: WebAttribute<opc_recommendation_Select, { versionnumber: number | null }, {  }>;
-}
-interface opc_recommendation_Filter {
-  createdby_guid: XQW.Guid;
-  createdon: Date;
-  createdonbehalfby_guid: XQW.Guid;
-  importsequencenumber: number;
-  modifiedby_guid: XQW.Guid;
-  modifiedon: Date;
-  modifiedonbehalfby_guid: XQW.Guid;
-  opc_complaintid_guid: XQW.Guid;
-  opc_name: string;
-  opc_recommendationid: XQW.Guid;
-  overriddencreatedon: Date;
-  ownerid_guid: XQW.Guid;
-  owningbusinessunit_guid: XQW.Guid;
-  owningteam_guid: XQW.Guid;
-  owninguser_guid: XQW.Guid;
-  statecode: opc_recommendation_statecode;
-  statuscode: opc_recommendation_statuscode;
-  timezoneruleversionnumber: number;
-  utcconversiontimezonecode: number;
-  versionnumber: number;
-}
-interface opc_recommendation_Expand {
-  opc_complaintid: WebExpand<opc_recommendation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
-}
-interface opc_recommendation_FormattedResult {
-  createdby_formatted?: string;
-  createdon_formatted?: string;
-  createdonbehalfby_formatted?: string;
-  modifiedby_formatted?: string;
-  modifiedon_formatted?: string;
-  modifiedonbehalfby_formatted?: string;
-  opc_complaintid_formatted?: string;
-  overriddencreatedon_formatted?: string;
-  ownerid_formatted?: string;
-  owningbusinessunit_formatted?: string;
-  owningteam_formatted?: string;
-  owninguser_formatted?: string;
-  statecode_formatted?: string;
-  statuscode_formatted?: string;
-}
-interface opc_recommendation_Result extends opc_recommendation_Base, opc_recommendation_Relationships {
-  "@odata.etag": string;
-  createdby_guid: string | null;
-  createdonbehalfby_guid: string | null;
-  modifiedby_guid: string | null;
-  modifiedonbehalfby_guid: string | null;
-  opc_complaintid_guid: string | null;
-  ownerid_guid: string | null;
-  owningbusinessunit_guid: string | null;
-  owningteam_guid: string | null;
-  owninguser_guid: string | null;
-}
-interface opc_recommendation_RelatedOne {
-  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-}
-interface opc_recommendation_RelatedMany {
-}
-interface WebEntitiesRetrieve {
-  opc_recommendations: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
-}
-interface WebEntitiesRelated {
-  opc_recommendations: WebMappingRelated<opc_recommendation_RelatedOne,opc_recommendation_RelatedMany>;
-}
-interface WebEntitiesCUDA {
-  opc_recommendations: WebMappingCUDA<opc_recommendation_Create,opc_recommendation_Update,opc_recommendation_Select>;
-}
 interface Contact_Base extends WebEntity {
   accountrolecode?: contact_accountrolecode | null;
   address1_addressid?: string | null;
@@ -4417,6 +3962,8 @@ interface Contact_Relationships {
   contact_connections2?: Connection_Result[] | null;
   contact_customer_contacts?: Contact_Result[] | null;
   contact_master_contact?: Contact_Result[] | null;
+  opc_contact_complaints_complainant?: opc_complaint_Result[] | null;
+  opc_contact_complaints_complainantreps?: opc_complaint_Result[] | null;
   parentcustomerid_account?: Account_Result | null;
   parentcustomerid_contact?: Contact_Result | null;
 }
@@ -4818,6 +4365,8 @@ interface Contact_Expand {
   contact_customer_contacts: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { contact_customer_contacts: Contact_Result[] }>;
   contact_master_contact: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { contact_master_contact: Contact_Result[] }>;
   masterid: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { masterid: Contact_Result }>;
+  opc_contact_complaints_complainant: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainant: opc_complaint_Result[] }>;
+  opc_contact_complaints_complainantreps: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainantreps: opc_complaint_Result[] }>;
   parentcustomerid_account: WebExpand<Contact_Expand, Account_Select, Account_Filter, { parentcustomerid_account: Account_Result }>;
   parentcustomerid_contact: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { parentcustomerid_contact: Contact_Result }>;
 }
@@ -4916,6 +4465,8 @@ interface Contact_RelatedMany {
   contact_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   contact_customer_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   contact_master_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  opc_contact_complaints_complainant: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_contact_complaints_complainantreps: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
@@ -4925,6 +4476,757 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   contacts: WebMappingCUDA<Contact_Create,Contact_Update,Contact_Select>;
+}
+interface opc_allegation_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_allegationdisposition?: opc_allegationdisposition | null;
+  opc_allegationid?: string | null;
+  opc_description?: string | null;
+  opc_name?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_allegation_statecode | null;
+  statuscode?: opc_allegation_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_allegation_Relationships {
+}
+interface opc_allegation extends opc_allegation_Base, opc_allegation_Relationships {
+  opc_complaintid_bind$opc_complaints?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_allegation_Create extends opc_allegation {
+}
+interface opc_allegation_Update extends opc_allegation {
+}
+interface opc_allegation_Select {
+  createdby_guid: WebAttribute<opc_allegation_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_allegation_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_allegation_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_allegation_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_allegation_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_allegation_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_allegation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_allegationdisposition: WebAttribute<opc_allegation_Select, { opc_allegationdisposition: opc_allegationdisposition | null }, { opc_allegationdisposition_formatted?: string }>;
+  opc_allegationid: WebAttribute<opc_allegation_Select, { opc_allegationid: string | null }, {  }>;
+  opc_complaintid_guid: WebAttribute<opc_allegation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
+  opc_description: WebAttribute<opc_allegation_Select, { opc_description: string | null }, {  }>;
+  opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_allegation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_allegation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_allegation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_allegation_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_allegation_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_allegation_Select, { statecode: opc_allegation_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_allegation_Select, { statuscode: opc_allegation_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_allegation_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_allegation_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_allegation_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_allegation_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_allegationdisposition: opc_allegationdisposition;
+  opc_allegationid: XQW.Guid;
+  opc_complaintid_guid: XQW.Guid;
+  opc_description: string;
+  opc_name: string;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_allegation_statecode;
+  statuscode: opc_allegation_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_allegation_Expand {
+  opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+}
+interface opc_allegation_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_allegationdisposition_formatted?: string;
+  opc_complaintid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_complaintid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_allegation_RelatedOne {
+  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface opc_allegation_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  opc_allegations: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_allegations: WebMappingRelated<opc_allegation_RelatedOne,opc_allegation_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_allegations: WebMappingCUDA<opc_allegation_Create,opc_allegation_Update,opc_allegation_Select>;
+}
+interface opc_complaint_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_acceptancedate?: Date | null;
+  opc_complaintdisposition?: opc_complaintdisposition | null;
+  opc_complaintid?: string | null;
+  opc_declinereason?: opc_declinereason | null;
+  opc_intakedisposition?: opc_intakedisposition | null;
+  opc_number?: string | null;
+  opc_recommendtoregistrar?: boolean | null;
+  overriddencreatedon?: Date | null;
+  processid?: string | null;
+  statecode?: opc_complaint_statecode | null;
+  statuscode?: opc_complaint_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_complaint_Relationships {
+  bpf_opc_complaint_opc_complaint_businessprocess?: opc_complaint_businessprocess_Result[] | null;
+  opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
+  opc_complaint_issues_complaint?: opc_issue_Result[] | null;
+  opc_complaint_recommendations_complaint?: opc_recommendation_Result[] | null;
+}
+interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships {
+  opc_accountid_bind$accounts?: string | null;
+  opc_complainant_bind$contacts?: string | null;
+  opc_complainantrep_bind$contacts?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_complaint_Create extends opc_complaint {
+}
+interface opc_complaint_Update extends opc_complaint {
+}
+interface opc_complaint_Select {
+  createdby_guid: WebAttribute<opc_complaint_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_complaint_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_complaint_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_complaint_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_complaint_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_complaint_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_complaint_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_acceptancedate: WebAttribute<opc_complaint_Select, { opc_acceptancedate: Date | null }, { opc_acceptancedate_formatted?: string }>;
+  opc_accountid_guid: WebAttribute<opc_complaint_Select, { opc_accountid_guid: string | null }, { opc_accountid_formatted?: string }>;
+  opc_complainant_guid: WebAttribute<opc_complaint_Select, { opc_complainant_guid: string | null }, { opc_complainant_formatted?: string }>;
+  opc_complainantrep_guid: WebAttribute<opc_complaint_Select, { opc_complainantrep_guid: string | null }, { opc_complainantrep_formatted?: string }>;
+  opc_complaintdisposition: WebAttribute<opc_complaint_Select, { opc_complaintdisposition: opc_complaintdisposition | null }, { opc_complaintdisposition_formatted?: string }>;
+  opc_complaintid: WebAttribute<opc_complaint_Select, { opc_complaintid: string | null }, {  }>;
+  opc_declinereason: WebAttribute<opc_complaint_Select, { opc_declinereason: opc_declinereason | null }, { opc_declinereason_formatted?: string }>;
+  opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
+  opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
+  opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: boolean | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_complaint_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_complaint_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_complaint_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_complaint_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_complaint_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  processid: WebAttribute<opc_complaint_Select, { processid: string | null }, {  }>;
+  statecode: WebAttribute<opc_complaint_Select, { statecode: opc_complaint_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_complaint_Select, { statuscode: opc_complaint_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_complaint_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_complaint_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_complaint_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_complaint_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_acceptancedate: Date;
+  opc_accountid_guid: XQW.Guid;
+  opc_complainant_guid: XQW.Guid;
+  opc_complainantrep_guid: XQW.Guid;
+  opc_complaintdisposition: opc_complaintdisposition;
+  opc_complaintid: XQW.Guid;
+  opc_declinereason: opc_declinereason;
+  opc_intakedisposition: opc_intakedisposition;
+  opc_number: string;
+  opc_recommendtoregistrar: boolean;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  processid: XQW.Guid;
+  statecode: opc_complaint_statecode;
+  statuscode: opc_complaint_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_complaint_Expand {
+  bpf_opc_complaint_opc_complaint_businessprocess: WebExpand<opc_complaint_Expand, opc_complaint_businessprocess_Select, opc_complaint_businessprocess_Filter, { bpf_opc_complaint_opc_complaint_businessprocess: opc_complaint_businessprocess_Result[] }>;
+  opc_accountid: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_accountid: Account_Result }>;
+  opc_complainant: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainant: Contact_Result }>;
+  opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
+  opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
+  opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
+  opc_complaint_recommendations_complaint: WebExpand<opc_complaint_Expand, opc_recommendation_Select, opc_recommendation_Filter, { opc_complaint_recommendations_complaint: opc_recommendation_Result[] }>;
+}
+interface opc_complaint_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_acceptancedate_formatted?: string;
+  opc_accountid_formatted?: string;
+  opc_complainant_formatted?: string;
+  opc_complainantrep_formatted?: string;
+  opc_complaintdisposition_formatted?: string;
+  opc_declinereason_formatted?: string;
+  opc_intakedisposition_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_complaint_Result extends opc_complaint_Base, opc_complaint_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_accountid_guid: string | null;
+  opc_complainant_guid: string | null;
+  opc_complainantrep_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_complaint_RelatedOne {
+  opc_accountid: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  opc_complainant: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  opc_complainantrep: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+}
+interface opc_complaint_RelatedMany {
+  bpf_opc_complaint_opc_complaint_businessprocess: WebMappingRetrieve<opc_complaint_businessprocess_Select,opc_complaint_businessprocess_Expand,opc_complaint_businessprocess_Filter,opc_complaint_businessprocess_Fixed,opc_complaint_businessprocess_Result,opc_complaint_businessprocess_FormattedResult>;
+  opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  opc_complaint_recommendations_complaint: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_complaints: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_complaints: WebMappingRelated<opc_complaint_RelatedOne,opc_complaint_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_complaints: WebMappingCUDA<opc_complaint_Create,opc_complaint_Update,opc_complaint_Select>;
+}
+interface opc_complaint_businessprocess_Base extends WebEntity {
+  activestagestartedon?: Date | null;
+  bpf_duration?: number | null;
+  bpf_name?: string | null;
+  businessprocessflowinstanceid?: string | null;
+  completedon?: Date | null;
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_complaint_businessprocess_statecode | null;
+  statuscode?: opc_complaint_businessprocess_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  traversedpath?: string | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_complaint_businessprocess_Relationships {
+}
+interface opc_complaint_businessprocess extends opc_complaint_businessprocess_Base, opc_complaint_businessprocess_Relationships {
+  activestageid_bind$processstages?: string | null;
+  bpf_opc_complaintid_bind$opc_complaints?: string | null;
+  processid_bind$workflows?: string | null;
+}
+interface opc_complaint_businessprocess_Create extends opc_complaint_businessprocess {
+}
+interface opc_complaint_businessprocess_Update extends opc_complaint_businessprocess {
+}
+interface opc_complaint_businessprocess_Select {
+  activestageid_guid: WebAttribute<opc_complaint_businessprocess_Select, { activestageid_guid: string | null }, { activestageid_formatted?: string }>;
+  activestagestartedon: WebAttribute<opc_complaint_businessprocess_Select, { activestagestartedon: Date | null }, { activestagestartedon_formatted?: string }>;
+  bpf_duration: WebAttribute<opc_complaint_businessprocess_Select, { bpf_duration: number | null }, {  }>;
+  bpf_name: WebAttribute<opc_complaint_businessprocess_Select, { bpf_name: string | null }, {  }>;
+  bpf_opc_complaintid_guid: WebAttribute<opc_complaint_businessprocess_Select, { bpf_opc_complaintid_guid: string | null }, { bpf_opc_complaintid_formatted?: string }>;
+  businessprocessflowinstanceid: WebAttribute<opc_complaint_businessprocess_Select, { businessprocessflowinstanceid: string | null }, {  }>;
+  completedon: WebAttribute<opc_complaint_businessprocess_Select, { completedon: Date | null }, { completedon_formatted?: string }>;
+  createdby_guid: WebAttribute<opc_complaint_businessprocess_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_complaint_businessprocess_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_complaint_businessprocess_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_complaint_businessprocess_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_complaint_businessprocess_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_complaint_businessprocess_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_complaint_businessprocess_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  organizationid_guid: WebAttribute<opc_complaint_businessprocess_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
+  overriddencreatedon: WebAttribute<opc_complaint_businessprocess_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  processid_guid: WebAttribute<opc_complaint_businessprocess_Select, { processid_guid: string | null }, { processid_formatted?: string }>;
+  statecode: WebAttribute<opc_complaint_businessprocess_Select, { statecode: opc_complaint_businessprocess_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_complaint_businessprocess_Select, { statuscode: opc_complaint_businessprocess_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_complaint_businessprocess_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  traversedpath: WebAttribute<opc_complaint_businessprocess_Select, { traversedpath: string | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_complaint_businessprocess_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_complaint_businessprocess_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_complaint_businessprocess_Filter {
+  activestageid_guid: XQW.Guid;
+  activestagestartedon: Date;
+  bpf_duration: number;
+  bpf_name: string;
+  bpf_opc_complaintid_guid: XQW.Guid;
+  businessprocessflowinstanceid: XQW.Guid;
+  completedon: Date;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  organizationid_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  processid_guid: XQW.Guid;
+  statecode: opc_complaint_businessprocess_statecode;
+  statuscode: opc_complaint_businessprocess_statuscode;
+  timezoneruleversionnumber: number;
+  traversedpath: string;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_complaint_businessprocess_Expand {
+  bpf_opc_complaintid: WebExpand<opc_complaint_businessprocess_Expand, opc_complaint_Select, opc_complaint_Filter, { bpf_opc_complaintid: opc_complaint_Result }>;
+}
+interface opc_complaint_businessprocess_FormattedResult {
+  activestageid_formatted?: string;
+  activestagestartedon_formatted?: string;
+  bpf_opc_complaintid_formatted?: string;
+  completedon_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  organizationid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  processid_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_complaint_businessprocess_Result extends opc_complaint_businessprocess_Base, opc_complaint_businessprocess_Relationships {
+  "@odata.etag": string;
+  activestageid_guid: string | null;
+  bpf_opc_complaintid_guid: string | null;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  organizationid_guid: string | null;
+  processid_guid: string | null;
+}
+interface opc_complaint_businessprocess_RelatedOne {
+  bpf_opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface opc_complaint_businessprocess_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  opc_complaint_businessprocesses: WebMappingRetrieve<opc_complaint_businessprocess_Select,opc_complaint_businessprocess_Expand,opc_complaint_businessprocess_Filter,opc_complaint_businessprocess_Fixed,opc_complaint_businessprocess_Result,opc_complaint_businessprocess_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_complaint_businessprocesses: WebMappingRelated<opc_complaint_businessprocess_RelatedOne,opc_complaint_businessprocess_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_complaint_businessprocesses: WebMappingCUDA<opc_complaint_businessprocess_Create,opc_complaint_businessprocess_Update,opc_complaint_businessprocess_Select>;
+}
+interface opc_issue_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_issueid?: string | null;
+  opc_name?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_issue_statecode | null;
+  statuscode?: opc_issue_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_issue_Relationships {
+}
+interface opc_issue extends opc_issue_Base, opc_issue_Relationships {
+  opc_complaintid_bind$opc_complaints?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_issue_Create extends opc_issue {
+}
+interface opc_issue_Update extends opc_issue {
+}
+interface opc_issue_Select {
+  createdby_guid: WebAttribute<opc_issue_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_issue_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_issue_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_issue_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_issue_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_issue_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_issue_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_complaintid_guid: WebAttribute<opc_issue_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
+  opc_issueid: WebAttribute<opc_issue_Select, { opc_issueid: string | null }, {  }>;
+  opc_name: WebAttribute<opc_issue_Select, { opc_name: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_issue_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_issue_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_issue_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_issue_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_issue_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_issue_Select, { statecode: opc_issue_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_issue_Select, { statuscode: opc_issue_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_issue_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_issue_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_issue_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_issue_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_complaintid_guid: XQW.Guid;
+  opc_issueid: XQW.Guid;
+  opc_name: string;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_issue_statecode;
+  statuscode: opc_issue_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_issue_Expand {
+  opc_complaintid: WebExpand<opc_issue_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+}
+interface opc_issue_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_complaintid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_issue_Result extends opc_issue_Base, opc_issue_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_complaintid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_issue_RelatedOne {
+  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface opc_issue_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  opc_issues: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_issues: WebMappingRelated<opc_issue_RelatedOne,opc_issue_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_issues: WebMappingCUDA<opc_issue_Create,opc_issue_Update,opc_issue_Select>;
+}
+interface opc_recommendation_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_name?: string | null;
+  opc_recommendationid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_recommendation_statecode | null;
+  statuscode?: opc_recommendation_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_recommendation_Relationships {
+}
+interface opc_recommendation extends opc_recommendation_Base, opc_recommendation_Relationships {
+  opc_complaintid_bind$opc_complaints?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_recommendation_Create extends opc_recommendation {
+}
+interface opc_recommendation_Update extends opc_recommendation {
+}
+interface opc_recommendation_Select {
+  createdby_guid: WebAttribute<opc_recommendation_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_recommendation_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_recommendation_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_recommendation_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_recommendation_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_recommendation_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_recommendation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_complaintid_guid: WebAttribute<opc_recommendation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
+  opc_name: WebAttribute<opc_recommendation_Select, { opc_name: string | null }, {  }>;
+  opc_recommendationid: WebAttribute<opc_recommendation_Select, { opc_recommendationid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_recommendation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_recommendation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_recommendation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_recommendation_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_recommendation_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_recommendation_Select, { statecode: opc_recommendation_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_recommendation_Select, { statuscode: opc_recommendation_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_recommendation_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_recommendation_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_recommendation_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_recommendation_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_complaintid_guid: XQW.Guid;
+  opc_name: string;
+  opc_recommendationid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_recommendation_statecode;
+  statuscode: opc_recommendation_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_recommendation_Expand {
+  opc_complaintid: WebExpand<opc_recommendation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+}
+interface opc_recommendation_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_complaintid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_recommendation_Result extends opc_recommendation_Base, opc_recommendation_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_complaintid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_recommendation_RelatedOne {
+  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface opc_recommendation_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  opc_recommendations: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_recommendations: WebMappingRelated<opc_recommendation_RelatedOne,opc_recommendation_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_recommendations: WebMappingCUDA<opc_recommendation_Create,opc_recommendation_Update,opc_recommendation_Select>;
+}
+interface ActivityParty_Base extends WebEntity {
+  activitypartyid?: string | null;
+  addressused?: string | null;
+  addressusedemailcolumnnumber?: number | null;
+  donotemail?: boolean | null;
+  donotfax?: boolean | null;
+  donotphone?: boolean | null;
+  donotpostalmail?: boolean | null;
+  effort?: number | null;
+  exchangeentryid?: string | null;
+  instancetypecode?: activityparty_instancetypecode | null;
+  ispartydeleted?: boolean | null;
+  owningbusinessunit?: string | null;
+  owninguser?: string | null;
+  participationtypemask?: activityparty_participationtypemask | null;
+  scheduledend?: Date | null;
+  scheduledstart?: Date | null;
+  versionnumber?: number | null;
+}
+interface ActivityParty_Relationships {
+  partyid_account?: Account_Result | null;
+  partyid_contact?: Contact_Result | null;
+}
+interface ActivityParty extends ActivityParty_Base, ActivityParty_Relationships {
+  activityid_activitypointer_bind$activitypointers?: string | null;
+  activityid_appointment_bind$appointments?: string | null;
+  activityid_email_bind$emails?: string | null;
+  activityid_fax_bind$faxes?: string | null;
+  activityid_letter_bind$letters?: string | null;
+  activityid_phonecall_bind$phonecalls?: string | null;
+  activityid_recurringappointmentmaster_bind$recurringappointmentmasters?: string | null;
+  activityid_socialactivity_bind$socialactivities?: string | null;
+  activityid_task_bind$tasks?: string | null;
+  partyid_account_bind$accounts?: string | null;
+  partyid_contact_bind$contacts?: string | null;
+  partyid_knowledgearticle_bind$knowledgearticles?: string | null;
+  partyid_queue_bind$queues?: string | null;
+  partyid_systemuser_bind$systemusers?: string | null;
+}
+interface ActivityParty_Create extends ActivityParty {
+}
+interface ActivityParty_Update extends ActivityParty {
+}
+interface ActivityParty_Select {
+  activityid_guid: WebAttribute<ActivityParty_Select, { activityid_guid: string | null }, { activityid_formatted?: string }>;
+  activitypartyid: WebAttribute<ActivityParty_Select, { activitypartyid: string | null }, {  }>;
+  addressused: WebAttribute<ActivityParty_Select, { addressused: string | null }, {  }>;
+  addressusedemailcolumnnumber: WebAttribute<ActivityParty_Select, { addressusedemailcolumnnumber: number | null }, {  }>;
+  donotemail: WebAttribute<ActivityParty_Select, { donotemail: boolean | null }, {  }>;
+  donotfax: WebAttribute<ActivityParty_Select, { donotfax: boolean | null }, {  }>;
+  donotphone: WebAttribute<ActivityParty_Select, { donotphone: boolean | null }, {  }>;
+  donotpostalmail: WebAttribute<ActivityParty_Select, { donotpostalmail: boolean | null }, {  }>;
+  effort: WebAttribute<ActivityParty_Select, { effort: number | null }, {  }>;
+  exchangeentryid: WebAttribute<ActivityParty_Select, { exchangeentryid: string | null }, {  }>;
+  instancetypecode: WebAttribute<ActivityParty_Select, { instancetypecode: activityparty_instancetypecode | null }, { instancetypecode_formatted?: string }>;
+  ispartydeleted: WebAttribute<ActivityParty_Select, { ispartydeleted: boolean | null }, {  }>;
+  ownerid_guid: WebAttribute<ActivityParty_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit: WebAttribute<ActivityParty_Select, { owningbusinessunit: string | null }, {  }>;
+  owninguser: WebAttribute<ActivityParty_Select, { owninguser: string | null }, {  }>;
+  participationtypemask: WebAttribute<ActivityParty_Select, { participationtypemask: activityparty_participationtypemask | null }, { participationtypemask_formatted?: string }>;
+  partyid_guid: WebAttribute<ActivityParty_Select, { partyid_guid: string | null }, { partyid_formatted?: string }>;
+  scheduledend: WebAttribute<ActivityParty_Select, { scheduledend: Date | null }, { scheduledend_formatted?: string }>;
+  scheduledstart: WebAttribute<ActivityParty_Select, { scheduledstart: Date | null }, { scheduledstart_formatted?: string }>;
+  versionnumber: WebAttribute<ActivityParty_Select, { versionnumber: number | null }, {  }>;
+}
+interface ActivityParty_Filter {
+  activityid_guid: XQW.Guid;
+  activitypartyid: XQW.Guid;
+  addressused: string;
+  addressusedemailcolumnnumber: number;
+  donotemail: boolean;
+  donotfax: boolean;
+  donotphone: boolean;
+  donotpostalmail: boolean;
+  effort: number;
+  exchangeentryid: string;
+  instancetypecode: activityparty_instancetypecode;
+  ispartydeleted: boolean;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit: XQW.Guid;
+  owninguser: XQW.Guid;
+  participationtypemask: activityparty_participationtypemask;
+  partyid_guid: XQW.Guid;
+  scheduledend: Date;
+  scheduledstart: Date;
+  versionnumber: number;
+}
+interface ActivityParty_Expand {
+  partyid_account: WebExpand<ActivityParty_Expand, Account_Select, Account_Filter, { partyid_account: Account_Result }>;
+  partyid_contact: WebExpand<ActivityParty_Expand, Contact_Select, Contact_Filter, { partyid_contact: Contact_Result }>;
+}
+interface ActivityParty_FormattedResult {
+  activityid_formatted?: string;
+  instancetypecode_formatted?: string;
+  ownerid_formatted?: string;
+  participationtypemask_formatted?: string;
+  partyid_formatted?: string;
+  scheduledend_formatted?: string;
+  scheduledstart_formatted?: string;
+}
+interface ActivityParty_Result extends ActivityParty_Base, ActivityParty_Relationships {
+  "@odata.etag": string;
+  activityid_guid: string | null;
+  ownerid_guid: string | null;
+  partyid_guid: string | null;
+}
+interface ActivityParty_RelatedOne {
+  partyid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  partyid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+}
+interface ActivityParty_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  activityparties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  activityparties: WebMappingRelated<ActivityParty_RelatedOne,ActivityParty_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  activityparties: WebMappingCUDA<ActivityParty_Create,ActivityParty_Update,ActivityParty_Select>;
 }
 interface Connection_Base extends WebEntity {
   connectionid?: string | null;
@@ -5139,125 +5441,4 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   connections: WebMappingCUDA<Connection_Create,Connection_Update,Connection_Select>;
-}
-interface ActivityParty_Base extends WebEntity {
-  activitypartyid?: string | null;
-  addressused?: string | null;
-  addressusedemailcolumnnumber?: number | null;
-  donotemail?: boolean | null;
-  donotfax?: boolean | null;
-  donotphone?: boolean | null;
-  donotpostalmail?: boolean | null;
-  effort?: number | null;
-  exchangeentryid?: string | null;
-  instancetypecode?: activityparty_instancetypecode | null;
-  ispartydeleted?: boolean | null;
-  owningbusinessunit?: string | null;
-  owninguser?: string | null;
-  participationtypemask?: activityparty_participationtypemask | null;
-  scheduledend?: Date | null;
-  scheduledstart?: Date | null;
-  versionnumber?: number | null;
-}
-interface ActivityParty_Relationships {
-  partyid_account?: Account_Result | null;
-  partyid_contact?: Contact_Result | null;
-}
-interface ActivityParty extends ActivityParty_Base, ActivityParty_Relationships {
-  activityid_activitypointer_bind$activitypointers?: string | null;
-  activityid_appointment_bind$appointments?: string | null;
-  activityid_email_bind$emails?: string | null;
-  activityid_fax_bind$faxes?: string | null;
-  activityid_letter_bind$letters?: string | null;
-  activityid_phonecall_bind$phonecalls?: string | null;
-  activityid_recurringappointmentmaster_bind$recurringappointmentmasters?: string | null;
-  activityid_socialactivity_bind$socialactivities?: string | null;
-  activityid_task_bind$tasks?: string | null;
-  partyid_account_bind$accounts?: string | null;
-  partyid_contact_bind$contacts?: string | null;
-  partyid_knowledgearticle_bind$knowledgearticles?: string | null;
-  partyid_queue_bind$queues?: string | null;
-  partyid_systemuser_bind$systemusers?: string | null;
-}
-interface ActivityParty_Create extends ActivityParty {
-}
-interface ActivityParty_Update extends ActivityParty {
-}
-interface ActivityParty_Select {
-  activityid_guid: WebAttribute<ActivityParty_Select, { activityid_guid: string | null }, { activityid_formatted?: string }>;
-  activitypartyid: WebAttribute<ActivityParty_Select, { activitypartyid: string | null }, {  }>;
-  addressused: WebAttribute<ActivityParty_Select, { addressused: string | null }, {  }>;
-  addressusedemailcolumnnumber: WebAttribute<ActivityParty_Select, { addressusedemailcolumnnumber: number | null }, {  }>;
-  donotemail: WebAttribute<ActivityParty_Select, { donotemail: boolean | null }, {  }>;
-  donotfax: WebAttribute<ActivityParty_Select, { donotfax: boolean | null }, {  }>;
-  donotphone: WebAttribute<ActivityParty_Select, { donotphone: boolean | null }, {  }>;
-  donotpostalmail: WebAttribute<ActivityParty_Select, { donotpostalmail: boolean | null }, {  }>;
-  effort: WebAttribute<ActivityParty_Select, { effort: number | null }, {  }>;
-  exchangeentryid: WebAttribute<ActivityParty_Select, { exchangeentryid: string | null }, {  }>;
-  instancetypecode: WebAttribute<ActivityParty_Select, { instancetypecode: activityparty_instancetypecode | null }, { instancetypecode_formatted?: string }>;
-  ispartydeleted: WebAttribute<ActivityParty_Select, { ispartydeleted: boolean | null }, {  }>;
-  ownerid_guid: WebAttribute<ActivityParty_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
-  owningbusinessunit: WebAttribute<ActivityParty_Select, { owningbusinessunit: string | null }, {  }>;
-  owninguser: WebAttribute<ActivityParty_Select, { owninguser: string | null }, {  }>;
-  participationtypemask: WebAttribute<ActivityParty_Select, { participationtypemask: activityparty_participationtypemask | null }, { participationtypemask_formatted?: string }>;
-  partyid_guid: WebAttribute<ActivityParty_Select, { partyid_guid: string | null }, { partyid_formatted?: string }>;
-  scheduledend: WebAttribute<ActivityParty_Select, { scheduledend: Date | null }, { scheduledend_formatted?: string }>;
-  scheduledstart: WebAttribute<ActivityParty_Select, { scheduledstart: Date | null }, { scheduledstart_formatted?: string }>;
-  versionnumber: WebAttribute<ActivityParty_Select, { versionnumber: number | null }, {  }>;
-}
-interface ActivityParty_Filter {
-  activityid_guid: XQW.Guid;
-  activitypartyid: XQW.Guid;
-  addressused: string;
-  addressusedemailcolumnnumber: number;
-  donotemail: boolean;
-  donotfax: boolean;
-  donotphone: boolean;
-  donotpostalmail: boolean;
-  effort: number;
-  exchangeentryid: string;
-  instancetypecode: activityparty_instancetypecode;
-  ispartydeleted: boolean;
-  ownerid_guid: XQW.Guid;
-  owningbusinessunit: XQW.Guid;
-  owninguser: XQW.Guid;
-  participationtypemask: activityparty_participationtypemask;
-  partyid_guid: XQW.Guid;
-  scheduledend: Date;
-  scheduledstart: Date;
-  versionnumber: number;
-}
-interface ActivityParty_Expand {
-  partyid_account: WebExpand<ActivityParty_Expand, Account_Select, Account_Filter, { partyid_account: Account_Result }>;
-  partyid_contact: WebExpand<ActivityParty_Expand, Contact_Select, Contact_Filter, { partyid_contact: Contact_Result }>;
-}
-interface ActivityParty_FormattedResult {
-  activityid_formatted?: string;
-  instancetypecode_formatted?: string;
-  ownerid_formatted?: string;
-  participationtypemask_formatted?: string;
-  partyid_formatted?: string;
-  scheduledend_formatted?: string;
-  scheduledstart_formatted?: string;
-}
-interface ActivityParty_Result extends ActivityParty_Base, ActivityParty_Relationships {
-  "@odata.etag": string;
-  activityid_guid: string | null;
-  ownerid_guid: string | null;
-  partyid_guid: string | null;
-}
-interface ActivityParty_RelatedOne {
-  partyid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
-  partyid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
-}
-interface ActivityParty_RelatedMany {
-}
-interface WebEntitiesRetrieve {
-  activityparties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
-}
-interface WebEntitiesRelated {
-  activityparties: WebMappingRelated<ActivityParty_RelatedOne,ActivityParty_RelatedMany>;
-}
-interface WebEntitiesCUDA {
-  activityparties: WebMappingCUDA<ActivityParty_Create,ActivityParty_Update,ActivityParty_Select>;
 }
