@@ -8,7 +8,10 @@ trigger:
 
 pool:
   vmImage: 'vs2017-win2016'
-  demands: [ msbuild | visualstudio | powershell]
+  demands:
+    - msbuild
+    - visualstudio
+    - powershell
 
 steps:
 - task: NuGetCommand@2
