@@ -1,0 +1,58 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'vs2017-win2016'
+  demands: [ msbuild | visualstudio | powershell]
+
+steps:
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+
+- task: MSCRMToolInstaller@9
+
+- task: MSCRMSetVersion@10
+  inputs:
+    target: 'xml'
+    unpackedFilesFolder: 'Compliance.Solution/Solution'
+    versionNumber: '1.0.0.$(Build.BuildNumber)'
+
+- task: MSCRMPackSolution@10
+  inputs:
+    crmSdkVersion: '9.0.0'
+    unpackedFilesFolder: 'Compliance.Solution/Solution'
+    mappingFile: 'Compliance.Solution/map.xml'
+    packageType: 'Both'
+    outputPath: '$(Build.ArtifactStagingDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(build.sourcesdirectory)'
+    Contents: '**\bin\$(BuildConfiguration)\**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
