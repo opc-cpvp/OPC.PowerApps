@@ -1,0 +1,41 @@
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  crm.username: 'SVC_OPC_CRM_Admin@priv.gc.ca'
+  SolutionName: 'Compliance'
+
+steps:
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
+  displayName: 'MSCRM Tool Installer'
+
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportSolution.MSCRMExportSolution@10
+  displayName: 'MSCRM Export Solution'
+  inputs:
+    crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
+    solutionName: '$(SolutionName)'
+    exportManaged: true
+    outputPath: '$(Agent.TempDirectory)'
+
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractSolution.MSCRMExtractSolution@10
+  displayName: 'MSCRM Extract Solution'
+  inputs:
+    unpackedFilesFolder: '$(Build.SourcesDirectory)\$(SolutionName).Solution\Solution'
+    packageType: Both
+    solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
+    localize: false
+
+- powershell: |
+   $branch = "$(Build.SourceBranch)"
+   $branch = $branch.Replace("refs/heads/", "")
+   
+   echo "Commit all changes"
+   git config user.email "nepasrepondre-noreply@priv.gc.ca"
+   git config user.name "Automatic Build"
+   git checkout $branch
+   git add --all
+   git commit -m "Update Solution - $(SolutionName): $(CommitMessage)"
+   
+   echo "Push solution changes to the remote repository"
+   git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push --force origin $branch
+  displayName: 'Commit Unpacked Solution to the Repository'
