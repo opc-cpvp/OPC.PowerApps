@@ -6,6 +6,8 @@
 trigger:
 - master
 
+pr: none
+
 pool:
   vmImage: 'vs2017-win2016'
 
