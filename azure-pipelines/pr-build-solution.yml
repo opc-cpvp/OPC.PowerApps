@@ -1,0 +1,52 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+pr:
+- master
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  BuildPlatform: 'any cpu'
+  BuildConfiguration: 'release'
+  Version.MajorMinor: '1.0'
+  Version.Patch: $[counter(variables['Version.MajorMinor'], 0)]
+
+steps:
+- task: NuGetCommand@2
+  displayName: 'Restore .NET Framework NuGet Packages'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore .NET Core NuGet Packages'
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+
+- task: VSBuild@1
+  displayName: 'Build Solution'
+  inputs:
+    vsVersion: 15.0
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
+  displayName: 'Install MSCRM Tools'
+
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMSetVersion.MSCRMSetVersion@10
+  displayName: 'Set PowerApps Solution Version'
+  inputs:
+    target: xml
+    unpackedFilesFolder: Compliance.Solution/Solution
+    versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
+
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
+  displayName: 'Pack PowerApps Solution Version'
+  inputs:
+    unpackedFilesFolder: Compliance.Solution/Solution
+    mappingFile: Compliance.Solution/map.xml
+    packageType: Both
+    outputPath: '$(Agent.TempDirectory)'
+    localize: false
