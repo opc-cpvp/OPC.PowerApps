@@ -8,6 +8,10 @@ trigger:
 
 pool:
   vmImage: 'vs2017-win2016'
+  
+variables:
+  BuildConfiguration: 'release'
+  BuildPlatform: 'any cpu'
 
 steps:
 - task: NuGetCommand@2
