@@ -7,65 +7,62 @@ trigger:
 - master
 
 pool:
-  vmImage: 'vs2017-win2016'
-  
+  name: Azure Pipelines
+  demands:
+  - msbuild
+  - visualstudio
+  - powershell
+
 variables:
-  Version.MajorMinor: 1.0
-  Version.Patch: $[counter(variables['Version.MajorMinor'], 0)]
-  BuildConfiguration: 'release'
   BuildPlatform: 'any cpu'
+  BuildConfiguration: 'release'
+  Version.MajorMinor: '1.0'
+  Version.Patch: $[counter(variables['Version.MajorMinor'], 0)]
 
 steps:
 - task: NuGetCommand@2
   displayName: 'Restore .NET Framework NuGet Packages'
-  inputs:
-    command: 'restore'
-    restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore .NET Core NuGet Packages'
   inputs:
-    command: 'restore'
+    command: restore
     projects: '**/*.csproj'
-    feedsToUse: 'select'
 
 - task: VSBuild@1
   displayName: 'Build Solution'
   inputs:
-    solution: '**\*.sln'
+    vsVersion: 15.0
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
 
-- task: MSCRMToolInstaller@9
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'Install MSCRM Tools'
 
-- task: MSCRMSetVersion@10
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMSetVersion.MSCRMSetVersion@10
   displayName: 'Set PowerApps Solution Version'
   inputs:
-    target: 'xml'
-    unpackedFilesFolder: 'Compliance.Solution/Solution'
+    target: xml
+    unpackedFilesFolder: Compliance.Solution/Solution
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
 
-- task: MSCRMPackSolution@10
-  displayName: 'Pack PowerApps Solution'
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
+  displayName: 'Pack PowerApps Solution Version'
   inputs:
-    crmSdkVersion: '9.0.0'
-    unpackedFilesFolder: 'Compliance.Solution/Solution'
-    mappingFile: 'Compliance.Solution/map.xml'
-    packageType: 'Both'
+    unpackedFilesFolder: Compliance.Solution/Solution
+    mappingFile: Compliance.Solution/map.xml
+    packageType: Both
     outputPath: '$(Build.ArtifactStagingDirectory)'
+    localize: false
 
 - task: CopyFiles@2
   displayName: 'Copy Build Artifacts to Staging Directory'
   inputs:
-    SourceFolder: '$(build.sourcesdirectory)'
+    SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**\bin\$(BuildConfiguration)\**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Public Artifacts'
+  displayName: 'Publish Artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    PathtoPublish: '$(build.ArtifactStagingDirectory)'
