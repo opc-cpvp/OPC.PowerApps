@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" Name="Individual Complaint" Description="Process for handling a complaint that has been initiated by an individual" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/IndividualComplaint-3E0E9F7E-183E-4B3E-8B89-E668EB6B48C8.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>0</processorder>
+  <processroleassignment>&lt;DisplayConditions&gt;&lt;Role Id="{627090ff-40a3-4053-8790-584edc5be201}" /&gt;&lt;Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" /&gt;&lt;/DisplayConditions&gt;</processroleassignment>
+  <RunAs>1</RunAs>
+  <UniqueName>opc_individualcomplaint_bp</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.1397</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <PrimaryEntity>opc_complaint</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Individual Complaint" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Process for handling a complaint that has been initiated by an individual" />
+  </Descriptions>
+  <labels>
+    <steplabels id="{e0bf78b2-9a4e-44f1-8d12-b5ed83ce3c6f}">
+      <label languagecode="1033" description="Intake" />
+    </steplabels>
+    <steplabels id="{7c03c837-0648-4998-b423-ed6a6f1ce76e}">
+      <label languagecode="1033" description="Recommend to registrar" />
+    </steplabels>
+    <steplabels id="{c37661cb-c27e-422d-8fd6-393195d935e1}">
+      <label languagecode="1033" description="Recommend to" />
+    </steplabels>
+    <steplabels id="{45f2a2cf-9ace-41f0-81e8-205c341346b2}">
+      <label languagecode="1033" description="Reason to decline" />
+    </steplabels>
+    <steplabels id="{37b923cd-8ccb-426b-9581-e14752e0271e}">
+      <label languagecode="1033" description="Complaint Disposition" />
+    </steplabels>
+    <steplabels id="{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}">
+      <label languagecode="1033" description="Acceptance" />
+    </steplabels>
+    <steplabels id="{4b567f7a-208f-4ff8-be5b-cc32a9fd7dce}">
+      <label languagecode="1033" description="Decision" />
+    </steplabels>
+    <steplabels id="{1fe6d57a-4240-4a38-9cb2-1b5243141ad9}">
+      <label languagecode="1033" description="Acceptance Date" />
+    </steplabels>
+    <steplabels id="{bfb917ce-3313-4193-9e53-857b596219c8}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+    <steplabels id="{a89fc949-4e6f-4c0d-b447-3e36ec2878de}">
+      <label languagecode="1033" description="Early Resolution" />
+    </steplabels>
+    <steplabels id="{44515437-a633-4e48-a984-64d4d39d588e}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+    <steplabels id="{34649765-2943-4b28-aa58-cf2c44af4060}">
+      <label languagecode="1033" description="Investigation" />
+    </steplabels>
+    <steplabels id="{2d52e04d-5524-4a53-9050-8f5c6668a4af}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+    <steplabels id="{a52e31c9-0cad-4800-b80c-ef45c28726e5}">
+      <label languagecode="1033" description="Closed" />
+    </steplabels>
+    <steplabels id="{69dd9e4c-7cbb-4693-9f48-719c969c1adf}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+    <steplabels id="{681295a9-e97d-479a-9c1d-65386c3f95a8}">
+      <label languagecode="1033" description="Early Resolution" />
+    </steplabels>
+    <steplabels id="{93a9b62e-8b9f-4698-ae4a-e04c9d83b36a}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+    <steplabels id="{62ba6bdd-fb3a-4162-8a2c-4190e6c5e5dc}">
+      <label languagecode="1033" description="Investigation" />
+    </steplabels>
+    <steplabels id="{f86e9237-da9a-4cc6-95b5-74b5c96d7955}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+    <steplabels id="{da76887d-434e-4b18-9f18-4c82ae5daadd}">
+      <label languagecode="1033" description="Closed" />
+    </steplabels>
+    <steplabels id="{d57ba287-ce23-4c1a-a005-3777450cf3b0}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+    <steplabels id="{57863eb5-5caf-47c0-aabf-8b50814a4190}">
+      <label languagecode="1033" description="Closed" />
+    </steplabels>
+    <steplabels id="{f269bee4-98e8-4bd7-98e4-94dd19bfe148}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+    <steplabels id="{dd5bbf69-bc1b-4db8-a075-9e6cc6c263ef}">
+      <label languagecode="1033" description="Closed" />
+    </steplabels>
+    <steplabels id="{643f9c47-d5f5-4201-91de-31470ced9c0c}">
+      <label languagecode="1033" description="Status Reason" />
+    </steplabels>
+  </labels>
+  <ProcessTriggers>
+    <ProcessTrigger processtriggerid="{4d4550fa-02f4-e911-a813-000d3af464f8}">
+      <controltype>1</controltype>
+      <methodid>{e0bf78b2-9a4e-44f1-8d12-b5ed83ce3c6f}</methodid>
+      <scope>1</scope>
+      <controlname>opc_recommendtoregistrar</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>opc_complaint</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{4e4550fa-02f4-e911-a813-000d3af464f8}">
+      <controltype>1</controltype>
+      <methodid>{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}</methodid>
+      <scope>1</scope>
+      <controlname>opc_intakedisposition</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>opc_complaint</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{4f4550fa-02f4-e911-a813-000d3af464f8}">
+      <controltype>1</controltype>
+      <methodid>{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}</methodid>
+      <scope>1</scope>
+      <controlname>opc_intakedisposition</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>opc_complaint</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{504550fa-02f4-e911-a813-000d3af464f8}">
+      <controltype>1</controltype>
+      <methodid>{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}</methodid>
+      <scope>1</scope>
+      <controlname>opc_intakedisposition</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>opc_complaint</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{514550fa-02f4-e911-a813-000d3af464f8}">
+      <controltype>1</controltype>
+      <methodid>{a89fc949-4e6f-4c0d-b447-3e36ec2878de}</methodid>
+      <scope>1</scope>
+      <controlname>statuscode</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>opc_complaint</primaryentitytypecode>
+    </ProcessTrigger>
+    <ProcessTrigger processtriggerid="{524550fa-02f4-e911-a813-000d3af464f8}">
+      <controltype>1</controltype>
+      <methodid>{681295a9-e97d-479a-9c1d-65386c3f95a8}</methodid>
+      <scope>1</scope>
+      <controlname>statuscode</controlname>
+      <event>change</event>
+      <pipelinestage>0</pipelinestage>
+      <iscustomizable>1</iscustomizable>
+      <primaryentitytypecode>opc_complaint</primaryentitytypecode>
+    </ProcessTrigger>
+  </ProcessTriggers>
+</Workflow>

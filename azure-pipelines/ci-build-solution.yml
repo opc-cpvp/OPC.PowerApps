@@ -16,6 +16,7 @@ variables:
   BuildConfiguration: 'release'
   Version.MajorMinor: '1.0'
   Version.Patch: $[counter(variables['Version.MajorMinor'], 0)]
+  SolutionName: 'Compliance'
 
 steps:
 - task: NuGetCommand@2
@@ -41,14 +42,14 @@ steps:
   displayName: 'Set PowerApps Solution Version'
   inputs:
     target: xml
-    unpackedFilesFolder: Compliance.Solution/Solution
+    unpackedFilesFolder: source/$(SolutionName).Solution/Solution
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
   displayName: 'Pack PowerApps Solution Version'
   inputs:
-    unpackedFilesFolder: Compliance.Solution/Solution
-    mappingFile: Compliance.Solution/map.xml
+    unpackedFilesFolder: source/$(SolutionName).Solution/Solution
+    mappingFile: source/$(SolutionName).Solution/map.xml
     packageType: Both
     outputPath: '$(Build.ArtifactStagingDirectory)'
     localize: false
@@ -58,9 +59,9 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**\bin\$(BuildConfiguration)\**'
-    TargetFolder: '$(build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts'
   inputs:
-    PathtoPublish: '$(build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
