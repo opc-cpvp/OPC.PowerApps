@@ -24,7 +24,7 @@ steps:
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractSolution.MSCRMExtractSolution@10
   displayName: 'MSCRM Extract Solution'
   inputs:
-    unpackedFilesFolder: '$(Build.SourcesDirectory)\source\$(SolutionName).Solution\Solution'
+    unpackedFilesFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Solution\Solution'
     packageType: Both
     solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
     localize: false

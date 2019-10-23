@@ -42,14 +42,14 @@ steps:
   displayName: 'Set PowerApps Solution Version'
   inputs:
     target: xml
-    unpackedFilesFolder: source/$(SolutionName).Solution/Solution
+    unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
   displayName: 'Pack PowerApps Solution Version'
   inputs:
-    unpackedFilesFolder: source/$(SolutionName).Solution/Solution
-    mappingFile: source/$(SolutionName).Solution/map.xml
+    unpackedFilesFolder: src/$(SolutionName).Solution/Solution
+    mappingFile: src/$(SolutionName).Solution/map.xml
     packageType: Both
     outputPath: '$(Agent.TempDirectory)'
     localize: false
