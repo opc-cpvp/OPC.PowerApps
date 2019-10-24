@@ -41,5 +41,5 @@ steps:
    git commit -m "Update Solution - $(SolutionName): $(CommitMessage)"
    
    echo "Push solution changes to the remote repository"
-   git -c http.extraheader="AUTHORIZATION: token $(Token)" push --force origin $branch
+   git -c http.extraheader="AUTHORIZATION: basic $(Token)" push --force origin $branch
   displayName: 'Commit Unpacked Solution to the Repository'
