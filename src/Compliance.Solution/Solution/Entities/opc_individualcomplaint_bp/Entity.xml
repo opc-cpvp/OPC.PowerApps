@@ -47,11 +47,9 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Active Stage" languagecode="1033" />
-            <displayname description="Phase active" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the active stage for the Business Process Flow instance." languagecode="1033" />
-            <Description description="Identificateur unique de la phase active pour l'instance du flux des processus d'entreprise." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ActiveStageStartedOn">
@@ -85,16 +83,53 @@
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>date</Format>
-          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <CanChangeDateTimeBehavior>0</CanChangeDateTimeBehavior>
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Active Stage Started On" languagecode="1033" />
-            <displayname description="Date de démarrage de la phase active" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when current active stage is started" languagecode="1033" />
-            <Description description="Date et heure de démarrage de la phase active actuelle" languagecode="1036" />
           </Descriptions>
+        </attribute>
+        <attribute PhysicalName="bpf_duration">
+          <Type>int</Type>
+          <Name>bpf_duration</Name>
+          <LogicalName>bpf_duration</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForReadApi>1</ValidForReadApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.8</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>1</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format></Format>
+          <MinValue>-2147483648</MinValue>
+          <MaxValue>2147483647</MaxValue>
+          <displaynames>
+            <displayname description="Duration" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+          <FormulaDefinitionFileName>/Formulas/opc_individualcomplaint_bp-bpf_duration.xaml</FormulaDefinitionFileName>
         </attribute>
         <attribute PhysicalName="bpf_name">
           <Type>nvarchar</Type>
@@ -142,6 +177,7 @@
           <LogicalName>bpf_opc_complaintid</LogicalName>
           <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
@@ -208,7 +244,6 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier for entity instances" languagecode="1033" />
-            <Description description="Identificateur unique des instances d'entité" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CompletedOn">
@@ -242,15 +277,13 @@
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>date</Format>
-          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <CanChangeDateTimeBehavior>0</CanChangeDateTimeBehavior>
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Completed On" languagecode="1033" />
-            <displayname description="Terminé(e) le" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when Business Process Flow instance is completed." languagecode="1033" />
-            <Description description="Date et heure de fin de l'instance du flux des processus d'entreprise." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedBy">
@@ -285,11 +318,9 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Created By" languagecode="1033" />
-            <displayname description="Créé par" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who created the record." languagecode="1033" />
-            <Description description="Identificateur unique de l’utilisateur qui a créé l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedOn">
@@ -325,11 +356,9 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Created On" languagecode="1033" />
-            <displayname description="Créé le" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the record was created." languagecode="1033" />
-            <Description description="Date et heure de la création de l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedOnBehalfBy">
@@ -364,11 +393,9 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Created By (Delegate)" languagecode="1033" />
-            <displayname description="Créé par (délégué)" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the delegate user who created the record." languagecode="1033" />
-            <Description description="Identificateur unique de l’utilisateur délégué qui a créé l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ImportSequenceNumber">
@@ -405,11 +432,9 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="Import Sequence Number" languagecode="1033" />
-            <displayname description="Numéro séquentiel d’importation" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Sequence number of the import that created this record." languagecode="1033" />
-            <Description description="Numéro séquentiel de l’importation qui a créé cet enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedBy">
@@ -444,11 +469,9 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Modified By" languagecode="1033" />
-            <displayname description="Modifié par" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who modified the record." languagecode="1033" />
-            <Description description="Identificateur unique de l’utilisateur qui a modifié l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedOn">
@@ -484,11 +507,9 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Modified On" languagecode="1033" />
-            <displayname description="Modifié le" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the record was modified." languagecode="1033" />
-            <Description description="Date et heure de la modification de l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedOnBehalfBy">
@@ -523,11 +544,9 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Modified By (Delegate)" languagecode="1033" />
-            <displayname description="Modifié par (délégué)" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the delegate user who modified the record." languagecode="1033" />
-            <Description description="Identificateur unique de l’utilisateur délégué qui a modifié l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OrganizationId">
@@ -557,14 +576,13 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
+          <LookupStyle>single</LookupStyle>
           <LookupTypes />
           <displaynames>
             <displayname description="Organization Id" languagecode="1033" />
-            <displayname description="ID d’organisation" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier for the organization" languagecode="1033" />
-            <Description description="Identificateur unique de l’organisation" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OverriddenCreatedOn">
@@ -601,11 +619,9 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Record Created On" languagecode="1033" />
-            <displayname description="Enregistrement créé le" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time that the record was migrated." languagecode="1033" />
-            <Description description="Date et heure de la migration de l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ProcessId">
@@ -642,11 +658,9 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Process" languagecode="1033" />
-            <displayname description="Traiter" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the workflow associated to the Business Process Flow instance." languagecode="1033" />
-            <Description description="Identificateur unique du workflow associé à l'instance du flux des processus d'entreprise." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="statecode">
@@ -684,34 +698,28 @@
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Status" languagecode="1033" />
-              <displayname description="Statut" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Status of the Individual Complaint" languagecode="1033" />
-              <Description description="Statut de l'élément Individual Complaint" languagecode="1036" />
             </Descriptions>
             <states>
               <state value="0" defaultstatus="1" invariantname="Active">
                 <labels>
                   <label description="Active" languagecode="1033" />
-                  <label description="Actif" languagecode="1036" />
                 </labels>
               </state>
               <state value="1" defaultstatus="2" invariantname="Inactive">
                 <labels>
                   <label description="Inactive" languagecode="1033" />
-                  <label description="Inactif" languagecode="1036" />
                 </labels>
               </state>
             </states>
           </optionset>
           <displaynames>
             <displayname description="Status" languagecode="1033" />
-            <displayname description="Statut" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Status of the Individual Complaint" languagecode="1033" />
-            <Description description="Statut de l'élément Individual Complaint" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="statuscode">
@@ -750,40 +758,33 @@
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Status Reason" languagecode="1033" />
-              <displayname description="Raison du statut" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Reason for the status of the Individual Complaint" languagecode="1033" />
-              <Description description="Raison du statut de l'élément Individual Complaint" languagecode="1036" />
             </Descriptions>
             <statuses>
               <status value="1" state="0">
                 <labels>
                   <label description="Active" languagecode="1033" />
-                  <label description="Actif" languagecode="1036" />
                 </labels>
               </status>
               <status value="2" state="1">
                 <labels>
                   <label description="Finished" languagecode="1033" />
-                  <label description="Terminé(e)" languagecode="1036" />
                 </labels>
               </status>
               <status value="3" state="1">
                 <labels>
                   <label description="Aborted" languagecode="1033" />
-                  <label description="Abandonné(e)" languagecode="1036" />
                 </labels>
               </status>
             </statuses>
           </optionset>
           <displaynames>
             <displayname description="Status Reason" languagecode="1033" />
-            <displayname description="Raison du statut" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Reason for the status of the Individual Complaint" languagecode="1033" />
-            <Description description="Raison du statut de l'élément Individual Complaint" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="TimeZoneRuleVersionNumber">
@@ -820,11 +821,9 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="Time Zone Rule Version Number" languagecode="1033" />
-            <displayname description="Numéro de version de la règle du fuseau horaire" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="For internal use only." languagecode="1033" />
-            <Description description="Utilisation interne uniquement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="TraversedPath">
@@ -862,11 +861,9 @@
           <Length>2500</Length>
           <displaynames>
             <displayname description="Traversed Path" languagecode="1033" />
-            <displayname description="Chemin d'accès traversé" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Comma delimited string of process stage ids that represent visited stages of the Business Process Flow instance." languagecode="1033" />
-            <Description description="Chaîne séparée par des virgules dans laquelle figurent des identificateurs de phases représentant les phases consultées de l'instance de flux des processus d'entreprise." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="UTCConversionTimeZoneCode">
@@ -903,11 +900,9 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="UTC Conversion Time Zone Code" languagecode="1033" />
-            <displayname description="Code de fuseau horaire pour la conversion UTC" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Time zone code that was in use when the record was created." languagecode="1033" />
-            <Description description="Code de fuseau horaire utilisé à la création de l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
       </attributes>
@@ -933,7 +928,7 @@
       <ActivityTypeMask></ActivityTypeMask>
       <IsActivityParty>0</IsActivityParty>
       <IsReplicated>1</IsReplicated>
-      <IsReplicationUserFiltered>0</IsReplicationUserFiltered>
+      <IsReplicationUserFiltered>1</IsReplicationUserFiltered>
       <IsMailMergeEnabled>0</IsMailMergeEnabled>
       <IsVisibleInMobile>0</IsVisibleInMobile>
       <IsVisibleInMobileClient>1</IsVisibleInMobileClient>
