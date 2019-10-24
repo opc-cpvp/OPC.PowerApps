@@ -3,6 +3,15 @@
   <Name LocalizedName="Account" OriginalName="">Account</Name>
   <EntityInfo>
     <entity Name="Account">
+      <LocalizedNames>
+        <LocalizedName description="Account" languagecode="1033" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Accounts" languagecode="1033" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Business that represents a customer or potential customer. The company that is billed in business transactions." languagecode="1033" />
+      </Descriptions>
       <attributes />
       <EntitySetName>accounts</EntitySetName>
       <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>

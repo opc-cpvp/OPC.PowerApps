@@ -26,7 +26,6 @@
                 <section name="CardHeader" showlabel="false" showbar="false" columns="111" id="{7c1c0598-7b3a-43c2-babc-9fc8845e20a2}" IsUserDefined="0">
                   <labels>
                     <label description="Header" languagecode="1033" />
-                    <label description="En-tête" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
@@ -52,7 +51,6 @@
                 <section name="CardDetails" showlabel="false" showbar="false" columns="1" id="{37397212-fbfd-4fde-8f1f-dc2028d38abf}" IsUserDefined="0">
                   <labels>
                     <label description="Details" languagecode="1033" />
-                    <label description="Détails" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
@@ -68,7 +66,6 @@
                 <section name="CardFooter" showlabel="false" columns="1111" showbar="false" id="{dd853a25-42eb-4804-9f0c-2848becf2533}" IsUserDefined="0">
                   <labels>
                     <label description="Footer" languagecode="1033" />
-                    <label description="Pied de page" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
