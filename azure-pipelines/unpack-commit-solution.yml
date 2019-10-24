@@ -10,7 +10,7 @@ variables:
   SolutionName: 'Compliance'
 
 steps:
-- checkout: none
+- checkout: self
   persistCredentials: true
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
