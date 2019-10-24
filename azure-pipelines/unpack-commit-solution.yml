@@ -10,6 +10,9 @@ variables:
   SolutionName: 'Compliance'
 
 steps:
+- checkout: none
+  persistCredentials: true
+
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'MSCRM Tool Installer'
 
@@ -41,5 +44,5 @@ steps:
    git commit -m "Update Solution - $(SolutionName): $(CommitMessage)"
    
    echo "Push solution changes to the remote repository"
-   git -c http.extraheader="AUTHORIZATION: basic $(Token)" push --force origin $branch
+   git -c http.extraheader="AUTHORIZATION: basic $(System.AccessToken)" push --force origin $branch
   displayName: 'Commit Unpacked Solution to the Repository'
