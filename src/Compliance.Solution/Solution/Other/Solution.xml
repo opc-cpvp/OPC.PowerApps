@@ -94,6 +94,8 @@
       <RootComponent type="61" schemaName="opc_/compliance/js/compliance.min.js" behavior="0" />
       <RootComponent type="62" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="80" schemaName="opc_compliance" behavior="0" />
+      <RootComponent type="91" id="{a6cdf965-0a84-4515-bbdc-2ba3f2d02651}" schemaName="Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=83b0718b7c03d035" behavior="0" />
+      <RootComponent type="92" id="{3322834f-1dff-e911-a811-000d3af42f4a}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
