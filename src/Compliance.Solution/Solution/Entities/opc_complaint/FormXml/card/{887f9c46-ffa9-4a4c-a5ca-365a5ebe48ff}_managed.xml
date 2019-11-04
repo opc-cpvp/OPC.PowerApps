@@ -18,6 +18,15 @@
                   <labels>
                     <label description="ColorStrip" languagecode="1033" />
                   </labels>
+                  <rows>
+                    <row>
+                      <cell id="{19fef233-708f-4788-9540-8891bde4da4f}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
                 </section>
               </sections>
             </column>
@@ -59,6 +68,30 @@
                           <label description="" languagecode="1033" />
                         </labels>
                         <control id="opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4017e9bc-c290-e1bd-0bc9-a0502edeb49c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{02334ce5-db78-9b5c-55e7-550be30532dd}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{863bda61-dac4-0037-8da4-54ceea4aa5b7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_legislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_legislation" disabled="false" />
                       </cell>
                     </row>
                   </rows>

@@ -44,6 +44,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{700080eb-a752-4105-b6bc-a00d85e1f1de}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_legislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_legislation" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}">
                         <labels>
                           <label description="" languagecode="1033" />
@@ -245,7 +253,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
