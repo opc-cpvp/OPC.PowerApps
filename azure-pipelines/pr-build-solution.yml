@@ -25,19 +25,6 @@ variables:
     value: 'Compliance'
 
 steps:
-- task: DownloadSecureFile@1
-  displayName: 'Download Code Signing Key File'
-  name: KeyFile
-  inputs:
-    secureFile: '$(KeyFile.Name)'
-
-- task: CopyFiles@2
-  displayName: 'Copy Code Signing Key File to Plugins Directory'
-  inputs:
-    SourceFolder: '$(Agent.TempDirectory)'
-    Contents: '$(KeyFile.Name)'
-    TargetFolder: 'src/$(SolutionName).Plugins'
-
 - task: NuGetCommand@2
   displayName: 'Restore .NET Framework NuGet Packages'
 
