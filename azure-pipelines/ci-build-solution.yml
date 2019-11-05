@@ -12,13 +12,31 @@ pool:
   vmImage: 'vs2017-win2016'
 
 variables:
-  BuildPlatform: 'any cpu'
-  BuildConfiguration: 'release'
-  Version.MajorMinor: '1.0'
-  Version.Patch: $[counter(variables['Version.MajorMinor'], 0)]
-  SolutionName: 'Compliance'
+  - group: CodeSigning
+  - name: BuildPlatform
+    value: 'any cpu'
+  - name: BuildConfiguration
+    value: 'release'
+  - name: Version.MajorMinor
+    value: '1.0'
+  - name: Version.Patch
+    value: $[counter(variables['Version.MajorMinor'], 0)]
+  - name: SolutionName
+    value: 'Compliance'
 
 steps:
+- task: DownloadSecureFile@1
+  name: KeyFile
+  displayName: 'Download Code Signing Key File'
+  inputs:
+    secureFile: '$(KeyFile.Name)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Agent.TempDirectory)'
+    Contents: '$(KeyFile.Name)'
+    TargetFolder: 'src/$(SolutionName).Plugins'
+
 - task: NuGetCommand@2
   displayName: 'Restore .NET Framework NuGet Packages'
 
