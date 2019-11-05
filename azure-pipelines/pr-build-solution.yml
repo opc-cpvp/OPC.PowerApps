@@ -12,17 +12,11 @@ pool:
   vmImage: 'vs2017-win2016'
 
 variables:
-  - group: CodeSigning
-  - name: BuildPlatform
-    value: 'any cpu'
-  - name: BuildConfiguration
-    value: 'release'
-  - name: Version.MajorMinor
-    value: '1.0'
-  - name: Version.Patch
-    value: $[counter(variables['Version.MajorMinor'], 0)]
-  - name: SolutionName
-    value: 'Compliance'
+  BuildPlatform: 'any cpu'
+  BuildConfiguration: 'release'
+  Version.MajorMinor: '1.0'
+  Version.Patch: $[counter(variables['Version.MajorMinor'], 0)]
+  SolutionName: 'Compliance'
 
 steps:
 - task: NuGetCommand@2
