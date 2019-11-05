@@ -38,7 +38,7 @@ steps:
       Import-PfxCertificate `
         -FilePath $(KeyFile.secureFilePath) `
         -CertStoreLocation Cert:\CurrentUser\My `
-        -Password $(KeyFile.Password)
+        -Password '$(KeyFile.Password)'
 
 - task: NuGetCommand@2
   displayName: 'Restore .NET Framework NuGet Packages'
