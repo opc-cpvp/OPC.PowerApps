@@ -28,13 +28,13 @@ steps:
 - task: DownloadSecureFile@1
   displayName: 'Download Code Signing Key File'
   inputs:
-    secureFile: '$(KeyFile)'
+    secureFile: '$(KeyFileName)'
 
 - task: CopyFiles@2
   displayName: 'Move Code Signing Key File to Plugins Directory'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '$(KeyFile)'
+    SourceFolder: '$(Agent.TempDirectory)'
+    Contents: '$(KeyFileName)'
     TargetFolder: '$(SolutionName).Plugins'
 
 - task: NuGetCommand@2
