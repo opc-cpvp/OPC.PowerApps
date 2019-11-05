@@ -76,6 +76,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier for the team that owns the record." languagecode="1033" />
+        <Description description="Identificateur unique pour l’équipe à qui appartient l’enregistrement." languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
