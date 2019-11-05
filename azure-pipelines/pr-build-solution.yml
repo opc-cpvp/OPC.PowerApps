@@ -33,7 +33,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Agent.TempDir)'
+    SourceFolder: '$(Agent.TempDirectory)'
     Contents: '$(KeyFile.Name)'
     TargetFolder: 'src/$(SolutionName).Plugins'
 
