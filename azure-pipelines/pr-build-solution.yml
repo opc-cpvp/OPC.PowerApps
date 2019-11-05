@@ -37,6 +37,16 @@ steps:
     Contents: '$(KeyFile.Name)'
     TargetFolder: 'src/$(SolutionName).Plugins'
 
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      $password = ConvertTo-SecureString "$(KeyFile.Password)" -AsPlainText -Force
+      Import-PfxCertificate `
+        -FilePath "$(KeyFile.secureFilePath)" `
+        -CertStoreLocation Cert:\CurrentUser\My `
+        -Password $password
+
 - task: NuGetCommand@2
   displayName: 'Restore .NET Framework NuGet Packages'
 
