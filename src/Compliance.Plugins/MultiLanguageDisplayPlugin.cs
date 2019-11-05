@@ -49,17 +49,6 @@ namespace Compliance.Plugins
                 new Action<LocalPluginContext>(UnpackNameOnRetrieveMultipleRelated)));
         }
 
-        //protected override void ExecuteCrmPlugin(LocalPluginContext localContext)
-        //{
-        //    try
-        //    {
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new InvalidPluginExecutionException($"{ex.Message}: {ex.StackTrace}");
-        //    }
-        //}
-
         ///
         /// Unpack the product name field
         ///
