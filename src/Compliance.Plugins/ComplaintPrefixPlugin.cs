@@ -1,6 +1,11 @@
 ﻿using Compliance.Plugins.Entities;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Compliance.Plugins
 {
@@ -13,21 +18,25 @@ namespace Compliance.Plugins
 
         protected override void ExecuteCrmPlugin(LocalPluginContext localContext)
         {
-            if (localContext == null)
-                throw new InvalidPluginExecutionException("localContext", new ArgumentNullException(nameof(localContext)));
-
-            if (!(localContext.PluginExecutionContext.InputParameters["Target"] is opc_complaint complaint))
+            if (!(localContext.PluginExecutionContext.InputParameters["Target"] is Entity target))
                 return;
 
             try
             {
-                var acroynym = complaint.opc_complaints_legislation.opc_acronym;
-                var number = complaint.opc_number;
+                // Convert the target entity to a complaint
+                var complaint = target.ToEntity<opc_complaint>();
 
-                complaint.opc_number = $"{acroynym}-{number}";
+                // Get the linked legislation record
+                var legislation = localContext.OrganizationService
+                    .Retrieve("opc_legislation", complaint.opc_legislation.Id, new ColumnSet("opc_acronym"))
+                    .ToEntity<opc_legislation>();
+
+                // Set the complaint number
+                complaint["opc_number"] = $"{legislation.opc_acronym}-{complaint.opc_number}";
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
+                // Trace and throw any exceptions
                 localContext.Trace($"Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
                 throw new InvalidPluginExecutionException($"An error occurred in the plug-in. ComplaintPrefix: {ex.Message}", ex);
             }
