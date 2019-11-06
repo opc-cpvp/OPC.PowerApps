@@ -592,14 +592,13 @@
           <LogicalName>opc_legislation</LogicalName>
           <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.10</IntroducedVersion>
+          <IntroducedVersion>1.0.12</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -622,7 +621,7 @@
             <displayname description="Legislation" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Legislation related to the complaint." languagecode="1033" />
+            <Description description="The legislation related to the complaint." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_number">
