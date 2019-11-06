@@ -63,7 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrmPluginRegistrationAttribute.cs" />
-    <Compile Include="EmptyPlugin.cs" />
+    <Compile Include="ComplaintPrefixPlugin.cs" />
+    <Compile Include="Entities\Entities.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +73,7 @@
     <None Include="bin\coretools\LicenseTerms.docx" />
     <None Include="bin\coretools\SolutionPackager.exe.config" />
     <None Include="Compliance.snk" />
+    <None Include="generate_earlybound_entities.ps1" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
