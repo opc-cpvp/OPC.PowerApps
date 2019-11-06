@@ -11,10 +11,13 @@
   <optionsets />
   <WebResources />
   <CustomControls />
+  <SolutionPluginAssemblies />
+  <SdkMessageProcessingSteps />
   <AppModuleSiteMaps />
   <AppModules />
   <EntityDataProviders />
   <Languages>
     <Language>1033</Language>
+    <Language>1036</Language>
   </Languages>
 </ImportExportXml>

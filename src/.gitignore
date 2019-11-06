@@ -9,3 +9,9 @@ XrmDefinitelyTyped/XrmDefinitelyTyped/
 !*.Solution/Solution/WebResources/**/
 *.Solution/Solution/WebResources/**/*.*
 !*.Solution/Solution/WebResources/**/*.data.xml
+
+# Ignore unpacked PluginAssemblies except for metadata files
+*.Solution/Solution/PluginAssemblies/**/*
+!*.Solution/Solution/PluginAssemblies/**/
+*.Solution/Solution/PluginAssemblies/**/*.*
+!*.Solution/Solution/PluginAssemblies/**/*.data.xml

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XrmDefinitelyTyped", "XrmDe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Compliance.WebResources", "Compliance.WebResources\Compliance.WebResources.csproj", "{63AF5691-BB60-43FE-8363-5DFDBBF18ADC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compliance.Plugins", "Compliance.Plugins\Compliance.Plugins.csproj", "{D335A296-1E3B-4FB9-8D84-9067A58ACAD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{63AF5691-BB60-43FE-8363-5DFDBBF18ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63AF5691-BB60-43FE-8363-5DFDBBF18ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63AF5691-BB60-43FE-8363-5DFDBBF18ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D335A296-1E3B-4FB9-8D84-9067A58ACAD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D335A296-1E3B-4FB9-8D84-9067A58ACAD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D335A296-1E3B-4FB9-8D84-9067A58ACAD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D335A296-1E3B-4FB9-8D84-9067A58ACAD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
