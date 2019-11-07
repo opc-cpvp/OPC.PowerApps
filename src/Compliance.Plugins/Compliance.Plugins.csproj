@@ -63,7 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrmPluginRegistrationAttribute.cs" />
-    <Compile Include="EmptyPlugin.cs" />
+    <Compile Include="MultiLanguageDisplayPlugin.cs" />
+    <Compile Include="MultiLanguageRelatedDisplayPlugin.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
