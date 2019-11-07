@@ -16,7 +16,6 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Owner Id" languagecode="1033" />
-        <Description description="ID du propriétaire" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -36,7 +35,6 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Owner Id" languagecode="1033" />
-        <Description description="ID du propriétaire" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -56,7 +54,6 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Owner Id" languagecode="1033" />
-        <Description description="ID du propriétaire" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -76,7 +73,6 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Owner Id" languagecode="1033" />
-        <Description description="ID du propriétaire" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -96,7 +92,6 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Owner Id" languagecode="1033" />
-        <Description description="ID du propriétaire" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>

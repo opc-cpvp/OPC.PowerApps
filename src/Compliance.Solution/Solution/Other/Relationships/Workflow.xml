@@ -16,7 +16,6 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier of the workflow associated to the Business Process Flow instance." languagecode="1033" />
-        <Description description="Identificateur unique du workflow associé à l'instance du flux des processus d'entreprise." languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>

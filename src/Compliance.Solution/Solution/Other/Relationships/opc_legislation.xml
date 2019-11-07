@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <EntityRelationship Name="opc_complaints_legislation">
+  <EntityRelationship Name="opc_legislation_complaints_legislation">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.10</IntroducedVersion>
+    <IntroducedVersion>1.0.12</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_complaint</ReferencingEntityName>
     <ReferencedEntityName>opc_legislation</ReferencedEntityName>
@@ -17,7 +17,7 @@
     <ReferencingAttributeName>opc_legislation</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="Legislation related to the complaint." languagecode="1033" />
+        <Description description="The legislation related to the complaint." languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -29,7 +29,7 @@
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>opc_complaints_legislation</NavigationPropertyName>
+        <NavigationPropertyName>opc_legislation_complaints_legislation</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
