@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.10316" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.10522" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Compliance</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.11</Version>
+    <Version>1.0.12</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -97,13 +97,16 @@
       <RootComponent type="61" schemaName="opc_/compliance/js/compliance.min.js" behavior="0" />
       <RootComponent type="62" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="80" schemaName="opc_compliance" behavior="0" />
-      <RootComponent type="91" id="{4a8c4d6a-ba0d-4b8c-b484-58e155d0582c}" schemaName="Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=83b0718b7c03d035" behavior="0" />
-      <RootComponent type="92" id="{ca1fe24a-e5ff-e911-a811-000d3af4363f}" behavior="0" />
+      <RootComponent type="92" id="{6b057fa4-5305-ea11-a811-000d3af4346a}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
         <Required key="0" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
         <Dependent key="1" type="80" schemaName="opc_compliance" displayName="Compliance" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="2" type="90" schemaName="Compliance.Plugins.ComplaintPrefixPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" displayName="Compliance.Plugins.ComplaintPrefixPlugin" solution="Active" id="{043cef86-3683-4295-851c-1eb69407025a}" />
+        <Dependent key="3" type="92" displayName="Appends legislation to complaint number when creating the entity." id="{6b057fa4-5305-ea11-a811-000d3af4346a}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>
