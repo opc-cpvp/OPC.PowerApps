@@ -9,35 +9,78 @@ namespace Compliance.Plugins.Tests
 {
     public class CompliancePrefixPluginTests
     {
-        [Fact]
-        public void ComplaintNumberIsPrefixedWithLegislationAcronym()
+        public class when_creating_complaint
         {
-            // Arrange
-            var context = new XrmFakedContext();
+            public static ComplaintPrefixPlugin pluginInstance = null;
 
-            var legislation = new opc_legislation
+            public static IEnumerable<object[]> Legislations
             {
-                Id = Guid.NewGuid(),
-                opc_acronym = "PA",
-                opc_name = "Privacy Act"
-            };
+                get
+                {
+                    return new[]
+                    {
+                        new object[] { new opc_legislation { Id = Guid.NewGuid(), opc_acronym = "PA", opc_name = "Privacy Act" } },
+                        new object[] { new opc_legislation { Id = Guid.NewGuid(), opc_acronym = "PIPEDA", opc_name = "Personal Information Protection and Electronic Documents Act" } }
+                    };
+                }
+            }
 
-            var complaint = new opc_complaint
+            public static ComplaintPrefixPlugin PluginInstance
             {
-                Id = Guid.NewGuid(),
-                opc_number = "0000100",
-                opc_legislation = legislation.ToEntityReference()
-            };
+                get
+                {
+                    if (pluginInstance is null)
+                        pluginInstance = new ComplaintPrefixPlugin();
 
-            context.Initialize(new List<Entity> { complaint, legislation });
+                    return pluginInstance;
+                }
+            }
 
-            var plugin = new ComplaintPrefixPlugin();
+            [Theory, MemberData(nameof(Legislations))]
+            public void complaint_number_should_change(opc_legislation legislation)
+            {
+                // Arrange
+                var context = new XrmFakedContext();
 
-            // Act
-            context.ExecutePluginWithTarget(plugin, complaint, "Create");
+                var complaintNumber = "0000100";
+                var complaint = new opc_complaint
+                {
+                    Id = Guid.NewGuid(),
+                    opc_number = complaintNumber,
+                    opc_legislation = legislation.ToEntityReference()
+                };
 
-            // Assert
-            Assert.Equal("PA-0000100", complaint.opc_number);
+                context.Initialize(new List<Entity> { complaint, legislation });
+
+                // Act
+                context.ExecutePluginWithTarget(PluginInstance, complaint, "Create");
+
+                // Assert
+                Assert.NotEqual(complaintNumber, complaint.opc_number);
+            }
+
+            [Theory, MemberData(nameof(Legislations))]
+            public void complaint_number_should_be_prefixed_with_legislation(opc_legislation legislation)
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+
+                var complaintNumber = "0000100";
+                var complaint = new opc_complaint
+                {
+                    Id = Guid.NewGuid(),
+                    opc_number = complaintNumber,
+                    opc_legislation = legislation.ToEntityReference()
+                };
+
+                context.Initialize(new List<Entity> { complaint, legislation });
+
+                // Act
+                context.ExecutePluginWithTarget(PluginInstance, complaint, "Create");
+
+                // Assert
+                Assert.Equal($"{legislation.opc_acronym}-{complaintNumber}", complaint.opc_number);
+            }
         }
     }
 }
