@@ -636,7 +636,7 @@
             <displayname description="Legislation" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Legislation related to the complaint." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_number">
