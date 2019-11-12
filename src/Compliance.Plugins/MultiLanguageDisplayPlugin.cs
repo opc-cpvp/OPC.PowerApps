@@ -75,10 +75,9 @@ namespace Compliance.Plugins
         ///
         protected void PackNameTranslations(LocalPluginContext localContext)
         {
-
             IPluginExecutionContext context = localContext.PluginExecutionContext;
 
-            // Pack the translated labels into the name field en,de
+            // Pack the translated labels into the name field
             Entity target = (Entity)localContext.PluginExecutionContext.InputParameters["Target"];
             Entity preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(this.preImageAlias)) ? context.PreEntityImages[this.preImageAlias] : null;
 
@@ -87,7 +86,6 @@ namespace Compliance.Plugins
             for (int i = 0; i < languages.Length; i++)
             {
                 names[i] = GetAttributeValue<string>($"opc_name{languages[i]}", preImageEntity, target);
-
             }
 
             // Store the packed value in the target entity
