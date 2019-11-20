@@ -1,9 +1,22 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "allowJs": true
-  }
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "maxNodeModuleJsDepth": 2,
+        "noImplicitAny": true,
+        "types": [ "reflect-metadata" ],
+        "module": "commonjs",
+        "target": "es5",
+        "lib": [ "es6" ],
+        "moduleResolution": "node",
+        "allowJs": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "exclude": [
+        "**/bin",
+        "**/obj",
+        "**/@types",
+        "**/node_modules",
+        "**/js"
+    ]
 }

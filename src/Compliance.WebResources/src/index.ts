@@ -4,6 +4,7 @@
 /// <reference path="../@types/xrmdefinitelytyped/metadata.d.ts" />
 
 import "../js/lib/xrmquery/dg.xrmquery.web.promise.min.js";
+import "reflect-metadata";
 
 // All forms.
 export { Complaint } from "./ComplaintMainForm";
