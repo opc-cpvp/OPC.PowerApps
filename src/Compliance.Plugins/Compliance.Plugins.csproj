@@ -65,8 +65,8 @@
     <Compile Include="CrmPluginRegistrationAttribute.cs" />
     <Compile Include="ComplaintPrefixPlugin.cs" />
     <Compile Include="Entities\Entities.cs" />
-    <Compile Include="MultiLanguageDisplayPlugin.cs" />
-    <Compile Include="MultiLanguageRelatedDisplayPlugin.cs" />
+    <Compile Include="MultiLanguagePlugin.cs" />
+    <Compile Include="MultiLanguageRelatedPlugin.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

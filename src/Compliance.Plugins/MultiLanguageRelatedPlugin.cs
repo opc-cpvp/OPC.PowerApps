@@ -4,13 +4,13 @@ using System;
 
 namespace Compliance.Plugins
 {
-    public partial class MultiLanguageRelatedDisplayPlugin : PluginBase
+    public partial class MultiLanguageRelatedPlugin : PluginBase
     {
         private readonly int[] locales = new int[] { 1033, 1036 }; // LCIDs of each language in the languages array
-        private readonly string[] relatedBilingualFields = new string[] { "opc_lookupaid", "opc_lookupbid" }; // Related Bilingual Fields
+        private readonly string[] relatedBilingualFields = new string[] { "opc_themeid" }; // Related Bilingual Fields
 
-        public MultiLanguageRelatedDisplayPlugin()
-            : base(typeof(MultiLanguageRelatedDisplayPlugin), runAsSystem: true)
+        public MultiLanguageRelatedPlugin()
+            : base(typeof(MultiLanguageRelatedPlugin), runAsSystem: true)
         { }
 
         protected override void ExecuteCrmPlugin(LocalPluginContext localContext)
@@ -18,13 +18,22 @@ namespace Compliance.Plugins
             if (localContext == null)
                 throw new InvalidPluginExecutionException("localContext", new ArgumentNullException(nameof(localContext)));
 
-            string messageName = localContext.PluginExecutionContext.MessageName;
+            try
+            {
+                string messageName = localContext.PluginExecutionContext.MessageName;
 
-            if (messageName == "Retrieve")
-                UnpackNameOnRetrieveRelated(localContext);
+                if (messageName == "Retrieve")
+                    UnpackNameOnRetrieveRelated(localContext);
 
-            if (messageName == "RetrieveMultiple")
-                UnpackNameOnRetrieveMultipleRelated(localContext);
+                if (messageName == "RetrieveMultiple")
+                    UnpackNameOnRetrieveMultipleRelated(localContext);
+            }
+            catch (Exception ex)
+            {
+                // Trace and throw any exceptions
+                localContext.Trace($"Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
+                throw new InvalidPluginExecutionException($"An error occurred in the plug-in. MultiLanguageRelated: {ex.Message}", ex);
+            }
         }
 
         ///
@@ -49,7 +58,6 @@ namespace Compliance.Plugins
                 userLanguageId = userSettings.GetAttributeValue<int>("uilanguageid");
                 localContext.PluginExecutionContext.SharedVariables["uilanguageid"] = userLanguageId;
             }
-
             // Split the name
             string[] labels = name.Split('|');
 
@@ -65,7 +73,6 @@ namespace Compliance.Plugins
         ///
         protected void UnpackNameOnRetrieveMultipleRelated(LocalPluginContext localContext)
         {
-            IPluginExecutionContext context = localContext.PluginExecutionContext;
             EntityCollection collection = (EntityCollection)localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"];
             foreach (Entity e in collection.Entities)
             {

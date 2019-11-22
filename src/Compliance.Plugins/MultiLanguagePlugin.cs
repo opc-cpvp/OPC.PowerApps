@@ -1,21 +1,18 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;
-using System.Globalization;
 using System.Linq;
-using System.ServiceModel;
-using System.Text;
 
 namespace Compliance.Plugins
 {
-    public partial class MultiLanguageDisplayPlugin : PluginBase
+    public partial class MultiLanguagePlugin : PluginBase
     {
         private readonly string preImageAlias = "PreImage";
         private readonly string[] languages = new string[] { "english", "french" }; // Languages Supported
         private readonly int[] locales = new int[] { 1033, 1036 }; // LCIDs of each language in the languages array
 
-        public MultiLanguageDisplayPlugin()
-            : base(typeof(MultiLanguageDisplayPlugin), runAsSystem: true)
+        public MultiLanguagePlugin()
+            : base(typeof(MultiLanguagePlugin), runAsSystem: true)
         { }
 
         protected override void ExecuteCrmPlugin(LocalPluginContext localContext)
@@ -23,16 +20,25 @@ namespace Compliance.Plugins
             if (localContext == null)
                 throw new InvalidPluginExecutionException("localContext", new ArgumentNullException(nameof(localContext)));
 
-            string messageName = localContext.PluginExecutionContext.MessageName;
+            try
+            {
+                string messageName = localContext.PluginExecutionContext.MessageName;
 
-            if (messageName == "Create" || messageName == "Update")
-                PackNameTranslations(localContext);
+                if (messageName == "Create" || messageName == "Update")
+                    PackNameTranslations(localContext);
 
-            if (messageName == "Retrieve")
-                UnpackNameOnRetrieve(localContext);
+                if (messageName == "Retrieve")
+                    UnpackNameOnRetrieve(localContext);
 
-            if (messageName == "RetrieveMultiple")
-                UnpackNameOnRetrieveMultiple(localContext);
+                if (messageName == "RetrieveMultiple")
+                    UnpackNameOnRetrieveMultiple(localContext);
+            }
+            catch (Exception ex)
+            {
+                // Trace and throw any exceptions
+                localContext.Trace($"Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
+                throw new InvalidPluginExecutionException($"An error occurred in the plug-in. MultiLanguageRelated: {ex.Message}", ex);
+            }
         }
 
         ///
@@ -111,11 +117,11 @@ namespace Compliance.Plugins
         {
             IPluginExecutionContext context = localContext.PluginExecutionContext;
             EntityCollection collection = (EntityCollection)localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"];
-            foreach (Entity e in collection.Entities)
+            foreach (Entity target in collection.Entities)
             {
-                if (e.Attributes.ContainsKey("opc_name"))
+                if (target.Attributes.ContainsKey("opc_name"))
                 {
-                    e["opc_name"] = UnpackName(localContext, e.GetAttributeValue<string>("opc_name"));
+                    target["opc_name"] = UnpackName(localContext, target.GetAttributeValue<string>("opc_name"));
                 }
             }
         }

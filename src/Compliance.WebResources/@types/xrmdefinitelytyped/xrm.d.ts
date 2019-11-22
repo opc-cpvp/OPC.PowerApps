@@ -1915,9 +1915,14 @@ declare namespace Xrm {
     confirmButtonLabel?: string;
 
     /**
-     * Tge message to be displayed in the alert dialog.
+     * The message to be displayed in the alert dialog.
      */
     text: string;
+
+    /**
+     * The title of the alert dialog.
+     */
+    title?: string;
   }
 
   /**
@@ -2184,7 +2189,7 @@ declare namespace Xrm {
      * @param file An object describing the file to open.
      * @param openFileOptions Specify whether to open or save the file.
      */
-    openFile(file: Xrm.File, openFileOptions?: OpenFileOptions);
+    openFile(file: Xrm.File, openFileOptions?: OpenFileOptions): void;
 
     /**
      * Opens an entity form or a quick create form.
@@ -2199,7 +2204,7 @@ declare namespace Xrm {
      * @param url URL to open.
      * @param openUrlOptions Options to open the URL.
      */
-    openUrl(url: string, openUrlOptions: SizeOptions);
+    openUrl(url: string, openUrlOptions: SizeOptions): void;
 
     /**
      * Opens an HTML web resource.
@@ -2208,7 +2213,7 @@ declare namespace Xrm {
      * @param windowOptions Window options for opening web resource.
      * @param data Data to be passed into the data parameter.
      */
-    openWebResource(webResourceName: string, windowOptions?: WindowOptions, data?: string);
+    openWebResource(webResourceName: string, windowOptions?: WindowOptions, data?: string): void;
   }
 
   /**
@@ -2280,44 +2285,7 @@ declare namespace Xrm {
     isAvailableOffline(entityLogicalName: string): boolean;
   }
 
-  type WebApiResponseType = "" | "arraybuffer" | "blob" | "document" | "json" | "text";
-
-  interface WebApiResponse {
-    /**
-     * Response body.
-     */
-    body?: Object;
-
-    /**
-     * Response headers.
-     */
-    headers: Object;
-
-    /**
-     * Indicates whether the request was successful.
-     */
-    ok: boolean;
-
-    /**
-     * Numeric value in the response status code. For example: 200
-     */
-    status: number;
-
-    /**
-     * Description of the response status code. For example: OK
-     */
-    statusText: string;
-
-    /**
-     * Response type. Values are: the empty string (default), "arraybuffer", "blob", "document", "json", and "text".
-     */
-    type: WebApiResponseType;
-
-    /**
-     * Request URL of the action, function, or CRUD request that was sent to the Web API endpoint.
-     */
-    url: string;
-  }
+  interface WebApiResponse extends Response {}
 
   interface WebApiOnline extends WebApiBase {
     /**
@@ -2446,14 +2414,14 @@ declare namespace Xrm {
      * Refreshes the parent grid containing the specified record.
      * @param lookupOptions The record who's parent's grid to refresh.
      */
-    refreshParentGrid(lookupOptions: Lookup);
+    refreshParentGrid(lookupOptions: Lookup): void;
 
     /**
      * Displays a progress dialog with the specified message.
      * Any subsequent call to this method will update the displayed message in the existing progress dialog with the message specified in the latest method call.
      * @param message The message to be displayed in the progress dialog.
      */
-    showProgressIndicator(message: string);
+    showProgressIndicator(message: string): void;
   }
 
   /**
@@ -2706,6 +2674,52 @@ declare namespace Xrm {
      * Use this method to get which entity types the lookup control will show the user
      */
     getEntityTypes(): string[];
+  }
+
+  interface GridRow<T extends string> {
+    /**
+     * A collection containing the GridRowData for the GridRow.
+     */
+    data: GridRowData<T>;
+  }
+
+  interface GridRowData<T extends string> {
+    /**
+     * Returns the GridEntity for the GridRowData.
+     */
+    entity: GridEntity<T>;
+  }
+
+  interface GridEntity<T extends string> {
+    /**
+     * Each attribute (GridAttribute) represents the data in the cell of an editable grid,
+     * and contains a reference to all the cells associated with the attribute.
+     */
+     attributes: GridCollection<GridEntityAttribute<T>>;
+  }
+
+  interface GridCollection<T> {
+  }
+
+  interface GridEntityAttribute<T extends string> {
+  }
+
+  type AddNotificationLevel = "RECOMMENDATION" | "ERROR";
+
+  interface actionsObject {
+    message?: string | null;
+    actions?: Function[] | null;
+  }
+
+  interface AddNotificationObject {
+    actions?: actionsObject | null;
+    messages: string[];
+    notificationLevel: AddNotificationLevel;
+    uniqueId: string;
+  }
+
+  interface BaseControl {
+    addNotification(notification: AddNotificationObject): void;
   }
 }
 
