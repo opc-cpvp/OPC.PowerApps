@@ -1,28 +1,21 @@
-import { getTypedFormContext } from "./helpers/XrmExtensions";
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IComplaintService } from "./interfaces";
-import { lazyInject } from "./inversify.config";
+import { IPowerForm, IComplaintService } from "./interfaces";
 
 //export function symbolfor<T>(func?: (obj: T) => void) : symbol {
 //    return Symbol.for(nameof<T>());
 //}
-export namespace Complaint {
-    export class MainForm {
 
-        @lazyInject(nameof<IComplaintService>())
+
+export namespace Complaint.Forms {
+
+    @injectable()
+    export class MainForm implements IPowerForm<Form.opc_complaint.Main.Information> {
+
         private _complaintService: IComplaintService;
 
-        /**
-         * Create an instance of the Complaint MainForm. This is used for compatibility with CDS event binding.
-         * @param executionContext
-         */
-        public static createInstance(executionContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information>) : MainForm {
-            return new MainForm(executionContext); // can remove lazy inject?
-        }
-
-        constructor(executionContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information>) {
-            this.form_OnLoad(executionContext);
+        constructor(@inject(nameof<IComplaintService>()) complaintService: IComplaintService) {
+            this._complaintService = complaintService;
         }
 
         /**
@@ -30,11 +23,11 @@ export namespace Complaint {
          *
          * @event OnLoad
          */
-        public form_OnLoad(executionContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information>): void {
+        public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information>): void {
 
             this._complaintService.getComplaint("test");
-            let formContext = getTypedFormContext(executionContext);
-
+            let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
+            
             // Register handlers
             formContext.data.process.addOnStageChange(this.process_OnStageChanged);
             this.handle_StageStates(formContext);

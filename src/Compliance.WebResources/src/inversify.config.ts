@@ -1,12 +1,28 @@
 ﻿import { Container } from "inversify";
-import {ComplaintService } from "./services/ComplaintService";
-import Interfaces = require("./interfaces");
-import IComplaintService = Interfaces.IComplaintService;
-import getDecorators from "inversify-inject-decorators";
+import { Bootstrapper } from "./bootstrapper";
+import { FormFactory } from "./factories/FormFactory";
+import * as i from "./interfaces";
 
-const myContainer = new Container();
-myContainer.bind<IComplaintService>(nameof<IComplaintService>()).to(ComplaintService);
-const { lazyInject } = getDecorators(myContainer);
+// Services
+import { ComplaintService } from "./services/ComplaintService";
+import { AllegationService } from "./services/AllegationService";
 
-export { lazyInject };
-export { myContainer }; 
+// Forms
+import ComplaintMainForm = require("./ComplaintMainForm");
+import Complaint = ComplaintMainForm.Complaint;
+import AllegationMainForm = require("./AllegationMainForm");
+import Allegation = AllegationMainForm.Allegation;
+
+const container = new Container();
+
+// Register Services
+container.bind<i.IComplaintService>(nameof<i.IComplaintService>()).to(ComplaintService);
+container.bind<i.IAllegationService>(nameof<i.IAllegationService>()).to(AllegationService);
+
+// Register Forms
+container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);
+container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegation_information").to(Allegation.Forms.MainForm);
+
+// Bootstrapper/Composition Root setup
+container.bind<i.IFormFactory>(nameof<i.IFormFactory>()).toConstantValue(new FormFactory(container));
+container.resolve<Bootstrapper>(Bootstrapper);

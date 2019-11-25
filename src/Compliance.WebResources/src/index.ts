@@ -5,6 +5,7 @@
 
 import "../js/lib/xrmquery/dg.xrmquery.web.promise.min.js";
 import "reflect-metadata";
+import "./inversify.config";
 
-// All forms.
-export { Complaint } from "./ComplaintMainForm";
+// Composition Root
+export { Bootstrapper } from "./bootstrapper";
