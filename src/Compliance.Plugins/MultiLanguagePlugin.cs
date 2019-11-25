@@ -37,7 +37,7 @@ namespace Compliance.Plugins
             {
                 // Trace and throw any exceptions
                 localContext.Trace($"Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
-                throw new InvalidPluginExecutionException($"An error occurred in the plug-in. MultiLanguageRelated: {ex.Message}", ex);
+                throw new InvalidPluginExecutionException($"An error occurred in the plug-in. MultiLanguage: {ex.Message}", ex);
             }
         }
 
@@ -92,6 +92,8 @@ namespace Compliance.Plugins
             for (int i = 0; i < languages.Length; i++)
             {
                 names[i] = GetAttributeValue<string>($"opc_name{languages[i]}", preImageEntity, target);
+                if (string.IsNullOrWhiteSpace(names[i]))
+                    throw new InvalidPluginExecutionException($"PackNameTranslations: An exception occured when trying to concatenate english and french name. The field 'opc_name{languages[i]}' must contain a value.");
             }
 
             // Store the packed value in the target entity
