@@ -12,7 +12,6 @@ namespace Compliance.Plugins.Tests
         public class when_creating_multilanguageitem
         {
             public static MultiLanguagePlugin pluginInstance = null;
-
             public static MultiLanguagePlugin PluginInstance
             {
                 get
@@ -89,8 +88,6 @@ namespace Compliance.Plugins.Tests
                     opc_namefrench = "Technologie"
                 };
 
-                context.Initialize(theme);
-
                 // Assert
                 Assert.Throws<InvalidPluginExecutionException>(() =>
                     context.ExecutePluginWithTarget(PluginInstance, theme, "Create"));
@@ -109,8 +106,6 @@ namespace Compliance.Plugins.Tests
                     opc_nameenglish = "Technology",
                     opc_namefrench = ""
                 };
-
-                //context.Initialize(theme);
 
                 // Assert
                 Assert.Throws<InvalidPluginExecutionException>(() =>
@@ -149,8 +144,6 @@ namespace Compliance.Plugins.Tests
                     opc_namefrench = "TechnoFra"
                 };
 
-                context.Initialize(theme);
-
                 // Act
                 context.ExecutePluginWithTarget(PluginInstance, theme, "Update");
 
@@ -174,53 +167,12 @@ namespace Compliance.Plugins.Tests
                     opc_namefrench = "TechnoFra"
                 };
 
-                context.Initialize(theme);
-
                 // Act
                 context.ExecutePluginWithTarget(PluginInstance, theme, "Update");
 
                 // Assert
                 Assert.Equal(expectedName, theme.opc_name);
             }
-
-            //// opc_name should change
-            //[Theory, MemberData(nameof(Themes))]
-            //public void opc_name_should_change(opc_theme theme)
-            //{
-            //    // Arrange
-            //    var context = new XrmFakedContext();
-
-            //    var oldName = theme.opc_name;
-            //    theme.opc_nameenglish = "Techno";
-
-            //    context.Initialize(theme);
-
-            //    // Act
-            //    context.ExecutePluginWithTarget(PluginInstance, theme, "Update");
-
-            //    // Assert
-            //    Assert.NotEqual(oldName, theme.opc_name);
-            //}
-
-            //// opc_name should contain both languages seperated by pipe
-            //[Theory, MemberData(nameof(Themes))]
-            //public void opc_name_should_contain_both_languages_seperated_by_pipe(opc_theme theme)
-            //{
-            //    // Arrange
-            //    var context = new XrmFakedContext();
-
-            //    var expectedName = "TechnoEng|TechnoFra";
-            //    theme.opc_nameenglish = "TechnoEng";
-            //    theme.opc_namefrench = "TechnoFra";
-
-            //    context.Initialize(theme);
-
-            //    // Act
-            //    context.ExecutePluginWithTarget(PluginInstance, theme, "Update");
-
-            //    // Assert
-            //    Assert.Equal(expectedName, theme.opc_name);
-            //}
         }
 
         public class when_retrieving_multilanguageitem
@@ -286,17 +238,28 @@ namespace Compliance.Plugins.Tests
 
         public class when_retrieving_multiple_multilanguageitem
         {
+            public static EntityCollection EntityCollectionThemes
+            {
+                get
+                {
+                    EntityCollection entityCollectionThemes = new EntityCollection();
+
+                    entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Technology", opc_namefrench = "Technologie", opc_name = "Technology|Technologie" });
+                    entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques", opc_name = "Public Services|Services Publiques" });
+
+                    return entityCollectionThemes;
+                }
+            }
+
             [Fact]
             public void opc_names_should_be_french_when_ui_is_french()
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var collection = new EntityCollection();
-                collection.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Technology", opc_namefrench = "Technologie", opc_name = "Technology|Technologie" });
-                collection.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques", opc_name = "Public Services|Services Publiques" });
+                var themeCollection = EntityCollectionThemes;
 
-                var outputs = new ParameterCollection { new KeyValuePair<string, object>("BusinessEntityCollection", collection) };
+                var outputs = new ParameterCollection { new KeyValuePair<string, object>("BusinessEntityCollection", themeCollection) };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = "RetrieveMultiple";
@@ -306,7 +269,7 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                foreach (opc_theme target in collection.Entities)
+                foreach (opc_theme target in themeCollection.Entities)
                 {
                     Assert.Equal(target.opc_namefrench, target.opc_name);
                 }
@@ -318,11 +281,9 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var collection = new EntityCollection();
-                collection.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Technology", opc_namefrench = "Technologie", opc_name = "Technology|Technologie" });
-                collection.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques", opc_name = "Public Services|Services Publiques" });
+                var themeCollection = EntityCollectionThemes;
 
-                var outputs = new ParameterCollection { new KeyValuePair<string, object>("BusinessEntityCollection", collection) };
+                var outputs = new ParameterCollection { new KeyValuePair<string, object>("BusinessEntityCollection", themeCollection) };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = "RetrieveMultiple";
@@ -332,7 +293,7 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                foreach (opc_theme target in collection.Entities)
+                foreach (opc_theme target in themeCollection.Entities)
                 {
                     Assert.Equal(target.opc_nameenglish, target.opc_name);
                 }

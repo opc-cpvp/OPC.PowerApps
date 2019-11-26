@@ -105,11 +105,10 @@ namespace Compliance.Plugins
         ///
         protected void UnpackNameOnRetrieve(LocalPluginContext localContext)
         {
-            IPluginExecutionContext context = localContext.PluginExecutionContext;
-            Entity target = (Entity)context.OutputParameters["BusinessEntity"];
+            Entity businessEntity = (Entity)localContext.PluginExecutionContext.OutputParameters["BusinessEntity"];
 
             // Re-write the name field in the retrieved entity
-            target["opc_name"] = UnpackName(localContext, target.GetAttributeValue<string>("opc_name"));
+            businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
         }
 
         ///
@@ -117,13 +116,12 @@ namespace Compliance.Plugins
         ///
         protected void UnpackNameOnRetrieveMultiple(LocalPluginContext localContext)
         {
-            IPluginExecutionContext context = localContext.PluginExecutionContext;
-            EntityCollection collection = (EntityCollection)localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"];
-            foreach (Entity target in collection.Entities)
+            EntityCollection businessEntityCollection = (EntityCollection)localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"];
+            foreach (Entity businessEntity in businessEntityCollection.Entities)
             {
-                if (target.Attributes.ContainsKey("opc_name"))
+                if (businessEntity.Attributes.ContainsKey("opc_name"))
                 {
-                    target["opc_name"] = UnpackName(localContext, target.GetAttributeValue<string>("opc_name"));
+                    businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
                 }
             }
         }
