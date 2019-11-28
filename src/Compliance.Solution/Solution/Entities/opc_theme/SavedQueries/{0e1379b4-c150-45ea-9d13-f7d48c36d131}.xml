@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{0e1379b4-c150-45ea-9d13-f7d48c36d131}</savedqueryid>
+    <layoutxml>
+      <grid name="opc_themes" jump="opc_name" select="1" icon="1" preview="0">
+        <row name="opc_theme" id="opc_themeid">
+          <cell name="opc_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_theme">
+          <attribute name="opc_themeid" />
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.14</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Theme Lookup View" languagecode="1033" />
+      <LocalizedName description="Theme Lookup View" languagecode="1036" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

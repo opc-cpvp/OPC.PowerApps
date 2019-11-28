@@ -5,12 +5,15 @@
     <entity Name="Account">
       <LocalizedNames>
         <LocalizedName description="Account" languagecode="1033" />
+        <LocalizedName description="Compte" languagecode="1036" />
       </LocalizedNames>
       <LocalizedCollectionNames>
         <LocalizedCollectionName description="Accounts" languagecode="1033" />
+        <LocalizedCollectionName description="Comptes" languagecode="1036" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="Business that represents a customer or potential customer. The company that is billed in business transactions." languagecode="1033" />
+        <Description description="Entité commerciale qui représente un client ou un prospect. Société facturée dans les transactions professionnelles." languagecode="1036" />
       </Descriptions>
       <attributes />
       <EntitySetName>accounts</EntitySetName>

@@ -7,14 +7,14 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
-        <tab verticallayout="true" id="{0c52c678-2992-4f10-a134-a8e0c7a14cd1}" IsUserDefined="1" name="general_tab">
+        <tab verticallayout="true" id="{0c52c678-2992-4f10-a134-a8e0c7a14cd1}" IsUserDefined="1" name="tab_general">
           <labels>
             <label description="General" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c6ea7ba6-d402-451b-9ae9-a79575e343c1}" name="general_section">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c6ea7ba6-d402-451b-9ae9-a79575e343c1}" name="section_general">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>
@@ -44,7 +44,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{8c347d65-3943-424d-aee6-37e6f547ad6f}" showlabel="true" locklevel="0">
+                      <cell id="{2b3d4e09-c4b9-468a-97c4-3968300d146c}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -73,14 +73,14 @@
             </column>
           </columns>
         </tab>
-        <tab name="documents_tab" id="d8d9df1f-43cb-4cc8-aa4b-cc3ab6fea5a6" IsUserDefined="0" locklevel="0" showlabel="true">
+        <tab name="tab_documents" id="d8d9df1f-43cb-4cc8-aa4b-cc3ab6fea5a6" IsUserDefined="0" locklevel="0" showlabel="true">
           <labels>
             <label description="Documents" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section name="documents_section" id="87dc9e22-7809-41f7-89b9-eb3c963f5e96" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_documents" id="87dc9e22-7809-41f7-89b9-eb3c963f5e96" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Documents" languagecode="1033" />
                   </labels>
@@ -88,7 +88,8 @@
                     <row>
                       <cell showlabel="false" locklevel="0" id="{95d4334c-142a-47b3-b668-d8bf53172c29}" rowspan="1" colspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Documents" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570557025307" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -107,14 +108,14 @@
             </column>
           </columns>
         </tab>
-        <tab name="allegations_tab" id="4eed6aeb-af57-42aa-aac6-6bdc1c057b4e" IsUserDefined="0" locklevel="0" showlabel="true">
+        <tab name="tab_allegations" id="4eed6aeb-af57-42aa-aac6-6bdc1c057b4e" IsUserDefined="0" locklevel="0" showlabel="true">
           <labels>
             <label description="Allegations/Concerns" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section name="allegation_section" id="b247f9bb-96df-4f28-ad38-1c92563db9b3" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_allegations" id="b247f9bb-96df-4f28-ad38-1c92563db9b3" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Allegations" languagecode="1033" />
                   </labels>
@@ -123,6 +124,7 @@
                       <cell showlabel="false" locklevel="0" id="{f152b4da-969e-4bc5-ba0b-5fd14065461d}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations/Concerns" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455205666" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -141,14 +143,14 @@
             </column>
           </columns>
         </tab>
-        <tab name="issues_tab" id="35d836ab-6fba-468c-a6ff-74acefc1ffb9" IsUserDefined="0" locklevel="0" showlabel="true">
+        <tab name="tab_issues" id="35d836ab-6fba-468c-a6ff-74acefc1ffb9" IsUserDefined="0" locklevel="0" showlabel="true">
           <labels>
             <label description="Issues" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section name="issues_tab" id="a67e1937-09bc-4288-8f7e-f13e905107be" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_issues" id="a67e1937-09bc-4288-8f7e-f13e905107be" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Issues" languagecode="1033" />
                   </labels>
@@ -157,6 +159,7 @@
                       <cell showlabel="false" locklevel="0" id="{4974057c-71c4-4cc9-a75a-6af4762adee1}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Issues" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455352989" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -175,14 +178,14 @@
             </column>
           </columns>
         </tab>
-        <tab name="recommendations_tab" id="52c49046-b671-4b2c-a532-3dd342e317aa" IsUserDefined="0" locklevel="0" showlabel="true" visible="true">
+        <tab name="tab_recommendations" id="52c49046-b671-4b2c-a532-3dd342e317aa" IsUserDefined="0" locklevel="0" showlabel="true" visible="true">
           <labels>
             <label description="Recommendations" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section name="recommendations_seciton" id="c1c098a9-81f5-459b-b167-292472da59a5" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_recommendations" id="c1c098a9-81f5-459b-b167-292472da59a5" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Recommendations" languagecode="1033" />
                   </labels>
@@ -191,6 +194,7 @@
                       <cell showlabel="false" locklevel="0" id="{9c2c4e8a-6b4c-4b64-bc1c-5e13e1272a99}" rowspan="1" colspan="1">
                         <labels>
                           <label description="New SG control 1570455487438" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455487438" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -203,6 +207,57 @@
                         </control>
                       </cell>
                     </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_topics" id="8531b157-b59e-44e3-a107-f3409f07f3ee" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Topics" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="section_topics" id="f77a090d-20e8-47f4-b0c5-b8e0ff24b159" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Topics" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
+                        <labels>
+                          <label description="Topics" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_topics" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{02d24ec3-7b03-209d-7d59-7e772a904cb3}">
+                          <parameters>
+                            <TargetEntityType>opc_topic</TargetEntityType>
+                            <ViewId>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewId>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_complaints_topics_relatedtopics</RelationshipName>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <ViewIds>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewIds>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -253,7 +308,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -292,6 +347,7 @@
           </Handlers>
         </event>
       </events>
+      <controlDescriptions />
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

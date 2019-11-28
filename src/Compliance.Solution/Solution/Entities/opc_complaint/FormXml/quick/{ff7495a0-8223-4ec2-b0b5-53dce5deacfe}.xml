@@ -44,7 +44,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{e3575e9c-2561-428a-ae52-ce6e26cade3f}" showlabel="true" locklevel="0">
+                      <cell id="{060707b6-4e62-403d-af0c-226f20c3bdc5}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Legislation" languagecode="1033" />
                         </labels>
@@ -55,6 +55,7 @@
                       <cell id="{3b4d826a-2eca-47ef-972f-bd733a97bf5b}">
                         <labels>
                           <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
