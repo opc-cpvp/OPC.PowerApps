@@ -21,8 +21,8 @@ var config = {
     module: {
         rules: [
             {
-                test: /.(ts|tsx)?$/,
-                loader: 'ts-loader',
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader',
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [/node_modules/],
                 options: {
@@ -38,6 +38,12 @@ var config = {
 
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
+    },
+    // Suppress fatal error: Cannot resolve module 'fs'
+    // @relative https://github.com/pugjs/pug-loader/issues/8
+    // @see https://github.com/webpack/docs/wiki/Configuration#node
+    node: {
+        fs: 'empty'
     }
 };
 

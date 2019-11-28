@@ -3,20 +3,21 @@
         "allowSyntheticDefaultImports": true,
         "maxNodeModuleJsDepth": 2,
         "noImplicitAny": true,
-        "types": [ "reflect-metadata" ],
+        "types": [ "reflect-metadata", "node", "ts-nameof" ],
         "module": "commonjs",
         "target": "es5",
-        "lib": [ "es6" ],
+        "lib": [ "es6", "dom" ],
         "moduleResolution": "node",
         "allowJs": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
-    "exclude": [
-        "**/bin",
-        "**/obj",
-        "**/@types",
-        "**/node_modules",
-        "**/js"
-    ]
+    "include": [
+        "./src/**/*"
+    ],
+    "awesomeTypescriptLoaderOptions": {
+        "reportFiles": [
+            "./src/**/*"
+        ]
+    }
 }
