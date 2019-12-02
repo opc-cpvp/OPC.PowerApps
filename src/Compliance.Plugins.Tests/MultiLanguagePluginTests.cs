@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Compliance.Plugins.Entities;
 using FakeXrmEasy;
+using FluentAssertions;
 using Microsoft.Xrm.Sdk;
 using Xunit;
 
@@ -11,16 +11,15 @@ namespace Compliance.Plugins.Tests
     {
         public class when_creating_multilanguageitem
         {
-            public static MultiLanguagePlugin pluginInstance = null;
-            public static MultiLanguagePlugin PluginInstance
+            public opc_theme GetMockedMultiLanguageItem()
             {
-                get
+                return new opc_theme
                 {
-                    if (pluginInstance is null)
-                        pluginInstance = new MultiLanguagePlugin();
-
-                    return pluginInstance;
-                }
+                    Id = Guid.NewGuid(),
+                    opc_name = "",
+                    opc_nameenglish = "Technology",
+                    opc_namefrench = "Technologie"
+                };
             }
 
             [Fact]
@@ -30,26 +29,18 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                var theme = new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_name = "",
-                    opc_nameenglish = "Technology",
-                    opc_namefrench = "Technologie"
-                };
+                var theme = GetMockedMultiLanguageItem();
 
-                var inputs = new ParameterCollection { new KeyValuePair<string, object>("Target", theme) };
+                var inputs = new ParameterCollection { { "Target", theme } };
 
                 pluginContext.InputParameters = inputs;
                 pluginContext.MessageName = "Create";
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-                // Act
-                //context.ExecutePluginWithTarget(PluginInstance, theme, "Create");
 
                 // Assert
-                Assert.NotEqual(string.Empty, theme.opc_name);
+                theme.opc_name.Should().NotBeNullOrWhiteSpace();
             }
 
             [Fact]
@@ -57,21 +48,21 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
 
                 var expectedName = "Technology|Technologie";
-                var theme = new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_name = "",
-                    opc_nameenglish = "Technology",
-                    opc_namefrench = "Technologie"
-                };
+                var theme = GetMockedMultiLanguageItem();
+
+                var inputs = new ParameterCollection { { "Target", theme } };
+
+                pluginContext.InputParameters = inputs;
+                pluginContext.MessageName = "Create";
 
                 // Act
-                context.ExecutePluginWithTarget(PluginInstance, theme, "Create");
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                Assert.Equal(expectedName, theme.opc_name);
+                theme.opc_name.Should().Be(expectedName);
             }
 
             [Fact]
@@ -79,18 +70,22 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
 
-                var theme = new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_name = "",
-                    opc_nameenglish = "",
-                    opc_namefrench = "Technologie"
-                };
+                var theme = GetMockedMultiLanguageItem();
+
+                theme.opc_nameenglish = string.Empty;
+
+                var inputs = new ParameterCollection { { "Target", theme } };
+
+                pluginContext.InputParameters = inputs;
+                pluginContext.MessageName = "Create";
+
+                // Act
+                Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                Assert.Throws<InvalidPluginExecutionException>(() =>
-                    context.ExecutePluginWithTarget(PluginInstance, theme, "Create"));
+                act.Should().Throw<InvalidPluginExecutionException>();
             }
 
             [Fact]
@@ -98,34 +93,32 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
 
-                var theme = new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_name = "",
-                    opc_nameenglish = "Technology",
-                    opc_namefrench = ""
-                };
+                var theme = GetMockedMultiLanguageItem();
+
+                theme.opc_namefrench = string.Empty;
+
+                // Act
+                Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                Assert.Throws<InvalidPluginExecutionException>(() =>
-                    context.ExecutePluginWithTarget(PluginInstance, theme, "Create"));
+                act.Should().Throw<InvalidPluginExecutionException>();
             }
 
         }
 
         public class when_updating_multilanguageitem
         {
-            public static MultiLanguagePlugin pluginInstance = null;
-            public static MultiLanguagePlugin PluginInstance
+            public opc_theme GetMockedMultiLanguageEntity()
             {
-                get
+                return new opc_theme
                 {
-                    if (pluginInstance is null)
-                        pluginInstance = new MultiLanguagePlugin();
-
-                    return pluginInstance;
-                }
+                    Id = Guid.NewGuid(),
+                    opc_name = "Technology|Technologie",
+                    opc_nameenglish = "TechnoEng",
+                    opc_namefrench = "TechnoFra"
+                };
             }
 
             // opc_name should change
@@ -134,21 +127,21 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
 
                 var oldName = "Technology|Technologie";
-                var theme = new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_name = "Technology|Technologie",
-                    opc_nameenglish = "TechnoEng",
-                    opc_namefrench = "TechnoFra"
-                };
+                var multiLanguageEntity = GetMockedMultiLanguageEntity();
+
+                var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
+
+                pluginContext.InputParameters = inputs;
+                pluginContext.MessageName = "Update";
 
                 // Act
-                context.ExecutePluginWithTarget(PluginInstance, theme, "Update");
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                Assert.NotEqual(oldName, theme.opc_name);
+                multiLanguageEntity.opc_name.Should().NotBe(oldName);
             }
 
             // opc_name should contain both languages seperated by pipe
@@ -157,26 +150,83 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
 
                 var expectedName = "TechnoEng|TechnoFra";
-                var theme = new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_name = "Technology|Technologie",
-                    opc_nameenglish = "TechnoEng",
-                    opc_namefrench = "TechnoFra"
-                };
+                var multiLanguageEntity = GetMockedMultiLanguageEntity();
+
+                var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
+
+                pluginContext.InputParameters = inputs;
+                pluginContext.MessageName = "Update";
 
                 // Act
-                context.ExecutePluginWithTarget(PluginInstance, theme, "Update");
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                Assert.Equal(expectedName, theme.opc_name);
+                multiLanguageEntity.opc_name.Should().Be(expectedName);
+
+                // TODO: Or is it better this way?
+                multiLanguageEntity.opc_name.Should().StartWith(multiLanguageEntity.opc_nameenglish);
+                multiLanguageEntity.opc_name.Should().EndWith(multiLanguageEntity.opc_namefrench);
+                multiLanguageEntity.opc_name.Should().Contain("|");
+            }
+
+            [Fact]
+            public void should_throw_exception_when_english_name_is_missing()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var multiLanguageEntity = GetMockedMultiLanguageEntity();
+
+                multiLanguageEntity.opc_nameenglish = string.Empty;
+
+                var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
+
+                pluginContext.InputParameters = inputs;
+                pluginContext.MessageName = "Create";
+
+                // Act
+                Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                act.Should().Throw<InvalidPluginExecutionException>();
+            }
+
+            [Fact]
+            public void should_throw_exception_when_french_name_is_missing()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var multiLanguageEntity = GetMockedMultiLanguageEntity();
+
+                multiLanguageEntity.opc_namefrench = string.Empty;
+
+                // Act
+                Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                act.Should().Throw<InvalidPluginExecutionException>();
             }
         }
 
         public class when_retrieving_multilanguageitem
         {
+            public opc_theme GetMockedMultiLanguageEntity()
+            {
+                return new opc_theme
+                {
+                    Id = Guid.NewGuid(),
+                    opc_name = "Technology|Technologie",
+                    opc_nameenglish = "Technology",
+                    opc_namefrench = "Technologie"
+                };
+            }
+
             [Fact]
             public void opc_name_should_be_french_when_ui_is_french()
             {
@@ -185,15 +235,9 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 var expectedName = "Technologie";
-                var theme = new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_name = "Technology|Technologie",
-                    opc_nameenglish = "Technology",
-                    opc_namefrench = "Technologie"
-                };
+                var multiLanguageEntity = GetMockedMultiLanguageEntity();
 
-                var outputs = new ParameterCollection { new KeyValuePair<string, object>("BusinessEntity", theme) };
+                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = "Retrieve";
@@ -203,7 +247,7 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                Assert.Equal(expectedName, theme.opc_name);
+                multiLanguageEntity.opc_name.Should().Be(expectedName);
             }
 
             [Fact]
@@ -214,15 +258,9 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 var expectedName = "Technology";
-                var theme = new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_name = "Technology|Technologie",
-                    opc_nameenglish = "Technology",
-                    opc_namefrench = "Technologie"
-                };
+                var multiLanguageEntity = GetMockedMultiLanguageEntity();
 
-                var outputs = new ParameterCollection { new KeyValuePair<string, object>("BusinessEntity", theme) };
+                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = "Retrieve";
@@ -232,23 +270,20 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                Assert.Equal(expectedName, theme.opc_name);
+                multiLanguageEntity.opc_name.Should().Be(expectedName);
             }
         }
 
         public class when_retrieving_multiple_multilanguageitem
         {
-            public static EntityCollection EntityCollectionThemes
+            public EntityCollection GetMultiLanguageEntityCollection()
             {
-                get
-                {
-                    EntityCollection entityCollectionThemes = new EntityCollection();
+                EntityCollection entityCollectionThemes = new EntityCollection();
 
-                    entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Technology", opc_namefrench = "Technologie", opc_name = "Technology|Technologie" });
-                    entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques", opc_name = "Public Services|Services Publiques" });
+                entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Technology", opc_namefrench = "Technologie", opc_name = "Technology|Technologie" });
+                entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques", opc_name = "Public Services|Services Publiques" });
 
-                    return entityCollectionThemes;
-                }
+                return entityCollectionThemes;
             }
 
             [Fact]
@@ -257,9 +292,9 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var themeCollection = EntityCollectionThemes;
+                var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
 
-                var outputs = new ParameterCollection { new KeyValuePair<string, object>("BusinessEntityCollection", themeCollection) };
+                var outputs = new ParameterCollection { {"BusinessEntityCollection", multiLanguageEntityCollection} };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = "RetrieveMultiple";
@@ -269,9 +304,9 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                foreach (opc_theme target in themeCollection.Entities)
+                foreach (opc_theme multiLanguageEntity in multiLanguageEntityCollection.Entities)
                 {
-                    Assert.Equal(target.opc_namefrench, target.opc_name);
+                    multiLanguageEntity.opc_name.Should().Be(multiLanguageEntity.opc_namefrench);
                 }
             }
 
@@ -281,9 +316,9 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var themeCollection = EntityCollectionThemes;
+                var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
 
-                var outputs = new ParameterCollection { new KeyValuePair<string, object>("BusinessEntityCollection", themeCollection) };
+                var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = "RetrieveMultiple";
@@ -293,9 +328,9 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                foreach (opc_theme target in themeCollection.Entities)
+                foreach (opc_theme multiLanguageEntity in multiLanguageEntityCollection.Entities)
                 {
-                    Assert.Equal(target.opc_nameenglish, target.opc_name);
+                    multiLanguageEntity.opc_name.Should().Be(multiLanguageEntity.opc_nameenglish);
                 }
             }
         }
