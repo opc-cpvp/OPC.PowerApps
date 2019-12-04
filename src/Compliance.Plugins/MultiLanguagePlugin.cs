@@ -2,6 +2,8 @@
 using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 
 namespace Compliance.Plugins
 {
@@ -10,6 +12,7 @@ namespace Compliance.Plugins
         private readonly string preImageAlias = "PreImage";
         private readonly string[] languages = new string[] { "english", "french" }; // Languages Supported
         private readonly int[] locales = new int[] { 1033, 1036 }; // LCIDs of each language in the languages array
+        private readonly string isLocalizableAttribute = "opc_islocalizable";
 
         public MultiLanguagePlugin()
             : base(typeof(MultiLanguagePlugin), runAsSystem: true)
@@ -84,7 +87,12 @@ namespace Compliance.Plugins
             IPluginExecutionContext context = localContext.PluginExecutionContext;
 
             // Pack the translated labels into the name field
-            Entity target = (Entity)localContext.PluginExecutionContext.InputParameters["Target"];
+            if (!(localContext.PluginExecutionContext.InputParameters["Target"] is Entity target))
+                return;
+
+            if (!IsEntityLocalizable(target.LogicalName))
+                return;
+
             Entity preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(this.preImageAlias)) ? context.PreEntityImages[this.preImageAlias] : null;
 
             string[] names = new string[languages.Length];
@@ -105,7 +113,14 @@ namespace Compliance.Plugins
         ///
         protected void UnpackNameOnRetrieve(LocalPluginContext localContext)
         {
-            Entity businessEntity = (Entity)localContext.PluginExecutionContext.OutputParameters["BusinessEntity"];
+            if (!(localContext.PluginExecutionContext.OutputParameters["BusinessEntity"] is Entity businessEntity))
+                return;
+
+            if (!businessEntity.Contains(isLocalizableAttribute))
+                return;
+
+            if (!IsEntityLocalizable(businessEntity.LogicalName))
+                return;
 
             // Re-write the name field in the retrieved entity
             businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
@@ -116,7 +131,18 @@ namespace Compliance.Plugins
         ///
         protected void UnpackNameOnRetrieveMultiple(LocalPluginContext localContext)
         {
-            EntityCollection businessEntityCollection = (EntityCollection)localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"];
+            if (!localContext.PluginExecutionContext.OutputParameters.Contains("BusinessEntityCollection"))
+                return;
+
+            if (!(localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"] is EntityCollection businessEntityCollection))
+                return;
+
+            if (businessEntityCollection.Entities.FirstOrDefault() == null)
+                return;
+
+            if (!IsEntityLocalizable(businessEntityCollection.Entities.FirstOrDefault().LogicalName))
+                return;
+
             foreach (Entity businessEntity in businessEntityCollection.Entities)
             {
                 if (businessEntity.Attributes.ContainsKey("opc_name"))
@@ -139,6 +165,21 @@ namespace Compliance.Plugins
                 return preImage.GetAttributeValue<T>(attributeName);
             else
                 return default(T);
+        }
+
+        private bool IsEntityLocalizable(string logicalName)
+        {
+            Type entityType = Type.GetType($"Compliance.Plugins.Entities.{logicalName}");
+
+            if (entityType == null)
+                return false;
+
+            var properties = entityType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            if (!Array.Exists(properties, propertyInfo => propertyInfo.Name == isLocalizableAttribute))
+                return false;
+
+            return true;
         }
     }
 }
