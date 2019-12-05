@@ -145,39 +145,11 @@ namespace Compliance.Plugins
 
             try
             {
-                //// Invoke the custom implementation
-                //ExecuteCrmPlugin(localcontext);
-                //// now exit - if the derived plug-in has incorrectly registered overlapping event registrations,
-                //// guard against multiple executions.
-                //return;
-
-                // Iterate over all of the expected registered events to ensure that the plugin
-                // has been invoked by an expected event
-                // For any given plug-in event at an instance in time, we would expect at most 1 result to match.
-                Action<LocalPluginContext> entityAction =
-                    (from a in this.RegisteredEvents
-                     where (
-                     a.Item1 == localcontext.PluginExecutionContext.Stage &&
-                     a.Item2 == localcontext.PluginExecutionContext.MessageName &&
-                     (string.IsNullOrWhiteSpace(a.Item3) ? true : a.Item3 == localcontext.PluginExecutionContext.PrimaryEntityName)
-                     )
-                     select a.Item4).FirstOrDefault();
-
-                if (entityAction != null)
-                {
-                    localcontext.Trace(string.Format(
-                        CultureInfo.InvariantCulture,
-                        "{0} is firing for Entity: {1}, Message: {2}",
-                        this.ChildClassName,
-                        localcontext.PluginExecutionContext.PrimaryEntityName,
-                        localcontext.PluginExecutionContext.MessageName));
-
-                    entityAction.Invoke(localcontext);
-
-                    // now exit - if the derived plug-in has incorrectly registered overlapping event registrations,
-                    // guard against multiple executions.
-                    return;
-                }
+                // Invoke the custom implementation
+                ExecuteCrmPlugin(localcontext);
+                // now exit - if the derived plug-in has incorrectly registered overlapping event registrations,
+                // guard against multiple executions.
+                return;
             }
             catch (FaultException<OrganizationServiceFault> e)
             {
