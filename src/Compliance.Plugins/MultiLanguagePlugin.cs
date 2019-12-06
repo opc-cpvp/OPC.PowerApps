@@ -2,8 +2,6 @@
 using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 
 namespace Compliance.Plugins
 {
