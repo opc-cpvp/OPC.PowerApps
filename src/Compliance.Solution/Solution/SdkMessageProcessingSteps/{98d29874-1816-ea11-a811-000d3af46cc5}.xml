@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Compliance.Plugins.MultiLanguagePlugin: Create of opc_theme" SdkMessageProcessingStepId="{0e72409d-380d-ea11-a811-000d3af46cc5}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Compliance.Plugins.MultiLanguagePlugin: Create of  any Entity" SdkMessageProcessingStepId="{98d29874-1816-ea11-a811-000d3af46cc5}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <PluginTypeName>Compliance.Plugins.MultiLanguagePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548</PluginTypeName>
   <PluginTypeId>dd55a870-8ad7-4927-8871-14d3a0dc6cd2</PluginTypeId>
-  <PrimaryEntity>opc_theme</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <FilteringAttributes></FilteringAttributes>
   <InvocationSource>1</InvocationSource>

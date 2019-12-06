@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Compliance.Plugins.MultiLanguagePlugin: Update of opc_topic" SdkMessageProcessingStepId="{f26511bb-390d-ea11-a811-000d3af46489}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Compliance.Plugins.MultiLanguagePlugin: Update of  any Entity" SdkMessageProcessingStepId="{e960b879-1816-ea11-a811-000d3af46489}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <PluginTypeName>Compliance.Plugins.MultiLanguagePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548</PluginTypeName>
   <PluginTypeId>dd55a870-8ad7-4927-8871-14d3a0dc6cd2</PluginTypeId>
-  <PrimaryEntity>opc_topic</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
-  <FilteringAttributes>opc_nameenglish,opc_namefrench</FilteringAttributes>
+  <FilteringAttributes></FilteringAttributes>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>
@@ -17,8 +16,8 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <SdkMessageProcessingStepImages>
     <SdkMessageProcessingStepImage Name="PreImage">
-      <SdkMessageProcessingStepImageId>{da2c46c5-390d-ea11-a811-000d3af46cc5}</SdkMessageProcessingStepImageId>
-      <Attributes>opc_nameenglish,opc_namefrench</Attributes>
+      <SdkMessageProcessingStepImageId>{c4d79b86-1816-ea11-a811-000d3af46cc5}</SdkMessageProcessingStepImageId>
+      <Attributes></Attributes>
       <EntityAlias>PreImage</EntityAlias>
       <ImageType>0</ImageType>
       <MessagePropertyName>Target</MessagePropertyName>

@@ -102,17 +102,11 @@
       <RootComponent type="62" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="80" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="91" id="{ca0f1327-5d70-42e6-ba7c-8c4b5f342a5f}" schemaName="Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" behavior="0" />
-      <RootComponent type="92" id="{022d54d5-390d-ea11-a811-000d3af46489}" behavior="0" />
-      <RootComponent type="92" id="{0e72409d-380d-ea11-a811-000d3af46cc5}" behavior="0" />
-      <RootComponent type="92" id="{164ca39a-390d-ea11-a811-000d3af46cc5}" behavior="0" />
-      <RootComponent type="92" id="{42f375dd-390d-ea11-a811-000d3af46cc5}" behavior="0" />
-      <RootComponent type="92" id="{580012ce-390d-ea11-a811-000d3af46489}" behavior="0" />
+      <RootComponent type="92" id="{27ff97f2-3815-ea11-a811-000d3af46489}" behavior="0" />
       <RootComponent type="92" id="{6b057fa4-5305-ea11-a811-000d3af4346a}" behavior="0" />
-      <RootComponent type="92" id="{7f92a582-390d-ea11-a811-000d3af46cc5}" behavior="0" />
-      <RootComponent type="92" id="{8abac7ac-390d-ea11-a811-000d3af46cc5}" behavior="0" />
-      <RootComponent type="92" id="{c64ab2e7-390d-ea11-a811-000d3af46489}" behavior="0" />
-      <RootComponent type="92" id="{eba17ea8-390d-ea11-a811-000d3af46489}" behavior="0" />
-      <RootComponent type="92" id="{f26511bb-390d-ea11-a811-000d3af46489}" behavior="0" />
+      <RootComponent type="92" id="{98d29874-1816-ea11-a811-000d3af46cc5}" behavior="0" />
+      <RootComponent type="92" id="{a03e0505-3915-ea11-a811-000d3af46cc5}" behavior="0" />
+      <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>

@@ -36,13 +36,26 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{0b338180-26a5-470c-8612-05360024b237}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_islocalizable" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_islocalizable" disabled="true" />
+                      </cell>
+                      <cell showlabel="false" locklevel="0" id="{5dabe3c4-4c8e-479b-90fa-7e654b704aff}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{920a3c97-90b7-44ae-b109-08f6869eca6f}" visible="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
                       </cell>
-                      <cell showlabel="false" locklevel="0" id="{5dabe3c4-4c8e-479b-90fa-7e654b704aff}">
+                      <cell showlabel="true" locklevel="0" id="{f5aa8286-ab5d-4c32-9256-9df937d09ad7}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -70,18 +83,6 @@
                     <row />
                     <row />
                     <row />
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{6c4d65e8-386c-4d76-b257-7a5d059216fc}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                      <cell showlabel="true" locklevel="0" id="{7668de0f-086d-4c77-be13-64c158ad2259}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>
