@@ -114,7 +114,6 @@
   <ItemGroup>
     <Compile Include="CompliancePrefixPluginTests.cs" />
     <Compile Include="MultiLanguagePluginTests.cs" />
-    <Compile Include="MultiLanguageRelatedPluginTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
