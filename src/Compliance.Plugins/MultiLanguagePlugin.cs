@@ -144,7 +144,7 @@ namespace Compliance.Plugins
             if (!(localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"] is EntityCollection businessEntityCollection))
                 return;
 
-            if (businessEntityCollection.Entities.FirstOrDefault() == null)
+            if (businessEntityCollection.Entities == null)
                 return;
 
             foreach (Entity businessEntity in businessEntityCollection.Entities)
@@ -156,7 +156,7 @@ namespace Compliance.Plugins
 
                 foreach (var attribute in businessEntity.Attributes)
                 {
-                    if (attribute.Key.EndsWith("id") && businessEntity[attribute.Key] is EntityReference entityReference && entityReference.Name.Contains(prefix))
+                    if (attribute.Key.EndsWith("id") && businessEntity[attribute.Key] is EntityReference entityReference && entityReference.Name != null && entityReference.Name.Contains(prefix))
                     {
                         entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
                     }
