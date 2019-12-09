@@ -10,7 +10,7 @@
         <LocalizedCollectionName description="Themes" languagecode="1033" />
       </LocalizedCollectionNames>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="Represents a theme that encompasses multiple topics." languagecode="1033" />
       </Descriptions>
       <attributes>
         <attribute PhysicalName="CreatedBy">
@@ -327,7 +327,7 @@
             <displayname description="English Description" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The theme's english description." languagecode="1033" />
+            <Description description="English description of the theme." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_descriptionfrench">
@@ -367,7 +367,7 @@
             <displayname description="French Description" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The theme's french description." languagecode="1033" />
+            <Description description="French description of the theme." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_islocalizable">
@@ -462,13 +462,13 @@
           <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
-          <MaxLength>201</MaxLength>
-          <Length>402</Length>
+          <MaxLength>204</MaxLength>
+          <Length>408</Length>
           <displaynames>
             <displayname description="Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Required name field" languagecode="1033" />
+            <Description description="This field is a concatenation of the multi-language prefix tag and the English and the French name separated by a pipe." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_nameenglish">
@@ -508,7 +508,7 @@
             <displayname description="English Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The theme's english name." languagecode="1033" />
+            <Description description="English name of the theme." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_namefrench">
@@ -548,7 +548,7 @@
             <displayname description="French Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The theme's french name." languagecode="1033" />
+            <Description description="French name of the theme." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_themeId">

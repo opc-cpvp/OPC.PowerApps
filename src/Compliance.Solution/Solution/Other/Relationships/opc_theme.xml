@@ -17,7 +17,7 @@
     <ReferencingAttributeName>opc_themeid</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="This field is a lookup to the parent theme of this topic." languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
