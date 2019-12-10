@@ -101,11 +101,13 @@ namespace Compliance.Plugins
 
             Entity preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(preImageAlias)) ? context.PreEntityImages[preImageAlias] : null;
 
-            if (!target.Attributes.Contains(isLocalizableAttribute) && preImageEntity != null ? !preImageEntity.Attributes.Contains(isLocalizableAttribute) : false)
+            bool targetLocalizable = target.Attributes.Contains(isLocalizableAttribute);
+            bool preImageLocalizable = preImageEntity is null ? false : preImageEntity.Attributes.Contains(isLocalizableAttribute);
+
+            if (!targetLocalizable && !preImageLocalizable)
                 return;
 
             string[] names = new string[languages.Count];
-
             for (int i = 0; i < languages.Count; i++)
             {
                 names[i] = GetAttributeValue<string>($"opc_name{languages.ElementAt(i).Key}", preImageEntity, target);
