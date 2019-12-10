@@ -9,12 +9,6 @@ pr:
   branches:
     include:
     - master
-  paths:
-    include:
-    - azure-pipelines/*
-    - src/*
-    exclude:
-    - azure-pipelines/README.md
 
 pool:
   vmImage: 'vs2017-win2016'
