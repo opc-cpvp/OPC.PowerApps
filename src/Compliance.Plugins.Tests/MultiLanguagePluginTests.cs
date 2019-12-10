@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Compliance.Plugins.Entities;
 using FakeXrmEasy;
 using FluentAssertions;
@@ -10,9 +11,13 @@ namespace Compliance.Plugins.Tests
     public class MultiLanguagePluginTests
     {
         private static readonly string prefix = "|^|";
+        private static readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
+        private static readonly string UserLocaleId = "UserLocaleId";
 
         public class when_creating_multilanguageitem
         {
+            private readonly string messageName = "Create";
+
             public opc_theme GetMockedMultiLanguageItem()
             {
                 return new opc_theme
@@ -36,7 +41,7 @@ namespace Compliance.Plugins.Tests
                 var inputs = new ParameterCollection { { "Target", theme } };
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = "Create";
+                pluginContext.MessageName = messageName;
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -58,7 +63,7 @@ namespace Compliance.Plugins.Tests
                 var inputs = new ParameterCollection { { "Target", theme } };
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = "Create";
+                pluginContext.MessageName = messageName;
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -81,7 +86,7 @@ namespace Compliance.Plugins.Tests
                 var inputs = new ParameterCollection { { "Target", theme } };
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = "Create";
+                pluginContext.MessageName = messageName;
 
                 // Act
                 Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -101,6 +106,11 @@ namespace Compliance.Plugins.Tests
 
                 theme.opc_namefrench = string.Empty;
 
+                var inputs = new ParameterCollection { { "Target", theme } };
+
+                pluginContext.InputParameters = inputs;
+                pluginContext.MessageName = messageName;
+
                 // Act
                 Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
@@ -112,6 +122,8 @@ namespace Compliance.Plugins.Tests
 
         public class when_updating_multilanguageitem
         {
+            private readonly string messageName = "Update";
+
             public opc_theme GetMockedMultiLanguageEntity()
             {
                 return new opc_theme
@@ -137,7 +149,7 @@ namespace Compliance.Plugins.Tests
                 var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = "Update";
+                pluginContext.MessageName = messageName;
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -160,7 +172,7 @@ namespace Compliance.Plugins.Tests
                 var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = "Update";
+                pluginContext.MessageName = messageName;
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -183,7 +195,7 @@ namespace Compliance.Plugins.Tests
                 var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = "Create";
+                pluginContext.MessageName = messageName;
 
                 // Act
                 Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -203,6 +215,11 @@ namespace Compliance.Plugins.Tests
 
                 multiLanguageEntity.opc_namefrench = string.Empty;
 
+                var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
+
+                pluginContext.InputParameters = inputs;
+                pluginContext.MessageName = messageName;
+
                 // Act
                 Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
@@ -213,6 +230,8 @@ namespace Compliance.Plugins.Tests
 
         public class when_retrieving_multilanguageitem
         {
+            private readonly string messageName = "Retrieve";
+
             public opc_theme GetMockedMultiLanguageEntity()
             {
                 return new opc_theme
@@ -237,8 +256,8 @@ namespace Compliance.Plugins.Tests
                 var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
 
                 pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = "Retrieve";
-                pluginContext.SharedVariables.Add("UserLocaleId", 1036);
+                pluginContext.MessageName = messageName;
+                pluginContext.SharedVariables.Add(UserLocaleId, languages["french"]);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -260,8 +279,8 @@ namespace Compliance.Plugins.Tests
                 var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
 
                 pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = "Retrieve";
-                pluginContext.SharedVariables.Add("UserLocaleId", 1033);
+                pluginContext.MessageName = messageName;
+                pluginContext.SharedVariables.Add(UserLocaleId, languages["english"]);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -273,6 +292,8 @@ namespace Compliance.Plugins.Tests
 
         public class when_retrieving_multiple_multilanguageitem
         {
+            private readonly string messageName = "RetrieveMultiple";
+
             public EntityCollection GetMultiLanguageEntityCollection()
             {
                 EntityCollection entityCollectionThemes = new EntityCollection();
@@ -294,8 +315,8 @@ namespace Compliance.Plugins.Tests
                 var outputs = new ParameterCollection { {"BusinessEntityCollection", multiLanguageEntityCollection} };
 
                 pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = "RetrieveMultiple";
-                pluginContext.SharedVariables.Add("UserLocaleId", 1036);
+                pluginContext.MessageName = messageName;
+                pluginContext.SharedVariables.Add(UserLocaleId, languages["french"]);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -318,8 +339,8 @@ namespace Compliance.Plugins.Tests
                 var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = "RetrieveMultiple";
-                pluginContext.SharedVariables.Add("UserLocaleId", 1033);
+                pluginContext.MessageName = messageName;
+                pluginContext.SharedVariables.Add(UserLocaleId, languages["english"]);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -334,6 +355,8 @@ namespace Compliance.Plugins.Tests
 
         public class when_retrieving_multilanguage_relateditem
         {
+            private readonly string messageName = "Retrieve";
+
             public opc_topic GetMockedMultiLanguageEntity()
             {
                 return new opc_topic
@@ -357,8 +380,8 @@ namespace Compliance.Plugins.Tests
                 var expectedName = "Technologie";
 
                 pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = "Retrieve";
-                pluginContext.SharedVariables.Add("UserLocaleId", 1036);
+                pluginContext.MessageName = messageName;
+                pluginContext.SharedVariables.Add(UserLocaleId, languages["french"]);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -378,8 +401,8 @@ namespace Compliance.Plugins.Tests
                 var expectedName = "Technology";
 
                 pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = "Retrieve";
-                pluginContext.SharedVariables.Add("UserLocaleId", 1033);
+                pluginContext.MessageName = messageName;
+                pluginContext.SharedVariables.Add(UserLocaleId, languages["english"]);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -391,6 +414,8 @@ namespace Compliance.Plugins.Tests
 
         public class when_retrieving_multiple_multilanguage_relateditem
         {
+            private readonly string messageName = "RetrieveMultiple";
+
             public EntityCollection GetMultiLanguageEntityCollection()
             {
                 EntityCollection entityCollectionTopics = new EntityCollection();
@@ -428,8 +453,8 @@ namespace Compliance.Plugins.Tests
                 var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = "RetrieveMultiple";
-                pluginContext.SharedVariables.Add("UserLocaleId", 1036);
+                pluginContext.MessageName = messageName;
+                pluginContext.SharedVariables.Add(UserLocaleId, languages["french"]);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -451,8 +476,8 @@ namespace Compliance.Plugins.Tests
                 var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = "RetrieveMultiple";
-                pluginContext.SharedVariables.Add("UserLocaleId", 1033);
+                pluginContext.MessageName = messageName;
+                pluginContext.SharedVariables.Add(UserLocaleId, languages["english"]);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
