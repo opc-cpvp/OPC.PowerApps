@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Compliance.Plugins
@@ -8,10 +9,12 @@ namespace Compliance.Plugins
     public partial class MultiLanguagePlugin : PluginBase
     {
         private readonly string preImageAlias = "PreImage";
-        private readonly string[] languages = new string[] { "english", "french" }; // Languages Supported
-        private readonly int[] locales = new int[] { 1033, 1036 }; // LCIDs of each language in the languages array
+        private readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
         private readonly string isLocalizableAttribute = "opc_islocalizable";
         private readonly string prefix = "|^|";
+        private readonly string userSettingsEntityName = "usersettings";
+        private readonly string uiLanguageId = "uilanguageid";
+        private readonly string UserLocaleId = "UserLocaleId";
 
         public MultiLanguagePlugin()
             : base(typeof(MultiLanguagePlugin), runAsSystem: true)
@@ -24,16 +27,21 @@ namespace Compliance.Plugins
 
             try
             {
-                string messageName = localContext.PluginExecutionContext.MessageName;
-
-                if (messageName == "Create" || messageName == "Update")
-                    PackNameTranslations(localContext);
-
-                if (messageName == "Retrieve")
-                    UnpackNameOnRetrieve(localContext);
-
-                if (messageName == "RetrieveMultiple")
-                    UnpackNameOnRetrieveMultiple(localContext);
+                switch (localContext.PluginExecutionContext.MessageName)
+                {
+                    case "Create":
+                    case "Update":
+                        PackNameTranslations(localContext);
+                        break;
+                    case "Retrieve":
+                        UnpackNameOnRetrieve(localContext);
+                        break;
+                    case "RetrieveMultiple":
+                        UnpackNameOnRetrieveMultiple(localContext);
+                        break;
+                    default:
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -50,20 +58,20 @@ namespace Compliance.Plugins
         {
             // Get the language of the user
             int userLanguageId = 0;
-            if (localContext.PluginExecutionContext.SharedVariables.ContainsKey("UserLocaleId"))
+            if (localContext.PluginExecutionContext.SharedVariables.ContainsKey(UserLocaleId))
             {
                 // Get the user language from the pipeline cache
-                userLanguageId = (int)localContext.PluginExecutionContext.SharedVariables["UserLocaleId"];
+                userLanguageId = (int)localContext.PluginExecutionContext.SharedVariables[UserLocaleId];
             }
             else
             {
                 // The user language isn't cached in the pipline, so get it here
                 Entity userSettings = localContext.OrganizationService.Retrieve(
-                    "usersettings",
+                    userSettingsEntityName,
                     localContext.PluginExecutionContext.InitiatingUserId,
-                    new ColumnSet("uilanguageid"));
-                userLanguageId = userSettings.GetAttributeValue<int>("uilanguageid");
-                localContext.PluginExecutionContext.SharedVariables["uilanguageid"] = userLanguageId;
+                    new ColumnSet(uiLanguageId));
+                userLanguageId = userSettings.GetAttributeValue<int>(uiLanguageId);
+                localContext.PluginExecutionContext.SharedVariables[uiLanguageId] = userLanguageId;
             }
             // Remove identifying prefix
             name = name.Replace(prefix, string.Empty);
@@ -72,7 +80,7 @@ namespace Compliance.Plugins
             string[] labels = name.Split('|');
 
             // Which language is set for the user?
-            int labelIndex = Array.IndexOf(locales, userLanguageId);
+            int labelIndex = Array.IndexOf(languages.Values.ToArray(), userLanguageId);
 
             // Return the correct translation
             return labels[labelIndex];
@@ -96,13 +104,13 @@ namespace Compliance.Plugins
             if (!target.Attributes.Contains(isLocalizableAttribute) && preImageEntity != null ? !preImageEntity.Attributes.Contains(isLocalizableAttribute) : false)
                 return;
 
-            string[] names = new string[languages.Length];
+            string[] names = new string[languages.Count];
 
-            for (int i = 0; i < languages.Length; i++)
+            for (int i = 0; i < languages.Count; i++)
             {
-                names[i] = GetAttributeValue<string>($"opc_name{languages[i]}", preImageEntity, target);
+                names[i] = GetAttributeValue<string>($"opc_name{languages.ElementAt(i).Key}", preImageEntity, target);
                 if (string.IsNullOrWhiteSpace(names[i]))
-                    throw new InvalidPluginExecutionException($"PackNameTranslations: An exception occured when trying to concatenate english and french name. The field 'opc_name{languages[i]}' must contain a value.");
+                    throw new InvalidPluginExecutionException($"PackNameTranslations: An exception occured when trying to concatenate english and french name. The field 'opc_name{languages.ElementAt(i).Key}' must contain a value.");
             }
 
             // Store the packed value in the target entity
