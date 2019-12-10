@@ -9,12 +9,12 @@ namespace Compliance.Plugins
     public partial class MultiLanguagePlugin : PluginBase
     {
         private readonly string preImageAlias = "PreImage";
-        private readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
         private readonly string isLocalizableAttribute = "opc_islocalizable";
         private readonly string prefix = "|^|";
         private readonly string userSettingsEntityName = "usersettings";
         private readonly string uiLanguageId = "uilanguageid";
         private readonly string UserLocaleId = "UserLocaleId";
+        private readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
 
         public MultiLanguagePlugin()
             : base(typeof(MultiLanguagePlugin), runAsSystem: true)
