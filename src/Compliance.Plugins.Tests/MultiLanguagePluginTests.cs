@@ -23,6 +23,7 @@ namespace Compliance.Plugins.Tests
                 return new opc_theme
                 {
                     Id = Guid.NewGuid(),
+                    opc_islocalizable = true,
                     opc_name = "",
                     opc_nameenglish = "Technology",
                     opc_namefrench = "Technologie"
@@ -129,6 +130,7 @@ namespace Compliance.Plugins.Tests
                 return new opc_theme
                 {
                     Id = Guid.NewGuid(),
+                    opc_islocalizable = true,
                     opc_name = "Technology|Technologie",
                     opc_nameenglish = "TechnoEng",
                     opc_namefrench = "TechnoFra"
@@ -237,6 +239,7 @@ namespace Compliance.Plugins.Tests
                 return new opc_theme
                 {
                     Id = Guid.NewGuid(),
+                    opc_islocalizable = true,
                     opc_name = "|^|Technology|Technologie",
                     opc_nameenglish = "Technology",
                     opc_namefrench = "Technologie"
@@ -362,6 +365,7 @@ namespace Compliance.Plugins.Tests
                 return new opc_topic
                 {
                     Id = Guid.NewGuid(),
+                    opc_islocalizable = true,
                     opc_name = "|^|Artificial Intelligence|Intelligence Artificielle",
                     opc_nameenglish = "Artificial Intelligence",
                     opc_namefrench = "Intelligence Artificielle",
@@ -423,6 +427,7 @@ namespace Compliance.Plugins.Tests
                 entityCollectionTopics.Entities.Add(new opc_topic
                 {
                     Id = Guid.NewGuid(),
+                    opc_islocalizable = true,
                     opc_name = "|^|Artificial Intelligence|Intelligence Artificielle",
                     opc_nameenglish = "Artificial Intelligence",
                     opc_namefrench = "Intelligence Artificielle",
@@ -433,6 +438,7 @@ namespace Compliance.Plugins.Tests
                 entityCollectionTopics.Entities.Add(new opc_topic
                 {
                     Id = Guid.NewGuid(),
+                    opc_islocalizable = true,
                     opc_name = "|^|The Service|Le Service",
                     opc_nameenglish = "The Service",
                     opc_namefrench = "Le Service",
