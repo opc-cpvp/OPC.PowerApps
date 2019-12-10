@@ -4,7 +4,15 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - azure-pipelines/*
+    - src/*
+    exclude:
+    - azure-pipelines/README.md
 
 pr: none
 
