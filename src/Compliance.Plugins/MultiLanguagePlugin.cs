@@ -120,17 +120,7 @@ namespace Compliance.Plugins
             if (!(localContext.PluginExecutionContext.OutputParameters["BusinessEntity"] is Entity businessEntity))
                 return;
 
-            // Re-write the name field in the retrieved entity
-            if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(prefix))
-                businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
-
-            foreach (var attribute in businessEntity.Attributes)
-            {
-                if (attribute.Key.EndsWith("id") && businessEntity[attribute.Key] is EntityReference entityReference && entityReference.Name != null && entityReference.Name.Contains(prefix))
-                {
-                    entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
-                }
-            }
+            SetLocalizableValue(localContext, businessEntity);
         }
 
         ///
@@ -149,23 +139,29 @@ namespace Compliance.Plugins
 
             foreach (Entity businessEntity in businessEntityCollection.Entities)
             {
-                if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(prefix))
-                {
-                    businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
-                }
+                SetLocalizableValue(localContext, businessEntity);
+            }
+        }
 
-                foreach (var attribute in businessEntity.Attributes)
+        private void SetLocalizableValue(LocalPluginContext localContext, Entity businessEntity)
+        {
+            if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(prefix))
+                businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
+
+            foreach (var attribute in businessEntity.Attributes.Where(x => x.Value is EntityReference))
+            {
+                var entityReference = (EntityReference)attribute.Value;
+
+                if (attribute.Key.EndsWith("id") && entityReference.Name != null && entityReference.Name.Contains(prefix))
                 {
-                    if (attribute.Key.EndsWith("id") && businessEntity[attribute.Key] is EntityReference entityReference && entityReference.Name != null && entityReference.Name.Contains(prefix))
-                    {
-                        entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
-                    }
+                    entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
                 }
             }
         }
 
         /// <summary>
         /// Get a value from the target if present, otherwise from the preImage
+        /// Used only in PackNameTranslation
         /// </summary>
         private T GetAttributeValue<T>(string attributeName, Entity preImage, Entity targetImage)
         {
