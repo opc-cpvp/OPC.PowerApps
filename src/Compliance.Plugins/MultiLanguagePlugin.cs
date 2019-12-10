@@ -8,12 +8,12 @@ namespace Compliance.Plugins
 {
     public partial class MultiLanguagePlugin : PluginBase
     {
-        private readonly string preImageAlias = "PreImage";
-        private readonly string isLocalizableAttribute = "opc_islocalizable";
-        private readonly string prefix = "|^|";
-        private readonly string userSettingsEntityName = "usersettings";
-        private readonly string uiLanguageId = "uilanguageid";
-        private readonly string UserLocaleId = "UserLocaleId";
+        private const string preImageAlias = "PreImage";
+        private const string isLocalizableAttribute = "opc_islocalizable";
+        private const string prefix = "|^|";
+        private const string userSettingsEntityName = "usersettings";
+        private const string uiLanguageId = "uilanguageid";
+        private const string UserLocaleId = "UserLocaleId";
         private readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
 
         public MultiLanguagePlugin()
@@ -99,7 +99,7 @@ namespace Compliance.Plugins
             if (!(localContext.PluginExecutionContext.InputParameters["Target"] is Entity target))
                 return;
 
-            Entity preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(this.preImageAlias)) ? context.PreEntityImages[this.preImageAlias] : null;
+            Entity preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(preImageAlias)) ? context.PreEntityImages[preImageAlias] : null;
 
             if (!target.Attributes.Contains(isLocalizableAttribute) && preImageEntity != null ? !preImageEntity.Attributes.Contains(isLocalizableAttribute) : false)
                 return;

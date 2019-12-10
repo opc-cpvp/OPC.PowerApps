@@ -10,8 +10,8 @@ namespace Compliance.Plugins.Tests
 {
     public class MultiLanguagePluginTests
     {
-        private static readonly string prefix = "|^|";
-        private static readonly string UserLocaleId = "UserLocaleId";
+        private const string prefix = "|^|";
+        private const string UserLocaleId = "UserLocaleId";
         private static readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
 
         public class when_creating_multilanguageitem
