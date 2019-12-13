@@ -87,7 +87,7 @@ steps:
     unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     mappingFile: src/$(SolutionName).Solution/map.xml
     packageType: Both
-    outputPath: '$(Build.ArtifactStagingDirectory)'
+    outputPath: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder'
     localize: false
 
 - task: PublishBuildArtifacts@1
