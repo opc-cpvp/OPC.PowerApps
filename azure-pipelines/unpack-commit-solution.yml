@@ -8,6 +8,7 @@ pool:
 variables:
   crm.username: 'SVC_OPC_CRM_Admin@priv.gc.ca'
   SolutionName: 'Compliance'
+  CommitMessage: ''
 
 steps:
 - checkout: self
