@@ -61,6 +61,7 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: 'src\$(SolutionName).Package\bin\$(BuildConfiguration)\**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package'
+    FlattenFolders: true
 
 - task: ArchiveFiles@2
   displayName: 'Create Data Archive'
