@@ -55,6 +55,22 @@ steps:
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
 
+- task: CopyFiles@2
+  displayName: 'Copy Solution Package to Build Artifacts'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: 'src\$(SolutionName).Package\bin\$(BuildConfiguration)\**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package'
+
+- task: ArchiveFiles@2
+  displayName: 'Create Data Archive'
+  inputs:
+    rootFolderOrFile: 'src\$(SolutionName).Solution\Data'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder\data.zip'
+    replaceExistingArchive: true
+
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'Install MSCRM Tools'
 
@@ -66,20 +82,13 @@ steps:
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
-  displayName: 'Pack PowerApps Solution Version'
+  displayName: 'Pack PowerApps Solution'
   inputs:
     unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     mappingFile: src/$(SolutionName).Solution/map.xml
     packageType: Both
     outputPath: '$(Build.ArtifactStagingDirectory)'
     localize: false
-
-- task: CopyFiles@2
-  displayName: 'Copy Build Artifacts to Staging Directory'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**\bin\$(BuildConfiguration)\**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts'
