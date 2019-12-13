@@ -29,14 +29,14 @@ namespace Compliance.Plugins
             {
                 switch (localContext.PluginExecutionContext.MessageName)
                 {
-                    case "Create":
-                    case "Update":
+                    case PluginMessage.Create:
+                    case PluginMessage.Update:
                         PackNameTranslations(localContext);
                         break;
-                    case "Retrieve":
+                    case PluginMessage.Retrieve:
                         UnpackNameOnRetrieve(localContext);
                         break;
-                    case "RetrieveMultiple":
+                    case PluginMessage.RetrieveMultiple:
                         UnpackNameOnRetrieveMultiple(localContext);
                         break;
                     default:

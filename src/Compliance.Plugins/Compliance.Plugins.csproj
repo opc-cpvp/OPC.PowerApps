@@ -67,6 +67,7 @@
     <Compile Include="Entities\Entities.cs" />
     <Compile Include="MultiLanguagePlugin.cs" />
     <Compile Include="PluginBase.cs" />
+    <Compile Include="PluginMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
