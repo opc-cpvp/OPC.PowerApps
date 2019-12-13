@@ -22,6 +22,7 @@ steps:
   inputs:
     PowerAppsAdminCredentials: 'PowerApps Admin'
     EnvironmentUrl: '$(EnvironmentUrl)'
+    ConfigurationPath: 'src/$(SolutionName).Solution/data_configuration.json'
     SchemaOutputPath: '$(Agent.TempDirectory)'
 
 - task: opc-cpvp.opc-powerapps-buildtools.opc-powerapps-export-environment-data.PowerAppsExportEnvironmentData@1
@@ -36,7 +37,7 @@ steps:
   displayName: 'Extract Data Files'
   inputs:
     archiveFilePatterns: '$(Agent.TempDirectory)\data.zip'
-    destinationFolder: src/$(SolutionName).Solution/Data
+    destinationFolder: 'src/$(SolutionName).Solution/Data'
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"
