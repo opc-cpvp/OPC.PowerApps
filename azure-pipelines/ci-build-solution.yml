@@ -58,8 +58,8 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Solution Package to Build Artifacts'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: 'src\$(SolutionName).Package\bin\$(BuildConfiguration)'
+    SourceFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Package\bin\$(BuildConfiguration)'
+    Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package'
 
 - task: ArchiveFiles@2
