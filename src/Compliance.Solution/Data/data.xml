@@ -1,18 +1,32 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2019-12-13T16:08:01.4336608Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2019-12-13T20:24:45.0067742Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
-      <record id="42522497-781b-ea11-a810-000d3af3a7c4">
-        <field name="opc_acronym" value="asd" />
-        <field name="createdby" value="15177c53-70f6-e911-a812-000d3af3a0d7" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
-        <field name="createdon" value="2019-12-10T18:12:23.0000000Z" />
-        <field name="opc_legislationid" value="42522497-781b-ea11-a810-000d3af3a7c4" />
-        <field name="modifiedby" value="15177c53-70f6-e911-a812-000d3af3a0d7" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
-        <field name="modifiedon" value="2019-12-10T18:12:23.0000000Z" />
-        <field name="opc_name" value="asd" />
-        <field name="ownerid" value="15177c53-70f6-e911-a812-000d3af3a0d7" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
-        <field name="owningbusinessunit" value="8ffaa4ab-38f6-e911-a812-000d3af3a0d7" lookupentity="businessunit" />
-        <field name="owninguser" value="15177c53-70f6-e911-a812-000d3af3a0d7" lookupentity="systemuser" />
+      <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
+        <field name="opc_acronym" value="PA" />
+        <field name="createdby" value="b0274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
+        <field name="createdon" value="2019-12-13T20:21:13.0000000Z" />
+        <field name="opc_legislationid" value="7ec56b15-e61d-ea11-a810-000d3af464f8" />
+        <field name="modifiedby" value="b0274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
+        <field name="modifiedon" value="2019-12-13T20:21:13.0000000Z" />
+        <field name="opc_name" value="Privacy Act" />
+        <field name="ownerid" value="b0274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
+        <field name="owningbusinessunit" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" />
+        <field name="owninguser" value="b0274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="e4307439-e61d-ea11-a810-000d3af464f8">
+        <field name="opc_acronym" value="PIPEDA" />
+        <field name="createdby" value="b0274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
+        <field name="createdon" value="2019-12-13T20:22:05.0000000Z" />
+        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" />
+        <field name="modifiedby" value="b0274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
+        <field name="modifiedon" value="2019-12-13T20:22:05.0000000Z" />
+        <field name="opc_name" value="Personal Information Protection and Electronic Documents Act" />
+        <field name="ownerid" value="b0274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Gabriel Fournier Grenier" />
+        <field name="owningbusinessunit" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" />
+        <field name="owninguser" value="b0274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>

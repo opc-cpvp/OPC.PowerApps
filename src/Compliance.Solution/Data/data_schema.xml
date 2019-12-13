@@ -1,5 +1,5 @@
 <entities >
-  <entity name="opc_legislation" displayname="Legislation" etc="10039" primaryidfield="opc_legislationid" primarynamefield="opc_name" disableplugins="false">
+  <entity name="opc_legislation" displayname="Legislation" etc="10073" primaryidfield="opc_legislationid" primarynamefield="opc_name" disableplugins="false">
     <fields>
       <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
       <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
