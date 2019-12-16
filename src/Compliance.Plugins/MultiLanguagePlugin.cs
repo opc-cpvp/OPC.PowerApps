@@ -112,7 +112,7 @@ namespace Compliance.Plugins
             {
                 names[i] = GetAttributeValue<string>($"opc_name{languages.ElementAt(i).Key}", preImageEntity, target);
                 if (string.IsNullOrWhiteSpace(names[i]))
-                    throw new InvalidPluginExecutionException($"PackNameTranslations: An exception occured when trying to concatenate english and french name. The field 'opc_name{languages.ElementAt(i).Key}' must contain a value.");
+                    throw new InvalidPluginExecutionException($"PackNameTranslations: An exception occured when trying to concatenate english and french name. The field 'opc_name{languages.ElementAt(i).Key}' of entity '{localContext.PluginExecutionContext.PrimaryEntityName}' must contain a value.");
             }
 
             // Store the packed value in the target entity
@@ -158,14 +158,10 @@ namespace Compliance.Plugins
             if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(prefix))
                 businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
 
-            foreach (var attribute in businessEntity.Attributes.Where(x => x.Value is EntityReference))
+            foreach (var attribute in businessEntity.Attributes.Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(prefix) ?? false)))
             {
                 var entityReference = (EntityReference)attribute.Value;
-
-                if (attribute.Key.EndsWith("id") && entityReference.Name != null && entityReference.Name.Contains(prefix))
-                {
-                    entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
-                }
+                entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
             }
         }
 
