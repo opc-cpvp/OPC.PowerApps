@@ -1,0 +1,55 @@
+trigger: none
+
+pr: none
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  SolutionName: 'Compliance'
+  
+steps:
+- checkout: self
+  persistCredentials: true
+  
+- task: opc-cpvp.opc-powerapps-buildtools.opc-powerapps-tool-installer.PowerAppsToolInstaller@1
+  displayName: 'OPC - PowerApps Tool Installer'
+  inputs:
+    powershellServiceConnections: 'OPC-PowerShell'
+
+- task: opc-cpvp.opc-powerapps-buildtools.opc-powerapps-export-environment-schema.PowerAppsExportEnvironmentSchema@1
+  displayName: 'OPC - PowerApps Export Environment Schema'
+  inputs:
+    PowerAppsAdminCredentials: 'PowerApps Admin'
+    EnvironmentUrl: '$(EnvironmentUrl)'
+    ConfigurationPath: 'src/$(SolutionName).Solution/data_configuration.json'
+    SchemaOutputPath: '$(Agent.TempDirectory)'
+
+- task: opc-cpvp.opc-powerapps-buildtools.opc-powerapps-export-environment-data.PowerAppsExportEnvironmentData@1
+  displayName: 'OPC - PowerApps Export Environment Data'
+  inputs:
+    PowerAppsAdminCredentials: 'PowerApps Admin'
+    EnvironmentUrl: '$(EnvironmentUrl)'
+    SchemaPath: '$(Agent.TempDirectory)\schema.xml'
+    DataOutputPath: '$(Agent.TempDirectory)'
+
+- task: ExtractFiles@1
+  displayName: 'Extract Data Files'
+  inputs:
+    archiveFilePatterns: '$(Agent.TempDirectory)\data.zip'
+    destinationFolder: 'src/$(SolutionName).Solution/Data'
+
+- powershell: |
+   $branch = "$(Build.SourceBranch)"
+      $branch = $branch.Replace("refs/heads/", "")
+      
+      echo "Commit all changes"
+      git config user.email "nepasrepondre-noreply@priv.gc.ca"
+      git config user.name "opc-buildbot"
+      git checkout $branch
+      git add --all
+      git commit -m "Update Solution - $(SolutionName): $(CommitMessage)"
+      
+      echo "Push solution changes to the remote repository"
+      git -c http.extraheader="AUTHORIZATION: basic $(System.AccessToken)" push --force origin $branch
+  displayName: 'Commit Unpacked Solution Data to the Repository'

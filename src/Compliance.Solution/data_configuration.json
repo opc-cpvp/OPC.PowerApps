@@ -1,0 +1,8 @@
+{
+  "solutions": [
+    {
+      "name": "Compliance",
+      "entities": [ "opc_legislation" ]
+    }
+  ]
+}
