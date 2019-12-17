@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{2a30c697-1b2e-44bb-90d4-04756c513961}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_themeid">
+          <cell name="opc_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_theme">
+          <attribute name="opc_themeid" />
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <order attribute="opc_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.14</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Theme Advanced Find View" languagecode="1033" />
+      <LocalizedName description="Theme Advanced Find View" languagecode="1036" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

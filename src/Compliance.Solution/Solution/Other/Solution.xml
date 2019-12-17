@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.10522" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.11129" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Compliance</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.12</Version>
+    <Version>1.0.14</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -86,19 +86,27 @@
       <RootComponent type="1" schemaName="opc_issue" behavior="0" />
       <RootComponent type="1" schemaName="opc_legislation" behavior="0" />
       <RootComponent type="1" schemaName="opc_recommendation" behavior="0" />
+      <RootComponent type="1" schemaName="opc_theme" behavior="0" />
+      <RootComponent type="1" schemaName="opc_topic" behavior="0" />
       <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_declinereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_intakedisposition" behavior="0" />
       <RootComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" behavior="0" />
+      <RootComponent type="60" id="{402ca646-0c91-4a1d-91ee-77ed1d681a2f}" behavior="0" />
       <RootComponent type="60" id="{887f9c46-ffa9-4a4c-a5ca-365a5ebe48ff}" behavior="0" />
+      <RootComponent type="60" id="{9348e25d-7708-40df-ac7f-85b5e6d1d41b}" behavior="0" />
       <RootComponent type="60" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" behavior="0" />
       <RootComponent type="60" id="{e890788c-d225-4e9f-9c9d-41781b2f52e3}" behavior="0" />
       <RootComponent type="61" schemaName="opc_/compliance/js/compliance.min.js" behavior="0" />
       <RootComponent type="62" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="80" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="91" id="{ca0f1327-5d70-42e6-ba7c-8c4b5f342a5f}" schemaName="Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" behavior="0" />
+      <RootComponent type="92" id="{27ff97f2-3815-ea11-a811-000d3af46489}" behavior="0" />
       <RootComponent type="92" id="{6b057fa4-5305-ea11-a811-000d3af4346a}" behavior="0" />
+      <RootComponent type="92" id="{98d29874-1816-ea11-a811-000d3af46cc5}" behavior="0" />
+      <RootComponent type="92" id="{a03e0505-3915-ea11-a811-000d3af46cc5}" behavior="0" />
+      <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>

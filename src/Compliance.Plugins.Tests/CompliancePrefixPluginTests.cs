@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Compliance.Plugins.Entities;
 using FakeXrmEasy;
+using FluentAssertions;
 using Microsoft.Xrm.Sdk;
 using Xunit;
 
@@ -56,7 +57,7 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWithTarget(PluginInstance, complaint, "Create");
 
                 // Assert
-                Assert.NotEqual(complaintNumber, complaint.opc_number);
+                complaint.opc_number.Should().NotBe(complaintNumber);
             }
 
             [Theory, MemberData(nameof(Legislations))]
@@ -79,7 +80,7 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWithTarget(PluginInstance, complaint, "Create");
 
                 // Assert
-                Assert.Equal($"{legislation.opc_acronym}-{complaintNumber}", complaint.opc_number);
+                complaint.opc_number.Should().Be($"{legislation.opc_acronym}-{complaintNumber}");
             }
         }
     }
