@@ -20,7 +20,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{19fef233-708f-4788-9540-8891bde4da4f}">
+                      <cell id="{19fef233-708f-4788-9540-8891bde4da4f}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -88,7 +88,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{863bda61-dac4-0037-8da4-54ceea4aa5b7}" showlabel="true" locklevel="0">
+                      <cell id="{07a1b94e-7956-ee4d-9b87-66500501b9e6}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Legislation" languagecode="1033" />
                         </labels>
