@@ -3,6 +3,8 @@
         "allowSyntheticDefaultImports": true,
         "maxNodeModuleJsDepth": 2,
         "noImplicitAny": true,
+        "noEmitOnError": true,
+        "sourceMap": true,
         "types": [ "reflect-metadata", "node", "ts-nameof" ],
         "module": "commonjs",
         "target": "es5",
@@ -10,7 +12,13 @@
         "moduleResolution": "node",
         "allowJs": true,
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "plugins": [
+            {
+                "transform": "ts-nameof",
+                "type": "raw"
+            }
+        ]
     },
     "include": [
         "./src/**/*"

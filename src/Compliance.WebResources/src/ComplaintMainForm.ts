@@ -5,7 +5,9 @@ import { IPowerForm, IComplaintService } from "./interfaces";
 //export function symbolfor<T>(func?: (obj: T) => void) : symbol {
 //    return Symbol.for(nameof<T>());
 //}
-
+/*declare function inject(): (target: any, targetKey: string, index?: number | undefined) : void {
+    inject(target => (target, targetKey, index));
+}*/
 
 export namespace Complaint.Forms {
 
@@ -27,7 +29,7 @@ export namespace Complaint.Forms {
 
             this._complaintService.getComplaint("test");
             let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
-            
+
             // Register handlers
             formContext.data.process.addOnStageChange(this.process_OnStageChanged);
             this.handle_StageStates(formContext);
@@ -57,7 +59,7 @@ export namespace Complaint.Forms {
         *
         * @event OnChanged
         */
-        private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>>):void {
+        private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>>): void {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
                 case opc_intakedisposition.Declinetoinvestigate:
