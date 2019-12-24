@@ -66,6 +66,7 @@
     <Compile Include="ComplaintPrefixPlugin.cs" />
     <Compile Include="Entities\Entities.cs" />
     <Compile Include="MultiLanguagePlugin.cs" />
+    <Compile Include="AnnotationAuthorPlugin.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="PluginMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

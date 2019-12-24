@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnotationAuthorPluginTests.cs" />
     <Compile Include="CompliancePrefixPluginTests.cs" />
     <Compile Include="MultiLanguagePluginTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
