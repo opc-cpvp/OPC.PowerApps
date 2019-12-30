@@ -7,14 +7,14 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls">
       <tabs>
-        <tab verticallayout="true" id="{cef96a32-a307-4111-a9f7-c17472c458b3}" IsUserDefined="1">
+        <tab verticallayout="true" id="{cef96a32-a307-4111-a9f7-c17472c458b3}" IsUserDefined="1" name="tab_general">
           <labels>
             <label description="General" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c317ad96-fe6a-4727-b561-c4446bd968c4}">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c317ad96-fe6a-4727-b561-c4446bd968c4}" name="section_general">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>

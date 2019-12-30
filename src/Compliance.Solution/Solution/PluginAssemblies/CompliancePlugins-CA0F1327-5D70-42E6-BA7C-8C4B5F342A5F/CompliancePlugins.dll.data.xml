@@ -8,5 +8,8 @@
     <PluginType AssemblyQualifiedName="Compliance.Plugins.ComplaintPrefixPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="043cef86-3683-4295-851c-1eb69407025a" Name="Compliance.Plugins.ComplaintPrefixPlugin">
       <FriendlyName>51939314-9cb3-4f7e-8569-c5f6e5b68a44</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Compliance.Plugins.MultiLanguagePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="dd55a870-8ad7-4927-8871-14d3a0dc6cd2" Name="Compliance.Plugins.MultiLanguagePlugin">
+      <FriendlyName>ac0a9f6c-1291-44c3-a3ae-284df30974b2</FriendlyName>
+    </PluginType>
   </PluginTypes>
 </PluginAssembly>

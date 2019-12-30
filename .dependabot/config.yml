@@ -1,0 +1,37 @@
+version: 1
+
+update_configs:
+  - package_manager: "dotnet:nuget"
+    directory: "/src/Compliance.Package"
+    update_schedule: "live"
+    allowed_updates:
+      - match:
+          update_type: "security"
+
+  - package_manager: "dotnet:nuget"
+    directory: "/src/Compliance.Plugins"
+    update_schedule: "live"
+    allowed_updates:
+      - match:
+          update_type: "security"
+
+  - package_manager: "dotnet:nuget"
+    directory: "/src/Compliance.Plugins.Tests"
+    update_schedule: "live"
+    allowed_updates:
+      - match:
+          update_type: "security"
+
+  - package_manager: "javascript"
+    directory: "/src/Compliance.WebResources"
+    update_schedule: "live"
+    allowed_updates:
+      - match:
+          update_type: "security"
+
+  - package_manager: "dotnet:nuget"
+    directory: "/src/XrmDefinitelyTyped"
+    update_schedule: "live"
+    allowed_updates:
+      - match:
+          update_type: "security"

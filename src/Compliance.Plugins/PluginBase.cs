@@ -172,25 +172,5 @@ namespace Compliance.Plugins
         {
             // Do nothing.
         }
-
-        private Collection<Tuple<int, string, string, Action<LocalPluginContext>>> registeredEvents;
-
-        /// <summary>
-        /// Gets the List of events that the plug-in should fire for. Each List
-        /// Item is a <see cref="System.Tuple"/> containing the Pipeline Stage, Message and (optionally) the Primary Entity.
-        /// In addition, the fourth parameter provide the delegate to invoke on a matching registration.
-        /// </summary>
-        protected Collection<Tuple<int, string, string, Action<LocalPluginContext>>> RegisteredEvents
-        {
-            get
-            {
-                if (this.registeredEvents == null)
-                {
-                    this.registeredEvents = new Collection<Tuple<int, string, string, Action<LocalPluginContext>>>();
-                }
-
-                return this.registeredEvents;
-            }
-        }
     }
 }
