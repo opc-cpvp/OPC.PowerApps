@@ -7,12 +7,11 @@
     "name": ""
   },
   "scripts": {
-    "test": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register src/**/*.test.ts",
+    "test": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register src/tests.ts",
     "build": "webpack --mode development",
     "build:watch": "webpack --watch --mode development",
     "build:prod": "webpack --mode production",
-    "build:prod:watch": "webpack --watch --mode production",
-    "build:test": "webpack --mode development --env.test"
+    "build:prod:watch": "webpack --watch --mode production"
   },
   "devDependencies": {
     "@types/chai": "^4.2.5",

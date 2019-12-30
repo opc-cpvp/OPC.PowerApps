@@ -1,7 +1,6 @@
 ﻿import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmPageTabMock } from "./XrmPageTabMock";
 import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
-import { XrmControlMock } from "./XrmControlMock";
 import { XrmBaseControlMock } from "./XrmBaseControlMock";
 
 export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.ControlCollection> {

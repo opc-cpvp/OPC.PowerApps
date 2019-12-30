@@ -2,13 +2,6 @@ import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IPowerForm, IComplaintService } from "./interfaces";
 
-//export function symbolfor<T>(func?: (obj: T) => void) : symbol {
-//    return Symbol.for(nameof<T>());
-//}
-/*declare function inject(): (target: any, targetKey: string, index?: number | undefined) : void {
-    inject(target => (target, targetKey, index));
-}*/
-
 export namespace Complaint.Forms {
 
     @injectable()
@@ -49,8 +42,9 @@ export namespace Complaint.Forms {
         private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>>): void {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             let isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
-            formContext.getAttribute("opc_intakedisposition").controls.forEach(control => control.setVisible(isRecommending));
-            formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => control.setVisible(!isRecommending));
+
+            formContext.getAttribute("opc_intakedisposition").controls.forEach(control => Helpers.Xrm.turn(control, isRecommending));
+            formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => Helpers.Xrm.turn(control, !isRecommending));
             formContext.getAttribute("opc_declinereason").controls.forEach(control => control.setVisible(false));
         }
 
@@ -63,16 +57,16 @@ export namespace Complaint.Forms {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
                 case opc_intakedisposition.Declinetoinvestigate:
-                    formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => control.setVisible(false));
-                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => control.setVisible(false));
-                    formContext.getAttribute("opc_declinereason").controls.forEach(control => control.setVisible(true));
+                    formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => Helpers.Xrm.turnOff(control));
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => Helpers.Xrm.turnOff(control));
+                    formContext.getAttribute("opc_declinereason").controls.forEach(control => Helpers.Xrm.turnOn(control));
                     break;
                 case opc_intakedisposition.MovetoEarlyResolution:
                 case opc_intakedisposition.MovetoInvestigation:
                 default:
-                    formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => control.setVisible(false));
-                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => control.setVisible(true));
-                    formContext.getAttribute("opc_declinereason").controls.forEach(control => control.setVisible(false));
+                    formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => Helpers.Xrm.turnOff(control));
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => Helpers.Xrm.turnOn(control));
+                    formContext.getAttribute("opc_declinereason").controls.forEach(control => Helpers.Xrm.turnOff(control));
                     break;
             }
         }

@@ -27,7 +27,7 @@ var config = {
         exprContextCritical: false,
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /(?!\.test)\.tsx?$/,
                 loader: 'awesome-typescript-loader',
                 include: [path.resolve(__dirname, 'src')], // absolute path; __dirname is always the directory in which the currently executing script resides
                 exclude: [/node_modules/],
@@ -45,7 +45,7 @@ var config = {
     },
 
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js'],
     },
 
     // Suppress fatal error: Cannot resolve module 'fs'
