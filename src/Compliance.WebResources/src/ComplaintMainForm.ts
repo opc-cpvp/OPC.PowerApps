@@ -92,20 +92,20 @@ export namespace Complaint.Forms {
             let currentStage = formContext.data.process.getActiveStage().getName().toLowerCase();
             switch (currentStage) {
                 case "intake":
-                    formContext.ui.tabs.get("tab_issues").setVisible(false);
-                    formContext.ui.tabs.get("tab_recommendations").setVisible(false);
+                    //formContext.ui.tabs.get("tab_issues").setVisible(false);
+                    //formContext.ui.tabs.get("tab_recommendations").setVisible(false);
                     break;
                 case "acceptance":
-                    formContext.ui.tabs.get("tab_issues").setVisible(false);
-                    formContext.ui.tabs.get("tab_recommendations").setVisible(false);
+                    //formContext.ui.tabs.get("tab_issues").setVisible(false);
+                    //formContext.ui.tabs.get("tab_recommendations").setVisible(false);
                     break;
                 case "early resolution":
-                    formContext.ui.tabs.get("tab_issues").setVisible(true);
-                    formContext.ui.tabs.get("tab_recommendations").setVisible(false);
+                    //formContext.ui.tabs.get("tab_issues").setVisible(true);
+                    //formContext.ui.tabs.get("tab_recommendations").setVisible(false);
                     break;
                 case "investigation":
-                    formContext.ui.tabs.get("tab_issues").setVisible(true);
-                    formContext.ui.tabs.get("tab_recommendations").setVisible(true);
+                    //formContext.ui.tabs.get("tab_issues").setVisible(true);
+                    //formContext.ui.tabs.get("tab_recommendations").setVisible(true);
                     break;
                 case "closed":
                     break;
