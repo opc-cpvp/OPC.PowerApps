@@ -32,7 +32,7 @@ export class XrmBaseControlMock implements Xrm.BaseControl, INamedComponent {
     getLabel(): string {
         throw new Error("Method not implemented.");
     }
-    setLabel(label: string): void {
+    setLabel(label: string): void { 
         throw new Error("Method not implemented.");
     }
     getVisible(): boolean {
@@ -45,9 +45,6 @@ export class XrmBaseControlMock implements Xrm.BaseControl, INamedComponent {
         throw new Error("Method not implemented.");
     }
     clearNotification(uniqueId?: string): boolean {
-        throw new Error("Method not implemented.");
-    }
-    addNotification(notification: Xrm.AddNotificationObject): void {
         throw new Error("Method not implemented.");
     }
 }
