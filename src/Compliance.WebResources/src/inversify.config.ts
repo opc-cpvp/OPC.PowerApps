@@ -8,9 +8,9 @@ import { ComplaintService } from "./services/ComplaintService";
 import { AllegationService } from "./services/AllegationService";
 
 // Forms
-import ComplaintMainForm = require("./ComplaintMainForm");
+import ComplaintMainForm = require("./forms/ComplaintMainForm");
 import Complaint = ComplaintMainForm.Complaint;
-import AllegationMainForm = require("./AllegationMainForm");
+import AllegationMainForm = require("./forms/AllegationMainForm");
 import Allegation = AllegationMainForm.Allegation;
 
 const container = new Container();

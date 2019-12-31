@@ -1,11 +1,12 @@
-﻿/// <reference path="../@types/xrmdefinitelytyped/xrm.d.ts" />
-/// <reference path="../@types/xrmdefinitelytyped/context.d.ts" />
-/// <reference path="../@types/xrmdefinitelytyped/dg.xrmquery.web.d.ts" />
-/// <reference path="../@types/xrmdefinitelytyped/metadata.d.ts" />
+﻿/// <reference path="../../@types/xrmdefinitelytyped/xrm.d.ts" />
+/// <reference path="../../@types/xrmdefinitelytyped/context.d.ts" />
+/// <reference path="../../@types/xrmdefinitelytyped/dg.xrmquery.web.d.ts" />
+/// <reference path="../../@types/xrmdefinitelytyped/metadata.d.ts" />
 
-import { XrmExecutionContextMock } from '../test/XrmExecutionContextMock';
+import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
 import { Complaint } from './ComplaintMainForm';
-import { ComplaintService } from './services/ComplaintService';
+import { ComplaintService } from '.././services/ComplaintService';
+
 var chai = require("chai");
 var sinon = require("sinon");
 var sinonChai = require("sinon-chai");

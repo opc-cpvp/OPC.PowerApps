@@ -1,3 +1,2 @@
 import 'mocha';
-import './helpers/XrmExtensions';
-import "./ComplaintMainForm.test";
+import "./forms/ComplaintMainForm.test";
