@@ -329,6 +329,22 @@ declare const enum opc_recommendation_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum opc_theme_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_theme_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_topic_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_topic_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum activityparty_instancetypecode {
   NotRecurring = 0,
   RecurringMaster = 1,
@@ -2354,6 +2370,13 @@ declare namespace Form.opc_allegation.Quick {
 declare namespace Form.opc_allegation.Main {
   namespace Information {
     namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
@@ -2376,6 +2399,7 @@ declare namespace Form.opc_allegation.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -2398,36 +2422,43 @@ declare namespace Form.opc_allegation.Main {
 declare namespace Form.opc_complaint.Main {
   namespace Information {
     namespace Tabs {
-      interface allegations_tab extends Xrm.SectionCollectionBase {
-        get(name: "allegation_section"): Xrm.PageSection;
+      interface tab_allegations extends Xrm.SectionCollectionBase {
+        get(name: "section_allegations"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface documents_tab extends Xrm.SectionCollectionBase {
-        get(name: "documents_section"): Xrm.PageSection;
+      interface tab_documents extends Xrm.SectionCollectionBase {
+        get(name: "section_documents"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface general_tab extends Xrm.SectionCollectionBase {
-        get(name: "general_section"): Xrm.PageSection;
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface issues_tab extends Xrm.SectionCollectionBase {
-        get(name: "issues_tab"): Xrm.PageSection;
+      interface tab_issues extends Xrm.SectionCollectionBase {
+        get(name: "section_issues"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface recommendations_tab extends Xrm.SectionCollectionBase {
-        get(name: "recommendations_seciton"): Xrm.PageSection;
+      interface tab_recommendations extends Xrm.SectionCollectionBase {
+        get(name: "section_recommendations"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface tab_topics extends Xrm.SectionCollectionBase {
+        get(name: "section_topics"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -2478,17 +2509,19 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: "opc_number"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "allegations_tab"): Xrm.PageTab<Tabs.allegations_tab>;
-      get(name: "documents_tab"): Xrm.PageTab<Tabs.documents_tab>;
-      get(name: "general_tab"): Xrm.PageTab<Tabs.general_tab>;
-      get(name: "issues_tab"): Xrm.PageTab<Tabs.issues_tab>;
-      get(name: "recommendations_tab"): Xrm.PageTab<Tabs.recommendations_tab>;
+      get(name: "tab_allegations"): Xrm.PageTab<Tabs.tab_allegations>;
+      get(name: "tab_documents"): Xrm.PageTab<Tabs.tab_documents>;
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: "tab_issues"): Xrm.PageTab<Tabs.tab_issues>;
+      get(name: "tab_recommendations"): Xrm.PageTab<Tabs.tab_recommendations>;
+      get(name: "tab_topics"): Xrm.PageTab<Tabs.tab_topics>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -2534,6 +2567,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: "opc_number"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
     getControl(controlName: string): undefined;
   }
 }
@@ -2816,6 +2850,13 @@ declare namespace Form.opc_issue.Quick {
 declare namespace Form.opc_issue.Main {
   namespace Information {
     namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
@@ -2834,6 +2875,7 @@ declare namespace Form.opc_issue.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -2852,6 +2894,13 @@ declare namespace Form.opc_issue.Main {
 declare namespace Form.opc_legislation.Main {
   namespace Information {
     namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_acronym"): Xrm.Attribute<string>;
@@ -2872,6 +2921,7 @@ declare namespace Form.opc_legislation.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -2932,6 +2982,13 @@ declare namespace Form.opc_legislation.Quick {
 declare namespace Form.opc_recommendation.Main {
   namespace Information {
     namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
@@ -2950,6 +3007,7 @@ declare namespace Form.opc_recommendation.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -2998,6 +3056,210 @@ declare namespace Form.opc_recommendation.Quick {
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_theme.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_theme.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_descriptionenglish"): Xrm.Attribute<string>;
+      get(name: "opc_descriptionfrench"): Xrm.Attribute<string>;
+      get(name: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_descriptionenglish"): Xrm.StringControl;
+      get(name: "opc_descriptionfrench"): Xrm.StringControl;
+      get(name: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_descriptionenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_descriptionfrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_descriptionfrench"): Xrm.StringControl;
+    getControl(controlName: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_topic.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_topic.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_descriptionenglish"): Xrm.Attribute<string>;
+      get(name: "opc_descriptionfrench"): Xrm.Attribute<string>;
+      get(name: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
+      get(name: "opc_themeid"): Xrm.LookupAttribute<"opc_theme">;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_descriptionenglish"): Xrm.StringControl;
+      get(name: "opc_descriptionfrench"): Xrm.StringControl;
+      get(name: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
+      get(name: "opc_themeid"): Xrm.LookupControl<"opc_theme">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_descriptionenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_descriptionfrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_themeid"): Xrm.LookupAttribute<"opc_theme">;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_descriptionfrench"): Xrm.StringControl;
+    getControl(controlName: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
+    getControl(controlName: "opc_themeid"): Xrm.LookupControl<"opc_theme">;
     getControl(controlName: string): undefined;
   }
 }
@@ -3192,6 +3454,29 @@ interface opc_complaint_Create extends opc_complaint {
 }
 interface opc_complaint_Update extends opc_complaint {
 }
+interface opc_complaintsrelatedtopics_Base extends WebEntity {
+}
+interface opc_complaintsrelatedtopics_Fixed extends WebEntity_Fixed {
+  opc_complaintsrelatedtopicsid: string;
+}
+interface opc_complaintsrelatedtopics extends opc_complaintsrelatedtopics_Base, opc_complaintsrelatedtopics_Relationships {
+}
+interface opc_complaintsrelatedtopics_Relationships {
+}
+interface opc_complaintsrelatedtopics_Result extends opc_complaintsrelatedtopics_Base, opc_complaintsrelatedtopics_Relationships {
+}
+interface opc_complaintsrelatedtopics_FormattedResult {
+}
+interface opc_complaintsrelatedtopics_Select {
+}
+interface opc_complaintsrelatedtopics_Expand {
+}
+interface opc_complaintsrelatedtopics_Filter {
+}
+interface opc_complaintsrelatedtopics_Create extends opc_complaintsrelatedtopics {
+}
+interface opc_complaintsrelatedtopics_Update extends opc_complaintsrelatedtopics {
+}
 interface opc_individualcomplaint_bp_Base extends WebEntity {
 }
 interface opc_individualcomplaint_bp_Fixed extends WebEntity_Fixed {
@@ -3283,6 +3568,52 @@ interface opc_recommendation_Filter {
 interface opc_recommendation_Create extends opc_recommendation {
 }
 interface opc_recommendation_Update extends opc_recommendation {
+}
+interface opc_theme_Base extends WebEntity {
+}
+interface opc_theme_Fixed extends WebEntity_Fixed {
+  opc_themeid: string;
+}
+interface opc_theme extends opc_theme_Base, opc_theme_Relationships {
+}
+interface opc_theme_Relationships {
+}
+interface opc_theme_Result extends opc_theme_Base, opc_theme_Relationships {
+}
+interface opc_theme_FormattedResult {
+}
+interface opc_theme_Select {
+}
+interface opc_theme_Expand {
+}
+interface opc_theme_Filter {
+}
+interface opc_theme_Create extends opc_theme {
+}
+interface opc_theme_Update extends opc_theme {
+}
+interface opc_topic_Base extends WebEntity {
+}
+interface opc_topic_Fixed extends WebEntity_Fixed {
+  opc_topicid: string;
+}
+interface opc_topic extends opc_topic_Base, opc_topic_Relationships {
+}
+interface opc_topic_Relationships {
+}
+interface opc_topic_Result extends opc_topic_Base, opc_topic_Relationships {
+}
+interface opc_topic_FormattedResult {
+}
+interface opc_topic_Select {
+}
+interface opc_topic_Expand {
+}
+interface opc_topic_Filter {
+}
+interface opc_topic_Create extends opc_topic {
+}
+interface opc_topic_Update extends opc_topic {
 }
 interface ActivityParty_Base extends WebEntity {
 }
@@ -4721,6 +5052,7 @@ interface opc_complaint_Relationships {
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
   opc_complaint_recommendations_complaint?: opc_recommendation_Result[] | null;
+  opc_complaints_topics_relatedtopics?: opc_topic_Result[] | null;
 }
 interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships {
   opc_accountid_bind$accounts?: string | null;
@@ -4809,6 +5141,7 @@ interface opc_complaint_Expand {
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
   opc_complaint_recommendations_complaint: WebExpand<opc_complaint_Expand, opc_recommendation_Select, opc_recommendation_Filter, { opc_complaint_recommendations_complaint: opc_recommendation_Result[] }>;
+  opc_complaints_topics_relatedtopics: WebExpand<opc_complaint_Expand, opc_topic_Select, opc_topic_Filter, { opc_complaints_topics_relatedtopics: opc_topic_Result[] }>;
   opc_legislation: WebExpand<opc_complaint_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
 }
 interface opc_complaint_FormattedResult {
@@ -4860,6 +5193,7 @@ interface opc_complaint_RelatedMany {
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
   opc_complaint_recommendations_complaint: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  opc_complaints_topics_relatedtopics: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_complaints: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
@@ -4869,6 +5203,55 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_complaints: WebMappingCUDA<opc_complaint_Create,opc_complaint_Update,opc_complaint_Select>;
+}
+interface opc_complaintsrelatedtopics_Base extends WebEntity {
+  opc_complaintid?: string | null;
+  opc_complaintsrelatedtopicsid?: string | null;
+  opc_topicid?: string | null;
+  versionnumber?: number | null;
+}
+interface opc_complaintsrelatedtopics_Relationships {
+  opc_complaints_topics_relatedtopics?: opc_complaint_Result[] | null;
+}
+interface opc_complaintsrelatedtopics extends opc_complaintsrelatedtopics_Base, opc_complaintsrelatedtopics_Relationships {
+}
+interface opc_complaintsrelatedtopics_Create extends opc_complaintsrelatedtopics {
+}
+interface opc_complaintsrelatedtopics_Update extends opc_complaintsrelatedtopics {
+}
+interface opc_complaintsrelatedtopics_Select {
+  opc_complaintid: WebAttribute<opc_complaintsrelatedtopics_Select, { opc_complaintid: string | null }, {  }>;
+  opc_complaintsrelatedtopicsid: WebAttribute<opc_complaintsrelatedtopics_Select, { opc_complaintsrelatedtopicsid: string | null }, {  }>;
+  opc_topicid: WebAttribute<opc_complaintsrelatedtopics_Select, { opc_topicid: string | null }, {  }>;
+  versionnumber: WebAttribute<opc_complaintsrelatedtopics_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_complaintsrelatedtopics_Filter {
+  opc_complaintid: XQW.Guid;
+  opc_complaintsrelatedtopicsid: XQW.Guid;
+  opc_topicid: XQW.Guid;
+  versionnumber: number;
+}
+interface opc_complaintsrelatedtopics_Expand {
+  opc_complaints_topics_relatedtopics: WebExpand<opc_complaintsrelatedtopics_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaints_topics_relatedtopics: opc_complaint_Result[] }>;
+}
+interface opc_complaintsrelatedtopics_FormattedResult {
+}
+interface opc_complaintsrelatedtopics_Result extends opc_complaintsrelatedtopics_Base, opc_complaintsrelatedtopics_Relationships {
+  "@odata.etag": string;
+}
+interface opc_complaintsrelatedtopics_RelatedOne {
+}
+interface opc_complaintsrelatedtopics_RelatedMany {
+  opc_complaints_topics_relatedtopics: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_complaintsrelatedtopicsset: WebMappingRetrieve<opc_complaintsrelatedtopics_Select,opc_complaintsrelatedtopics_Expand,opc_complaintsrelatedtopics_Filter,opc_complaintsrelatedtopics_Fixed,opc_complaintsrelatedtopics_Result,opc_complaintsrelatedtopics_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_complaintsrelatedtopicsset: WebMappingRelated<opc_complaintsrelatedtopics_RelatedOne,opc_complaintsrelatedtopics_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_complaintsrelatedtopicsset: WebMappingCUDA<opc_complaintsrelatedtopics_Create,opc_complaintsrelatedtopics_Update,opc_complaintsrelatedtopics_Select>;
 }
 interface opc_individualcomplaint_bp_Base extends WebEntity {
   activestagestartedon?: Date | null;
@@ -5330,6 +5713,261 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_recommendations: WebMappingCUDA<opc_recommendation_Create,opc_recommendation_Update,opc_recommendation_Select>;
+}
+interface opc_theme_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_descriptionenglish?: string | null;
+  opc_descriptionfrench?: string | null;
+  opc_islocalizable?: boolean | null;
+  opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
+  opc_themeid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_theme_statecode | null;
+  statuscode?: opc_theme_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_theme_Relationships {
+  opc_theme_topics_themeid?: opc_topic_Result[] | null;
+}
+interface opc_theme extends opc_theme_Base, opc_theme_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_theme_Create extends opc_theme {
+}
+interface opc_theme_Update extends opc_theme {
+}
+interface opc_theme_Select {
+  createdby_guid: WebAttribute<opc_theme_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_theme_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_theme_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_theme_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_theme_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_theme_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_theme_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_descriptionenglish: WebAttribute<opc_theme_Select, { opc_descriptionenglish: string | null }, {  }>;
+  opc_descriptionfrench: WebAttribute<opc_theme_Select, { opc_descriptionfrench: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_theme_Select, { opc_islocalizable: boolean | null }, {  }>;
+  opc_name: WebAttribute<opc_theme_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_theme_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_theme_Select, { opc_namefrench: string | null }, {  }>;
+  opc_themeid: WebAttribute<opc_theme_Select, { opc_themeid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_theme_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_theme_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_theme_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_theme_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_theme_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_theme_Select, { statecode: opc_theme_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_theme_Select, { statuscode: opc_theme_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_theme_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_theme_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_theme_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_theme_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_descriptionenglish: string;
+  opc_descriptionfrench: string;
+  opc_islocalizable: boolean;
+  opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
+  opc_themeid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_theme_statecode;
+  statuscode: opc_theme_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_theme_Expand {
+  opc_theme_topics_themeid: WebExpand<opc_theme_Expand, opc_topic_Select, opc_topic_Filter, { opc_theme_topics_themeid: opc_topic_Result[] }>;
+}
+interface opc_theme_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_theme_Result extends opc_theme_Base, opc_theme_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_theme_RelatedOne {
+}
+interface opc_theme_RelatedMany {
+  opc_theme_topics_themeid: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_themes: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_themes: WebMappingRelated<opc_theme_RelatedOne,opc_theme_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_themes: WebMappingCUDA<opc_theme_Create,opc_theme_Update,opc_theme_Select>;
+}
+interface opc_topic_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_descriptionenglish?: string | null;
+  opc_descriptionfrench?: string | null;
+  opc_islocalizable?: boolean | null;
+  opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
+  opc_topicid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_topic_statecode | null;
+  statuscode?: opc_topic_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_topic_Relationships {
+  opc_complaints_topics_relatedtopics?: opc_complaint_Result[] | null;
+}
+interface opc_topic extends opc_topic_Base, opc_topic_Relationships {
+  opc_themeid_bind$opc_themes?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_topic_Create extends opc_topic {
+}
+interface opc_topic_Update extends opc_topic {
+}
+interface opc_topic_Select {
+  createdby_guid: WebAttribute<opc_topic_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_topic_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_topic_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_topic_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_topic_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_topic_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_topic_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_descriptionenglish: WebAttribute<opc_topic_Select, { opc_descriptionenglish: string | null }, {  }>;
+  opc_descriptionfrench: WebAttribute<opc_topic_Select, { opc_descriptionfrench: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_topic_Select, { opc_islocalizable: boolean | null }, {  }>;
+  opc_name: WebAttribute<opc_topic_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_topic_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_topic_Select, { opc_namefrench: string | null }, {  }>;
+  opc_themeid_guid: WebAttribute<opc_topic_Select, { opc_themeid_guid: string | null }, { opc_themeid_formatted?: string }>;
+  opc_topicid: WebAttribute<opc_topic_Select, { opc_topicid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_topic_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_topic_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_topic_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_topic_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_topic_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_topic_Select, { statecode: opc_topic_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_topic_Select, { statuscode: opc_topic_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_topic_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_topic_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_topic_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_topic_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_descriptionenglish: string;
+  opc_descriptionfrench: string;
+  opc_islocalizable: boolean;
+  opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
+  opc_themeid_guid: XQW.Guid;
+  opc_topicid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_topic_statecode;
+  statuscode: opc_topic_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_topic_Expand {
+  opc_complaints_topics_relatedtopics: WebExpand<opc_topic_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaints_topics_relatedtopics: opc_complaint_Result[] }>;
+  opc_themeid: WebExpand<opc_topic_Expand, opc_theme_Select, opc_theme_Filter, { opc_themeid: opc_theme_Result }>;
+}
+interface opc_topic_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_themeid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_topic_Result extends opc_topic_Base, opc_topic_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_themeid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_topic_RelatedOne {
+  opc_themeid: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+}
+interface opc_topic_RelatedMany {
+  opc_complaints_topics_relatedtopics: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_topics: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_topics: WebMappingRelated<opc_topic_RelatedOne,opc_topic_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_topics: WebMappingCUDA<opc_topic_Create,opc_topic_Update,opc_topic_Select>;
 }
 interface ActivityParty_Base extends WebEntity {
   activitypartyid?: string | null;
