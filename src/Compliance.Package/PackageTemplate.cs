@@ -11,26 +11,26 @@ using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 namespace Compliance.Package
 {
     /// <summary>
-    /// Import package starter frame. 
+    /// Import package starter frame.
     /// </summary>
     [Export(typeof(IImportExtensions))]
     public class PackageTemplate : ImportExtension
     {
         /// <summary>
-        /// Called When the package is initialized. 
+        /// Called When the package is initialized.
         /// </summary>
         public override void InitializeCustomExtension()
         {
-            // Do nothing. 
+            // Do nothing.
         }
 
         /// <summary>
-        /// Called Before Import Completes. 
+        /// Called Before Import Completes.
         /// </summary>
         /// <returns></returns>
         public override bool BeforeImportStage()
         {
-            return true; // do nothing here. 
+            return true; // do nothing here.
         }
 
         /// <summary>
@@ -41,12 +41,12 @@ namespace Compliance.Package
         /// <returns></returns>
         public override ApplicationRecord BeforeApplicationRecordImport(ApplicationRecord app)
         {
-            return app;  // do nothing here. 
+            return app;  // do nothing here.
         }
 
         /// <summary>
-        /// Called during a solution upgrade while both solutions are present in the target CRM instance. 
-        /// This function can be used to provide a means to do data transformation or upgrade while a solution update is occurring. 
+        /// Called during a solution upgrade while both solutions are present in the target CRM instance.
+        /// This function can be used to provide a means to do data transformation or upgrade while a solution update is occurring.
         /// </summary>
         /// <param name="solutionName">Name of the solution</param>
         /// <param name="oldVersion">version number of the old solution</param>
@@ -60,12 +60,12 @@ namespace Compliance.Package
         }
 
         /// <summary>
-        /// Called after Import completes. 
+        /// Called after Import completes.
         /// </summary>
         /// <returns></returns>
         public override bool AfterPrimaryImport()
         {
-            return true; // Do nothing here/ 
+            return true; // Do nothing here/
         }
 
         #region Properties
@@ -81,14 +81,14 @@ namespace Compliance.Package
         }
 
         /// <summary>
-        /// Folder Name for the Package data. 
+        /// Folder Name for the Package data.
         /// </summary>
         public override string GetImportPackageDataFolderName
         {
             get
             {
-                // WARNING this value directly correlates to the folder name in the Solution Explorer where the ImportConfig.xml and sub content is located. 
-                // Changing this name requires that you also change the correlating name in the Solution Explorer 
+                // WARNING this value directly correlates to the folder name in the Solution Explorer where the ImportConfig.xml and sub content is located.
+                // Changing this name requires that you also change the correlating name in the Solution Explorer
                 return "PkgFolder";
             }
         }
@@ -102,7 +102,7 @@ namespace Compliance.Package
         }
 
         /// <summary>
-        /// Long name of the Import Package. 
+        /// Long name of the Import Package.
         /// </summary>
         public override string GetLongNameOfImport
         {
