@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace Compliance.Package.Configuration
 {
-    class ZipImportDetail
+    public class ZipImportDetail
     {
         [XmlAttribute("filename")]
         public string FileName { get; set; }

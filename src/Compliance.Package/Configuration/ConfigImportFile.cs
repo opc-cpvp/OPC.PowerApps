@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 
 namespace Compliance.Package.Configuration
 {
-    class ConfigImportFile
+    public class ConfigImportFile
     {
         [XmlAttribute("filename")]
         public string FileName { get; set; }

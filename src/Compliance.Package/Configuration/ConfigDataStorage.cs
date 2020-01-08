@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace Compliance.Package.Configuration
 {
     [XmlRoot("configdatastorage")]
-    class ConfigDataStorage
+    public class ConfigDataStorage
     {
         [XmlAttribute("installsampledata")]
         public bool InstallSampleData { get; set; } = false;

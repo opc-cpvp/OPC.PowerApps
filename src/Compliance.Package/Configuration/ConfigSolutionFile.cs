@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace Compliance.Package.Configuration
 {
-    class ConfigSolutionFile
+    public class ConfigSolutionFile
     {
         [XmlAttribute("solutionpackagefilename")]
         public string SolutionPackageFileName { get; set; }
