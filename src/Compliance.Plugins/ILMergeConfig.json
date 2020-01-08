@@ -1,6 +1,6 @@
 ﻿{
   "General": {
-    "OutputFile": null,
+    "OutputFile": "$(ProjectDir)bin\\ILMerge\\$(TargetFileName)",
     "TargetPlatform": null,
     "KeyFile": "$(ProjectDir)Compliance.Plugins.snk",
     "AlternativeILMergePath": null,
