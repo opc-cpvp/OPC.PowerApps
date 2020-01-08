@@ -35,7 +35,7 @@ namespace Compliance.Package
         public override void InitializeCustomExtension()
         {
             // Load the configuration file
-            var importConfigPath = Path.Combine(GetImportPackageDataFolderName, "ImportConfig.xml");
+            var importConfigPath = Path.Combine(CurrentPackageLocation, GetImportPackageDataFolderName, "ImportConfig.xml");
             if (!File.Exists(importConfigPath))
             {
                 var message = "Failed to find the Import Configuration file.";
@@ -83,7 +83,7 @@ namespace Compliance.Package
                 }
             };
 
-            var rootBusinessUnit = CrmSvc.OrganizationServiceProxy.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
+            var rootBusinessUnit = CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
 
             if (rootBusinessUnit is null)
             {
@@ -92,7 +92,7 @@ namespace Compliance.Package
                 return false;
             }
 
-            var dataImportPath = Path.Combine(GetImportPackageDataFolderName, _configuration.CrmMigrationDataImportFile);
+            var dataImportPath = Path.Combine(CurrentPackageLocation, GetImportPackageDataFolderName, _configuration.CrmMigrationDataImportFile);
             if (!File.Exists(dataImportPath))
             {
                 var message = "Failed to find the CRM Migration Data file.";
@@ -101,44 +101,50 @@ namespace Compliance.Package
             }
 
             var dataEntry = @"data.xml";
-            using (var zipStream = File.OpenRead(dataImportPath))
+            using (var zipArchive = ZipFile.Open(dataImportPath, ZipArchiveMode.Update))
             {
-                using (var zipArchive = new ZipArchive(zipStream, ZipArchiveMode.Update))
+                var zipEntry = zipArchive.GetEntry(dataEntry);
+
+                if (zipEntry is null)
                 {
-                    var zipEntry = zipArchive.Entries.FirstOrDefault(z => z.Name == dataEntry);
+                    var message = $"Failed to find {dataEntry} in the CRM Migration Data file.";
+                    RaiseFailEvent(message, new FileNotFoundException(message, dataEntry));
+                    return false;
+                }
 
-                    if (zipEntry is null) {
-                        var message = $"Failed to find {dataEntry} in the CRM Migration Data file.";
-                        RaiseFailEvent(message, new FileNotFoundException(message, dataEntry));
-                        return false;
-                    }
+                XDocument document;
+                using (var stream = zipEntry.Open())
+                {
+                    document = XDocument.Load(stream, LoadOptions.None);
+                }
 
-                    XDocument document;
-                    using (var reader = zipEntry.Open())
+                if (document is null)
+                {
+                    var message = $"Failed to read {dataEntry}.";
+                    RaiseFailEvent(message, new XmlException(message));
+                    return false;
+                }
+
+                var businessUnits = document.XPathSelectElements($"/entities/entity[@name='{BusinessUnit.EntityLogicalName}']/records/record");
+                foreach (var businessUnit in businessUnits)
+                {
+                    var fields = businessUnit.XPathSelectElements("./field");
+                    foreach (var field in fields)
                     {
-                        document = XDocument.Load(reader, LoadOptions.None);
+                        var name = field.Attribute("name").Value;
+
+                        if (name != "parentbusinessunitid")
+                            continue;
+
+                        field.Attribute("value").SetValue(rootBusinessUnit.Id);
+                        field.Attribute("lookupentityname").SetValue(rootBusinessUnit.Name);
                     }
+                }
 
-                    var businessUnits = document.XPathSelectElements($"/entities/entity[name='{BusinessUnit.EntityLogicalName}']/records/record");
-                    foreach (var businessUnit in businessUnits)
-                    {
-                        var fields = businessUnit.XPathSelectElements("/field");
-                        foreach (var field in fields)
-                        {
-                            var name = field.Attribute("name").Value;
-
-                            if (name != "parentbusinessunitid")
-                                continue;
-
-                            field.Attribute("value").SetValue(rootBusinessUnit.Id);
-                            field.Attribute("lookupentityname").SetValue(rootBusinessUnit.Name);
-                        }
-                    }
-
-                    using (var writer = XmlWriter.Create(zipEntry.Open(), new XmlWriterSettings { OmitXmlDeclaration = true, Indent = true }))
-                    {
-                        document.WriteTo(writer);
-                    }
+                using (var stream = zipEntry.Open())
+                using (var writer = XmlWriter.Create(stream, new XmlWriterSettings { OmitXmlDeclaration = true, Indent = true }))
+                {
+                    document.WriteTo(writer);
                 }
             }
 
