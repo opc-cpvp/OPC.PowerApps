@@ -1,23 +1,17 @@
 ﻿using Compliance.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Uii.Common.Entities;
-using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
-using Microsoft.Xrm.Tooling.PackageDeployment;
-using Microsoft.Xrm.Tooling.Connector;
-using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
-using System.IO;
-using System.Xml.Serialization;
 using Compliance.Package.Configuration;
+using Microsoft.Uii.Common.Entities;
+using Microsoft.Xrm.Sdk.Query;
+using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+using System;
+using System.ComponentModel.Composition;
+using System.IO;
 using System.IO.Compression;
-using System.Xml.Linq;
-using System.Xml.XPath;
+using System.Linq;
 using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+using System.Xml.XPath;
 
 namespace Compliance.Package
 {
