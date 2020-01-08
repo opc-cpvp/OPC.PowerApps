@@ -66,6 +66,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,8 +74,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ConfigDataStorage.cs" />
+    <Compile Include="Configuration\ConfigImportFile.cs" />
+    <Compile Include="Configuration\ConfigImportMapFile.cs" />
     <Compile Include="PackageTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\ConfigSolutionFile.cs" />
+    <Compile Include="Configuration\ZipImportDetail.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GettingStarted\GettingStarted.htm" />
@@ -165,6 +171,15 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Compliance.Entities\Compliance.Entities.csproj">
+      <Project>{e5c2a1bf-f2db-4eca-87b8-85a286a811f3}</Project>
+      <Name>Compliance.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

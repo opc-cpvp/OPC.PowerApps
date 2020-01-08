@@ -1,12 +1,23 @@
-﻿using System;
+﻿using Compliance.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Uii.Common.Entities;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment;
+using Microsoft.Xrm.Tooling.Connector;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+using System.IO;
+using System.Xml.Serialization;
+using Compliance.Package.Configuration;
+using System.IO.Compression;
+using System.Xml.Linq;
+using System.Xml.XPath;
+using System.Xml;
 
 namespace Compliance.Package
 {
@@ -16,12 +27,27 @@ namespace Compliance.Package
     [Export(typeof(IImportExtensions))]
     public class PackageTemplate : ImportExtension
     {
+        private ConfigDataStorage _configuration;
+
         /// <summary>
         /// Called When the package is initialized.
         /// </summary>
         public override void InitializeCustomExtension()
         {
-            // Do nothing.
+            // Load the configuration file
+            var importConfigPath = Path.Combine(GetImportPackageDataFolderName, "ImportConfig.xml");
+            if (!File.Exists(importConfigPath))
+            {
+                var message = "Failed to find the Import Configuration file.";
+                RaiseFailEvent(message, new FileNotFoundException(message, importConfigPath));
+                return;
+            }
+
+            using (var stream = File.OpenRead(importConfigPath))
+            {
+                var serializer = new XmlSerializer(typeof(ConfigDataStorage));
+                _configuration = (ConfigDataStorage)serializer.Deserialize(stream);
+            }
         }
 
         /// <summary>
@@ -30,7 +56,93 @@ namespace Compliance.Package
         /// <returns></returns>
         public override bool BeforeImportStage()
         {
-            return true; // do nothing here.
+            if (_configuration is null)
+            {
+                var message = "Failed to read the Import Configuration file.";
+                RaiseFailEvent(message, new NullReferenceException(message));
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(_configuration.CrmMigrationDataImportFile))
+                return true;
+
+            var query = new QueryExpression
+            {
+                EntityName = BusinessUnit.EntityLogicalName,
+                ColumnSet = new ColumnSet("businessunitid", "name"),
+                Criteria = new FilterExpression
+                {
+                    Conditions =
+                    {
+                        new ConditionExpression
+                        {
+                            AttributeName = "parentbusinessunitid",
+                            Operator = ConditionOperator.Null
+                        }
+                    }
+                }
+            };
+
+            var rootBusinessUnit = CrmSvc.OrganizationServiceProxy.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
+
+            if (rootBusinessUnit is null)
+            {
+                var message = "Failed to find Root Business Unit.";
+                RaiseFailEvent(message, new NullReferenceException(message));
+                return false;
+            }
+
+            var dataImportPath = Path.Combine(GetImportPackageDataFolderName, _configuration.CrmMigrationDataImportFile);
+            if (!File.Exists(dataImportPath))
+            {
+                var message = "Failed to find the CRM Migration Data file.";
+                RaiseFailEvent(message, new FileNotFoundException(message, dataImportPath));
+                return false;
+            }
+
+            var dataEntry = @"data.xml";
+            using (var zipStream = File.OpenRead(dataImportPath))
+            {
+                using (var zipArchive = new ZipArchive(zipStream, ZipArchiveMode.Update))
+                {
+                    var zipEntry = zipArchive.Entries.FirstOrDefault(z => z.Name == dataEntry);
+
+                    if (zipEntry is null) {
+                        var message = $"Failed to find {dataEntry} in the CRM Migration Data file.";
+                        RaiseFailEvent(message, new FileNotFoundException(message, dataEntry));
+                        return false;
+                    }
+
+                    XDocument document;
+                    using (var reader = zipEntry.Open())
+                    {
+                        document = XDocument.Load(reader, LoadOptions.None);
+                    }
+
+                    var businessUnits = document.XPathSelectElements($"/entities/entity[name='{BusinessUnit.EntityLogicalName}']/records/record");
+                    foreach (var businessUnit in businessUnits)
+                    {
+                        var fields = businessUnit.XPathSelectElements("/field");
+                        foreach (var field in fields)
+                        {
+                            var name = field.Attribute("name").Value;
+
+                            if (name != "parentbusinessunitid")
+                                continue;
+
+                            field.Attribute("value").SetValue(rootBusinessUnit.Id);
+                            field.Attribute("lookupentityname").SetValue(rootBusinessUnit.Name);
+                        }
+                    }
+
+                    using (var writer = XmlWriter.Create(zipEntry.Open(), new XmlWriterSettings { OmitXmlDeclaration = true, Indent = true }))
+                    {
+                        document.WriteTo(writer);
+                    }
+                }
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -109,8 +221,6 @@ namespace Compliance.Package
             get { return "Package Long Name"; }
         }
 
-
         #endregion
-
     }
 }
