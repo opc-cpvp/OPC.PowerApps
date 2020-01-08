@@ -266,6 +266,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="deploy_solution.ps1" />
     <None Include="packages.config" />
     <None Include="package_solution.ps1" />
   </ItemGroup>
