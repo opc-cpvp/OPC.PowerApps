@@ -11,7 +11,7 @@
       "entities": [
         {
           "name": "businessunit",
-          "filter": "\"<filter type=\"and\"><condition attribute=\"parentbusinessunitid\" operator=\"not-null\" /></filter>\""
+          "filter": "<filter type=\"and\"><condition attribute=\"parentbusinessunitid\" operator=\"not-null\" /></filter>"
         }
       ]
     }
