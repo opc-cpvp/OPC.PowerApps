@@ -34,7 +34,7 @@ namespace Compliance.Package.Configuration
         public bool IsRecordOwnerATeam { get; set; } = false;
 
         [XmlAttribute("owneruser")]
-        public Guid OwnerUser { get; set; } = Guid.Empty;
+        public string OwnerUser { get; set; }
 
         [XmlAttribute("waitforimporttocomplete")]
         public bool WaitForImportToComplete { get; set; } = true;

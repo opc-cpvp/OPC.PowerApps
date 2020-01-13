@@ -1,9 +1,11 @@
 ﻿using Compliance.Entities;
 using Compliance.Package.Configuration;
 using Microsoft.Uii.Common.Entities;
+using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.IO.Compression;
@@ -60,24 +62,7 @@ namespace Compliance.Package
             if (string.IsNullOrEmpty(_configuration.CrmMigrationDataImportFile))
                 return true;
 
-            var query = new QueryExpression
-            {
-                EntityName = BusinessUnit.EntityLogicalName,
-                ColumnSet = new ColumnSet("businessunitid", "name"),
-                Criteria = new FilterExpression
-                {
-                    Conditions =
-                    {
-                        new ConditionExpression
-                        {
-                            AttributeName = "parentbusinessunitid",
-                            Operator = ConditionOperator.Null
-                        }
-                    }
-                }
-            };
-
-            var rootBusinessUnit = CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
+            var rootBusinessUnit = GetRootBusinessUnit();
 
             if (rootBusinessUnit is null)
             {
@@ -177,6 +162,7 @@ namespace Compliance.Package
         /// <returns></returns>
         public override bool AfterPrimaryImport()
         {
+            CreateTeams();
             return true; // Do nothing here/
         }
 
@@ -222,5 +208,108 @@ namespace Compliance.Package
         }
 
         #endregion
+
+        private BusinessUnit GetRootBusinessUnit()
+        {
+            var query = new QueryExpression
+            {
+                EntityName = BusinessUnit.EntityLogicalName,
+                ColumnSet = new ColumnSet("businessunitid", "name"),
+                Criteria = new FilterExpression
+                {
+                    Conditions =
+                    {
+                        new ConditionExpression
+                        {
+                            AttributeName = "parentbusinessunitid",
+                            Operator = ConditionOperator.Null
+                        }
+                    }
+                }
+            };
+
+            return CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
+        }
+
+        private void CreateTeams()
+        {
+            var securityGroups = new Dictionary<string, Guid>
+            {
+                { "Compliance - Breach Response Manager", new Guid("270578ac-92f2-48c2-a0dd-9961962cd293") },
+                { "Compliance - Breach Response Officer", new Guid("10a1cb92-e8da-4ed6-b0ed-4ab5540ec152") },
+                { "Compliance - Compliance Monitoring Officer", new Guid("f26d2b4c-4ffa-46b5-86f6-92c0767201be") },
+                { "Compliance - Deputy Commissioner", new Guid("3db5337b-94d9-4f55-8101-cc2d90ecd528") },
+                { "Compliance - Director", new Guid("fd9e31b5-ec0c-42e5-bf23-422f07896fe0") },
+                { "Compliance - Early Resolution Manager", new Guid("89d87885-9597-4442-b50c-01012b10e4f3") },
+                { "Compliance - Early Resolution Officer", new Guid("b12c491a-98c8-4124-8af9-4c79d66896ce") },
+                { "Compliance - Executive Director", new Guid("15121890-abc0-41fe-a2be-413f084acaef") },
+                { "Compliance - Intake Manager", new Guid("194707af-f01d-4984-b8e2-4d7b5d54d565") },
+                { "Compliance - Intake Officer", new Guid("e02f8e5e-7fd9-4ff3-8a18-0e3f6592077e") },
+                { "Compliance - Investigations Clerk", new Guid("7bdc5d18-af5b-4b0f-b530-52edf0dace7a") },
+                { "Compliance - Investigations Manager", new Guid("b91c2125-d4ac-4f63-b06d-4701df6f941e") },
+                { "Compliance - Privacy Investigator", new Guid("ad098b38-ca02-445c-8b46-13444a6f06b8") },
+                { "Compliance - Senior Advisor", new Guid("cca9d11b-6d4a-4c5f-b562-cb25880dd2ef") },
+                { "Compliance - Senior Case Analyst", new Guid("ab1dbf17-b83e-4e1f-9f97-175a0b2f70de") },
+                { "Compliance - Senior Privacy Investigator", new Guid("e8a747b2-12a5-4def-a1db-ccb09561e187") },
+                { "Compliance - Strategic Advisor", new Guid("e46a895e-137e-48e7-b413-466dcd34ef43") }
+            };
+
+            var rootBusinessUnit = GetRootBusinessUnit();
+            foreach (var securityGroup in securityGroups)
+            {
+                var name = securityGroup.Key;
+                var azureActiveDirectoryObjectId = securityGroup.Value;
+
+                var teamQuery = new QueryExpression
+                {
+                    EntityName = Team.EntityLogicalName,
+                    ColumnSet = new ColumnSet("name", "azureactivedirectoryobjectid"),
+                    Criteria = new FilterExpression
+                    {
+                        Conditions =
+                        {
+                            new ConditionExpression("azureactivedirectoryobjectid", ConditionOperator.Equal, azureActiveDirectoryObjectId)
+                        }
+                    }
+                };
+
+                var team = CrmSvc.RetrieveMultiple(teamQuery).Entities.FirstOrDefault()?.ToEntity<Team>();
+
+                if (team != null)
+                    continue;
+
+                team = new Team
+                {
+                    Name = name,
+                    TeamType = new OptionSetValue((int)TeamTeamType.AADSecurityGroup),
+                    BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, rootBusinessUnit.Id),
+                    AzureActiveDirectoryObjectId = azureActiveDirectoryObjectId
+                };
+
+                var roleQuery = new QueryExpression
+                {
+                    EntityName = Role.EntityLogicalName,
+                    ColumnSet = new ColumnSet("name", "roleid"),
+                    Criteria = new FilterExpression
+                    {
+                        Conditions =
+                        {
+                            new ConditionExpression("name", ConditionOperator.Equal, name)
+                        }
+                    }
+                };
+
+                var role = CrmSvc.RetrieveMultiple(roleQuery).Entities;
+                var roleCollection = new EntityCollection(role)
+                {
+                    EntityName = Role.EntityLogicalName
+                };
+
+                var relationship = new Relationship("teamroles_association");
+                team.RelatedEntities.Add(relationship, roleCollection);
+
+                CrmSvc.Create(team);
+            }
+        }
     }
 }
