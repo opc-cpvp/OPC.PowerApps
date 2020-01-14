@@ -122,6 +122,7 @@
       <RootComponent type="91" id="{ca0f1327-5d70-42e6-ba7c-8c4b5f342a5f}" schemaName="Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" behavior="0" />
       <RootComponent type="92" id="{27ff97f2-3815-ea11-a811-000d3af46489}" behavior="0" />
       <RootComponent type="92" id="{6b057fa4-5305-ea11-a811-000d3af4346a}" behavior="0" />
+      <RootComponent type="92" id="{6e14b1b5-532e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="92" id="{98d29874-1816-ea11-a811-000d3af46cc5}" behavior="0" />
       <RootComponent type="92" id="{a03e0505-3915-ea11-a811-000d3af46cc5}" behavior="0" />
       <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
