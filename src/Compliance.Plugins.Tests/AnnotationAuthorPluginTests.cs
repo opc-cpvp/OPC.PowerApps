@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Compliance.Plugins.Entities;
+﻿using Compliance.Entities;
 using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
+using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Compliance.Plugins.Tests
