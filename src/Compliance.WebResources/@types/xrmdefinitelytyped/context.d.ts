@@ -1,8 +1,16 @@
-declare const enum account_address1_addresstypecode {
-  BillTo = 1,
-  ShipTo = 2,
-  Primary = 3,
-  Other = 4,
+declare const enum account_preferredcontactmethodcode {
+  Any = 1,
+  Email = 2,
+  Phone = 3,
+  Fax = 4,
+  Mail = 5,
+}
+declare const enum account_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum account_accountratingcode {
+  DefaultValue = 1,
 }
 declare const enum account_address1_shippingmethodcode {
   Airborne = 1,
@@ -13,77 +21,8 @@ declare const enum account_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
-declare const enum account_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum account_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
-declare const enum account_accountratingcode {
-  DefaultValue = 1,
-}
-declare const enum account_preferredappointmenttimecode {
-  Morning = 1,
-  Afternoon = 2,
-  Evening = 3,
-}
-declare const enum account_accountclassificationcode {
-  DefaultValue = 1,
-}
-declare const enum account_customertypecode {
-  Competitor = 1,
-  Consultant = 2,
-  Customer = 3,
-  Investor = 4,
-  Partner = 5,
-  Influencer = 6,
-  Press = 7,
-  Prospect = 8,
-  Reseller = 9,
-  Supplier = 10,
-  Vendor = 11,
-  Other = 12,
-}
-declare const enum account_preferredcontactmethodcode {
-  Any = 1,
-  Email = 2,
-  Phone = 3,
-  Fax = 4,
-  Mail = 5,
-}
-declare const enum account_ownershipcode {
-  Public = 1,
-  Private = 2,
-  Subsidiary = 3,
-  Other = 4,
-}
-declare const enum account_address2_addresstypecode {
-  DefaultValue = 1,
-}
 declare const enum account_businesstypecode {
   DefaultValue = 1,
-}
-declare const enum account_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum account_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
-declare const enum account_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum account_customersizecode {
-  DefaultValue = 1,
-}
-declare const enum account_accountcategorycode {
-  PreferredCustomer = 1,
-  Standard = 2,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -120,6 +59,52 @@ declare const enum account_industrycode {
   VehicleRetail = 32,
   Wholesale = 33,
 }
+declare const enum account_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum account_preferredappointmenttimecode {
+  Morning = 1,
+  Afternoon = 2,
+  Evening = 3,
+}
+declare const enum account_address2_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum account_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
+declare const enum account_accountclassificationcode {
+  DefaultValue = 1,
+}
+declare const enum account_ownershipcode {
+  Public = 1,
+  Private = 2,
+  Subsidiary = 3,
+  Other = 4,
+}
+declare const enum account_territorycode {
+  DefaultValue = 1,
+}
+declare const enum account_address2_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum account_address2_addresstypecode {
+  DefaultValue = 1,
+}
+declare const enum account_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum account_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum account_customersizecode {
+  DefaultValue = 1,
+}
 declare const enum account_preferredappointmentdaycode {
   Sunday = 0,
   Monday = 1,
@@ -129,14 +114,29 @@ declare const enum account_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum account_address2_shippingmethodcode {
-  DefaultValue = 1,
+declare const enum account_customertypecode {
+  Competitor = 1,
+  Consultant = 2,
+  Customer = 3,
+  Investor = 4,
+  Partner = 5,
+  Influencer = 6,
+  Press = 7,
+  Prospect = 8,
+  Reseller = 9,
+  Supplier = 10,
+  Vendor = 11,
+  Other = 12,
 }
-declare const enum account_address2_freighttermscode {
-  DefaultValue = 1,
+declare const enum account_accountcategorycode {
+  PreferredCustomer = 1,
+  Standard = 2,
 }
-declare const enum account_territorycode {
-  DefaultValue = 1,
+declare const enum account_address1_addresstypecode {
+  BillTo = 1,
+  ShipTo = 2,
+  Primary = 3,
+  Other = 4,
 }
 declare const enum contact_address3_addresstypecode {
   DefaultValue = 1,
@@ -146,15 +146,6 @@ declare const enum contact_address1_addresstypecode {
   ShipTo = 2,
   Primary = 3,
   Other = 4,
-}
-declare const enum contact_address1_shippingmethodcode {
-  Airborne = 1,
-  DHL = 2,
-  FedEx = 3,
-  UPS = 4,
-  PostalMail = 5,
-  FullLoad = 6,
-  WillCall = 7,
 }
 declare const enum contact_paymenttermscode {
   Net30 = 1,
@@ -166,26 +157,28 @@ declare const enum contact_gendercode {
   Male = 1,
   Female = 2,
 }
-declare const enum contact_preferredappointmenttimecode {
-  Morning = 1,
-  Afternoon = 2,
-  Evening = 3,
-}
-declare const enum contact_statuscode {
-  Active = 1,
-  Inactive = 2,
+declare const enum contact_address1_shippingmethodcode {
+  Airborne = 1,
+  DHL = 2,
+  FedEx = 3,
+  UPS = 4,
+  PostalMail = 5,
+  FullLoad = 6,
+  WillCall = 7,
 }
 declare const enum contact_address1_freighttermscode {
   FOB = 1,
   NoCharge = 2,
 }
+declare const enum contact_preferredappointmenttimecode {
+  Morning = 1,
+  Afternoon = 2,
+  Evening = 3,
+}
 declare const enum contact_address3_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_customertypecode {
-  DefaultValue = 1,
-}
-declare const enum contact_educationcode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -195,12 +188,28 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
+declare const enum contact_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum contact_address2_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_educationcode {
+  DefaultValue = 1,
+}
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
 declare const enum contact_accountrolecode {
   DecisionMaker = 1,
   Employee = 2,
   Influencer = 3,
 }
 declare const enum contact_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum contact_address3_freighttermscode {
@@ -237,18 +246,13 @@ declare const enum contact_familystatuscode {
 declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
-declare const enum contact_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum contact_territorycode {
-  DefaultValue = 1,
-}
 declare const enum opc_allegation_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_allegation_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_allegationdisposition {
   Suitable = 924340000,
@@ -258,10 +262,6 @@ declare const enum opc_allegationdisposition {
   RedirectedtoInstitution = 924340004,
   Resolved = 924340005,
   Unresponsiveinquirer = 924340006,
-}
-declare const enum opc_allegation_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum opc_complaint_statecode {
   Active = 0,
@@ -345,6 +345,13 @@ declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum activityparty_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
+}
 declare const enum activityparty_participationtypemask {
   Sender = 1,
   ToRecipient = 2,
@@ -358,12 +365,9 @@ declare const enum activityparty_participationtypemask {
   Resource = 10,
   Customer = 11,
 }
-declare const enum activityparty_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum connection_statuscode {
   Active = 1,
@@ -414,10 +418,6 @@ declare const enum connection_record2objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-}
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
 }
 declare namespace Form.account.Quick {
   namespace AccountHierarchyTileForm {
@@ -3109,6 +3109,7 @@ declare namespace Form.opc_theme.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_descriptionenglish"): Xrm.Attribute<string>;
       get(name: "opc_descriptionfrench"): Xrm.Attribute<string>;
+      get(name: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "opc_nameenglish"): Xrm.Attribute<string>;
       get(name: "opc_namefrench"): Xrm.Attribute<string>;
@@ -3122,6 +3123,7 @@ declare namespace Form.opc_theme.Main {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_descriptionenglish"): Xrm.StringControl;
       get(name: "opc_descriptionfrench"): Xrm.StringControl;
+      get(name: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_nameenglish"): Xrm.StringControl;
       get(name: "opc_namefrench"): Xrm.StringControl;
@@ -3141,6 +3143,7 @@ declare namespace Form.opc_theme.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_descriptionenglish"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_descriptionfrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
@@ -3149,6 +3152,7 @@ declare namespace Form.opc_theme.Main {
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
     getControl(controlName: "opc_descriptionfrench"): Xrm.StringControl;
+    getControl(controlName: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
@@ -3205,6 +3209,7 @@ declare namespace Form.opc_topic.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_descriptionenglish"): Xrm.Attribute<string>;
       get(name: "opc_descriptionfrench"): Xrm.Attribute<string>;
+      get(name: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "opc_nameenglish"): Xrm.Attribute<string>;
       get(name: "opc_namefrench"): Xrm.Attribute<string>;
@@ -3219,6 +3224,7 @@ declare namespace Form.opc_topic.Main {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_descriptionenglish"): Xrm.StringControl;
       get(name: "opc_descriptionfrench"): Xrm.StringControl;
+      get(name: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_nameenglish"): Xrm.StringControl;
       get(name: "opc_namefrench"): Xrm.StringControl;
@@ -3239,6 +3245,7 @@ declare namespace Form.opc_topic.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_descriptionenglish"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_descriptionfrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
@@ -3248,6 +3255,7 @@ declare namespace Form.opc_topic.Main {
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
     getControl(controlName: "opc_descriptionfrench"): Xrm.StringControl;
+    getControl(controlName: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
@@ -3342,7 +3350,6 @@ declare namespace Form.connection.Main {
 type WebResourceImage = undefined
 declare const enum LCID {
   English = 1033,
-  French = 1036,
 }
 interface WebMappingRetrieve<ISelect, IExpand, IFilter, IFixed, Result, FormattedResult> {
 }
@@ -5032,9 +5039,11 @@ interface opc_complaint_Base extends WebEntity {
   opc_recommendtoregistrar?: boolean | null;
   overriddencreatedon?: Date | null;
   processid?: string | null;
+  stageid?: string | null;
   statecode?: opc_complaint_statecode | null;
   statuscode?: opc_complaint_statuscode | null;
   timezoneruleversionnumber?: number | null;
+  traversedpath?: string | null;
   utcconversiontimezonecode?: number | null;
   versionnumber?: number | null;
 }
@@ -5052,6 +5061,7 @@ interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships 
   opc_legislation_bind$opc_legislations?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
+  stageid_bind$processstages?: string | null;
 }
 interface opc_complaint_Create extends opc_complaint {
 }
@@ -5082,9 +5092,11 @@ interface opc_complaint_Select {
   owningteam_guid: WebAttribute<opc_complaint_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
   owninguser_guid: WebAttribute<opc_complaint_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
   processid: WebAttribute<opc_complaint_Select, { processid: string | null }, {  }>;
+  stageid: WebAttribute<opc_complaint_Select, { stageid: string | null }, {  }>;
   statecode: WebAttribute<opc_complaint_Select, { statecode: opc_complaint_statecode | null }, { statecode_formatted?: string }>;
   statuscode: WebAttribute<opc_complaint_Select, { statuscode: opc_complaint_statuscode | null }, { statuscode_formatted?: string }>;
   timezoneruleversionnumber: WebAttribute<opc_complaint_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  traversedpath: WebAttribute<opc_complaint_Select, { traversedpath: string | null }, {  }>;
   utcconversiontimezonecode: WebAttribute<opc_complaint_Select, { utcconversiontimezonecode: number | null }, {  }>;
   versionnumber: WebAttribute<opc_complaint_Select, { versionnumber: number | null }, {  }>;
 }
@@ -5113,9 +5125,11 @@ interface opc_complaint_Filter {
   owningteam_guid: XQW.Guid;
   owninguser_guid: XQW.Guid;
   processid: XQW.Guid;
+  stageid: XQW.Guid;
   statecode: opc_complaint_statecode;
   statuscode: opc_complaint_statuscode;
   timezoneruleversionnumber: number;
+  traversedpath: string;
   utcconversiontimezonecode: number;
   versionnumber: number;
 }
@@ -5706,6 +5720,7 @@ interface opc_theme_Base extends WebEntity {
   modifiedon?: Date | null;
   opc_descriptionenglish?: string | null;
   opc_descriptionfrench?: string | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
   opc_nameenglish?: string | null;
   opc_namefrench?: string | null;
@@ -5738,6 +5753,7 @@ interface opc_theme_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_theme_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_descriptionenglish: WebAttribute<opc_theme_Select, { opc_descriptionenglish: string | null }, {  }>;
   opc_descriptionfrench: WebAttribute<opc_theme_Select, { opc_descriptionfrench: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_theme_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_theme_Select, { opc_name: string | null }, {  }>;
   opc_nameenglish: WebAttribute<opc_theme_Select, { opc_nameenglish: string | null }, {  }>;
   opc_namefrench: WebAttribute<opc_theme_Select, { opc_namefrench: string | null }, {  }>;
@@ -5763,6 +5779,7 @@ interface opc_theme_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_descriptionenglish: string;
   opc_descriptionfrench: string;
+  opc_islocalizable: boolean;
   opc_name: string;
   opc_nameenglish: string;
   opc_namefrench: string;
@@ -5827,6 +5844,7 @@ interface opc_topic_Base extends WebEntity {
   modifiedon?: Date | null;
   opc_descriptionenglish?: string | null;
   opc_descriptionfrench?: string | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
   opc_nameenglish?: string | null;
   opc_namefrench?: string | null;
@@ -5860,6 +5878,7 @@ interface opc_topic_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_topic_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_descriptionenglish: WebAttribute<opc_topic_Select, { opc_descriptionenglish: string | null }, {  }>;
   opc_descriptionfrench: WebAttribute<opc_topic_Select, { opc_descriptionfrench: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_topic_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_topic_Select, { opc_name: string | null }, {  }>;
   opc_nameenglish: WebAttribute<opc_topic_Select, { opc_nameenglish: string | null }, {  }>;
   opc_namefrench: WebAttribute<opc_topic_Select, { opc_namefrench: string | null }, {  }>;
@@ -5886,6 +5905,7 @@ interface opc_topic_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_descriptionenglish: string;
   opc_descriptionfrench: string;
+  opc_islocalizable: boolean;
   opc_name: string;
   opc_nameenglish: string;
   opc_namefrench: string;

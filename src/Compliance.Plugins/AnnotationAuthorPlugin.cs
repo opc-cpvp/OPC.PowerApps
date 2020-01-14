@@ -1,4 +1,4 @@
-﻿using Compliance.Entities;
+using Compliance.Entities;
 using Microsoft.Xrm.Sdk;
 using System.Linq;
 

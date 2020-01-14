@@ -7,18 +7,41 @@
     "name": ""
   },
   "scripts": {
+    "test": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register src/tests.ts",
     "build": "webpack --mode development",
     "build:watch": "webpack --watch --mode development",
     "build:prod": "webpack --mode production",
     "build:prod:watch": "webpack --watch --mode production"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.5",
+    "@types/mocha": "^5.2.7",
+    "@types/sinon-chai": "^3.2.3",
+    "@types/ts-nameof": "^4.0.0",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "chai": "^4.2.0",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "es6-promise": "^4.2.8",
+    "jsdom": "^15.2.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^6.2.2",
     "script-loader": "^0.7.2",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.3",
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0",
+    "ts-loader": "^6.2.0",
+    "ts-nameof": "^4.1.0",
+    "ts-node": "^8.5.3",
+    "ttypescript": "^1.5.8",
+    "typescript": "^3.6.3",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "xrm-mock": "^3.4.15"
+  },
+  "dependencies": {
+    "inversify": "^5.0.1",
+    "inversify-inject-decorators": "^3.1.0",
+    "reflect-metadata": "^0.1.13"
   }
 }

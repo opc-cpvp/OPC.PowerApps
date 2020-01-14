@@ -2,6 +2,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <None Update="src\factories\FormFactory.ts">
+      <SubType>Code</SubType>
+    </None>
+    <None Update="src\services\AllegationService.ts">
+      <SubType>Code</SubType>
+    </None>
+  </ItemGroup>
 
   <Target Name="InstallDependencies" BeforeTargets="BeforeBuild">
     <Exec Command="npm install" />

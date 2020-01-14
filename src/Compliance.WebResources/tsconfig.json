@@ -1,9 +1,31 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "allowJs": true
-  }
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "maxNodeModuleJsDepth": 2,
+        "noImplicitAny": true,
+        "noEmitOnError": true,
+        "sourceMap": true,
+        "types": [ "reflect-metadata", "node", "ts-nameof" ],
+        "module": "commonjs",
+        "target": "es5",
+        "lib": [ "es6", "dom" ],
+        "moduleResolution": "node",
+        "allowJs": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "plugins": [
+            {
+                "transform": "ts-nameof",
+                "type": "raw"
+            }
+        ]
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "awesomeTypescriptLoaderOptions": {
+        "reportFiles": [
+            "./src/**/*"
+        ]
+    }
 }
