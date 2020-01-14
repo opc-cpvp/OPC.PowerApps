@@ -125,6 +125,7 @@
       <RootComponent type="92" id="{6e14b1b5-532e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="92" id="{98d29874-1816-ea11-a811-000d3af46cc5}" behavior="0" />
       <RootComponent type="92" id="{a03e0505-3915-ea11-a811-000d3af46cc5}" behavior="0" />
+      <RootComponent type="92" id="{b333b5bb-532e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
