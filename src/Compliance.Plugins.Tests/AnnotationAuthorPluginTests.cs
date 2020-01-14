@@ -161,7 +161,7 @@ namespace Compliance.Plugins.Tests
 
                 // Assert
                 var annotations = annotationCollection.Entities.Select(e => e.ToEntity<Annotation>());
-                annotations.All(a => a.ModifiedBy == a.CreatedBy).Should().BeTrue();
+                annotations.All(a => a.ModifiedOn == a.CreatedOn).Should().BeTrue();
             }
         }
     }
