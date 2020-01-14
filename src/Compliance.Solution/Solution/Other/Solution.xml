@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.26</Version>
+    <Version>1.0.32</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -92,6 +92,24 @@
       <RootComponent type="9" schemaName="opc_complaintdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_declinereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_intakedisposition" behavior="0" />
+      <RootComponent type="20" id="{0005b437-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{03dc1c82-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{2b0dfa2a-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{39617a74-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{4044ae7a-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{570c4d31-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{78617a74-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{8ea9d589-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{8fcba750-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{abcba750-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{d0110e3e-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{d6fe931c-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{e8d3b19c-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{e8feb70e-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{eb1be26d-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{f1200996-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{f488af4a-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="20" id="{fbdf0f44-362e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" behavior="0" />
       <RootComponent type="60" id="{402ca646-0c91-4a1d-91ee-77ed1d681a2f}" behavior="0" />
       <RootComponent type="60" id="{887f9c46-ffa9-4a4c-a5ca-365a5ebe48ff}" behavior="0" />
@@ -104,10 +122,8 @@
       <RootComponent type="91" id="{ca0f1327-5d70-42e6-ba7c-8c4b5f342a5f}" schemaName="Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" behavior="0" />
       <RootComponent type="92" id="{27ff97f2-3815-ea11-a811-000d3af46489}" behavior="0" />
       <RootComponent type="92" id="{6b057fa4-5305-ea11-a811-000d3af4346a}" behavior="0" />
-      <RootComponent type="92" id="{6e14b1b5-532e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="92" id="{98d29874-1816-ea11-a811-000d3af46cc5}" behavior="0" />
       <RootComponent type="92" id="{a03e0505-3915-ea11-a811-000d3af46cc5}" behavior="0" />
-      <RootComponent type="92" id="{b333b5bb-532e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
