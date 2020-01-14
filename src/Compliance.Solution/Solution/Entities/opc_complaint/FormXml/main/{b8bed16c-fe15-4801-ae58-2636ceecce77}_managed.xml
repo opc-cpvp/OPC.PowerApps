@@ -7,12 +7,12 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
-        <tab verticallayout="true" id="{0c52c678-2992-4f10-a134-a8e0c7a14cd1}" IsUserDefined="1" name="tab_general">
+        <tab verticallayout="true" id="{0c52c678-2992-4f10-a134-a8e0c7a14cd1}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
             <label description="General" languagecode="1033" />
           </labels>
           <columns>
-            <column width="100%">
+            <column width="67%">
               <sections>
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{c6ea7ba6-d402-451b-9ae9-a79575e343c1}" name="section_general">
                   <labels>
@@ -71,6 +71,59 @@
                 </section>
               </sections>
             </column>
+            <column width="33%">
+              <sections>
+                <section name="section_notes_activities" showlabel="false" showbar="false" locklevel="0" id="{514ceab0-a4d7-4a3e-ad92-79ab50160162}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Notes &amp; Activities" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c44173a9-71b8-33d6-016e-addee91b9aab}" showlabel="false" rowspan="15" auto="false" colspan="1" locklevel="0">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{d35459b4-3031-aeb4-0704-2705dcac41d2}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Timeline</UClientUniqueName>
+                            <UClientModules>Activities,Notes</UClientModules>
+                            <UClientDefaultModuleForCreateExperience>Notes</UClientDefaultModuleForCreateExperience>
+                            <UClientShowFilterPane>false</UClientShowFilterPane>
+                            <UClientExpandFilterPane>false</UClientExpandFilterPane>
+                            <UClientOrderBy>descending</UClientOrderBy>
+                            <UClientRecordPerPage>10</UClientRecordPerPage>
+                            <UClientSortActivitiesByValue>modifiedon</UClientSortActivitiesByValue>
+                            <UClientDisplayActivityHeaderUsing>defaultformat</UClientDisplayActivityHeaderUsing>
+                            <UClientCreateActivityUsing>quickcreateform</UClientCreateActivityUsing>
+                            <UClientDisplayActivityUsing>defaultfields</UClientDisplayActivityUsing>
+                            <DefaultTabId>ActivitiesTab</DefaultTabId>
+                            <OrderByActivityWall>descending</OrderByActivityWall>
+                            <SortActivityWall>modifiedon</SortActivityWall>
+                            <EmailConversationView>true</EmailConversationView>
+                            <ShowArticleTab>false</ShowArticleTab>
+                            <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
           </columns>
         </tab>
         <tab name="tab_documents" id="d8d9df1f-43cb-4cc8-aa4b-cc3ab6fea5a6" IsUserDefined="0" locklevel="0" showlabel="true">
@@ -88,8 +141,7 @@
                     <row>
                       <cell showlabel="false" locklevel="0" id="{95d4334c-142a-47b3-b668-d8bf53172c29}" rowspan="1" colspan="1">
                         <labels>
-                          <label description="Documents" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
+                          <label description="" languagecode="1033" />
                         </labels>
                         <control id="SubgridControl1570557025307" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -124,7 +176,6 @@
                       <cell showlabel="false" locklevel="0" id="{f152b4da-969e-4bc5-ba0b-5fd14065461d}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations/Concerns" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455205666" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -159,7 +210,6 @@
                       <cell showlabel="false" locklevel="0" id="{4974057c-71c4-4cc9-a75a-6af4762adee1}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Issues" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455352989" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -194,7 +244,6 @@
                       <cell showlabel="false" locklevel="0" id="{9c2c4e8a-6b4c-4b64-bc1c-5e13e1272a99}" rowspan="1" colspan="1">
                         <labels>
                           <label description="New SG control 1570455487438" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455487438" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>

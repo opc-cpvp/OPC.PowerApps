@@ -5,6 +5,9 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <FileName>/PluginAssemblies/CompliancePlugins-CA0F1327-5D70-42E6-BA7C-8C4B5F342A5F/CompliancePlugins.dll</FileName>
   <PluginTypes>
+    <PluginType AssemblyQualifiedName="Compliance.Plugins.AnnotationAuthorPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="3dd8a37e-7c07-48e7-ab66-6b91c874199b" Name="Compliance.Plugins.AnnotationAuthorPlugin">
+      <FriendlyName>3b93c71b-a758-4633-b75a-0f86e30f9bbe</FriendlyName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Compliance.Plugins.ComplaintPrefixPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="043cef86-3683-4295-851c-1eb69407025a" Name="Compliance.Plugins.ComplaintPrefixPlugin">
       <FriendlyName>51939314-9cb3-4f7e-8569-c5f6e5b68a44</FriendlyName>
     </PluginType>
