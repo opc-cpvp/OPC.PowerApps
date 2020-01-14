@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compliance.Plugins", "Compl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compliance.Plugins.Tests", "Compliance.Plugins.Tests\Compliance.Plugins.Tests.csproj", "{339B341B-0653-4AE4-980B-E4A5409AD2E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compliance.Entities", "Compliance.Entities\Compliance.Entities.csproj", "{E5C2A1BF-F2DB-4ECA-87B8-85A286A811F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmSvcUtil.Filter", "CrmSvcUtil.Filter\CrmSvcUtil.Filter.csproj", "{8570BB18-1B12-43BC-99A2-ECE5F4288030}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{339B341B-0653-4AE4-980B-E4A5409AD2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{339B341B-0653-4AE4-980B-E4A5409AD2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{339B341B-0653-4AE4-980B-E4A5409AD2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5C2A1BF-F2DB-4ECA-87B8-85A286A811F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5C2A1BF-F2DB-4ECA-87B8-85A286A811F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5C2A1BF-F2DB-4ECA-87B8-85A286A811F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5C2A1BF-F2DB-4ECA-87B8-85A286A811F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8570BB18-1B12-43BC-99A2-ECE5F4288030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8570BB18-1B12-43BC-99A2-ECE5F4288030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8570BB18-1B12-43BC-99A2-ECE5F4288030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8570BB18-1B12-43BC-99A2-ECE5F4288030}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
