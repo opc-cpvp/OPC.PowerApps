@@ -3,6 +3,7 @@ using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Xunit;
 
@@ -141,11 +142,8 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<AnnotationAuthorPlugin>(pluginContext);
 
                 // Assert
-                foreach (var entity in annotationCollection.Entities)
-                {
-                    var annotation = entity.ToEntity<Annotation>();
-                    annotation.ModifiedBy.Should().Be(annotation.CreatedBy);
-                }
+                var annotations = annotationCollection.Entities.Select(e => e.ToEntity<Annotation>());
+                annotations.All(a => a.ModifiedBy == a.CreatedBy).Should().BeTrue();
             }
 
             [Theory, MemberData(nameof(AnnotationCollection))]
@@ -162,11 +160,8 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<AnnotationAuthorPlugin>(pluginContext);
 
                 // Assert
-                foreach (var entity in annotationCollection.Entities)
-                {
-                    var annotation = entity.ToEntity<Annotation>();
-                    annotation.ModifiedOn.Should().Be(annotation.CreatedOn);
-                }
+                var annotations = annotationCollection.Entities.Select(e => e.ToEntity<Annotation>());
+                annotations.All(a => a.ModifiedBy == a.CreatedBy).Should().BeTrue();
             }
         }
     }
