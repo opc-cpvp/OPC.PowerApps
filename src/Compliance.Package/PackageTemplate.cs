@@ -42,12 +42,14 @@ namespace Compliance.Package
         {
             try
             {
-                foreach(var deployment in _solutionDeployments)
+                var success = true;
+                foreach (var deployment in _solutionDeployments)
                 {
-                    deployment.BeforeImportStage();
+                    if (success)
+                        success = deployment.BeforeImportStage();
                 }
 
-                return true;
+                return success;
             }
             catch(Exception ex)
             {
@@ -89,12 +91,14 @@ namespace Compliance.Package
         {
             try
             {
+                var success = true;
                 foreach (var deployment in _solutionDeployments)
                 {
-                    deployment.AfterPrimaryImport();
+                    if (success)
+                        success = deployment.AfterPrimaryImport();
                 }
 
-                return true;
+                return success;
             }
             catch (Exception ex)
             {

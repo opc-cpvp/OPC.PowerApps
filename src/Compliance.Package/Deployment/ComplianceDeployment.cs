@@ -43,18 +43,29 @@ namespace Compliance.Package.Deployment
             _rootBusinessUnit = GetRootBusinessUnit();
         }
 
+        /// <summary>
+        /// Called After Import Completes.
+        /// </summary>
+        /// <returns></returns>
         public override bool AfterPrimaryImport()
         {
             CreateTeams();
             return true;
         }
 
+        /// <summary>
+        /// Called Before Import Completes.
+        /// </summary>
+        /// <returns></returns>
         public override bool BeforeImportStage()
         {
             UpdateImportDataBusinessUnits();
             return true;
         }
 
+        /// <summary>
+        /// Retrieves the Root Bussiness Unit from CRM.
+        /// </summary>
         private BusinessUnit GetRootBusinessUnit()
         {
             var query = new QueryExpression
@@ -100,6 +111,7 @@ namespace Compliance.Package.Deployment
                 if (zipEntry is null)
                     throw new FileNotFoundException($"Failed to find {dataEntry} in the CRM Migration Data file.", dataEntry);
 
+                // Load the CRM Import Data XML file.
                 XDocument document;
                 using (var stream = zipEntry.Open())
                 {
@@ -137,6 +149,9 @@ namespace Compliance.Package.Deployment
             }
         }
 
+        /// <summary>
+        /// Creates the required Teams in CRM.
+        /// </summary>
         private void CreateTeams()
         {
             // Ensure that the Root Business Unit is defined.
@@ -188,6 +203,10 @@ namespace Compliance.Package.Deployment
 
                 // Find the associated Role.
                 var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities;
+
+                if (!role.Any())
+                    throw new Exception($"Failed to find a matching Role for '{name}'.");
+
                 var roleCollection = new EntityCollection(role)
                 {
                     EntityName = Role.EntityLogicalName
