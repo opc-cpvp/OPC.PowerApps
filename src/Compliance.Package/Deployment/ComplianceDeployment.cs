@@ -77,13 +77,18 @@ namespace Compliance.Package.Deployment
             return ImportExtension.CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
         }
 
+        /// <summary>
+        /// Updates CRM Migration Data Business Units with the correct parent Bussiness Unit ID.
+        /// </summary>
         private void UpdateImportDataBusinessUnits()
         {
+            // Ensure that the Root Business Unit is defined.
             if (_rootBusinessUnit is null)
                 throw new NullReferenceException("Failed to find Root Business Unit.");
 
             var dataImportPath = Path.Combine(ImportExtension.CurrentPackageLocation, ImportExtension.GetImportPackageDataFolderName, Configuration.CrmMigrationDataImportFile);
 
+            // Ensure that the CRM Import Data file exists.
             if (!File.Exists(dataImportPath))
                 throw new FileNotFoundException("Failed to find the CRM Migration Data file.", dataImportPath);
 
@@ -104,6 +109,7 @@ namespace Compliance.Package.Deployment
                 if (document is null)
                     throw new XmlException($"Failed to read {dataEntry}.");
 
+                // Locate the Business Units that require updates.
                 var businessUnits = document.XPathSelectElements($"/entities/entity[@name='{BusinessUnit.EntityLogicalName}']/records/record");
                 foreach (var businessUnit in businessUnits)
                 {
@@ -112,14 +118,17 @@ namespace Compliance.Package.Deployment
                     {
                         var name = field.Attribute("name").Value;
 
+                        // Check if we're working with the correct field.
                         if (name != "parentbusinessunitid")
                             continue;
 
+                        // Update the ID and Lookup Name.
                         field.Attribute("value").SetValue(_rootBusinessUnit.Id);
                         field.Attribute("lookupentityname").SetValue(_rootBusinessUnit.Name);
                     }
                 }
 
+                // Save the changes to the CRM Import Data file.
                 using (var stream = zipEntry.Open())
                 using (var writer = XmlWriter.Create(stream, new XmlWriterSettings { OmitXmlDeclaration = true, Indent = true }))
                 {
@@ -130,6 +139,7 @@ namespace Compliance.Package.Deployment
 
         private void CreateTeams()
         {
+            // Ensure that the Root Business Unit is defined.
             if (_rootBusinessUnit is null)
                 throw new NullReferenceException("Failed to find Root Business Unit.");
 
@@ -151,12 +161,11 @@ namespace Compliance.Package.Deployment
                     }
                 };
 
-                var team = ImportExtension.CrmSvc.RetrieveMultiple(teamQuery).Entities.FirstOrDefault()?.ToEntity<Team>();
-
-                if (team != null)
+                // Check if the Team already exists.
+                if (ImportExtension.CrmSvc.RetrieveMultiple(teamQuery).Entities.Any())
                     continue;
 
-                team = new Team
+                var team = new Team
                 {
                     Name = name,
                     TeamType = new OptionSetValue((int)TeamTeamType.AADSecurityGroup),
@@ -177,6 +186,7 @@ namespace Compliance.Package.Deployment
                     }
                 };
 
+                // Find the associated Role.
                 var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities;
                 var roleCollection = new EntityCollection(role)
                 {
@@ -186,6 +196,7 @@ namespace Compliance.Package.Deployment
                 var relationship = new Relationship("teamroles_association");
                 team.RelatedEntities.Add(relationship, roleCollection);
 
+                // Create the Team.
                 ImportExtension.CrmSvc.Create(team);
             }
         }
