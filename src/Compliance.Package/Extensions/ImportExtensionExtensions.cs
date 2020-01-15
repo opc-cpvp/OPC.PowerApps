@@ -21,5 +21,5 @@ namespace Compliance.Package.Extensions
                 return (ConfigDataStorage)serializer.Deserialize(stream);
             }
         }
-}
+    }
 }
