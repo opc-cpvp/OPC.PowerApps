@@ -202,21 +202,21 @@ namespace Compliance.Package.Deployment
                 };
 
                 // Find the associated Role.
-                var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities;
+                var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities.FirstOrDefault()?.ToEntity<Role>();
 
-                if (!role.Any())
-                    throw new Exception($"Failed to find a matching Role for '{name}'.");
-
-                var roleCollection = new EntityCollection(role)
-                {
-                    EntityName = Role.EntityLogicalName
-                };
-
-                var relationship = new Relationship("teamroles_association");
-                team.RelatedEntities.Add(relationship, roleCollection);
+                if (role is null)
+                    throw new NullReferenceException($"Failed to find a matching Role for '{name}'.");
 
                 // Create the Team.
-                ImportExtension.CrmSvc.Create(team);
+                var teamId = ImportExtension.CrmSvc.Create(team);
+
+                // Associate the Role to the Team.
+                ImportExtension.CrmSvc.Associate(
+                    Team.EntityLogicalName,
+                    teamId,
+                    new Relationship("teamroles_association"),
+                    new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
+                );
             }
         }
     }
