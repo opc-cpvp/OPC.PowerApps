@@ -17,7 +17,7 @@ namespace Compliance.Package.Deployment
     {
         private BusinessUnit _rootBusinessUnit = null;
 
-        private static Dictionary<string, Guid> _securityGroups = new Dictionary<string, Guid>
+        private readonly Dictionary<string, Guid> _securityGroups = new Dictionary<string, Guid>
         {
             { "Compliance - Breach Response Manager", new Guid("270578ac-92f2-48c2-a0dd-9961962cd293") },
             { "Compliance - Breach Response Officer", new Guid("10a1cb92-e8da-4ed6-b0ed-4ab5540ec152") },
