@@ -45,8 +45,10 @@ namespace Compliance.Package
                 var success = true;
                 foreach (var deployment in _solutionDeployments)
                 {
-                    if (success)
-                        success = deployment.BeforeImportStage();
+                    if (!success)
+                        break;
+
+                    success = deployment.BeforeImportStage();
                 }
 
                 return success;
@@ -94,8 +96,10 @@ namespace Compliance.Package
                 var success = true;
                 foreach (var deployment in _solutionDeployments)
                 {
-                    if (success)
-                        success = deployment.AfterPrimaryImport();
+                    if (!success)
+                        break;
+
+                    success = deployment.AfterPrimaryImport();
                 }
 
                 return success;
