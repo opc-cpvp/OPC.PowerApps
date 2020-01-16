@@ -1,20 +1,9 @@
-﻿using Compliance.Entities;
-using Compliance.Package.Configuration;
-using Compliance.Package.Deployment;
+﻿using Compliance.Package.Deployment;
 using Microsoft.Uii.Common.Entities;
-using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using System.Xml.XPath;
 
 namespace Compliance.Package
 {
