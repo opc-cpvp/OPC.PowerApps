@@ -13,7 +13,7 @@
     "AllowZeroPeKind": false,
     "AttributeFile": null,
     "Closed": false,
-    "CopyAttributes": false,
+    "CopyAttributes": true,
     "DebugInfo": false,
     "DelaySign": false,
     "DeleteCopiesOverwriteTarget": false,
