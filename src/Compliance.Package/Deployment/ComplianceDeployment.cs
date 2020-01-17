@@ -207,18 +207,17 @@ namespace Compliance.Package.Deployment
                 if (role is null)
                     throw new NullReferenceException($"Failed to find a matching Role for '{name}'.");
 
+                var teamRoles = new EntityCollection
+                {
+                    EntityName = Role.EntityLogicalName,
+                    Entities = { role }
+                };
+
+                // Add the Role to the Team.
+                team.RelatedEntities.Add(new Relationship("teamroles_association"), teamRoles);
+
                 // Create the Team.
-                var teamId = ImportExtension.CrmSvc.Create(team);
-
-                return;
-
-                // Associate the Role to the Team.
-                ImportExtension.CrmSvc.Associate(
-                    Team.EntityLogicalName,
-                    teamId,
-                    new Relationship("teamroles_association"),
-                    new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
-                );
+                ImportExtension.CrmSvc.Create(team);
             }
         }
     }
