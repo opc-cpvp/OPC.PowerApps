@@ -191,33 +191,37 @@ namespace Compliance.Package.Deployment
                 var roleQuery = new QueryExpression
                 {
                     EntityName = Role.EntityLogicalName,
-                    ColumnSet = new ColumnSet("name", "roleid"),
+                    ColumnSet = new ColumnSet("roleid"),
                     Criteria = new FilterExpression
                     {
                         Conditions =
                         {
-                            new ConditionExpression("name", ConditionOperator.Equal, name)
+                            new ConditionExpression
+                            {
+                                AttributeName = "name",
+                                Operator = ConditionOperator.Equal,
+                                Values = { name }
+                            }
                         }
                     }
                 };
 
                 // Find the associated Role.
-                var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities.FirstOrDefault()?.ToEntity<Role>();
+                var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities.Cast<Role>().FirstOrDefault();
 
                 if (role is null)
                     throw new NullReferenceException($"Failed to find a matching Role for '{name}'.");
 
-                var teamRoles = new EntityCollection
-                {
-                    EntityName = Role.EntityLogicalName,
-                    Entities = { role }
-                };
+                // Create the Team.
+                var teamId = ImportExtension.CrmSvc.Create(team);
 
                 // Add the Role to the Team.
-                team.RelatedEntities.Add(new Relationship("teamroles_association"), teamRoles);
-
-                // Create the Team.
-                ImportExtension.CrmSvc.Create(team);
+                ImportExtension.CrmSvc.Associate(
+                    Team.EntityLogicalName,
+                    teamId,
+                    new Relationship("teamroles_association"),
+                    new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
+                );
             }
         }
     }
