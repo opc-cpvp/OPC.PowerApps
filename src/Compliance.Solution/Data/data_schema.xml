@@ -1,5 +1,5 @@
 <entities >
-  <entity name="opc_legislation" displayname="Legislation" etc="10073" primaryidfield="opc_legislationid" primarynamefield="opc_name" disableplugins="false">
+  <entity name="opc_legislation" displayname="Legislation" etc="10063" primaryidfield="opc_legislationid" primarynamefield="opc_name" disableplugins="false">
     <fields>
       <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
       <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
@@ -22,5 +22,82 @@
       <field displayname="UTC Conversion Time Zone Code" name="utcconversiontimezonecode" type="number" />
       <field displayname="Version Number" name="versionnumber" type="bigint" />
     </fields>
+  </entity>
+  <entity name="businessunit" displayname="Business Unit" etc="10" primaryidfield="businessunitid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Address 1: Address Type" name="address1_addresstypecode" type="optionsetvalue" />
+      <field displayname="Address 1: County" name="address1_county" type="string" />
+      <field displayname="Address 1: Fax" name="address1_fax" type="string" />
+      <field displayname="Address 1: ID" name="address1_addressid" type="guid" primaryKey="true" />
+      <field displayname="Address 1: Latitude" name="address1_latitude" type="float" />
+      <field displayname="Address 1: Longitude" name="address1_longitude" type="float" />
+      <field displayname="Address 1: Name" name="address1_name" type="string" />
+      <field displayname="Address 1: Post Office Box" name="address1_postofficebox" type="string" />
+      <field displayname="Address 1: Shipping Method" name="address1_shippingmethodcode" type="optionsetvalue" />
+      <field displayname="Address 1: Telephone 3" name="address1_telephone3" type="string" />
+      <field displayname="Address 1: UPS Zone" name="address1_upszone" type="string" />
+      <field displayname="Address 1: UTC Offset" name="address1_utcoffset" type="number" />
+      <field displayname="Address 2: Address Type" name="address2_addresstypecode" type="optionsetvalue" />
+      <field displayname="Address 2: County" name="address2_county" type="string" />
+      <field displayname="Address 2: Fax" name="address2_fax" type="string" />
+      <field displayname="Address 2: ID" name="address2_addressid" type="guid" primaryKey="true" />
+      <field displayname="Address 2: Latitude" name="address2_latitude" type="float" />
+      <field displayname="Address 2: Longitude" name="address2_longitude" type="float" />
+      <field displayname="Address 2: Name" name="address2_name" type="string" />
+      <field displayname="Address 2: Post Office Box" name="address2_postofficebox" type="string" />
+      <field displayname="Address 2: Shipping Method" name="address2_shippingmethodcode" type="optionsetvalue" />
+      <field displayname="Address 2: Telephone 1" name="address2_telephone1" type="string" />
+      <field displayname="Address 2: Telephone 2" name="address2_telephone2" type="string" />
+      <field displayname="Address 2: Telephone 3" name="address2_telephone3" type="string" />
+      <field displayname="Address 2: UPS Zone" name="address2_upszone" type="string" />
+      <field displayname="Address 2: UTC Offset" name="address2_utcoffset" type="number" />
+      <field displayname="Bill To City" name="address1_city" type="string" />
+      <field displayname="Bill To Country/Region" name="address1_country" type="string" />
+      <field displayname="Bill To State/Province" name="address1_stateorprovince" type="string" />
+      <field displayname="Bill To Street 1" name="address1_line1" type="string" />
+      <field displayname="Bill To Street 2" name="address1_line2" type="string" />
+      <field displayname="Bill To Street 3" name="address1_line3" type="string" />
+      <field displayname="Bill To ZIP/Postal Code" name="address1_postalcode" type="string" />
+      <field displayname="Business Unit" name="businessunitid" type="guid" primaryKey="true" />
+      <field displayname="Calendar" name="calendarid" type="entityreference" lookupType="calendar" />
+      <field displayname="Cost Center" name="costcenter" type="string" />
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created On" name="createdon" type="datetime" />
+      <field displayname="Credit Limit" name="creditlimit" type="float" />
+      <field displayname="Currency" name="transactioncurrencyid" type="entityreference" lookupType="transactioncurrency" />
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Disable Reason" name="disabledreason" type="string" />
+      <field displayname="Division" name="divisionname" type="string" />
+      <field displayname="Email" name="emailaddress" type="string" />
+      <field displayname="Exchange Rate" name="exchangerate" type="decimal" />
+      <field displayname="File as Name" name="fileasname" type="string" />
+      <field displayname="FTP Site" name="ftpsiteurl" type="string" />
+      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
+      <field displayname="Inheritance Mask" name="inheritancemask" type="number" />
+      <field displayname="Is Disabled" name="isdisabled" type="bool" />
+      <field displayname="Main Phone" name="address1_telephone1" type="string" />
+      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Modified On" name="modifiedon" type="datetime" />
+      <field displayname="Name" name="name" type="string" />
+      <field displayname="Other Phone" name="address1_telephone2" type="string" />
+      <field displayname="Parent Business" name="parentbusinessunitid" type="entityreference" lookupType="businessunit" />
+      <field displayname="Picture" name="picture" type="string" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Ship To City" name="address2_city" type="string" />
+      <field displayname="Ship To Country/Region" name="address2_country" type="string" />
+      <field displayname="Ship To State/Province" name="address2_stateorprovince" type="string" />
+      <field displayname="Ship To Street 1" name="address2_line1" type="string" />
+      <field displayname="Ship To Street 2" name="address2_line2" type="string" />
+      <field displayname="Ship To Street 3" name="address2_line3" type="string" />
+      <field displayname="Ship To ZIP/Postal Code" name="address2_postalcode" type="string" />
+      <field displayname="Stock Exchange" name="stockexchange" type="string" />
+      <field displayname="Ticker Symbol" name="tickersymbol" type="string" />
+      <field displayname="UTC Offset" name="utcoffset" type="number" />
+      <field displayname="Website" name="websiteurl" type="string" />
+      <field displayname="Workflow Suspended" name="workflowsuspended" type="bool" />
+    </fields>
+    <filter>&lt;filter type="and"&gt;&lt;condition attribute="parentbusinessunitid" operator="not-null" /&gt;&lt;/filter&gt;</filter>
   </entity>
 </entities>
