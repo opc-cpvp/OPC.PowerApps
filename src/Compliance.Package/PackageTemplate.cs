@@ -29,6 +29,8 @@ namespace Compliance.Package
         /// <returns></returns>
         public override bool BeforeImportStage()
         {
+            return true;
+
             try
             {
                 var success = true;
@@ -80,6 +82,8 @@ namespace Compliance.Package
         /// <returns></returns>
         public override bool AfterPrimaryImport()
         {
+            return true;
+
             try
             {
                 var success = true;
