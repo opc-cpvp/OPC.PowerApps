@@ -171,7 +171,12 @@ namespace Compliance.Package.Deployment
                     {
                         Conditions =
                         {
-                            new ConditionExpression("azureactivedirectoryobjectid", ConditionOperator.Equal, azureActiveDirectoryObjectId)
+                            new ConditionExpression
+                            {
+                                AttributeName = "azureactivedirectoryobjectid",
+                                Operator = ConditionOperator.Equal,
+                                Values = { azureActiveDirectoryObjectId }
+                            }
                         }
                     }
                 };
@@ -190,6 +195,8 @@ namespace Compliance.Package.Deployment
 
                 // Create the Team.
                 ImportExtension.CrmSvc.Create(team);
+
+                return;
             }
         }
     }
