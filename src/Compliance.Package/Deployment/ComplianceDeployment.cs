@@ -210,6 +210,8 @@ namespace Compliance.Package.Deployment
                 // Create the Team.
                 var teamId = ImportExtension.CrmSvc.Create(team);
 
+                return;
+
                 // Associate the Role to the Team.
                 ImportExtension.CrmSvc.Associate(
                     Team.EntityLogicalName,
