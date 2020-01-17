@@ -188,40 +188,8 @@ namespace Compliance.Package.Deployment
                     AzureActiveDirectoryObjectId = azureActiveDirectoryObjectId
                 };
 
-                var roleQuery = new QueryExpression
-                {
-                    EntityName = Role.EntityLogicalName,
-                    ColumnSet = new ColumnSet("roleid"),
-                    Criteria = new FilterExpression
-                    {
-                        Conditions =
-                        {
-                            new ConditionExpression
-                            {
-                                AttributeName = "name",
-                                Operator = ConditionOperator.Equal,
-                                Values = { name }
-                            }
-                        }
-                    }
-                };
-
-                // Find the associated Role.
-                var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities.Cast<Role>().FirstOrDefault();
-
-                if (role is null)
-                    throw new NullReferenceException($"Failed to find a matching Role for '{name}'.");
-
                 // Create the Team.
-                var teamId = ImportExtension.CrmSvc.Create(team);
-
-                // Add the Role to the Team.
-                ImportExtension.CrmSvc.Associate(
-                    Team.EntityLogicalName,
-                    teamId,
-                    new Relationship("teamroles_association"),
-                    new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
-                );
+                ImportExtension.CrmSvc.Create(team);
             }
         }
     }
