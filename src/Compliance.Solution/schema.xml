@@ -2,25 +2,10 @@
   <entity name="opc_legislation" displayname="Legislation" etc="10063" primaryidfield="opc_legislationid" primarynamefield="opc_name" disableplugins="false">
     <fields>
       <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
-      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
-      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
-      <field displayname="Created On" name="createdon" type="datetime" />
-      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
       <field displayname="Legislation" name="opc_legislationid" type="guid" primaryKey="true" />
-      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
-      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
-      <field displayname="Modified On" name="modifiedon" type="datetime" />
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
-      <field displayname="Owner" name="ownerid" type="owner" />
-      <field displayname="Owning Business Unit" name="owningbusinessunit" type="entityreference" lookupType="businessunit" />
-      <field displayname="Owning Team" name="owningteam" type="entityreference" lookupType="team" />
-      <field displayname="Owning User" name="owninguser" type="entityreference" lookupType="systemuser" />
-      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
-      <field displayname="Time Zone Rule Version Number" name="timezoneruleversionnumber" type="number" />
-      <field displayname="UTC Conversion Time Zone Code" name="utcconversiontimezonecode" type="number" />
-      <field displayname="Version Number" name="versionnumber" type="bigint" />
     </fields>
   </entity>
   <entity name="businessunit" displayname="Business Unit" etc="10" primaryidfield="businessunitid" primarynamefield="name" disableplugins="false">
@@ -61,9 +46,6 @@
       <field displayname="Business Unit" name="businessunitid" type="guid" primaryKey="true" />
       <field displayname="Calendar" name="calendarid" type="entityreference" lookupType="calendar" />
       <field displayname="Cost Center" name="costcenter" type="string" />
-      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
-      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
-      <field displayname="Created On" name="createdon" type="datetime" />
       <field displayname="Credit Limit" name="creditlimit" type="float" />
       <field displayname="Currency" name="transactioncurrencyid" type="entityreference" lookupType="transactioncurrency" />
       <field displayname="Description" name="description" type="string" />
@@ -73,13 +55,9 @@
       <field displayname="Exchange Rate" name="exchangerate" type="decimal" />
       <field displayname="File as Name" name="fileasname" type="string" />
       <field displayname="FTP Site" name="ftpsiteurl" type="string" />
-      <field displayname="Import Sequence Number" name="importsequencenumber" type="number" />
       <field displayname="Inheritance Mask" name="inheritancemask" type="number" />
       <field displayname="Is Disabled" name="isdisabled" type="bool" />
       <field displayname="Main Phone" name="address1_telephone1" type="string" />
-      <field displayname="Modified By" name="modifiedby" type="entityreference" lookupType="systemuser" />
-      <field displayname="Modified By (Delegate)" name="modifiedonbehalfby" type="entityreference" lookupType="systemuser" />
-      <field displayname="Modified On" name="modifiedon" type="datetime" />
       <field displayname="Name" name="name" type="string" />
       <field displayname="Other Phone" name="address1_telephone2" type="string" />
       <field displayname="Parent Business" name="parentbusinessunitid" type="entityreference" lookupType="businessunit" />
