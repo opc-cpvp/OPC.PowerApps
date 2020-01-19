@@ -19,7 +19,7 @@ namespace Compliance.Package.Deployment
 
         private readonly Dictionary<string, Guid> _securityGroups = new Dictionary<string, Guid>
         {
-            { "Compliance - Breach Response Manager", new Guid("270578ac-92f2-48c2-a0dd-9961962cd293") },
+            // { "Compliance - Breach Response Manager", new Guid("270578ac-92f2-48c2-a0dd-9961962cd293") },
             { "Compliance - Breach Response Officer", new Guid("10a1cb92-e8da-4ed6-b0ed-4ab5540ec152") },
             { "Compliance - Compliance Monitoring Officer", new Guid("f26d2b4c-4ffa-46b5-86f6-92c0767201be") },
             { "Compliance - Deputy Commissioner", new Guid("3db5337b-94d9-4f55-8101-cc2d90ecd528") },
@@ -35,7 +35,7 @@ namespace Compliance.Package.Deployment
             // { "Compliance - Senior Advisor", new Guid("cca9d11b-6d4a-4c5f-b562-cb25880dd2ef") },
             // { "Compliance - Senior Case Analyst", new Guid("ab1dbf17-b83e-4e1f-9f97-175a0b2f70de") },
             // { "Compliance - Senior Privacy Investigator", new Guid("e8a747b2-12a5-4def-a1db-ccb09561e187") },
-            { "Compliance - Strategic Advisor", new Guid("e46a895e-137e-48e7-b413-466dcd34ef43") }
+            // { "Compliance - Strategic Advisor", new Guid("e46a895e-137e-48e7-b413-466dcd34ef43") }
         };
 
         public ComplianceDeployment(PackageTemplate importExtension) : base(importExtension)
@@ -196,7 +196,7 @@ namespace Compliance.Package.Deployment
                 {
                     Name = name,
                     TeamType = new OptionSetValue((int)TeamTeamType.AADSecurityGroup),
-                    BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.BusinessUnitId.Value),
+                    BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id),
                     AzureActiveDirectoryObjectId = azureActiveDirectoryObjectId
                 };
 
