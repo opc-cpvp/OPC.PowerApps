@@ -44,6 +44,9 @@ namespace Compliance.Package
             }
             catch(Exception ex)
             {
+                PackageLog.Log($"Last Error: {PackageLog.LastError}");
+                PackageLog.Log($"Last Exception: {PackageLog.LastException}");
+
                 RaiseFailEvent(ex.Message, ex);
                 return false;
             }
@@ -95,6 +98,9 @@ namespace Compliance.Package
             }
             catch (Exception ex)
             {
+                PackageLog.Log($"Last Error: {PackageLog.LastError}");
+                PackageLog.Log($"Last Exception: {PackageLog.LastException}");
+
                 RaiseFailEvent(ex.Message, ex);
                 return false;
             }

@@ -93,6 +93,8 @@ namespace Compliance.Package.Deployment
         /// </summary>
         private void UpdateImportDataBusinessUnits()
         {
+            ImportExtension.PackageLog.Log("Updating Import Data Business Units");
+
             // Ensure that the Root Business Unit is defined.
             if (_rootBusinessUnit is null)
                 throw new NullReferenceException("Failed to find Root Business Unit.");
@@ -154,6 +156,8 @@ namespace Compliance.Package.Deployment
         /// </summary>
         private void CreateTeams()
         {
+            ImportExtension.PackageLog.Log("Creating Teams");
+
             // Ensure that the Root Business Unit is defined.
             if (_rootBusinessUnit is null)
                 throw new NullReferenceException("Failed to find Root Business Unit.");
@@ -183,7 +187,10 @@ namespace Compliance.Package.Deployment
 
                 // Check if the Team already exists.
                 if (ImportExtension.CrmSvc.RetrieveMultiple(teamQuery).Entities.Any())
+                {
+                    ImportExtension.PackageLog.Log($"Skipping Team: {name}");
                     continue;
+                }
 
                 var team = new Team
                 {
@@ -193,10 +200,10 @@ namespace Compliance.Package.Deployment
                     AzureActiveDirectoryObjectId = azureActiveDirectoryObjectId
                 };
 
+                ImportExtension.PackageLog.Log($"Creating Team: {name}");
+
                 // Create the Team.
                 ImportExtension.CrmSvc.Create(team);
-
-                return;
             }
         }
     }
