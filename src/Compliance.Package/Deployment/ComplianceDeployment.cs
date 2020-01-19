@@ -34,7 +34,7 @@ namespace Compliance.Package.Deployment
             // { "Compliance - Privacy Investigator", new Guid("ad098b38-ca02-445c-8b46-13444a6f06b8") },
             // { "Compliance - Senior Advisor", new Guid("cca9d11b-6d4a-4c5f-b562-cb25880dd2ef") },
             // { "Compliance - Senior Case Analyst", new Guid("ab1dbf17-b83e-4e1f-9f97-175a0b2f70de") },
-            { "Compliance - Senior Privacy Investigator", new Guid("e8a747b2-12a5-4def-a1db-ccb09561e187") },
+            // { "Compliance - Senior Privacy Investigator", new Guid("e8a747b2-12a5-4def-a1db-ccb09561e187") },
             { "Compliance - Strategic Advisor", new Guid("e46a895e-137e-48e7-b413-466dcd34ef43") }
         };
 
@@ -196,7 +196,7 @@ namespace Compliance.Package.Deployment
                 {
                     Name = name,
                     TeamType = new OptionSetValue((int)TeamTeamType.AADSecurityGroup),
-                    BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id),
+                    BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.BusinessUnitId.Value),
                     AzureActiveDirectoryObjectId = azureActiveDirectoryObjectId
                 };
 
