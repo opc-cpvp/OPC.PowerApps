@@ -31,7 +31,7 @@ namespace Compliance.Package.Deployment
             { "Compliance - Intake Officer", new Guid("e02f8e5e-7fd9-4ff3-8a18-0e3f6592077e") },
             { "Compliance - Investigations Clerk", new Guid("7bdc5d18-af5b-4b0f-b530-52edf0dace7a") },
             { "Compliance - Investigations Manager", new Guid("b91c2125-d4ac-4f63-b06d-4701df6f941e") },
-            { "Compliance - Privacy Investigator", new Guid("ad098b38-ca02-445c-8b46-13444a6f06b8") },
+            // { "Compliance - Privacy Investigator", new Guid("ad098b38-ca02-445c-8b46-13444a6f06b8") },
             { "Compliance - Senior Advisor", new Guid("cca9d11b-6d4a-4c5f-b562-cb25880dd2ef") },
             { "Compliance - Senior Case Analyst", new Guid("ab1dbf17-b83e-4e1f-9f97-175a0b2f70de") },
             { "Compliance - Senior Privacy Investigator", new Guid("e8a747b2-12a5-4def-a1db-ccb09561e187") },
@@ -199,6 +199,34 @@ namespace Compliance.Package.Deployment
                     BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id),
                     AzureActiveDirectoryObjectId = azureActiveDirectoryObjectId
                 };
+
+                var roleQuery = new QueryExpression
+                {
+                    EntityName = Role.EntityLogicalName,
+                    ColumnSet = new ColumnSet("name", "roleid"),
+                    Criteria = new FilterExpression
+                    {
+                        Conditions =
+                        {
+                            new ConditionExpression("name", ConditionOperator.Equal, name)
+                        }
+                    }
+                };
+
+                // Find the associated Role.
+                var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities.FirstOrDefault()?.ToEntity<Role>();
+
+                if (role is null)
+                    throw new NullReferenceException($"Failed to find a matching Role for '{name}'.");
+
+                var teamRoles = new EntityCollection
+                {
+                    EntityName = Role.EntityLogicalName,
+                    Entities = { role }
+                };
+
+                // Add the Role to the Team.
+                team.RelatedEntities.Add(new Relationship("teamroles_association"), teamRoles);
 
                 ImportExtension.PackageLog.Log($"Creating Team: {name}");
 
