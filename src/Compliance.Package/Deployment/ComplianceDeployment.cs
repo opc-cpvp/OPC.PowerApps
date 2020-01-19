@@ -24,7 +24,7 @@ namespace Compliance.Package.Deployment
             { "Compliance - Compliance Monitoring Officer", new Guid("f26d2b4c-4ffa-46b5-86f6-92c0767201be") },
             { "Compliance - Deputy Commissioner", new Guid("3db5337b-94d9-4f55-8101-cc2d90ecd528") },
             { "Compliance - Director", new Guid("fd9e31b5-ec0c-42e5-bf23-422f07896fe0") },
-            { "Compliance - Early Resolution Manager", new Guid("89d87885-9597-4442-b50c-01012b10e4f3") },
+            // { "Compliance - Early Resolution Manager", new Guid("89d87885-9597-4442-b50c-01012b10e4f3") },
             { "Compliance - Early Resolution Officer", new Guid("b12c491a-98c8-4124-8af9-4c79d66896ce") },
             { "Compliance - Executive Director", new Guid("15121890-abc0-41fe-a2be-413f084acaef") },
             { "Compliance - Intake Manager", new Guid("194707af-f01d-4984-b8e2-4d7b5d54d565") },
