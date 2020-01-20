@@ -226,7 +226,7 @@ namespace Compliance.Package.Deployment
                 };
 
                 // Add the Role to the Team.
-                // team.RelatedEntities.Add(new Relationship("teamroles_association"), teamRoles);
+                team.RelatedEntities.Add(new Relationship("teamroles_association"), teamRoles);
 
                 ImportExtension.PackageLog.Log($"Creating Team: {name}");
 
