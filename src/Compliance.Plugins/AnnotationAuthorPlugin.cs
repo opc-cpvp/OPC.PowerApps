@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Sdk;
+using Compliance.Entities;
+using Microsoft.Xrm.Sdk;
 using System.Linq;
 
 namespace Compliance.Plugins
@@ -43,11 +44,10 @@ namespace Compliance.Plugins
             // Replace the annotation modified by user with the original author.
             foreach(var entity in entities.Entities)
             {
-                entity.Attributes.TryGetValue("createdby", out var createdBy);
-                entity.Attributes.TryGetValue("createdon", out var createdOn);
+                var annotation = entity.ToEntity<Annotation>();
 
-                entity["modifiedby"] = createdBy;
-                entity["modifiedon"] = createdOn;
+                entity["modifiedby"] = annotation.CreatedBy;
+                entity["modifiedon"] = annotation.CreatedOn;
             }
         }
     }

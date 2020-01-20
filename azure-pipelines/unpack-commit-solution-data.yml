@@ -17,20 +17,12 @@ steps:
   inputs:
     powershellServiceConnections: 'OPC-PowerShell'
 
-- task: opc-cpvp.opc-powerapps-buildtools.opc-powerapps-export-environment-schema.PowerAppsExportEnvironmentSchema@1
-  displayName: 'OPC - PowerApps Export Environment Schema'
-  inputs:
-    PowerAppsAdminCredentials: 'PowerApps Admin'
-    EnvironmentUrl: '$(EnvironmentUrl)'
-    ConfigurationPath: 'src/$(SolutionName).Solution/data_configuration.json'
-    SchemaOutputPath: '$(Agent.TempDirectory)'
-
 - task: opc-cpvp.opc-powerapps-buildtools.opc-powerapps-export-environment-data.PowerAppsExportEnvironmentData@1
   displayName: 'OPC - PowerApps Export Environment Data'
   inputs:
     PowerAppsAdminCredentials: 'PowerApps Admin'
     EnvironmentUrl: '$(EnvironmentUrl)'
-    SchemaPath: '$(Agent.TempDirectory)\schema.xml'
+    SchemaPath: 'src/$(SolutionName).Solution\schema.xml'
     DataOutputPath: '$(Agent.TempDirectory)'
 
 - task: ExtractFiles@1

@@ -1,36 +1,60 @@
-﻿using System;
+﻿using Compliance.Package.Configuration;
+using Compliance.Package.Deployment;
+using Microsoft.Uii.Common.Entities;
+using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Uii.Common.Entities;
-using Microsoft.Xrm.Tooling.PackageDeployment;
-using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace Compliance.Package
 {
     /// <summary>
-    /// Import package starter frame. 
+    /// Import package starter frame.
     /// </summary>
     [Export(typeof(IImportExtensions))]
     public class PackageTemplate : ImportExtension
     {
+        private List<SolutionDeployment> _solutionDeployments = new List<SolutionDeployment>();
+
+        public ConfigDataStorage Configuration { get; private set; }
+
         /// <summary>
-        /// Called When the package is initialized. 
+        /// Called When the package is initialized.
         /// </summary>
         public override void InitializeCustomExtension()
         {
-            // Do nothing. 
+            Configuration = LoadConfiguration();
+            _solutionDeployments.Add(new ComplianceDeployment(this));
         }
 
         /// <summary>
-        /// Called Before Import Completes. 
+        /// Called Before Import Completes.
         /// </summary>
         /// <returns></returns>
         public override bool BeforeImportStage()
         {
-            return true; // do nothing here. 
+            try
+            {
+                var success = true;
+                foreach (var deployment in _solutionDeployments)
+                {
+                    if (!success)
+                        break;
+
+                    success = deployment.BeforeImportStage();
+                }
+
+                return success;
+            }
+            catch(Exception ex)
+            {
+                PackageLog.Log($"Exception: {ex}");
+
+                RaiseFailEvent(ex.Message, ex);
+                return false;
+            }
         }
 
         /// <summary>
@@ -41,12 +65,12 @@ namespace Compliance.Package
         /// <returns></returns>
         public override ApplicationRecord BeforeApplicationRecordImport(ApplicationRecord app)
         {
-            return app;  // do nothing here. 
+            return app;  // do nothing here.
         }
 
         /// <summary>
-        /// Called during a solution upgrade while both solutions are present in the target CRM instance. 
-        /// This function can be used to provide a means to do data transformation or upgrade while a solution update is occurring. 
+        /// Called during a solution upgrade while both solutions are present in the target CRM instance.
+        /// This function can be used to provide a means to do data transformation or upgrade while a solution update is occurring.
         /// </summary>
         /// <param name="solutionName">Name of the solution</param>
         /// <param name="oldVersion">version number of the old solution</param>
@@ -55,17 +79,35 @@ namespace Compliance.Package
         /// <param name="newSolutionId">Solution ID of the new solution</param>
         public override void RunSolutionUpgradeMigrationStep(string solutionName, string oldVersion, string newVersion, Guid oldSolutionId, Guid newSolutionId)
         {
-
             base.RunSolutionUpgradeMigrationStep(solutionName, oldVersion, newVersion, oldSolutionId, newSolutionId);
         }
 
         /// <summary>
-        /// Called after Import completes. 
+        /// Called after Import completes.
         /// </summary>
         /// <returns></returns>
         public override bool AfterPrimaryImport()
         {
-            return true; // Do nothing here/ 
+            try
+            {
+                var success = true;
+                foreach (var deployment in _solutionDeployments)
+                {
+                    if (!success)
+                        break;
+
+                    success = deployment.AfterPrimaryImport();
+                }
+
+                return success;
+            }
+            catch (Exception ex)
+            {
+                PackageLog.Log($"Exception: {ex}");
+
+                RaiseFailEvent(ex.Message, ex);
+                return false;
+            }
         }
 
         #region Properties
@@ -81,14 +123,14 @@ namespace Compliance.Package
         }
 
         /// <summary>
-        /// Folder Name for the Package data. 
+        /// Folder Name for the Package data.
         /// </summary>
         public override string GetImportPackageDataFolderName
         {
             get
             {
-                // WARNING this value directly correlates to the folder name in the Solution Explorer where the ImportConfig.xml and sub content is located. 
-                // Changing this name requires that you also change the correlating name in the Solution Explorer 
+                // WARNING this value directly correlates to the folder name in the Solution Explorer where the ImportConfig.xml and sub content is located.
+                // Changing this name requires that you also change the correlating name in the Solution Explorer
                 return "PkgFolder";
             }
         }
@@ -102,15 +144,27 @@ namespace Compliance.Package
         }
 
         /// <summary>
-        /// Long name of the Import Package. 
+        /// Long name of the Import Package.
         /// </summary>
         public override string GetLongNameOfImport
         {
             get { return "Package Long Name"; }
         }
 
-
         #endregion
+        private ConfigDataStorage LoadConfiguration()
+        {
+            var importConfigPath = Path.Combine(CurrentPackageLocation, GetImportPackageDataFolderName, "ImportConfig.xml");
+            if (!File.Exists(importConfigPath))
+            {
+                throw new FileNotFoundException("Failed to find the Import Configuration file.", importConfigPath);
+            }
 
+            using (var stream = File.OpenRead(importConfigPath))
+            {
+                var serializer = new XmlSerializer(typeof(ConfigDataStorage));
+                return (ConfigDataStorage)serializer.Deserialize(stream);
+            }
+        }
     }
 }
