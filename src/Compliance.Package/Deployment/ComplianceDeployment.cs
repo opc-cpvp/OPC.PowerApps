@@ -196,7 +196,7 @@ namespace Compliance.Package.Deployment
                 {
                     Name = name,
                     TeamType = new OptionSetValue((int)TeamTeamType.AADSecurityGroup),
-                    BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id),
+                    BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.BusinessUnitId.Value),
                     AzureActiveDirectoryObjectId = azureActiveDirectoryObjectId
                 };
 
