@@ -20,16 +20,12 @@ namespace Compliance.Package
 
         public ConfigDataStorage Configuration { get; private set; }
 
-        public PackageTemplate()
-        {
-            Configuration = LoadConfiguration();
-        }
-
         /// <summary>
         /// Called When the package is initialized.
         /// </summary>
         public override void InitializeCustomExtension()
         {
+            Configuration = LoadConfiguration();
             _solutionDeployments.Add(new ComplianceDeployment(this));
         }
 
