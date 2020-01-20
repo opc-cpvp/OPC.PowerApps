@@ -1,9 +1,12 @@
-﻿using Compliance.Package.Deployment;
+﻿using Compliance.Package.Configuration;
+using Compliance.Package.Deployment;
 using Microsoft.Uii.Common.Entities;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace Compliance.Package
 {
@@ -14,6 +17,13 @@ namespace Compliance.Package
     public class PackageTemplate : ImportExtension
     {
         private List<SolutionDeployment> _solutionDeployments = new List<SolutionDeployment>();
+
+        public ConfigDataStorage Configuration { get; private set; }
+
+        public PackageTemplate()
+        {
+            Configuration = LoadConfiguration();
+        }
 
         /// <summary>
         /// Called When the package is initialized.
@@ -45,8 +55,6 @@ namespace Compliance.Package
             catch(Exception ex)
             {
                 PackageLog.Log($"Exception: {ex}");
-                PackageLog.Log($"PackageLog - Last Error: {PackageLog.LastError}");
-                PackageLog.Log($"PackageLog - Last Exception: {PackageLog.LastException}");
 
                 RaiseFailEvent(ex.Message, ex);
                 return false;
@@ -100,8 +108,6 @@ namespace Compliance.Package
             catch (Exception ex)
             {
                 PackageLog.Log($"Exception: {ex}");
-                PackageLog.Log($"PackageLog - Last Error: {PackageLog.LastError}");
-                PackageLog.Log($"PackageLog - Last Exception: {PackageLog.LastException}");
 
                 RaiseFailEvent(ex.Message, ex);
                 return false;
@@ -150,5 +156,19 @@ namespace Compliance.Package
         }
 
         #endregion
+        private ConfigDataStorage LoadConfiguration()
+        {
+            var importConfigPath = Path.Combine(CurrentPackageLocation, GetImportPackageDataFolderName, "ImportConfig.xml");
+            if (!File.Exists(importConfigPath))
+            {
+                throw new FileNotFoundException("Failed to find the Import Configuration file.", importConfigPath);
+            }
+
+            using (var stream = File.OpenRead(importConfigPath))
+            {
+                var serializer = new XmlSerializer(typeof(ConfigDataStorage));
+                return (ConfigDataStorage)serializer.Deserialize(stream);
+            }
+        }
     }
 }

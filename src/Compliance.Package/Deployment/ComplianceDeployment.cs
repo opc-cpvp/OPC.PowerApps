@@ -1,7 +1,6 @@
 ﻿using Compliance.Entities;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
-using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -38,7 +37,7 @@ namespace Compliance.Package.Deployment
             { "Compliance - Strategic Advisor", new Guid("e46a895e-137e-48e7-b413-466dcd34ef43") }
         };
 
-        public ComplianceDeployment(PackageTemplate importExtension) : base(importExtension)
+        public ComplianceDeployment(PackageTemplate packageTemplate) : base(packageTemplate)
         {
             _rootBusinessUnit = GetRootBusinessUnit();
         }
@@ -85,7 +84,7 @@ namespace Compliance.Package.Deployment
                 }
             };
 
-            return ImportExtension.CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
+            return PackageTemplate.CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
         }
 
         /// <summary>
@@ -93,13 +92,13 @@ namespace Compliance.Package.Deployment
         /// </summary>
         private void UpdateImportDataBusinessUnits()
         {
-            ImportExtension.PackageLog.Log("Updating Import Data Business Units");
+            PackageTemplate.PackageLog.Log("Updating Import Data Business Units");
 
             // Ensure that the Root Business Unit is defined.
             if (_rootBusinessUnit is null)
                 throw new NullReferenceException("Failed to find Root Business Unit.");
 
-            var dataImportPath = Path.Combine(ImportExtension.CurrentPackageLocation, ImportExtension.GetImportPackageDataFolderName, Configuration.CrmMigrationDataImportFile);
+            var dataImportPath = Path.Combine(PackageTemplate.CurrentPackageLocation, PackageTemplate.GetImportPackageDataFolderName, PackageTemplate.Configuration.CrmMigrationDataImportFile);
 
             // Ensure that the CRM Import Data file exists.
             if (!File.Exists(dataImportPath))
@@ -156,7 +155,7 @@ namespace Compliance.Package.Deployment
         /// </summary>
         private void CreateTeams()
         {
-            ImportExtension.PackageLog.Log("Creating Teams");
+            PackageTemplate.PackageLog.Log("Creating Teams");
 
             // Ensure that the Root Business Unit is defined.
             if (_rootBusinessUnit is null)
@@ -186,9 +185,9 @@ namespace Compliance.Package.Deployment
                 };
 
                 // Check if the Team already exists.
-                if (ImportExtension.CrmSvc.RetrieveMultiple(teamQuery).Entities.Any())
+                if (PackageTemplate.CrmSvc.RetrieveMultiple(teamQuery).Entities.Any())
                 {
-                    ImportExtension.PackageLog.Log($"Skipping Team: {name}");
+                    PackageTemplate.PackageLog.Log($"Skipping Team: {name}");
                     continue;
                 }
 
@@ -214,18 +213,18 @@ namespace Compliance.Package.Deployment
                 };
 
                 // Find the associated Role.
-                var role = ImportExtension.CrmSvc.RetrieveMultiple(roleQuery).Entities.FirstOrDefault()?.ToEntity<Role>();
+                var role = PackageTemplate.CrmSvc.RetrieveMultiple(roleQuery).Entities.FirstOrDefault()?.ToEntity<Role>();
 
                 if (role is null)
                     throw new NullReferenceException($"Failed to find a matching Role for '{name}'.");
 
-                ImportExtension.PackageLog.Log($"Creating Team: {name}");
+                PackageTemplate.PackageLog.Log($"Creating Team: {name}");
 
                 // Create the Team.
-                var teamId = ImportExtension.CrmSvc.Create(team);
+                var teamId = PackageTemplate.CrmSvc.Create(team);
 
                 // Associate the Role to the Team.
-                ImportExtension.CrmSvc.Associate(
+                PackageTemplate.CrmSvc.Associate(
                     Team.EntityLogicalName,
                     teamId,
                     new Relationship("teamroles_association"),

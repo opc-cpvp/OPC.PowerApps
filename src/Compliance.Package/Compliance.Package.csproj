@@ -168,7 +168,6 @@
     <Compile Include="Configuration\ConfigImportMapFile.cs" />
     <Compile Include="Deployment\ComplianceDeployment.cs" />
     <Compile Include="Deployment\SolutionDeployment.cs" />
-    <Compile Include="Extensions\ImportExtensionExtensions.cs" />
     <Compile Include="PackageTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configuration\ConfigSolutionFile.cs" />
