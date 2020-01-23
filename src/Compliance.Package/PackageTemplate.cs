@@ -1,20 +1,12 @@
-﻿using Compliance.Entities;
-using Compliance.Package.Configuration;
+﻿using Compliance.Package.Configuration;
 using Compliance.Package.Deployment;
 using Microsoft.Uii.Common.Entities;
-using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Xml;
-using System.Xml.Linq;
 using System.Xml.Serialization;
-using System.Xml.XPath;
 
 namespace Compliance.Package
 {
@@ -26,11 +18,14 @@ namespace Compliance.Package
     {
         private List<SolutionDeployment> _solutionDeployments = new List<SolutionDeployment>();
 
+        public ConfigDataStorage Configuration { get; private set; }
+
         /// <summary>
         /// Called When the package is initialized.
         /// </summary>
         public override void InitializeCustomExtension()
         {
+            Configuration = LoadConfiguration();
             _solutionDeployments.Add(new ComplianceDeployment(this));
         }
 
@@ -55,6 +50,8 @@ namespace Compliance.Package
             }
             catch(Exception ex)
             {
+                PackageLog.Log($"Exception: {ex}");
+
                 RaiseFailEvent(ex.Message, ex);
                 return false;
             }
@@ -106,6 +103,8 @@ namespace Compliance.Package
             }
             catch (Exception ex)
             {
+                PackageLog.Log($"Exception: {ex}");
+
                 RaiseFailEvent(ex.Message, ex);
                 return false;
             }
@@ -153,5 +152,19 @@ namespace Compliance.Package
         }
 
         #endregion
+        private ConfigDataStorage LoadConfiguration()
+        {
+            var importConfigPath = Path.Combine(CurrentPackageLocation, GetImportPackageDataFolderName, "ImportConfig.xml");
+            if (!File.Exists(importConfigPath))
+            {
+                throw new FileNotFoundException("Failed to find the Import Configuration file.", importConfigPath);
+            }
+
+            using (var stream = File.OpenRead(importConfigPath))
+            {
+                var serializer = new XmlSerializer(typeof(ConfigDataStorage));
+                return (ConfigDataStorage)serializer.Deserialize(stream);
+            }
+        }
     }
 }
