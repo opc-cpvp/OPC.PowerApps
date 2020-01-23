@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{82a4ed5d-5346-4579-8761-0b0264ea9902}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_riskassessmentfactortemplateid">
+          <cell name="opc_name" width="300" />
+          <cell name="opc_riskassessmentcategorytemplate" width="257" />
+          <cell name="opc_sequence" width="100" />
+          <cell name="opc_description" width="197" />
+          <cell name="opc_version" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_riskassessmentfactortemplate">
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="opc_version" />
+          <attribute name="opc_description" />
+          <attribute name="opc_riskassessmentfactortemplateid" />
+          <attribute name="opc_riskassessmentcategorytemplate" />
+          <attribute name="opc_sequence" />
+          <order attribute="opc_riskassessmentcategorytemplate" descending="false" />
+          <order attribute="opc_sequence" descending="false" />
+          <order attribute="opc_version" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.26</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Risk Assessment Factor Templates" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

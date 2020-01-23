@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{5c6e33a5-3afb-42ae-b102-21c0cf47b549}</formid>
+    <IntroducedVersion>1.0.26</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{1aa0cac0-6345-449c-abb0-a1913bdaef47}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="Général" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c1ef0162-0595-4900-ad71-42e6ecb705a8}" height="auto">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="Général" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1f610c05-f804-47f5-b493-0db31faeab85}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{46440f15-6dca-466a-b1c7-d75dfc10633f}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_riskassessmenttype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmenttype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{44e18d01-8771-43a1-b3da-5cfd7ba65a21}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_suggestedriskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_suggestedriskappetite" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{40a72f5b-c5ef-4ba7-8160-cf6872686dd9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_bypasssuggestedriskappetite" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_bypasssuggestedriskappetite" disabled="false" uniqueid="{da041da3-3c54-4874-829c-2851437fabda}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9f0cb096-16b3-444d-a093-1dd39072de3e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_bypassinitiatedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_bypassinitiatedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c193f6cd-1656-4ecf-875a-9e981d280a37}" showlabel="true" locklevel="0" rowspan="3">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_bypassrationale" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_bypassrationale" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{7356bd8f-253e-49d7-a89f-164d4283ccca}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="opc_actualriskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_actualriskappetite" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="76a55085-3e38-427d-a5f9-63a5c3c72cc0" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" height="auto">
+                  <labels>
+                    <label description="Risk Assessment Categories" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{5abc4ce2-8add-4b12-b919-3790829ff576}" rowspan="4" colspan="1" auto="true">
+                        <labels>
+                          <label description="New SG control 1579529636231" languagecode="1033" />
+                        </labels>
+                        <control id="Subgrid_1" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{382601e5-6b4b-381b-99c9-69b6db102ddb}">
+                          <parameters>
+                            <TargetEntityType>opc_riskassessmentcategory</TargetEntityType>
+                            <ViewId>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</ViewId>
+                            <ViewIds>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_RiskAssessmentCategory_RiskAssessment</RelationshipName>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Auto</AutoExpand>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{a51a0394-43a8-4792-92af-6426520e1294}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{99258554-eb1e-4adc-b4c7-766e29a54dc5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{73b9607a-3c16-4842-9bd0-5342a6a2e974}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{42253ca7-1bd7-4499-8e05-09b502d3e670}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{05cca663-cc0c-4c41-8bfb-f61a8ed0b9a9}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+            <cell id="{10980fd1-6e41-4a13-b51e-08506c01b283}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+              <control id="header_opc_complaint" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaint" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{2138d4d0-161a-47bc-95b4-9d034d0bebba}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{df1d4cab-38bb-46dd-a341-e76b6e269bd7}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1f699dd9-90a1-445b-b013-9590baa7ecbb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{01d35677-e3ac-43fd-ac2a-da7ee2b2d434}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <controlDescriptions>
+        <controlDescription forControl="{da041da3-3c54-4874-829c-2851437fabda}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_bypasssuggestedriskappetite</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_bypasssuggestedriskappetite</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_bypasssuggestedriskappetite</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_bypasssuggestedriskappetite</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{382601e5-6b4b-381b-99c9-69b6db102ddb}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" formFactor="0">
+            <parameters />
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</ViewId>
+                <columnsDefaultView />
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_RiskAssessmentCategory_RiskAssessment</RelationshipName>
+                <TargetEntityType>opc_riskassessmentcategory</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">yes</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">yes</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
+              <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+              <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</ViewId>
+                <columnsDefaultView />
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_RiskAssessmentCategory_RiskAssessment</RelationshipName>
+                <TargetEntityType>opc_riskassessmentcategory</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">yes</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">yes</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
+              <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+              <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="0" FallbackForm="true" />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
