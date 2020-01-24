@@ -78,4 +78,62 @@
     </fields>
     <filter>&lt;filter type="and"&gt;&lt;condition attribute="parentbusinessunitid" operator="not-null" /&gt;&lt;/filter&gt;</filter>
   </entity>
+  <entity name="opc_riskappetite" displayname="Risk Appetite" etc="10290" primaryidfield="opc_riskappetiteid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Risk Appetite" name="opc_riskappetiteid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_riskassessmentcategorytemplate" displayname="Risk Assessment Category Template" etc="10293" primaryidfield="opc_riskassessmentcategorytemplateid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Risk Assessment Category Template" name="opc_riskassessmentcategorytemplateid" type="guid" primaryKey="true" />
+      <field displayname="Risk Assessment Type" name="opc_riskassessmenttype" type="entityreference" lookupType="opc_riskassessmenttype" customfield="true" />
+      <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Version" name="opc_version" type="number" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_riskassessmentdefinitiontemplate" displayname="Risk Assessment Definition Template" etc="10295" primaryidfield="opc_riskassessmentdefinitiontemplateid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Risk Appetite" name="opc_riskappetite" type="entityreference" lookupType="opc_riskappetite" customfield="true" />
+      <field displayname="Risk Assessment Definition Template" name="opc_riskassessmentdefinitiontemplateid" type="guid" primaryKey="true" />
+      <field displayname="Risk Assessment Factor Template" name="opc_riskassessmentfactortemplate" type="entityreference" lookupType="opc_riskassessmentfactortemplate" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Version" name="opc_version" type="number" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_riskassessmentfactortemplate" displayname="Risk Assessment Factor Template" etc="10296" primaryidfield="opc_riskassessmentfactortemplateid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Description" name="opc_description" type="string" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Risk Assessment Category Template" name="opc_riskassessmentcategorytemplate" type="entityreference" lookupType="opc_riskassessmentcategorytemplate" customfield="true" />
+      <field displayname="Risk Assessment Factor Template" name="opc_riskassessmentfactortemplateid" type="guid" primaryKey="true" />
+      <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Version" name="opc_version" type="number" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_riskassessmenttype" displayname="Risk Assessment Type" etc="10297" primaryidfield="opc_riskassessmenttypeid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Effective Date" name="opc_effectivedate" type="datetime" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Previous Version" name="opc_previousversion" type="entityreference" lookupType="opc_riskassessmenttype" customfield="true" />
+      <field displayname="Risk Assessment Type" name="opc_riskassessmenttypeid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Version" name="opc_version" type="number" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
 </entities>
