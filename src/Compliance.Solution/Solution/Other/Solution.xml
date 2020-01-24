@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.12046" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.12617" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Compliance</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.32</Version>
+    <Version>1.0.65</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -85,7 +85,9 @@
       <RootComponent type="1" schemaName="opc_individualcomplaint_bp" behavior="0" />
       <RootComponent type="1" schemaName="opc_issue" behavior="0" />
       <RootComponent type="1" schemaName="opc_legislation" behavior="0" />
+      <RootComponent type="1" schemaName="opc_notification" behavior="0" />
       <RootComponent type="1" schemaName="opc_recommendation" behavior="0" />
+      <RootComponent type="1" schemaName="opc_reminder" behavior="0" />
       <RootComponent type="1" schemaName="opc_theme" behavior="0" />
       <RootComponent type="1" schemaName="opc_topic" behavior="0" />
       <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
@@ -110,8 +112,10 @@
       <RootComponent type="20" id="{f1200996-362e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="20" id="{f488af4a-362e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="20" id="{fbdf0f44-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="29" id="{2ff3126a-183d-ea11-a812-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" behavior="0" />
       <RootComponent type="60" id="{402ca646-0c91-4a1d-91ee-77ed1d681a2f}" behavior="0" />
+      <RootComponent type="60" id="{85c64e3e-e23e-ea11-a812-000d3af46489}" behavior="0" />
       <RootComponent type="60" id="{887f9c46-ffa9-4a4c-a5ca-365a5ebe48ff}" behavior="0" />
       <RootComponent type="60" id="{9348e25d-7708-40df-ac7f-85b5e6d1d41b}" behavior="0" />
       <RootComponent type="60" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" behavior="0" />

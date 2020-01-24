@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{e5b8a3e8-313d-ea11-a812-000d3af46cc5}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_notificationid">
+          <cell name="statuscode" width="90" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="opc_name" width="300" />
+          <cell name="opc_notifybyemail" width="100" />
+          <cell name="createdon" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="opc_notification">
+          <attribute name="opc_name" />
+          <attribute name="opc_notifybyemail" />
+          <attribute name="statuscode" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="ownerid" operator="eq-userid" />
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="opc_notificationid" />
+          <order attribute="statuscode" descending="true" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.34</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My Active Notifications" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

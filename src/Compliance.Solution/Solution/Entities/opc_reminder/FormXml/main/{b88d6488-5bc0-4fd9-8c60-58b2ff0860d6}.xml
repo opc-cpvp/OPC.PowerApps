@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b88d6488-5bc0-4fd9-8c60-58b2ff0860d6}</formid>
+    <IntroducedVersion>1.0.34</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{4ed31a50-7268-462c-ad95-8396a6a99646}" IsUserDefined="1" name="tab_general" expanded="true" locklevel="0" showlabel="true">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="Général" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{a18c3c57-3ff3-400e-ad73-69f3b40977e8}" name="section_genreal" columns="111" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="Général" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{98a92c8f-c28b-4f6d-af9c-d3729f19373e}" showlabel="true" locklevel="0" colspan="3">
+                        <labels>
+                          <label description="Title" languagecode="1033" />
+                        </labels>
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" uniqueid="{a2ad4e70-1261-de96-0dbc-344ba0c0e531}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25211473-d3e9-4c0b-b1f6-59e799452c4b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reminder Date" languagecode="1033" />
+                        </labels>
+                        <control id="opc_reminderdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_reminderdate" disabled="false" />
+                      </cell>
+                      <cell id="{36776e7b-71cc-5d01-bb1b-a6a2c2ec38c6}" showlabel="false" userspacer="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{c08ab9b6-35ca-4e96-ad6d-ac72524b44e4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Send Email Notification" languagecode="1033" />
+                        </labels>
+                        <control id="opc_notifybyemail" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifybyemail" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cd656e91-e5d5-4e2d-30ab-38c4d247e517}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Notify Case Owner" languagecode="1033" />
+                        </labels>
+                        <control id="opc_notifycaseowner" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifycaseowner" disabled="false" />
+                      </cell>
+                      <cell id="{8d421c80-87bb-94a4-9dd2-630494205230}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Notify Me" languagecode="1033" />
+                        </labels>
+                        <control id="opc_notifyme" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifyme" disabled="false" />
+                      </cell>
+                      <cell id="{d46e5ce3-45e4-a2e5-4ae3-7226c85e5644}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="section_notifyusers" showlabel="true" showbar="true" locklevel="0" id="{79a8316b-7dc5-637a-7375-1be7d234bde2}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Additional users to notify" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d5047a87-975b-133c-ee06-199ab7c1bdbd}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="Users" languagecode="1033" />
+                          <label description="Utilisateurs" languagecode="1036" />
+                        </labels>
+                        <control id="grid_notifyusers" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{e4103c64-c920-3320-ad5a-3ed66796258d}">
+                          <parameters>
+                            <ViewId>{00000000-0000-0000-00AA-000010001019}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>opc_reminders_users_notifyusers</RelationshipName>
+                            <TargetEntityType>systemuser</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{00000000-0000-0000-00AA-000010001019}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_relatedrecord" id="{15919714-88a7-3720-0b38-2168b50e3a50}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false" visible="false">
+          <labels>
+            <label description="Related Record" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="section_relatedrecord" showlabel="false" showbar="false" locklevel="0" id="{15b1715d-12b6-18b6-9b54-544abc174b3c}" IsUserDefined="0" layout="varwidth" columns="111" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="Related Record" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4bda20e8-0d23-484d-b117-08907a64039d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Complaint" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="false" />
+                      </cell>
+                      <cell id="{edece8a0-8a58-4206-a7c9-7ab80b922bb2}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{c34e87d0-838b-b490-ed9d-e21a24d8cde5}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{b2490ecb-7460-403d-aef4-119ff529595d}" columns="111">
+        <rows>
+          <row>
+            <cell id="{c81adebe-5a96-400d-b001-68acd4aa1040}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6343521a-aaa7-921c-d42c-996cda5b24a4}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Status" languagecode="1033" />
+                <label description="Statut" languagecode="1036" />
+              </labels>
+              <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+            </cell>
+            <cell id="{c0523d05-bc29-d2bb-e2a3-4706c86e2c17}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+      <footer id="{5c2ae2aa-29e8-462a-b4aa-967f4c79fdd2}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{a618d99c-6bcf-4f0c-8949-fe75219d8ba1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d762ef64-aff4-4817-9a1b-a9839ac94726}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b7101b1b-5460-4f17-8312-64797d7631b3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true" />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
