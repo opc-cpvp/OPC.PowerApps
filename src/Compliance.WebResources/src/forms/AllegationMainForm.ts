@@ -23,7 +23,7 @@ export namespace Allegation.Forms {
          *
          * @event OnLoad
          */
-        public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_allegation.Main.Information>): void {
+        public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_allegation.Main.Information, any>): void {
             this._allegationService.getAllegation("test");
             let formContext = <Form.opc_allegation.Main.Information>initializationContext.getFormContext();
         }

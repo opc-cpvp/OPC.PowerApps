@@ -19,7 +19,7 @@ export namespace Complaint.Forms {
          *
          * @event OnLoad
          */
-        public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information>): void {
+        public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
 
             this._complaintService.getComplaint("test");
             let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
@@ -40,7 +40,7 @@ export namespace Complaint.Forms {
         *
         * @event OnChanged
         */
-        private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>>): void {
+        private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             let isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
 
@@ -54,7 +54,7 @@ export namespace Complaint.Forms {
         *
         * @event OnChanged
         */
-        private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>>): void {
+        private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>, any>): void {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
                 case opc_intakedisposition.Declinetoinvestigate:
@@ -77,7 +77,7 @@ export namespace Complaint.Forms {
         *
         * @event OnStageChanged
         */
-        private process_OnStageChanged(executionContext?: Xrm.ExecutionContext<Xrm.ProcessModule>): void {
+        private process_OnStageChanged(executionContext?: Xrm.StageChangeContext): void {
             // Relay context to reusable handler
             let formContext = <Form.opc_complaint.Main.Information>executionContext.getFormContext();
             this.handle_StageStates(formContext);

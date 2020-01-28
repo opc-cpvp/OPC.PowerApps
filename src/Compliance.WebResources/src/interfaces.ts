@@ -3,13 +3,17 @@
 }
 
 export interface IAllegationService {
-    getAllegation(id: string): opc_complaint
+    getAllegation(id: string): opc_allegation
+}
+
+export interface IReminderService {
+    getReminder(id: string): opc_reminder
 }
 
 export interface IFormFactory {
-    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm>) : IPowerForm<TForm>
+    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>) : IPowerForm<TForm>
 }
 
 export interface IPowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>> {
-    initializeComponents(context: Xrm.ExecutionContext<TForm>): void;
+    initializeComponents(context: Xrm.ExecutionContext<TForm, any>): void;
 }
