@@ -1,5 +1,24 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-01-28T19:09:32.1006674Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-01-28T22:12:58.8025352Z">
+  <entity name="opc_legislation" displayname="Legislation">
+    <records>
+      <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
+        <field name="opc_acronym" value="PA" />
+        <field name="opc_legislationid" value="7ec56b15-e61d-ea11-a810-000d3af464f8" />
+        <field name="opc_name" value="Privacy Act" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="e4307439-e61d-ea11-a810-000d3af464f8">
+        <field name="opc_acronym" value="PIPEDA" />
+        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" />
+        <field name="opc_name" value="Personal Information Protection and Electronic Documents Act" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
   <entity name="businessunit" displayname="Business Unit">
     <records>
       <record id="e960220a-3f2e-ea11-a810-000d3af46757">
@@ -1111,6 +1130,251 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="opc_version" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_allegation" displayname="Allegation/Concern">
+    <records>
+      <record id="553753dd-4320-ea11-a811-000d3af3afcd">
+        <field name="opc_acronym" value="CORR" />
+        <field name="opc_allegationid" value="553753dd-4320-ea11-a811-000d3af3afcd" />
+        <field name="opc_description" value="A complaint in which an individual complains that his information is not accurate and that the personal information should be corrected or notated" />
+        <field name="opc_nameenglish" value="Correction - Notation" />
+        <field name="opc_namefrench" value="Correction/annotation" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Correction - Notation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="8bdbfc6b-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="ACC" />
+        <field name="opc_allegationid" value="8bdbfc6b-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Denial of access in response to formal Privacy Act complaint" />
+        <field name="opc_nameenglish" value="Access" />
+        <field name="opc_namefrench" value="Acc&amp;#232;s" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Access" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="dcdbfc6b-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="ACY" />
+        <field name="opc_allegationid" value="dcdbfc6b-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Accuracy" />
+        <field name="opc_nameenglish" value="Accuracy" />
+        <field name="opc_namefrench" value="Exactitude" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Accuracy" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="9b940a72-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="COLL" />
+        <field name="opc_allegationid" value="9b940a72-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning the collection of an individual’s personal information" />
+        <field name="opc_nameenglish" value="Collection" />
+        <field name="opc_namefrench" value="Collecte" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Collection" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="b89f4578-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="CONS" />
+        <field name="opc_allegationid" value="b89f4578-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning the collection of an individual’s personal information" />
+        <field name="opc_nameenglish" value="Consent" />
+        <field name="opc_namefrench" value="Consentement" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Consent" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="4c963884-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="4c963884-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint in which an individual does not receive a response to his/her correction request from the department within 30 days" />
+        <field name="opc_nameenglish" value="PA - Correction – Time Limits" />
+        <field name="opc_namefrench" value="PA - Correction/d&amp;#233;lais" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PA - Correction – Time Limits" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="a0963884-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="a0963884-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning the extension of PA responses beyond the 30 day legislated time frame" />
+        <field name="opc_nameenglish" value="Denial of Access" />
+        <field name="opc_namefrench" value="Refus d’acc&amp;#232;s" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Denial of Access" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="71337d8a-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="71337d8a-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning the application of fees to Privacy Act requests. There are no fees required to submit or process PA requests" />
+        <field name="opc_nameenglish" value="Fees" />
+        <field name="opc_namefrench" value="Frais" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Fees" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="03347d8a-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="03347d8a-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning the content of the federal government publication  InfoSource which lists the Personal Information Banks of each federal government department. This includes the failure by departments to publish the existence of its personal information" />
+        <field name="opc_nameenglish" value="PA - Index" />
+        <field name="opc_namefrench" value="PA - R&amp;#233;pertoire" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PA - Index" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="e8a78f90-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="e8a78f90-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint in which an individual was not provided with his/her personal information in the official language of his/her choice Langue" />
+        <field name="opc_nameenglish" value="PA - Language" />
+        <field name="opc_namefrench" value="PA - Langue" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PA - Language" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="8e738a96-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="8e738a96-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning any other PA issue not described elsewhere on this list" />
+        <field name="opc_nameenglish" value="PA - Other" />
+        <field name="opc_namefrench" value="PA- Autre" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PA - Other" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="17b605c8-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="17b605c8-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Policy" />
+        <field name="opc_nameenglish" value="PA - Policy" />
+        <field name="opc_namefrench" value="PA - Politiques" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PA - Policy" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="16bf02ce-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="RET" />
+        <field name="opc_allegationid" value="16bf02ce-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning the retaining or disposal of an individual’s personal information held by a federal government institution" />
+        <field name="opc_nameenglish" value="Retention and Disposal" />
+        <field name="opc_namefrench" value="Conservation et retrait" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Retention and Disposal" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="402d76d5-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="TL" />
+        <field name="opc_allegationid" value="402d76d5-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning the failure of a government department to respond to PA requests within the legislated time frame" />
+        <field name="opc_nameenglish" value="Time Limits" />
+        <field name="opc_namefrench" value="D&amp;#233;lais" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Time Limits" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="702d76d5-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="U&amp;amp;D" />
+        <field name="opc_allegationid" value="702d76d5-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="A complaint concerning the improper use and disclosure of an individual’s personal information in contravention of sections 7 and 8 of the PA" />
+        <field name="opc_nameenglish" value="Use and Disclosure" />
+        <field name="opc_namefrench" value="Utilisation et communication" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Use and Disclosure" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="7c3773db-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="7c3773db-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Accountability" />
+        <field name="opc_nameenglish" value="PIPEDA - Accountability" />
+        <field name="opc_namefrench" value="PIPEDA - Responsabilit&amp;#233;" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PIPEDA - Accountability" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="b73773db-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="b73773db-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="5(3) of the Act indicates that an organization may collect, use, or disclose personal information only for purposes that a reasonable person would consider appropriate in the circumstances" />
+        <field name="opc_nameenglish" value="PIPEDA - Appropriate purposes" />
+        <field name="opc_namefrench" value="PIPEDA - Fins appropriees" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PIPEDA - Appropriate purposes" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="0da17ee1-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="0da17ee1-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Challenging Compliance" />
+        <field name="opc_nameenglish" value="PIPEDA - Challenging Compliance" />
+        <field name="opc_namefrench" value="PIPEDA - Possibilit&amp;#233; de porter plainte" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PIPEDA - Challenging Compliance" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="9bd182e7-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="9bd182e7-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Openness" />
+        <field name="opc_nameenglish" value="PIPEDA - Openness" />
+        <field name="opc_namefrench" value="PIPEDA - Transparence" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PIPEDA - Openness" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="d9d182e7-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="d9d182e7-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Complaints that an employer has taken adverse action towards an employee because the employee disclosed to the Commissioner that the employer contravened or intended to contravene PIPEDA" />
+        <field name="opc_nameenglish" value="PIPEDA- Retaliation" />
+        <field name="opc_namefrench" value="PIPEDA - Repr&amp;#233;sailles" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PIPEDA- Retaliation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="c43ca1ed-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="EXT" />
+        <field name="opc_allegationid" value="c43ca1ed-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Extension Notice" />
+        <field name="opc_nameenglish" value="Extension Notice" />
+        <field name="opc_namefrench" value="Avis de prorogation" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Extension Notice" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="d93ca1ed-4d41-ea11-a812-000d3af464f8">
+        <field name="opc_acronym" value="SAFE" />
+        <field name="opc_allegationid" value="d93ca1ed-4d41-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="Safeguards" />
+        <field name="opc_nameenglish" value="Safeguards" />
+        <field name="opc_namefrench" value="Safeguards" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Safeguards" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="476bfa7c-5241-ea11-a812-000d3af464f8">
+        <field name="opc_allegationid" value="476bfa7c-5241-ea11-a812-000d3af464f8" />
+        <field name="opc_description" value="The purposes for which personal information is collected shall be identified by the organization at or before the time the information is collected." />
+        <field name="opc_nameenglish" value="PIPEDA - Identifying Purposes" />
+        <field name="opc_namefrench" value="PIPEDA - Determination des fins de la collecte des renseignements personnels" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="PIPEDA - Identifying Purposes" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
       </record>
     </records>
     <m2mrelationships />
