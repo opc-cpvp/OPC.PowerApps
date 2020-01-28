@@ -24,7 +24,7 @@
                     <row>
                       <cell id="{e6c297b2-0f31-4f13-95fe-a5e769ba92cc}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
@@ -32,7 +32,7 @@
                     <row>
                       <cell id="{7928d33b-3d35-43b8-9c9f-9077958ffde4}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Version" languagecode="1033" />
                         </labels>
                         <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
                       </cell>
@@ -40,7 +40,7 @@
                     <row>
                       <cell id="{5a979c1e-d3ff-4d64-82a7-59339da243e6}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Effective Date" languagecode="1033" />
                         </labels>
                         <control id="opc_effectivedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_effectivedate" disabled="false" />
                       </cell>
@@ -48,7 +48,7 @@
                     <row>
                       <cell id="{b26a7e47-bc1f-4b40-8f34-c95c38ac7c9a}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Previous Version" languagecode="1033" />
                         </labels>
                         <control id="opc_previousversion" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_previousversion" disabled="false" />
                       </cell>
@@ -103,7 +103,8 @@
             </cell>
             <cell id="{6247aea8-519e-4b28-8141-b8c1a719cfac}">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>

@@ -24,7 +24,7 @@
                     <row>
                       <cell id="{1f610c05-f804-47f5-b493-0db31faeab85}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
@@ -32,7 +32,7 @@
                     <row>
                       <cell id="{46440f15-6dca-466a-b1c7-d75dfc10633f}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Assessment Type" languagecode="1033" />
                         </labels>
                         <control id="opc_riskassessmenttype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmenttype" disabled="false" />
                       </cell>
@@ -40,7 +40,7 @@
                     <row>
                       <cell id="{44e18d01-8771-43a1-b3da-5cfd7ba65a21}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Suggested Risk Appetite" languagecode="1033" />
                         </labels>
                         <control id="opc_suggestedriskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_suggestedriskappetite" disabled="false" />
                       </cell>
@@ -48,7 +48,7 @@
                     <row>
                       <cell id="{40a72f5b-c5ef-4ba7-8160-cf6872686dd9}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Bypass Suggested Risk Appetite" languagecode="1033" />
                         </labels>
                         <control id="opc_bypasssuggestedriskappetite" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_bypasssuggestedriskappetite" disabled="false" uniqueid="{da041da3-3c54-4874-829c-2851437fabda}" />
                       </cell>
@@ -56,7 +56,7 @@
                     <row>
                       <cell id="{9f0cb096-16b3-444d-a093-1dd39072de3e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Bypass Initiated By" languagecode="1033" />
                         </labels>
                         <control id="opc_bypassinitiatedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_bypassinitiatedby" disabled="false" />
                       </cell>
@@ -64,7 +64,7 @@
                     <row>
                       <cell id="{c193f6cd-1656-4ecf-875a-9e981d280a37}" showlabel="true" locklevel="0" rowspan="3">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Bypass Rationale" languagecode="1033" />
                         </labels>
                         <control id="opc_bypassrationale" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_bypassrationale" disabled="false" />
                       </cell>
@@ -74,7 +74,7 @@
                     <row>
                       <cell id="{7356bd8f-253e-49d7-a89f-164d4283ccca}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Actual Risk Appetite" languagecode="1033" />
                         </labels>
                         <control id="opc_actualriskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_actualriskappetite" disabled="false" />
                       </cell>
@@ -142,13 +142,14 @@
             </cell>
             <cell id="{05cca663-cc0c-4c41-8bfb-f61a8ed0b9a9}">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>
             <cell id="{10980fd1-6e41-4a13-b51e-08506c01b283}" showlabel="true" locklevel="0">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Complaint" languagecode="1033" />
               </labels>
               <control id="header_opc_complaint" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaint" disabled="false" />
             </cell>

@@ -14,17 +14,36 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65029ad5-f4c2-42a3-a89c-d118ae76d766}" name="section_general">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65029ad5-f4c2-42a3-a89c-d118ae76d766}" name="section_general" columns="11">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{f6fa13c5-0dee-4b02-b8f6-547c62a9a98b}">
+                      <cell id="{3b132c5e-dc79-44cb-8444-7a27b700bcbc}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Name" languagecode="1033" />
+                          <label description="English Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                        <control id="opc_nameenglish" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_nameenglish" disabled="false" />
+                      </cell>
+                      <cell id="{dc51ef9a-7a46-4141-83ff-13d464cc3158}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="French Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_namefrench" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_namefrench" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{988aee89-cd91-4f97-817e-756a79ac03ba}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Acronym" languagecode="1033" />
+                        </labels>
+                        <control id="opc_acronym" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_acronym" disabled="false" />
+                      </cell>
+                      <cell showlabel="false" locklevel="0" id="{f5d21134-0d00-4db7-ad0f-e2b7f977e7ce}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -34,11 +53,45 @@
                         </labels>
                         <control id="opc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_description" disabled="false" />
                       </cell>
+                      <cell showlabel="false" locklevel="0" id="{0eadc8a9-bae8-4f6d-8ec8-d34abc6223cb}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{fc5b8252-4893-4b46-bfca-209645e9abbb}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell showlabel="false" locklevel="0" id="{dcebdbb9-0b51-43ba-b3de-b51d8c1c7aac}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{8c7ff941-3aa0-4b32-accb-a6435998948d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{9166a54e-3f04-429d-8a7b-2d17816b1dfa}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{b1862f28-e390-4d30-86dc-516b7e599bbb}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                     <row>
                       <cell id="{d02292f6-5c39-477a-bda9-a94229fcae89}" showlabel="true" locklevel="0">
                         <labels>
@@ -54,6 +107,24 @@
                           <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{03bd0025-0f59-43e1-a7bf-106876a892e2}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f6fa13c5-0dee-4b02-b8f6-547c62a9a98b}" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{1696a6b6-9dc8-418f-8914-bec325e656a0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
