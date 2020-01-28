@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-01-17T15:09:22.6722493Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-01-24T13:52:45.3795902Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -21,20 +21,36 @@
   </entity>
   <entity name="businessunit" displayname="Business Unit">
     <records>
-      <record id="0863445d-3739-ea11-a813-000d3af46757">
+      <record id="e560220a-3f2e-ea11-a810-000d3af46757">
         <field name="address1_addresstypecode" value="1" />
-        <field name="address1_addressid" value="e5b6b063-bfc5-46ac-adc9-83cf130a5577" />
+        <field name="address1_addressid" value="d1ce3221-2b30-41c6-baef-001dbe6a8b9c" />
         <field name="address1_shippingmethodcode" value="1" />
         <field name="address2_addresstypecode" value="1" />
-        <field name="address2_addressid" value="7838f469-2036-4f75-982e-66298cb73297" />
+        <field name="address2_addressid" value="9a7e536b-d7f0-4ee4-93e1-0a013c7c2e36" />
         <field name="address2_shippingmethodcode" value="1" />
-        <field name="businessunitid" value="0863445d-3739-ea11-a813-000d3af46757" />
+        <field name="businessunitid" value="e560220a-3f2e-ea11-a810-000d3af46757" />
         <field name="transactioncurrencyid" value="1659023c-ea06-ea11-a813-000d3af436d7" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
         <field name="exchangerate" value="1.0000000000" />
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Restricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org79237cdb" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="orgc9cd0d5b" />
+        <field name="workflowsuspended" value="False" />
+      </record>
+      <record id="e960220a-3f2e-ea11-a810-000d3af46757">
+        <field name="address1_addresstypecode" value="1" />
+        <field name="address1_addressid" value="c54581d2-2d17-4498-8ce8-a5e89593e661" />
+        <field name="address1_shippingmethodcode" value="1" />
+        <field name="address2_addresstypecode" value="1" />
+        <field name="address2_addressid" value="bf41e0eb-d402-469b-8072-9c507a57961e" />
+        <field name="address2_shippingmethodcode" value="1" />
+        <field name="businessunitid" value="e960220a-3f2e-ea11-a810-000d3af46757" />
+        <field name="transactioncurrencyid" value="1659023c-ea06-ea11-a813-000d3af436d7" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
+        <field name="exchangerate" value="1.0000000000" />
+        <field name="inheritancemask" value="1023" />
+        <field name="isdisabled" value="False" />
+        <field name="name" value="Unclassified" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="orgc9cd0d5b" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="a6bd0471-3739-ea11-a813-000d3af46757">
@@ -50,8 +66,1070 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unrestricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org79237cdb" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="orgc9cd0d5b" />
         <field name="workflowsuspended" value="False" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_riskappetite" displayname="Risk Appetite">
+    <records>
+      <record id="a0d31cd0-ff3d-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="1 - Marginal" />
+        <field name="opc_riskappetiteid" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="a63f1cd6-ff3d-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="2 - Lower" />
+        <field name="opc_riskappetiteid" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="db3f1cd6-ff3d-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="3 - Moderate" />
+        <field name="opc_riskappetiteid" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="c9d241dc-ff3d-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="4 - Higher" />
+        <field name="opc_riskappetiteid" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="4b7a5be2-ff3d-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="5 - Extreme" />
+        <field name="opc_riskappetiteid" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_riskassessmentcategorytemplate" displayname="Risk Assessment Category Template">
+    <records>
+      <record id="a5fba6fb-ff3d-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="I - Canadians" />
+        <field name="opc_riskassessmentcategorytemplateid" value="a5fba6fb-ff3d-ea11-a812-000d3af46fff" />
+        <field name="opc_riskassessmenttype" value="7f7b50e9-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmenttype" lookupentityname="Intake" />
+        <field name="opc_sequence" value="1" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="e41f1108-003e-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="II - Individual" />
+        <field name="opc_riskassessmentcategorytemplateid" value="e41f1108-003e-ea11-a812-000d3af46fff" />
+        <field name="opc_riskassessmenttype" value="7f7b50e9-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmenttype" lookupentityname="Intake" />
+        <field name="opc_sequence" value="2" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="66dd1e0e-003e-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="III - Respondent" />
+        <field name="opc_riskassessmentcategorytemplateid" value="66dd1e0e-003e-ea11-a812-000d3af46fff" />
+        <field name="opc_riskassessmenttype" value="7f7b50e9-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmenttype" lookupentityname="Intake" />
+        <field name="opc_sequence" value="3" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="8b6b591a-003e-ea11-a812-000d3af46fff">
+        <field name="opc_name" value="IV - Legal" />
+        <field name="opc_riskassessmentcategorytemplateid" value="8b6b591a-003e-ea11-a812-000d3af46fff" />
+        <field name="opc_riskassessmenttype" value="7f7b50e9-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmenttype" lookupentityname="Intake" />
+        <field name="opc_sequence" value="4" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_riskassessmentdefinitiontemplate" displayname="Risk Assessment Definition Template">
+    <records>
+      <record id="d2666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue at hand raises significant privacy questions / considerations that can affect a broad population; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="d2666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="29b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Importance of issue (rights at stake)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="d4666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue at hand raises significant privacy questions / considerations that can affect a broad population; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="d4666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="29b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Importance of issue (rights at stake)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="d6666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue at hand raises privacy questions / considerations that can affect a broad population; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="d6666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="29b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Importance of issue (rights at stake)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="d8666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue at hand does not raise privacy questions / considerations that can affect a broad population" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="d8666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="29b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Importance of issue (rights at stake)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="da666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue at hand does not raise privacy questions / considerations that can affect a broad population" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="da666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="29b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Importance of issue (rights at stake)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="dc666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Touches a significant (very high) number of individuals; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="dc666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2bb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Number (or potential number) of individuals affected" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="de666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Touches a high number of individuals; and" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="de666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2bb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Number (or potential number) of individuals affected" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="e0666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Touches a moderate number of individuals; and" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="e0666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2bb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Number (or potential number) of individuals affected" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="e2666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Touches a few individuals; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="e2666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2bb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Number (or potential number) of individuals affected" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="e4666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Is unique to one or a few individual; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="e4666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2bb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Number (or potential number) of individuals affected" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="e6666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected impact for Canadians / public benefit is significant ; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="e6666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2db83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact for Canadians" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="e8666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected impact to Canadians is high; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="e8666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2db83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact for Canadians" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="ea666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected impact to Canadians is moderate; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="ea666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2db83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact for Canadians" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="ec666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected impact to Canadians is minor; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="ec666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2db83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact for Canadians" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="ee666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected impact to Canadians is very minor/non-existent; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="ee666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2db83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact for Canadians" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="f0666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Affected population represents a vulnerable group; and" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="f0666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2fb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Vulnerability of the affected population" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="f2666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Affected population represents a vulnerable group; and" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="f2666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2fb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Vulnerability of the affected population" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="f4666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Affected population DOES NOT represent a vulnerable group; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="f4666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2fb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Vulnerability of the affected population" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="f6666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Affected population DOES NOT represent a vulnerable group; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="f6666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="2fb83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Vulnerability of the affected population" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="f8666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) is (are) related to one or more of the OPC privacy priorities." />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="f8666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="31b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Alignment with OPC privacy priorities (priorities were established through public consultation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="fa666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) is (are) related to one or more of the OPC privacy priorities." />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="fa666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="31b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Alignment with OPC privacy priorities (priorities were established through public consultation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="fc666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) DOES (DO) NOT relate to an OPC privacy priority." />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="fc666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="31b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Alignment with OPC privacy priorities (priorities were established through public consultation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="fe666259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) DOES (DO) NOT relate to an OPC privacy priority." />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="fe666259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="31b83055-003e-ea11-a813-000d3af462ef" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Alignment with OPC privacy priorities (priorities were established through public consultation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="00676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected harm to the individual’s life, safety, liberty, property, finances or reputation is continuing / severe or irreversible; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="00676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f4f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact on individual (life, safety, liberty, property, finances or reputation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="02676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected harm to the individual’s life, safety, liberty, property, finances or reputation is significant and/or likely not remediable; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="02676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f4f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact on individual (life, safety, liberty, property, finances or reputation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="04676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected harm to the individual’s life, safety, liberty, property, finances or reputation is moderate and/or may be remediable in whole or in part; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="04676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f4f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact on individual (life, safety, liberty, property, finances or reputation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="06676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected harm to the individual’s life, safety, liberty, property, finances or reputation is relatively low and/or likely remediable; and/or" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="06676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f4f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact on individual (life, safety, liberty, property, finances or reputation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="08676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Expected harm to the individual’s life, safety, liberty, property, finances or reputation is minimal and/or is remediable; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="08676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f4f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Impact on individual (life, safety, liberty, property, finances or reputation)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="0a676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Resolution of the issue is required on a very urgent basis (within 30 days); and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="0a676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f6f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Urgency of the issue for the individual" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="0c676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Resolution of the issue is required on an urgent basis (within 60 days); and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="0c676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f6f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Urgency of the issue for the individual" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="0e676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Resolution of the issue is not urgent" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="0e676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f6f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Urgency of the issue for the individual" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="10676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Resolution of the issue is not urgent" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="10676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f6f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Urgency of the issue for the individual" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="12676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Individual is part of a vulnerable group; and" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="12676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f8f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Vulnerability Individual is part of a vulnerable group (e.g., elderly, youth, newcomer)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="14676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Individual is part of a vulnerable group; and" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="14676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f8f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Vulnerability Individual is part of a vulnerable group (e.g., elderly, youth, newcomer)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="16676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Individual is NOT part of a vulnerable group; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="16676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f8f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Vulnerability Individual is part of a vulnerable group (e.g., elderly, youth, newcomer)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="18676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Individual is NOT part of a vulnerable group; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="18676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="f8f134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Vulnerability Individual is part of a vulnerable group (e.g., elderly, youth, newcomer)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="1a676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The personal information is very sensitive; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="1a676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="faf134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Sensitivity of the personal information" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="1c676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The personal information is sensitive; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="1c676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="faf134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Sensitivity of the personal information" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="1e676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The personal information is somewhat or not very sensitive; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="1e676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="faf134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Sensitivity of the personal information" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="20676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The personal information is somewhat or not very sensitive; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="20676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="faf134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Sensitivity of the personal information" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="22676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Individual has submitted no complaints, or some complaints with only a few outstanding complaints with the OPC; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="22676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="fcf134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="OPC is currently investigating a (or some) complaint(s) from the individual" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="24676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Individual has a very high number of outstanding complaints with the OPC; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="24676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="fcf134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="OPC is currently investigating a (or some) complaint(s) from the individual" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="26676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Individual has a very high number of outstanding complaints with the OPC; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="26676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="fcf134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="OPC is currently investigating a (or some) complaint(s) from the individual" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="28676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="May have significant and/or long standing policy, program or resource implications for the respondent; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="28676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="fef134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Program or policy implications" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="2a676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="May have important and/or long standing policy, program or resource implications for the respondent; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="2a676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="fef134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Program or policy implications" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="2c676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="May have some policy, program or resource implications for the respondent; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="2c676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="fef134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Program or policy implications" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="2e676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Has no policy, program or resource implications for the respondent; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="2e676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="fef134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Program or policy implications" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="30676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Has no policy, program or resource implications for the respondent; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="30676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="fef134a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Program or policy implications" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="32676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue has been previously investigated and respondent has not implemented the corrective recommendations of the OPC; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="32676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="00f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Past precendents" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="34676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue has previously been investigated and the respondent has been found to have been in conflict, but no formal recommendations were issued; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="34676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="00f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Past precendents" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="36676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue has previously been investigated and the respondent has been found to have been in conflict, but no formal recommendations were issued; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="36676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="00f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Past precendents" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="38676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Respondent has generally been found to be in compliance, or has not been investigated before; and/or" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="38676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="00f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Past precendents" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="3a676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Respondent has no history of non-compliance; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="3a676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="00f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Past precendents" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="3c676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Respondent has demonstrated a complete lack of willingness to respond to the OPC in a timely manner and/or a total disregard for the issue at hand; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="3c676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="02f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Responsiveness of respondent" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="3e676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Respondent has demonstrated a lack of willingness to respond to the OPC in a timely manner and/or a disregard for the issue at hand; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="3e676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="02f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Responsiveness of respondent" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="40676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Respondent showed a reluctance to respond to the OPC in a timely manner and/or a somewhat of a disregard for the issue at hand; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="40676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="02f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Responsiveness of respondent" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="42676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Respondent has been collaborating with the OPC in a timely manner and/or shown a concern for the issue at hand; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="42676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="02f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Responsiveness of respondent" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="44676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Respondent has been collaborating with the OPC in a timely manner and/or shown a concern for the issue at hand; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="44676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="02f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Responsiveness of respondent" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="46676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="There is a clear threat to the intent, spirit and/or application of law; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="46676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="04f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Threat to intent, spirit or application of law" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="48676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="There may be a threat to the intent, spirit and/or application of law; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="48676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="04f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Threat to intent, spirit or application of law" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="4a676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="There may be a threat to the intent, spirit and/or application of law but the threat is subject to interpretation; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="4a676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="04f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Threat to intent, spirit or application of law" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="4c676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="There is no threat to the intent, spirit and/or application of law; and/or" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="4c676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="04f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Threat to intent, spirit or application of law" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="4e676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="There is no threat to the intent, spirit and/or application of law; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="4e676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="04f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Threat to intent, spirit or application of law" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="51676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Other DPAs of Review bodies  will or are likely to be involved; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="51676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="06f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Involvement of other DPAs or Review bodies" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="53676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Other DPAs of Review bodies  will or are likely to be involved; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="53676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="06f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Involvement of other DPAs or Review bodies" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="55676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Other DPAs of Review bodies  will or are likely to be involved; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="55676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="06f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Involvement of other DPAs or Review bodies" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="57676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Other DPAs of Review bodies  are NOT involved; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="57676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="06f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Involvement of other DPAs or Review bodies" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="59676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Other DPAs of Review bodies  are NOT involved; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="59676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="06f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Involvement of other DPAs or Review bodies" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="5b676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) presents significant interplay with other legislation; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="5b676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="08f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Intersects with other Legislation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="5d676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) presents significant interplay with other legislation; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="5d676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="08f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Intersects with other Legislation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="5f676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) may present some interplay with other legislation; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="5f676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="08f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Intersects with other Legislation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="61676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Other legislation is not at play; and" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="61676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="08f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Intersects with other Legislation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="63676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Other legislation is not at play; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="63676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="08f234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Intersects with other Legislation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="65676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Likelihood of litigation or challenge to the OPC&amp;#39;s decision / approach / interpretation is very high; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="65676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0af234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Potential for litigation / challenge of decision, approach (procedural fairness) or interpretation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="67676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Likelihood of litigation or challenge to the OPC&amp;#39;s decision /approach / interpretation is high; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="67676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0af234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Potential for litigation / challenge of decision, approach (procedural fairness) or interpretation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="69676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Likelihood of litigation or challenge to the OPC&amp;#39;s decision / approach / interpretation is moderate; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="69676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0af234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Potential for litigation / challenge of decision, approach (procedural fairness) or interpretation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="6b676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Likelihood of litigation or challenge to the OPC&amp;#39;s decision / approach / interpretation is low; and/or" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="6b676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0af234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Potential for litigation / challenge of decision, approach (procedural fairness) or interpretation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="6d676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Likelihood of litigation or challenge to the OPC&amp;#39;s decision / approach / interpretation is very low/remote; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="6d676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0af234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Potential for litigation / challenge of decision, approach (procedural fairness) or interpretation" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="6f676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) is very unique and potentially precedent setting; and/or" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="6f676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0cf234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Legal precent setting" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="71676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) is unique and potentially precedent setting; and/or" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="71676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0cf234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Legal precent setting" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="73676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) is somewhat unique and potentially precedent setting; and/or" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="73676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0cf234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Legal precent setting" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="75676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) is somewhat common and there are similar past cases; and/or" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="75676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0cf234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Legal precent setting" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="77676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="The issue(s) is very common and there are a number of similar past cases; and" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="77676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0cf234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Legal precent setting" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="79676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue may present jurisdictional considerations; and" />
+        <field name="opc_riskappetite" value="4b7a5be2-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="5 - Extreme" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="79676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0ef234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Jurisdiction" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="7b676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue may present jurisdictional considerations; and" />
+        <field name="opc_riskappetite" value="c9d241dc-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="4 - Higher" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="7b676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0ef234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Jurisdiction" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="7d676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue DOES NOT present jurisdictional considerations" />
+        <field name="opc_riskappetite" value="db3f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="3 - Moderate" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="7d676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0ef234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Jurisdiction" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="7f676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue DOES NOT present jurisdictional considerations" />
+        <field name="opc_riskappetite" value="a63f1cd6-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="2 - Lower" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="7f676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0ef234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Jurisdiction" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="81676259-013e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Issue DOES NOT present jurisdictional considerations" />
+        <field name="opc_riskappetite" value="a0d31cd0-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskappetite" lookupentityname="1 - Marginal" />
+        <field name="opc_riskassessmentdefinitiontemplateid" value="81676259-013e-ea11-a813-000d3af462ef" />
+        <field name="opc_riskassessmentfactortemplate" value="0ef234a3-003e-ea11-a813-000d3af465b5" lookupentity="opc_riskassessmentfactortemplate" lookupentityname="Jurisdiction" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_riskassessmentfactortemplate" displayname="Risk Assessment Factor Template">
+    <records>
+      <record id="29b83055-003e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Importance of issue (rights at stake)" />
+        <field name="opc_riskassessmentcategorytemplate" value="a5fba6fb-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="I - Canadians" />
+        <field name="opc_riskassessmentfactortemplateid" value="29b83055-003e-ea11-a813-000d3af462ef" />
+        <field name="opc_sequence" value="1" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="2bb83055-003e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Number (or potential number) of individuals affected" />
+        <field name="opc_riskassessmentcategorytemplate" value="a5fba6fb-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="I - Canadians" />
+        <field name="opc_riskassessmentfactortemplateid" value="2bb83055-003e-ea11-a813-000d3af462ef" />
+        <field name="opc_sequence" value="2" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="2db83055-003e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Impact for Canadians" />
+        <field name="opc_riskassessmentcategorytemplate" value="a5fba6fb-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="I - Canadians" />
+        <field name="opc_riskassessmentfactortemplateid" value="2db83055-003e-ea11-a813-000d3af462ef" />
+        <field name="opc_sequence" value="3" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="2fb83055-003e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Vulnerability of the affected population" />
+        <field name="opc_riskassessmentcategorytemplate" value="a5fba6fb-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="I - Canadians" />
+        <field name="opc_riskassessmentfactortemplateid" value="2fb83055-003e-ea11-a813-000d3af462ef" />
+        <field name="opc_sequence" value="4" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="31b83055-003e-ea11-a813-000d3af462ef">
+        <field name="opc_name" value="Alignment with OPC privacy priorities (priorities were established through public consultation)" />
+        <field name="opc_riskassessmentcategorytemplate" value="a5fba6fb-ff3d-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="I - Canadians" />
+        <field name="opc_riskassessmentfactortemplateid" value="31b83055-003e-ea11-a813-000d3af462ef" />
+        <field name="opc_sequence" value="5" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="f4f134a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Impact on individual (life, safety, liberty, property, finances or reputation)" />
+        <field name="opc_riskassessmentcategorytemplate" value="e41f1108-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="II - Individual" />
+        <field name="opc_riskassessmentfactortemplateid" value="f4f134a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="1" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="f6f134a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Urgency of the issue for the individual" />
+        <field name="opc_riskassessmentcategorytemplate" value="e41f1108-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="II - Individual" />
+        <field name="opc_riskassessmentfactortemplateid" value="f6f134a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="2" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="f8f134a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Vulnerability Individual is part of a vulnerable group (e.g., elderly, youth, newcomer)" />
+        <field name="opc_riskassessmentcategorytemplate" value="e41f1108-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="II - Individual" />
+        <field name="opc_riskassessmentfactortemplateid" value="f8f134a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="3" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="faf134a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Sensitivity of the personal information" />
+        <field name="opc_riskassessmentcategorytemplate" value="e41f1108-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="II - Individual" />
+        <field name="opc_riskassessmentfactortemplateid" value="faf134a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="4" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="fcf134a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="OPC is currently investigating a (or some) complaint(s) from the individual" />
+        <field name="opc_riskassessmentcategorytemplate" value="e41f1108-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="II - Individual" />
+        <field name="opc_riskassessmentfactortemplateid" value="fcf134a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="5" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="fef134a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Program or policy implications" />
+        <field name="opc_riskassessmentcategorytemplate" value="66dd1e0e-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="III - Respondent" />
+        <field name="opc_riskassessmentfactortemplateid" value="fef134a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="1" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="00f234a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Past precendents" />
+        <field name="opc_riskassessmentcategorytemplate" value="66dd1e0e-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="III - Respondent" />
+        <field name="opc_riskassessmentfactortemplateid" value="00f234a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="2" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="02f234a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Responsiveness of respondent" />
+        <field name="opc_riskassessmentcategorytemplate" value="66dd1e0e-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="III - Respondent" />
+        <field name="opc_riskassessmentfactortemplateid" value="02f234a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="3" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="04f234a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Threat to intent, spirit or application of law" />
+        <field name="opc_riskassessmentcategorytemplate" value="8b6b591a-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="IV - Legal" />
+        <field name="opc_riskassessmentfactortemplateid" value="04f234a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="1" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="06f234a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Involvement of other DPAs or Review bodies" />
+        <field name="opc_riskassessmentcategorytemplate" value="8b6b591a-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="IV - Legal" />
+        <field name="opc_riskassessmentfactortemplateid" value="06f234a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="2" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="08f234a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Intersects with other Legislation" />
+        <field name="opc_riskassessmentcategorytemplate" value="8b6b591a-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="IV - Legal" />
+        <field name="opc_riskassessmentfactortemplateid" value="08f234a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="3" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="0af234a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Potential for litigation / challenge of decision, approach (procedural fairness) or interpretation" />
+        <field name="opc_riskassessmentcategorytemplate" value="8b6b591a-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="IV - Legal" />
+        <field name="opc_riskassessmentfactortemplateid" value="0af234a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="4" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="0cf234a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Legal precent setting" />
+        <field name="opc_riskassessmentcategorytemplate" value="8b6b591a-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="IV - Legal" />
+        <field name="opc_riskassessmentfactortemplateid" value="0cf234a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="5" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+      <record id="0ef234a3-003e-ea11-a813-000d3af465b5">
+        <field name="opc_name" value="Jurisdiction" />
+        <field name="opc_riskassessmentcategorytemplate" value="8b6b591a-003e-ea11-a812-000d3af46fff" lookupentity="opc_riskassessmentcategorytemplate" lookupentityname="IV - Legal" />
+        <field name="opc_riskassessmentfactortemplateid" value="0ef234a3-003e-ea11-a813-000d3af465b5" />
+        <field name="opc_sequence" value="6" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_riskassessmenttype" displayname="Risk Assessment Type">
+    <records>
+      <record id="7f7b50e9-ff3d-ea11-a812-000d3af46fff">
+        <field name="opc_effectivedate" value="2020-01-23T00:00:00.0000000" />
+        <field name="opc_name" value="Intake" />
+        <field name="opc_riskassessmenttypeid" value="7f7b50e9-ff3d-ea11-a812-000d3af46fff" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_version" value="1" />
       </record>
     </records>
     <m2mrelationships />
