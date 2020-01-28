@@ -1,24 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-01-28T16:21:28.8007658Z">
-  <entity name="opc_legislation" displayname="Legislation">
-    <records>
-      <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
-        <field name="opc_acronym" value="PA" />
-        <field name="opc_legislationid" value="7ec56b15-e61d-ea11-a810-000d3af464f8" />
-        <field name="opc_name" value="Privacy Act" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-      </record>
-      <record id="e4307439-e61d-ea11-a810-000d3af464f8">
-        <field name="opc_acronym" value="PIPEDA" />
-        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" />
-        <field name="opc_name" value="Personal Information Protection and Electronic Documents Act" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-      </record>
-    </records>
-    <m2mrelationships />
-  </entity>
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-01-28T19:09:32.1006674Z">
   <entity name="businessunit" displayname="Business Unit">
     <records>
       <record id="e960220a-3f2e-ea11-a810-000d3af46757">

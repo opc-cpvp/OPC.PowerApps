@@ -1,13 +1,4 @@
 <entities >
-  <entity name="opc_legislation" displayname="Legislation" etc="10063" primaryidfield="opc_legislationid" primarynamefield="opc_name" disableplugins="false">
-    <fields>
-      <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
-      <field displayname="Legislation" name="opc_legislationid" type="guid" primaryKey="true" />
-      <field displayname="Name" name="opc_name" type="string" customfield="true" />
-      <field displayname="Status" name="statecode" type="state" />
-      <field displayname="Status Reason" name="statuscode" type="status" />
-    </fields>
-  </entity>
   <entity name="businessunit" displayname="Business Unit" etc="10" primaryidfield="businessunitid" primarynamefield="name" disableplugins="false">
     <fields>
       <field displayname="Address 1: Address Type" name="address1_addresstypecode" type="optionsetvalue" />
