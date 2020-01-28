@@ -136,4 +136,19 @@
     </fields>
     <relationships />
   </entity>
+  <entity name="opc_allegation" displayname="Allegation/Concern" etc="10150" primaryidfield="opc_allegationid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
+      <field displayname="Allegation/Concern" name="opc_allegationid" type="guid" primaryKey="true" />
+      <field displayname="Description" name="opc_description" type="string" customfield="true" />
+      <field displayname="Disposition Allegation" name="opc_allegationdisposition" type="optionsetvalue" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
 </entities>
