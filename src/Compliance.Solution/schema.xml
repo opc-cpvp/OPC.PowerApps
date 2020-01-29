@@ -72,7 +72,7 @@
   <entity name="opc_riskappetite" displayname="Risk Appetite" etc="10290" primaryidfield="opc_riskappetiteid" primarynamefield="opc_name" disableplugins="false">
     <fields>
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
-      <field displayname="Risk Appetite" name="opc_riskappetiteid" type="guid" primaryKey="true" />
+      <field updateCompare="true" displayname="Risk Appetite" name="opc_riskappetiteid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
     </fields>
@@ -120,7 +120,7 @@
       <field displayname="Effective Date" name="opc_effectivedate" type="datetime" customfield="true" />
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
       <field displayname="Previous Version" name="opc_previousversion" type="entityreference" lookupType="opc_riskassessmenttype" customfield="true" />
-      <field displayname="Risk Assessment Type" name="opc_riskassessmenttypeid" type="guid" primaryKey="true" />
+      <field updateCompare="true" displayname="Risk Assessment Type" name="opc_riskassessmenttypeid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
       <field displayname="Version" name="opc_version" type="number" customfield="true" />
@@ -130,7 +130,7 @@
   <entity name="opc_allegation" displayname="Allegation/Concern" etc="10150" primaryidfield="opc_allegationid" primarynamefield="opc_name" disableplugins="false">
     <fields>
       <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
-      <field displayname="Allegation/Concern" name="opc_allegationid" type="guid" primaryKey="true" />
+      <field updateCompare="true" displayname="Allegation/Concern" name="opc_allegationid" type="guid" primaryKey="true" />
       <field displayname="Description" name="opc_description" type="string" customfield="true" />
       <field displayname="Disposition Allegation" name="opc_allegationdisposition" type="optionsetvalue" customfield="true" />
       <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
