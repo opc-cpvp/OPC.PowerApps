@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{f88d08c9-4cc8-4bde-a3c0-84ec61bf24d2}" showlabel="true" locklevel="0" labelid="{f8ccb460-dc51-45dd-94ff-c50289037723}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
                       </cell>

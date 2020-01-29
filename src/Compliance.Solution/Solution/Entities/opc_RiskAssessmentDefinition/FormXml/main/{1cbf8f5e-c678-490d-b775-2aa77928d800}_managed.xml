@@ -24,7 +24,7 @@
                     <row>
                       <cell id="{822aafd1-f59f-47b2-b7c2-231b043d65c3}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
@@ -32,7 +32,7 @@
                     <row>
                       <cell id="{48ae8e5e-d7cb-4314-8015-6f309c3c8032}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Assessment Category" languagecode="1033" />
                         </labels>
                         <control id="header_opc_riskassessmentcategory" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentcategory" disabled="false" />
                       </cell>
@@ -40,7 +40,7 @@
                     <row>
                       <cell id="{9bb6faed-feb3-42ce-ae4a-48ea495a1308}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Assessment Factor Template" languagecode="1033" />
                         </labels>
                         <control id="opc_riskassessmentfactortemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentfactortemplate" disabled="false" />
                       </cell>
@@ -48,7 +48,7 @@
                     <row>
                       <cell id="{74e8a5a6-ce68-4990-9dd6-a36a6d09a355}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Assessment Definition Template" languagecode="1033" />
                         </labels>
                         <control id="opc_riskassessmentdefinitiontemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentdefinitiontemplate" disabled="false" />
                       </cell>
@@ -56,7 +56,7 @@
                     <row>
                       <cell id="{83c6b34b-f952-48ab-9b99-f29eb0f33639}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Is Selected?" languagecode="1033" />
                         </labels>
                         <control id="opc_isselected" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_isselected" disabled="false" uniqueid="{d5289de8-79c4-479a-8c94-5793e5bc3a53}" />
                       </cell>
@@ -88,7 +88,8 @@
             </cell>
             <cell id="{877a5cfe-6b3b-423d-b2fd-8717e5c54f1a}">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>

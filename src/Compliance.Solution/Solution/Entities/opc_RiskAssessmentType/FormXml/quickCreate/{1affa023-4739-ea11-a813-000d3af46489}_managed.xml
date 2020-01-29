@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{7a3115e1-162b-4ba2-a30f-694052c277a0}" showlabel="true" locklevel="0" labelid="{0067dc05-ac84-4a84-be84-232a0fb29b82}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{14cdee91-7308-4e65-84a8-540227221df0}" showlabel="true" locklevel="0" labelid="{f6af3864-7e3c-4a9c-847b-f48ab9447e0b}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Version" languagecode="1033" />
                         </labels>
                         <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{b759b7c1-6b22-4b68-9112-0ef2a2ae6fc5}" showlabel="true" locklevel="0" labelid="{3851177d-3ad4-4a7c-aa21-b06df9c8ac48}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Effective Date" languagecode="1033" />
                         </labels>
                         <control id="opc_effectivedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_effectivedate" disabled="false" />
                       </cell>

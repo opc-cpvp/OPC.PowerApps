@@ -24,7 +24,7 @@
                     <row>
                       <cell id="{3cbf2eb8-9b6b-4b4a-b7dc-c8f8a02f2be7}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
@@ -32,7 +32,7 @@
                     <row>
                       <cell id="{16732704-5eba-41f4-9bc9-f0ad05bc791d}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Assessment Factor Template" languagecode="1033" />
                         </labels>
                         <control id="opc_riskassessmentfactortemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentfactortemplate" disabled="false" />
                       </cell>
@@ -40,7 +40,7 @@
                     <row>
                       <cell id="{1439257c-8bc6-4b1c-bd69-2534752a42e9}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Risk Appetite" languagecode="1033" />
                         </labels>
                         <control id="opc_riskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskappetite" disabled="false" />
                       </cell>
@@ -48,7 +48,7 @@
                     <row>
                       <cell id="{292b372c-07f2-44f4-8f63-e6d15c3f8146}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Version" languagecode="1033" />
                         </labels>
                         <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
                       </cell>
@@ -80,7 +80,8 @@
             </cell>
             <cell id="{92163f01-c97b-4ea3-9fa2-43572d2cac0a}">
               <labels>
-                <label description="" languagecode="1033" />
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>

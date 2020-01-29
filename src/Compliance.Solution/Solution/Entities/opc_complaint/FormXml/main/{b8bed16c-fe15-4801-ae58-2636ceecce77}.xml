@@ -175,17 +175,17 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{f152b4da-969e-4bc5-ba0b-5fd14065461d}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{2d3ea95e-f5fa-4eed-839a-664cb18a0660}" rowspan="1" colspan="1">
                         <labels>
-                          <label description="Allegations/Concerns" languagecode="1033" />
+                          <label description="Allegations" languagecode="1033" />
                         </labels>
-                        <control id="SubgridControl1570455205666" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="allegations_subgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>opc_allegation</TargetEntityType>
                             <ViewId>{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewId>
                             <ViewIds>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF},{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_complaint_allegations_complaint</RelationshipName>
+                            <RelationshipName>opc_complaint_allegations_complaints</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
@@ -212,6 +212,7 @@
                       <cell showlabel="false" locklevel="0" id="{4974057c-71c4-4cc9-a75a-6af4762adee1}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Issues" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455352989" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -246,6 +247,7 @@
                       <cell showlabel="false" locklevel="0" id="{9c2c4e8a-6b4c-4b64-bc1c-5e13e1272a99}" rowspan="1" colspan="1">
                         <labels>
                           <label description="New SG control 1570455487438" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455487438" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -280,6 +282,7 @@
                       <cell showlabel="true" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
                         <labels>
                           <label description="Topics" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_topics" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{02d24ec3-7b03-209d-7d59-7e772a904cb3}">
                           <parameters>
@@ -331,6 +334,7 @@
                       <cell showlabel="false" locklevel="0" id="{a37cc6b7-373c-4e49-b6c7-21fd43b3bc29}" rowspan="1" colspan="1">
                         <labels>
                           <label description="New SG control 1579789468973" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_risk_assessments" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
