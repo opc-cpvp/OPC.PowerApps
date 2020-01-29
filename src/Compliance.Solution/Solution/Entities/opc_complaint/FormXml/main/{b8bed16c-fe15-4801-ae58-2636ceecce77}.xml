@@ -175,17 +175,17 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{e77efeda-cf45-4ab9-938a-4c513fd2ded8}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{2d3ea95e-f5fa-4eed-839a-664cb18a0660}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations" languagecode="1033" />
                         </labels>
-                        <control id="allegations_grid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="allegations_subgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>opc_allegation</TargetEntityType>
                             <ViewId>{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewId>
                             <ViewIds>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF},{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_allegation_complaints_complaints</RelationshipName>
+                            <RelationshipName>opc_complaint_allegations_complaints</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
