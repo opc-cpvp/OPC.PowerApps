@@ -25,10 +25,10 @@ export namespace Complaint.Forms {
             let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
-            formContext.data.process.addOnStageChange(this.process_OnStageChanged);
+            formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
             this.handle_StageStates(formContext);
-            formContext.getAttribute("opc_recommendtoregistrar").addOnChange(this.recommendtoregistrar_OnChange);
-            formContext.getAttribute("opc_intakedisposition").addOnChange(this.intakedisposition_OnChange);
+            formContext.getAttribute("opc_recommendtoregistrar").addOnChange(x => this.recommendtoregistrar_OnChange(x));
+            formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
 
             // Sequence matters
             formContext.getAttribute("opc_intakedisposition").fireOnChange();
