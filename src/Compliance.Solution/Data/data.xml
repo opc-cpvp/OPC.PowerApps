@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-01-29T15:31:46.6752617Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-01-29T18:36:08.2082839Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -34,22 +34,6 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Restricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org1ec55546" />
-        <field name="workflowsuspended" value="False" />
-      </record>
-      <record id="e960220a-3f2e-ea11-a810-000d3af46757">
-        <field name="address1_addresstypecode" value="1" />
-        <field name="address1_addressid" value="c54581d2-2d17-4498-8ce8-a5e89593e661" />
-        <field name="address1_shippingmethodcode" value="1" />
-        <field name="address2_addresstypecode" value="1" />
-        <field name="address2_addressid" value="bf41e0eb-d402-469b-8072-9c507a57961e" />
-        <field name="address2_shippingmethodcode" value="1" />
-        <field name="businessunitid" value="e960220a-3f2e-ea11-a810-000d3af46757" />
-        <field name="transactioncurrencyid" value="1659023c-ea06-ea11-a813-000d3af436d7" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
-        <field name="exchangerate" value="1.0000000000" />
-        <field name="inheritancemask" value="1023" />
-        <field name="isdisabled" value="False" />
-        <field name="name" value="Unclassified" />
         <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org1ec55546" />
         <field name="workflowsuspended" value="False" />
       </record>
@@ -1150,7 +1134,7 @@
       <record id="8bdbfc6b-4d41-ea11-a812-000d3af464f8">
         <field name="opc_acronym" value="ACC" />
         <field name="opc_allegationid" value="8bdbfc6b-4d41-ea11-a812-000d3af464f8" />
-        <field name="opc_description" value="Denial of access in response to formal Privacy Act complaint" />
+        <field name="opc_description" value="Denial of access in response to formal Privacy Act complaint test if update still works" />
         <field name="opc_nameenglish" value="Access" />
         <field name="opc_namefrench" value="Acc&amp;#232;s" />
         <field name="opc_islocalizable" value="True" />
