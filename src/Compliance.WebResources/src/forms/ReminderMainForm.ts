@@ -23,9 +23,9 @@ export namespace Reminder.Forms {
             formContext.data.entity.addOnSave(x => this.form_OnSave(x));
             formContext.getAttribute("opc_notifycaseowner").addOnChange(x => this.control_OnChange_ClearAllNotifications(x));
             formContext.getAttribute("opc_notifyme").addOnChange(x => this.control_OnChange_ClearAllNotifications(x));
-            //formContext.getAttribute("opc_notifyadditionalusers").addOnChange(x => this.control_OnChange_ClearAllNotifications(x));
-            //formContext.getAttribute("opc_notifyadditionalusers").addOnChange(x => this.notifyAdditionalUsers_OnChange(x));
-            //this.notifyAdditionalUsers_OnChange();
+            formContext.getAttribute("opc_notifyadditionalusers").addOnChange(x => this.control_OnChange_ClearAllNotifications(x));
+            formContext.getAttribute("opc_notifyadditionalusers").addOnChange(() => this.notifyAdditionalUsers_OnChange(formContext));
+            this.notifyAdditionalUsers_OnChange(formContext);
         }
         /**
         * Handles the form OnSave event.
@@ -38,20 +38,20 @@ export namespace Reminder.Forms {
             //Get the controls and their values
             let notifyCaseOwnerControl = formContext.getControl("opc_notifycaseowner");
             let notifyReminderOwnerControl = formContext.getControl("opc_notifyme");
-            //let notifyAdditionalUsersControl = formContext.getControl("opc_notifyadditionalusers");
+            let notifyAdditionalUsersControl = formContext.getControl("opc_notifyadditionalusers");
             let complaintIdControl = formContext.getControl("opc_complaintid");
 
             let shouldNotifyCaseOwner = notifyCaseOwnerControl.getAttribute().getValue();
             let shouldNotifyReminderOwner = notifyReminderOwnerControl.getAttribute().getValue();
-            //let shouldNotifyAdditionalUsers = notifyAdditionalUsersControl.getAttribute().getValue();
+            let shouldNotifyAdditionalUsers = notifyAdditionalUsersControl.getAttribute().getValue();
             let containsComplaint = complaintIdControl.getAttribute().getValue();
 
             //Check if at least one person is to be notified
-            if (!shouldNotifyCaseOwner && !shouldNotifyReminderOwner /*&& !shouldNotifyAdditionalUsers*/) {
+            if (!shouldNotifyCaseOwner && !shouldNotifyReminderOwner && !shouldNotifyAdditionalUsers) {
                 formContext.ui.setFormNotification("There is an error on the form.", "ERROR", "formNotificationError");
                 notifyCaseOwnerControl.setNotification("You must select at least one person to notify.", "notifyCaseOwnerControlNotification");
                 notifyReminderOwnerControl.setNotification("You must select at least one person to notify.", "notifyReminderOwnerAlert");
-                //notifyAdditionalUsersControl.setNotification("You must select at least one person to notify.", "notifyAdditionalUsersAlert");
+                notifyAdditionalUsersControl.setNotification("You must select at least one person to notify.", "notifyAdditionalUsersAlert");
 
                 context.getEventArgs().preventDefault();
             }
@@ -79,11 +79,10 @@ export namespace Reminder.Forms {
         *
         * @event OnChanged
         */
-        //private notifyAdditionalUsers_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
-        //    let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
-        //    let shouldNotifyAdditionalUsers = formContext.getControl("opc_notifyadditionalusers").getAttribute().getValue();
-        //    let sectionNotifyUsers = formContext.ui.tabs.get("tab_general").sections.get("section_notifyusers");
-        //    sectionNotifyUsers.setVisible(shouldNotifyAdditionalUsers);
-        //}
+        private notifyAdditionalUsers_OnChange(formContext: Form.opc_reminder.Main.Information): void {
+            let shouldNotifyAdditionalUsers = formContext.getControl("opc_notifyadditionalusers").getAttribute().getValue();
+            let sectionNotifyUsers = formContext.ui.tabs.get("tab_general").sections.get("section_additionalusers");
+            sectionNotifyUsers.setVisible(shouldNotifyAdditionalUsers);
+        }
     }
 }
