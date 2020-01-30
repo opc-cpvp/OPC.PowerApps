@@ -10,6 +10,10 @@ export interface IReminderService {
     getReminder(id: string): opc_reminder
 }
 
+export interface INotificationService {
+    getNotification(id: string): opc_notification
+}
+
 export interface IFormFactory {
     createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>) : IPowerForm<TForm>
 }
