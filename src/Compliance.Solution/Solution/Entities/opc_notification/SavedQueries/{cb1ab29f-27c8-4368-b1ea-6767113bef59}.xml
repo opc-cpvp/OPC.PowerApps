@@ -22,14 +22,13 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="opc_notification">
-          <attribute name="opc_notificationid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
           <attribute name="opc_notifybyemail" />
           <attribute name="ownerid" />
           <attribute name="statuscode" />
-          <order attribute="statuscode" descending="true" />
           <order attribute="createdon" descending="true" />
+          <attribute name="opc_notificationid" />
         </entity>
       </fetch>
     </fetchxml>

@@ -31,7 +31,6 @@
           <attribute name="opc_notifybyemail" />
           <attribute name="ownerid" />
           <attribute name="statuscode" />
-          <order attribute="statuscode" descending="true" />
           <order attribute="createdon" descending="true" />
         </entity>
       </fetch>

@@ -22,7 +22,6 @@
       <fetch version="1.0" output-format="xml-platform" mapping="logical">
         <entity name="opc_notification">
           <attribute name="opc_name" />
-          <attribute name="opc_notificationid" />
           <attribute name="opc_notifybyemail" />
           <attribute name="createdon" />
           <attribute name="statuscode" />
@@ -30,8 +29,8 @@
             <condition attribute="ownerid" operator="eq-userid" />
             <condition attribute="statecode" operator="eq" value="1" />
           </filter>
-          <order attribute="statuscode" descending="true" />
           <order attribute="createdon" descending="true" />
+          <attribute name="opc_notificationid" />
         </entity>
       </fetch>
     </fetchxml>

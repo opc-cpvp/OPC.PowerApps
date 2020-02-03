@@ -319,6 +319,40 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_reminders" id="dfb897a2-94f5-45a3-8305-1ad313bba8d3" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Reminders" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="section_reminders" id="18099d95-5661-417e-8af8-c64f14175bf0" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Reminders" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{a6428ae6-12d3-4c5a-ad93-70a9226aca00}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Reminders" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_reminders" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_reminder</TargetEntityType>
+                            <ViewId>{148A71FD-90A5-42F4-95AE-389DF211B813}</ViewId>
+                            <ViewIds>{148A71FD-90A5-42F4-95AE-389DF211B813}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_complaint_reminders_complaintid</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{341fa2b4-9a5c-4bc9-9019-d9d6aa2a16bd}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
@@ -363,7 +397,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
