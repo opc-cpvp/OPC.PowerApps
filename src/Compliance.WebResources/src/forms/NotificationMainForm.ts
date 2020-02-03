@@ -21,7 +21,7 @@ export namespace Notification.Forms {
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_notification.Main.Information, any>): void {
             let formContext = <Form.opc_notification.Main.Information>initializationContext.getFormContext();
-            //let complaintIdValue = formContext.getAttribute("opc_complaintid").getValue();
+            let complaintIdValue = formContext.getAttribute("opc_complaintid").getValue();
             let entityFormOptions = {entityName: "", entityId: ""};
 
             // Change the Status Reason of the notification from UNREAD to READ.
@@ -32,13 +32,13 @@ export namespace Notification.Forms {
             // Display the lookup field that contains the link to the related case if not empty.
             // And
             // Redirect to the related case if there is any.
-            //if (complaintIdValue != null) {
-            //    XrmHelper.turnOn(formContext.getControl("opc_complaintid"));
-            //entityFormOptions["entityName"] = "opc_complaint";
-            //entityFormOptions["entityId"] = complaintIdValue;
-            //}
+            if (complaintIdValue != null) {
+                XrmHelper.turnOn(formContext.getControl("opc_complaintid"));
+                entityFormOptions["entityName"] = "opc_complaint";
+                entityFormOptions["entityId"] = complaintIdValue[0].id;
+            }
 
-            // Tried using formContext.data.entity.save() because it is SYNC and formContext.data.save() is ASYNC but it made no difference on the form.
+            // Tried using formContext.data.entity.save() because it is SYNC instead of formContext.data.save() that is ASYNC but it made no difference on the form.
             formContext.data.save().then(() => {
                 Xrm.Navigation.openForm(entityFormOptions);
             });

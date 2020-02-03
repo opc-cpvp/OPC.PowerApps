@@ -3002,8 +3002,16 @@ declare namespace Form.opc_legislation.Quick {
 declare namespace Form.opc_notification.Main {
   namespace Information {
     namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -3018,6 +3026,7 @@ declare namespace Form.opc_notification.Main {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_statecode"): Xrm.OptionSetControl<opc_notification_statecode>;
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_notification_statuscode>;
+      get(name: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
       get(name: string): undefined;
@@ -3026,6 +3035,7 @@ declare namespace Form.opc_notification.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -3033,6 +3043,7 @@ declare namespace Form.opc_notification.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -3042,6 +3053,7 @@ declare namespace Form.opc_notification.Main {
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_notification_statecode>;
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_notification_statuscode>;
+    getControl(controlName: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: string): undefined;
@@ -5321,6 +5333,7 @@ interface opc_complaint_Relationships {
   bpf_opc_complaint_opc_individualcomplaint_bp?: opc_individualcomplaint_bp_Result[] | null;
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
+  opc_complaint_notifications_complaintid?: opc_notification_Result[] | null;
   opc_complaint_recommendations_complaint?: opc_recommendation_Result[] | null;
   opc_complaint_reminders_complaintid?: opc_reminder_Result[] | null;
   opc_complaints_topics_relatedtopics?: opc_topic_Result[] | null;
@@ -5411,6 +5424,7 @@ interface opc_complaint_Expand {
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
+  opc_complaint_notifications_complaintid: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaintid: opc_notification_Result[] }>;
   opc_complaint_recommendations_complaint: WebExpand<opc_complaint_Expand, opc_recommendation_Select, opc_recommendation_Filter, { opc_complaint_recommendations_complaint: opc_recommendation_Result[] }>;
   opc_complaint_reminders_complaintid: WebExpand<opc_complaint_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_complaint_reminders_complaintid: opc_reminder_Result[] }>;
   opc_complaints_topics_relatedtopics: WebExpand<opc_complaint_Expand, opc_topic_Select, opc_topic_Filter, { opc_complaints_topics_relatedtopics: opc_topic_Result[] }>;
@@ -5464,6 +5478,7 @@ interface opc_complaint_RelatedMany {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  opc_complaint_notifications_complaintid: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
   opc_complaint_recommendations_complaint: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
   opc_complaint_reminders_complaintid: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
   opc_complaints_topics_relatedtopics: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
@@ -5891,6 +5906,7 @@ interface opc_notification_Base extends WebEntity {
 interface opc_notification_Relationships {
 }
 interface opc_notification extends opc_notification_Base, opc_notification_Relationships {
+  opc_complaintid_bind$opc_complaints?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -5906,6 +5922,7 @@ interface opc_notification_Select {
   modifiedby_guid: WebAttribute<opc_notification_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_notification_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_notification_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_complaintid_guid: WebAttribute<opc_notification_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
   opc_name: WebAttribute<opc_notification_Select, { opc_name: string | null }, {  }>;
   opc_notificationid: WebAttribute<opc_notification_Select, { opc_notificationid: string | null }, {  }>;
   opc_notifybyemail: WebAttribute<opc_notification_Select, { opc_notifybyemail: boolean | null }, {  }>;
@@ -5928,6 +5945,7 @@ interface opc_notification_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
+  opc_complaintid_guid: XQW.Guid;
   opc_name: string;
   opc_notificationid: XQW.Guid;
   opc_notifybyemail: boolean;
@@ -5943,6 +5961,7 @@ interface opc_notification_Filter {
   versionnumber: number;
 }
 interface opc_notification_Expand {
+  opc_complaintid: WebExpand<opc_notification_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
 }
 interface opc_notification_FormattedResult {
   createdby_formatted?: string;
@@ -5951,6 +5970,7 @@ interface opc_notification_FormattedResult {
   modifiedby_formatted?: string;
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
+  opc_complaintid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -5965,12 +5985,14 @@ interface opc_notification_Result extends opc_notification_Base, opc_notificatio
   createdonbehalfby_guid: string | null;
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
+  opc_complaintid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
   owninguser_guid: string | null;
 }
 interface opc_notification_RelatedOne {
+  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface opc_notification_RelatedMany {
 }
