@@ -40,7 +40,6 @@ export namespace Reminder.Forms {
             let notifyReminderOwnerControl = formContext.getControl("opc_notifyme");
             let notifyAdditionalUsersControl = formContext.getControl("opc_notifyadditionalusers");
             let complaintIdControl = formContext.getControl("opc_complaintid");
-
             let shouldNotifyCaseOwner = notifyCaseOwnerControl.getAttribute().getValue();
             let shouldNotifyReminderOwner = notifyReminderOwnerControl.getAttribute().getValue();
             let shouldNotifyAdditionalUsers = notifyAdditionalUsersControl.getAttribute().getValue();
