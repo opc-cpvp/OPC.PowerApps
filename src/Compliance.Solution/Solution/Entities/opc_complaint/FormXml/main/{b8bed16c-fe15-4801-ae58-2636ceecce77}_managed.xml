@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{db996129-67e2-43c2-8ed8-38fd056aae0f}" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Number" languagecode="1033" />
                         </labels>
                         <control id="opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="true" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{a6d93dc7-e2f2-4896-95de-1a9e56671204}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Complainant" languagecode="1033" />
                         </labels>
                         <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{4c7ab1c0-ea6d-438d-818d-6b6cf50ba6be}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Complainant Representative" languagecode="1033" />
                         </labels>
                         <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" />
                       </cell>
@@ -46,7 +46,7 @@
                     <row>
                       <cell id="{2b3d4e09-c4b9-468a-97c4-3968300d146c}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Legislation" languagecode="1033" />
                         </labels>
                         <control id="opc_legislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_legislation" disabled="false" />
                       </cell>
@@ -54,7 +54,8 @@
                     <row>
                       <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
@@ -141,7 +142,8 @@
                     <row>
                       <cell showlabel="false" locklevel="0" id="{95d4334c-142a-47b3-b668-d8bf53172c29}" rowspan="1" colspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Documents" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570557025307" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -176,6 +178,7 @@
                       <cell showlabel="false" locklevel="0" id="{f152b4da-969e-4bc5-ba0b-5fd14065461d}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations/Concerns" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455205666" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -210,6 +213,7 @@
                       <cell showlabel="false" locklevel="0" id="{4974057c-71c4-4cc9-a75a-6af4762adee1}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Issues" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455352989" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -244,6 +248,7 @@
                       <cell showlabel="false" locklevel="0" id="{9c2c4e8a-6b4c-4b64-bc1c-5e13e1272a99}" rowspan="1" colspan="1">
                         <labels>
                           <label description="New SG control 1570455487438" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455487438" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -278,6 +283,7 @@
                       <cell showlabel="true" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
                         <labels>
                           <label description="Topics" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_topics" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{02d24ec3-7b03-209d-7d59-7e772a904cb3}">
                           <parameters>

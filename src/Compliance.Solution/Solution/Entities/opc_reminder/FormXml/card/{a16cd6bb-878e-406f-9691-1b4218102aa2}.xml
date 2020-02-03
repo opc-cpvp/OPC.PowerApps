@@ -59,7 +59,7 @@
                     <row>
                       <cell id="{b2ec4444-f1a9-44a0-8264-14e8d32c9c28}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Title" languagecode="1033" />
+                          <label description="Reason" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
                       </cell>

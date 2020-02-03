@@ -15,16 +15,16 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{a18c3c57-3ff3-400e-ad73-69f3b40977e8}" name="section_general" columns="111" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{a18c3c57-3ff3-400e-ad73-69f3b40977e8}" name="section_general" columns="1111" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{98a92c8f-c28b-4f6d-af9c-d3729f19373e}" showlabel="true" locklevel="0" colspan="3">
+                      <cell id="{98a92c8f-c28b-4f6d-af9c-d3729f19373e}" showlabel="true" locklevel="0" colspan="4">
                         <labels>
-                          <label description="Title" languagecode="1033" />
+                          <label description="Reason" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" uniqueid="{a2ad4e70-1261-de96-0dbc-344ba0c0e531}" disabled="false" />
                       </cell>
@@ -36,16 +36,43 @@
                         </labels>
                         <control id="opc_reminderdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_reminderdate" disabled="false" />
                       </cell>
-                      <cell id="{36776e7b-71cc-5d01-bb1b-a6a2c2ec38c6}" showlabel="false" userspacer="true">
+                      <cell id="{ebb3b171-93e2-8c3a-6104-db23139daa73}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
+                      <cell id="{1d2525da-bd36-2aba-cb88-72500e3ddd47}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{b3d4b6c4-4642-1d10-7ce5-5cdb2de1599b}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{c08ab9b6-35ca-4e96-ad6d-ac72524b44e4}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Send Email Notification" languagecode="1033" />
                         </labels>
                         <control id="opc_notifybyemail" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifybyemail" disabled="false" />
+                      </cell>
+                      <cell id="{4279a894-94bd-c037-6917-82500a40b579}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{7c260c8c-5914-d825-db4b-066e1d733481}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{a739c37c-104b-bd55-a7be-67db000c3875}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -55,17 +82,66 @@
                         </labels>
                         <control id="opc_notifycaseowner" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifycaseowner" disabled="false" />
                       </cell>
+                      <cell id="{51406639-3631-41b8-c384-72d1e327d262}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{cc55657e-2820-3d14-1ca5-e43b00c045ca}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{0d777141-82a2-bbd4-656b-a14e9b4a98e7}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{8d421c80-87bb-94a4-9dd2-630494205230}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Notify Me" languagecode="1033" />
                         </labels>
                         <control id="opc_notifyme" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifyme" disabled="false" />
                       </cell>
+                      <cell id="{bd54dbe7-6b66-736b-2a78-e554ad526942}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{d6eb934a-4ad8-181d-b011-75e914ca919c}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{135c6d72-0932-4602-9cae-22a32573da7a}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{3b3bc680-34c5-b26c-131d-d206dadcb602}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Notify Additional Users" languagecode="1033" />
                         </labels>
                         <control id="opc_notifyadditionalusers" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifyadditionalusers" disabled="false" uniqueid="{ace9d887-8b50-e8a5-d54a-a59896d5bdd5}" />
+                      </cell>
+                      <cell id="{7ca99d0b-c992-7b15-7004-93e6b0478347}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{4a742bad-3200-1c64-4a2c-1042c1badd5e}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{32d32a6e-570d-a283-8835-deeda1832b75}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
