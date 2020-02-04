@@ -38,7 +38,8 @@ export namespace Notification.Forms {
             }
 
             // Redirect to the related case if there is any.
-            Xrm.Navigation.openForm(entityFormOptions);
+            if (entityFormOptions.entityName !== "")
+                Xrm.Navigation.openForm(entityFormOptions);
         }
     }
 }
