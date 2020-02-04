@@ -1,19 +1,14 @@
+path_classifiers:
+  library:
+  - "exclude \"src/Compliance.WebResources/@types\""
+  - "exclude \"src/Compliance.WebResources/js\""
 extraction:
   csharp:
-    after_prepare: "mono /opt/dist/tools/csharp/nuget/nuget.exe restore src/OPC.PowerApps.sln"
     index:
-      solution:
-      - "src/Compliance.Entities/Compliance.Entities.csproj"
-      - "src/Compliance.Package/Compliance.Package.csproj"
-      - "src/Compliance.Plugins/Compliance.Plugins.csproj"
-      nuget_restore: false
+      all_solutions: true
       msbuild:
-        arguments: "/p:OutputPath=bin/release"
         configuration: "release"
         platform: "Any CPU"
   javascript:
     index:
       include: "src/Compliance.WebResources"
-      exclude:
-      - "src/Compliance.WebResources/@types"
-      - "src/Compliance.WebResources/js"
