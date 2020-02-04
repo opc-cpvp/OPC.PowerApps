@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping>
   <FileToFile map="WebResources\opc_\compliance\js\compliance.min.js" to="..\..\Compliance.WebResources\dist\compliance.min.js" />
-  <FileToFile map="CompliancePlugins.dll" to="..\..\Compliance.Plugins\bin\ILMerge\Compliance.Plugins.dll" />
+  <FileToFile map="CompliancePlugins.dll" to="..\..\Compliance.Plugins\bin\ILRepack\Compliance.Plugins.dll" />
 </Mapping>

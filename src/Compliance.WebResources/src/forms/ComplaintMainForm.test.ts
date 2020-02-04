@@ -16,10 +16,6 @@ chai.use(sinonChai);
 // SAMPLE TEST
 describe("when initialized", () => {
 
-    /*beforeEach(() => {
-        XrmMockGenerator.initialise();
-    });*/
-
     it("it should call load complaint", () => {
         // Arrange
         let service = new ComplaintService();
