@@ -43,14 +43,6 @@
                         <control id="opc_riskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskappetite" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{91e1a58a-722a-4df2-a7d6-17d7252eebb7}" showlabel="true" locklevel="0" labelid="{aad619a5-dc55-4d48-8c8b-96bca7019336}">
-                        <labels>
-                          <label description="Version" languagecode="1033" />
-                        </labels>
-                        <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>
@@ -63,7 +55,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{a3074318-9809-4c29-942a-badc5f923df3}">
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{a3074318-9809-4c29-942a-badc5f923df3}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -81,7 +73,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{ad32b10f-2045-40d4-a69d-b9541df4c616}">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{ad32b10f-2045-40d4-a69d-b9541df4c616}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

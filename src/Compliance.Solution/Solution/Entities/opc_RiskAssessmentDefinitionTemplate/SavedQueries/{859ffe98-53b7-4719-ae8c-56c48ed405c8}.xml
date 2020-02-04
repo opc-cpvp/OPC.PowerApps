@@ -13,7 +13,6 @@
           <cell name="opc_name" width="300" />
           <cell name="opc_riskassessmentfactortemplate" width="295" />
           <cell name="opc_riskappetite" width="126" />
-          <cell name="opc_version" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -22,19 +21,17 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="opc_riskassessmentdefinitiontemplate">
-          <attribute name="opc_riskassessmentdefinitiontemplateid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
           <attribute name="opc_riskassessmentfactortemplate" />
-          <attribute name="opc_version" />
           <attribute name="opc_riskappetite" />
           <order attribute="opc_riskassessmentfactortemplate" descending="false" />
           <order attribute="opc_riskappetite" descending="false" />
           <order attribute="opc_name" descending="false" />
-          <order attribute="opc_version" descending="false" />
+          <attribute name="opc_riskassessmentdefinitiontemplateid" />
         </entity>
       </fetch>
     </fetchxml>

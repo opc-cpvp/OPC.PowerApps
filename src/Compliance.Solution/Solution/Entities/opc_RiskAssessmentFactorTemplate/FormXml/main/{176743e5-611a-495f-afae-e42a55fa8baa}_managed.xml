@@ -45,22 +45,6 @@
                         <control id="opc_sequence" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_sequence" disabled="false" />
                       </cell>
                     </row>
-                    <row height="auto">
-                      <cell id="{e95910dd-0a4f-46ec-acad-aa8d952c079f}" showlabel="true" locklevel="0" rowspan="1" auto="true">
-                        <labels>
-                          <label description="Description" languagecode="1033" />
-                        </labels>
-                        <control id="opc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_description" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{ae815033-529c-4f5f-a62e-46a2766b9485}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Version" languagecode="1033" />
-                        </labels>
-                        <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
                 <section name="null_section_3" id="aae60655-4b20-4727-8ee0-7175ab94cf60" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
@@ -69,9 +53,9 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{259e0cd8-9ff9-4f21-97ed-67c96d599c2f}" rowspan="6" colspan="1" auto="false">
+                      <cell showlabel="false" locklevel="0" id="{259e0cd8-9ff9-4f21-97ed-67c96d599c2f}" rowspan="8" colspan="1" auto="false">
                         <labels>
-                          <label description="New SG control 1579702668444" languagecode="1033" />
+                          <label description="Risk Assessment Factor Template" languagecode="1033" />
                         </labels>
                         <control id="Subgrid_1" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{5e240627-5c39-1ad7-e13a-78567283898c}">
                           <parameters>
@@ -80,7 +64,7 @@
                             <ViewIds>{859FFE98-53B7-4719-AE8C-56C48ED405C8}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_RiskAssessmentDefinitionTemplate_Risk</RelationshipName>
-                            <RecordsPerPage>4</RecordsPerPage>
+                            <RecordsPerPage>6</RecordsPerPage>
                             <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             <IsUserView>false</IsUserView>
                             <EnableQuickFind>false</EnableQuickFind>
@@ -94,6 +78,8 @@
                         </control>
                       </cell>
                     </row>
+                    <row />
+                    <row />
                     <row />
                     <row />
                     <row />

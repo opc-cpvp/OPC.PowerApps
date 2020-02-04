@@ -43,14 +43,6 @@
                         <control id="opc_sequence" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_sequence" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{a4d02ae4-ec6d-47f3-a115-327f187efa63}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Version" languagecode="1033" />
-                        </labels>
-                        <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>
@@ -81,7 +73,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{d2275bca-4bb6-4180-97f7-cfc6f4379583}">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{d2275bca-4bb6-4180-97f7-cfc6f4379583}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

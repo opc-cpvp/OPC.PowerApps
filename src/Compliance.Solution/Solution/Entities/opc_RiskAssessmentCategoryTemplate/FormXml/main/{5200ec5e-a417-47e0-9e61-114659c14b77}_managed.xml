@@ -45,14 +45,6 @@
                         <control id="opc_sequence" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_sequence" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{bc557d94-a576-4fbc-924f-871b29a161ab}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Version" languagecode="1033" />
-                        </labels>
-                        <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
                 <section name="null_section_3" id="7bb2fa0b-4261-467d-a888-30e14075dc74" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
@@ -61,9 +53,9 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{3d2d0176-53f0-4388-8685-535f01fab441}" rowspan="6" colspan="1" auto="false">
+                      <cell showlabel="false" locklevel="0" id="{3d2d0176-53f0-4388-8685-535f01fab441}" rowspan="8" colspan="1" auto="false">
                         <labels>
-                          <label description="New SG control 1579701844026" languagecode="1033" />
+                          <label description="Risk Assessment Factor Templates" languagecode="1033" />
                         </labels>
                         <control id="Subgrid_1" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{4632d953-17ec-231a-0c47-e1c1cce1d64d}">
                           <parameters>
@@ -72,7 +64,7 @@
                             <ViewIds>{82A4ED5D-5346-4579-8761-0B0264EA9902}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_RiskAssessmentFactorTemplate_RiskAsse</RelationshipName>
-                            <RecordsPerPage>4</RecordsPerPage>
+                            <RecordsPerPage>6</RecordsPerPage>
                             <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             <IsUserView>false</IsUserView>
                             <EnableQuickFind>false</EnableQuickFind>
@@ -86,6 +78,8 @@
                         </control>
                       </cell>
                     </row>
+                    <row />
+                    <row />
                     <row />
                     <row />
                     <row />

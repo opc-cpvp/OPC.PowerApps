@@ -26,15 +26,23 @@
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" uniqueid="{915ca501-5323-4671-7767-d5ea33144c53}" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{48ae8e5e-d7cb-4314-8015-6f309c3c8032}" showlabel="true" locklevel="0">
+                      <cell id="{d15a053c-1b09-919d-dd8d-98428385c579}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Risk Assessment" languagecode="1033" />
+                        </labels>
+                        <control id="opc_riskassessmentid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{196cc68a-6ee2-de90-c82b-2b3d93db99ed}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Risk Assessment Category" languagecode="1033" />
                         </labels>
-                        <control id="header_opc_riskassessmentcategory" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentcategory" disabled="false" />
+                        <control id="opc_riskassessmentcategory" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentcategory" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -117,7 +125,6 @@
           </row>
         </rows>
       </footer>
-      <DisplayConditions Order="0" FallbackForm="true" />
       <controlDescriptions>
         <controlDescription forControl="{d5289de8-79c4-479a-8c94-5793e5bc3a53}">
           <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
@@ -142,6 +149,37 @@
           </customControl>
         </controlDescription>
       </controlDescriptions>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

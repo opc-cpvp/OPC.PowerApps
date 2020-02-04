@@ -29,30 +29,6 @@
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{7928d33b-3d35-43b8-9c9f-9077958ffde4}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Version" languagecode="1033" />
-                        </labels>
-                        <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{5a979c1e-d3ff-4d64-82a7-59339da243e6}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Effective Date" languagecode="1033" />
-                        </labels>
-                        <control id="opc_effectivedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_effectivedate" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{b26a7e47-bc1f-4b40-8f34-c95c38ac7c9a}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Previous Version" languagecode="1033" />
-                        </labels>
-                        <control id="opc_previousversion" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_previousversion" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
                 <section name="null_section_3" id="0c6e96dd-c944-4c39-9101-8a187983a4de" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
@@ -132,6 +108,36 @@
           </row>
         </rows>
       </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

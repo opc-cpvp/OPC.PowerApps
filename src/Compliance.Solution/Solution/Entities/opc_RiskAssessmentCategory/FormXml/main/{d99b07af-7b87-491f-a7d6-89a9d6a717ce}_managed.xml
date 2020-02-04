@@ -87,7 +87,7 @@
                       </cell>
                     </row>
                     <row />
-                    <row />
+                    <row height="auto" />
                     <row>
                       <cell id="{5926a036-2114-4984-99f8-a7197c421bbd}" showlabel="true" locklevel="0">
                         <labels>
@@ -113,21 +113,36 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{b49870d5-19ec-4026-a58d-81a10278f373}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{b49870d5-19ec-4026-a58d-81a10278f373}" rowspan="6" colspan="1" auto="false">
                         <labels>
                           <label description="New SG control 1579618715909" languagecode="1033" />
                         </labels>
-                        <control id="Subgrid_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="Subgrid_1" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{ce46b6a8-9b78-4300-35c1-eb17d2ec3dae}">
                           <parameters>
                             <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
                             <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
                             <ViewIds>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_RiskAssessmentDefinition_RiskAssessme</RelationshipName>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
                           </parameters>
                         </control>
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -153,11 +168,22 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{159e834a-ee8b-0562-9b38-6ad26ddd56d4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
             <cell id="{e86a7fed-3c52-4e99-a132-b9236e689225}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Risk Assessment" languagecode="1033" />
               </labels>
               <control id="header_opc_riskassessment" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessment" disabled="false" />
+            </cell>
+            <cell id="{6cad8d6a-1ae7-14de-5047-962c86ae0839}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Risk Assessment Category Template" languagecode="1033" />
+              </labels>
+              <control id="header_opc_riskassessmentcategorytemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentcategorytemplate" disabled="false" />
             </cell>
             <cell id="{759540a2-2de8-478d-83bb-f45ac0bfa911}">
               <labels>
@@ -213,9 +239,50 @@
             </parameters>
           </customControl>
         </controlDescription>
+        <controlDescription forControl="{ce46b6a8-9b78-4300-35c1-eb17d2ec3dae}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" formFactor="0">
+            <parameters />
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
+                <columnsDefaultView />
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_RiskAssessmentDefinition_RiskAssessme</RelationshipName>
+                <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">yes</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">yes</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
+              <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+              <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
+                <columnsDefaultView />
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_RiskAssessmentDefinition_RiskAssessme</RelationshipName>
+                <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">yes</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">yes</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
+              <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+              <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
+            </parameters>
+          </customControl>
+        </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

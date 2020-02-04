@@ -81,29 +81,29 @@
                     </row>
                   </rows>
                 </section>
-                <section name="null_section_3" id="76a55085-3e38-427d-a5f9-63a5c3c72cc0" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" height="auto">
+                <section name="section_riskassessmentdefinitions" id="63c0e511-0e4b-417d-a61f-d91933ce7ed9" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
-                    <label description="Risk Assessment Categories" languagecode="1033" />
+                    <label description="Risk Assessment Definitions" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{5abc4ce2-8add-4b12-b919-3790829ff576}" rowspan="4" colspan="1" auto="true">
+                      <cell showlabel="false" locklevel="0" id="{422691dd-2fe7-4391-b895-11900432f59e}" rowspan="12" colspan="1" auto="false">
                         <labels>
-                          <label description="New SG control 1579529636231" languagecode="1033" />
+                          <label description="Risk Assessment Definitions" languagecode="1033" />
                         </labels>
-                        <control id="Subgrid_1" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{382601e5-6b4b-381b-99c9-69b6db102ddb}">
+                        <control id="subgrid_riskassessmentdefinitions" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{98a910e6-7587-7d78-0912-03ca7999d504}">
                           <parameters>
-                            <TargetEntityType>opc_riskassessmentcategory</TargetEntityType>
-                            <ViewId>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</ViewId>
-                            <ViewIds>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</ViewIds>
+                            <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
+                            <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
+                            <ViewIds>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_RiskAssessmentCategory_RiskAssessment</RelationshipName>
-                            <RecordsPerPage>5</RecordsPerPage>
+                            <RelationshipName>opc_riskassessment_riskassessmentdefinitions_riskassessment</RelationshipName>
+                            <RecordsPerPage>10</RecordsPerPage>
                             <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             <IsUserView>false</IsUserView>
                             <EnableQuickFind>false</EnableQuickFind>
                             <EnableJumpBar>false</EnableJumpBar>
-                            <AutoExpand>Auto</AutoExpand>
+                            <AutoExpand>Fixed</AutoExpand>
                             <ChartGridMode>All</ChartGridMode>
                             <VisualizationId />
                             <IsUserChart>false</IsUserChart>
@@ -114,7 +114,15 @@
                     </row>
                     <row />
                     <row />
-                    <row height="auto" />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -200,20 +208,20 @@
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{382601e5-6b4b-381b-99c9-69b6db102ddb}">
+        <controlDescription forControl="{98a910e6-7587-7d78-0912-03ca7999d504}">
           <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" formFactor="0">
             <parameters />
           </customControl>
           <customControl formFactor="1" name="MscrmControls.Grid.GridControl">
             <parameters>
               <data-set name="Grid">
-                <ViewId>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</ViewId>
+                <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
                 <columnsDefaultView />
                 <IsUserView>false</IsUserView>
-                <RelationshipName>opc_RiskAssessmentCategory_RiskAssessment</RelationshipName>
-                <TargetEntityType>opc_riskassessmentcategory</TargetEntityType>
+                <RelationshipName>opc_riskassessment_riskassessmentdefinitions_riskassessment</RelationshipName>
+                <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
                 <EnableViewPicker>false</EnableViewPicker>
-                <FilteredViewIds>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</FilteredViewIds>
+                <FilteredViewIds>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</FilteredViewIds>
               </data-set>
               <EnableGroupBy static="true" type="Enum">yes</EnableGroupBy>
               <EnableEditing static="true" type="Enum">yes</EnableEditing>
@@ -225,13 +233,13 @@
           <customControl formFactor="2" name="MscrmControls.Grid.GridControl">
             <parameters>
               <data-set name="Grid">
-                <ViewId>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</ViewId>
+                <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
                 <columnsDefaultView />
                 <IsUserView>false</IsUserView>
-                <RelationshipName>opc_RiskAssessmentCategory_RiskAssessment</RelationshipName>
-                <TargetEntityType>opc_riskassessmentcategory</TargetEntityType>
+                <RelationshipName>opc_riskassessment_riskassessmentdefinitions_riskassessment</RelationshipName>
+                <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
                 <EnableViewPicker>false</EnableViewPicker>
-                <FilteredViewIds>{18B9BFFA-45BA-4D5A-B141-CA78B5F12BC4}</FilteredViewIds>
+                <FilteredViewIds>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</FilteredViewIds>
               </data-set>
               <EnableGroupBy static="true" type="Enum">yes</EnableGroupBy>
               <EnableEditing static="true" type="Enum">yes</EnableEditing>
@@ -243,7 +251,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
