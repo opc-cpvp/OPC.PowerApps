@@ -8,18 +8,29 @@
   <ClientType>4</ClientType>
   <NavigationType>0</NavigationType>
   <AppModuleComponents>
-    <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
-    <AppModuleComponent type="1" schemaName="opc_allegation" />
-    <AppModuleComponent type="1" schemaName="account" />
-    <AppModuleComponent type="1" schemaName="contact" />
-    <AppModuleComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" />
-    <AppModuleComponent type="1" schemaName="opc_issue" />
     <AppModuleComponent type="62" schemaName="opc_compliance" />
-    <AppModuleComponent type="1" schemaName="opc_recommendation" />
+    <AppModuleComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" />
+    <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="1" schemaName="opc_allegation" />
     <AppModuleComponent type="1" schemaName="opc_complaint" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
+    <AppModuleComponent type="1" schemaName="opc_issue" />
+    <AppModuleComponent type="1" schemaName="opc_recommendation" />
+    <AppModuleComponent type="1" schemaName="opc_riskappetite" />
+    <AppModuleComponent type="1" schemaName="opc_riskassessment" />
+    <AppModuleComponent type="1" schemaName="opc_riskassessmentcategory" />
+    <AppModuleComponent type="1" schemaName="opc_riskassessmentcategorytemplate" />
+    <AppModuleComponent type="1" schemaName="opc_riskassessmentdefinition" />
+    <AppModuleComponent type="1" schemaName="opc_riskassessmentdefinitiontemplate" />
+    <AppModuleComponent type="1" schemaName="opc_riskassessmentfactortemplate" />
+    <AppModuleComponent type="1" schemaName="opc_riskassessmenttype" />
+    <AppModuleComponent type="1" schemaName="opc_theme" />
+    <AppModuleComponent type="1" schemaName="opc_topic" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
     <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
     <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
     <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
   </AppModuleRoleMaps>

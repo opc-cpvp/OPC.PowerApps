@@ -1,0 +1,14 @@
+path_classifiers:
+  library:
+  - "exclude \"src/Compliance.WebResources/@types\""
+  - "exclude \"src/Compliance.WebResources/js\""
+extraction:
+  csharp:
+    index:
+      all_solutions: true
+      msbuild:
+        configuration: "release"
+        platform: "Any CPU"
+  javascript:
+    index:
+      include: "src/Compliance.WebResources"

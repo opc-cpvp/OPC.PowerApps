@@ -22,7 +22,7 @@
                     <row>
                       <cell id="{27180a75-c1ea-470f-978f-403c028abbdd}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Number" languagecode="1033" />
                         </labels>
                         <control id="opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" />
                       </cell>
@@ -30,7 +30,7 @@
                     <row>
                       <cell id="{d4f859a3-a7c1-42af-8b2d-0d5c432a0094}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Complainant" languagecode="1033" />
                         </labels>
                         <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" />
                       </cell>
@@ -38,7 +38,7 @@
                     <row>
                       <cell id="{16965912-cac9-4d2c-98e2-1817095f0d99}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Complainant Representative" languagecode="1033" />
                         </labels>
                         <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" />
                       </cell>
@@ -46,7 +46,7 @@
                     <row>
                       <cell id="{060707b6-4e62-403d-af0c-226f20c3bdc5}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Legislation" languagecode="1033" />
                         </labels>
                         <control id="opc_legislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_legislation" disabled="false" />
                       </cell>
@@ -54,7 +54,8 @@
                     <row>
                       <cell id="{3b4d826a-2eca-47ef-972f-bd733a97bf5b}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>

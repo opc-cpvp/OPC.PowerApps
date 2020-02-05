@@ -88,7 +88,8 @@
                     <row>
                       <cell id="{bfb917ce-3313-4193-9e53-857b596219c8}" showlabel="true" visible="true" labelid="{82400984-1b99-40b5-aa68-3fc61d075650}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -114,7 +115,8 @@
                     <row>
                       <cell id="{44515437-a633-4e48-a984-64d4d39d588e}" showlabel="true" visible="true" labelid="{6d87ab93-aec5-4556-88ad-8d4a4061a326}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -140,7 +142,8 @@
                     <row>
                       <cell id="{2d52e04d-5524-4a53-9050-8f5c6668a4af}" showlabel="true" visible="true" labelid="{5fe2e5a5-5551-45e2-907b-0e15d4d65689}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -166,7 +169,8 @@
                     <row>
                       <cell id="{69dd9e4c-7cbb-4693-9f48-719c969c1adf}" showlabel="true" visible="true" labelid="{4c72ab08-8957-4a92-a061-f7ea432cf38b}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -192,7 +196,8 @@
                     <row>
                       <cell id="{93a9b62e-8b9f-4698-ae4a-e04c9d83b36a}" showlabel="true" visible="true" labelid="{1f772166-c47a-494c-b786-18babf97d620}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -218,7 +223,8 @@
                     <row>
                       <cell id="{f86e9237-da9a-4cc6-95b5-74b5c96d7955}" showlabel="true" visible="true" labelid="{d19e3b29-5078-4c51-97a7-5b698203326d}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -244,7 +250,8 @@
                     <row>
                       <cell id="{d57ba287-ce23-4c1a-a005-3777450cf3b0}" showlabel="true" visible="true" labelid="{220b5258-ca40-473a-8c03-646dfe431e09}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -270,7 +277,8 @@
                     <row>
                       <cell id="{f269bee4-98e8-4bd7-98e4-94dd19bfe148}" showlabel="true" visible="true" labelid="{06bf1424-154e-4b34-b347-6e1e7ee0e798}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -296,7 +304,8 @@
                     <row>
                       <cell id="{643f9c47-d5f5-4201-91de-31470ced9c0c}" showlabel="true" visible="true" labelid="{33386a01-756b-4c96-86b7-72217c1014e8}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>

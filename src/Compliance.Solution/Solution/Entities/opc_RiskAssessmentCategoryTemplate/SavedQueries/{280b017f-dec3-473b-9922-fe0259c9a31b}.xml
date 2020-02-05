@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{280b017f-dec3-473b-9922-fe0259c9a31b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_riskassessmentcategorytemplateid">
+          <cell name="opc_sequence" width="100" />
+          <cell name="opc_name" width="300" />
+          <cell name="opc_riskassessmenttype" width="203" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_riskassessmentcategorytemplate">
+          <attribute name="opc_riskassessmentcategorytemplateid" />
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="opc_riskassessmenttype" />
+          <attribute name="opc_sequence" />
+          <order attribute="opc_sequence" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.26</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Risk Assessment Category Templates" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

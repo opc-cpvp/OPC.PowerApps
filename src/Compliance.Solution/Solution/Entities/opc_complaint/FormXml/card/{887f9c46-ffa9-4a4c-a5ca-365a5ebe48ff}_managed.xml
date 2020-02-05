@@ -40,7 +40,8 @@
                     <row>
                       <cell id="{39b8a881-6412-4592-b80b-00195daec45e}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
                       </cell>
@@ -65,7 +66,7 @@
                     <row>
                       <cell id="{24ff3ba5-eee8-4531-87d8-54ff43cd13a8}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Number" languagecode="1033" />
                         </labels>
                         <control id="opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="false" />
                       </cell>
@@ -73,7 +74,7 @@
                     <row>
                       <cell id="{4017e9bc-c290-e1bd-0bc9-a0502edeb49c}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Complainant" languagecode="1033" />
                         </labels>
                         <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" />
                       </cell>
@@ -81,7 +82,7 @@
                     <row>
                       <cell id="{02334ce5-db78-9b5c-55e7-550be30532dd}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Complainant Representative" languagecode="1033" />
                         </labels>
                         <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" />
                       </cell>
@@ -89,7 +90,7 @@
                     <row>
                       <cell id="{07a1b94e-7956-ee4d-9b87-66500501b9e6}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Legislation" languagecode="1033" />
                         </labels>
                         <control id="opc_legislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_legislation" disabled="false" />
                       </cell>
@@ -104,13 +105,15 @@
                     <row>
                       <cell id="{4e101469-212c-4399-b7bc-9c3514d1db61}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
                       </cell>
                       <cell id="{bf924a28-a4d9-4b9b-85b8-b47ca5d946a1}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Created On" languagecode="1033" />
+                          <label description="Créé le" languagecode="1036" />
                         </labels>
                         <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
                       </cell>

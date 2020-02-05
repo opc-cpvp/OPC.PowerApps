@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d53956a3-4f01-48af-a3a3-ff49b0cf268a}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_riskassessmentdefinitionid">
+          <cell name="opc_name" width="300" />
+          <cell name="opc_riskassessmentcategory" width="215" />
+          <cell name="opc_riskassessmentfactortemplate" width="285" />
+          <cell name="opc_riskassessmentdefinitiontemplate" width="291" />
+          <cell name="opc_isselected" width="100" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_riskassessmentdefinition">
+          <attribute name="opc_riskassessmentdefinitionid" />
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="opc_riskassessmentdefinitiontemplate" />
+          <attribute name="opc_isselected" />
+          <attribute name="opc_riskassessmentfactortemplate" />
+          <attribute name="opc_riskassessmentcategory" />
+          <order attribute="opc_riskassessmentcategory" descending="false" />
+          <order attribute="opc_riskassessmentfactortemplate" descending="false" />
+          <order attribute="opc_riskassessmentdefinitiontemplate" descending="false" />
+          <order attribute="opc_name" descending="false" />
+          <order attribute="opc_isselected" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.26</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Risk Assessment Definitions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
