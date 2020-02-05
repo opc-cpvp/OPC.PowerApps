@@ -67,10 +67,12 @@
   <EntityRelationship Name="opc_contact_complaints_complainantreps" />
   <EntityRelationship Name="opc_legislation_complaints_legislation" />
   <EntityRelationship Name="opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite" />
+  <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />
   <EntityRelationship Name="opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType" />
   <EntityRelationship Name="opc_RiskAssessment_ActualRiskAppetite_opc" />
   <EntityRelationship Name="opc_RiskAssessment_BypassInitiatedBy_Syst" />
   <EntityRelationship Name="opc_RiskAssessment_Complaint_opc_complain" />
+  <EntityRelationship Name="opc_riskassessment_riskassessmentdefinitions_riskassessment" />
   <EntityRelationship Name="opc_RiskAssessment_RiskAssessmentType_opc" />
   <EntityRelationship Name="opc_RiskAssessment_SuggestedRiskAppetite_" />
   <EntityRelationship Name="opc_RiskAssessmentCategory_ActualRiskAppe" />
@@ -83,7 +85,6 @@
   <EntityRelationship Name="opc_RiskAssessmentDefinition_RiskAssessmentFa" />
   <EntityRelationship Name="opc_RiskAssessmentDefinitionTemplate_Risk" />
   <EntityRelationship Name="opc_RiskAssessmentFactorTemplate_RiskAsse" />
-  <EntityRelationship Name="opc_RiskAssessmentType_PreviousVersion_op" />
   <EntityRelationship Name="opc_reminders_users_additionaluserstonotify" />
   <EntityRelationship Name="opc_theme_topics_themeid" />
   <EntityRelationship Name="organization_opc_individualcomplaint_bp" />

@@ -2,24 +2,17 @@
 <Role id="{f1200996-362e-ea11-a810-000d3af46757}" name="Compliance - Strategic Advisor" isinherited="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <RolePrivileges>
-    <RolePrivilege name="prvCreateAccount" level="Local" />
-    <RolePrivilege name="prvCreateContact" level="Local" />
     <RolePrivilege name="prvCreateopc_allegation" level="Local" />
     <RolePrivilege name="prvCreateopc_complaint" level="Local" />
     <RolePrivilege name="prvCreateopc_issue" level="Local" />
     <RolePrivilege name="prvCreateopc_recommendation" level="Local" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
-    <RolePrivilege name="prvDeleteAccount" level="Local" />
-    <RolePrivilege name="prvDeleteContact" level="Local" />
-    <RolePrivilege name="prvDeleteopc_allegation" level="Local" />
-    <RolePrivilege name="prvDeleteopc_issue" level="Local" />
-    <RolePrivilege name="prvDeleteopc_recommendation" level="Local" />
-    <RolePrivilege name="prvReadAccount" level="Local" />
-    <RolePrivilege name="prvReadContact" level="Local" />
-    <RolePrivilege name="prvReadopc_allegation" level="Local" />
-    <RolePrivilege name="prvReadopc_complaint" level="Local" />
-    <RolePrivilege name="prvReadopc_issue" level="Local" />
-    <RolePrivilege name="prvReadopc_recommendation" level="Local" />
+    <RolePrivilege name="prvReadAccount" level="Global" />
+    <RolePrivilege name="prvReadContact" level="Global" />
+    <RolePrivilege name="prvReadopc_allegation" level="Global" />
+    <RolePrivilege name="prvReadopc_complaint" level="Global" />
+    <RolePrivilege name="prvReadopc_issue" level="Global" />
+    <RolePrivilege name="prvReadopc_recommendation" level="Global" />
     <RolePrivilege name="prvReadPluginAssembly" level="Global" />
     <RolePrivilege name="prvReadPluginType" level="Global" />
     <RolePrivilege name="prvReadSdkMessage" level="Global" />
@@ -27,12 +20,12 @@
     <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
     <RolePrivilege name="prvReadSharePointData" level="Global" />
     <RolePrivilege name="prvReadSharePointDocument" level="Global" />
-    <RolePrivilege name="prvWriteAccount" level="Local" />
-    <RolePrivilege name="prvWriteContact" level="Local" />
-    <RolePrivilege name="prvWriteopc_allegation" level="Local" />
-    <RolePrivilege name="prvWriteopc_complaint" level="Local" />
-    <RolePrivilege name="prvWriteopc_issue" level="Local" />
-    <RolePrivilege name="prvWriteopc_recommendation" level="Local" />
+    <RolePrivilege name="prvWriteAccount" level="Global" />
+    <RolePrivilege name="prvWriteContact" level="Global" />
+    <RolePrivilege name="prvWriteopc_allegation" level="Global" />
+    <RolePrivilege name="prvWriteopc_complaint" level="Global" />
+    <RolePrivilege name="prvWriteopc_issue" level="Global" />
+    <RolePrivilege name="prvWriteopc_recommendation" level="Global" />
     <RolePrivilege name="prvWriteSharePointData" level="Global" />
   </RolePrivileges>
 </Role>

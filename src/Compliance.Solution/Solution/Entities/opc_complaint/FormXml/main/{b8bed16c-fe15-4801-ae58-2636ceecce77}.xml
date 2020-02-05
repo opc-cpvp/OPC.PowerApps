@@ -178,6 +178,7 @@
                       <cell showlabel="false" locklevel="0" id="{2d3ea95e-f5fa-4eed-839a-664cb18a0660}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="allegations_subgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -325,28 +326,43 @@
           <columns>
             <column width="100%">
               <sections>
-                <section name="section_risk_assessments" id="7e566e0d-c95d-460a-951b-9604a3b8c8a5" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_risk_assessments" id="7e566e0d-c95d-460a-951b-9604a3b8c8a5" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Risk Assessments" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{a37cc6b7-373c-4e49-b6c7-21fd43b3bc29}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{a37cc6b7-373c-4e49-b6c7-21fd43b3bc29}" rowspan="6" colspan="1" auto="false">
                         <labels>
-                          <label description="New SG control 1579789468973" languagecode="1033" />
+                          <label description="Risk Assessments" languagecode="1033" />
                           <label description="Documents" languagecode="1036" />
                         </labels>
-                        <control id="subgrid_risk_assessments" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="subgrid_risk_assessments" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{76ae94c4-30a5-54ea-bb55-98b13d049b64}">
                           <parameters>
                             <TargetEntityType>opc_riskassessment</TargetEntityType>
                             <ViewId>{32BEAC0B-CDD1-4E13-9FE0-A10F49BFA214}</ViewId>
                             <ViewIds>{32BEAC0B-CDD1-4E13-9FE0-A10F49BFA214}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_RiskAssessment_Complaint_opc_complain</RelationshipName>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
                           </parameters>
                         </control>
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -431,7 +447,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -460,6 +476,7 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <controlDescriptions />
       <formLibraries>
         <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{9437b3a7-8c38-bac0-ad4d-a7d0217de4d4}" />
       </formLibraries>
@@ -470,7 +487,6 @@
           </Handlers>
         </event>
       </events>
-      <controlDescriptions />
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

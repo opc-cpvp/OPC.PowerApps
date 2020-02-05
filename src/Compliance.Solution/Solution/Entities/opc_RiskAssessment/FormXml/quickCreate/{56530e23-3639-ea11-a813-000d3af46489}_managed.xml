@@ -7,16 +7,16 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="Low">
       <tabs>
-        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{a0565c36-4811-4923-a043-be0ddb086760}">
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_general" showlabel="false" labelid="{a0565c36-4811-4923-a043-be0ddb086760}" locklevel="0" expanded="true">
           <labels>
-            <label description="Tab" languagecode="1033" />
+            <label description="General" languagecode="1033" />
           </labels>
           <columns>
             <column width="34%">
               <sections>
-                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{085351aa-148d-422e-9d31-891691bda907}">
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="section_general" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{085351aa-148d-422e-9d31-891691bda907}" locklevel="0" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Section" languagecode="1033" />
+                    <label description="General" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -65,7 +65,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{daa110d4-de97-4594-b9c9-036e116be75a}">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{daa110d4-de97-4594-b9c9-036e116be75a}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

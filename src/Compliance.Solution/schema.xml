@@ -95,7 +95,6 @@
       <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
-      <field displayname="Version" name="opc_version" type="number" customfield="true" />
     </fields>
     <relationships />
   </entity>
@@ -107,32 +106,26 @@
       <field displayname="Risk Assessment Factor Template" name="opc_riskassessmentfactortemplate" type="entityreference" lookupType="opc_riskassessmentfactortemplate" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
-      <field displayname="Version" name="opc_version" type="number" customfield="true" />
     </fields>
     <relationships />
   </entity>
   <entity name="opc_riskassessmentfactortemplate" displayname="Risk Assessment Factor Template" etc="10296" primaryidfield="opc_riskassessmentfactortemplateid" primarynamefield="opc_name" disableplugins="false">
     <fields>
-      <field displayname="Description" name="opc_description" type="string" customfield="true" />
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
       <field displayname="Risk Assessment Category Template" name="opc_riskassessmentcategorytemplate" type="entityreference" lookupType="opc_riskassessmentcategorytemplate" customfield="true" />
       <field updateCompare="true" displayname="Risk Assessment Factor Template" name="opc_riskassessmentfactortemplateid" type="guid" primaryKey="true" />
       <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
-      <field displayname="Version" name="opc_version" type="number" customfield="true" />
     </fields>
     <relationships />
   </entity>
   <entity name="opc_riskassessmenttype" displayname="Risk Assessment Type" etc="10297" primaryidfield="opc_riskassessmenttypeid" primarynamefield="opc_name" disableplugins="false">
     <fields>
-      <field displayname="Effective Date" name="opc_effectivedate" type="datetime" customfield="true" />
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
-      <field displayname="Previous Version" name="opc_previousversion" type="entityreference" lookupType="opc_riskassessmenttype" customfield="true" />
       <field updateCompare="true" displayname="Risk Assessment Type" name="opc_riskassessmenttypeid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
-      <field displayname="Version" name="opc_version" type="number" customfield="true" />
     </fields>
     <relationships />
   </entity>
