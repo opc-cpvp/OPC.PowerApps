@@ -23,7 +23,7 @@
                     <row>
                       <cell id="{4a45c8d2-5b88-466f-a3e2-33a9660cfdd0}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Reason" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
@@ -31,7 +31,8 @@
                     <row>
                       <cell id="{26934d2e-dd91-40b2-a8e3-97a9596d4c37}">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>

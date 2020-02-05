@@ -155,6 +155,7 @@
                       <cell id="{e7d81d90-ddbc-7626-9a6c-cc35b0e7e656}" showlabel="false" colspan="1" auto="false" rowspan="6">
                         <labels>
                           <label description="Additional Users to Notify" languagecode="1033" />
+                          <label description="Utilisateurs" languagecode="1036" />
                         </labels>
                         <control id="grid_additionalusers" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
