@@ -7,7 +7,7 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls">
       <tabs>
-        <tab verticallayout="true" id="{8afe9124-ffb1-4cf8-ac5c-d6d9b1911a6c}" IsUserDefined="1">
+        <tab verticallayout="true" id="{8afe9124-ffb1-4cf8-ac5c-d6d9b1911a6c}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
             <label description="General" languagecode="1033" />
             <label description="Général" languagecode="1036" />
@@ -15,7 +15,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{15964ec2-7e44-4610-9ded-3b7e431bc244}">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{15964ec2-7e44-4610-9ded-3b7e431bc244}" name="section_general" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />

@@ -7,7 +7,7 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls">
       <tabs>
-        <tab verticallayout="true" id="{d3e010eb-8bef-4942-8f4f-5c8576b45953}" IsUserDefined="1">
+        <tab verticallayout="true" id="{d3e010eb-8bef-4942-8f4f-5c8576b45953}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
             <label description="General" languagecode="1033" />
             <label description="Général" languagecode="1036" />
@@ -15,7 +15,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{e498c0f0-187a-4c37-b75b-0a1f2bc94a77}">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{e498c0f0-187a-4c37-b75b-0a1f2bc94a77}" name="section_general" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
@@ -47,7 +47,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="null_section_3" id="7bb2fa0b-4261-467d-a888-30e14075dc74" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_risk_assessment_factor_templates" id="7bb2fa0b-4261-467d-a888-30e14075dc74" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Risk Assessment Factor Templates" languagecode="1033" />
                   </labels>
@@ -57,7 +57,7 @@
                         <labels>
                           <label description="Risk Assessment Factor Templates" languagecode="1033" />
                         </labels>
-                        <control id="Subgrid_1" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{4632d953-17ec-231a-0c47-e1c1cce1d64d}">
+                        <control id="subgrid_risk_assessment_factor_templates" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{4632d953-17ec-231a-0c47-e1c1cce1d64d}">
                           <parameters>
                             <TargetEntityType>opc_riskassessmentfactortemplate</TargetEntityType>
                             <ViewId>{82A4ED5D-5346-4579-8761-0B0264EA9902}</ViewId>

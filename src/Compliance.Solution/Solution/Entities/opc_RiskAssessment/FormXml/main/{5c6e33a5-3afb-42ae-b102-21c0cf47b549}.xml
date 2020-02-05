@@ -7,7 +7,7 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls">
       <tabs>
-        <tab verticallayout="true" id="{1aa0cac0-6345-449c-abb0-a1913bdaef47}" IsUserDefined="1">
+        <tab verticallayout="true" id="{1aa0cac0-6345-449c-abb0-a1913bdaef47}" IsUserDefined="1" name="tab_general">
           <labels>
             <label description="General" languagecode="1033" />
             <label description="Général" languagecode="1036" />
@@ -15,7 +15,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c1ef0162-0595-4900-ad71-42e6ecb705a8}" height="auto">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c1ef0162-0595-4900-ad71-42e6ecb705a8}" height="auto" name="section_general">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
@@ -81,7 +81,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="section_riskassessmentdefinitions" id="63c0e511-0e4b-417d-a61f-d91933ce7ed9" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_riskassessment_definitions" id="63c0e511-0e4b-417d-a61f-d91933ce7ed9" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Risk Assessment Definitions" languagecode="1033" />
                   </labels>
@@ -91,7 +91,7 @@
                         <labels>
                           <label description="Risk Assessment Definitions" languagecode="1033" />
                         </labels>
-                        <control id="subgrid_riskassessmentdefinitions" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{98a910e6-7587-7d78-0912-03ca7999d504}">
+                        <control id="subgrid_riskassessment_definitions" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{98a910e6-7587-7d78-0912-03ca7999d504}">
                           <parameters>
                             <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
                             <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
@@ -251,7 +251,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
