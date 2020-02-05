@@ -2,17 +2,10 @@
 <Role id="{eb1be26d-362e-ea11-a810-000d3af46757}" name="Compliance - Investigations Clerk" isinherited="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <RolePrivileges>
-    <RolePrivilege name="prvCreateAccount" level="Local" />
-    <RolePrivilege name="prvCreateContact" level="Local" />
     <RolePrivilege name="prvCreateopc_allegation" level="Local" />
     <RolePrivilege name="prvCreateopc_issue" level="Local" />
     <RolePrivilege name="prvCreateopc_recommendation" level="Local" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
-    <RolePrivilege name="prvDeleteAccount" level="Local" />
-    <RolePrivilege name="prvDeleteContact" level="Local" />
-    <RolePrivilege name="prvDeleteopc_allegation" level="Local" />
-    <RolePrivilege name="prvDeleteopc_issue" level="Local" />
-    <RolePrivilege name="prvDeleteopc_recommendation" level="Local" />
     <RolePrivilege name="prvReadAccount" level="Local" />
     <RolePrivilege name="prvReadContact" level="Local" />
     <RolePrivilege name="prvReadopc_allegation" level="Local" />

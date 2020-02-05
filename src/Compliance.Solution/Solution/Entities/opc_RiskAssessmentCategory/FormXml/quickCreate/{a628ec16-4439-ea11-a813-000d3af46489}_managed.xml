@@ -7,16 +7,16 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="Low">
       <tabs>
-        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{a9eb7fe1-c03f-4a62-a9fc-c55bd0a794a8}">
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_general" showlabel="false" labelid="{a9eb7fe1-c03f-4a62-a9fc-c55bd0a794a8}" locklevel="0" expanded="true">
           <labels>
-            <label description="Tab" languagecode="1033" />
+            <label description="General" languagecode="1033" />
           </labels>
           <columns>
             <column width="34%">
               <sections>
-                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{fe0c79db-719e-4d9c-ab98-4b14e3a18439}">
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="section_general" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{fe0c79db-719e-4d9c-ab98-4b14e3a18439}" locklevel="0" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Section" languagecode="1033" />
+                    <label description="General" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -55,7 +55,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{a4f2c988-bdc4-40c7-997d-f089faeda44d}">
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{a4f2c988-bdc4-40c7-997d-f089faeda44d}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -73,7 +73,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{99314a86-bf9c-4d78-8ad2-fe45b1e52e8d}">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{99314a86-bf9c-4d78-8ad2-fe45b1e52e8d}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

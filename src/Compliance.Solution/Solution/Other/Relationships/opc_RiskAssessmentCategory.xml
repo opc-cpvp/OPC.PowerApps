@@ -7,11 +7,11 @@
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_RiskAssessmentDefinition</ReferencingEntityName>
     <ReferencedEntityName>opc_RiskAssessmentCategory</ReferencedEntityName>
-    <CascadeAssign>NoCascade</CascadeAssign>
-    <CascadeDelete>RemoveLink</CascadeDelete>
-    <CascadeReparent>NoCascade</CascadeReparent>
-    <CascadeShare>NoCascade</CascadeShare>
-    <CascadeUnshare>NoCascade</CascadeUnshare>
+    <CascadeAssign>Cascade</CascadeAssign>
+    <CascadeDelete>Cascade</CascadeDelete>
+    <CascadeReparent>Cascade</CascadeReparent>
+    <CascadeShare>Cascade</CascadeShare>
+    <CascadeUnshare>Cascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
     <ReferencingAttributeName>opc_RiskAssessmentCategory</ReferencingAttributeName>

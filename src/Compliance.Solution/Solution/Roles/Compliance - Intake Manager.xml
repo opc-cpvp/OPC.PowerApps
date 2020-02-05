@@ -7,10 +7,6 @@
     <RolePrivilege name="prvCreateopc_allegation" level="Local" />
     <RolePrivilege name="prvCreateopc_complaint" level="Local" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
-    <RolePrivilege name="prvDeleteAccount" level="Local" />
-    <RolePrivilege name="prvDeleteContact" level="Local" />
-    <RolePrivilege name="prvDeleteopc_allegation" level="Local" />
-    <RolePrivilege name="prvDeleteopc_complaint" level="Local" />
     <RolePrivilege name="prvReadAccount" level="Local" />
     <RolePrivilege name="prvReadContact" level="Local" />
     <RolePrivilege name="prvReadopc_allegation" level="Local" />

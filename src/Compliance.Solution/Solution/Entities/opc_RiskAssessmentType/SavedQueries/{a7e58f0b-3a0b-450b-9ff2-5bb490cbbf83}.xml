@@ -11,9 +11,6 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_riskassessmenttypeid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_version" width="100" />
-          <cell name="opc_effectivedate" width="156" />
-          <cell name="opc_previousversion" width="150" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -22,16 +19,13 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="opc_riskassessmenttype">
-          <attribute name="opc_riskassessmenttypeid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
           <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_effectivedate" />
-          <attribute name="opc_previousversion" />
-          <attribute name="opc_version" />
+          <attribute name="opc_riskassessmenttypeid" />
         </entity>
       </fetch>
     </fetchxml>

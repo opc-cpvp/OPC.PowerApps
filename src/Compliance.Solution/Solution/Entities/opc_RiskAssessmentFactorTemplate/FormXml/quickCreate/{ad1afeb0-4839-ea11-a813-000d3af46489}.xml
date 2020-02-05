@@ -7,16 +7,16 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="Low">
       <tabs>
-        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{35d710d3-cf30-4fc3-86e6-45dc6394e3c6}">
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_general" showlabel="false" labelid="{35d710d3-cf30-4fc3-86e6-45dc6394e3c6}" locklevel="0" expanded="true">
           <labels>
-            <label description="Tab" languagecode="1033" />
+            <label description="General" languagecode="1033" />
           </labels>
           <columns>
             <column width="34%">
               <sections>
-                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{adc380ab-f46d-4d7e-a17e-8d5e35fc3f32}" height="auto">
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="section_general" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{adc380ab-f46d-4d7e-a17e-8d5e35fc3f32}" height="auto" locklevel="0" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
-                    <label description="Section" languagecode="1033" />
+                    <label description="General" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -41,22 +41,6 @@
                           <label description="Sequence" languagecode="1033" />
                         </labels>
                         <control id="opc_sequence" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_sequence" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{13ada44b-1edf-4c52-a7ef-e1ae013e5b0f}" showlabel="true" locklevel="0" rowspan="1" auto="true" labelid="{c76e0190-6f4b-451c-8312-9cd87b978893}">
-                        <labels>
-                          <label description="Description" languagecode="1033" />
-                        </labels>
-                        <control id="opc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_description" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{08dd78ee-305a-4d2f-b8cc-03bb51d627ba}" showlabel="true" locklevel="0" labelid="{e7cb4450-934c-4bc2-aad3-e838b9dc9909}">
-                        <labels>
-                          <label description="Version" languagecode="1033" />
-                        </labels>
-                        <control id="opc_version" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_version" disabled="false" />
                       </cell>
                     </row>
                   </rows>
