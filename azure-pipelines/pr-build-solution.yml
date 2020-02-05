@@ -37,6 +37,19 @@ steps:
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
 
+- task: Npm@1
+  displayName: 'NPM | Install'
+  inputs:
+    command: 'install'
+    workingDir: '$(Build.SourcesDirectory)/src/$(SolutionName).WebResources'
+
+- task: Npm@1
+  displayName: 'NPM | Build'
+  inputs:
+    command: 'custom'
+    workingDir: '$(Build.SourcesDirectory)/src/$(SolutionName).WebResources'
+    customCommand: 'run build:prod'
+
 - task: VSTest@2
   displayName: 'Test Assemblies'
   inputs:
@@ -46,8 +59,26 @@ steps:
       !**\*TestAdapter.dll
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
+    resultsFolder: '$(Agent.TempDirectory)\test-output'
+    testRunTitle: '.NET - xUnit'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
+
+- task: Npm@1
+  displayName: 'NPM | Mocha tests'
+  continueOnError: true
+  inputs:
+    command: 'custom'
+    workingDir: '$(Build.SourcesDirectory)/src/$(SolutionName).WebResources'
+    customCommand: 'run test:pipeline'
+
+- task: PublishTestResults@2
+  displayName: Publish Mocha tests
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '$(Build.SourcesDirectory)/src/$(SolutionName).WebResources/test-output/test-mocha*.xml'
+    searchFolder: '$(Build.SourcesDirectory)'
+    testRunTitle: 'TypeScript - Mocha'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'Install MSCRM Tools'
