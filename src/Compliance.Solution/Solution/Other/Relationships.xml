@@ -42,7 +42,7 @@
   <EntityRelationship Name="opc_contact_complaints_complainant" />
   <EntityRelationship Name="opc_contact_complaints_complainantreps" />
   <EntityRelationship Name="opc_legislation_complaints_legislation" />
-  <EntityRelationship Name="opc_reminders_users_notifyusers" />
+  <EntityRelationship Name="opc_reminders_users_additionaluserstonotify" />
   <EntityRelationship Name="opc_theme_topics_themeid" />
   <EntityRelationship Name="organization_opc_individualcomplaint_bp" />
   <EntityRelationship Name="owner_opc_allegation" />

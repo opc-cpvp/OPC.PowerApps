@@ -152,16 +152,15 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{d5047a87-975b-133c-ee06-199ab7c1bdbd}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <cell id="{e7d81d90-ddbc-7626-9a6c-cc35b0e7e656}" showlabel="false" colspan="1" auto="false" rowspan="6">
                         <labels>
-                          <label description="Users" languagecode="1033" />
-                          <label description="Utilisateurs" languagecode="1036" />
+                          <label description="Additional Users to Notify" languagecode="1033" />
                         </labels>
-                        <control id="grid_additionalusers" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{e4103c64-c920-3320-ad5a-3ed66796258d}">
+                        <control id="grid_additionalusers" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <ViewId>{00000000-0000-0000-00AA-000010001019}</ViewId>
                             <IsUserView>false</IsUserView>
-                            <RelationshipName>opc_reminders_users_notifyusers</RelationshipName>
+                            <RelationshipName>opc_reminders_users_additionaluserstonotify</RelationshipName>
                             <TargetEntityType>systemuser</TargetEntityType>
                             <AutoExpand>Fixed</AutoExpand>
                             <EnableQuickFind>false</EnableQuickFind>

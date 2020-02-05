@@ -90,6 +90,7 @@
       <RootComponent type="1" schemaName="opc_reminder" behavior="0" />
       <RootComponent type="1" schemaName="opc_theme" behavior="0" />
       <RootComponent type="1" schemaName="opc_topic" behavior="0" />
+      <RootComponent type="1" schemaName="systemuser" behavior="0" />
       <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_declinereason" behavior="0" />
