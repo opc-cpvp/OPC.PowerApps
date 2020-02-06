@@ -20,8 +20,8 @@ export class XrmProcessMock implements Xrm.Process {
         this._stages.collection.push(stage);
     }*/
     /* END OF NEW MEMBERS*/
-    getId(): string { return; }
-    getName(): string { return; }
+    getId(): string { return null; }
+    getName(): string { return null; }
     getStages(): XrmCollectionMock<XrmStageMock> { return this._stages; }
     isRendered(): boolean {
         throw new Error("Method not implemented.");
