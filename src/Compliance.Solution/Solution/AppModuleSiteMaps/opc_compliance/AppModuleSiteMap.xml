@@ -10,7 +10,7 @@
         <Titles>
           <Title LCID="1033" Title="Dashboards" />
         </Titles>
-        <SubArea Id="NewSubArea_7d1d3b94" ResourceId="Homepage_Dashboards" DescriptionResourceId="Dashboards_Description" Icon="/_imgs/imagestrips/transparent_spacer.gif" Url="/workplace/home_dashboards.aspx" DefaultDashboard="7a87890a-e03e-ea11-a812-000d3af46489" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" ToolTipResourseId="Dashboards_ToolTip">
+        <SubArea Id="NewSubArea_7d1d3b94" ResourceId="Homepage_Dashboards" DescriptionResourceId="Dashboards_Description" Icon="/_imgs/imagestrips/transparent_spacer.gif" Url="/workplace/home_dashboards.aspx" DefaultDashboard="85c64e3e-e23e-ea11-a812-000d3af46489" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" ToolTipResourseId="Dashboards_ToolTip">
           <Titles>
             <Title LCID="1033" Title="Compliance" />
           </Titles>
@@ -21,10 +21,6 @@
           <Title LCID="1033" Title="Compliance" />
         </Titles>
         <SubArea Id="subarea_complaints" IntroducedVersion="7.0.0.0" Entity="opc_complaint" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_themes" Entity="opc_theme" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_topics" Entity="opc_topic" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_1a45fa3b" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_reminder" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_5db41dec" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_notification" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
     </Area>
     <Area Id="area_app_settings" ResourceId="SitemapDesigner.NewArea" ShowGroups="false">
@@ -42,14 +38,14 @@
         <Titles>
           <Title LCID="1033" Title="Risk Assessment Templates" />
         </Titles>
-        <SubArea Id="subarea_risk_assessment_category_templates" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_riskassessmentcategorytemplate" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_risk_assessment_factor_templates" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_riskassessmentfactortemplate" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_risk_assessment_definition_templates" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_riskassessmentdefinitiontemplate" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="complaints_subarea" Icon="/_imgs/imagestrips/transparent_spacer.gif" IntroducedVersion="7.0.0.0" Entity="opc_complaint" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_509eb68b" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_theme" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_d76caa9d" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_topic" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_1a45fa3b" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_reminder" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="NewSubArea_5db41dec" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_notification" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_risk_assessment_category_templates" Entity="opc_riskassessmentcategorytemplate" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_risk_assessment_factor_templates" Entity="opc_riskassessmentfactortemplate" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_risk_assessment_definition_templates" Entity="opc_riskassessmentdefinitiontemplate" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="complaints_subarea" IntroducedVersion="7.0.0.0" Entity="opc_complaint" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_509eb68b" Entity="opc_theme" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_d76caa9d" Entity="opc_topic" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_1a45fa3b" Entity="opc_reminder" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="NewSubArea_5db41dec" Entity="opc_notification" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
     </Area>
   </SiteMap>
