@@ -1,6 +1,9 @@
 ﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { INamedComponent } from "./INamedComponent";
 export class XrmBaseControlMock implements Xrm.BaseControl, INamedComponent {
+    addNotification(notification: Xrm.AddNotificationObject): void {
+        throw new Error("Method not implemented.");
+    }
     protected context: XrmExecutionContextMock<any>;
     private _type: Xrm.ControlType;
     private _isVisible: boolean;
