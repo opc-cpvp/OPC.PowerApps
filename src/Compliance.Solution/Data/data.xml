@@ -1152,7 +1152,7 @@
       </record>
       <record id="e7d7e800-7aa9-40d2-8bc5-31e96dc5aea6">
         <field name="opc_acronym" value="U&amp;amp;D" />
-        <field name="opc_allegationtypeid" value="e7d7e800-7aa9-40d2-8bc5-31e96dc5aea6 />
+        <field name="opc_allegationtypeid" value="e7d7e800-7aa9-40d2-8bc5-31e96dc5aea6" />
         <field name="opc_description" value="A complaint concerning the improper use and disclosure of an individual???s personal information in contravention of sections 7 and 8 of the PA" />
         <field name="opc_nameenglish" value="Use and Disclosure" />
         <field name="opc_namefrench" value="Utilisation et communication" />
