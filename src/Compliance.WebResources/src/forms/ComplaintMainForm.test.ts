@@ -27,7 +27,7 @@ describe("when initialized", () => {
 
         // Assert
         getComplaint.should.have.been.called;
-        contextSpy.getFormContext.should.not.have.been.called;
+        contextSpy.getFormContext.should.have.been.called;
     });
 
 });
