@@ -1016,7 +1016,7 @@
       </record>
       <record id="9929ba43-3ac7-4869-955f-fa42bcb78c0b">
         <field name="opc_acronym" value="ACC" />
-        <field name="opc_allegationtypeid" value="9929ba43-3ac7-4869-955f-fa42bcb78c0b />
+        <field name="opc_allegationtypeid" value="9929ba43-3ac7-4869-955f-fa42bcb78c0b" />
         <field name="opc_description" value="Denial of access in response to formal Privacy Act complaint test if update still works" />
         <field name="opc_nameenglish" value="Access" />
         <field name="opc_namefrench" value="Acc&amp;#232;s" />
