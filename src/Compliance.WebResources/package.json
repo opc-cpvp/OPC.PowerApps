@@ -6,14 +6,15 @@
   "author": {
     "name": ""
   },
-    "scripts": {
-        "test": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts",
-        "test:pipeline": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts --reporter mocha-junit-reporter --reporter-options mochaFile=./test-output/test-mocha-results.xml",
-        "build": "webpack --mode development",
-        "build:watch": "webpack --watch --mode development",
-        "build:prod": "webpack --mode production",
-        "build:prod:watch": "webpack --watch --mode production"
-    },
+  "scripts": {
+    "test": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts",
+    "test:watch": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts --watch --watch-extensions ts",
+    "test:pipeline": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts --reporter mocha-junit-reporter --reporter-options mochaFile=./test-output/test-mocha-results.xml",
+    "build": "webpack --mode development",
+    "build:watch": "webpack --watch --mode development",
+    "build:prod": "webpack --mode production",
+    "build:prod:watch": "webpack --watch --mode production"
+  },
   "devDependencies": {
     "@types/chai": "^4.2.5",
     "@types/mocha": "^5.2.7",
@@ -38,8 +39,7 @@
     "ttypescript": "^1.5.8",
     "typescript": "^3.6.3",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "xrm-mock": "^3.4.15"
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "inversify": "^5.0.1",
