@@ -135,6 +135,7 @@
       <field updateCompare="true" displayname="Allegation Type" name="opc_allegationtypeid" type="guid" primaryKey="true" />
       <field displayname="Allegation Type" name="opc_allegationtypeid" type="guid" primaryKey="true" />
       <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
+	  <field displayname="French Description" name="opc_descriptionfrench" type="string" customfield="true" />
       <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
       <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
       <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
