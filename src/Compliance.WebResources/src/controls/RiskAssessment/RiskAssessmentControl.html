@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Risk Assessment Control
+        </title>
+        <link rel="stylesheet" type="text/css" href="/WebResources/opc_compliance/css/risk_assessment_control.css" />
+        <script type="text/javascript" src="/WebResources/clientGlobalcontext.js.aspx"></script>
+        <script type="text/javascript" src="/WebResources/opc_/compliance/js/compliance.min.js"></script>
+    </head>
+    <body onload="compliance.Controls.RiskAssessmentControl.control_OnLoad()">   
+        <table id="risks" class="zui-table zui-table-highlight-all">
+            <thead>
+                <tr>
+                    <th>Risk Measurement Categories</th>
+                    <th>Factors</th>
+                    <th>5 - Extreme Risk</th>
+                    <th>4 - Higher Risk</th>
+                    <th>3 - Moderate Risk</th>
+                    <th>2 - Lower Risk</th>
+                    <th>1 - Marginal Risk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" rowspan="5">I - Canadians</th>
+                    <th scope="row">Importance of issue (rights at stake)</th>
+                    <td colspan="2">Issue at hand raises significant privacy questions / considerations that can affect a broad population; and/or</td>
+                    <td>Issue at hand raises privacy questions / considerations that can affect a broad population; and/or</td>
+                    <td colspan="2">Issue at hand does not raise privacy questions / considerations that can affect a broad population</td>
+                </tr>
+                <tr>
+                    <th scope="row">Number (or potential number) of individuals affected</th>
+                    <td>Touches a significant (very high) number of individuals; and/or</td>
+                    <td>Touches a high number of individuals; and</td>
+                    <td>Touches a moderate number of individuals; and</td>
+                    <td>Touches a few individuals; and</td>
+                    <td>Is unique to one or a few individual; and</td>
+                </tr>
+                <tr>
+                    <th scope="row">Impact for Canadians</th>
+                    <td>Expected impact for Canadians / public benefit is significant ; and/or</td>
+                    <td>Expected impact to Canadians is high; and/or</td>
+                    <td>Expected impact to Canadians is moderate; and/or</td>
+                    <td>Expected impact to Canadians is minor; and</td>
+                    <td>Expected impact to Canadians is very minor/non-existent; and</td>
+                </tr>
+                <tr>
+                    <th scope="row">Vulnerability of the affected population</th>
+                    <td></td>
+                    <td colspan="2">Affected population represents a vulnerable group; and</td>
+                    <td colspan="2">Affected population DOES NOT represent a vulnerable group; and</td>
+                </tr>
+                <tr>
+                    <th scope="row">Alignment with OPC privacy priorities (priorities were established through public consultation)</th>
+                    <td></td>
+                    <td colspan="2">The issue(s) is (are) related to one or more of the OPC privacy priorities.</td>
+                    <td colspan="2">The issue(s) DOES (DO) NOT relate to an OPC privacy priority.</td>
+                </tr>
+                <!--tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr-->
+            </tbody>
+        </table>
+    </body>
+</html>
