@@ -132,11 +132,12 @@
   <entity name="opc_allegationtype" displayname="Allegation Type" etc="10432" primaryidfield="opc_allegationtypeid" primarynamefield="opc_name" disableplugins="false">
     <fields>
       <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
-      <field updateCompare="true" displayname="Allegation Type" name="opc_allegationtypeid" type="guid" primaryKey="true" />
+
       <field displayname="Allegation Type" name="opc_allegationtypeid" type="guid" primaryKey="true" />
+      <field updateCompare="true" displayname="Allegation Type" name="opc_allegationtypeid" type="guid" primaryKey="true" />
       <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
-	  <field displayname="French Description" name="opc_descriptionfrench" type="string" customfield="true" />
       <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Description" name="opc_descriptionfrench" type="string" customfield="true" />
       <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
       <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
       <field displayname="name" name="opc_name" type="string" customfield="true" />
