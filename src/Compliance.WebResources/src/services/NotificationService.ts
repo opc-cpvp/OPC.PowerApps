@@ -8,4 +8,8 @@ export class NotificationService implements INotificationService {
         console.log("im returning a nice notification");
         return null;
     }
+
+    markAsRead(id: string): void {
+        XrmQuery.update(x => x.opc_notifications, id, { "statuscode": opc_notification_statuscode.Read }).execute(x => { });
+    }
 }

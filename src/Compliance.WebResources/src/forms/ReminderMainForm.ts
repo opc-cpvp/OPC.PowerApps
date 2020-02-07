@@ -20,12 +20,16 @@ export namespace Reminder.Forms {
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_reminder.Main.Information, any>): void {
             let formContext = <Form.opc_reminder.Main.Information>initializationContext.getFormContext();
+
+            // Register handlers
             formContext.data.entity.addOnSave(x => this.form_OnSave(x));
             formContext.getAttribute("opc_notifycaseowner").addOnChange(x => this.control_OnChange_ClearAllNotifications(x));
             formContext.getAttribute("opc_notifyme").addOnChange(x => this.control_OnChange_ClearAllNotifications(x));
             formContext.getAttribute("opc_notifyadditionalusers").addOnChange(x => this.control_OnChange_ClearAllNotifications(x));
-            formContext.getAttribute("opc_notifyadditionalusers").addOnChange(() => this.notifyAdditionalUsers_OnChange(formContext));
-            this.notifyAdditionalUsers_OnChange(formContext);
+            formContext.getAttribute("opc_notifyadditionalusers").addOnChange(x => this.notifyAdditionalUsers_OnChange(x));
+
+            // Fire OnChanges
+            formContext.getAttribute("opc_notifyadditionalusers").fireOnChange();
         }
         /**
         * Handles the form OnSave event.
@@ -78,7 +82,8 @@ export namespace Reminder.Forms {
         *
         * @event OnChanged
         */
-        private notifyAdditionalUsers_OnChange(formContext: Form.opc_reminder.Main.Information): void {
+        private notifyAdditionalUsers_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
+            let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
             let shouldNotifyAdditionalUsers = formContext.getControl("opc_notifyadditionalusers").getAttribute().getValue();
             let sectionNotifyUsers = formContext.ui.tabs.get("tab_general").sections.get("section_additionalusers");
             sectionNotifyUsers.setVisible(shouldNotifyAdditionalUsers);

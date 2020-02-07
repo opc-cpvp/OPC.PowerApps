@@ -27,7 +27,7 @@ export namespace Notification.Forms {
 
             // Change the Status Reason of the notification from UNREAD to READ.
             if (formContext.getAttribute("statecode").getValue() == opc_notification_statecode.Active) {
-                XrmQuery.update(x => x.opc_notifications, notificationIdValue, { "statuscode": opc_notification_statuscode.Read }).execute(x => { });
+                this._notificationService.markAsRead(notificationIdValue);
             }
 
             // Display the lookup field that contains the link to the related case if not empty.

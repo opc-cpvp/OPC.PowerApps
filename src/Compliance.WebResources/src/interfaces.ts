@@ -12,6 +12,7 @@ export interface IReminderService {
 
 export interface INotificationService {
     getNotification(id: string): opc_notification
+    markAsRead(id: string): void
 }
 
 export interface IFormFactory {
