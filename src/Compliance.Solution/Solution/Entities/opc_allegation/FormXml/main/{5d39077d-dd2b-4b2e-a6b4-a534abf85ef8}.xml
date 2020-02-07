@@ -72,11 +72,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{62860e8d-e124-4524-a6cb-58c2ee058e11}" showlabel="true" locklevel="0">
+                      <cell id="{dfffdc53-a889-4023-b944-d1ec3f363317}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Allegation Type" languagecode="1033" />
                         </labels>
-                        <control id="opc_allegationtype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtype" disabled="false" />
+                        <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
                       </cell>
                     </row>
                     <row>

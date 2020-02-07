@@ -54,7 +54,7 @@
   <EntityRelationship Name="lk_opc_topic_createdby" />
   <EntityRelationship Name="lk_opc_topic_modifiedby" />
   <EntityRelationship Name="opc_account_complaints_respondent" />
-  <EntityRelationship Name="opc_allegation_allegationtype_allegations" />
+  <EntityRelationship Name="opc_allegationtype_allegations_allegationtype" />
   <EntityRelationship Name="opc_complaint_allegations_complaint" />
   <EntityRelationship Name="opc_complaint_issues_complaint" />
   <EntityRelationship Name="opc_complaint_recommendations_complaint" />

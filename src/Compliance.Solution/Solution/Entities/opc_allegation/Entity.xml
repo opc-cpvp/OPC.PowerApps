@@ -372,6 +372,7 @@
           <LogicalName>opc_allegations</LogicalName>
           <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
@@ -404,10 +405,10 @@
             <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="opc_allegationtype">
+        <attribute PhysicalName="opc_allegationtypeid">
           <Type>lookup</Type>
-          <Name>opc_allegationtype</Name>
-          <LogicalName>opc_allegationtype</LogicalName>
+          <Name>opc_allegationtypeid</Name>
+          <LogicalName>opc_allegationtypeid</LogicalName>
           <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -416,7 +417,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.106</IntroducedVersion>
+          <IntroducedVersion>1.0.121</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -439,7 +440,7 @@
             <displayname description="Allegation Type" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The allegation type of the allegation" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_description">
