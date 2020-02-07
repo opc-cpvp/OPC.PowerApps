@@ -326,6 +326,9 @@
           <displaynames>
             <displayname description="Description" languagecode="1033" />
           </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_Name">
           <Type>nvarchar</Type>

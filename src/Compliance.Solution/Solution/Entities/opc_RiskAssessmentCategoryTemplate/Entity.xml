@@ -482,6 +482,9 @@
           <displaynames>
             <displayname description="Version" languagecode="1033" />
           </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
         </attribute>
         <attribute PhysicalName="OverriddenCreatedOn">
           <Type>datetime</Type>
