@@ -542,7 +542,7 @@
           <MaxLength>204</MaxLength>
           <Length>408</Length>
           <displaynames>
-            <displayname description="name" languagecode="1033" />
+            <displayname description="Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Required name field" languagecode="1033" />
