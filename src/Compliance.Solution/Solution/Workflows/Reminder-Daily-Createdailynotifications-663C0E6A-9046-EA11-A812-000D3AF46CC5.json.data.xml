@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{663c0e6a-9046-ea11-a812-000d3af46cc5}" Name="Reminder - Daily Recurrence - Create daily notifications" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/Reminder-DailyRecurrence-Createdailynotifications-663C0E6A-9046-EA11-A812-000D3AF46CC5.json</JsonFileName>
+<Workflow WorkflowId="{663c0e6a-9046-ea11-a812-000d3af46cc5}" Name="Reminder - Daily - Create daily notifications" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/Reminder-Daily-Createdailynotifications-663C0E6A-9046-EA11-A812-000D3AF46CC5.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -20,6 +20,6 @@
   <BusinessProcessType>0</BusinessProcessType>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Reminder - Daily Recurrence - Create daily notifications" />
+    <LocalizedName languagecode="1033" description="Reminder - Daily - Create daily notifications" />
   </LocalizedNames>
 </Workflow>
