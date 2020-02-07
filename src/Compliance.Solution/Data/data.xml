@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-02-07T15:48:58.0239459Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-02-07T20:03:23.4405363Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -1207,7 +1207,8 @@
         <field name="opc_allegationtypeid" value="90336ba3-c22b-494d-83df-a4c33a5d7c84" />
         <field name="opc_descriptionenglish" value="A complaint concerning the extension of PA responses beyond the 30 day legislated time frame" />
         <field name="opc_nameenglish" value="Denial of Access" />
-        <field name="opc_namefrench" value="Refus d???acc&amp;#232;s" />
+        <field name="opc_descriptionfrench" value="Plainte au sujet de la prorogation de r&amp;#233;ponses en vertu de la LPRP au-del&amp;#224; des 30 jours prescrits par la Loi" />
+        <field name="opc_namefrench" value="Refus d&amp;#39;acc&amp;#232;s" />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_name" value="Denial of Access" />
         <field name="statecode" value="0" />
