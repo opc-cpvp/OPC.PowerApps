@@ -28,6 +28,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{dfffdc53-a889-4023-b944-d1ec3f363317}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Allegation Type" languagecode="1033" />
+                        </labels>
+                        <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{4a475998-29c4-48ef-acf5-1a1155372ca1}" showlabel="true" locklevel="0" rowspan="5" auto="true">
                         <labels>
                           <label description="Description" languagecode="1033" />
@@ -35,48 +43,16 @@
                         <control id="opc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_description" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{220ef0a2-a811-40fe-b1a4-37e5ed0b9def}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{f597b55d-6ff6-4dfc-8714-f62f1779277b}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{5da81d69-b782-4e68-ab68-8d04adde864e}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{e2438d5b-f387-43e2-85bc-be0d3087ef2d}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                     <row>
                       <cell id="{80497d98-8680-4158-8aa9-5cb90e9484fd}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Disposition Allegation" languagecode="1033" />
                         </labels>
                         <control id="opc_allegationdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_allegationdisposition" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{dfffdc53-a889-4023-b944-d1ec3f363317}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Allegation Type" languagecode="1033" />
-                        </labels>
-                        <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
                       </cell>
                     </row>
                     <row>

@@ -409,7 +409,7 @@
           <Type>lookup</Type>
           <Name>opc_allegationtypeid</Name>
           <LogicalName>opc_allegationtypeid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
+          <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
