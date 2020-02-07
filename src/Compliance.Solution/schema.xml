@@ -138,7 +138,7 @@
       <field displayname="French Description" name="opc_descriptionfrench" type="string" customfield="true" />
       <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
       <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
-      <field displayname="name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
     </fields>
