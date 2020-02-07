@@ -87,7 +87,6 @@
   <EntityRelationship Name="opc_RiskAssessmentDefinition_RiskAssessmentFa" />
   <EntityRelationship Name="opc_RiskAssessmentDefinitionTemplate_Risk" />
   <EntityRelationship Name="opc_RiskAssessmentFactorTemplate_RiskAsse" />
-  <EntityRelationship Name="opc_RiskAssessmentType_PreviousVersion_op" />
   <EntityRelationship Name="opc_theme_topics_themeid" />
   <EntityRelationship Name="organization_opc_individualcomplaint_bp" />
   <EntityRelationship Name="owner_opc_allegation" />
