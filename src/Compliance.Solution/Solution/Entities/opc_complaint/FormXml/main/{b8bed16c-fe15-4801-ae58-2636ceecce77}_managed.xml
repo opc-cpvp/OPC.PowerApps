@@ -175,11 +175,12 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{df113785-b75d-4b12-9c72-f2e8359fbd1c}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{2e494c6d-e843-4d34-9f9e-b02680202c89}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
-                        <control id="allegations_subgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="subgrid_allegations" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>opc_allegation</TargetEntityType>
                             <ViewId>{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewId>
@@ -381,7 +382,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{a6428ae6-12d3-4c5a-ad93-70a9226aca00}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{374495f1-afba-4c51-af12-cc59aac0baad}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Reminders" languagecode="1033" />
                         </labels>
@@ -391,7 +392,7 @@
                             <ViewId>{148A71FD-90A5-42F4-95AE-389DF211B813}</ViewId>
                             <ViewIds>{148A71FD-90A5-42F4-95AE-389DF211B813}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_complaint_reminders_complaintid</RelationshipName>
+                            <RelationshipName>opc_complaint_reminders_complaint</RelationshipName>
                           </parameters>
                         </control>
                       </cell>

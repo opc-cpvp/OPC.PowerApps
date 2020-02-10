@@ -48,20 +48,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{a44e5655-2100-3abb-05e4-ae5e1d9998da}" showlabel="true" locklevel="0" visible="false">
+                      <cell id="{64ded8b8-1e88-4d63-9cee-7f5a19ab72ac}" showlabel="true" locklevel="0" visible="false">
                         <labels>
                           <label description="Complaint" languagecode="1033" />
                         </labels>
-                        <control id="opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="true" uniqueid="{be37cd0b-9a7e-109b-dbc1-15e63ce0c612}">
-                          <parameters>
-                            <AutoResolve>true</AutoResolve>
-                            <DisableMru>false</DisableMru>
-                            <DisableQuickFind>false</DisableQuickFind>
-                            <DisableViewPicker>false</DisableViewPicker>
-                            <DefaultViewId>{4C539795-5E34-4D96-9821-24D2265604AA}</DefaultViewId>
-                            <AllowFilterOff>false</AllowFilterOff>
-                          </parameters>
-                        </control>
+                        <control id="opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="true" />
                       </cell>
                       <cell id="{98e230c5-d4dc-0094-e34c-566a67e11c62}" showlabel="false">
                         <labels>
@@ -145,7 +136,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

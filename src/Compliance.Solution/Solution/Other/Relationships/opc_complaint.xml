@@ -37,7 +37,7 @@
   <EntityRelationship Name="opc_complaint_allegations_complaint">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.106</IntroducedVersion>
+    <IntroducedVersion>1.0.129</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_allegation</ReferencingEntityName>
     <ReferencedEntityName>opc_complaint</ReferencedEntityName>
@@ -48,10 +48,10 @@
     <CascadeUnshare>NoCascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>opc_allegations</ReferencingAttributeName>
+    <ReferencingAttributeName>opc_complaintid</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="This field is a lookup to the Complaint associated with the allegation/concern." languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -59,7 +59,7 @@
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>opc_allegations</NavigationPropertyName>
+        <NavigationPropertyName>opc_complaintid</NavigationPropertyName>
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
@@ -102,10 +102,10 @@
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>
-  <EntityRelationship Name="opc_complaint_notifications_complaintid">
+  <EntityRelationship Name="opc_complaint_notifications_complaint">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.65</IntroducedVersion>
+    <IntroducedVersion>1.0.129</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_notification</ReferencingEntityName>
     <ReferencedEntityName>opc_complaint</ReferencedEntityName>
@@ -131,7 +131,7 @@
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>opc_complaint_notifications_complaintid</NavigationPropertyName>
+        <NavigationPropertyName>opc_complaint_notifications_complaint</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
@@ -170,10 +170,10 @@
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>
-  <EntityRelationship Name="opc_complaint_reminders_complaintid">
+  <EntityRelationship Name="opc_complaint_reminders_complaint">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.34</IntroducedVersion>
+    <IntroducedVersion>1.0.129</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_reminder</ReferencingEntityName>
     <ReferencedEntityName>opc_complaint</ReferencedEntityName>
@@ -199,7 +199,7 @@
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>opc_complaint_reminders_complaintid</NavigationPropertyName>
+        <NavigationPropertyName>opc_complaint_reminders_complaint</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
