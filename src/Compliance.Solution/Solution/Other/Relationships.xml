@@ -2,6 +2,7 @@
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EntityRelationship Name="bpf_opc_complaint_opc_individualcomplaint_bp" />
   <EntityRelationship Name="business_unit_opc_allegation" />
+  <EntityRelationship Name="business_unit_opc_allegationtype" />
   <EntityRelationship Name="business_unit_opc_complaint" />
   <EntityRelationship Name="business_unit_opc_issue" />
   <EntityRelationship Name="business_unit_opc_legislation" />
@@ -20,6 +21,8 @@
   <EntityRelationship Name="business_unit_opc_topic" />
   <EntityRelationship Name="lk_opc_allegation_createdby" />
   <EntityRelationship Name="lk_opc_allegation_modifiedby" />
+  <EntityRelationship Name="lk_opc_allegationtype_createdby" />
+  <EntityRelationship Name="lk_opc_allegationtype_modifiedby" />
   <EntityRelationship Name="lk_opc_complaint_createdby" />
   <EntityRelationship Name="lk_opc_complaint_modifiedby" />
   <EntityRelationship Name="lk_opc_individualcomplaint_bp_activestageid" />
@@ -57,8 +60,8 @@
   <EntityRelationship Name="lk_opc_topic_createdby" />
   <EntityRelationship Name="lk_opc_topic_modifiedby" />
   <EntityRelationship Name="opc_account_complaints_respondent" />
+  <EntityRelationship Name="opc_allegationtype_allegations_allegationtype" />
   <EntityRelationship Name="opc_complaint_allegations_complaint" />
-  <EntityRelationship Name="opc_complaint_allegations_complaints" />
   <EntityRelationship Name="opc_complaint_issues_complaint" />
   <EntityRelationship Name="opc_complaint_notifications_complaintid" />
   <EntityRelationship Name="opc_complaint_recommendations_complaint" />
@@ -90,6 +93,7 @@
   <EntityRelationship Name="opc_theme_topics_themeid" />
   <EntityRelationship Name="organization_opc_individualcomplaint_bp" />
   <EntityRelationship Name="owner_opc_allegation" />
+  <EntityRelationship Name="owner_opc_allegationtype" />
   <EntityRelationship Name="owner_opc_complaint" />
   <EntityRelationship Name="owner_opc_issue" />
   <EntityRelationship Name="owner_opc_legislation" />
@@ -107,6 +111,7 @@
   <EntityRelationship Name="owner_opc_theme" />
   <EntityRelationship Name="owner_opc_topic" />
   <EntityRelationship Name="team_opc_allegation" />
+  <EntityRelationship Name="team_opc_allegationtype" />
   <EntityRelationship Name="team_opc_complaint" />
   <EntityRelationship Name="team_opc_issue" />
   <EntityRelationship Name="team_opc_legislation" />
@@ -124,6 +129,7 @@
   <EntityRelationship Name="team_opc_theme" />
   <EntityRelationship Name="team_opc_topic" />
   <EntityRelationship Name="user_opc_allegation" />
+  <EntityRelationship Name="user_opc_allegationtype" />
   <EntityRelationship Name="user_opc_complaint" />
   <EntityRelationship Name="user_opc_issue" />
   <EntityRelationship Name="user_opc_legislation" />

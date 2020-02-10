@@ -175,10 +175,9 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{2d3ea95e-f5fa-4eed-839a-664cb18a0660}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{df113785-b75d-4b12-9c72-f2e8359fbd1c}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="allegations_subgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -186,7 +185,7 @@
                             <ViewId>{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewId>
                             <ViewIds>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF},{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_complaint_allegations_complaints</RelationshipName>
+                            <RelationshipName>opc_complaint_allegations_complaint</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
@@ -447,7 +446,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
