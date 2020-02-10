@@ -68,10 +68,7 @@
     color: black !important;
   }
   
-  .selectedRisk {
-    /* Do Not Disturb */
-    background-color: #c50f1f;
-  
-    color: white !important;
+  .zui-table tbody td.is-selected {
+    background-color: rgb(192, 212, 232);
   }
   
