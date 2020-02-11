@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_duplicatedetectionresult" localizedName="Duplicate Detection Result" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.106</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Duplicate Detection Result" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="924340000">
+      <labels>
+        <label description="None" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340001">
+      <labels>
+        <label description="Potential duplicate" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340002">
+      <labels>
+        <label description="Duplicate found" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

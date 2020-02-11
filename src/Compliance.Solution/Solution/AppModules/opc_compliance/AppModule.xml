@@ -14,6 +14,15 @@
     <AppModuleComponent type="1" schemaName="opc_allegation" />
     <AppModuleComponent type="1" schemaName="opc_complaint" />
     <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="60" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}" />
+    <AppModuleComponent type="60" id="{e04a2da4-a478-4dfe-a3e9-3f83b55ef1a4}" />
+    <AppModuleComponent type="60" id="{707fc57b-c5e6-471b-a180-e37ed28a38e2}" />
+    <AppModuleComponent type="60" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}" />
+    <AppModuleComponent type="60" id="{bdb0ae1c-32fa-4374-b637-8dafe107bc44}" />
+    <AppModuleComponent type="60" id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}" />
+    <AppModuleComponent type="60" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
+    <AppModuleComponent type="60" id="{f3b707fb-3b5f-45f9-9c6b-5e573bb5d19e}" />
+    <AppModuleComponent type="60" id="{7bb87dfd-ec3e-4ed9-8e3e-5725d3067295}" />
     <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
     <AppModuleComponent type="1" schemaName="opc_issue" />
     <AppModuleComponent type="1" schemaName="opc_recommendation" />
@@ -29,9 +38,9 @@
     <AppModuleComponent type="1" schemaName="opc_topic" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
-    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
-    <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
     <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
   </AppModuleRoleMaps>
   <LocalizedNames>
     <LocalizedName description="Compliance" languagecode="1033" />
