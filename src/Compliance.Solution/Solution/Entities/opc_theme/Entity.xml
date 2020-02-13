@@ -584,7 +584,7 @@
             <displayname description="Theme" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Unique identifier for entity instances" languagecode="1033" />
+            <Description description="Unique identifier for Parent Theme" languagecode="1033" />
             <Description description="Identificateur unique des instances d'entité" languagecode="1036" />
           </Descriptions>
         </attribute>

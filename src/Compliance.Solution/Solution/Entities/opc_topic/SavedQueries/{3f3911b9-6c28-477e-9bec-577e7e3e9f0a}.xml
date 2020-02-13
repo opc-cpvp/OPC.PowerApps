@@ -24,8 +24,9 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <order attribute="opc_name" descending="false" />
           <attribute name="opc_themeid" />
+          <order attribute="opc_themeid" descending="false" />
+          <order attribute="opc_name" descending="false" />
         </entity>
       </fetch>
     </fetchxml>
