@@ -66,6 +66,7 @@ export namespace Controls {
                 .sort((a, b) => {
                     if (a.opc_sequence > b.opc_sequence) return 1;
                     if (a.opc_sequence < b.opc_sequence) return -1;
+                    return 0;
                 });
         }
 
@@ -78,6 +79,7 @@ export namespace Controls {
                 .sort((a, b) => {
                     if (a.opc_sequence > b.opc_sequence) return 1;
                     if (a.opc_sequence < b.opc_sequence) return -1;
+                    return 0;
                 });
         }
 
@@ -97,7 +99,7 @@ export namespace Controls {
             const tableRow = tableHead.insertRow();
 
             const appetites = this._riskAppetites.map(x => x.opc_name);
-            const headers: string[] = ["Risk Measurement Categories", "Factors"].concat(appetites);
+            const headers = ["Risk Measurement Categories", "Factors"].concat(appetites);
 
             for (let header of headers) {
                 const tableHeader = document.createElement("th");
@@ -117,28 +119,30 @@ export namespace Controls {
 
         private renderCategory(category: opc_RiskAssessmentCategory_Result, factors: opc_RiskAssessmentFactorTemplate_Result[]) {
             for (let i = 0; i < factors.length; i++) {
-                let factor = factors[i];
+                const factor = factors[i];
 
-                let tableRow = this._riskTableBody.insertRow();
+                const tableRow = this._riskTableBody.insertRow();
 
+                // Add the category header for the first factor.
                 if (i == 0) {
-                    let categoryHeader = document.createElement("th");
+                    const categoryHeader = document.createElement("th");
                     categoryHeader.textContent = category.opc_name;
                     categoryHeader.rowSpan = factors.length;
                     categoryHeader.scope = "row";
                     tableRow.appendChild(categoryHeader);
                 }
 
-                let factorHeader = document.createElement("th");
+                const factorHeader = document.createElement("th");
                 factorHeader.textContent = factor.opc_name;
                 factorHeader.scope = "row";
                 tableRow.appendChild(factorHeader);
 
-                let definitions = this.getCategoryFactorDefinitions(category, factor);
+                const definitions = this.getCategoryFactorDefinitions(category, factor);
                 for (let j = 0; j < this._riskAppetites.length; j++) {
                     const appetite = this._riskAppetites[j];
                     const definition = definitions.find(x => x.opc_RiskAssessmentDefinitionTemplate.opc_riskappetite_guid === appetite.opc_riskappetiteid);
 
+                    // Add an empty cell if there's no matching defintions.
                     if (!definition) {
                         tableRow.insertCell();
                         continue;
@@ -156,6 +160,7 @@ export namespace Controls {
                     definitionCell.setAttribute("data-guid", definition.opc_riskassessmentdefinitionid);
                     definitionCell.onclick = this.onDefinitionClick;
 
+                    // Advance the index by the amount of matching definitions.
                     j += matchingDefinitions - 1;
                 }
             }
@@ -176,6 +181,7 @@ export namespace Controls {
                     selectedCell.classList.toggle("is-selected");
                 });
 
+                // Exit if we clicked on the selected cell.
                 if (selectedDefinitionId === definitionId)
                     return;
             }
