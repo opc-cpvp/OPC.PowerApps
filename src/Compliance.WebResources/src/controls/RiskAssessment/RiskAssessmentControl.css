@@ -39,33 +39,8 @@
     position: relative;
   }
   
-  .zui-table-highlight-all tbody td:hover::before {
+  .zui-table-highlight-all tbody td:hover {
     background-color: #f3f2f1;
-    content: '\00a0';
-    height: 100%;
-    left: -5000px;
-    position: absolute;
-    top: 0;
-    width: 10000px;
-    z-index: -1;
-  }
-  
-  .zui-table-highlight-all tbody td:hover::after {
-    background-color: #f3f2f1;
-    content: '\00a0';
-    height: 10000px;
-    left: 0;
-    position: absolute;
-    top: -5000px;
-    width: 100%;
-    z-index: -1;
-  }
-  
-  .lookAtMe {
-    /* Yellow10 */
-    background-color: #fce100;
-  
-    color: black !important;
   }
   
   .zui-table tbody td.is-selected {
