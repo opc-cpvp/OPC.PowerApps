@@ -20,12 +20,13 @@
       <fetch version="1.0" mapping="logical">
         <entity name="opc_topic">
           <attribute name="opc_name" />
-          <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="1" />
           </filter>
           <attribute name="opc_themeid" />
           <attribute name="opc_topicid" />
+          <order attribute="opc_themeid" descending="false" />
+          <order attribute="opc_name" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

@@ -6,7 +6,9 @@
   <EntityRelationship Name="business_unit_opc_complaint" />
   <EntityRelationship Name="business_unit_opc_issue" />
   <EntityRelationship Name="business_unit_opc_legislation" />
+  <EntityRelationship Name="business_unit_opc_notification" />
   <EntityRelationship Name="business_unit_opc_recommendation" />
+  <EntityRelationship Name="business_unit_opc_reminder" />
   <EntityRelationship Name="business_unit_opc_riskappetite" />
   <EntityRelationship Name="business_unit_opc_riskassessment" />
   <EntityRelationship Name="business_unit_opc_riskassessmentcategory" />
@@ -31,8 +33,12 @@
   <EntityRelationship Name="lk_opc_issue_modifiedby" />
   <EntityRelationship Name="lk_opc_legislation_createdby" />
   <EntityRelationship Name="lk_opc_legislation_modifiedby" />
+  <EntityRelationship Name="lk_opc_notification_createdby" />
+  <EntityRelationship Name="lk_opc_notification_modifiedby" />
   <EntityRelationship Name="lk_opc_recommendation_createdby" />
   <EntityRelationship Name="lk_opc_recommendation_modifiedby" />
+  <EntityRelationship Name="lk_opc_reminder_createdby" />
+  <EntityRelationship Name="lk_opc_reminder_modifiedby" />
   <EntityRelationship Name="lk_opc_riskappetite_createdby" />
   <EntityRelationship Name="lk_opc_riskappetite_modifiedby" />
   <EntityRelationship Name="lk_opc_riskassessment_createdby" />
@@ -57,7 +63,9 @@
   <EntityRelationship Name="opc_allegationtype_allegations_allegationtype" />
   <EntityRelationship Name="opc_complaint_allegations_complaint" />
   <EntityRelationship Name="opc_complaint_issues_complaint" />
+  <EntityRelationship Name="opc_complaint_notifications_complaint" />
   <EntityRelationship Name="opc_complaint_recommendations_complaint" />
+  <EntityRelationship Name="opc_complaint_reminders_complaint" />
   <EntityRelationship Name="opc_complaints_topics_relatedtopics" />
   <EntityRelationship Name="opc_contact_complaints_complainant" />
   <EntityRelationship Name="opc_contact_complaints_complainantreps" />
@@ -65,6 +73,7 @@
   <EntityRelationship Name="opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite" />
   <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />
   <EntityRelationship Name="opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType" />
+  <EntityRelationship Name="opc_reminders_users_additionaluserstonotify" />
   <EntityRelationship Name="opc_RiskAssessment_ActualRiskAppetite_opc" />
   <EntityRelationship Name="opc_RiskAssessment_BypassInitiatedBy_Syst" />
   <EntityRelationship Name="opc_RiskAssessment_Complaint_opc_complain" />
@@ -88,7 +97,9 @@
   <EntityRelationship Name="owner_opc_complaint" />
   <EntityRelationship Name="owner_opc_issue" />
   <EntityRelationship Name="owner_opc_legislation" />
+  <EntityRelationship Name="owner_opc_notification" />
   <EntityRelationship Name="owner_opc_recommendation" />
+  <EntityRelationship Name="owner_opc_reminder" />
   <EntityRelationship Name="owner_opc_riskappetite" />
   <EntityRelationship Name="owner_opc_riskassessment" />
   <EntityRelationship Name="owner_opc_riskassessmentcategory" />
@@ -104,7 +115,9 @@
   <EntityRelationship Name="team_opc_complaint" />
   <EntityRelationship Name="team_opc_issue" />
   <EntityRelationship Name="team_opc_legislation" />
+  <EntityRelationship Name="team_opc_notification" />
   <EntityRelationship Name="team_opc_recommendation" />
+  <EntityRelationship Name="team_opc_reminder" />
   <EntityRelationship Name="team_opc_riskappetite" />
   <EntityRelationship Name="team_opc_riskassessment" />
   <EntityRelationship Name="team_opc_riskassessmentcategory" />
@@ -120,7 +133,9 @@
   <EntityRelationship Name="user_opc_complaint" />
   <EntityRelationship Name="user_opc_issue" />
   <EntityRelationship Name="user_opc_legislation" />
+  <EntityRelationship Name="user_opc_notification" />
   <EntityRelationship Name="user_opc_recommendation" />
+  <EntityRelationship Name="user_opc_reminder" />
   <EntityRelationship Name="user_opc_riskappetite" />
   <EntityRelationship Name="user_opc_riskassessment" />
   <EntityRelationship Name="user_opc_riskassessmentcategory" />

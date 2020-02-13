@@ -2,9 +2,9 @@
 
 import { XrmPageBaseMock } from "./XrmPageBaseMock";
 
-export class XrmExecutionContextMock<T> implements Xrm.ExecutionContext<T> {
+export class XrmExecutionContextMock<T, TArgs> implements Xrm.ExecutionContext<T, TArgs> {
 
-    private _formContext: XrmPageBaseMock<T> ;
+    private _formContext: XrmPageBaseMock<T, TArgs> ;
 
     constructor() {
         this._formContext = new XrmPageBaseMock(this);
@@ -18,7 +18,7 @@ export class XrmExecutionContextMock<T> implements Xrm.ExecutionContext<T> {
         throw new Error("Method not implemented.");
     }
 
-    getEventArgs(): Xrm.SaveEventArgs {
+    getEventArgs(): TArgs {
         throw new Error("Method not implemented.");
     }
 
@@ -38,7 +38,7 @@ export class XrmExecutionContextMock<T> implements Xrm.ExecutionContext<T> {
         throw new Error("Method not implemented.");
     }
 
-    public getFormContext(): XrmPageBaseMock<T> {
+    public getFormContext(): XrmPageBaseMock<T, TArgs> {
         return this._formContext;
     }
 }

@@ -19,16 +19,16 @@ export namespace Complaint.Forms {
          *
          * @event OnLoad
          */
-        public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information>): void {
+        public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
 
             this._complaintService.getComplaint("test");
             let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
-            formContext.data.process.addOnStageChange(this.process_OnStageChanged);
+            formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
             this.handle_StageStates(formContext);
-            formContext.getAttribute("opc_recommendtoregistrar").addOnChange(this.recommendtoregistrar_OnChange);
-            formContext.getAttribute("opc_intakedisposition").addOnChange(this.intakedisposition_OnChange);
+            formContext.getAttribute("opc_recommendtoregistrar").addOnChange(x => this.recommendtoregistrar_OnChange(x));
+            formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
 
             // Sequence matters
             formContext.getAttribute("opc_intakedisposition").fireOnChange();
@@ -40,7 +40,7 @@ export namespace Complaint.Forms {
         *
         * @event OnChanged
         */
-        private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>>): void {
+        private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             let isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
 
@@ -54,7 +54,7 @@ export namespace Complaint.Forms {
         *
         * @event OnChanged
         */
-        private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>>): void {
+        private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>, any>): void {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
                 case opc_intakedisposition.Declinetoinvestigate:
@@ -77,7 +77,7 @@ export namespace Complaint.Forms {
         *
         * @event OnStageChanged
         */
-        private process_OnStageChanged(executionContext?: Xrm.ExecutionContext<Xrm.ProcessModule>): void {
+        private process_OnStageChanged(executionContext?: Xrm.StageChangeContext): void {
             // Relay context to reusable handler
             let formContext = <Form.opc_complaint.Main.Information>executionContext.getFormContext();
             this.handle_StageStates(formContext);
