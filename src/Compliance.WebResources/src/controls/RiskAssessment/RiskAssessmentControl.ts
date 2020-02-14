@@ -1,5 +1,3 @@
-import "reflect-metadata";
-
 export namespace Controls {
 
     export class RiskAssessmentControl {
@@ -194,19 +192,11 @@ export namespace Controls {
         public static control_OnLoad(): void {
             let parameters = Xrm.Utility.getGlobalContext().getQueryStringParameters();
 
-            let complaintId: string = parameters.id;
-            XrmQuery.retrieveRelatedMultiple(x => x.opc_complaints, complaintId, x => x.opc_RiskAssessment_Complaint_opc_complain)
-                .select(x => [x.opc_riskassessmentid, x.opc_name, x.createdon])
-                .filter(x => Filter.equals(x.statuscode, opc_riskassessment_statuscode.Active))
-                .promise()
-                .then((riskAssessments) => {
-                    for (let riskAssessment of riskAssessments) {
-                        let placeholder = <HTMLDivElement>document.getElementById("risks");
+            let riskAssessmentId: string = parameters.id;            
+            let placeholder = <HTMLDivElement>document.getElementById("risks");
 
-                        let control = new RiskAssessmentControl(placeholder, riskAssessment.opc_riskassessmentid)
-                        control.initializeControl();
-                    }
-                });
+            let control = new RiskAssessmentControl(placeholder, riskAssessmentId);
+            control.initializeControl();
         }
     }
 }
