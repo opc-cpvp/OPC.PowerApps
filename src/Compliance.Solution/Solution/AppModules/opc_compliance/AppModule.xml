@@ -16,7 +16,9 @@
     <AppModuleComponent type="1" schemaName="contact" />
     <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
     <AppModuleComponent type="1" schemaName="opc_issue" />
+    <AppModuleComponent type="1" schemaName="opc_notification" />
     <AppModuleComponent type="1" schemaName="opc_recommendation" />
+    <AppModuleComponent type="1" schemaName="opc_reminder" />
     <AppModuleComponent type="1" schemaName="opc_riskappetite" />
     <AppModuleComponent type="1" schemaName="opc_riskassessment" />
     <AppModuleComponent type="1" schemaName="opc_riskassessmentcategory" />
