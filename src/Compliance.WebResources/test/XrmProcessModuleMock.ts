@@ -5,7 +5,7 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
 
     private _processes: XrmProcessMock[] = [];
     private _activeProcess: XrmProcessMock;
-    private _onStageChangeHandlers: ((context?: Xrm.ExecutionContext<this>) => any)[] = [];
+    private _onStageChangeHandlers: ((context?: Xrm.StageChangeContext) => any)[] = [];
 
     constructor() {
         // TODO: Remove this, temp.
@@ -56,18 +56,18 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
         throw new Error("Method not implemented.");
     }
 
-    addOnStageChange(handler: (context?: Xrm.ExecutionContext<this>) => any): void {
+    addOnStageChange(handler: (context?: Xrm.StageChangeContext) => any): void {
         this._onStageChangeHandlers.push(handler);
     }
 
-    removeOnStageChange(handler: (context?: Xrm.ExecutionContext<this>) => any): void {
+    removeOnStageChange(handler: (context?: Xrm.StageChangeContext) => any): void {
         this._onStageChangeHandlers = this._onStageChangeHandlers.filter(f => f !== handler);
     }
 
-    addOnStageSelected(handler: (context?: Xrm.ExecutionContext<this>) => any): void {
+    addOnStageSelected(handler: (context?: Xrm.StageChangeContext) => any): void {
         throw new Error("Method not implemented.");
     }
-    removeOnStageSelected(handler: (context?: Xrm.ExecutionContext<this>) => any): void {
+    removeOnStageSelected(handler: (context?: Xrm.StageChangeContext) => any): void {
         throw new Error("Method not implemented.");
     }
     moveNext(callback?: (stringVal: Xrm.ProcessStageMoveAnswer) => any): void {
@@ -77,11 +77,11 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
         throw new Error("Method not implemented.");
     }
 
-    addOnProcessStatusChange(handler: (context?: Xrm.ExecutionContext<this>) => any): void {
+    addOnProcessStatusChange(handler: (context?: Xrm.ProcessStatusChangeContext) => any): void {
         throw new Error("Method not implemented.");
     }
 
-    removeOnProcessStatusChange(handler: (context?: Xrm.ExecutionContext<this>) => any): void {
+    removeOnProcessStatusChange(handler: (context?: Xrm.ProcessStatusChangeContext) => any): void {
         throw new Error("Method not implemented.");
     }
 

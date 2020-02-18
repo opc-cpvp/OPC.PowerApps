@@ -9,12 +9,12 @@ export class XrmDataModuleMock implements Xrm.DataModule<XrmCollectionMock<XrmAt
     process: XrmProcessModuleMock;
     attributes: XrmCollectionMock<XrmAttributeMock>;
 
-    constructor(executionContext: XrmExecutionContextMock<any>) {
+    constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this.process = new XrmProcessModuleMock();
         this.attributes = new XrmCollectionMock<XrmAttributeMock>(XrmAttributeMock, executionContext);
     }
 
-    addOnLoad(myFunction: (context?: Xrm.ExecutionContext<this>) => any): void {
+    addOnLoad(myFunction: (context?: Xrm.OnLoadEventContext) => any): void {
         throw new Error("Method not implemented.");
     }
     getIsDirty(): boolean {

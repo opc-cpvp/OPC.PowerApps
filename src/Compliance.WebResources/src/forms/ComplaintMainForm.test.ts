@@ -1,9 +1,4 @@
-﻿/// <reference path="../../@types/xrmdefinitelytyped/xrm.d.ts" />
-/// <reference path="../../@types/xrmdefinitelytyped/context.d.ts" />
-/// <reference path="../../@types/xrmdefinitelytyped/dg.xrmquery.web.d.ts" />
-/// <reference path="../../@types/xrmdefinitelytyped/metadata.d.ts" />
-
-import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
+﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
 import { Complaint } from './ComplaintMainForm';
 import { ComplaintService } from '.././services/ComplaintService';
 
@@ -20,11 +15,11 @@ describe("when initialized", () => {
         // Arrange
         let service = new ComplaintService();
         let getComplaint = sinon.fake.returns(null)
-        
+
         sinon.replace(service, "getComplaint", getComplaint);
         let sut = new Complaint.Forms.MainForm(service);
 
-        let mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information>();
+        let mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
         let contextSpy = sinon.spy(mockContext);
 
         // Act

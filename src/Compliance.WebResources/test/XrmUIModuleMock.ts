@@ -5,7 +5,7 @@ import { XrmBaseControlMock } from "./XrmBaseControlMock";
 
 export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.ControlCollection> {
 
-    private _context: XrmExecutionContextMock<any>;
+    private _context: XrmExecutionContextMock<any, any>;
 
     tabs: XrmCollectionMock<XrmPageTabMock>;
     controls: XrmCollectionMock<XrmBaseControlMock>;
@@ -13,7 +13,7 @@ export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.Cont
     process: Xrm.UiProcessModule;
     formSelector: Xrm.FormSelector;
 
-    constructor(executionContext: XrmExecutionContextMock<any>, uiprocess: Xrm.UiProcessModule) {
+    constructor(executionContext: XrmExecutionContextMock<any, any>, uiprocess: Xrm.UiProcessModule) {
         this.process = uiprocess;
         this.tabs = new XrmCollectionMock<XrmPageTabMock>(XrmPageTabMock);
         this.controls = new XrmCollectionMock<XrmBaseControlMock>(XrmBaseControlMock, context);
@@ -44,7 +44,7 @@ export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.Cont
     setFormNotification(message: string, level: Xrm.NotificationLevel, uniqueId: string): boolean {
         throw new Error("Method not implemented.");
     }
-    addOnLoad(myFunction: (context?: Xrm.ExecutionContext<this>) => any): void {
+    addOnLoad(myFunction: (context?: Xrm.OnLoadEventContext) => any): void {
         throw new Error("Method not implemented.");
     }
     removeOnLoad(myFunction: Function): void {

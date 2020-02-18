@@ -42,7 +42,19 @@
                         <labels>
                           <label description="Risk Assessment Type" languagecode="1033" />
                         </labels>
-                        <control id="opc_riskassessmenttype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmenttype" disabled="false" />
+                        <control id="opc_riskassessmenttype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmenttype" disabled="false" uniqueid="{707279d1-1066-e12a-6d4c-d26da12b4e44}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{BE585EFF-CBE2-43B9-A923-CB9FE5F76231}</DefaultViewId>
+                            <FilterRelationshipName>opc_RiskAssessment_RiskAssessmentType_opc</FilterRelationshipName>
+                            <DependentAttributeName>opc_riskassessmentcategory.opc_riskassessment</DependentAttributeName>
+                            <DependentAttributeType>opc_riskassessment</DependentAttributeType>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -75,7 +87,7 @@
                         <labels>
                           <label description="Bypass Initiated By" languagecode="1033" />
                         </labels>
-                        <control id="opc_bypassinitiatedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_bypassinitiatedby" disabled="false" />
+                        <control id="opc_bypassinitiatedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_bypassinitiatedby" disabled="false" uniqueid="{b74143b0-c0d6-84d5-134c-89084c49230b}" />
                       </cell>
                     </row>
                     <row>
@@ -117,7 +129,7 @@
                         <labels>
                           <label description="Risk Assessment Definitions" languagecode="1033" />
                         </labels>
-                        <control id="subgrid_risk_assessment_definitions" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{ce46b6a8-9b78-4300-35c1-eb17d2ec3dae}">
+                        <control id="subgrid_risk_assessment_definitions" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{ce46b6a8-9b78-4300-35c1-eb17d2ec3dae}">
                           <parameters>
                             <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
                             <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
@@ -177,13 +189,34 @@
               <labels>
                 <label description="Risk Assessment" languagecode="1033" />
               </labels>
-              <control id="header_opc_riskassessment" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessment" disabled="false" />
+              <control id="header_opc_riskassessment" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessment" disabled="true" uniqueid="{65302caa-ea2c-3d14-003a-5c735968174b}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                  <DisableQuickFind>false</DisableQuickFind>
+                  <DisableViewPicker>false</DisableViewPicker>
+                  <DefaultViewId>{706654F4-A5C5-4497-AB2F-FBBF43F686EA}</DefaultViewId>
+                  <AllowFilterOff>false</AllowFilterOff>
+                </parameters>
+              </control>
             </cell>
             <cell id="{6cad8d6a-1ae7-14de-5047-962c86ae0839}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Risk Assessment Category Template" languagecode="1033" />
               </labels>
-              <control id="header_opc_riskassessmentcategorytemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentcategorytemplate" disabled="false" />
+              <control id="header_opc_riskassessmentcategorytemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentcategorytemplate" disabled="false" uniqueid="{258e868a-84c9-d3a6-2d5d-44333e942939}">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                  <DisableQuickFind>false</DisableQuickFind>
+                  <DisableViewPicker>false</DisableViewPicker>
+                  <DefaultViewId>{B2D2C74C-8A01-4801-8AB4-D8796BA22123}</DefaultViewId>
+                  <FilterRelationshipName>opc_RiskAssessmentCategoryTemplate_RiskAs</FilterRelationshipName>
+                  <DependentAttributeName>opc_riskassessmentcategory.opc_riskassessmenttype</DependentAttributeName>
+                  <DependentAttributeType>opc_riskassessmenttype</DependentAttributeType>
+                  <AllowFilterOff>false</AllowFilterOff>
+                </parameters>
+              </control>
             </cell>
             <cell id="{759540a2-2de8-478d-83bb-f45ac0bfa911}">
               <labels>
@@ -218,12 +251,12 @@
       </footer>
       <controlDescriptions>
         <controlDescription forControl="{edd4e72c-0b99-4b51-8c31-3c90a3904c8f}">
-          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
             <parameters>
               <datafieldname>opc_bypasssuggestedriskappetite</datafieldname>
             </parameters>
           </customControl>
-          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>opc_bypasssuggestedriskappetite</value>
             </parameters>
@@ -233,56 +266,15 @@
               <value>opc_bypasssuggestedriskappetite</value>
             </parameters>
           </customControl>
-          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>opc_bypasssuggestedriskappetite</value>
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{ce46b6a8-9b78-4300-35c1-eb17d2ec3dae}">
-          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" formFactor="0">
-            <parameters />
-          </customControl>
-          <customControl formFactor="1" name="MscrmControls.Grid.GridControl">
-            <parameters>
-              <data-set name="Grid">
-                <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
-                <columnsDefaultView />
-                <IsUserView>false</IsUserView>
-                <RelationshipName>opc_RiskAssessmentDefinition_RiskAssessme</RelationshipName>
-                <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
-                <EnableViewPicker>false</EnableViewPicker>
-                <FilteredViewIds>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</FilteredViewIds>
-              </data-set>
-              <EnableGroupBy static="true" type="Enum">yes</EnableGroupBy>
-              <EnableEditing static="true" type="Enum">yes</EnableEditing>
-              <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
-              <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
-              <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
-            </parameters>
-          </customControl>
-          <customControl formFactor="2" name="MscrmControls.Grid.GridControl">
-            <parameters>
-              <data-set name="Grid">
-                <ViewId>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</ViewId>
-                <columnsDefaultView />
-                <IsUserView>false</IsUserView>
-                <RelationshipName>opc_RiskAssessmentDefinition_RiskAssessme</RelationshipName>
-                <TargetEntityType>opc_riskassessmentdefinition</TargetEntityType>
-                <EnableViewPicker>false</EnableViewPicker>
-                <FilteredViewIds>{D53956A3-4F01-48AF-A3A3-FF49B0CF268A}</FilteredViewIds>
-              </data-set>
-              <EnableGroupBy static="true" type="Enum">yes</EnableGroupBy>
-              <EnableEditing static="true" type="Enum">yes</EnableEditing>
-              <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
-              <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
-              <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
-            </parameters>
-          </customControl>
-        </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

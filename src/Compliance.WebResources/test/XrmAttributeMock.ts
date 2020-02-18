@@ -5,14 +5,14 @@ import { XrmControlMock } from "./XrmControlMock";
 
 export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
 
-    private _executionContext: XrmExecutionContextMock<any>;
+    private _executionContext: XrmExecutionContextMock<any, any>;
     private _name: string;
     private _value: any;
-    private _onChangeHandlers: ((context?: Xrm.ExecutionContext<this>) => any)[] = [];
+    private _onChangeHandlers: ((context?: Xrm.ExecutionContext<this, any>) => any)[] = [];
 
     controls: XrmCollectionMock<XrmControlMock>;
 
-    constructor(executionContext: XrmExecutionContextMock<any>) {
+    constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this._executionContext = executionContext;
         this.controls = new XrmCollectionMock<XrmControlMock>(XrmControlMock, executionContext);
     }
@@ -50,7 +50,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     getUserPrivilege(): Xrm.UserPrivilege {
         throw new Error("Method not implemented.");
     }
-    addOnChange(functionRef: (context?: Xrm.ExecutionContext<this>) => any): void {
+    addOnChange(functionRef: (context?: Xrm.ExecutionContext<this, any>) => any): void {
         this._onChangeHandlers.push(functionRef);
     }
     removeOnChange(functionRef: Function): void {
