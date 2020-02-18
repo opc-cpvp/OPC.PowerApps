@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.135</Version>
+    <Version>1.0.137</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -87,6 +87,7 @@
       <RootComponent type="1" schemaName="opc_issue" behavior="0" />
       <RootComponent type="1" schemaName="opc_legislation" behavior="0" />
       <RootComponent type="1" schemaName="opc_notification" behavior="0" />
+      <RootComponent type="1" schemaName="opc_opcpriority" behavior="0" />
       <RootComponent type="1" schemaName="opc_recommendation" behavior="0" />
       <RootComponent type="1" schemaName="opc_reminder" behavior="0" />
       <RootComponent type="1" schemaName="opc_riskappetite" behavior="0" />
@@ -167,19 +168,19 @@
     <MissingDependencies>
       <MissingDependency>
         <Required key="0" type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2002.1001)" />
-        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Risk Assessment Category Template" id="{5200ec5e-a417-47e0-9e61-114659c14b77}" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Risk Assessment Factor Template" id="{176743e5-611a-495f-afae-e42a55fa8baa}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="0" type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2002.1001)" />
-        <Dependent key="2" type="60" displayName="Information" parentDisplayName="Risk Assessment Factor Template" id="{176743e5-611a-495f-afae-e42a55fa8baa}" />
+        <Dependent key="2" type="60" displayName="Information" parentDisplayName="Risk Assessment Category Template" id="{5200ec5e-a417-47e0-9e61-114659c14b77}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="3" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.13831)" />
-        <Dependent key="4" type="60" displayName="Information" parentDisplayName="Risk Assessment Category" id="{d99b07af-7b87-491f-a7d6-89a9d6a717ce}" />
+        <Dependent key="4" type="60" displayName="Quick Create" parentDisplayName="Risk Assessment Definition" id="{9e608d8d-4439-ea11-a813-000d3af46489}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="3" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.13831)" />
-        <Dependent key="5" type="60" displayName="Quick Create" parentDisplayName="Risk Assessment Definition" id="{9e608d8d-4439-ea11-a813-000d3af46489}" />
+        <Dependent key="5" type="60" displayName="Information" parentDisplayName="Risk Assessment Definition" id="{1cbf8f5e-c678-490d-b775-2aa77928d800}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="3" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.13831)" />
@@ -187,7 +188,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="3" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.13831)" />
-        <Dependent key="7" type="60" displayName="Information" parentDisplayName="Risk Assessment Definition" id="{1cbf8f5e-c678-490d-b775-2aa77928d800}" />
+        <Dependent key="7" type="60" displayName="Information" parentDisplayName="Risk Assessment Category" id="{d99b07af-7b87-491f-a7d6-89a9d6a717ce}" />
       </MissingDependency>
       <MissingDependency>
         <Required key="8" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />

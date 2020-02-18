@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name LocalizedName="Complaint" OriginalName="Complaint">opc_complaint</Name>
+  <Name LocalizedName="OPC Priority" OriginalName="OPC Priority">opc_opcpriority</Name>
   <EntityInfo>
-    <entity Name="opc_complaint">
+    <entity Name="opc_opcpriority">
       <LocalizedNames>
-        <LocalizedName description="Complaint" languagecode="1033" />
+        <LocalizedName description="OPC Priority" languagecode="1033" />
       </LocalizedNames>
       <LocalizedCollectionNames>
-        <LocalizedCollectionName description="Complaints" languagecode="1033" />
+        <LocalizedCollectionName description="OPC Priorities" languagecode="1033" />
       </LocalizedCollectionNames>
       <Descriptions>
-        <Description description="Represents a complaint from a citizen or the Commissioner against an organization, an institution or a field and its resolution." languagecode="1033" />
+        <Description description="The OPC Priority which the complaint is tied to." languagecode="1033" />
       </Descriptions>
       <attributes>
         <attribute PhysicalName="CreatedBy">
@@ -24,7 +24,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -49,7 +49,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who created the record." languagecode="1033" />
-            <Description description="Identificateur unique de l’utilisateur qui a créé l’enregistrement." languagecode="1036" />
+            <Description description="Identificateur unique de l'utilisateur ayant créé l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedOn">
@@ -63,7 +63,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -89,7 +89,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the record was created." languagecode="1033" />
-            <Description description="Date et heure de la création de l’enregistrement." languagecode="1036" />
+            <Description description="Date et heure de création de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedOnBehalfBy">
@@ -103,7 +103,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -128,7 +128,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the delegate user who created the record." languagecode="1033" />
-            <Description description="Identificateur unique de l’utilisateur délégué qui a créé l’enregistrement." languagecode="1036" />
+            <Description description="Identificateur unique de l'utilisateur délégué ayant créé l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ImportSequenceNumber">
@@ -143,7 +143,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -169,7 +169,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Sequence number of the import that created this record." languagecode="1033" />
-            <Description description="Numéro séquentiel de l’importation qui a créé cet enregistrement." languagecode="1036" />
+            <Description description="Numéro séquentiel de l'importation ayant créé cet enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedBy">
@@ -183,7 +183,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -208,7 +208,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who modified the record." languagecode="1033" />
-            <Description description="Identificateur unique de l’utilisateur qui a modifié l’enregistrement." languagecode="1036" />
+            <Description description="Identificateur unique de l'utilisateur ayant modifié l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedOn">
@@ -222,7 +222,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -248,7 +248,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the record was modified." languagecode="1033" />
-            <Description description="Date et heure de la modification de l’enregistrement." languagecode="1036" />
+            <Description description="Date et heure de modification de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedOnBehalfBy">
@@ -262,7 +262,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -287,365 +287,15 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the delegate user who modified the record." languagecode="1033" />
-            <Description description="Identificateur unique de l’utilisateur délégué qui a modifié l’enregistrement." languagecode="1036" />
+            <Description description="Identificateur unique de l'utilisateur délégué ayant modifié l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="opc_acceptancedate">
-          <Type>datetime</Type>
-          <Name>opc_acceptancedate</Name>
-          <LogicalName>opc_acceptancedate</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>date</Format>
-          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
-          <Behavior>1</Behavior>
-          <displaynames>
-            <displayname description="Acceptance Date" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Date when the complaint has been officially accepted by the registrar/intake manager" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_accountid">
-          <Type>lookup</Type>
-          <Name>opc_accountid</Name>
-          <LogicalName>opc_accountid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Account" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Define who the complaint is targetting" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_complainant">
-          <Type>lookup</Type>
-          <Name>opc_complainant</Name>
-          <LogicalName>opc_complainant</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Complainant" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Contact information of a complainant " languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_complainantrep">
-          <Type>lookup</Type>
-          <Name>opc_complainantrep</Name>
-          <LogicalName>opc_complainantrep</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Complainant Representative" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Representative of a complainant for a complaint" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_complaintdisposition">
-          <Type>picklist</Type>
-          <Name>opc_complaintdisposition</Name>
-          <LogicalName>opc_complaintdisposition</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>-1</AppDefaultValue>
-          <OptionSetName>opc_complaintdisposition</OptionSetName>
-          <displaynames>
-            <displayname description="Complaint Disposition" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Determines why is a complaint being closed/inactivated." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_complaintId">
-          <Type>primarykey</Type>
-          <Name>opc_complaintid</Name>
-          <LogicalName>opc_complaintid</LogicalName>
-          <RequiredLevel>systemrequired</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|RequiredForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>0</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>1</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <displaynames>
-            <displayname description="Complaint" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Unique identifier for entity instances" languagecode="1033" />
-            <Description description="Identificateur unique des instances d'entité" languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_declinereason">
-          <Type>picklist</Type>
-          <Name>opc_declinereason</Name>
-          <LogicalName>opc_declinereason</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>-1</AppDefaultValue>
-          <OptionSetName>opc_declinereason</OptionSetName>
-          <displaynames>
-            <displayname description="Reason" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Reasons to decline to investigate a complaint." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_intakedisposition">
-          <Type>picklist</Type>
-          <Name>opc_intakedisposition</Name>
-          <LogicalName>opc_intakedisposition</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>-1</AppDefaultValue>
-          <OptionSetName>opc_intakedisposition</OptionSetName>
-          <displaynames>
-            <displayname description="Recommendation" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Defines the dispositions to move out of the intake phase." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_legislation">
-          <Type>lookup</Type>
-          <Name>opc_legislation</Name>
-          <LogicalName>opc_legislation</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.12</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Legislation" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Legislation related to the complaint." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_number">
+        <attribute PhysicalName="opc_descriptionenglish">
           <Type>nvarchar</Type>
-          <Name>opc_number</Name>
-          <LogicalName>opc_number</LogicalName>
+          <Name>opc_descriptionenglish</Name>
+          <LogicalName>opc_descriptionenglish</LogicalName>
           <RequiredLevel>required</RequiredLevel>
-          <DisplayMask>ActivityPointerRegardingName|PrimaryName|ReadOnlyInUI|ValidForAdvancedFind|ValidForForm|ValidForGrid|RequiredForForm</DisplayMask>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
@@ -653,7 +303,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -665,32 +315,73 @@
           <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
           <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
           <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat>{SEQNUM:7}</AutoNumberFormat>
+          <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>1</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
+          <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
+          <Format>textarea</Format>
+          <MaxLength>2000</MaxLength>
+          <Length>4000</Length>
           <displaynames>
-            <displayname description="Number" languagecode="1033" />
+            <displayname description="English Description" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Required name field" languagecode="1033" />
+            <Description description="The English description of the Priority. " languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="opc_opcpriorityid">
-          <Type>lookup</Type>
-          <Name>opc_opcpriorityid</Name>
-          <LogicalName>opc_opcpriorityid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
+        <attribute PhysicalName="opc_frenchdescription">
+          <Type>nvarchar</Type>
+          <Name>opc_frenchdescription</Name>
+          <LogicalName>opc_frenchdescription</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>1</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>textarea</Format>
+          <MaxLength>2000</MaxLength>
+          <Length>4000</Length>
+          <displaynames>
+            <displayname description="French Description" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="The French description of the Priority." languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="opc_islocalizable">
+          <Type>bit</Type>
+          <Name>opc_islocalizable</Name>
+          <LogicalName>opc_islocalizable</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
           <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
@@ -709,55 +400,16 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="OPC Priority" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The OPC priority of the Complaint" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="opc_recommendtoregistrar">
-          <Type>bit</Type>
-          <Name>opc_recommendtoregistrar</Name>
-          <LogicalName>opc_recommendtoregistrar</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="opc_complaint_opc_recommendtoregistrar">
+          <AppDefaultValue>1</AppDefaultValue>
+          <optionset Name="opc_opc_opcpriority_islocalizable">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.0.0</IntroducedVersion>
+            <IntroducedVersion>1.0.137</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Local Enumeration" languagecode="1033" />
             </displaynames>
             <Descriptions>
-              <Description description="Whether or not a recommendation should be made to the registrar." languagecode="1033" />
+              <Description description="This field determines if the entity is localizable. It is used for the Multi-Language plugin." languagecode="1033" />
             </Descriptions>
             <options>
               <option value="1">
@@ -773,10 +425,167 @@
             </options>
           </optionset>
           <displaynames>
-            <displayname description="Recommend to registrar" languagecode="1033" />
+            <displayname description="Is Localizable" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Whether or not a recommendation should be made to the registrar." languagecode="1033" />
+            <Description description="This field determines if the entity is localizable. It is used for the Multi-Language plugin." languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="opc_name">
+          <Type>nvarchar</Type>
+          <Name>opc_name</Name>
+          <LogicalName>opc_name</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>PrimaryName|ValidForAdvancedFind|ValidForForm|ValidForGrid|RequiredForForm</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>text</Format>
+          <MaxLength>204</MaxLength>
+          <Length>408</Length>
+          <displaynames>
+            <displayname description="Name" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Required name field" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="opc_nameenglish">
+          <Type>nvarchar</Type>
+          <Name>opc_nameenglish</Name>
+          <LogicalName>opc_nameenglish</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>1</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="English Name" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="The English name of the priority" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="opc_namefrench">
+          <Type>nvarchar</Type>
+          <Name>opc_namefrench</Name>
+          <LogicalName>opc_namefrench</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>1</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="French Name" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="The French name of the Priority." languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="opc_opcpriorityId">
+          <Type>primarykey</Type>
+          <Name>opc_opcpriorityid</Name>
+          <LogicalName>opc_opcpriorityid</LogicalName>
+          <RequiredLevel>systemrequired</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|RequiredForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>0</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>1</IsFilterable>
+          <IsRetrievable>1</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <displaynames>
+            <displayname description="OPC Priority" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Unique identifier for entity instances" languagecode="1033" />
+            <Description description="Identificateur unique des instances d'entité" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OverriddenCreatedOn">
@@ -791,7 +600,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -817,7 +626,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Date and time that the record was migrated." languagecode="1033" />
-            <Description description="Date et heure de la migration de l’enregistrement." languagecode="1036" />
+            <Description description="Date et heure de migration de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwnerId">
@@ -833,7 +642,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -874,7 +683,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -913,7 +722,7 @@
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsLogical>1</IsLogical>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -938,7 +747,7 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier for the team that owns the record." languagecode="1033" />
-            <Description description="Identificateur unique pour l’équipe à qui appartient l’enregistrement." languagecode="1036" />
+            <Description description="Identificateur unique de l'équipe propriétaire de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwningUser">
@@ -952,7 +761,7 @@
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsLogical>1</IsLogical>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -980,84 +789,6 @@
             <Description description="Identificateur unique de l'utilisateur propriétaire de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="processid">
-          <Type>uniqueidentifier</Type>
-          <Name>processid</Name>
-          <LogicalName>processid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>0</IsCustomizable>
-          <IsRenameable>0</IsRenameable>
-          <CanModifySearchSettings>0</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>0</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>0</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <displaynames>
-            <displayname description="Process Id" languagecode="1033" />
-            <displayname description="ID de processus" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Contains the id of the process associated with the entity." languagecode="1033" />
-            <Description description="Contient l’ID du processus associé à l’entité." languagecode="1036" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="stageid">
-          <Type>uniqueidentifier</Type>
-          <Name>stageid</Name>
-          <LogicalName>stageid</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>0</IsCustomizable>
-          <IsRenameable>0</IsRenameable>
-          <CanModifySearchSettings>0</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>0</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>0</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <displaynames>
-            <displayname description="(Deprecated) Stage Id" languagecode="1033" />
-            <displayname description="(Déconseillé) ID de phase" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Contains the id of the stage where the entity is located." languagecode="1033" />
-            <Description description="Contient l’ID de la phase dans laquelle se trouve l’entité." languagecode="1036" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="statecode">
           <Type>state</Type>
           <Name>statecode</Name>
@@ -1070,7 +801,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -1087,27 +818,29 @@
           <IsFilterable>1</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <optionset Name="opc_complaint_statecode">
+          <optionset Name="opc_opcpriority_statecode">
             <OptionSetType>state</OptionSetType>
-            <IntroducedVersion>1.0.0.0</IntroducedVersion>
+            <IntroducedVersion>1.0.137</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Status" languagecode="1033" />
               <displayname description="Statut" languagecode="1036" />
             </displaynames>
             <Descriptions>
-              <Description description="Status of the Complaint" languagecode="1033" />
-              <Description description="Statut de l'élément Complaint" languagecode="1036" />
+              <Description description="Status of the OPC Priority" languagecode="1033" />
+              <Description description="Statut de l'élément OPC Priority" languagecode="1036" />
             </Descriptions>
             <states>
-              <state value="0" defaultstatus="924340010" invariantname="Active">
+              <state value="0" defaultstatus="1" invariantname="Active">
                 <labels>
                   <label description="Active" languagecode="1033" />
+                  <label description="Actif" languagecode="1036" />
                 </labels>
               </state>
-              <state value="1" defaultstatus="924340000" invariantname="Inactive">
+              <state value="1" defaultstatus="2" invariantname="Inactive">
                 <labels>
                   <label description="Inactive" languagecode="1033" />
+                  <label description="Inactif" languagecode="1036" />
                 </labels>
               </state>
             </states>
@@ -1117,8 +850,8 @@
             <displayname description="Statut" languagecode="1036" />
           </displaynames>
           <Descriptions>
-            <Description description="Status of the Complaint" languagecode="1033" />
-            <Description description="Statut de l'élément Complaint" languagecode="1036" />
+            <Description description="Status of the OPC Priority" languagecode="1033" />
+            <Description description="Statut de l'élément OPC Priority" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="statuscode">
@@ -1134,7 +867,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -1151,62 +884,29 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <optionset Name="opc_complaint_statuscode">
+          <optionset Name="opc_opcpriority_statuscode">
             <OptionSetType>status</OptionSetType>
-            <IntroducedVersion>1.0.0.0</IntroducedVersion>
+            <IntroducedVersion>1.0.137</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Status Reason" languagecode="1033" />
               <displayname description="Raison du statut" languagecode="1036" />
             </displaynames>
             <Descriptions>
-              <Description description="Reason for the status of the Complaint" languagecode="1033" />
-              <Description description="Raison du statut de l'élément Complaint" languagecode="1036" />
+              <Description description="Reason for the status of the OPC Priority" languagecode="1033" />
+              <Description description="Raison du statut de l'élément OPC Priority" languagecode="1036" />
             </Descriptions>
             <statuses>
-              <status value="924340010" state="0" TransitionData="" Color="#0000ff">
+              <status value="1" state="0">
                 <labels>
                   <label description="Active" languagecode="1033" />
+                  <label description="Actif" languagecode="1036" />
                 </labels>
               </status>
-              <status value="924340002" state="1" TransitionData="" Color="#0000ff">
+              <status value="2" state="1">
                 <labels>
-                  <label description="Discontinued" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340006" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="Investigation completed" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340000" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="No jurisdiction" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340001" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="Resolved at early resolution" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340004" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="Resolved at intake" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340005" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="Settled" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340007" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="Unresponsive inquirer" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340003" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="Withdrawn" languagecode="1033" />
+                  <label description="Inactive" languagecode="1033" />
+                  <label description="Inactif" languagecode="1036" />
                 </labels>
               </status>
             </statuses>
@@ -1216,8 +916,8 @@
             <displayname description="Raison du statut" languagecode="1036" />
           </displaynames>
           <Descriptions>
-            <Description description="Reason for the status of the Complaint" languagecode="1033" />
-            <Description description="Raison du statut de l'élément Complaint" languagecode="1036" />
+            <Description description="Reason for the status of the OPC Priority" languagecode="1033" />
+            <Description description="Raison du statut de l'élément OPC Priority" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="TimeZoneRuleVersionNumber">
@@ -1232,7 +932,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -1261,48 +961,6 @@
             <Description description="Utilisation interne uniquement." languagecode="1036" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="traversedpath">
-          <Type>nvarchar</Type>
-          <Name>traversedpath</Name>
-          <LogicalName>traversedpath</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>0</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>0</IsCustomizable>
-          <IsRenameable>0</IsRenameable>
-          <CanModifySearchSettings>0</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>0</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>0</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>1250</MaxLength>
-          <Length>2500</Length>
-          <displaynames>
-            <displayname description="(Deprecated) Traversed Path" languagecode="1033" />
-            <displayname description="(Déconseillé) Chemin d’accès traversé" languagecode="1036" />
-          </displaynames>
-          <Descriptions>
-            <Description description="A comma separated list of string values representing the unique identifiers of stages in a Business Process Flow Instance in the order that they occur." languagecode="1033" />
-            <Description description="Liste séparée par des virgules dans laquelle figurent des valeurs de chaîne représentant les identificateurs uniques des phases dans une instance de flux des processus d'entreprise dans l'ordre de leur apparition." languagecode="1036" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="UTCConversionTimeZoneCode">
           <Type>int</Type>
           <Name>utcconversiontimezonecode</Name>
@@ -1315,7 +973,7 @@
           <IsCustomField>0</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.137</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -1341,27 +999,25 @@
           </displaynames>
           <Descriptions>
             <Description description="Time zone code that was in use when the record was created." languagecode="1033" />
-            <Description description="Code de fuseau horaire utilisé à la création de l’enregistrement." languagecode="1036" />
+            <Description description="Code du fuseau horaire utilisé à la création de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
       </attributes>
-      <EntitySetName>opc_complaints</EntitySetName>
+      <EntitySetName>opc_opcpriorities</EntitySetName>
       <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>
-      <IsBusinessProcessEnabled>1</IsBusinessProcessEnabled>
+      <IsBusinessProcessEnabled>0</IsBusinessProcessEnabled>
       <IsRequiredOffline>0</IsRequiredOffline>
       <IsInteractionCentricEnabled>0</IsInteractionCentricEnabled>
       <IsCollaboration>0</IsCollaboration>
       <AutoRouteToOwnerQueue>0</AutoRouteToOwnerQueue>
       <IsConnectionsEnabled>0</IsConnectionsEnabled>
-      <EntityColor></EntityColor>
-      <IsDocumentManagementEnabled>1</IsDocumentManagementEnabled>
+      <IsDocumentManagementEnabled>0</IsDocumentManagementEnabled>
       <IsOneNoteIntegrationEnabled>0</IsOneNoteIntegrationEnabled>
       <IsKnowledgeManagementEnabled>0</IsKnowledgeManagementEnabled>
       <IsSLAEnabled>0</IsSLAEnabled>
       <IsDocumentRecommendationsEnabled>0</IsDocumentRecommendationsEnabled>
       <IsBPFEntity>0</IsBPFEntity>
       <OwnershipTypeMask>UserOwned</OwnershipTypeMask>
-      <EntityMask>ActivityPointer</EntityMask>
       <IsAuditEnabled>0</IsAuditEnabled>
       <IsRetrieveAuditEnabled>0</IsRetrieveAuditEnabled>
       <IsRetrieveMultipleAuditEnabled>0</IsRetrieveMultipleAuditEnabled>
@@ -1381,7 +1037,7 @@
       <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
       <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
       <SyncToExternalSearchIndex>0</SyncToExternalSearchIndex>
-      <IntroducedVersion>1.0.0.0</IntroducedVersion>
+      <IntroducedVersion>1.0.137</IntroducedVersion>
       <IsCustomizable>1</IsCustomizable>
       <IsRenameable>1</IsRenameable>
       <IsMappable>1</IsMappable>
@@ -1403,13 +1059,10 @@
       <EnforceStateTransitions>0</EnforceStateTransitions>
       <CanChangeHierarchicalRelationship>1</CanChangeHierarchicalRelationship>
       <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
-      <EntityHelpUrl></EntityHelpUrl>
       <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
       <CanChangeTrackingBeEnabled>1</CanChangeTrackingBeEnabled>
       <IsEnabledForExternalChannels>0</IsEnabledForExternalChannels>
       <IsSolutionAware>0</IsSolutionAware>
-      <HasRelatedNotes>True</HasRelatedNotes>
-      <HasRelatedActivities>True</HasRelatedActivities>
     </entity>
   </EntityInfo>
   <FormXml />
