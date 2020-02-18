@@ -84,6 +84,7 @@ steps:
   displayName: 'Install MSCRM Tools'
 
 - task: MSCRMPackCMData@9
+  displayName: 'Pack Configuration Migration Data'
   inputs:
     dataFile: '$(Agent.TempDirectory)/data.zip'
     extractFolder: 'src/$(SolutionName).Solution/Data'
