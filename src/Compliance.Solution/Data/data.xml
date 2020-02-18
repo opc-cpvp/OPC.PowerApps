@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-02-07T20:03:23.4405363Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-02-18T21:11:03.6301368Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -1280,6 +1280,66 @@
         <field name="opc_namefrench" value="Acc&amp;#232;s" />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_name" value="Access" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_opcpriority" displayname="OPC Priority">
+    <records>
+      <record id="bfbe13e5-8752-ea11-a811-000d3af46489">
+        <field name="opc_descriptionenglish" value="Economics of PI" />
+        <field name="opc_nameenglish" value="Economics of PI" />
+        <field name="opc_frenchdescription" value="L&amp;#39;&amp;#233;conomie des renseigements p" />
+        <field name="opc_namefrench" value="L&amp;#39;&amp;#233;conomie des renseigements personnels" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Economics of PI" />
+        <field name="opc_opcpriorityid" value="bfbe13e5-8752-ea11-a811-000d3af46489" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="f8ea3cf7-8752-ea11-a811-000d3af46489">
+        <field name="opc_descriptionenglish" value="Government Surveillance" />
+        <field name="opc_nameenglish" value="Government Surveillance" />
+        <field name="opc_frenchdescription" value="Surveillance du gouvernement" />
+        <field name="opc_namefrench" value="Surveillance du gouvernement" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Government Surveillance" />
+        <field name="opc_opcpriorityid" value="f8ea3cf7-8752-ea11-a811-000d3af46489" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="53283e03-8852-ea11-a811-000d3af46489">
+        <field name="opc_descriptionenglish" value="Reputation and Privacy" />
+        <field name="opc_nameenglish" value="Reputation and Privacy" />
+        <field name="opc_frenchdescription" value="R&amp;#233;putation et vie priv&amp;#233;e" />
+        <field name="opc_namefrench" value="R&amp;#233;putation et vie priv&amp;#233;e" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Reputation and Privacy" />
+        <field name="opc_opcpriorityid" value="53283e03-8852-ea11-a811-000d3af46489" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="248f4716-8852-ea11-a811-000d3af46489">
+        <field name="opc_descriptionenglish" value="The Body as Information" />
+        <field name="opc_nameenglish" value="The Body as Information" />
+        <field name="opc_frenchdescription" value="Le corps comme source d&amp;#39;information" />
+        <field name="opc_namefrench" value="Le corps comme source d&amp;#39;information" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="The Body as Information" />
+        <field name="opc_opcpriorityid" value="248f4716-8852-ea11-a811-000d3af46489" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="47bf721c-8852-ea11-a811-000d3af46489">
+        <field name="opc_descriptionenglish" value="Other" />
+        <field name="opc_nameenglish" value="Other" />
+        <field name="opc_frenchdescription" value="Autre" />
+        <field name="opc_namefrench" value="Autre" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Other" />
+        <field name="opc_opcpriorityid" value="47bf721c-8852-ea11-a811-000d3af46489" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
