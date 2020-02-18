@@ -74,4 +74,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     isValid(): boolean {
         throw new Error("Method not implemented.");
     }
+    setIsValid(): void{
+        throw new Error("Method not implemented.");
+    }
 }

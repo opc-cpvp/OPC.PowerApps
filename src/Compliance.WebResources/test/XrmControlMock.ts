@@ -1,9 +1,6 @@
 ﻿import { XrmBaseControlMock } from "./XrmBaseControlMock";
 import { XrmAttributeMock } from "./XrmAttributeMock";
 export class XrmControlMock extends XrmBaseControlMock implements Xrm.Control<XrmAttributeMock> {
-    addNotification(notification: Xrm.AddNotificationObject): void {
-        throw new Error("Method not implemented.");
-    }
     private _isDisabled: boolean;
     getAttribute(): XrmAttributeMock {
         return this.context.getFormContext().getAttribute(this.getName());
