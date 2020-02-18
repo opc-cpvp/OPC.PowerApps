@@ -93,17 +93,13 @@ steps:
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package'
 
-- task: ArchiveFiles@2
-  displayName: 'Create Data Archive'
-  inputs:
-    rootFolderOrFile: 'src\$(SolutionName).Solution\Data'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder\data.zip'
-    replaceExistingArchive: true
-
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'Install MSCRM Tools'
+
+- task: MSCRMPackCMData@9
+  inputs:
+    dataFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder\data.zip'
+    extractFolder: 'src\$(SolutionName).Solution\Data'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMSetVersion.MSCRMSetVersion@10
   displayName: 'Set PowerApps Solution Version'
