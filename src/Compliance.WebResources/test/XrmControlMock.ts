@@ -14,4 +14,7 @@ export class XrmControlMock extends XrmBaseControlMock implements Xrm.Control<Xr
     setDisabled(disable: boolean): void {
         this._isDisabled = disable;
     }
+    addNotification(notification: Xrm.AddNotificationObject): void {
+        throw new Error("Method not implemented.");
+    }
 }

@@ -175,18 +175,18 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{2d3ea95e-f5fa-4eed-839a-664cb18a0660}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{2e494c6d-e843-4d34-9f9e-b02680202c89}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations" languagecode="1033" />
                           <label description="Documents" languagecode="1036" />
                         </labels>
-                        <control id="allegations_subgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="subgrid_allegations" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>opc_allegation</TargetEntityType>
                             <ViewId>{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewId>
                             <ViewIds>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF},{513B4785-8AEA-E911-A812-000D3AF46FFF}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_complaint_allegations_complaints</RelationshipName>
+                            <RelationshipName>opc_complaint_allegations_complaint</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
@@ -369,6 +369,40 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_reminders" id="dfb897a2-94f5-45a3-8305-1ad313bba8d3" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Reminders" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="section_reminders" id="18099d95-5661-417e-8af8-c64f14175bf0" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Reminders" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{374495f1-afba-4c51-af12-cc59aac0baad}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Reminders" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_reminders" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_reminder</TargetEntityType>
+                            <ViewId>{148A71FD-90A5-42F4-95AE-389DF211B813}</ViewId>
+                            <ViewIds>{148A71FD-90A5-42F4-95AE-389DF211B813}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_complaint_reminders_complaint</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{341fa2b4-9a5c-4bc9-9019-d9d6aa2a16bd}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
@@ -413,7 +447,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

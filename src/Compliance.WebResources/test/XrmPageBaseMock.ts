@@ -5,16 +5,15 @@ import { XrmUIModuleMock } from "./XrmUIModuleMock";
 import { XrmUIProcessModuleMock } from "./XrmUIProcessModuleMock";
 import { XrmBaseControlMock } from "./XrmBaseControlMock";
 
-export class XrmPageBaseMock<T> implements Xrm.BasicPage {
-
-    private _executionContext: XrmExecutionContextMock<T>;
+export class XrmPageBaseMock<T, V> implements Xrm.BasicPage {
+    private _executionContext: XrmExecutionContextMock<T, V>;
     private _ctrls: Xrm.AnyControl[] = [];
     private _attr: XrmAttributeMock[] = [];
 
     data: XrmDataModuleMock;
     ui: XrmUIModuleMock;
 
-    constructor(executionContext: XrmExecutionContextMock<T>) {
+    constructor(executionContext: XrmExecutionContextMock<T, V>) {
         this._executionContext = executionContext;
         this.data = new XrmDataModuleMock(executionContext);
         this.ui = new XrmUIModuleMock(executionContext, new XrmUIProcessModuleMock());
@@ -42,5 +41,9 @@ export class XrmPageBaseMock<T> implements Xrm.BasicPage {
             this._ctrls.push(ctrl);
         }
         return ctrl;
+    }
+
+    getUrl(): string {
+        throw new Error("Method not implemented.");
     }
 }

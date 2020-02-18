@@ -4,6 +4,9 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Compliance.WebResources</Name>
     <RootNamespace>Compliance.WebResources</RootNamespace>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -36,11 +39,6 @@
     <Folder Include="js\" />
     <Folder Include="js\lib\" />
     <Folder Include="js\lib\xrmquery\" />
-    <Folder Include="obj\" />
-    <Folder Include="obj\Debug\" />
-    <Folder Include="obj\Debug\netcoreapp2.2\" />
-    <Folder Include="obj\Release\" />
-    <Folder Include="obj\Release\netcoreapp2.2\" />
     <Folder Include="src\" />
     <Folder Include="src\factories\" />
     <Folder Include="src\forms\" />
@@ -59,12 +57,16 @@
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\NotificationMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\ReminderMainForm.ts" />
     <TypeScriptCompile Include="src\helpers\XrmHelper.ts" />
     <TypeScriptCompile Include="src\index.ts" />
     <TypeScriptCompile Include="src\interfaces.ts" />
     <TypeScriptCompile Include="src\inversify.config.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
+    <TypeScriptCompile Include="src\services\NotificationService.ts" />
+    <TypeScriptCompile Include="src\services\ReminderService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
     <TypeScriptCompile Include="test\INamedComponent.ts" />
     <TypeScriptCompile Include="test\XrmAttributeMock.ts" />
@@ -89,32 +91,6 @@
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.min.js" />
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.promise.min.js" />
     <Content Include="npm.targets" />
-    <Content Include="obj\Compliance.WebResources.csproj.nuget.cache" />
-    <Content Include="obj\Compliance.WebResources.csproj.nuget.dgspec.json" />
-    <Content Include="obj\Compliance.WebResources.csproj.nuget.g.props" />
-    <Content Include="obj\Compliance.WebResources.csproj.nuget.g.targets" />
-    <Content Include="obj\Compliance.WebResources2.csproj.nuget.cache" />
-    <Content Include="obj\Compliance.WebResources2.csproj.nuget.dgspec.json" />
-    <Content Include="obj\Compliance.WebResources2.csproj.nuget.g.props" />
-    <Content Include="obj\Compliance.WebResources2.csproj.nuget.g.targets" />
-    <Content Include="obj\Debug\Compliance.WebResources.njsproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\Compliance.WebResources.njsprojAssemblyReference.cache" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources.AssemblyInfo.cs" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources.AssemblyInfoInputs.cache" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources.assets.cache" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources.csprojAssemblyReference.cache" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources.dll" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources.pdb" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources2.AssemblyInfo.cs" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources2.AssemblyInfoInputs.cache" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources2.assets.cache" />
-    <Content Include="obj\Debug\netcoreapp2.2\Compliance.WebResources2.csprojAssemblyReference.cache" />
-    <Content Include="obj\project.assets.json" />
-    <Content Include="obj\Release\netcoreapp2.2\Compliance.WebResources.AssemblyInfo.cs" />
-    <Content Include="obj\Release\netcoreapp2.2\Compliance.WebResources.AssemblyInfoInputs.cache" />
-    <Content Include="obj\Release\netcoreapp2.2\Compliance.WebResources.assets.cache" />
-    <Content Include="obj\Release\netcoreapp2.2\Compliance.WebResources.csprojAssemblyReference.cache" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />

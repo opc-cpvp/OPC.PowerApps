@@ -13,7 +13,7 @@ export class FormFactory implements IFormFactory {
         this._container = container;
     }
 
-    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm>): IPowerForm<TForm> {
+    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>): IPowerForm<TForm> {
         let fctx = context.getFormContext();
         let form = this._container.get<IPowerForm<TForm>>(fctx.data.entity.getEntityName() +
             "_" +

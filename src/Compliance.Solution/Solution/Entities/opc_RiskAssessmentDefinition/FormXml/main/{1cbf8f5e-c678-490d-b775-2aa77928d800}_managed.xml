@@ -34,7 +34,16 @@
                         <labels>
                           <label description="Risk Assessment" languagecode="1033" />
                         </labels>
-                        <control id="opc_riskassessmentid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentid" disabled="false" />
+                        <control id="opc_riskassessmentid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentid" disabled="true" uniqueid="{e9c00a9d-0608-8c32-a12d-2d233ced3ec4}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{706654F4-A5C5-4497-AB2F-FBBF43F686EA}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -42,7 +51,19 @@
                         <labels>
                           <label description="Risk Assessment Category" languagecode="1033" />
                         </labels>
-                        <control id="opc_riskassessmentcategory" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentcategory" disabled="false" />
+                        <control id="opc_riskassessmentcategory" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentcategory" disabled="false" uniqueid="{dd347302-c13e-ae5e-a1a8-a27c52a2ba07}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A0F2043D-6D99-441B-BC89-6ADF3E6EB412}</DefaultViewId>
+                            <FilterRelationshipName>opc_RiskAssessmentCategory_RiskAssessment</FilterRelationshipName>
+                            <DependentAttributeName>opc_riskassessmentdefinition.opc_riskassessmentid</DependentAttributeName>
+                            <DependentAttributeType>opc_riskassessment</DependentAttributeType>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -50,7 +71,19 @@
                         <labels>
                           <label description="Risk Assessment Factor Template" languagecode="1033" />
                         </labels>
-                        <control id="opc_riskassessmentfactortemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentfactortemplate" disabled="false" />
+                        <control id="opc_riskassessmentfactortemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentfactortemplate" disabled="false" uniqueid="{96c06867-ba65-2ac8-8e05-49ca2edac185}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{DE6592C9-92DB-4E65-B4E7-16885B8A4C25}</DefaultViewId>
+                            <FilterRelationshipName>opc_RiskAssessmentDefinitionTemplate_Risk</FilterRelationshipName>
+                            <DependentAttributeName>opc_riskassessmentdefinition.opc_riskassessmentdefinitiontemplate</DependentAttributeName>
+                            <DependentAttributeType>opc_riskassessmentdefinitiontemplate</DependentAttributeType>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -58,7 +91,19 @@
                         <labels>
                           <label description="Risk Assessment Definition Template" languagecode="1033" />
                         </labels>
-                        <control id="opc_riskassessmentdefinitiontemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentdefinitiontemplate" disabled="false" />
+                        <control id="opc_riskassessmentdefinitiontemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentdefinitiontemplate" disabled="false" uniqueid="{425c0238-05ae-9a06-d41b-25e6279897bd}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E7616FFF-088D-4F70-ACCD-57EB6D9E9D8A}</DefaultViewId>
+                            <FilterRelationshipName>opc_RiskAssessmentDefinitionTemplate_Risk</FilterRelationshipName>
+                            <DependentAttributeName>opc_riskassessmentdefinition.opc_riskassessmentfactortemplate</DependentAttributeName>
+                            <DependentAttributeType>opc_riskassessmentfactortemplate</DependentAttributeType>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -127,12 +172,12 @@
       </footer>
       <controlDescriptions>
         <controlDescription forControl="{d5289de8-79c4-479a-8c94-5793e5bc3a53}">
-          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
             <parameters>
               <datafieldname>opc_isselected</datafieldname>
             </parameters>
           </customControl>
-          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>opc_isselected</value>
             </parameters>
@@ -142,7 +187,7 @@
               <value>opc_isselected</value>
             </parameters>
           </customControl>
-          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>opc_isselected</value>
             </parameters>

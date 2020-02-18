@@ -233,7 +233,7 @@ declare namespace Xrm {
      *
      * @param functionRef The event handler for the on change event.
      */
-    addOnChange(functionRef: (context?: ExecutionContext<this>) => any): void;
+    addOnChange(functionRef: (context?: ExecutionContext<this, undefined>) => any): void;
 
     /**
      * Removes a function from the OnChange event hander for an attribute.
@@ -590,7 +590,7 @@ declare namespace Xrm {
      * @param functionRef Reference to a function. It will be added to the bottom of the event handler pipeline.
      *                  The execution context is automatically set to be passed as the first parameter passed to event handlers set using this method.
      */
-    addOnSave(functionRef: (context?: ExecutionContext<this>) => any): void;
+    addOnSave(functionRef: (context?: SaveEventContext<this>) => any): void;
 
     /**
      * Removes a function to be called when the record is saved.
@@ -620,7 +620,7 @@ declare namespace Xrm {
     getIsDirty(): boolean;
   }
 
-  interface ExecutionContext<T> {
+  interface ExecutionContext<TSource, TArgs> {
     /**
      * Method that returns the Client-side context object
      */
@@ -634,12 +634,12 @@ declare namespace Xrm {
     /**
      * Method that returns an object with methods to manage the Save event.
      */
-    getEventArgs(): SaveEventArgs;
+    getEventArgs(): TArgs;
 
     /**
      * Method that returns a reference to the object that the event occurred on.
      */
-    getEventSource(): T;
+    getEventSource(): TSource;
 
     /**
      * Sets the value of a variable to be used by a handler after the current handler completes.
@@ -656,6 +656,8 @@ declare namespace Xrm {
      */
     getSharedVariable(key: string): any;
   }
+
+  interface SaveEventContext<T> extends ExecutionContext<T, SaveEventArgs> { }
 
   interface SaveEventArgs {
     /**
@@ -1096,6 +1098,11 @@ declare namespace Xrm {
      * UI of the page.
      */
     ui: Xrm.UiModule<U, V>;
+
+    /**
+     * Returns string with current page URL.
+     */
+    getUrl(): string;
   }
 
   /**
@@ -1265,7 +1272,7 @@ declare namespace Xrm {
      * Add event handlers to this event to run every time the subgrid refreshes.
      * This includes when users sort the values by clicking the column headings.
      */
-    addOnLoad(functionRef: (context?: ExecutionContext<this>) => any): void;
+    addOnLoad(functionRef: (context?: ExecutionContext<this, any>) => any): void;
 
     /**
      * Use this method to get the logical name of the entity data displayed in the grid.
@@ -1437,6 +1444,19 @@ declare namespace Xrm {
 
   type ProcessStageMoveAnswer = "success" | "crossEntity" | "end" | "invalid" | "dirtyForm";
   type ProcessStageSetAnswer = "crossEntity" | "unreachable" | "dirtyForm" | "invalid";
+  type ProcessStageChangeDirection = "Next" | "Previous";
+
+  interface StageSelectedEventArguments {
+    getStage(): Stage;
+  }
+
+  interface StageChangeEventArguments extends StageSelectedEventArguments {
+    getDirection(): ProcessStageChangeDirection;
+  }
+
+  interface StageSelectedContext extends ExecutionContext<Stage, StageSelectedEventArguments> { }
+
+  interface StageChangeContext extends ExecutionContext<Stage, StageChangeEventArguments> { }
 
   /**
    * Interface for the business process flow on a form.
@@ -1507,14 +1527,14 @@ declare namespace Xrm {
      *
      * @param handler The function will be added to the bottom of the event handler pipeline.
      */
-    addOnStageChange(handler: (context?: ExecutionContext<this>) => any): void;
+    addOnStageChange(handler: (context?: StageChangeContext) => any): void;
 
     /**
      * Use this to remove a function as an event handler for the OnStageChange event.
      *
      * @param handler If an anonymous function is set using the addOnStageChange method it cannot be removed using this method.
      */
-    removeOnStageChange(handler: (context?: ExecutionContext<this>) => any): void;
+    removeOnStageChange(handler: (context?: StageChangeContext) => any): void;
 
     /**
      * Use this to add a function as an event handler for the OnStageSelected event so that it will be called when a business process flow stage is selected.
@@ -1522,14 +1542,14 @@ declare namespace Xrm {
      *
      * @param handler The function will be added to the bottom of the event handler pipeline.
      */
-    addOnStageSelected(handler: (context?: ExecutionContext<this>) => any): void;
+    addOnStageSelected(handler: (context?: StageSelectedContext) => any): void;
 
     /**
      * Use this to remove a function as an event handler for the OnStageSelected event.
      *
      * @param handler If an anonymous function is set using the addOnStageSelected method it cannot be removed using this method.
      */
-    removeOnStageSelected(handler: (context?: ExecutionContext<this>) => any): void;
+    removeOnStageSelected(handler: (context?: StageSelectedContext) => any): void;
 
     /**
      * Progresses to the next stage.
@@ -1672,6 +1692,8 @@ declare namespace Xrm {
     getStatus(): ProcessStatus;
   }
 
+  interface ProcessStatusChangeContext extends ExecutionContext<Process, any> { }
+
   interface ProcessModule {
     /**
      * Use this to add a function as an event handler for the OnProcessStatusChange event so that it will be called when the
@@ -1683,14 +1705,14 @@ declare namespace Xrm {
      *                anonymous function if you may later want to remove the
      *                event handler.
      */
-    addOnProcessStatusChange(handler: (context?: ExecutionContext<this>) => any): void;
+    addOnProcessStatusChange(handler: (context?: ProcessStatusChangeContext) => any): void;
 
     /**
      * Use this to remove a function as an event handler for the OnProcessStatusChange event.
      * @param handler If an anonymous function is set using the addOnProcessStatusChange method it
      *                cannot be removed using this method.
      */
-    removeOnProcessStatusChange(handler: (context?: ExecutionContext<this>) => any): void;
+    removeOnProcessStatusChange(handler: (context?: ProcessStatusChangeContext) => any): void;
 
     /**
      * Returns the unique identifier of the process instance.
@@ -2159,10 +2181,96 @@ declare namespace Xrm {
         savedEntityReference: Lookup[];
     }
 
+    type PageType = "entitylist" | "webresource";
+
+    type ViewType = "savedquery" | "userquery";
+
+    interface PageInput {
+        pageType: PageType
+
+        /**
+         *  The data to pass to the web resource.
+         */
+        data?: string;
+
+        /**
+         *  The logical name of the entity to load in the list control.
+         */
+        entityName?: string;
+
+        /**
+         * The ID of the view to load. If you don't specify it, navigates to the default main view for the entity.
+         */
+        viewId?: string;
+
+        /**
+         * Type of view to load. Specify "savedquery" or "userquery".
+         */
+        viewType?: ViewType;
+
+        /**
+         * The name of the web resource to load.
+         */
+        webresourceName?: string;
+    }
+
+    const enum NavigationOptionsTarget {
+        PageInline = 1,
+        Dialog = 2,
+    }
+
+    type SizeValueUnit = "%" | "px";
+
+    interface SizeValue {
+        /**
+         * The numerical value.
+         */
+        value: number;
+
+        /**
+         * The unit of measurement.Specify "%" or "px".Default value is "px".
+         */
+        unit: SizeValueUnit;
+    }
+
+    const enum NavigationOptionsPosition {
+        Center = 1,
+        Side = 2,
+    }
+
+    interface NavigationOptions {
+        /**
+         * Specify 1 to open the page inline; 2 to open the page in a dialog. Entity lists can only be opened inline; web resources can be opened either inline or in a dialog
+         */
+        target: NavigationOptionsTarget;
+
+        /**
+         * The width of dialog. To specify the width in pixels, just type a numeric value. To specify the width in percentage, specify an object of type SizeValue
+         */
+        width?: number | SizeValue;
+
+        /**
+         * The height of dialog. To specify the width in pixels, just type a numeric value. To specify the width in percentage, specify an object of type SizeValue
+         */
+        height?: number | SizeValue;
+
+        /**
+         * Number. Specify 1 to open the dialog in center; 2 to open the dialog on the side. Default is 1 (center).
+         */
+        position?: NavigationOptionsPosition;
+    }
+
     /**
      * Contains methods for multi-page dialogs and task flow, and some methods moved from the Xrm.Utility namespace.
      */
     interface Navigation {
+        /**
+         * Navigates to the specified page.
+         * @param pageInput Input about the page to navigate to. The object definition changes depending on the type of page to navigate to: entity list or HTML web resource.
+         * @param navigationOptions Options for navigating to a page: whether to open inline or in a dialog. If you don't specify this parameter, page is opened inline by default.
+         */
+        navigateTo(pageInput: PageInput, navigationOptions: NavigationOptions): Promise<undefined>;
+
         /**
          * Displays an alert dialog containing a message and a button.
          * @param alertStrings The string to be used in the alert dialog.
@@ -2449,9 +2557,7 @@ declare namespace Xrm {
     /**
      * Form executionContext
      */
-    interface ExecutionContext<T> {
-        getUrl(): string;
-
+    interface ExecutionContext<TSource, TArgs> {
         getFormContext(): Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>;
     }
 
@@ -2462,6 +2568,8 @@ declare namespace Xrm {
          */
         saveMode?: SaveMode;
     }
+
+    interface OnLoadEventContext extends ExecutionContext<UiModule<TabCollectionBase, ControlCollectionBase>, any> { }
 
     /**
      * Interface for the data of a form.
@@ -2475,7 +2583,7 @@ declare namespace Xrm {
         /**
          * Adds a function to be called when form data is loaded.
          */
-        addOnLoad(myFunction: (context?: ExecutionContext<this>) => any): void;
+        addOnLoad(myFunction: (context?: OnLoadEventContext) => any): void;
 
         /**
          * Gets a boolean value indicating whether the form data has been modified.
@@ -2538,8 +2646,17 @@ declare namespace Xrm {
     /**
      * Interface for an standard entity attribute.
      */
-    interface Attribute<T> {
-        isValid(): boolean;
+  interface Attribute<T> {
+
+      /**
+       * Returns a boolean value to indicate whether the value of an attribute is valid.
+       */
+      isValid(): boolean;
+
+      /**
+       * Sets a value for an attribute to determine whether it is valid or invalid with a message.
+       */
+      setIsValid(bool: boolean, message?: string);
     }
 
     /**
@@ -2551,7 +2668,7 @@ declare namespace Xrm {
          * @param myFunction The function to be executed on the form OnLoad event. The function will be added to the bottom of the event handler pipeline.
          * The execution context is automatically passed as the first parameter to the function. See Execution context for more information.
          */
-        addOnLoad(myFunction: (context?: ExecutionContext<this>) => any): void;
+        addOnLoad(myFunction: (context?: OnLoadEventContext) => any): void;
 
         /**
          * Removes a function from the form OnLoad event.
@@ -2774,7 +2891,7 @@ declare namespace Xrm {
         Subgrid = 2,
     }
 
-    const enum ClientType {
+    const enum SubGridControlClientType {
         Browser = 0,
         MobileApplication = 1,
     }
@@ -2798,7 +2915,7 @@ declare namespace Xrm {
         /**
          * Gets the URL of the current grid control.
          */
-        getUrl(client?: ClientType): string;
+        getUrl(client?: SubGridControlClientType): string;
 
         /**
          * Gets the URL of the current grid control.

@@ -263,6 +263,14 @@ declare const enum opc_allegation_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum opc_allegationtype_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_allegationtype_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum opc_complaint_statecode {
   Active = 0,
   Inactive = 1,
@@ -321,11 +329,28 @@ declare const enum opc_legislation_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum opc_notification_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_notification_statuscode {
+  Unread = 1,
+  Inactive = 2,
+  Read = 924340000,
+}
 declare const enum opc_recommendation_statecode {
   Active = 0,
   Inactive = 1,
 }
 declare const enum opc_recommendation_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_reminder_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_reminder_statuscode {
   Active = 1,
   Inactive = 2,
 }
@@ -884,6 +909,265 @@ declare namespace Form.account.Quick {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.account.Main {
+  namespace Information {
+    namespace Tabs {
+      interface administration extends Xrm.SectionCollectionBase {
+        get(name: "contact methods"): Xrm.PageSection;
+        get(name: "internal information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface contacts extends Xrm.SectionCollectionBase {
+        get(name: "contacts"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface details extends Xrm.SectionCollectionBase {
+        get(name: "billing information"): Xrm.PageSection;
+        get(name: "description_2"): Xrm.PageSection;
+        get(name: "professional information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "account information"): Xrm.PageSection;
+        get(name: "address"): Xrm.PageSection;
+        get(name: "description"): Xrm.PageSection;
+        get(name: "shipping information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface notesandactivities extends Xrm.SectionCollectionBase {
+        get(name: "activities"): Xrm.PageSection;
+        get(name: "notes"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "accountcategorycode"): Xrm.OptionSetAttribute<account_accountcategorycode>;
+      get(name: "accountnumber"): Xrm.Attribute<string>;
+      get(name: "address1_addresstypecode"): Xrm.OptionSetAttribute<account_address1_addresstypecode>;
+      get(name: "address1_city"): Xrm.Attribute<string>;
+      get(name: "address1_country"): Xrm.Attribute<string>;
+      get(name: "address1_freighttermscode"): Xrm.OptionSetAttribute<account_address1_freighttermscode>;
+      get(name: "address1_line1"): Xrm.Attribute<string>;
+      get(name: "address1_line2"): Xrm.Attribute<string>;
+      get(name: "address1_line3"): Xrm.Attribute<string>;
+      get(name: "address1_name"): Xrm.Attribute<string>;
+      get(name: "address1_postalcode"): Xrm.Attribute<string>;
+      get(name: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<account_address1_shippingmethodcode>;
+      get(name: "address1_stateorprovince"): Xrm.Attribute<string>;
+      get(name: "address1_telephone1"): Xrm.Attribute<string>;
+      get(name: "creditlimit"): Xrm.NumberAttribute;
+      get(name: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "customertypecode"): Xrm.OptionSetAttribute<account_customertypecode>;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotfax"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotphone"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "emailaddress1"): Xrm.Attribute<string>;
+      get(name: "fax"): Xrm.Attribute<string>;
+      get(name: "followemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "industrycode"): Xrm.OptionSetAttribute<account_industrycode>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "numberofemployees"): Xrm.NumberAttribute;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "ownershipcode"): Xrm.OptionSetAttribute<account_ownershipcode>;
+      get(name: "parentaccountid"): Xrm.LookupAttribute<"account">;
+      get(name: "paymenttermscode"): Xrm.OptionSetAttribute<account_paymenttermscode>;
+      get(name: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<account_preferredcontactmethodcode>;
+      get(name: "primarycontactid"): Xrm.LookupAttribute<"contact">;
+      get(name: "revenue"): Xrm.NumberAttribute;
+      get(name: "sic"): Xrm.Attribute<string>;
+      get(name: "telephone1"): Xrm.Attribute<string>;
+      get(name: "telephone2"): Xrm.Attribute<string>;
+      get(name: "tickersymbol"): Xrm.Attribute<any>;
+      get(name: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
+      get(name: "websiteurl"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "accountContactsGrid"): Xrm.SubGridControl<"contact">;
+      get(name: "accountactivitiesgrid"): Xrm.SubGridControl<"activitypointer">;
+      get(name: "accountcategorycode"): Xrm.OptionSetControl<account_accountcategorycode>;
+      get(name: "accountnumber"): Xrm.StringControl;
+      get(name: "address1_addresstypecode"): Xrm.OptionSetControl<account_address1_addresstypecode>;
+      get(name: "address1_city"): Xrm.StringControl;
+      get(name: "address1_country"): Xrm.StringControl;
+      get(name: "address1_freighttermscode"): Xrm.OptionSetControl<account_address1_freighttermscode>;
+      get(name: "address1_line1"): Xrm.StringControl;
+      get(name: "address1_line2"): Xrm.StringControl;
+      get(name: "address1_line3"): Xrm.StringControl;
+      get(name: "address1_name"): Xrm.StringControl;
+      get(name: "address1_postalcode"): Xrm.StringControl;
+      get(name: "address1_shippingmethodcode"): Xrm.OptionSetControl<account_address1_shippingmethodcode>;
+      get(name: "address1_stateorprovince"): Xrm.StringControl;
+      get(name: "address1_telephone1"): Xrm.StringControl;
+      get(name: "creditlimit"): Xrm.NumberControl;
+      get(name: "creditonhold"): Xrm.OptionSetControl<boolean>;
+      get(name: "customertypecode"): Xrm.OptionSetControl<account_customertypecode>;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotfax"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotphone"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+      get(name: "emailaddress1"): Xrm.StringControl;
+      get(name: "fax"): Xrm.StringControl;
+      get(name: "followemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "header_creditlimit"): Xrm.NumberControl;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "header_preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
+      get(name: "header_primarycontactid"): Xrm.LookupControl<"contact">;
+      get(name: "header_revenue"): Xrm.NumberControl;
+      get(name: "industrycode"): Xrm.OptionSetControl<account_industrycode>;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "notescontrol"): Xrm.BaseControl;
+      get(name: "numberofemployees"): Xrm.NumberControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "ownershipcode"): Xrm.OptionSetControl<account_ownershipcode>;
+      get(name: "parentaccountid"): Xrm.LookupControl<"account">;
+      get(name: "paymenttermscode"): Xrm.OptionSetControl<account_paymenttermscode>;
+      get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
+      get(name: "primarycontactid"): Xrm.LookupControl<"contact">;
+      get(name: "revenue"): Xrm.NumberControl;
+      get(name: "sic"): Xrm.StringControl;
+      get(name: "telephone1"): Xrm.StringControl;
+      get(name: "telephone2"): Xrm.StringControl;
+      get(name: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
+      get(name: "websiteurl"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "administration"): Xrm.PageTab<Tabs.administration>;
+      get(name: "contacts"): Xrm.PageTab<Tabs.contacts>;
+      get(name: "details"): Xrm.PageTab<Tabs.details>;
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: "notes and activities"): Xrm.PageTab<Tabs.notesandactivities>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "accountcategorycode"): Xrm.OptionSetAttribute<account_accountcategorycode>;
+    getAttribute(attributeName: "accountnumber"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_addresstypecode"): Xrm.OptionSetAttribute<account_address1_addresstypecode>;
+    getAttribute(attributeName: "address1_city"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_country"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_freighttermscode"): Xrm.OptionSetAttribute<account_address1_freighttermscode>;
+    getAttribute(attributeName: "address1_line1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line3"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<account_address1_shippingmethodcode>;
+    getAttribute(attributeName: "address1_stateorprovince"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "creditlimit"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "customertypecode"): Xrm.OptionSetAttribute<account_customertypecode>;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotfax"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotphone"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "emailaddress1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "fax"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "followemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "industrycode"): Xrm.OptionSetAttribute<account_industrycode>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "numberofemployees"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "ownershipcode"): Xrm.OptionSetAttribute<account_ownershipcode>;
+    getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account">;
+    getAttribute(attributeName: "paymenttermscode"): Xrm.OptionSetAttribute<account_paymenttermscode>;
+    getAttribute(attributeName: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<account_preferredcontactmethodcode>;
+    getAttribute(attributeName: "primarycontactid"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "revenue"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "sic"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "telephone2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "tickersymbol"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
+    getAttribute(attributeName: "websiteurl"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "accountContactsGrid"): Xrm.SubGridControl<"contact">;
+    getControl(controlName: "accountactivitiesgrid"): Xrm.SubGridControl<"activitypointer">;
+    getControl(controlName: "accountcategorycode"): Xrm.OptionSetControl<account_accountcategorycode>;
+    getControl(controlName: "accountnumber"): Xrm.StringControl;
+    getControl(controlName: "address1_addresstypecode"): Xrm.OptionSetControl<account_address1_addresstypecode>;
+    getControl(controlName: "address1_city"): Xrm.StringControl;
+    getControl(controlName: "address1_country"): Xrm.StringControl;
+    getControl(controlName: "address1_freighttermscode"): Xrm.OptionSetControl<account_address1_freighttermscode>;
+    getControl(controlName: "address1_line1"): Xrm.StringControl;
+    getControl(controlName: "address1_line2"): Xrm.StringControl;
+    getControl(controlName: "address1_line3"): Xrm.StringControl;
+    getControl(controlName: "address1_name"): Xrm.StringControl;
+    getControl(controlName: "address1_postalcode"): Xrm.StringControl;
+    getControl(controlName: "address1_shippingmethodcode"): Xrm.OptionSetControl<account_address1_shippingmethodcode>;
+    getControl(controlName: "address1_stateorprovince"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone1"): Xrm.StringControl;
+    getControl(controlName: "creditlimit"): Xrm.NumberControl;
+    getControl(controlName: "creditonhold"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "customertypecode"): Xrm.OptionSetControl<account_customertypecode>;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotfax"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotphone"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "emailaddress1"): Xrm.StringControl;
+    getControl(controlName: "fax"): Xrm.StringControl;
+    getControl(controlName: "followemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "header_creditlimit"): Xrm.NumberControl;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "header_preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
+    getControl(controlName: "header_primarycontactid"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "header_revenue"): Xrm.NumberControl;
+    getControl(controlName: "industrycode"): Xrm.OptionSetControl<account_industrycode>;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "notescontrol"): Xrm.BaseControl;
+    getControl(controlName: "numberofemployees"): Xrm.NumberControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "ownershipcode"): Xrm.OptionSetControl<account_ownershipcode>;
+    getControl(controlName: "parentaccountid"): Xrm.LookupControl<"account">;
+    getControl(controlName: "paymenttermscode"): Xrm.OptionSetControl<account_paymenttermscode>;
+    getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
+    getControl(controlName: "primarycontactid"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "revenue"): Xrm.NumberControl;
+    getControl(controlName: "sic"): Xrm.StringControl;
+    getControl(controlName: "telephone1"): Xrm.StringControl;
+    getControl(controlName: "telephone2"): Xrm.StringControl;
+    getControl(controlName: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
+    getControl(controlName: "websiteurl"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.account.QuickCreate {
   namespace AccountQuickCreate {
     namespace Tabs {
@@ -1163,6 +1447,301 @@ declare namespace Form.account.Main {
     getControl(controlName: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
     getControl(controlName: "websiteurl"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.contact.Main {
+  namespace Information {
+    namespace Tabs {
+      interface administration extends Xrm.SectionCollectionBase {
+        get(name: "billing information"): Xrm.PageSection;
+        get(name: "contact methods"): Xrm.PageSection;
+        get(name: "internal information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface details extends Xrm.SectionCollectionBase {
+        get(name: "personal information"): Xrm.PageSection;
+        get(name: "professional information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "address"): Xrm.PageSection;
+        get(name: "description"): Xrm.PageSection;
+        get(name: "name"): Xrm.PageSection;
+        get(name: "shipping information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface notesandactivities extends Xrm.SectionCollectionBase {
+        get(name: "activities"): Xrm.PageSection;
+        get(name: "notes"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "accountrolecode"): Xrm.OptionSetAttribute<contact_accountrolecode>;
+      get(name: "address1_addresstypecode"): Xrm.OptionSetAttribute<contact_address1_addresstypecode>;
+      get(name: "address1_city"): Xrm.Attribute<string>;
+      get(name: "address1_country"): Xrm.Attribute<string>;
+      get(name: "address1_freighttermscode"): Xrm.OptionSetAttribute<contact_address1_freighttermscode>;
+      get(name: "address1_line1"): Xrm.Attribute<string>;
+      get(name: "address1_line2"): Xrm.Attribute<string>;
+      get(name: "address1_line3"): Xrm.Attribute<string>;
+      get(name: "address1_name"): Xrm.Attribute<string>;
+      get(name: "address1_postalcode"): Xrm.Attribute<string>;
+      get(name: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<contact_address1_shippingmethodcode>;
+      get(name: "address1_stateorprovince"): Xrm.Attribute<string>;
+      get(name: "address1_telephone1"): Xrm.Attribute<string>;
+      get(name: "anniversary"): Xrm.DateAttribute;
+      get(name: "assistantname"): Xrm.Attribute<string>;
+      get(name: "assistantphone"): Xrm.Attribute<string>;
+      get(name: "birthdate"): Xrm.DateAttribute;
+      get(name: "creditlimit"): Xrm.NumberAttribute;
+      get(name: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "department"): Xrm.Attribute<string>;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotfax"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotphone"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "emailaddress1"): Xrm.Attribute<string>;
+      get(name: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode>;
+      get(name: "fax"): Xrm.Attribute<string>;
+      get(name: "firstname"): Xrm.Attribute<string>;
+      get(name: "gendercode"): Xrm.OptionSetAttribute<contact_gendercode>;
+      get(name: "industrycode"): Xrm.OptionSetAttribute<number> | null;
+      get(name: "jobtitle"): Xrm.Attribute<string>;
+      get(name: "lastname"): Xrm.Attribute<string>;
+      get(name: "managername"): Xrm.Attribute<string>;
+      get(name: "managerphone"): Xrm.Attribute<string>;
+      get(name: "middlename"): Xrm.Attribute<string>;
+      get(name: "mobilephone"): Xrm.Attribute<string>;
+      get(name: "name"): Xrm.Attribute<string> | null;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
+      get(name: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
+      get(name: "paymenttermscode"): Xrm.OptionSetAttribute<contact_paymenttermscode>;
+      get(name: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<contact_preferredcontactmethodcode>;
+      get(name: "salutation"): Xrm.Attribute<string>;
+      get(name: "spousesname"): Xrm.Attribute<string>;
+      get(name: "telephone1"): Xrm.Attribute<string>;
+      get(name: "telephone2"): Xrm.Attribute<string>;
+      get(name: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
+      get(name: "websiteurl"): Xrm.Attribute<string> | null;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "accountrolecode"): Xrm.OptionSetControl<contact_accountrolecode>;
+      get(name: "address1_addresstypecode"): Xrm.OptionSetControl<contact_address1_addresstypecode>;
+      get(name: "address1_city"): Xrm.StringControl;
+      get(name: "address1_country"): Xrm.StringControl;
+      get(name: "address1_freighttermscode"): Xrm.OptionSetControl<contact_address1_freighttermscode>;
+      get(name: "address1_line1"): Xrm.StringControl;
+      get(name: "address1_line2"): Xrm.StringControl;
+      get(name: "address1_line3"): Xrm.StringControl;
+      get(name: "address1_name"): Xrm.StringControl;
+      get(name: "address1_postalcode"): Xrm.StringControl;
+      get(name: "address1_shippingmethodcode"): Xrm.OptionSetControl<contact_address1_shippingmethodcode>;
+      get(name: "address1_stateorprovince"): Xrm.StringControl;
+      get(name: "address1_telephone1"): Xrm.StringControl;
+      get(name: "anniversary"): Xrm.DateControl;
+      get(name: "assistantname"): Xrm.StringControl;
+      get(name: "assistantphone"): Xrm.StringControl;
+      get(name: "birthdate"): Xrm.DateControl;
+      get(name: "contactactivitiesgrid"): Xrm.SubGridControl<"activitypointer">;
+      get(name: "creditlimit"): Xrm.NumberControl;
+      get(name: "creditonhold"): Xrm.OptionSetControl<boolean>;
+      get(name: "department"): Xrm.StringControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotfax"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotphone"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+      get(name: "emailaddress1"): Xrm.StringControl;
+      get(name: "familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode>;
+      get(name: "fax"): Xrm.StringControl;
+      get(name: "firstname"): Xrm.StringControl;
+      get(name: "gendercode"): Xrm.OptionSetControl<contact_gendercode>;
+      get(name: "header_emailaddress1"): Xrm.StringControl;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "header_preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
+      get(name: "header_process_birthdate"): Xrm.DateControl | null;
+      get(name: "header_process_emailaddress1"): Xrm.StringControl | null;
+      get(name: "header_process_familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode> | null;
+      get(name: "header_process_firstname"): Xrm.StringControl | null;
+      get(name: "header_process_industrycode"): Xrm.OptionSetControl<number> | null;
+      get(name: "header_process_lastname"): Xrm.StringControl | null;
+      get(name: "header_process_middlename"): Xrm.StringControl | null;
+      get(name: "header_process_mobilephone"): Xrm.StringControl | null;
+      get(name: "header_process_name"): Xrm.StringControl | null;
+      get(name: "header_process_parentaccountid"): Xrm.LookupControl<"account"> | null;
+      get(name: "header_process_spousesname"): Xrm.StringControl | null;
+      get(name: "header_process_telephone1"): Xrm.StringControl | null;
+      get(name: "header_process_websiteurl"): Xrm.StringControl | null;
+      get(name: "jobtitle"): Xrm.StringControl;
+      get(name: "lastname"): Xrm.StringControl;
+      get(name: "managername"): Xrm.StringControl;
+      get(name: "managerphone"): Xrm.StringControl;
+      get(name: "middlename"): Xrm.StringControl;
+      get(name: "mobilephone"): Xrm.StringControl;
+      get(name: "notescontrol"): Xrm.BaseControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
+      get(name: "paymenttermscode"): Xrm.OptionSetControl<contact_paymenttermscode>;
+      get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
+      get(name: "salutation"): Xrm.StringControl;
+      get(name: "spousesname"): Xrm.StringControl;
+      get(name: "telephone1"): Xrm.StringControl;
+      get(name: "telephone2"): Xrm.StringControl;
+      get(name: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "administration"): Xrm.PageTab<Tabs.administration>;
+      get(name: "details"): Xrm.PageTab<Tabs.details>;
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: "notes and activities"): Xrm.PageTab<Tabs.notesandactivities>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "accountrolecode"): Xrm.OptionSetAttribute<contact_accountrolecode>;
+    getAttribute(attributeName: "address1_addresstypecode"): Xrm.OptionSetAttribute<contact_address1_addresstypecode>;
+    getAttribute(attributeName: "address1_city"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_country"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_freighttermscode"): Xrm.OptionSetAttribute<contact_address1_freighttermscode>;
+    getAttribute(attributeName: "address1_line1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line3"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<contact_address1_shippingmethodcode>;
+    getAttribute(attributeName: "address1_stateorprovince"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "anniversary"): Xrm.DateAttribute;
+    getAttribute(attributeName: "assistantname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "assistantphone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "birthdate"): Xrm.DateAttribute;
+    getAttribute(attributeName: "creditlimit"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "department"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotfax"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotphone"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "emailaddress1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode>;
+    getAttribute(attributeName: "fax"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "firstname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "gendercode"): Xrm.OptionSetAttribute<contact_gendercode>;
+    getAttribute(attributeName: "industrycode"): Xrm.OptionSetAttribute<number> | null;
+    getAttribute(attributeName: "jobtitle"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "lastname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "managername"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "managerphone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "middlename"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "mobilephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
+    getAttribute(attributeName: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
+    getAttribute(attributeName: "paymenttermscode"): Xrm.OptionSetAttribute<contact_paymenttermscode>;
+    getAttribute(attributeName: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<contact_preferredcontactmethodcode>;
+    getAttribute(attributeName: "salutation"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "spousesname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "telephone2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
+    getAttribute(attributeName: "websiteurl"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "accountrolecode"): Xrm.OptionSetControl<contact_accountrolecode>;
+    getControl(controlName: "address1_addresstypecode"): Xrm.OptionSetControl<contact_address1_addresstypecode>;
+    getControl(controlName: "address1_city"): Xrm.StringControl;
+    getControl(controlName: "address1_country"): Xrm.StringControl;
+    getControl(controlName: "address1_freighttermscode"): Xrm.OptionSetControl<contact_address1_freighttermscode>;
+    getControl(controlName: "address1_line1"): Xrm.StringControl;
+    getControl(controlName: "address1_line2"): Xrm.StringControl;
+    getControl(controlName: "address1_line3"): Xrm.StringControl;
+    getControl(controlName: "address1_name"): Xrm.StringControl;
+    getControl(controlName: "address1_postalcode"): Xrm.StringControl;
+    getControl(controlName: "address1_shippingmethodcode"): Xrm.OptionSetControl<contact_address1_shippingmethodcode>;
+    getControl(controlName: "address1_stateorprovince"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone1"): Xrm.StringControl;
+    getControl(controlName: "anniversary"): Xrm.DateControl;
+    getControl(controlName: "assistantname"): Xrm.StringControl;
+    getControl(controlName: "assistantphone"): Xrm.StringControl;
+    getControl(controlName: "birthdate"): Xrm.DateControl;
+    getControl(controlName: "contactactivitiesgrid"): Xrm.SubGridControl<"activitypointer">;
+    getControl(controlName: "creditlimit"): Xrm.NumberControl;
+    getControl(controlName: "creditonhold"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "department"): Xrm.StringControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotfax"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotphone"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "emailaddress1"): Xrm.StringControl;
+    getControl(controlName: "familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode>;
+    getControl(controlName: "fax"): Xrm.StringControl;
+    getControl(controlName: "firstname"): Xrm.StringControl;
+    getControl(controlName: "gendercode"): Xrm.OptionSetControl<contact_gendercode>;
+    getControl(controlName: "header_emailaddress1"): Xrm.StringControl;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "header_preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
+    getControl(controlName: "header_process_birthdate"): Xrm.DateControl | null;
+    getControl(controlName: "header_process_emailaddress1"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode> | null;
+    getControl(controlName: "header_process_firstname"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_industrycode"): Xrm.OptionSetControl<number> | null;
+    getControl(controlName: "header_process_lastname"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_middlename"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_mobilephone"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_name"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_parentaccountid"): Xrm.LookupControl<"account"> | null;
+    getControl(controlName: "header_process_spousesname"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_telephone1"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_websiteurl"): Xrm.StringControl | null;
+    getControl(controlName: "jobtitle"): Xrm.StringControl;
+    getControl(controlName: "lastname"): Xrm.StringControl;
+    getControl(controlName: "managername"): Xrm.StringControl;
+    getControl(controlName: "managerphone"): Xrm.StringControl;
+    getControl(controlName: "middlename"): Xrm.StringControl;
+    getControl(controlName: "mobilephone"): Xrm.StringControl;
+    getControl(controlName: "notescontrol"): Xrm.BaseControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
+    getControl(controlName: "paymenttermscode"): Xrm.OptionSetControl<contact_paymenttermscode>;
+    getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
+    getControl(controlName: "salutation"): Xrm.StringControl;
+    getControl(controlName: "spousesname"): Xrm.StringControl;
+    getControl(controlName: "telephone1"): Xrm.StringControl;
+    getControl(controlName: "telephone2"): Xrm.StringControl;
+    getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
     getControl(controlName: string): undefined;
   }
 }
@@ -2443,12 +3022,10 @@ declare namespace Form.opc_allegation.Main {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_acronym"): Xrm.Attribute<string>;
       get(name: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+      get(name: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.Attribute<string>;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
-      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -2456,12 +3033,10 @@ declare namespace Form.opc_allegation.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_acronym"): Xrm.StringControl;
       get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+      get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.StringControl;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_nameenglish"): Xrm.StringControl;
-      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -2477,20 +3052,108 @@ declare namespace Form.opc_allegation.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_acronym"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+    getAttribute(attributeName: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
     getAttribute(attributeName: "opc_description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+    getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
+    getControl(controlName: "opc_description"): Xrm.StringControl;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_allegationtype.Main {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_acronym"): Xrm.Attribute<string>;
+      get(name: "opc_descriptionenglish"): Xrm.Attribute<string>;
+      get(name: "opc_descriptionfrench"): Xrm.Attribute<string>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_acronym"): Xrm.StringControl;
+      get(name: "opc_descriptionenglish"): Xrm.StringControl;
+      get(name: "opc_descriptionfrench"): Xrm.StringControl;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_acronym"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_descriptionenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_descriptionfrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_acronym"): Xrm.StringControl;
-    getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
-    getControl(controlName: "opc_description"): Xrm.StringControl;
+    getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_descriptionfrench"): Xrm.StringControl;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_allegationtype.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
@@ -2534,6 +3197,13 @@ declare namespace Form.opc_complaint.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
+      interface tab_reminders extends Xrm.SectionCollectionBase {
+        get(name: "section_reminders"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface tab_risk_assessments extends Xrm.SectionCollectionBase {
         get(name: "section_risk_assessments"): Xrm.PageSection;
         get(name: string): undefined;
@@ -2571,8 +3241,6 @@ declare namespace Form.opc_complaint.Main {
       get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
       get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
       get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
-      get(name: "WebResource_riskassessmentcontrol"): Xrm.WebResourceControl;
-      get(name: "allegations_subgrid"): Xrm.SubGridControl<"opc_allegation">;
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
       get(name: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
@@ -2595,6 +3263,8 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: "opc_number"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
+      get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
       get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
       get(name: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
       get(name: string): undefined;
@@ -2608,6 +3278,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
       get(name: "tab_issues"): Xrm.PageTab<Tabs.tab_issues>;
       get(name: "tab_recommendations"): Xrm.PageTab<Tabs.tab_recommendations>;
+      get(name: "tab_reminders"): Xrm.PageTab<Tabs.tab_reminders>;
       get(name: "tab_risk_assessments"): Xrm.PageTab<Tabs.tab_risk_assessments>;
       get(name: "tab_topics"): Xrm.PageTab<Tabs.tab_topics>;
       get(name: string): undefined;
@@ -2633,8 +3304,6 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
     getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
     getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
-    getControl(controlName: "WebResource_riskassessmentcontrol"): Xrm.WebResourceControl;
-    getControl(controlName: "allegations_subgrid"): Xrm.SubGridControl<"opc_allegation">;
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
     getControl(controlName: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
@@ -2657,6 +3326,8 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: "opc_number"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
+    getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
     getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
     getControl(controlName: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
     getControl(controlName: string): undefined;
@@ -3070,6 +3741,102 @@ declare namespace Form.opc_legislation.Quick {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.opc_notification.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "statecode"): Xrm.OptionSetAttribute<opc_notification_statecode>;
+      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_notification_statuscode>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "header_statecode"): Xrm.OptionSetControl<opc_notification_statecode>;
+      get(name: "header_statuscode"): Xrm.OptionSetControl<opc_notification_statuscode>;
+      get(name: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_notification_statecode>;
+    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_notification_statuscode>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_notification_statecode>;
+    getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_notification_statuscode>;
+    getControl(controlName: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_notification.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.opc_recommendation.Main {
   namespace Information {
     namespace Tabs {
@@ -3147,6 +3914,125 @@ declare namespace Form.opc_recommendation.Quick {
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_reminder.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_reminder.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_additionalusers"): Xrm.PageSection;
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface tab_relatedrecord extends Xrm.SectionCollectionBase {
+        get(name: "section_relatedrecord"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_notifyadditionalusers"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_notifycaseowner"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_notifyme"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_reminderdate"): Xrm.DateAttribute;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
+      get(name: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_notifyadditionalusers"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_notifycaseowner"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_notifyme"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_reminderdate"): Xrm.DateControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: "tab_relatedrecord"): Xrm.PageTab<Tabs.tab_relatedrecord>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_notifyadditionalusers"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_notifycaseowner"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_notifyme"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_reminderdate"): Xrm.DateAttribute;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
+    getControl(controlName: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_notifyadditionalusers"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_notifycaseowner"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_notifyme"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_reminderdate"): Xrm.DateControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -3323,7 +4209,14 @@ declare namespace Form.opc_riskassessment.Main {
     namespace Tabs {
       interface tab_general extends Xrm.SectionCollectionBase {
         get(name: "section_general"): Xrm.PageSection;
-        get(name: "section_riskassessment_definitions"): Xrm.PageSection;
+        get(name: "section_risk_matrix"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface tab_risk_assessment_definitions extends Xrm.SectionCollectionBase {
+        get(name: "section_riskassessment_definition"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -3346,6 +4239,7 @@ declare namespace Form.opc_riskassessment.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "WebResource_riskassessmentcontrol"): Xrm.WebResourceControl;
       get(name: "header_opc_complaint"): Xrm.LookupControl<"opc_complaint">;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_actualriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
@@ -3355,7 +4249,7 @@ declare namespace Form.opc_riskassessment.Main {
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
       get(name: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
-      get(name: "subgrid_riskassessment_definitions"): Xrm.BaseControl;
+      get(name: "subgrid_riskassessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -3363,6 +4257,7 @@ declare namespace Form.opc_riskassessment.Main {
     }
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: "tab_risk_assessment_definitions"): Xrm.PageTab<Tabs.tab_risk_assessment_definitions>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -3380,6 +4275,7 @@ declare namespace Form.opc_riskassessment.Main {
     getAttribute(attributeName: "opc_suggestedriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "WebResource_riskassessmentcontrol"): Xrm.WebResourceControl;
     getControl(controlName: "header_opc_complaint"): Xrm.LookupControl<"opc_complaint">;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_actualriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
@@ -3389,7 +4285,7 @@ declare namespace Form.opc_riskassessment.Main {
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
     getControl(controlName: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
-    getControl(controlName: "subgrid_riskassessment_definitions"): Xrm.BaseControl;
+    getControl(controlName: "subgrid_riskassessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
     getControl(controlName: string): undefined;
   }
 }
@@ -3556,7 +4452,7 @@ declare namespace Form.opc_riskassessmentcategory.Main {
       get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
       get(name: "opc_sequence"): Xrm.NumberControl;
       get(name: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
-      get(name: "subgrid_risk_assessment_definitions"): Xrm.BaseControl;
+      get(name: "subgrid_risk_assessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -3594,7 +4490,7 @@ declare namespace Form.opc_riskassessmentcategory.Main {
     getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
     getControl(controlName: "opc_sequence"): Xrm.NumberControl;
     getControl(controlName: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
-    getControl(controlName: "subgrid_risk_assessment_definitions"): Xrm.BaseControl;
+    getControl(controlName: "subgrid_risk_assessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
     getControl(controlName: string): undefined;
   }
 }
@@ -4678,6 +5574,29 @@ interface opc_allegation_Create extends opc_allegation {
 }
 interface opc_allegation_Update extends opc_allegation {
 }
+interface opc_allegationtype_Base extends WebEntity {
+}
+interface opc_allegationtype_Fixed extends WebEntity_Fixed {
+  opc_allegationtypeid: string;
+}
+interface opc_allegationtype extends opc_allegationtype_Base, opc_allegationtype_Relationships {
+}
+interface opc_allegationtype_Relationships {
+}
+interface opc_allegationtype_Result extends opc_allegationtype_Base, opc_allegationtype_Relationships {
+}
+interface opc_allegationtype_FormattedResult {
+}
+interface opc_allegationtype_Select {
+}
+interface opc_allegationtype_Expand {
+}
+interface opc_allegationtype_Filter {
+}
+interface opc_allegationtype_Create extends opc_allegationtype {
+}
+interface opc_allegationtype_Update extends opc_allegationtype {
+}
 interface opc_complaint_Base extends WebEntity {
 }
 interface opc_complaint_Fixed extends WebEntity_Fixed {
@@ -4700,29 +5619,6 @@ interface opc_complaint_Filter {
 interface opc_complaint_Create extends opc_complaint {
 }
 interface opc_complaint_Update extends opc_complaint {
-}
-interface opc_complaints_allegations_Base extends WebEntity {
-}
-interface opc_complaints_allegations_Fixed extends WebEntity_Fixed {
-  opc_complaints_allegationsid: string;
-}
-interface opc_complaints_allegations extends opc_complaints_allegations_Base, opc_complaints_allegations_Relationships {
-}
-interface opc_complaints_allegations_Relationships {
-}
-interface opc_complaints_allegations_Result extends opc_complaints_allegations_Base, opc_complaints_allegations_Relationships {
-}
-interface opc_complaints_allegations_FormattedResult {
-}
-interface opc_complaints_allegations_Select {
-}
-interface opc_complaints_allegations_Expand {
-}
-interface opc_complaints_allegations_Filter {
-}
-interface opc_complaints_allegations_Create extends opc_complaints_allegations {
-}
-interface opc_complaints_allegations_Update extends opc_complaints_allegations {
 }
 interface opc_complaintsrelatedtopics_Base extends WebEntity {
 }
@@ -4816,6 +5712,29 @@ interface opc_legislation_Create extends opc_legislation {
 }
 interface opc_legislation_Update extends opc_legislation {
 }
+interface opc_notification_Base extends WebEntity {
+}
+interface opc_notification_Fixed extends WebEntity_Fixed {
+  opc_notificationid: string;
+}
+interface opc_notification extends opc_notification_Base, opc_notification_Relationships {
+}
+interface opc_notification_Relationships {
+}
+interface opc_notification_Result extends opc_notification_Base, opc_notification_Relationships {
+}
+interface opc_notification_FormattedResult {
+}
+interface opc_notification_Select {
+}
+interface opc_notification_Expand {
+}
+interface opc_notification_Filter {
+}
+interface opc_notification_Create extends opc_notification {
+}
+interface opc_notification_Update extends opc_notification {
+}
 interface opc_recommendation_Base extends WebEntity {
 }
 interface opc_recommendation_Fixed extends WebEntity_Fixed {
@@ -4838,6 +5757,29 @@ interface opc_recommendation_Filter {
 interface opc_recommendation_Create extends opc_recommendation {
 }
 interface opc_recommendation_Update extends opc_recommendation {
+}
+interface opc_reminder_Base extends WebEntity {
+}
+interface opc_reminder_Fixed extends WebEntity_Fixed {
+  opc_reminderid: string;
+}
+interface opc_reminder extends opc_reminder_Base, opc_reminder_Relationships {
+}
+interface opc_reminder_Relationships {
+}
+interface opc_reminder_Result extends opc_reminder_Base, opc_reminder_Relationships {
+}
+interface opc_reminder_FormattedResult {
+}
+interface opc_reminder_Select {
+}
+interface opc_reminder_Expand {
+}
+interface opc_reminder_Filter {
+}
+interface opc_reminder_Create extends opc_reminder {
+}
+interface opc_reminder_Update extends opc_reminder {
 }
 interface opc_RiskAppetite_Base extends WebEntity {
 }
@@ -6364,14 +7306,10 @@ interface opc_allegation_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
-  opc_acronym?: string | null;
   opc_allegationdisposition?: opc_allegationdisposition | null;
   opc_allegationid?: string | null;
   opc_description?: string | null;
-  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
-  opc_nameenglish?: string | null;
-  opc_namefrench?: string | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_allegation_statecode | null;
   statuscode?: opc_allegation_statuscode | null;
@@ -6380,9 +7318,10 @@ interface opc_allegation_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface opc_allegation_Relationships {
-  opc_complaint_allegations_complaints?: opc_complaint_Result[] | null;
 }
 interface opc_allegation extends opc_allegation_Base, opc_allegation_Relationships {
+  opc_allegationtypeid_bind$opc_allegationtypes?: string | null;
+  opc_complaintid_bind$opc_complaints?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -6398,14 +7337,12 @@ interface opc_allegation_Select {
   modifiedby_guid: WebAttribute<opc_allegation_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_allegation_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_allegation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_acronym: WebAttribute<opc_allegation_Select, { opc_acronym: string | null }, {  }>;
   opc_allegationdisposition: WebAttribute<opc_allegation_Select, { opc_allegationdisposition: opc_allegationdisposition | null }, { opc_allegationdisposition_formatted?: string }>;
   opc_allegationid: WebAttribute<opc_allegation_Select, { opc_allegationid: string | null }, {  }>;
+  opc_allegationtypeid_guid: WebAttribute<opc_allegation_Select, { opc_allegationtypeid_guid: string | null }, { opc_allegationtypeid_formatted?: string }>;
+  opc_complaintid_guid: WebAttribute<opc_allegation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
   opc_description: WebAttribute<opc_allegation_Select, { opc_description: string | null }, {  }>;
-  opc_islocalizable: WebAttribute<opc_allegation_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
-  opc_nameenglish: WebAttribute<opc_allegation_Select, { opc_nameenglish: string | null }, {  }>;
-  opc_namefrench: WebAttribute<opc_allegation_Select, { opc_namefrench: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_allegation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_allegation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_allegation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -6425,14 +7362,12 @@ interface opc_allegation_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
-  opc_acronym: string;
   opc_allegationdisposition: opc_allegationdisposition;
   opc_allegationid: XQW.Guid;
+  opc_allegationtypeid_guid: XQW.Guid;
+  opc_complaintid_guid: XQW.Guid;
   opc_description: string;
-  opc_islocalizable: boolean;
   opc_name: string;
-  opc_nameenglish: string;
-  opc_namefrench: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -6445,7 +7380,8 @@ interface opc_allegation_Filter {
   versionnumber: number;
 }
 interface opc_allegation_Expand {
-  opc_complaint_allegations_complaints: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaint_allegations_complaints: opc_complaint_Result[] }>;
+  opc_allegationtypeid: WebExpand<opc_allegation_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_allegationtypeid: opc_allegationtype_Result }>;
+  opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
 }
 interface opc_allegation_FormattedResult {
   createdby_formatted?: string;
@@ -6455,6 +7391,8 @@ interface opc_allegation_FormattedResult {
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
   opc_allegationdisposition_formatted?: string;
+  opc_allegationtypeid_formatted?: string;
+  opc_complaintid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -6469,15 +7407,18 @@ interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Rela
   createdonbehalfby_guid: string | null;
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
+  opc_allegationtypeid_guid: string | null;
+  opc_complaintid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
   owninguser_guid: string | null;
 }
 interface opc_allegation_RelatedOne {
+  opc_allegationtypeid: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface opc_allegation_RelatedMany {
-  opc_complaint_allegations_complaints: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_allegations: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
@@ -6487,6 +7428,133 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_allegations: WebMappingCUDA<opc_allegation_Create,opc_allegation_Update,opc_allegation_Select>;
+}
+interface opc_allegationtype_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_acronym?: string | null;
+  opc_allegationtypeid?: string | null;
+  opc_descriptionenglish?: string | null;
+  opc_descriptionfrench?: string | null;
+  opc_islocalizable?: boolean | null;
+  opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_allegationtype_statecode | null;
+  statuscode?: opc_allegationtype_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_allegationtype_Relationships {
+  opc_allegationtype_allegations_allegationtype?: opc_allegation_Result[] | null;
+}
+interface opc_allegationtype extends opc_allegationtype_Base, opc_allegationtype_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_allegationtype_Create extends opc_allegationtype {
+}
+interface opc_allegationtype_Update extends opc_allegationtype {
+}
+interface opc_allegationtype_Select {
+  createdby_guid: WebAttribute<opc_allegationtype_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_allegationtype_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_allegationtype_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_allegationtype_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_allegationtype_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_allegationtype_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_allegationtype_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_acronym: WebAttribute<opc_allegationtype_Select, { opc_acronym: string | null }, {  }>;
+  opc_allegationtypeid: WebAttribute<opc_allegationtype_Select, { opc_allegationtypeid: string | null }, {  }>;
+  opc_descriptionenglish: WebAttribute<opc_allegationtype_Select, { opc_descriptionenglish: string | null }, {  }>;
+  opc_descriptionfrench: WebAttribute<opc_allegationtype_Select, { opc_descriptionfrench: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_allegationtype_Select, { opc_islocalizable: boolean | null }, {  }>;
+  opc_name: WebAttribute<opc_allegationtype_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_allegationtype_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_allegationtype_Select, { opc_namefrench: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_allegationtype_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_allegationtype_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_allegationtype_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_allegationtype_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_allegationtype_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_allegationtype_Select, { statecode: opc_allegationtype_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_allegationtype_Select, { statuscode: opc_allegationtype_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_allegationtype_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_allegationtype_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_allegationtype_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_allegationtype_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_acronym: string;
+  opc_allegationtypeid: XQW.Guid;
+  opc_descriptionenglish: string;
+  opc_descriptionfrench: string;
+  opc_islocalizable: boolean;
+  opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_allegationtype_statecode;
+  statuscode: opc_allegationtype_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_allegationtype_Expand {
+  opc_allegationtype_allegations_allegationtype: WebExpand<opc_allegationtype_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationtype_allegations_allegationtype: opc_allegation_Result[] }>;
+}
+interface opc_allegationtype_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_allegationtype_Result extends opc_allegationtype_Base, opc_allegationtype_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_allegationtype_RelatedOne {
+}
+interface opc_allegationtype_RelatedMany {
+  opc_allegationtype_allegations_allegationtype: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_allegationtypes: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_allegationtypes: WebMappingRelated<opc_allegationtype_RelatedOne,opc_allegationtype_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_allegationtypes: WebMappingCUDA<opc_allegationtype_Create,opc_allegationtype_Update,opc_allegationtype_Select>;
 }
 interface opc_complaint_Base extends WebEntity {
   createdon?: Date | null;
@@ -6512,9 +7580,11 @@ interface opc_complaint_Base extends WebEntity {
 interface opc_complaint_Relationships {
   bpf_opc_complaint_opc_individualcomplaint_bp?: opc_individualcomplaint_bp_Result[] | null;
   opc_RiskAssessment_Complaint_opc_complain?: opc_RiskAssessment_Result[] | null;
-  opc_complaint_allegations_complaints?: opc_allegation_Result[] | null;
+  opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
+  opc_complaint_notifications_complaint?: opc_notification_Result[] | null;
   opc_complaint_recommendations_complaint?: opc_recommendation_Result[] | null;
+  opc_complaint_reminders_complaint?: opc_reminder_Result[] | null;
   opc_complaints_topics_relatedtopics?: opc_topic_Result[] | null;
 }
 interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships {
@@ -6602,9 +7672,11 @@ interface opc_complaint_Expand {
   opc_accountid: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_accountid: Account_Result }>;
   opc_complainant: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainant: Contact_Result }>;
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
-  opc_complaint_allegations_complaints: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaints: opc_allegation_Result[] }>;
+  opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
+  opc_complaint_notifications_complaint: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaint: opc_notification_Result[] }>;
   opc_complaint_recommendations_complaint: WebExpand<opc_complaint_Expand, opc_recommendation_Select, opc_recommendation_Filter, { opc_complaint_recommendations_complaint: opc_recommendation_Result[] }>;
+  opc_complaint_reminders_complaint: WebExpand<opc_complaint_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_complaint_reminders_complaint: opc_reminder_Result[] }>;
   opc_complaints_topics_relatedtopics: WebExpand<opc_complaint_Expand, opc_topic_Select, opc_topic_Filter, { opc_complaints_topics_relatedtopics: opc_topic_Result[] }>;
   opc_legislation: WebExpand<opc_complaint_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
 }
@@ -6655,9 +7727,11 @@ interface opc_complaint_RelatedOne {
 interface opc_complaint_RelatedMany {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
   opc_RiskAssessment_Complaint_opc_complain: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
-  opc_complaint_allegations_complaints: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  opc_complaint_notifications_complaint: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
   opc_complaint_recommendations_complaint: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  opc_complaint_reminders_complaint: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
   opc_complaints_topics_relatedtopics: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
@@ -6668,55 +7742,6 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_complaints: WebMappingCUDA<opc_complaint_Create,opc_complaint_Update,opc_complaint_Select>;
-}
-interface opc_complaints_allegations_Base extends WebEntity {
-  opc_allegationid?: string | null;
-  opc_complaintid?: string | null;
-  opc_complaints_allegationsid?: string | null;
-  versionnumber?: number | null;
-}
-interface opc_complaints_allegations_Relationships {
-  opc_complaint_allegations_complaints?: opc_complaint_Result[] | null;
-}
-interface opc_complaints_allegations extends opc_complaints_allegations_Base, opc_complaints_allegations_Relationships {
-}
-interface opc_complaints_allegations_Create extends opc_complaints_allegations {
-}
-interface opc_complaints_allegations_Update extends opc_complaints_allegations {
-}
-interface opc_complaints_allegations_Select {
-  opc_allegationid: WebAttribute<opc_complaints_allegations_Select, { opc_allegationid: string | null }, {  }>;
-  opc_complaintid: WebAttribute<opc_complaints_allegations_Select, { opc_complaintid: string | null }, {  }>;
-  opc_complaints_allegationsid: WebAttribute<opc_complaints_allegations_Select, { opc_complaints_allegationsid: string | null }, {  }>;
-  versionnumber: WebAttribute<opc_complaints_allegations_Select, { versionnumber: number | null }, {  }>;
-}
-interface opc_complaints_allegations_Filter {
-  opc_allegationid: XQW.Guid;
-  opc_complaintid: XQW.Guid;
-  opc_complaints_allegationsid: XQW.Guid;
-  versionnumber: number;
-}
-interface opc_complaints_allegations_Expand {
-  opc_complaint_allegations_complaints: WebExpand<opc_complaints_allegations_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaint_allegations_complaints: opc_complaint_Result[] }>;
-}
-interface opc_complaints_allegations_FormattedResult {
-}
-interface opc_complaints_allegations_Result extends opc_complaints_allegations_Base, opc_complaints_allegations_Relationships {
-  "@odata.etag": string;
-}
-interface opc_complaints_allegations_RelatedOne {
-}
-interface opc_complaints_allegations_RelatedMany {
-  opc_complaint_allegations_complaints: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-}
-interface WebEntitiesRetrieve {
-  opc_complaints_allegationsset: WebMappingRetrieve<opc_complaints_allegations_Select,opc_complaints_allegations_Expand,opc_complaints_allegations_Filter,opc_complaints_allegations_Fixed,opc_complaints_allegations_Result,opc_complaints_allegations_FormattedResult>;
-}
-interface WebEntitiesRelated {
-  opc_complaints_allegationsset: WebMappingRelated<opc_complaints_allegations_RelatedOne,opc_complaints_allegations_RelatedMany>;
-}
-interface WebEntitiesCUDA {
-  opc_complaints_allegationsset: WebMappingCUDA<opc_complaints_allegations_Create,opc_complaints_allegations_Update,opc_complaints_allegations_Select>;
 }
 interface opc_complaintsrelatedtopics_Base extends WebEntity {
   opc_complaintid?: string | null;
@@ -7115,6 +8140,122 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   opc_legislations: WebMappingCUDA<opc_legislation_Create,opc_legislation_Update,opc_legislation_Select>;
 }
+interface opc_notification_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_name?: string | null;
+  opc_notificationid?: string | null;
+  opc_notifybyemail?: boolean | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_notification_statecode | null;
+  statuscode?: opc_notification_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_notification_Relationships {
+}
+interface opc_notification extends opc_notification_Base, opc_notification_Relationships {
+  opc_complaintid_bind$opc_complaints?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_notification_Create extends opc_notification {
+}
+interface opc_notification_Update extends opc_notification {
+}
+interface opc_notification_Select {
+  createdby_guid: WebAttribute<opc_notification_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_notification_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_notification_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_notification_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_notification_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_notification_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_notification_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_complaintid_guid: WebAttribute<opc_notification_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
+  opc_name: WebAttribute<opc_notification_Select, { opc_name: string | null }, {  }>;
+  opc_notificationid: WebAttribute<opc_notification_Select, { opc_notificationid: string | null }, {  }>;
+  opc_notifybyemail: WebAttribute<opc_notification_Select, { opc_notifybyemail: boolean | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_notification_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_notification_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_notification_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_notification_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_notification_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_notification_Select, { statecode: opc_notification_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_notification_Select, { statuscode: opc_notification_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_notification_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_notification_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_notification_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_notification_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_complaintid_guid: XQW.Guid;
+  opc_name: string;
+  opc_notificationid: XQW.Guid;
+  opc_notifybyemail: boolean;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_notification_statecode;
+  statuscode: opc_notification_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_notification_Expand {
+  opc_complaintid: WebExpand<opc_notification_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+}
+interface opc_notification_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_complaintid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_notification_Result extends opc_notification_Base, opc_notification_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_complaintid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_notification_RelatedOne {
+  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface opc_notification_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  opc_notifications: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_notifications: WebMappingRelated<opc_notification_RelatedOne,opc_notification_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_notifications: WebMappingCUDA<opc_notification_Create,opc_notification_Update,opc_notification_Select>;
+}
 interface opc_recommendation_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
@@ -7227,6 +8368,135 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_recommendations: WebMappingCUDA<opc_recommendation_Create,opc_recommendation_Update,opc_recommendation_Select>;
+}
+interface opc_reminder_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_name?: string | null;
+  opc_notifyadditionalusers?: boolean | null;
+  opc_notifybyemail?: boolean | null;
+  opc_notifycaseowner?: boolean | null;
+  opc_notifyme?: boolean | null;
+  opc_reminderdate?: Date | null;
+  opc_reminderid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_reminder_statecode | null;
+  statuscode?: opc_reminder_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_reminder_Relationships {
+}
+interface opc_reminder extends opc_reminder_Base, opc_reminder_Relationships {
+  opc_complaintid_bind$opc_complaints?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_reminder_Create extends opc_reminder {
+}
+interface opc_reminder_Update extends opc_reminder {
+}
+interface opc_reminder_Select {
+  createdby_guid: WebAttribute<opc_reminder_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_reminder_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_reminder_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_reminder_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_reminder_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_reminder_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_reminder_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_complaintid_guid: WebAttribute<opc_reminder_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
+  opc_name: WebAttribute<opc_reminder_Select, { opc_name: string | null }, {  }>;
+  opc_notifyadditionalusers: WebAttribute<opc_reminder_Select, { opc_notifyadditionalusers: boolean | null }, {  }>;
+  opc_notifybyemail: WebAttribute<opc_reminder_Select, { opc_notifybyemail: boolean | null }, {  }>;
+  opc_notifycaseowner: WebAttribute<opc_reminder_Select, { opc_notifycaseowner: boolean | null }, {  }>;
+  opc_notifyme: WebAttribute<opc_reminder_Select, { opc_notifyme: boolean | null }, {  }>;
+  opc_reminderdate: WebAttribute<opc_reminder_Select, { opc_reminderdate: Date | null }, { opc_reminderdate_formatted?: string }>;
+  opc_reminderid: WebAttribute<opc_reminder_Select, { opc_reminderid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_reminder_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_reminder_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_reminder_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_reminder_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_reminder_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_reminder_Select, { statecode: opc_reminder_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_reminder_Select, { statuscode: opc_reminder_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_reminder_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_reminder_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_reminder_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_reminder_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_complaintid_guid: XQW.Guid;
+  opc_name: string;
+  opc_notifyadditionalusers: boolean;
+  opc_notifybyemail: boolean;
+  opc_notifycaseowner: boolean;
+  opc_notifyme: boolean;
+  opc_reminderdate: Date;
+  opc_reminderid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_reminder_statecode;
+  statuscode: opc_reminder_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_reminder_Expand {
+  opc_complaintid: WebExpand<opc_reminder_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+}
+interface opc_reminder_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_complaintid_formatted?: string;
+  opc_reminderdate_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_reminder_Result extends opc_reminder_Base, opc_reminder_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_complaintid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_reminder_RelatedOne {
+  opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface opc_reminder_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  opc_reminders: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_reminders: WebMappingRelated<opc_reminder_RelatedOne,opc_reminder_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_reminders: WebMappingCUDA<opc_reminder_Create,opc_reminder_Update,opc_reminder_Select>;
 }
 interface opc_RiskAppetite_Base extends WebEntity {
   createdon?: Date | null;
