@@ -3,6 +3,18 @@
   <Name LocalizedName="Contact" OriginalName="">Contact</Name>
   <EntityInfo>
     <entity Name="Contact">
+      <LocalizedNames>
+        <LocalizedName description="Contact" languagecode="1033" />
+        <LocalizedName description="Contact" languagecode="1036" />
+      </LocalizedNames>
+      <LocalizedCollectionNames>
+        <LocalizedCollectionName description="Contacts" languagecode="1033" />
+        <LocalizedCollectionName description="Contacts" languagecode="1036" />
+      </LocalizedCollectionNames>
+      <Descriptions>
+        <Description description="Person with whom a business unit has a relationship, such as customer, supplier, and colleague." languagecode="1033" />
+        <Description description="Personne liée à une division, telle qu'un client, un fournisseur ou un collègue." languagecode="1036" />
+      </Descriptions>
       <attributes>
         <attribute PhysicalName="opc_duplicatedetectionresult">
           <Type>picklist</Type>
@@ -70,8 +82,8 @@
           <MaxLength>50</MaxLength>
           <Length>100</Length>
           <displaynames>
-            <displayname description="Téléphone professionel" languagecode="1036" />
             <displayname description="Primary Phone" languagecode="1033" />
+            <displayname description="Téléphone professionel" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the main phone number for this contact." languagecode="1033" />
@@ -105,8 +117,8 @@
           <MaxLength>50</MaxLength>
           <Length>100</Length>
           <displaynames>
-            <displayname description="Téléphone personnel" languagecode="1036" />
             <displayname description="Secondary Phone" languagecode="1033" />
+            <displayname description="Téléphone personnel" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type a second phone number for this contact." languagecode="1033" />
