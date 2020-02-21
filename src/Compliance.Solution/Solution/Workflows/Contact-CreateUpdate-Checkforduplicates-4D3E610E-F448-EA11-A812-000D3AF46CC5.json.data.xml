@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{da27e040-5247-ea11-a812-000d3af46b49}" Name="Risk Assessment - Create - Generate Risk Assessment Categories based on templates" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/RiskAssessment-Create-GenerateRiskAssessmentCatego-DA27E040-5247-EA11-A812-000D3AF46B49.json</JsonFileName>
+<Workflow WorkflowId="{4d3e610e-f448-ea11-a812-000d3af46cc5}" Name="Contact - Create/Update - Check for duplicates" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/Contact-CreateUpdate-Checkforduplicates-4D3E610E-F448-EA11-A812-000D3AF46CC5.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -19,6 +19,6 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Risk Assessment - Create - Generate Risk Assessment Categories based on templates" />
+    <LocalizedName languagecode="1033" description="Contact - Create/Update - Check for duplicates" />
   </LocalizedNames>
 </Workflow>
