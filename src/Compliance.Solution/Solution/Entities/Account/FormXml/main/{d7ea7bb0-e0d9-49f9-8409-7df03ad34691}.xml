@@ -233,7 +233,7 @@
             </column>
             <column width="25%">
               <sections>
-                <section name="Summary_section_6" showlabel="false" showbar="false" locklevel="0" id="{ea3bb0a6-b9dc-1b0e-5e7d-74a380ee79a3}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{e983ca73-ae53-4e51-baf7-6e5adacfe97f}">
+                <section name="section_assistant" showlabel="false" showbar="false" locklevel="0" id="{ea3bb0a6-b9dc-1b0e-5e7d-74a380ee79a3}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{e983ca73-ae53-4e51-baf7-6e5adacfe97f}">
                   <labels>
                     <label description="Assistant" languagecode="1033" />
                     <label description="Assistant" languagecode="1036" />

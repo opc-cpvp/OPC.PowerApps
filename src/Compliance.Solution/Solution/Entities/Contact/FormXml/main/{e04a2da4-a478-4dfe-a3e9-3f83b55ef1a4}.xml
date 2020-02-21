@@ -203,7 +203,7 @@
             </column>
             <column width="42%">
               <sections>
-                <section name="section_Timeline" showlabel="false" showbar="false" id="{bea579b8-8901-77b0-1128-351760e68bd4}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" labelid="{b4c61e64-c200-4f14-892f-bd7d688aa7ca}" locklevel="0" celllabelalignment="Left">
+                <section name="section_timeline" showlabel="false" showbar="false" id="{bea579b8-8901-77b0-1128-351760e68bd4}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" labelid="{b4c61e64-c200-4f14-892f-bd7d688aa7ca}" locklevel="0" celllabelalignment="Left">
                   <labels>
                     <label description="Timeline" languagecode="1033" />
                     <label description="VOLET SOCIAL" languagecode="1036" />
@@ -265,7 +265,7 @@
             </column>
             <column width="25%">
               <sections>
-                <section name="Summary_section_6" showlabel="false" showbar="false" locklevel="0" id="{ea3bb0a6-b9dc-1b0e-5e7d-74a380ee79a3}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{095a863f-44cd-4957-b0b8-9b49a1afdde3}">
+                <section name="section_assistant" showlabel="false" showbar="false" locklevel="0" id="{ea3bb0a6-b9dc-1b0e-5e7d-74a380ee79a3}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{095a863f-44cd-4957-b0b8-9b49a1afdde3}">
                   <labels>
                     <label description="Assistant" languagecode="1033" />
                     <label description="Assistant" languagecode="1036" />
