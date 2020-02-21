@@ -233,43 +233,6 @@
             </column>
             <column width="25%">
               <sections>
-                <section name="section_assistant" showlabel="false" showbar="false" locklevel="0" id="{ea3bb0a6-b9dc-1b0e-5e7d-74a380ee79a3}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{e983ca73-ae53-4e51-baf7-6e5adacfe97f}">
-                  <labels>
-                    <label description="Assistant" languagecode="1033" />
-                    <label description="Assistant" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{2D126B5E-B0BB-436D-A8B3-B8A7C6E1F5A9}" showlabel="false" rowspan="6" auto="false" colspan="1" labelid="{e4dbfce6-32fa-41f3-a4f1-b74e6c57e5aa}">
-                        <labels>
-                          <label description="Assistant" languagecode="1033" />
-                          <label description="Assistant" languagecode="1036" />
-                        </labels>
-                        <control id="ActionCards" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{3ff9a528-dd50-4aca-8f10-2e5ed73513ad}" disabled="false">
-                          <parameters>
-                            <ViewId>{92AFD454-0F2E-4397-A1C8-05E37C6AD699}</ViewId>
-                            <IsUserView>false</IsUserView>
-                            <RelationshipName />
-                            <TargetEntityType>actioncard</TargetEntityType>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <ChartGridMode>All</ChartGridMode>
-                            <VisualizationId />
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>false</EnableChartPicker>
-                            <RecordsPerPage>4</RecordsPerPage>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
                 <section name="section_contacts" showlabel="false" showbar="false" locklevel="0" id="{d4c3ee9c-ba71-5cdb-31be-2aa505750472}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top" labelid="{25729372-abe7-4a82-904a-569805d040dc}">
                   <labels>
                     <label description="Contacts" languagecode="1033" />

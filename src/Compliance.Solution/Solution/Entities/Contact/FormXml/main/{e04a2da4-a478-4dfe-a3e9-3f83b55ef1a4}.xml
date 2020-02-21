@@ -203,7 +203,7 @@
             </column>
             <column width="42%">
               <sections>
-                <section name="section_timeline" showlabel="false" showbar="false" id="{bea579b8-8901-77b0-1128-351760e68bd4}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" labelid="{b4c61e64-c200-4f14-892f-bd7d688aa7ca}" locklevel="0" celllabelalignment="Left">
+                <section name="section_Timeline" showlabel="false" showbar="false" id="{bea579b8-8901-77b0-1128-351760e68bd4}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" labelid="{b4c61e64-c200-4f14-892f-bd7d688aa7ca}" locklevel="0" celllabelalignment="Left">
                   <labels>
                     <label description="Timeline" languagecode="1033" />
                     <label description="VOLET SOCIAL" languagecode="1036" />
@@ -264,45 +264,7 @@
               </sections>
             </column>
             <column width="25%">
-              <sections>
-                <section name="section_assistant" showlabel="false" showbar="false" locklevel="0" id="{ea3bb0a6-b9dc-1b0e-5e7d-74a380ee79a3}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{095a863f-44cd-4957-b0b8-9b49a1afdde3}">
-                  <labels>
-                    <label description="Assistant" languagecode="1033" />
-                    <label description="Assistant" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{00CE0F9B-6162-4760-BE86-9353C6F9C06D}" showlabel="false" rowspan="6" auto="false" colspan="1" labelid="{b0b5bc66-9609-4cbb-a7de-97ca3382c914}">
-                        <labels>
-                          <label description="Assistant" languagecode="1033" />
-                          <label description="Assistant" languagecode="1036" />
-                        </labels>
-                        <control id="ActionCards" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{3ff9a528-dd50-4aca-8f10-2e5ed73513ad}" disabled="false">
-                          <parameters>
-                            <ViewId>{92AFD454-0F2E-4397-A1C8-05E37C6AD699}</ViewId>
-                            <IsUserView>false</IsUserView>
-                            <RelationshipName />
-                            <TargetEntityType>actioncard</TargetEntityType>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <ChartGridMode>All</ChartGridMode>
-                            <VisualizationId />
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>false</EnableChartPicker>
-                            <RecordsPerPage>4</RecordsPerPage>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
-              </sections>
+              <sections></sections>
             </column>
           </columns>
         </tab>
