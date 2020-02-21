@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping>
   <FileToFile map="WebResources\opc_\compliance\js\compliance.min.js" to="..\..\Compliance.WebResources\dist\compliance.min.js" />
+  <FileToFile map="WebResources\opc_compliance\css\risk_assessment_control.css" to="..\..\Compliance.WebResources\src\controls\RiskAssessment\RiskAssessmentControl.css" />
+  <FileToFile map="WebResources\opc_compliance\risk_assessment_control.html" to="..\..\Compliance.WebResources\src\controls\RiskAssessment\RiskAssessmentControl.html" />
   <FileToFile map="CompliancePlugins.dll" to="..\..\Compliance.Plugins\bin\ILRepack\Compliance.Plugins.dll" />
 </Mapping>
