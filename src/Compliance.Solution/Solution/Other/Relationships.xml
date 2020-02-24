@@ -18,6 +18,7 @@
   <EntityRelationship Name="business_unit_opc_riskassessmentdefinitiontemplate" />
   <EntityRelationship Name="business_unit_opc_riskassessmentfactortemplate" />
   <EntityRelationship Name="business_unit_opc_riskassessmenttype" />
+  <EntityRelationship Name="business_unit_opc_sector" />
   <EntityRelationship Name="business_unit_opc_theme" />
   <EntityRelationship Name="business_unit_opc_topic" />
   <EntityRelationship Name="lk_opc_allegation_createdby" />
@@ -58,6 +59,8 @@
   <EntityRelationship Name="lk_opc_riskassessmentfactortemplate_modifiedby" />
   <EntityRelationship Name="lk_opc_riskassessmenttype_createdby" />
   <EntityRelationship Name="lk_opc_riskassessmenttype_modifiedby" />
+  <EntityRelationship Name="lk_opc_sector_createdby" />
+  <EntityRelationship Name="lk_opc_sector_modifiedby" />
   <EntityRelationship Name="lk_opc_theme_createdby" />
   <EntityRelationship Name="lk_opc_theme_modifiedby" />
   <EntityRelationship Name="lk_opc_topic_createdby" />
@@ -94,6 +97,8 @@
   <EntityRelationship Name="opc_RiskAssessmentDefinition_RiskAssessmentFa" />
   <EntityRelationship Name="opc_RiskAssessmentDefinitionTemplate_Risk" />
   <EntityRelationship Name="opc_RiskAssessmentFactorTemplate_RiskAsse" />
+  <EntityRelationship Name="opc_sector_complaints_sector" />
+  <EntityRelationship Name="opc_sector_parentsectorid_sectors" />
   <EntityRelationship Name="opc_theme_topics_themeid" />
   <EntityRelationship Name="organization_opc_individualcomplaint_bp" />
   <EntityRelationship Name="owner_opc_allegation" />
@@ -113,6 +118,7 @@
   <EntityRelationship Name="owner_opc_riskassessmentdefinitiontemplate" />
   <EntityRelationship Name="owner_opc_riskassessmentfactortemplate" />
   <EntityRelationship Name="owner_opc_riskassessmenttype" />
+  <EntityRelationship Name="owner_opc_sector" />
   <EntityRelationship Name="owner_opc_theme" />
   <EntityRelationship Name="owner_opc_topic" />
   <EntityRelationship Name="team_opc_allegation" />
@@ -132,6 +138,7 @@
   <EntityRelationship Name="team_opc_riskassessmentdefinitiontemplate" />
   <EntityRelationship Name="team_opc_riskassessmentfactortemplate" />
   <EntityRelationship Name="team_opc_riskassessmenttype" />
+  <EntityRelationship Name="team_opc_sector" />
   <EntityRelationship Name="team_opc_theme" />
   <EntityRelationship Name="team_opc_topic" />
   <EntityRelationship Name="user_opc_allegation" />
@@ -151,6 +158,7 @@
   <EntityRelationship Name="user_opc_riskassessmentdefinitiontemplate" />
   <EntityRelationship Name="user_opc_riskassessmentfactortemplate" />
   <EntityRelationship Name="user_opc_riskassessmenttype" />
+  <EntityRelationship Name="user_opc_sector" />
   <EntityRelationship Name="user_opc_theme" />
   <EntityRelationship Name="user_opc_topic" />
 </EntityRelationships>
