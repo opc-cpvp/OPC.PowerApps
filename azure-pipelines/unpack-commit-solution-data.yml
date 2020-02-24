@@ -7,29 +7,29 @@ pool:
 
 variables:
   SolutionName: 'Compliance'
+  crm.username: 'SVC_OPC_CRM_Admin@priv.gc.ca'
   
 steps:
 - checkout: self
   persistCredentials: true
   
-- task: opc-cpvp.opc-powerapps-buildtools.opc-powerapps-tool-installer.PowerAppsToolInstaller@1
-  displayName: 'OPC - PowerApps Tool Installer'
-  inputs:
-    powershellServiceConnections: 'OPC-PowerShell'
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
+  displayName: 'MSCRM Tool Installer'
 
-- task: opc-cpvp.opc-powerapps-buildtools.opc-powerapps-export-environment-data.PowerAppsExportEnvironmentData@1
-  displayName: 'OPC - PowerApps Export Environment Data'
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportCMData.MSCRMExportCMData@9
+  displayName: 'MSCRM Export Configuration Migration Data'
   inputs:
-    PowerAppsAdminCredentials: 'PowerApps Admin'
-    EnvironmentUrl: '$(EnvironmentUrl)'
-    SchemaPath: 'src/$(SolutionName).Solution\schema.xml'
-    DataOutputPath: '$(Agent.TempDirectory)'
+    crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
+    schemaFile: src/$(SolutionName).Solution/schema.xml
+    dataFile: '$(Agent.TempDirectory)/data.zip'
 
-- task: ExtractFiles@1
-  displayName: 'Extract Data Files'
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractCMData.MSCRMExtractCMData@9
+  displayName: 'MSCRM Extract Configuration Migration Data'
   inputs:
-    archiveFilePatterns: '$(Agent.TempDirectory)\data.zip'
-    destinationFolder: 'src/$(SolutionName).Solution/Data'
+    dataFile: '$(Agent.TempDirectory)/data.zip'
+    extractFolder: src/$(SolutionName).Solution/Data
+    sortExtractedData: true
+    splitExtractedData: false
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"
