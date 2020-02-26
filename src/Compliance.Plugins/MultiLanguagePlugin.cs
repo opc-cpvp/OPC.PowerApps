@@ -57,7 +57,7 @@ namespace Compliance.Plugins
         protected string UnpackName(LocalPluginContext localContext, string name)
         {
             // Get the language of the user
-            int userLanguageId = 0;
+            int userLanguageId;
             if (localContext.PluginExecutionContext.SharedVariables.ContainsKey(UserLocaleId))
             {
                 // Get the user language from the pipeline cache
@@ -65,13 +65,21 @@ namespace Compliance.Plugins
             }
             else
             {
-                // The user language isn't cached in the pipline, so get it here
-                Entity userSettings = localContext.OrganizationService.Retrieve(
-                    userSettingsEntityName,
-                    localContext.PluginExecutionContext.InitiatingUserId,
-                    new ColumnSet(uiLanguageId));
-                userLanguageId = userSettings.GetAttributeValue<int>(uiLanguageId);
-                localContext.PluginExecutionContext.SharedVariables[uiLanguageId] = userLanguageId;
+                try
+                {
+                    // The user language isn't cached in the pipline, so get it here
+                    Entity userSettings = localContext.OrganizationService.Retrieve(
+                        userSettingsEntityName,
+                        localContext.PluginExecutionContext.InitiatingUserId,
+                        new ColumnSet(uiLanguageId));
+                    userLanguageId = userSettings.GetAttributeValue<int>(uiLanguageId);
+                }
+                catch (Exception ex)
+                {
+                    userLanguageId = languages["english"];
+                    localContext.Trace($"There was an error while trying to find the calling user's language. Defaulting to English. Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
+                }
+                localContext.PluginExecutionContext.SharedVariables[UserLocaleId] = userLanguageId;
             }
             // Remove identifying prefix
             name = name.Replace(prefix, string.Empty);
