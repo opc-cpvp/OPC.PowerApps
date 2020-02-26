@@ -17,7 +17,10 @@
     <AppModuleComponent type="60" id="{098ae145-1567-41ec-8398-86dbaac70c9b}" />
     <AppModuleComponent type="60" id="{d7ea7bb0-e0d9-49f9-8409-7df03ad34691}" />
     <AppModuleComponent type="60" id="{2205c86d-ed88-4a2f-a447-3b86a8781f2e}" />
+    <AppModuleComponent type="1" schemaName="opc_allegationtype" />
     <AppModuleComponent type="1" schemaName="opc_allegation" />
+    <AppModuleComponent type="1" schemaName="opc_checklistresponse" />
+    <AppModuleComponent type="1" schemaName="opc_checklisttype" />
     <AppModuleComponent type="1" schemaName="opc_complaint" />
     <AppModuleComponent type="1" schemaName="contact" />
     <AppModuleComponent type="60" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}" />
@@ -32,6 +35,8 @@
     <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
     <AppModuleComponent type="1" schemaName="opc_issue" />
     <AppModuleComponent type="1" schemaName="opc_notification" />
+    <AppModuleComponent type="1" schemaName="opc_questiontemplate" />
+    <AppModuleComponent type="1" schemaName="opc_questiontype" />
     <AppModuleComponent type="1" schemaName="opc_recommendation" />
     <AppModuleComponent type="1" schemaName="opc_reminder" />
     <AppModuleComponent type="1" schemaName="opc_riskappetite" />
@@ -46,8 +51,8 @@
     <AppModuleComponent type="1" schemaName="opc_topic" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
-    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
     <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
     <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
   </AppModuleRoleMaps>
   <LocalizedNames>

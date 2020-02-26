@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a8ac78cc-ec09-47ef-a856-9765e462d603}</formid>
+    <IntroducedVersion>1.0.146</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{a8e8e794-a2df-4d4a-b231-48baac6485df}" IsUserDefined="1" name="tab_general">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="Général" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{6fdaabb9-5041-4f51-8457-ac846a3c23d6}" name="section_general">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="Général" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a24c137f-f7d1-4bd1-9552-234dc89c7a6c}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{76648175-6ee0-4e1f-944b-7e8759dfad08}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Checklist Type" languagecode="1033" />
+                        </labels>
+                        <control id="opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{39a9a7fb-9715-4abb-8b76-313bd6489f9a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Parent Question Template" languagecode="1033" />
+                        </labels>
+                        <control id="opc_parentquestiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_parentquestiontemplateid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b37b53d9-daff-4d9b-a400-dce50cfea0f8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Conditional Visibility" languagecode="1033" />
+                        </labels>
+                        <control id="opc_conditionalvisibility" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_conditionalvisibility" disabled="false" uniqueid="{ada424e4-19f1-4460-a9e2-62a79b736cc7}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2e141579-cd34-4240-a79f-c5e49e983ff8}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Sequence" languagecode="1033" />
+                        </labels>
+                        <control id="opc_sequence" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_sequence" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{12e75a62-4b35-4788-b6e7-596831163ac6}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Question Type" languagecode="1033" />
+                        </labels>
+                        <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" uniqueid="{9d28e036-7a99-daa1-5317-a9913503bd56}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{3F594D71-842B-4A0C-8366-CADA29A8AB7E}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="section_checklist_responses" id="4d84c900-a7b0-4f65-a219-6fa5b43eb53a" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Checklist Responses" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{e75d0eac-0288-44c4-a869-5c902d265864}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Checklist Responses" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_checklist_responses" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_checklistresponse</TargetEntityType>
+                            <ViewId>{D91175CB-52A3-4A79-B441-3BDB09C5C436}</ViewId>
+                            <ViewIds>{D91175CB-52A3-4A79-B441-3BDB09C5C436}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_ChecklistResponse_questiontemplateid_</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="section_child_question_templates" id="6150a3f3-0a60-43c3-b748-72b9406e0ddc" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Child Question Templates" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{28892e7b-8bb2-45cc-9153-f6a2cbaee666}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Child Question Templates" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_child_question_templates" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_questiontemplate</TargetEntityType>
+                            <ViewId>{38025B05-4833-4DEB-AB37-0EDD10B2EA27}</ViewId>
+                            <ViewIds>{38025B05-4833-4DEB-AB37-0EDD10B2EA27}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_QuestionTemplate_parentquestiontempla</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{a92b5486-66fa-4395-a4b0-6e002e494bfc}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{392c9067-34d4-47db-b418-baaf8bfbc62b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3f36d56d-ea42-452d-b822-7d83d8ea2ad8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{20f91fcf-ede5-4e87-9ba9-0cd4426247e0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{31cb1d37-ab95-4421-a1c9-299bdc9de8b8}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{b15c0987-6ee1-4be7-8327-8a2021846c0c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{dfd32a13-e846-415a-a9f4-2ccd17012dd0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8d9a2b59-5f04-434a-8496-5db1e5eb50a9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c16eb453-d702-4198-b5b0-0a4a07bd0f43}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions>
+        <controlDescription forControl="{ada424e4-19f1-4460-a9e2-62a79b736cc7}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_conditionalvisibility</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_conditionalvisibility</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_conditionalvisibility</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_conditionalvisibility</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <DisplayConditions Order="0" FallbackForm="true" />
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

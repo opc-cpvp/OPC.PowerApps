@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{2af2552c-229b-4aff-a057-e5950f8dbaa8}</formid>
+    <IntroducedVersion>1.0.146</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{adf6fcfe-157b-4d45-b2f1-4c401a7f056d}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{8e0f6605-e363-40c2-97c3-2a0e4d293db1}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                    <label description="GÉNÉRAL" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a9a9a337-eb5c-4a7c-b985-b2de699ae6aa}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8ccba04b-a771-d248-bc42-8c207199025b}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Checklist Type" languagecode="1033" />
+                        </labels>
+                        <control id="opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{03ac6426-51eb-405c-207d-ad7300099b59}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Question Type" languagecode="1033" />
+                        </labels>
+                        <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{31d03c4d-1121-4103-b352-da364c31d4e7}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

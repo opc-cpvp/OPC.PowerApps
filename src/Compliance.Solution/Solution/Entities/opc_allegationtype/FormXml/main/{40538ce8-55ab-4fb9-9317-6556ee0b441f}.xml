@@ -62,17 +62,18 @@
                         <control id="opc_descriptionfrench" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_descriptionfrench" disabled="false" />
                       </cell>
                     </row>
-                    <row></row>
+                    <row />
+                    <row />
+                    <row />
                     <row />
                     <row>
-                      <cell showlabel="true" locklevel="0" id="{f9fd5c50-1ba5-454f-8819-d87372c8f904}">
+                      <cell id="{7be40479-251e-4b2a-88a1-c8a7c1134757}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Checklist Type" languagecode="1033" />
                         </labels>
+                        <control id="opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
                       </cell>
-                    </row>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{4dd3d3dc-0c9c-43d6-98d1-727d088e909e}">
+                      <cell id="{c92a15eb-b766-55eb-4c69-416ba232508b}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -86,7 +87,7 @@
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
-                      <cell id="{c92a15eb-b766-55eb-4c69-416ba232508b}" showlabel="false">
+                      <cell id="{b0ed9244-1147-836b-c31c-e71378a37111}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -99,7 +100,7 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
                       </cell>
-                      <cell id="{b0ed9244-1147-836b-c31c-e71378a37111}" showlabel="false">
+                      <cell showlabel="true" locklevel="0" id="{00ee08ad-4193-4876-8451-34a1c44c3437}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -155,7 +156,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{38025b05-4833-4deb-ab37-0edd10b2ea27}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_questiontemplateid">
+          <cell name="opc_sequence" width="100" />
+          <cell name="opc_name" width="300" />
+          <cell name="opc_questiontypeid" width="204" />
+          <cell name="opc_parentquestiontemplateid" width="244" />
+          <cell name="opc_checklisttypeid" width="229" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_questiontemplate">
+          <attribute name="opc_questiontemplateid" />
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="opc_checklisttypeid" />
+          <attribute name="opc_parentquestiontemplateid" />
+          <attribute name="opc_questiontypeid" />
+          <attribute name="opc_sequence" />
+          <order attribute="opc_checklisttypeid" descending="false" />
+          <order attribute="opc_sequence" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.146</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Question Templates" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d2d0995f-a058-ea11-a811-000d3af46cc5}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_checklistresponseid">
+          <cell name="opc_sequence" width="100" />
+          <cell name="opc_questiontemplateid" width="300" />
+          <cell name="opc_response" width="300" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_checklistresponse">
+          <attribute name="opc_checklistresponseid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="opc_response" />
+          <attribute name="opc_questiontemplateid" />
+          <attribute name="opc_sequence" />
+          <order attribute="opc_sequence" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.146</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Allegation Checklist Responses" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

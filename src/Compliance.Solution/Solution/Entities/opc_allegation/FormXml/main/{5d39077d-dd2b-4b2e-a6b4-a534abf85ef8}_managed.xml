@@ -66,6 +66,29 @@
                     </row>
                   </rows>
                 </section>
+                <section name="section_checklist_responses" id="b98a32cd-c4bf-4c25-b19d-bf871bcd7a85" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Checklist Responses" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{90c15352-a737-4b23-b38f-4dbdc05e43aa}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Checklist Responses" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_checklist_responses" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_checklistresponse</TargetEntityType>
+                            <ViewId>{D2D0995F-A058-EA11-A811-000D3AF46CC5}</ViewId>
+                            <ViewIds>{D91175CB-52A3-4A79-B441-3BDB09C5C436},{D2D0995F-A058-EA11-A811-000D3AF46CC5}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_ChecklistResponse_allegationid_opc_al</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
               </sections>
             </column>
           </columns>
