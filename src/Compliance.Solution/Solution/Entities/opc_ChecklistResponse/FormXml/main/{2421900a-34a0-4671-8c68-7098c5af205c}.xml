@@ -30,30 +30,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{ac88d496-eb83-40c3-8e84-c6bf9770ff9a}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Allegation" languagecode="1033" />
-                        </labels>
-                        <control id="opc_allegationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{e1c93047-8a84-4d2c-b3ef-a0bb6f086c56}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Sequence" languagecode="1033" />
-                        </labels>
-                        <control id="opc_sequence" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_sequence" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{27208a65-64c4-41b5-b225-5f6214f00256}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Question Template" languagecode="1033" />
-                        </labels>
-                        <control id="opc_questiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontemplateid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{bf3f0b73-0ff8-420b-8625-e5f8f9fe3c23}" showlabel="true" locklevel="0" rowspan="5" auto="true">
                         <labels>
                           <label description="Response" languagecode="1033" />
@@ -96,6 +72,18 @@
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+            <cell id="{ac88d496-eb83-40c3-8e84-c6bf9770ff9a}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Allegation" languagecode="1033" />
+              </labels>
+              <control id="header_opc_allegationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationid" disabled="false" />
+            </cell>
+            <cell id="{27208a65-64c4-41b5-b225-5f6214f00256}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Question Template" languagecode="1033" />
+              </labels>
+              <control id="header_opc_questiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontemplateid" disabled="false" />
             </cell>
           </row>
         </rows>

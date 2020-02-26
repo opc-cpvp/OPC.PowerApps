@@ -36,14 +36,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{20bc309b-9e16-4908-beb3-ada0d6b97013}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Sequence" languagecode="1033" />
-                        </labels>
-                        <control id="opc_sequence" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_sequence" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{00828ada-1b47-492d-a873-d86b70464688}" showlabel="true" locklevel="0" labelid="{46ed47fb-4659-43aa-981d-a6560b5991e2}">
                         <labels>
                           <label description="Question Template" languagecode="1033" />

@@ -10,8 +10,7 @@
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_checklistresponseid">
-          <cell name="opc_sequence" width="100" />
-          <cell name="opc_questiontemplateid" width="300" />
+          <cell name="opc_name" width="300" />
           <cell name="opc_response" width="300" />
         </row>
       </grid>
@@ -25,9 +24,8 @@
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
           <attribute name="opc_response" />
-          <attribute name="opc_questiontemplateid" />
-          <attribute name="opc_sequence" />
-          <order attribute="opc_sequence" descending="false" />
+          <attribute name="opc_name" />
+          <order attribute="opc_name" descending="false" />
         </entity>
       </fetch>
     </fetchxml>
