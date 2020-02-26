@@ -22,6 +22,13 @@
         </Titles>
         <SubArea Id="subarea_complaints" IntroducedVersion="7.0.0.0" Entity="opc_complaint" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
+      <Group Id="group_stakeholders" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+        <Titles>
+          <Title LCID="1033" Title="Stakeholders" />
+        </Titles>
+        <SubArea Id="subarea_accounts" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="account" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_contacts" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="contact" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+      </Group>
     </Area>
     <Area Id="area_app_settings" ResourceId="SitemapDesigner.NewArea" ShowGroups="false">
       <Titles>

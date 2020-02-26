@@ -2211,7 +2211,7 @@ declare namespace Xrm {
         /**
          * The name of the web resource to load.
          */
-        webResourceName?: string;
+        webresourceName?: string;
     }
 
     const enum NavigationOptionsTarget {
@@ -2646,8 +2646,17 @@ declare namespace Xrm {
     /**
      * Interface for an standard entity attribute.
      */
-    interface Attribute<T> {
-        isValid(): boolean;
+  interface Attribute<T> {
+
+      /**
+       * Returns a boolean value to indicate whether the value of an attribute is valid.
+       */
+      isValid(): boolean;
+
+      /**
+       * Sets a value for an attribute to determine whether it is valid or invalid with a message.
+       */
+      setIsValid(bool: boolean, message?: string);
     }
 
     /**
@@ -2882,7 +2891,7 @@ declare namespace Xrm {
         Subgrid = 2,
     }
 
-    const enum ClientType {
+    const enum SubGridControlClientType {
         Browser = 0,
         MobileApplication = 1,
     }
@@ -2906,7 +2915,7 @@ declare namespace Xrm {
         /**
          * Gets the URL of the current grid control.
          */
-        getUrl(client?: ClientType): string;
+        getUrl(client?: SubGridControlClientType): string;
 
         /**
          * Gets the URL of the current grid control.

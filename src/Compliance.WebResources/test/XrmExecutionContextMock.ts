@@ -38,7 +38,7 @@ export class XrmExecutionContextMock<T, TArgs> implements Xrm.ExecutionContext<T
         throw new Error("Method not implemented.");
     }
 
-    public getFormContext(): XrmPageBaseMock<T, TArgs> {
+    getFormContext(): XrmPageBaseMock<T, TArgs> {
         return this._formContext;
     }
 }

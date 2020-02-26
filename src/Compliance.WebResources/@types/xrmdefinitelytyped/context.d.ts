@@ -263,6 +263,14 @@ declare const enum opc_allegation_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum opc_allegationtype_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_allegationtype_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum opc_complaint_statecode {
   Active = 0,
   Inactive = 1,
@@ -343,6 +351,70 @@ declare const enum opc_reminder_statecode {
   Inactive = 1,
 }
 declare const enum opc_reminder_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_riskappetite_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_riskappetite_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_riskassessment_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_riskassessment_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_riskassessmentcategory_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_riskassessmentcategory_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_riskassessmentcategorytemplate_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_riskassessmentcategorytemplate_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_riskassessmentdefinition_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_riskassessmentdefinition_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_riskassessmentdefinitiontemplate_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_riskassessmentdefinitiontemplate_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_riskassessmentfactortemplate_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_riskassessmentfactortemplate_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_riskassessmenttype_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_riskassessmenttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
@@ -837,6 +909,265 @@ declare namespace Form.account.Quick {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.account.Main {
+  namespace Information {
+    namespace Tabs {
+      interface administration extends Xrm.SectionCollectionBase {
+        get(name: "contact methods"): Xrm.PageSection;
+        get(name: "internal information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface contacts extends Xrm.SectionCollectionBase {
+        get(name: "contacts"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface details extends Xrm.SectionCollectionBase {
+        get(name: "billing information"): Xrm.PageSection;
+        get(name: "description_2"): Xrm.PageSection;
+        get(name: "professional information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "account information"): Xrm.PageSection;
+        get(name: "address"): Xrm.PageSection;
+        get(name: "description"): Xrm.PageSection;
+        get(name: "shipping information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface notesandactivities extends Xrm.SectionCollectionBase {
+        get(name: "activities"): Xrm.PageSection;
+        get(name: "notes"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "accountcategorycode"): Xrm.OptionSetAttribute<account_accountcategorycode>;
+      get(name: "accountnumber"): Xrm.Attribute<string>;
+      get(name: "address1_addresstypecode"): Xrm.OptionSetAttribute<account_address1_addresstypecode>;
+      get(name: "address1_city"): Xrm.Attribute<string>;
+      get(name: "address1_country"): Xrm.Attribute<string>;
+      get(name: "address1_freighttermscode"): Xrm.OptionSetAttribute<account_address1_freighttermscode>;
+      get(name: "address1_line1"): Xrm.Attribute<string>;
+      get(name: "address1_line2"): Xrm.Attribute<string>;
+      get(name: "address1_line3"): Xrm.Attribute<string>;
+      get(name: "address1_name"): Xrm.Attribute<string>;
+      get(name: "address1_postalcode"): Xrm.Attribute<string>;
+      get(name: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<account_address1_shippingmethodcode>;
+      get(name: "address1_stateorprovince"): Xrm.Attribute<string>;
+      get(name: "address1_telephone1"): Xrm.Attribute<string>;
+      get(name: "creditlimit"): Xrm.NumberAttribute;
+      get(name: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "customertypecode"): Xrm.OptionSetAttribute<account_customertypecode>;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotfax"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotphone"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "emailaddress1"): Xrm.Attribute<string>;
+      get(name: "fax"): Xrm.Attribute<string>;
+      get(name: "followemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "industrycode"): Xrm.OptionSetAttribute<account_industrycode>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "numberofemployees"): Xrm.NumberAttribute;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "ownershipcode"): Xrm.OptionSetAttribute<account_ownershipcode>;
+      get(name: "parentaccountid"): Xrm.LookupAttribute<"account">;
+      get(name: "paymenttermscode"): Xrm.OptionSetAttribute<account_paymenttermscode>;
+      get(name: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<account_preferredcontactmethodcode>;
+      get(name: "primarycontactid"): Xrm.LookupAttribute<"contact">;
+      get(name: "revenue"): Xrm.NumberAttribute;
+      get(name: "sic"): Xrm.Attribute<string>;
+      get(name: "telephone1"): Xrm.Attribute<string>;
+      get(name: "telephone2"): Xrm.Attribute<string>;
+      get(name: "tickersymbol"): Xrm.Attribute<any>;
+      get(name: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
+      get(name: "websiteurl"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "accountContactsGrid"): Xrm.SubGridControl<"contact">;
+      get(name: "accountactivitiesgrid"): Xrm.SubGridControl<"activitypointer">;
+      get(name: "accountcategorycode"): Xrm.OptionSetControl<account_accountcategorycode>;
+      get(name: "accountnumber"): Xrm.StringControl;
+      get(name: "address1_addresstypecode"): Xrm.OptionSetControl<account_address1_addresstypecode>;
+      get(name: "address1_city"): Xrm.StringControl;
+      get(name: "address1_country"): Xrm.StringControl;
+      get(name: "address1_freighttermscode"): Xrm.OptionSetControl<account_address1_freighttermscode>;
+      get(name: "address1_line1"): Xrm.StringControl;
+      get(name: "address1_line2"): Xrm.StringControl;
+      get(name: "address1_line3"): Xrm.StringControl;
+      get(name: "address1_name"): Xrm.StringControl;
+      get(name: "address1_postalcode"): Xrm.StringControl;
+      get(name: "address1_shippingmethodcode"): Xrm.OptionSetControl<account_address1_shippingmethodcode>;
+      get(name: "address1_stateorprovince"): Xrm.StringControl;
+      get(name: "address1_telephone1"): Xrm.StringControl;
+      get(name: "creditlimit"): Xrm.NumberControl;
+      get(name: "creditonhold"): Xrm.OptionSetControl<boolean>;
+      get(name: "customertypecode"): Xrm.OptionSetControl<account_customertypecode>;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotfax"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotphone"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+      get(name: "emailaddress1"): Xrm.StringControl;
+      get(name: "fax"): Xrm.StringControl;
+      get(name: "followemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "header_creditlimit"): Xrm.NumberControl;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "header_preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
+      get(name: "header_primarycontactid"): Xrm.LookupControl<"contact">;
+      get(name: "header_revenue"): Xrm.NumberControl;
+      get(name: "industrycode"): Xrm.OptionSetControl<account_industrycode>;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "notescontrol"): Xrm.BaseControl;
+      get(name: "numberofemployees"): Xrm.NumberControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "ownershipcode"): Xrm.OptionSetControl<account_ownershipcode>;
+      get(name: "parentaccountid"): Xrm.LookupControl<"account">;
+      get(name: "paymenttermscode"): Xrm.OptionSetControl<account_paymenttermscode>;
+      get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
+      get(name: "primarycontactid"): Xrm.LookupControl<"contact">;
+      get(name: "revenue"): Xrm.NumberControl;
+      get(name: "sic"): Xrm.StringControl;
+      get(name: "telephone1"): Xrm.StringControl;
+      get(name: "telephone2"): Xrm.StringControl;
+      get(name: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
+      get(name: "websiteurl"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "administration"): Xrm.PageTab<Tabs.administration>;
+      get(name: "contacts"): Xrm.PageTab<Tabs.contacts>;
+      get(name: "details"): Xrm.PageTab<Tabs.details>;
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: "notes and activities"): Xrm.PageTab<Tabs.notesandactivities>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "accountcategorycode"): Xrm.OptionSetAttribute<account_accountcategorycode>;
+    getAttribute(attributeName: "accountnumber"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_addresstypecode"): Xrm.OptionSetAttribute<account_address1_addresstypecode>;
+    getAttribute(attributeName: "address1_city"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_country"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_freighttermscode"): Xrm.OptionSetAttribute<account_address1_freighttermscode>;
+    getAttribute(attributeName: "address1_line1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line3"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<account_address1_shippingmethodcode>;
+    getAttribute(attributeName: "address1_stateorprovince"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "creditlimit"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "customertypecode"): Xrm.OptionSetAttribute<account_customertypecode>;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotfax"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotphone"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "emailaddress1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "fax"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "followemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "industrycode"): Xrm.OptionSetAttribute<account_industrycode>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "numberofemployees"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "ownershipcode"): Xrm.OptionSetAttribute<account_ownershipcode>;
+    getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account">;
+    getAttribute(attributeName: "paymenttermscode"): Xrm.OptionSetAttribute<account_paymenttermscode>;
+    getAttribute(attributeName: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<account_preferredcontactmethodcode>;
+    getAttribute(attributeName: "primarycontactid"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "revenue"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "sic"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "telephone2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "tickersymbol"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
+    getAttribute(attributeName: "websiteurl"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "accountContactsGrid"): Xrm.SubGridControl<"contact">;
+    getControl(controlName: "accountactivitiesgrid"): Xrm.SubGridControl<"activitypointer">;
+    getControl(controlName: "accountcategorycode"): Xrm.OptionSetControl<account_accountcategorycode>;
+    getControl(controlName: "accountnumber"): Xrm.StringControl;
+    getControl(controlName: "address1_addresstypecode"): Xrm.OptionSetControl<account_address1_addresstypecode>;
+    getControl(controlName: "address1_city"): Xrm.StringControl;
+    getControl(controlName: "address1_country"): Xrm.StringControl;
+    getControl(controlName: "address1_freighttermscode"): Xrm.OptionSetControl<account_address1_freighttermscode>;
+    getControl(controlName: "address1_line1"): Xrm.StringControl;
+    getControl(controlName: "address1_line2"): Xrm.StringControl;
+    getControl(controlName: "address1_line3"): Xrm.StringControl;
+    getControl(controlName: "address1_name"): Xrm.StringControl;
+    getControl(controlName: "address1_postalcode"): Xrm.StringControl;
+    getControl(controlName: "address1_shippingmethodcode"): Xrm.OptionSetControl<account_address1_shippingmethodcode>;
+    getControl(controlName: "address1_stateorprovince"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone1"): Xrm.StringControl;
+    getControl(controlName: "creditlimit"): Xrm.NumberControl;
+    getControl(controlName: "creditonhold"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "customertypecode"): Xrm.OptionSetControl<account_customertypecode>;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotfax"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotphone"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "emailaddress1"): Xrm.StringControl;
+    getControl(controlName: "fax"): Xrm.StringControl;
+    getControl(controlName: "followemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "header_creditlimit"): Xrm.NumberControl;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "header_preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
+    getControl(controlName: "header_primarycontactid"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "header_revenue"): Xrm.NumberControl;
+    getControl(controlName: "industrycode"): Xrm.OptionSetControl<account_industrycode>;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "notescontrol"): Xrm.BaseControl;
+    getControl(controlName: "numberofemployees"): Xrm.NumberControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "ownershipcode"): Xrm.OptionSetControl<account_ownershipcode>;
+    getControl(controlName: "parentaccountid"): Xrm.LookupControl<"account">;
+    getControl(controlName: "paymenttermscode"): Xrm.OptionSetControl<account_paymenttermscode>;
+    getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
+    getControl(controlName: "primarycontactid"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "revenue"): Xrm.NumberControl;
+    getControl(controlName: "sic"): Xrm.StringControl;
+    getControl(controlName: "telephone1"): Xrm.StringControl;
+    getControl(controlName: "telephone2"): Xrm.StringControl;
+    getControl(controlName: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
+    getControl(controlName: "websiteurl"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.account.QuickCreate {
   namespace AccountQuickCreate {
     namespace Tabs {
@@ -1116,6 +1447,301 @@ declare namespace Form.account.Main {
     getControl(controlName: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
     getControl(controlName: "websiteurl"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.contact.Main {
+  namespace Information {
+    namespace Tabs {
+      interface administration extends Xrm.SectionCollectionBase {
+        get(name: "billing information"): Xrm.PageSection;
+        get(name: "contact methods"): Xrm.PageSection;
+        get(name: "internal information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface details extends Xrm.SectionCollectionBase {
+        get(name: "personal information"): Xrm.PageSection;
+        get(name: "professional information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "address"): Xrm.PageSection;
+        get(name: "description"): Xrm.PageSection;
+        get(name: "name"): Xrm.PageSection;
+        get(name: "shipping information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface notesandactivities extends Xrm.SectionCollectionBase {
+        get(name: "activities"): Xrm.PageSection;
+        get(name: "notes"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "accountrolecode"): Xrm.OptionSetAttribute<contact_accountrolecode>;
+      get(name: "address1_addresstypecode"): Xrm.OptionSetAttribute<contact_address1_addresstypecode>;
+      get(name: "address1_city"): Xrm.Attribute<string>;
+      get(name: "address1_country"): Xrm.Attribute<string>;
+      get(name: "address1_freighttermscode"): Xrm.OptionSetAttribute<contact_address1_freighttermscode>;
+      get(name: "address1_line1"): Xrm.Attribute<string>;
+      get(name: "address1_line2"): Xrm.Attribute<string>;
+      get(name: "address1_line3"): Xrm.Attribute<string>;
+      get(name: "address1_name"): Xrm.Attribute<string>;
+      get(name: "address1_postalcode"): Xrm.Attribute<string>;
+      get(name: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<contact_address1_shippingmethodcode>;
+      get(name: "address1_stateorprovince"): Xrm.Attribute<string>;
+      get(name: "address1_telephone1"): Xrm.Attribute<string>;
+      get(name: "anniversary"): Xrm.DateAttribute;
+      get(name: "assistantname"): Xrm.Attribute<string>;
+      get(name: "assistantphone"): Xrm.Attribute<string>;
+      get(name: "birthdate"): Xrm.DateAttribute;
+      get(name: "creditlimit"): Xrm.NumberAttribute;
+      get(name: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "department"): Xrm.Attribute<string>;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotemail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotfax"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotphone"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "emailaddress1"): Xrm.Attribute<string>;
+      get(name: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode>;
+      get(name: "fax"): Xrm.Attribute<string>;
+      get(name: "firstname"): Xrm.Attribute<string>;
+      get(name: "gendercode"): Xrm.OptionSetAttribute<contact_gendercode>;
+      get(name: "industrycode"): Xrm.OptionSetAttribute<number> | null;
+      get(name: "jobtitle"): Xrm.Attribute<string>;
+      get(name: "lastname"): Xrm.Attribute<string>;
+      get(name: "managername"): Xrm.Attribute<string>;
+      get(name: "managerphone"): Xrm.Attribute<string>;
+      get(name: "middlename"): Xrm.Attribute<string>;
+      get(name: "mobilephone"): Xrm.Attribute<string>;
+      get(name: "name"): Xrm.Attribute<string> | null;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
+      get(name: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
+      get(name: "paymenttermscode"): Xrm.OptionSetAttribute<contact_paymenttermscode>;
+      get(name: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<contact_preferredcontactmethodcode>;
+      get(name: "salutation"): Xrm.Attribute<string>;
+      get(name: "spousesname"): Xrm.Attribute<string>;
+      get(name: "telephone1"): Xrm.Attribute<string>;
+      get(name: "telephone2"): Xrm.Attribute<string>;
+      get(name: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
+      get(name: "websiteurl"): Xrm.Attribute<string> | null;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "accountrolecode"): Xrm.OptionSetControl<contact_accountrolecode>;
+      get(name: "address1_addresstypecode"): Xrm.OptionSetControl<contact_address1_addresstypecode>;
+      get(name: "address1_city"): Xrm.StringControl;
+      get(name: "address1_country"): Xrm.StringControl;
+      get(name: "address1_freighttermscode"): Xrm.OptionSetControl<contact_address1_freighttermscode>;
+      get(name: "address1_line1"): Xrm.StringControl;
+      get(name: "address1_line2"): Xrm.StringControl;
+      get(name: "address1_line3"): Xrm.StringControl;
+      get(name: "address1_name"): Xrm.StringControl;
+      get(name: "address1_postalcode"): Xrm.StringControl;
+      get(name: "address1_shippingmethodcode"): Xrm.OptionSetControl<contact_address1_shippingmethodcode>;
+      get(name: "address1_stateorprovince"): Xrm.StringControl;
+      get(name: "address1_telephone1"): Xrm.StringControl;
+      get(name: "anniversary"): Xrm.DateControl;
+      get(name: "assistantname"): Xrm.StringControl;
+      get(name: "assistantphone"): Xrm.StringControl;
+      get(name: "birthdate"): Xrm.DateControl;
+      get(name: "contactactivitiesgrid"): Xrm.SubGridControl<"activitypointer">;
+      get(name: "creditlimit"): Xrm.NumberControl;
+      get(name: "creditonhold"): Xrm.OptionSetControl<boolean>;
+      get(name: "department"): Xrm.StringControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotemail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotfax"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotphone"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+      get(name: "emailaddress1"): Xrm.StringControl;
+      get(name: "familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode>;
+      get(name: "fax"): Xrm.StringControl;
+      get(name: "firstname"): Xrm.StringControl;
+      get(name: "gendercode"): Xrm.OptionSetControl<contact_gendercode>;
+      get(name: "header_emailaddress1"): Xrm.StringControl;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "header_preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
+      get(name: "header_process_birthdate"): Xrm.DateControl | null;
+      get(name: "header_process_emailaddress1"): Xrm.StringControl | null;
+      get(name: "header_process_familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode> | null;
+      get(name: "header_process_firstname"): Xrm.StringControl | null;
+      get(name: "header_process_industrycode"): Xrm.OptionSetControl<number> | null;
+      get(name: "header_process_lastname"): Xrm.StringControl | null;
+      get(name: "header_process_middlename"): Xrm.StringControl | null;
+      get(name: "header_process_mobilephone"): Xrm.StringControl | null;
+      get(name: "header_process_name"): Xrm.StringControl | null;
+      get(name: "header_process_parentaccountid"): Xrm.LookupControl<"account"> | null;
+      get(name: "header_process_spousesname"): Xrm.StringControl | null;
+      get(name: "header_process_telephone1"): Xrm.StringControl | null;
+      get(name: "header_process_websiteurl"): Xrm.StringControl | null;
+      get(name: "jobtitle"): Xrm.StringControl;
+      get(name: "lastname"): Xrm.StringControl;
+      get(name: "managername"): Xrm.StringControl;
+      get(name: "managerphone"): Xrm.StringControl;
+      get(name: "middlename"): Xrm.StringControl;
+      get(name: "mobilephone"): Xrm.StringControl;
+      get(name: "notescontrol"): Xrm.BaseControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
+      get(name: "paymenttermscode"): Xrm.OptionSetControl<contact_paymenttermscode>;
+      get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
+      get(name: "salutation"): Xrm.StringControl;
+      get(name: "spousesname"): Xrm.StringControl;
+      get(name: "telephone1"): Xrm.StringControl;
+      get(name: "telephone2"): Xrm.StringControl;
+      get(name: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "administration"): Xrm.PageTab<Tabs.administration>;
+      get(name: "details"): Xrm.PageTab<Tabs.details>;
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: "notes and activities"): Xrm.PageTab<Tabs.notesandactivities>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "accountrolecode"): Xrm.OptionSetAttribute<contact_accountrolecode>;
+    getAttribute(attributeName: "address1_addresstypecode"): Xrm.OptionSetAttribute<contact_address1_addresstypecode>;
+    getAttribute(attributeName: "address1_city"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_country"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_freighttermscode"): Xrm.OptionSetAttribute<contact_address1_freighttermscode>;
+    getAttribute(attributeName: "address1_line1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line3"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<contact_address1_shippingmethodcode>;
+    getAttribute(attributeName: "address1_stateorprovince"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "anniversary"): Xrm.DateAttribute;
+    getAttribute(attributeName: "assistantname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "assistantphone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "birthdate"): Xrm.DateAttribute;
+    getAttribute(attributeName: "creditlimit"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "department"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotemail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotfax"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotphone"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "emailaddress1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode>;
+    getAttribute(attributeName: "fax"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "firstname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "gendercode"): Xrm.OptionSetAttribute<contact_gendercode>;
+    getAttribute(attributeName: "industrycode"): Xrm.OptionSetAttribute<number> | null;
+    getAttribute(attributeName: "jobtitle"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "lastname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "managername"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "managerphone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "middlename"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "mobilephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
+    getAttribute(attributeName: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
+    getAttribute(attributeName: "paymenttermscode"): Xrm.OptionSetAttribute<contact_paymenttermscode>;
+    getAttribute(attributeName: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<contact_preferredcontactmethodcode>;
+    getAttribute(attributeName: "salutation"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "spousesname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "telephone2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
+    getAttribute(attributeName: "websiteurl"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "accountrolecode"): Xrm.OptionSetControl<contact_accountrolecode>;
+    getControl(controlName: "address1_addresstypecode"): Xrm.OptionSetControl<contact_address1_addresstypecode>;
+    getControl(controlName: "address1_city"): Xrm.StringControl;
+    getControl(controlName: "address1_country"): Xrm.StringControl;
+    getControl(controlName: "address1_freighttermscode"): Xrm.OptionSetControl<contact_address1_freighttermscode>;
+    getControl(controlName: "address1_line1"): Xrm.StringControl;
+    getControl(controlName: "address1_line2"): Xrm.StringControl;
+    getControl(controlName: "address1_line3"): Xrm.StringControl;
+    getControl(controlName: "address1_name"): Xrm.StringControl;
+    getControl(controlName: "address1_postalcode"): Xrm.StringControl;
+    getControl(controlName: "address1_shippingmethodcode"): Xrm.OptionSetControl<contact_address1_shippingmethodcode>;
+    getControl(controlName: "address1_stateorprovince"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone1"): Xrm.StringControl;
+    getControl(controlName: "anniversary"): Xrm.DateControl;
+    getControl(controlName: "assistantname"): Xrm.StringControl;
+    getControl(controlName: "assistantphone"): Xrm.StringControl;
+    getControl(controlName: "birthdate"): Xrm.DateControl;
+    getControl(controlName: "contactactivitiesgrid"): Xrm.SubGridControl<"activitypointer">;
+    getControl(controlName: "creditlimit"): Xrm.NumberControl;
+    getControl(controlName: "creditonhold"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "department"): Xrm.StringControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotemail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotfax"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotphone"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "emailaddress1"): Xrm.StringControl;
+    getControl(controlName: "familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode>;
+    getControl(controlName: "fax"): Xrm.StringControl;
+    getControl(controlName: "firstname"): Xrm.StringControl;
+    getControl(controlName: "gendercode"): Xrm.OptionSetControl<contact_gendercode>;
+    getControl(controlName: "header_emailaddress1"): Xrm.StringControl;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "header_preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
+    getControl(controlName: "header_process_birthdate"): Xrm.DateControl | null;
+    getControl(controlName: "header_process_emailaddress1"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode> | null;
+    getControl(controlName: "header_process_firstname"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_industrycode"): Xrm.OptionSetControl<number> | null;
+    getControl(controlName: "header_process_lastname"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_middlename"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_mobilephone"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_name"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_parentaccountid"): Xrm.LookupControl<"account"> | null;
+    getControl(controlName: "header_process_spousesname"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_telephone1"): Xrm.StringControl | null;
+    getControl(controlName: "header_process_websiteurl"): Xrm.StringControl | null;
+    getControl(controlName: "jobtitle"): Xrm.StringControl;
+    getControl(controlName: "lastname"): Xrm.StringControl;
+    getControl(controlName: "managername"): Xrm.StringControl;
+    getControl(controlName: "managerphone"): Xrm.StringControl;
+    getControl(controlName: "middlename"): Xrm.StringControl;
+    getControl(controlName: "mobilephone"): Xrm.StringControl;
+    getControl(controlName: "notescontrol"): Xrm.BaseControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
+    getControl(controlName: "paymenttermscode"): Xrm.OptionSetControl<contact_paymenttermscode>;
+    getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
+    getControl(controlName: "salutation"): Xrm.StringControl;
+    getControl(controlName: "spousesname"): Xrm.StringControl;
+    getControl(controlName: "telephone1"): Xrm.StringControl;
+    getControl(controlName: "telephone2"): Xrm.StringControl;
+    getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
     getControl(controlName: string): undefined;
   }
 }
@@ -2397,6 +3023,7 @@ declare namespace Form.opc_allegation.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+      get(name: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.Attribute<string>;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -2407,6 +3034,7 @@ declare namespace Form.opc_allegation.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+      get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.StringControl;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
@@ -2425,12 +3053,106 @@ declare namespace Form.opc_allegation.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+    getAttribute(attributeName: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
     getAttribute(attributeName: "opc_description"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+    getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_description"): Xrm.StringControl;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_allegationtype.Main {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_acronym"): Xrm.Attribute<string>;
+      get(name: "opc_descriptionenglish"): Xrm.Attribute<string>;
+      get(name: "opc_descriptionfrench"): Xrm.Attribute<string>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_acronym"): Xrm.StringControl;
+      get(name: "opc_descriptionenglish"): Xrm.StringControl;
+      get(name: "opc_descriptionfrench"): Xrm.StringControl;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_acronym"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_descriptionenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_descriptionfrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_acronym"): Xrm.StringControl;
+    getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_descriptionfrench"): Xrm.StringControl;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_allegationtype.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
@@ -2475,6 +3197,20 @@ declare namespace Form.opc_complaint.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
+      interface tab_reminders extends Xrm.SectionCollectionBase {
+        get(name: "section_reminders"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface tab_risk_assessments extends Xrm.SectionCollectionBase {
+        get(name: "section_risk_assessments"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface tab_topics extends Xrm.SectionCollectionBase {
         get(name: "section_topics"): Xrm.PageSection;
         get(name: string): undefined;
@@ -2502,7 +3238,6 @@ declare namespace Form.opc_complaint.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "SubgridControl1570455205666"): Xrm.SubGridControl<"opc_allegation">;
       get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
       get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
       get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
@@ -2528,6 +3263,9 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: "opc_number"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
+      get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
+      get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
       get(name: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -2540,6 +3278,8 @@ declare namespace Form.opc_complaint.Main {
       get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
       get(name: "tab_issues"): Xrm.PageTab<Tabs.tab_issues>;
       get(name: "tab_recommendations"): Xrm.PageTab<Tabs.tab_recommendations>;
+      get(name: "tab_reminders"): Xrm.PageTab<Tabs.tab_reminders>;
+      get(name: "tab_risk_assessments"): Xrm.PageTab<Tabs.tab_risk_assessments>;
       get(name: "tab_topics"): Xrm.PageTab<Tabs.tab_topics>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
@@ -2561,7 +3301,6 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "SubgridControl1570455205666"): Xrm.SubGridControl<"opc_allegation">;
     getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
     getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
     getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
@@ -2587,6 +3326,9 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: "opc_number"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
+    getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
+    getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
     getControl(controlName: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
     getControl(controlName: string): undefined;
   }
@@ -3294,6 +4036,1171 @@ declare namespace Form.opc_reminder.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.opc_riskappetite.QuickCreate {
+  namespace QuickCreate {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskappetite.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskappetite.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessment.QuickCreate {
+  namespace QuickCreate {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessment.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "section_risk_matrix"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface tab_risk_assessment_definitions extends Xrm.SectionCollectionBase {
+        get(name: "section_riskassessment_definition"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_actualriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+      get(name: "opc_bypassinitiatedby"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "opc_bypassrationale"): Xrm.Attribute<string>;
+      get(name: "opc_bypasssuggestedriskappetite"): Xrm.Attribute<any>;
+      get(name: "opc_complaint"): Xrm.LookupAttribute<"opc_complaint">;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+      get(name: "opc_suggestedriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "WebResource_riskassessmentcontrol"): Xrm.WebResourceControl;
+      get(name: "header_opc_complaint"): Xrm.LookupControl<"opc_complaint">;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_actualriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+      get(name: "opc_bypassinitiatedby"): Xrm.LookupControl<"systemuser">;
+      get(name: "opc_bypassrationale"): Xrm.StringControl;
+      get(name: "opc_bypasssuggestedriskappetite"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+      get(name: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+      get(name: "subgrid_riskassessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: "tab_risk_assessment_definitions"): Xrm.PageTab<Tabs.tab_risk_assessment_definitions>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_actualriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+    getAttribute(attributeName: "opc_bypassinitiatedby"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "opc_bypassrationale"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_bypasssuggestedriskappetite"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_complaint"): Xrm.LookupAttribute<"opc_complaint">;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+    getAttribute(attributeName: "opc_suggestedriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "WebResource_riskassessmentcontrol"): Xrm.WebResourceControl;
+    getControl(controlName: "header_opc_complaint"): Xrm.LookupControl<"opc_complaint">;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_actualriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+    getControl(controlName: "opc_bypassinitiatedby"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "opc_bypassrationale"): Xrm.StringControl;
+    getControl(controlName: "opc_bypasssuggestedriskappetite"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+    getControl(controlName: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+    getControl(controlName: "subgrid_riskassessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessment.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentcategory.QuickCreate {
+  namespace QuickCreate {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+      get(name: "opc_sequence"): Xrm.NumberAttribute;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+      get(name: "opc_sequence"): Xrm.NumberControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+    getAttribute(attributeName: "opc_sequence"): Xrm.NumberAttribute;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+    getControl(controlName: "opc_sequence"): Xrm.NumberControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentcategory.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentcategory.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "section_risk_assessment_definitions"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_actualriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+      get(name: "opc_bypassinitiatedby"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "opc_bypassrationale"): Xrm.Attribute<string>;
+      get(name: "opc_bypasssuggestedriskappetite"): Xrm.Attribute<any>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessment"): Xrm.LookupAttribute<"opc_riskassessment">;
+      get(name: "opc_riskassessmentcategorytemplate"): Xrm.LookupAttribute<"opc_riskassessmentcategorytemplate">;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+      get(name: "opc_sequence"): Xrm.NumberAttribute;
+      get(name: "opc_suggestedriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_opc_riskassessment"): Xrm.LookupControl<"opc_riskassessment">;
+      get(name: "header_opc_riskassessmentcategorytemplate"): Xrm.LookupControl<"opc_riskassessmentcategorytemplate">;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_actualriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+      get(name: "opc_bypassinitiatedby"): Xrm.LookupControl<"systemuser">;
+      get(name: "opc_bypassrationale"): Xrm.StringControl;
+      get(name: "opc_bypasssuggestedriskappetite"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+      get(name: "opc_sequence"): Xrm.NumberControl;
+      get(name: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+      get(name: "subgrid_risk_assessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_actualriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+    getAttribute(attributeName: "opc_bypassinitiatedby"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "opc_bypassrationale"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_bypasssuggestedriskappetite"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessment"): Xrm.LookupAttribute<"opc_riskassessment">;
+    getAttribute(attributeName: "opc_riskassessmentcategorytemplate"): Xrm.LookupAttribute<"opc_riskassessmentcategorytemplate">;
+    getAttribute(attributeName: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+    getAttribute(attributeName: "opc_sequence"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "opc_suggestedriskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_opc_riskassessment"): Xrm.LookupControl<"opc_riskassessment">;
+    getControl(controlName: "header_opc_riskassessmentcategorytemplate"): Xrm.LookupControl<"opc_riskassessmentcategorytemplate">;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_actualriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+    getControl(controlName: "opc_bypassinitiatedby"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "opc_bypassrationale"): Xrm.StringControl;
+    getControl(controlName: "opc_bypasssuggestedriskappetite"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+    getControl(controlName: "opc_sequence"): Xrm.NumberControl;
+    getControl(controlName: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+    getControl(controlName: "subgrid_risk_assessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentcategorytemplate.QuickCreate {
+  namespace QuickCreate {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+      get(name: "opc_sequence"): Xrm.NumberAttribute;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+      get(name: "opc_sequence"): Xrm.NumberControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+    getAttribute(attributeName: "opc_sequence"): Xrm.NumberAttribute;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+    getControl(controlName: "opc_sequence"): Xrm.NumberControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentcategorytemplate.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "section_risk_assessment_factor_templates"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+      get(name: "opc_sequence"): Xrm.NumberAttribute;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+      get(name: "opc_sequence"): Xrm.NumberControl;
+      get(name: "subgrid_risk_assessment_factor_templates"): Xrm.BaseControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
+    getAttribute(attributeName: "opc_sequence"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
+    getControl(controlName: "opc_sequence"): Xrm.NumberControl;
+    getControl(controlName: "subgrid_risk_assessment_factor_templates"): Xrm.BaseControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentcategorytemplate.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentdefinition.QuickCreate {
+  namespace QuickCreate {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_isselected"): Xrm.Attribute<any>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmentcategory"): Xrm.LookupAttribute<"opc_riskassessmentcategory">;
+      get(name: "opc_riskassessmentdefinitiontemplate"): Xrm.LookupAttribute<"opc_riskassessmentdefinitiontemplate">;
+      get(name: "opc_riskassessmentfactortemplate"): Xrm.LookupAttribute<"opc_riskassessmentfactortemplate">;
+      get(name: "opc_riskassessmentid"): Xrm.LookupAttribute<"opc_riskassessment">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_isselected"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmentcategory"): Xrm.LookupControl<"opc_riskassessmentcategory">;
+      get(name: "opc_riskassessmentdefinitiontemplate"): Xrm.LookupControl<"opc_riskassessmentdefinitiontemplate">;
+      get(name: "opc_riskassessmentfactortemplate"): Xrm.LookupControl<"opc_riskassessmentfactortemplate">;
+      get(name: "opc_riskassessmentid"): Xrm.LookupControl<"opc_riskassessment">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_isselected"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmentcategory"): Xrm.LookupAttribute<"opc_riskassessmentcategory">;
+    getAttribute(attributeName: "opc_riskassessmentdefinitiontemplate"): Xrm.LookupAttribute<"opc_riskassessmentdefinitiontemplate">;
+    getAttribute(attributeName: "opc_riskassessmentfactortemplate"): Xrm.LookupAttribute<"opc_riskassessmentfactortemplate">;
+    getAttribute(attributeName: "opc_riskassessmentid"): Xrm.LookupAttribute<"opc_riskassessment">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_isselected"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmentcategory"): Xrm.LookupControl<"opc_riskassessmentcategory">;
+    getControl(controlName: "opc_riskassessmentdefinitiontemplate"): Xrm.LookupControl<"opc_riskassessmentdefinitiontemplate">;
+    getControl(controlName: "opc_riskassessmentfactortemplate"): Xrm.LookupControl<"opc_riskassessmentfactortemplate">;
+    getControl(controlName: "opc_riskassessmentid"): Xrm.LookupControl<"opc_riskassessment">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentdefinition.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_isselected"): Xrm.Attribute<any>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmentcategory"): Xrm.LookupAttribute<"opc_riskassessmentcategory">;
+      get(name: "opc_riskassessmentdefinitiontemplate"): Xrm.LookupAttribute<"opc_riskassessmentdefinitiontemplate">;
+      get(name: "opc_riskassessmentfactortemplate"): Xrm.LookupAttribute<"opc_riskassessmentfactortemplate">;
+      get(name: "opc_riskassessmentid"): Xrm.LookupAttribute<"opc_riskassessment">;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_isselected"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmentcategory"): Xrm.LookupControl<"opc_riskassessmentcategory">;
+      get(name: "opc_riskassessmentdefinitiontemplate"): Xrm.LookupControl<"opc_riskassessmentdefinitiontemplate">;
+      get(name: "opc_riskassessmentfactortemplate"): Xrm.LookupControl<"opc_riskassessmentfactortemplate">;
+      get(name: "opc_riskassessmentid"): Xrm.LookupControl<"opc_riskassessment">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_isselected"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmentcategory"): Xrm.LookupAttribute<"opc_riskassessmentcategory">;
+    getAttribute(attributeName: "opc_riskassessmentdefinitiontemplate"): Xrm.LookupAttribute<"opc_riskassessmentdefinitiontemplate">;
+    getAttribute(attributeName: "opc_riskassessmentfactortemplate"): Xrm.LookupAttribute<"opc_riskassessmentfactortemplate">;
+    getAttribute(attributeName: "opc_riskassessmentid"): Xrm.LookupAttribute<"opc_riskassessment">;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_isselected"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmentcategory"): Xrm.LookupControl<"opc_riskassessmentcategory">;
+    getControl(controlName: "opc_riskassessmentdefinitiontemplate"): Xrm.LookupControl<"opc_riskassessmentdefinitiontemplate">;
+    getControl(controlName: "opc_riskassessmentfactortemplate"): Xrm.LookupControl<"opc_riskassessmentfactortemplate">;
+    getControl(controlName: "opc_riskassessmentid"): Xrm.LookupControl<"opc_riskassessment">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentdefinition.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentdefinitiontemplate.QuickCreate {
+  namespace QuickCreate {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+      get(name: "opc_riskassessmentfactortemplate"): Xrm.LookupAttribute<"opc_riskassessmentfactortemplate">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+      get(name: "opc_riskassessmentfactortemplate"): Xrm.LookupControl<"opc_riskassessmentfactortemplate">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+    getAttribute(attributeName: "opc_riskassessmentfactortemplate"): Xrm.LookupAttribute<"opc_riskassessmentfactortemplate">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+    getControl(controlName: "opc_riskassessmentfactortemplate"): Xrm.LookupControl<"opc_riskassessmentfactortemplate">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentdefinitiontemplate.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentdefinitiontemplate.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+      get(name: "opc_riskassessmentfactortemplate"): Xrm.LookupAttribute<"opc_riskassessmentfactortemplate">;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+      get(name: "opc_riskassessmentfactortemplate"): Xrm.LookupControl<"opc_riskassessmentfactortemplate">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskappetite"): Xrm.LookupAttribute<"opc_riskappetite">;
+    getAttribute(attributeName: "opc_riskassessmentfactortemplate"): Xrm.LookupAttribute<"opc_riskassessmentfactortemplate">;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskappetite"): Xrm.LookupControl<"opc_riskappetite">;
+    getControl(controlName: "opc_riskassessmentfactortemplate"): Xrm.LookupControl<"opc_riskassessmentfactortemplate">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentfactortemplate.QuickCreate {
+  namespace QuickCreate {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmentcategorytemplate"): Xrm.LookupAttribute<"opc_riskassessmentcategorytemplate">;
+      get(name: "opc_sequence"): Xrm.NumberAttribute;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmentcategorytemplate"): Xrm.LookupControl<"opc_riskassessmentcategorytemplate">;
+      get(name: "opc_sequence"): Xrm.NumberControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmentcategorytemplate"): Xrm.LookupAttribute<"opc_riskassessmentcategorytemplate">;
+    getAttribute(attributeName: "opc_sequence"): Xrm.NumberAttribute;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmentcategorytemplate"): Xrm.LookupControl<"opc_riskassessmentcategorytemplate">;
+    getControl(controlName: "opc_sequence"): Xrm.NumberControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentfactortemplate.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmentfactortemplate.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "section_risk_assessment_definition_templates"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_riskassessmentcategorytemplate"): Xrm.LookupAttribute<"opc_riskassessmentcategorytemplate">;
+      get(name: "opc_sequence"): Xrm.NumberAttribute;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_riskassessmentcategorytemplate"): Xrm.LookupControl<"opc_riskassessmentcategorytemplate">;
+      get(name: "opc_sequence"): Xrm.NumberControl;
+      get(name: "subgrid_risk_assessment_definition_templates"): Xrm.BaseControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_riskassessmentcategorytemplate"): Xrm.LookupAttribute<"opc_riskassessmentcategorytemplate">;
+    getAttribute(attributeName: "opc_sequence"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_riskassessmentcategorytemplate"): Xrm.LookupControl<"opc_riskassessmentcategorytemplate">;
+    getControl(controlName: "opc_sequence"): Xrm.NumberControl;
+    getControl(controlName: "subgrid_risk_assessment_definition_templates"): Xrm.BaseControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmenttype.QuickCreate {
+  namespace QuickCreate {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmenttype.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: "section_risk_assessment_category_templates"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "subgrid_risk_assessment_category_templates"): Xrm.SubGridControl<"opc_riskassessmentcategorytemplate">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "subgrid_risk_assessment_category_templates"): Xrm.SubGridControl<"opc_riskassessmentcategorytemplate">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_riskassessmenttype.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.opc_theme.Quick {
   namespace Information {
     namespace Tabs {
@@ -3667,6 +5574,29 @@ interface opc_allegation_Create extends opc_allegation {
 }
 interface opc_allegation_Update extends opc_allegation {
 }
+interface opc_allegationtype_Base extends WebEntity {
+}
+interface opc_allegationtype_Fixed extends WebEntity_Fixed {
+  opc_allegationtypeid: string;
+}
+interface opc_allegationtype extends opc_allegationtype_Base, opc_allegationtype_Relationships {
+}
+interface opc_allegationtype_Relationships {
+}
+interface opc_allegationtype_Result extends opc_allegationtype_Base, opc_allegationtype_Relationships {
+}
+interface opc_allegationtype_FormattedResult {
+}
+interface opc_allegationtype_Select {
+}
+interface opc_allegationtype_Expand {
+}
+interface opc_allegationtype_Filter {
+}
+interface opc_allegationtype_Create extends opc_allegationtype {
+}
+interface opc_allegationtype_Update extends opc_allegationtype {
+}
 interface opc_complaint_Base extends WebEntity {
 }
 interface opc_complaint_Fixed extends WebEntity_Fixed {
@@ -3850,6 +5780,190 @@ interface opc_reminder_Filter {
 interface opc_reminder_Create extends opc_reminder {
 }
 interface opc_reminder_Update extends opc_reminder {
+}
+interface opc_RiskAppetite_Base extends WebEntity {
+}
+interface opc_RiskAppetite_Fixed extends WebEntity_Fixed {
+  opc_riskappetiteid: string;
+}
+interface opc_RiskAppetite extends opc_RiskAppetite_Base, opc_RiskAppetite_Relationships {
+}
+interface opc_RiskAppetite_Relationships {
+}
+interface opc_RiskAppetite_Result extends opc_RiskAppetite_Base, opc_RiskAppetite_Relationships {
+}
+interface opc_RiskAppetite_FormattedResult {
+}
+interface opc_RiskAppetite_Select {
+}
+interface opc_RiskAppetite_Expand {
+}
+interface opc_RiskAppetite_Filter {
+}
+interface opc_RiskAppetite_Create extends opc_RiskAppetite {
+}
+interface opc_RiskAppetite_Update extends opc_RiskAppetite {
+}
+interface opc_RiskAssessment_Base extends WebEntity {
+}
+interface opc_RiskAssessment_Fixed extends WebEntity_Fixed {
+  opc_riskassessmentid: string;
+}
+interface opc_RiskAssessment extends opc_RiskAssessment_Base, opc_RiskAssessment_Relationships {
+}
+interface opc_RiskAssessment_Relationships {
+}
+interface opc_RiskAssessment_Result extends opc_RiskAssessment_Base, opc_RiskAssessment_Relationships {
+}
+interface opc_RiskAssessment_FormattedResult {
+}
+interface opc_RiskAssessment_Select {
+}
+interface opc_RiskAssessment_Expand {
+}
+interface opc_RiskAssessment_Filter {
+}
+interface opc_RiskAssessment_Create extends opc_RiskAssessment {
+}
+interface opc_RiskAssessment_Update extends opc_RiskAssessment {
+}
+interface opc_RiskAssessmentCategory_Base extends WebEntity {
+}
+interface opc_RiskAssessmentCategory_Fixed extends WebEntity_Fixed {
+  opc_riskassessmentcategoryid: string;
+}
+interface opc_RiskAssessmentCategory extends opc_RiskAssessmentCategory_Base, opc_RiskAssessmentCategory_Relationships {
+}
+interface opc_RiskAssessmentCategory_Relationships {
+}
+interface opc_RiskAssessmentCategory_Result extends opc_RiskAssessmentCategory_Base, opc_RiskAssessmentCategory_Relationships {
+}
+interface opc_RiskAssessmentCategory_FormattedResult {
+}
+interface opc_RiskAssessmentCategory_Select {
+}
+interface opc_RiskAssessmentCategory_Expand {
+}
+interface opc_RiskAssessmentCategory_Filter {
+}
+interface opc_RiskAssessmentCategory_Create extends opc_RiskAssessmentCategory {
+}
+interface opc_RiskAssessmentCategory_Update extends opc_RiskAssessmentCategory {
+}
+interface opc_RiskAssessmentCategoryTemplate_Base extends WebEntity {
+}
+interface opc_RiskAssessmentCategoryTemplate_Fixed extends WebEntity_Fixed {
+  opc_riskassessmentcategorytemplateid: string;
+}
+interface opc_RiskAssessmentCategoryTemplate extends opc_RiskAssessmentCategoryTemplate_Base, opc_RiskAssessmentCategoryTemplate_Relationships {
+}
+interface opc_RiskAssessmentCategoryTemplate_Relationships {
+}
+interface opc_RiskAssessmentCategoryTemplate_Result extends opc_RiskAssessmentCategoryTemplate_Base, opc_RiskAssessmentCategoryTemplate_Relationships {
+}
+interface opc_RiskAssessmentCategoryTemplate_FormattedResult {
+}
+interface opc_RiskAssessmentCategoryTemplate_Select {
+}
+interface opc_RiskAssessmentCategoryTemplate_Expand {
+}
+interface opc_RiskAssessmentCategoryTemplate_Filter {
+}
+interface opc_RiskAssessmentCategoryTemplate_Create extends opc_RiskAssessmentCategoryTemplate {
+}
+interface opc_RiskAssessmentCategoryTemplate_Update extends opc_RiskAssessmentCategoryTemplate {
+}
+interface opc_RiskAssessmentDefinition_Base extends WebEntity {
+}
+interface opc_RiskAssessmentDefinition_Fixed extends WebEntity_Fixed {
+  opc_riskassessmentdefinitionid: string;
+}
+interface opc_RiskAssessmentDefinition extends opc_RiskAssessmentDefinition_Base, opc_RiskAssessmentDefinition_Relationships {
+}
+interface opc_RiskAssessmentDefinition_Relationships {
+}
+interface opc_RiskAssessmentDefinition_Result extends opc_RiskAssessmentDefinition_Base, opc_RiskAssessmentDefinition_Relationships {
+}
+interface opc_RiskAssessmentDefinition_FormattedResult {
+}
+interface opc_RiskAssessmentDefinition_Select {
+}
+interface opc_RiskAssessmentDefinition_Expand {
+}
+interface opc_RiskAssessmentDefinition_Filter {
+}
+interface opc_RiskAssessmentDefinition_Create extends opc_RiskAssessmentDefinition {
+}
+interface opc_RiskAssessmentDefinition_Update extends opc_RiskAssessmentDefinition {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Base extends WebEntity {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Fixed extends WebEntity_Fixed {
+  opc_riskassessmentdefinitiontemplateid: string;
+}
+interface opc_RiskAssessmentDefinitionTemplate extends opc_RiskAssessmentDefinitionTemplate_Base, opc_RiskAssessmentDefinitionTemplate_Relationships {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Relationships {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Result extends opc_RiskAssessmentDefinitionTemplate_Base, opc_RiskAssessmentDefinitionTemplate_Relationships {
+}
+interface opc_RiskAssessmentDefinitionTemplate_FormattedResult {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Select {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Expand {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Filter {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Create extends opc_RiskAssessmentDefinitionTemplate {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Update extends opc_RiskAssessmentDefinitionTemplate {
+}
+interface opc_RiskAssessmentFactorTemplate_Base extends WebEntity {
+}
+interface opc_RiskAssessmentFactorTemplate_Fixed extends WebEntity_Fixed {
+  opc_riskassessmentfactortemplateid: string;
+}
+interface opc_RiskAssessmentFactorTemplate extends opc_RiskAssessmentFactorTemplate_Base, opc_RiskAssessmentFactorTemplate_Relationships {
+}
+interface opc_RiskAssessmentFactorTemplate_Relationships {
+}
+interface opc_RiskAssessmentFactorTemplate_Result extends opc_RiskAssessmentFactorTemplate_Base, opc_RiskAssessmentFactorTemplate_Relationships {
+}
+interface opc_RiskAssessmentFactorTemplate_FormattedResult {
+}
+interface opc_RiskAssessmentFactorTemplate_Select {
+}
+interface opc_RiskAssessmentFactorTemplate_Expand {
+}
+interface opc_RiskAssessmentFactorTemplate_Filter {
+}
+interface opc_RiskAssessmentFactorTemplate_Create extends opc_RiskAssessmentFactorTemplate {
+}
+interface opc_RiskAssessmentFactorTemplate_Update extends opc_RiskAssessmentFactorTemplate {
+}
+interface opc_RiskAssessmentType_Base extends WebEntity {
+}
+interface opc_RiskAssessmentType_Fixed extends WebEntity_Fixed {
+  opc_riskassessmenttypeid: string;
+}
+interface opc_RiskAssessmentType extends opc_RiskAssessmentType_Base, opc_RiskAssessmentType_Relationships {
+}
+interface opc_RiskAssessmentType_Relationships {
+}
+interface opc_RiskAssessmentType_Result extends opc_RiskAssessmentType_Base, opc_RiskAssessmentType_Relationships {
+}
+interface opc_RiskAssessmentType_FormattedResult {
+}
+interface opc_RiskAssessmentType_Select {
+}
+interface opc_RiskAssessmentType_Expand {
+}
+interface opc_RiskAssessmentType_Filter {
+}
+interface opc_RiskAssessmentType_Create extends opc_RiskAssessmentType {
+}
+interface opc_RiskAssessmentType_Update extends opc_RiskAssessmentType {
 }
 interface opc_theme_Base extends WebEntity {
 }
@@ -5206,6 +7320,7 @@ interface opc_allegation_Base extends WebEntity {
 interface opc_allegation_Relationships {
 }
 interface opc_allegation extends opc_allegation_Base, opc_allegation_Relationships {
+  opc_allegationtypeid_bind$opc_allegationtypes?: string | null;
   opc_complaintid_bind$opc_complaints?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
@@ -5224,6 +7339,7 @@ interface opc_allegation_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_allegation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_allegationdisposition: WebAttribute<opc_allegation_Select, { opc_allegationdisposition: opc_allegationdisposition | null }, { opc_allegationdisposition_formatted?: string }>;
   opc_allegationid: WebAttribute<opc_allegation_Select, { opc_allegationid: string | null }, {  }>;
+  opc_allegationtypeid_guid: WebAttribute<opc_allegation_Select, { opc_allegationtypeid_guid: string | null }, { opc_allegationtypeid_formatted?: string }>;
   opc_complaintid_guid: WebAttribute<opc_allegation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
   opc_description: WebAttribute<opc_allegation_Select, { opc_description: string | null }, {  }>;
   opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
@@ -5248,6 +7364,7 @@ interface opc_allegation_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_allegationdisposition: opc_allegationdisposition;
   opc_allegationid: XQW.Guid;
+  opc_allegationtypeid_guid: XQW.Guid;
   opc_complaintid_guid: XQW.Guid;
   opc_description: string;
   opc_name: string;
@@ -5263,6 +7380,7 @@ interface opc_allegation_Filter {
   versionnumber: number;
 }
 interface opc_allegation_Expand {
+  opc_allegationtypeid: WebExpand<opc_allegation_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_allegationtypeid: opc_allegationtype_Result }>;
   opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
 }
 interface opc_allegation_FormattedResult {
@@ -5273,6 +7391,7 @@ interface opc_allegation_FormattedResult {
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
   opc_allegationdisposition_formatted?: string;
+  opc_allegationtypeid_formatted?: string;
   opc_complaintid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
@@ -5288,6 +7407,7 @@ interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Rela
   createdonbehalfby_guid: string | null;
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
+  opc_allegationtypeid_guid: string | null;
   opc_complaintid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
@@ -5295,6 +7415,7 @@ interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Rela
   owninguser_guid: string | null;
 }
 interface opc_allegation_RelatedOne {
+  opc_allegationtypeid: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface opc_allegation_RelatedMany {
@@ -5307,6 +7428,133 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_allegations: WebMappingCUDA<opc_allegation_Create,opc_allegation_Update,opc_allegation_Select>;
+}
+interface opc_allegationtype_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_acronym?: string | null;
+  opc_allegationtypeid?: string | null;
+  opc_descriptionenglish?: string | null;
+  opc_descriptionfrench?: string | null;
+  opc_islocalizable?: boolean | null;
+  opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_allegationtype_statecode | null;
+  statuscode?: opc_allegationtype_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_allegationtype_Relationships {
+  opc_allegationtype_allegations_allegationtype?: opc_allegation_Result[] | null;
+}
+interface opc_allegationtype extends opc_allegationtype_Base, opc_allegationtype_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_allegationtype_Create extends opc_allegationtype {
+}
+interface opc_allegationtype_Update extends opc_allegationtype {
+}
+interface opc_allegationtype_Select {
+  createdby_guid: WebAttribute<opc_allegationtype_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_allegationtype_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_allegationtype_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_allegationtype_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_allegationtype_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_allegationtype_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_allegationtype_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_acronym: WebAttribute<opc_allegationtype_Select, { opc_acronym: string | null }, {  }>;
+  opc_allegationtypeid: WebAttribute<opc_allegationtype_Select, { opc_allegationtypeid: string | null }, {  }>;
+  opc_descriptionenglish: WebAttribute<opc_allegationtype_Select, { opc_descriptionenglish: string | null }, {  }>;
+  opc_descriptionfrench: WebAttribute<opc_allegationtype_Select, { opc_descriptionfrench: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_allegationtype_Select, { opc_islocalizable: boolean | null }, {  }>;
+  opc_name: WebAttribute<opc_allegationtype_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_allegationtype_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_allegationtype_Select, { opc_namefrench: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_allegationtype_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_allegationtype_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_allegationtype_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_allegationtype_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_allegationtype_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_allegationtype_Select, { statecode: opc_allegationtype_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_allegationtype_Select, { statuscode: opc_allegationtype_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_allegationtype_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_allegationtype_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_allegationtype_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_allegationtype_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_acronym: string;
+  opc_allegationtypeid: XQW.Guid;
+  opc_descriptionenglish: string;
+  opc_descriptionfrench: string;
+  opc_islocalizable: boolean;
+  opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_allegationtype_statecode;
+  statuscode: opc_allegationtype_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_allegationtype_Expand {
+  opc_allegationtype_allegations_allegationtype: WebExpand<opc_allegationtype_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationtype_allegations_allegationtype: opc_allegation_Result[] }>;
+}
+interface opc_allegationtype_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_allegationtype_Result extends opc_allegationtype_Base, opc_allegationtype_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_allegationtype_RelatedOne {
+}
+interface opc_allegationtype_RelatedMany {
+  opc_allegationtype_allegations_allegationtype: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_allegationtypes: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_allegationtypes: WebMappingRelated<opc_allegationtype_RelatedOne,opc_allegationtype_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_allegationtypes: WebMappingCUDA<opc_allegationtype_Create,opc_allegationtype_Update,opc_allegationtype_Select>;
 }
 interface opc_complaint_Base extends WebEntity {
   createdon?: Date | null;
@@ -5331,11 +7579,12 @@ interface opc_complaint_Base extends WebEntity {
 }
 interface opc_complaint_Relationships {
   bpf_opc_complaint_opc_individualcomplaint_bp?: opc_individualcomplaint_bp_Result[] | null;
+  opc_RiskAssessment_Complaint_opc_complain?: opc_RiskAssessment_Result[] | null;
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
-  opc_complaint_notifications_complaintid?: opc_notification_Result[] | null;
+  opc_complaint_notifications_complaint?: opc_notification_Result[] | null;
   opc_complaint_recommendations_complaint?: opc_recommendation_Result[] | null;
-  opc_complaint_reminders_complaintid?: opc_reminder_Result[] | null;
+  opc_complaint_reminders_complaint?: opc_reminder_Result[] | null;
   opc_complaints_topics_relatedtopics?: opc_topic_Result[] | null;
 }
 interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships {
@@ -5419,14 +7668,15 @@ interface opc_complaint_Filter {
 }
 interface opc_complaint_Expand {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebExpand<opc_complaint_Expand, opc_individualcomplaint_bp_Select, opc_individualcomplaint_bp_Filter, { bpf_opc_complaint_opc_individualcomplaint_bp: opc_individualcomplaint_bp_Result[] }>;
+  opc_RiskAssessment_Complaint_opc_complain: WebExpand<opc_complaint_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_Complaint_opc_complain: opc_RiskAssessment_Result[] }>;
   opc_accountid: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_accountid: Account_Result }>;
   opc_complainant: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainant: Contact_Result }>;
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
-  opc_complaint_notifications_complaintid: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaintid: opc_notification_Result[] }>;
+  opc_complaint_notifications_complaint: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaint: opc_notification_Result[] }>;
   opc_complaint_recommendations_complaint: WebExpand<opc_complaint_Expand, opc_recommendation_Select, opc_recommendation_Filter, { opc_complaint_recommendations_complaint: opc_recommendation_Result[] }>;
-  opc_complaint_reminders_complaintid: WebExpand<opc_complaint_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_complaint_reminders_complaintid: opc_reminder_Result[] }>;
+  opc_complaint_reminders_complaint: WebExpand<opc_complaint_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_complaint_reminders_complaint: opc_reminder_Result[] }>;
   opc_complaints_topics_relatedtopics: WebExpand<opc_complaint_Expand, opc_topic_Select, opc_topic_Filter, { opc_complaints_topics_relatedtopics: opc_topic_Result[] }>;
   opc_legislation: WebExpand<opc_complaint_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
 }
@@ -5476,11 +7726,12 @@ interface opc_complaint_RelatedOne {
 }
 interface opc_complaint_RelatedMany {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
+  opc_RiskAssessment_Complaint_opc_complain: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
-  opc_complaint_notifications_complaintid: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+  opc_complaint_notifications_complaint: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
   opc_complaint_recommendations_complaint: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
-  opc_complaint_reminders_complaintid: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  opc_complaint_reminders_complaint: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
   opc_complaints_topics_relatedtopics: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
@@ -6246,6 +8497,1071 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_reminders: WebMappingCUDA<opc_reminder_Create,opc_reminder_Update,opc_reminder_Select>;
+}
+interface opc_RiskAppetite_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_name?: string | null;
+  opc_riskappetiteid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_riskappetite_statecode | null;
+  statuscode?: opc_riskappetite_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_RiskAppetite_Relationships {
+  opc_RiskAssessmentCategory_ActualRiskAppe?: opc_RiskAssessmentCategory_Result[] | null;
+  opc_RiskAssessmentCategory_SuggestedRiskA?: opc_RiskAssessmentCategory_Result[] | null;
+  opc_RiskAssessment_ActualRiskAppetite_opc?: opc_RiskAssessment_Result[] | null;
+  opc_RiskAssessment_SuggestedRiskAppetite_?: opc_RiskAssessment_Result[] | null;
+  opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+}
+interface opc_RiskAppetite extends opc_RiskAppetite_Base, opc_RiskAppetite_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_RiskAppetite_Create extends opc_RiskAppetite {
+}
+interface opc_RiskAppetite_Update extends opc_RiskAppetite {
+}
+interface opc_RiskAppetite_Select {
+  createdby_guid: WebAttribute<opc_RiskAppetite_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_RiskAppetite_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_RiskAppetite_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_RiskAppetite_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_RiskAppetite_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_RiskAppetite_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_RiskAppetite_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_name: WebAttribute<opc_RiskAppetite_Select, { opc_name: string | null }, {  }>;
+  opc_riskappetiteid: WebAttribute<opc_RiskAppetite_Select, { opc_riskappetiteid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_RiskAppetite_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_RiskAppetite_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_RiskAppetite_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_RiskAppetite_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_RiskAppetite_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_RiskAppetite_Select, { statecode: opc_riskappetite_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_RiskAppetite_Select, { statuscode: opc_riskappetite_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_RiskAppetite_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_RiskAppetite_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_RiskAppetite_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_RiskAppetite_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_name: string;
+  opc_riskappetiteid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_riskappetite_statecode;
+  statuscode: opc_riskappetite_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_RiskAppetite_Expand {
+  opc_RiskAssessmentCategory_ActualRiskAppe: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory_ActualRiskAppe: opc_RiskAssessmentCategory_Result[] }>;
+  opc_RiskAssessmentCategory_SuggestedRiskA: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory_SuggestedRiskA: opc_RiskAssessmentCategory_Result[] }>;
+  opc_RiskAssessment_ActualRiskAppetite_opc: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_ActualRiskAppetite_opc: opc_RiskAssessment_Result[] }>;
+  opc_RiskAssessment_SuggestedRiskAppetite_: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_SuggestedRiskAppetite_: opc_RiskAssessment_Result[] }>;
+  opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+}
+interface opc_RiskAppetite_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_RiskAppetite_Result extends opc_RiskAppetite_Base, opc_RiskAppetite_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_RiskAppetite_RelatedOne {
+}
+interface opc_RiskAppetite_RelatedMany {
+  opc_RiskAssessmentCategory_ActualRiskAppe: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  opc_RiskAssessmentCategory_SuggestedRiskA: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  opc_RiskAssessment_ActualRiskAppetite_opc: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  opc_RiskAssessment_SuggestedRiskAppetite_: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_riskappetites: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_riskappetites: WebMappingRelated<opc_RiskAppetite_RelatedOne,opc_RiskAppetite_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_riskappetites: WebMappingCUDA<opc_RiskAppetite_Create,opc_RiskAppetite_Update,opc_RiskAppetite_Select>;
+}
+interface opc_RiskAssessment_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_bypassrationale?: string | null;
+  opc_bypasssuggestedriskappetite?: boolean | null;
+  opc_name?: string | null;
+  opc_riskassessmentid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_riskassessment_statecode | null;
+  statuscode?: opc_riskassessment_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_RiskAssessment_Relationships {
+  opc_ActualRiskAppetite?: opc_RiskAppetite_Result | null;
+  opc_Complaint?: opc_complaint_Result | null;
+  opc_RiskAssessmentCategory_RiskAssessment?: opc_RiskAssessmentCategory_Result[] | null;
+  opc_RiskAssessmentType?: opc_RiskAssessmentType_Result | null;
+  opc_SuggestedRiskAppetite?: opc_RiskAppetite_Result | null;
+  opc_riskassessment_riskassessmentdefinitions_riskassessment?: opc_RiskAssessmentDefinition_Result[] | null;
+}
+interface opc_RiskAssessment extends opc_RiskAssessment_Base, opc_RiskAssessment_Relationships {
+  opc_ActualRiskAppetite_bind$opc_riskappetites?: string | null;
+  opc_BypassInitiatedBy_bind$systemusers?: string | null;
+  opc_Complaint_bind$opc_complaints?: string | null;
+  opc_RiskAssessmentType_bind$opc_riskassessmenttypes?: string | null;
+  opc_SuggestedRiskAppetite_bind$opc_riskappetites?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_RiskAssessment_Create extends opc_RiskAssessment {
+}
+interface opc_RiskAssessment_Update extends opc_RiskAssessment {
+}
+interface opc_RiskAssessment_Select {
+  createdby_guid: WebAttribute<opc_RiskAssessment_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_RiskAssessment_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_RiskAssessment_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_RiskAssessment_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_RiskAssessment_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_RiskAssessment_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_RiskAssessment_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_actualriskappetite_guid: WebAttribute<opc_RiskAssessment_Select, { opc_actualriskappetite_guid: string | null }, { opc_actualriskappetite_formatted?: string }>;
+  opc_bypassinitiatedby_guid: WebAttribute<opc_RiskAssessment_Select, { opc_bypassinitiatedby_guid: string | null }, { opc_bypassinitiatedby_formatted?: string }>;
+  opc_bypassrationale: WebAttribute<opc_RiskAssessment_Select, { opc_bypassrationale: string | null }, {  }>;
+  opc_bypasssuggestedriskappetite: WebAttribute<opc_RiskAssessment_Select, { opc_bypasssuggestedriskappetite: boolean | null }, {  }>;
+  opc_complaint_guid: WebAttribute<opc_RiskAssessment_Select, { opc_complaint_guid: string | null }, { opc_complaint_formatted?: string }>;
+  opc_name: WebAttribute<opc_RiskAssessment_Select, { opc_name: string | null }, {  }>;
+  opc_riskassessmentid: WebAttribute<opc_RiskAssessment_Select, { opc_riskassessmentid: string | null }, {  }>;
+  opc_riskassessmenttype_guid: WebAttribute<opc_RiskAssessment_Select, { opc_riskassessmenttype_guid: string | null }, { opc_riskassessmenttype_formatted?: string }>;
+  opc_suggestedriskappetite_guid: WebAttribute<opc_RiskAssessment_Select, { opc_suggestedriskappetite_guid: string | null }, { opc_suggestedriskappetite_formatted?: string }>;
+  overriddencreatedon: WebAttribute<opc_RiskAssessment_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_RiskAssessment_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_RiskAssessment_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_RiskAssessment_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_RiskAssessment_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_RiskAssessment_Select, { statecode: opc_riskassessment_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_RiskAssessment_Select, { statuscode: opc_riskassessment_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_RiskAssessment_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_RiskAssessment_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_RiskAssessment_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_RiskAssessment_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_actualriskappetite_guid: XQW.Guid;
+  opc_bypassinitiatedby_guid: XQW.Guid;
+  opc_bypassrationale: string;
+  opc_bypasssuggestedriskappetite: boolean;
+  opc_complaint_guid: XQW.Guid;
+  opc_name: string;
+  opc_riskassessmentid: XQW.Guid;
+  opc_riskassessmenttype_guid: XQW.Guid;
+  opc_suggestedriskappetite_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_riskassessment_statecode;
+  statuscode: opc_riskassessment_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_RiskAssessment_Expand {
+  opc_ActualRiskAppetite: WebExpand<opc_RiskAssessment_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_ActualRiskAppetite: opc_RiskAppetite_Result }>;
+  opc_Complaint: WebExpand<opc_RiskAssessment_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_Complaint: opc_complaint_Result }>;
+  opc_RiskAssessmentCategory_RiskAssessment: WebExpand<opc_RiskAssessment_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory_RiskAssessment: opc_RiskAssessmentCategory_Result[] }>;
+  opc_RiskAssessmentType: WebExpand<opc_RiskAssessment_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
+  opc_SuggestedRiskAppetite: WebExpand<opc_RiskAssessment_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_SuggestedRiskAppetite: opc_RiskAppetite_Result }>;
+  opc_riskassessment_riskassessmentdefinitions_riskassessment: WebExpand<opc_RiskAssessment_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_riskassessment_riskassessmentdefinitions_riskassessment: opc_RiskAssessmentDefinition_Result[] }>;
+}
+interface opc_RiskAssessment_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_actualriskappetite_formatted?: string;
+  opc_bypassinitiatedby_formatted?: string;
+  opc_complaint_formatted?: string;
+  opc_riskassessmenttype_formatted?: string;
+  opc_suggestedriskappetite_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_RiskAssessment_Result extends opc_RiskAssessment_Base, opc_RiskAssessment_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_actualriskappetite_guid: string | null;
+  opc_bypassinitiatedby_guid: string | null;
+  opc_complaint_guid: string | null;
+  opc_riskassessmenttype_guid: string | null;
+  opc_suggestedriskappetite_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_RiskAssessment_RelatedOne {
+  opc_ActualRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  opc_Complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  opc_SuggestedRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+}
+interface opc_RiskAssessment_RelatedMany {
+  opc_RiskAssessmentCategory_RiskAssessment: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  opc_riskassessment_riskassessmentdefinitions_riskassessment: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_riskassessments: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_riskassessments: WebMappingRelated<opc_RiskAssessment_RelatedOne,opc_RiskAssessment_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_riskassessments: WebMappingCUDA<opc_RiskAssessment_Create,opc_RiskAssessment_Update,opc_RiskAssessment_Select>;
+}
+interface opc_RiskAssessmentCategory_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_bypassrationale?: string | null;
+  opc_bypasssuggestedriskappetite?: boolean | null;
+  opc_name?: string | null;
+  opc_riskassessmentcategoryid?: string | null;
+  opc_sequence?: number | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_riskassessmentcategory_statecode | null;
+  statuscode?: opc_riskassessmentcategory_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_RiskAssessmentCategory_Relationships {
+  opc_ActualRiskAppetite?: opc_RiskAppetite_Result | null;
+  opc_RiskAssessment?: opc_RiskAssessment_Result | null;
+  opc_RiskAssessmentCategoryTemplate?: opc_RiskAssessmentCategoryTemplate_Result | null;
+  opc_RiskAssessmentDefinition_RiskAssessme?: opc_RiskAssessmentDefinition_Result[] | null;
+  opc_RiskAssessmentType?: opc_RiskAssessmentType_Result | null;
+  opc_SuggestedRiskAppetite?: opc_RiskAppetite_Result | null;
+}
+interface opc_RiskAssessmentCategory extends opc_RiskAssessmentCategory_Base, opc_RiskAssessmentCategory_Relationships {
+  opc_ActualRiskAppetite_bind$opc_riskappetites?: string | null;
+  opc_BypassInitiatedBy_bind$systemusers?: string | null;
+  opc_RiskAssessmentCategoryTemplate_bind$opc_riskassessmentcategorytemplates?: string | null;
+  opc_RiskAssessmentType_bind$opc_riskassessmenttypes?: string | null;
+  opc_RiskAssessment_bind$opc_riskassessments?: string | null;
+  opc_SuggestedRiskAppetite_bind$opc_riskappetites?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_RiskAssessmentCategory_Create extends opc_RiskAssessmentCategory {
+}
+interface opc_RiskAssessmentCategory_Update extends opc_RiskAssessmentCategory {
+}
+interface opc_RiskAssessmentCategory_Select {
+  createdby_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_RiskAssessmentCategory_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_RiskAssessmentCategory_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_RiskAssessmentCategory_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_actualriskappetite_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_actualriskappetite_guid: string | null }, { opc_actualriskappetite_formatted?: string }>;
+  opc_bypassinitiatedby_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_bypassinitiatedby_guid: string | null }, { opc_bypassinitiatedby_formatted?: string }>;
+  opc_bypassrationale: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_bypassrationale: string | null }, {  }>;
+  opc_bypasssuggestedriskappetite: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_bypasssuggestedriskappetite: boolean | null }, {  }>;
+  opc_name: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_name: string | null }, {  }>;
+  opc_riskassessment_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_riskassessment_guid: string | null }, { opc_riskassessment_formatted?: string }>;
+  opc_riskassessmentcategoryid: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_riskassessmentcategoryid: string | null }, {  }>;
+  opc_riskassessmentcategorytemplate_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_riskassessmentcategorytemplate_guid: string | null }, { opc_riskassessmentcategorytemplate_formatted?: string }>;
+  opc_riskassessmenttype_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_riskassessmenttype_guid: string | null }, { opc_riskassessmenttype_formatted?: string }>;
+  opc_sequence: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_sequence: number | null }, {  }>;
+  opc_suggestedriskappetite_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { opc_suggestedriskappetite_guid: string | null }, { opc_suggestedriskappetite_formatted?: string }>;
+  overriddencreatedon: WebAttribute<opc_RiskAssessmentCategory_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_RiskAssessmentCategory_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_RiskAssessmentCategory_Select, { statecode: opc_riskassessmentcategory_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_RiskAssessmentCategory_Select, { statuscode: opc_riskassessmentcategory_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_RiskAssessmentCategory_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_RiskAssessmentCategory_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_RiskAssessmentCategory_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_RiskAssessmentCategory_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_actualriskappetite_guid: XQW.Guid;
+  opc_bypassinitiatedby_guid: XQW.Guid;
+  opc_bypassrationale: string;
+  opc_bypasssuggestedriskappetite: boolean;
+  opc_name: string;
+  opc_riskassessment_guid: XQW.Guid;
+  opc_riskassessmentcategoryid: XQW.Guid;
+  opc_riskassessmentcategorytemplate_guid: XQW.Guid;
+  opc_riskassessmenttype_guid: XQW.Guid;
+  opc_sequence: number;
+  opc_suggestedriskappetite_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_riskassessmentcategory_statecode;
+  statuscode: opc_riskassessmentcategory_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_RiskAssessmentCategory_Expand {
+  opc_ActualRiskAppetite: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_ActualRiskAppetite: opc_RiskAppetite_Result }>;
+  opc_RiskAssessment: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment: opc_RiskAssessment_Result }>;
+  opc_RiskAssessmentCategoryTemplate: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { opc_RiskAssessmentCategoryTemplate: opc_RiskAssessmentCategoryTemplate_Result }>;
+  opc_RiskAssessmentDefinition_RiskAssessme: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessme: opc_RiskAssessmentDefinition_Result[] }>;
+  opc_RiskAssessmentType: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
+  opc_SuggestedRiskAppetite: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_SuggestedRiskAppetite: opc_RiskAppetite_Result }>;
+}
+interface opc_RiskAssessmentCategory_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_actualriskappetite_formatted?: string;
+  opc_bypassinitiatedby_formatted?: string;
+  opc_riskassessment_formatted?: string;
+  opc_riskassessmentcategorytemplate_formatted?: string;
+  opc_riskassessmenttype_formatted?: string;
+  opc_suggestedriskappetite_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_RiskAssessmentCategory_Result extends opc_RiskAssessmentCategory_Base, opc_RiskAssessmentCategory_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_actualriskappetite_guid: string | null;
+  opc_bypassinitiatedby_guid: string | null;
+  opc_riskassessment_guid: string | null;
+  opc_riskassessmentcategorytemplate_guid: string | null;
+  opc_riskassessmenttype_guid: string | null;
+  opc_suggestedriskappetite_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_RiskAssessmentCategory_RelatedOne {
+  opc_ActualRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  opc_RiskAssessment: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  opc_RiskAssessmentCategoryTemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  opc_SuggestedRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+}
+interface opc_RiskAssessmentCategory_RelatedMany {
+  opc_RiskAssessmentDefinition_RiskAssessme: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_riskassessmentcategories: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_riskassessmentcategories: WebMappingRelated<opc_RiskAssessmentCategory_RelatedOne,opc_RiskAssessmentCategory_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_riskassessmentcategories: WebMappingCUDA<opc_RiskAssessmentCategory_Create,opc_RiskAssessmentCategory_Update,opc_RiskAssessmentCategory_Select>;
+}
+interface opc_RiskAssessmentCategoryTemplate_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_name?: string | null;
+  opc_riskassessmentcategorytemplateid?: string | null;
+  opc_sequence?: number | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_riskassessmentcategorytemplate_statecode | null;
+  statuscode?: opc_riskassessmentcategorytemplate_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_RiskAssessmentCategoryTemplate_Relationships {
+  opc_RiskAssessmentFactorTemplate_RiskAsse?: opc_RiskAssessmentFactorTemplate_Result[] | null;
+  opc_RiskAssessmentType?: opc_RiskAssessmentType_Result | null;
+  opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate?: opc_RiskAssessmentCategory_Result[] | null;
+}
+interface opc_RiskAssessmentCategoryTemplate extends opc_RiskAssessmentCategoryTemplate_Base, opc_RiskAssessmentCategoryTemplate_Relationships {
+  opc_RiskAssessmentType_bind$opc_riskassessmenttypes?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_RiskAssessmentCategoryTemplate_Create extends opc_RiskAssessmentCategoryTemplate {
+}
+interface opc_RiskAssessmentCategoryTemplate_Update extends opc_RiskAssessmentCategoryTemplate {
+}
+interface opc_RiskAssessmentCategoryTemplate_Select {
+  createdby_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_name: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { opc_name: string | null }, {  }>;
+  opc_riskassessmentcategorytemplateid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { opc_riskassessmentcategorytemplateid: string | null }, {  }>;
+  opc_riskassessmenttype_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { opc_riskassessmenttype_guid: string | null }, { opc_riskassessmenttype_formatted?: string }>;
+  opc_sequence: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { opc_sequence: number | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { statecode: opc_riskassessmentcategorytemplate_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { statuscode: opc_riskassessmentcategorytemplate_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_RiskAssessmentCategoryTemplate_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_RiskAssessmentCategoryTemplate_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_name: string;
+  opc_riskassessmentcategorytemplateid: XQW.Guid;
+  opc_riskassessmenttype_guid: XQW.Guid;
+  opc_sequence: number;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_riskassessmentcategorytemplate_statecode;
+  statuscode: opc_riskassessmentcategorytemplate_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_RiskAssessmentCategoryTemplate_Expand {
+  opc_RiskAssessmentFactorTemplate_RiskAsse: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate_RiskAsse: opc_RiskAssessmentFactorTemplate_Result[] }>;
+  opc_RiskAssessmentType: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
+  opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate: opc_RiskAssessmentCategory_Result[] }>;
+}
+interface opc_RiskAssessmentCategoryTemplate_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_riskassessmenttype_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_RiskAssessmentCategoryTemplate_Result extends opc_RiskAssessmentCategoryTemplate_Base, opc_RiskAssessmentCategoryTemplate_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_riskassessmenttype_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_RiskAssessmentCategoryTemplate_RelatedOne {
+  opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+}
+interface opc_RiskAssessmentCategoryTemplate_RelatedMany {
+  opc_RiskAssessmentFactorTemplate_RiskAsse: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_riskassessmentcategorytemplates: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_riskassessmentcategorytemplates: WebMappingRelated<opc_RiskAssessmentCategoryTemplate_RelatedOne,opc_RiskAssessmentCategoryTemplate_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_riskassessmentcategorytemplates: WebMappingCUDA<opc_RiskAssessmentCategoryTemplate_Create,opc_RiskAssessmentCategoryTemplate_Update,opc_RiskAssessmentCategoryTemplate_Select>;
+}
+interface opc_RiskAssessmentDefinition_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_isselected?: boolean | null;
+  opc_name?: string | null;
+  opc_riskassessmentdefinitionid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_riskassessmentdefinition_statecode | null;
+  statuscode?: opc_riskassessmentdefinition_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_RiskAssessmentDefinition_Relationships {
+  opc_RiskAssessmentCategory?: opc_RiskAssessmentCategory_Result | null;
+  opc_RiskAssessmentDefinitionTemplate?: opc_RiskAssessmentDefinitionTemplate_Result | null;
+  opc_RiskAssessmentFactorTemplate?: opc_RiskAssessmentFactorTemplate_Result | null;
+}
+interface opc_RiskAssessmentDefinition extends opc_RiskAssessmentDefinition_Base, opc_RiskAssessmentDefinition_Relationships {
+  opc_RiskAssessmentCategory_bind$opc_riskassessmentcategories?: string | null;
+  opc_RiskAssessmentDefinitionTemplate_bind$opc_riskassessmentdefinitiontemplates?: string | null;
+  opc_RiskAssessmentFactorTemplate_bind$opc_riskassessmentfactortemplates?: string | null;
+  opc_riskassessmentid_bind$opc_riskassessments?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_RiskAssessmentDefinition_Create extends opc_RiskAssessmentDefinition {
+}
+interface opc_RiskAssessmentDefinition_Update extends opc_RiskAssessmentDefinition {
+}
+interface opc_RiskAssessmentDefinition_Select {
+  createdby_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_RiskAssessmentDefinition_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_RiskAssessmentDefinition_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_RiskAssessmentDefinition_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_isselected: WebAttribute<opc_RiskAssessmentDefinition_Select, { opc_isselected: boolean | null }, {  }>;
+  opc_name: WebAttribute<opc_RiskAssessmentDefinition_Select, { opc_name: string | null }, {  }>;
+  opc_riskassessmentcategory_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { opc_riskassessmentcategory_guid: string | null }, { opc_riskassessmentcategory_formatted?: string }>;
+  opc_riskassessmentdefinitionid: WebAttribute<opc_RiskAssessmentDefinition_Select, { opc_riskassessmentdefinitionid: string | null }, {  }>;
+  opc_riskassessmentdefinitiontemplate_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { opc_riskassessmentdefinitiontemplate_guid: string | null }, { opc_riskassessmentdefinitiontemplate_formatted?: string }>;
+  opc_riskassessmentfactortemplate_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { opc_riskassessmentfactortemplate_guid: string | null }, { opc_riskassessmentfactortemplate_formatted?: string }>;
+  opc_riskassessmentid_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { opc_riskassessmentid_guid: string | null }, { opc_riskassessmentid_formatted?: string }>;
+  overriddencreatedon: WebAttribute<opc_RiskAssessmentDefinition_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_RiskAssessmentDefinition_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_RiskAssessmentDefinition_Select, { statecode: opc_riskassessmentdefinition_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_RiskAssessmentDefinition_Select, { statuscode: opc_riskassessmentdefinition_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_RiskAssessmentDefinition_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_RiskAssessmentDefinition_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_RiskAssessmentDefinition_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_RiskAssessmentDefinition_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_isselected: boolean;
+  opc_name: string;
+  opc_riskassessmentcategory_guid: XQW.Guid;
+  opc_riskassessmentdefinitionid: XQW.Guid;
+  opc_riskassessmentdefinitiontemplate_guid: XQW.Guid;
+  opc_riskassessmentfactortemplate_guid: XQW.Guid;
+  opc_riskassessmentid_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_riskassessmentdefinition_statecode;
+  statuscode: opc_riskassessmentdefinition_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_RiskAssessmentDefinition_Expand {
+  opc_RiskAssessmentCategory: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result }>;
+  opc_RiskAssessmentDefinitionTemplate: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result }>;
+  opc_RiskAssessmentFactorTemplate: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result }>;
+  opc_riskassessmentid: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_riskassessmentid: opc_RiskAssessment_Result }>;
+}
+interface opc_RiskAssessmentDefinition_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_riskassessmentcategory_formatted?: string;
+  opc_riskassessmentdefinitiontemplate_formatted?: string;
+  opc_riskassessmentfactortemplate_formatted?: string;
+  opc_riskassessmentid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_RiskAssessmentDefinition_Result extends opc_RiskAssessmentDefinition_Base, opc_RiskAssessmentDefinition_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_riskassessmentcategory_guid: string | null;
+  opc_riskassessmentdefinitiontemplate_guid: string | null;
+  opc_riskassessmentfactortemplate_guid: string | null;
+  opc_riskassessmentid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_RiskAssessmentDefinition_RelatedOne {
+  opc_RiskAssessmentCategory: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  opc_RiskAssessmentDefinitionTemplate: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  opc_RiskAssessmentFactorTemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  opc_riskassessmentid: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+}
+interface opc_RiskAssessmentDefinition_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  opc_riskassessmentdefinitions: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_riskassessmentdefinitions: WebMappingRelated<opc_RiskAssessmentDefinition_RelatedOne,opc_RiskAssessmentDefinition_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_riskassessmentdefinitions: WebMappingCUDA<opc_RiskAssessmentDefinition_Create,opc_RiskAssessmentDefinition_Update,opc_RiskAssessmentDefinition_Select>;
+}
+interface opc_RiskAssessmentDefinitionTemplate_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_name?: string | null;
+  opc_riskassessmentdefinitiontemplateid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_riskassessmentdefinitiontemplate_statecode | null;
+  statuscode?: opc_riskassessmentdefinitiontemplate_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_RiskAssessmentDefinitionTemplate_Relationships {
+  opc_RiskAppetite?: opc_RiskAppetite_Result | null;
+  opc_RiskAssessmentDefinition_RiskAssessmentDe?: opc_RiskAssessmentDefinition_Result[] | null;
+  opc_RiskAssessmentFactorTemplate?: opc_RiskAssessmentFactorTemplate_Result | null;
+}
+interface opc_RiskAssessmentDefinitionTemplate extends opc_RiskAssessmentDefinitionTemplate_Base, opc_RiskAssessmentDefinitionTemplate_Relationships {
+  opc_RiskAppetite_bind$opc_riskappetites?: string | null;
+  opc_RiskAssessmentFactorTemplate_bind$opc_riskassessmentfactortemplates?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_RiskAssessmentDefinitionTemplate_Create extends opc_RiskAssessmentDefinitionTemplate {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Update extends opc_RiskAssessmentDefinitionTemplate {
+}
+interface opc_RiskAssessmentDefinitionTemplate_Select {
+  createdby_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_name: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { opc_name: string | null }, {  }>;
+  opc_riskappetite_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { opc_riskappetite_guid: string | null }, { opc_riskappetite_formatted?: string }>;
+  opc_riskassessmentdefinitiontemplateid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { opc_riskassessmentdefinitiontemplateid: string | null }, {  }>;
+  opc_riskassessmentfactortemplate_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { opc_riskassessmentfactortemplate_guid: string | null }, { opc_riskassessmentfactortemplate_formatted?: string }>;
+  overriddencreatedon: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { statecode: opc_riskassessmentdefinitiontemplate_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { statuscode: opc_riskassessmentdefinitiontemplate_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_RiskAssessmentDefinitionTemplate_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_RiskAssessmentDefinitionTemplate_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_name: string;
+  opc_riskappetite_guid: XQW.Guid;
+  opc_riskassessmentdefinitiontemplateid: XQW.Guid;
+  opc_riskassessmentfactortemplate_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_riskassessmentdefinitiontemplate_statecode;
+  statuscode: opc_riskassessmentdefinitiontemplate_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_RiskAssessmentDefinitionTemplate_Expand {
+  opc_RiskAppetite: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_RiskAppetite: opc_RiskAppetite_Result }>;
+  opc_RiskAssessmentDefinition_RiskAssessmentDe: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessmentDe: opc_RiskAssessmentDefinition_Result[] }>;
+  opc_RiskAssessmentFactorTemplate: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result }>;
+}
+interface opc_RiskAssessmentDefinitionTemplate_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_riskappetite_formatted?: string;
+  opc_riskassessmentfactortemplate_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_RiskAssessmentDefinitionTemplate_Result extends opc_RiskAssessmentDefinitionTemplate_Base, opc_RiskAssessmentDefinitionTemplate_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_riskappetite_guid: string | null;
+  opc_riskassessmentfactortemplate_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_RiskAssessmentDefinitionTemplate_RelatedOne {
+  opc_RiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  opc_RiskAssessmentFactorTemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+}
+interface opc_RiskAssessmentDefinitionTemplate_RelatedMany {
+  opc_RiskAssessmentDefinition_RiskAssessmentDe: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_riskassessmentdefinitiontemplates: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_riskassessmentdefinitiontemplates: WebMappingRelated<opc_RiskAssessmentDefinitionTemplate_RelatedOne,opc_RiskAssessmentDefinitionTemplate_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_riskassessmentdefinitiontemplates: WebMappingCUDA<opc_RiskAssessmentDefinitionTemplate_Create,opc_RiskAssessmentDefinitionTemplate_Update,opc_RiskAssessmentDefinitionTemplate_Select>;
+}
+interface opc_RiskAssessmentFactorTemplate_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_name?: string | null;
+  opc_riskassessmentfactortemplateid?: string | null;
+  opc_sequence?: number | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_riskassessmentfactortemplate_statecode | null;
+  statuscode?: opc_riskassessmentfactortemplate_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_RiskAssessmentFactorTemplate_Relationships {
+  opc_RiskAssessmentCategoryTemplate?: opc_RiskAssessmentCategoryTemplate_Result | null;
+  opc_RiskAssessmentDefinitionTemplate_Risk?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+  opc_RiskAssessmentDefinition_RiskAssessmentFa?: opc_RiskAssessmentDefinition_Result[] | null;
+}
+interface opc_RiskAssessmentFactorTemplate extends opc_RiskAssessmentFactorTemplate_Base, opc_RiskAssessmentFactorTemplate_Relationships {
+  opc_RiskAssessmentCategoryTemplate_bind$opc_riskassessmentcategorytemplates?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_RiskAssessmentFactorTemplate_Create extends opc_RiskAssessmentFactorTemplate {
+}
+interface opc_RiskAssessmentFactorTemplate_Update extends opc_RiskAssessmentFactorTemplate {
+}
+interface opc_RiskAssessmentFactorTemplate_Select {
+  createdby_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_name: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { opc_name: string | null }, {  }>;
+  opc_riskassessmentcategorytemplate_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { opc_riskassessmentcategorytemplate_guid: string | null }, { opc_riskassessmentcategorytemplate_formatted?: string }>;
+  opc_riskassessmentfactortemplateid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { opc_riskassessmentfactortemplateid: string | null }, {  }>;
+  opc_sequence: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { opc_sequence: number | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { statecode: opc_riskassessmentfactortemplate_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { statuscode: opc_riskassessmentfactortemplate_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_RiskAssessmentFactorTemplate_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_RiskAssessmentFactorTemplate_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_name: string;
+  opc_riskassessmentcategorytemplate_guid: XQW.Guid;
+  opc_riskassessmentfactortemplateid: XQW.Guid;
+  opc_sequence: number;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_riskassessmentfactortemplate_statecode;
+  statuscode: opc_riskassessmentfactortemplate_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_RiskAssessmentFactorTemplate_Expand {
+  opc_RiskAssessmentCategoryTemplate: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { opc_RiskAssessmentCategoryTemplate: opc_RiskAssessmentCategoryTemplate_Result }>;
+  opc_RiskAssessmentDefinitionTemplate_Risk: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_RiskAssessmentDefinitionTemplate_Risk: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  opc_RiskAssessmentDefinition_RiskAssessmentFa: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessmentFa: opc_RiskAssessmentDefinition_Result[] }>;
+}
+interface opc_RiskAssessmentFactorTemplate_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_riskassessmentcategorytemplate_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_RiskAssessmentFactorTemplate_Result extends opc_RiskAssessmentFactorTemplate_Base, opc_RiskAssessmentFactorTemplate_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_riskassessmentcategorytemplate_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_RiskAssessmentFactorTemplate_RelatedOne {
+  opc_RiskAssessmentCategoryTemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+}
+interface opc_RiskAssessmentFactorTemplate_RelatedMany {
+  opc_RiskAssessmentDefinitionTemplate_Risk: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  opc_RiskAssessmentDefinition_RiskAssessmentFa: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_riskassessmentfactortemplates: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_riskassessmentfactortemplates: WebMappingRelated<opc_RiskAssessmentFactorTemplate_RelatedOne,opc_RiskAssessmentFactorTemplate_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_riskassessmentfactortemplates: WebMappingCUDA<opc_RiskAssessmentFactorTemplate_Create,opc_RiskAssessmentFactorTemplate_Update,opc_RiskAssessmentFactorTemplate_Select>;
+}
+interface opc_RiskAssessmentType_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_name?: string | null;
+  opc_riskassessmenttypeid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_riskassessmenttype_statecode | null;
+  statuscode?: opc_riskassessmenttype_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_RiskAssessmentType_Relationships {
+  opc_RiskAssessmentCategoryTemplate_RiskAs?: opc_RiskAssessmentCategoryTemplate_Result[] | null;
+  opc_RiskAssessment_RiskAssessmentType_opc?: opc_RiskAssessment_Result[] | null;
+  opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType?: opc_RiskAssessmentCategory_Result[] | null;
+}
+interface opc_RiskAssessmentType extends opc_RiskAssessmentType_Base, opc_RiskAssessmentType_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_RiskAssessmentType_Create extends opc_RiskAssessmentType {
+}
+interface opc_RiskAssessmentType_Update extends opc_RiskAssessmentType {
+}
+interface opc_RiskAssessmentType_Select {
+  createdby_guid: WebAttribute<opc_RiskAssessmentType_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_RiskAssessmentType_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_RiskAssessmentType_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_RiskAssessmentType_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_RiskAssessmentType_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_RiskAssessmentType_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_RiskAssessmentType_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_name: WebAttribute<opc_RiskAssessmentType_Select, { opc_name: string | null }, {  }>;
+  opc_riskassessmenttypeid: WebAttribute<opc_RiskAssessmentType_Select, { opc_riskassessmenttypeid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_RiskAssessmentType_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_RiskAssessmentType_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_RiskAssessmentType_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_RiskAssessmentType_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_RiskAssessmentType_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_RiskAssessmentType_Select, { statecode: opc_riskassessmenttype_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_RiskAssessmentType_Select, { statuscode: opc_riskassessmenttype_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_RiskAssessmentType_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_RiskAssessmentType_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_RiskAssessmentType_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_RiskAssessmentType_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_name: string;
+  opc_riskassessmenttypeid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_riskassessmenttype_statecode;
+  statuscode: opc_riskassessmenttype_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_RiskAssessmentType_Expand {
+  opc_RiskAssessmentCategoryTemplate_RiskAs: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { opc_RiskAssessmentCategoryTemplate_RiskAs: opc_RiskAssessmentCategoryTemplate_Result[] }>;
+  opc_RiskAssessment_RiskAssessmentType_opc: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_RiskAssessmentType_opc: opc_RiskAssessment_Result[] }>;
+  opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType: opc_RiskAssessmentCategory_Result[] }>;
+}
+interface opc_RiskAssessmentType_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_RiskAssessmentType_Result extends opc_RiskAssessmentType_Base, opc_RiskAssessmentType_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_RiskAssessmentType_RelatedOne {
+}
+interface opc_RiskAssessmentType_RelatedMany {
+  opc_RiskAssessmentCategoryTemplate_RiskAs: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  opc_RiskAssessment_RiskAssessmentType_opc: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_riskassessmenttypes: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_riskassessmenttypes: WebMappingRelated<opc_RiskAssessmentType_RelatedOne,opc_RiskAssessmentType_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_riskassessmenttypes: WebMappingCUDA<opc_RiskAssessmentType_Create,opc_RiskAssessmentType_Update,opc_RiskAssessmentType_Select>;
 }
 interface opc_theme_Base extends WebEntity {
   createdon?: Date | null;

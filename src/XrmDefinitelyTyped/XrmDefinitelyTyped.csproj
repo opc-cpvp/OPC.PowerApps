@@ -44,10 +44,17 @@
     <Content Include="XrmDefinitelyTyped\FSharp.Core.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.Crm.Sdk.Proxy.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
-    <Content Include="XrmDefinitelyTyped\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll" />
+    <Content Include="XrmDefinitelyTyped\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll" />
+    <Content Include="XrmDefinitelyTyped\Microsoft.Rest.ClientRuntime.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.Xrm.Sdk.Deployment.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.Xrm.Sdk.dll" />
+    <Content Include="XrmDefinitelyTyped\Microsoft.Xrm.Sdk.Workflow.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.Xrm.Tooling.Connector.dll" />
+    <Content Include="XrmDefinitelyTyped\Newtonsoft.Json.dll" />
+    <Content Include="XrmDefinitelyTyped\System.Buffers.dll" />
+    <Content Include="XrmDefinitelyTyped\System.Memory.dll" />
+    <Content Include="XrmDefinitelyTyped\System.Numerics.Vectors.dll" />
+    <Content Include="XrmDefinitelyTyped\System.Runtime.CompilerServices.Unsafe.dll" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
   </ItemGroup>
