@@ -302,7 +302,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.146</IntroducedVersion>
+          <IntroducedVersion>1.0.150</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -325,7 +325,7 @@
             <displayname description="Allegation" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The Allegation for this Checklist Response" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_ChecklistResponseId">
@@ -405,10 +405,10 @@
             <Description description="Required name field" languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="opc_questiontemplateid">
+        <attribute PhysicalName="opc_questionid">
           <Type>lookup</Type>
-          <Name>opc_questiontemplateid</Name>
-          <LogicalName>opc_questiontemplateid</LogicalName>
+          <Name>opc_questionid</Name>
+          <LogicalName>opc_questionid</LogicalName>
           <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -417,7 +417,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.146</IntroducedVersion>
+          <IntroducedVersion>1.0.150</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -440,7 +440,7 @@
             <displayname description="Question" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The question asked in this checklist" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_response">
@@ -480,7 +480,7 @@
             <displayname description="Response" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The response to this question" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OverriddenCreatedOn">

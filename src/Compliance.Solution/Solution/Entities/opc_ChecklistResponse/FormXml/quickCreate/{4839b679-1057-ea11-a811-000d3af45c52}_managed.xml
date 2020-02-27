@@ -7,16 +7,16 @@
     <FormActivationState>1</FormActivationState>
     <form>
       <tabs>
-        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{58c527e9-9e52-4612-a435-36d6eb3afdcc}">
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_general" showlabel="false" labelid="{58c527e9-9e52-4612-a435-36d6eb3afdcc}" locklevel="0" expanded="true">
           <labels>
-            <label description="Tab" languagecode="1033" />
+            <label description="General" languagecode="1033" />
           </labels>
           <columns>
             <column width="34%">
               <sections>
-                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{7fd2833a-4e21-44de-9c10-53de134ea693}">
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="section_general" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{7fd2833a-4e21-44de-9c10-53de134ea693}" height="auto">
                   <labels>
-                    <label description="Section" languagecode="1033" />
+                    <label description="General" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -28,7 +28,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{7d89f4d4-a6ba-4c6f-9e76-93d5d347dea1}" showlabel="true" locklevel="0" labelid="{b86a394b-1524-4b54-8d4e-ea1bf3525a19}">
+                      <cell id="{69a99365-c7af-47af-afe9-34dc7a60452e}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Allegation" languagecode="1033" />
                         </labels>
@@ -36,11 +36,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{00828ada-1b47-492d-a873-d86b70464688}" showlabel="true" locklevel="0" labelid="{46ed47fb-4659-43aa-981d-a6560b5991e2}">
+                      <cell id="{669d3175-0672-4b5f-a7d6-c03e5bb5f42d}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Question Template" languagecode="1033" />
+                          <label description="Question" languagecode="1033" />
                         </labels>
-                        <control id="opc_questiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontemplateid" disabled="false" />
+                        <control id="opc_questionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questionid" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -57,13 +57,13 @@
             </column>
             <column width="33%">
               <sections>
-                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{9f0588a0-3fef-4f4c-b6ec-8f424a20be68}">
+                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{9f0588a0-3fef-4f4c-b6ec-8f424a20be68}">
                   <labels>
                     <label description="Section" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{ebeb65c4-2f04-4717-bae2-82113cb20de7}">
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{ebeb65c4-2f04-4717-bae2-82113cb20de7}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -75,13 +75,13 @@
             </column>
             <column width="33%">
               <sections>
-                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{e54facf7-a647-491c-9c69-6cfc700168f6}">
+                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{e54facf7-a647-491c-9c69-6cfc700168f6}">
                   <labels>
                     <label description="Section" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{738a7e87-e387-416d-ad5c-10fc178fdc94}">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{738a7e87-e387-416d-ad5c-10fc178fdc94}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

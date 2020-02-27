@@ -73,17 +73,17 @@
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>
-            <cell id="{ac88d496-eb83-40c3-8e84-c6bf9770ff9a}" showlabel="true" locklevel="0">
+            <cell id="{91eda753-0ff9-41e7-b110-e1479a09b6dd}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Allegation" languagecode="1033" />
               </labels>
               <control id="header_opc_allegationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationid" disabled="false" />
             </cell>
-            <cell id="{27208a65-64c4-41b5-b225-5f6214f00256}" showlabel="true" locklevel="0">
+            <cell id="{cf21a7fa-1851-44d9-ba65-da29edb7f811}" showlabel="true" locklevel="0">
               <labels>
-                <label description="Question Template" languagecode="1033" />
+                <label description="Question" languagecode="1033" />
               </labels>
-              <control id="header_opc_questiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontemplateid" disabled="false" />
+              <control id="header_opc_questionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questionid" disabled="false" />
             </cell>
           </row>
         </rows>

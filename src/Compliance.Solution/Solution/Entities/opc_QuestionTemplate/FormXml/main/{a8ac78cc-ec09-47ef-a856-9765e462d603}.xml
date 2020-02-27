@@ -30,15 +30,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{76648175-6ee0-4e1f-944b-7e8759dfad08}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Checklist Type" languagecode="1033" />
-                        </labels>
-                        <control id="opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{39a9a7fb-9715-4abb-8b76-313bd6489f9a}" showlabel="true" locklevel="0">
+                      <cell id="{d448dafb-3a24-41e5-8a71-735e925fd285}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Parent Question Template" languagecode="1033" />
                         </labels>
@@ -62,20 +54,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{12e75a62-4b35-4788-b6e7-596831163ac6}" showlabel="true" locklevel="0">
+                      <cell id="{c1f08029-cf43-4755-b76b-37aae8d5bfb0}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Question Type" languagecode="1033" />
                         </labels>
-                        <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" uniqueid="{9d28e036-7a99-daa1-5317-a9913503bd56}">
-                          <parameters>
-                            <AutoResolve>true</AutoResolve>
-                            <DisableMru>true</DisableMru>
-                            <DisableQuickFind>false</DisableQuickFind>
-                            <DisableViewPicker>false</DisableViewPicker>
-                            <DefaultViewId>{3F594D71-842B-4A0C-8366-CADA29A8AB7E}</DefaultViewId>
-                            <AllowFilterOff>false</AllowFilterOff>
-                          </parameters>
-                        </control>
+                        <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -89,6 +72,7 @@
                       <cell showlabel="false" locklevel="0" id="{e75d0eac-0288-44c4-a869-5c902d265864}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Checklist Responses" languagecode="1033" />
+                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_checklist_responses" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -96,7 +80,7 @@
                             <ViewId>{D91175CB-52A3-4A79-B441-3BDB09C5C436}</ViewId>
                             <ViewIds>{D91175CB-52A3-4A79-B441-3BDB09C5C436}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_ChecklistResponse_questiontemplateid_</RelationshipName>
+                            <RelationshipName>opc_questiontemplate_checklistresponses_quest</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
@@ -112,6 +96,7 @@
                       <cell showlabel="false" locklevel="0" id="{28892e7b-8bb2-45cc-9153-f6a2cbaee666}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Child Question Templates" languagecode="1033" />
+                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_child_question_templates" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -119,7 +104,7 @@
                             <ViewId>{38025B05-4833-4DEB-AB37-0EDD10B2EA27}</ViewId>
                             <ViewIds>{38025B05-4833-4DEB-AB37-0EDD10B2EA27}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_QuestionTemplate_parentquestiontempla</RelationshipName>
+                            <RelationshipName>opc_questiontemplate_questiontemplates_parent</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
@@ -155,6 +140,12 @@
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+            <cell id="{76e28b11-17e4-4fa4-9df2-273d1f3c3cfe}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Checklist Type" languagecode="1033" />
+              </labels>
+              <control id="header_opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
             </cell>
           </row>
         </rows>

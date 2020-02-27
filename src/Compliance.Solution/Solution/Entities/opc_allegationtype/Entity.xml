@@ -379,7 +379,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.146</IntroducedVersion>
+          <IntroducedVersion>1.0.150</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -402,7 +402,7 @@
             <displayname description="Checklist Type" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The type of checklist generated for this Allegation Type" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_descriptionenglish">

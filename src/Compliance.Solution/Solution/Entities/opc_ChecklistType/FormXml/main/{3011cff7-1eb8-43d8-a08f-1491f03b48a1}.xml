@@ -28,27 +28,18 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{125a607a-2a5e-4eda-bda3-4c2acc0d06d9}" rowspan="8" colspan="1">
+                      <cell showlabel="true" locklevel="0" id="{d10ab1fd-47d8-466e-84e0-f16e7090fb2f}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegation Types" languagecode="1033" />
+                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
-                        <control id="subgrid_allegation_types" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{694db677-ed40-3c70-0d22-4a342c68de21}">
+                        <control id="subgrid_allegation_types" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>opc_allegationtype</TargetEntityType>
                             <ViewId>{DE6E5984-F5DB-4489-B3E2-892C21B9A16A}</ViewId>
                             <ViewIds>{DE6E5984-F5DB-4489-B3E2-892C21B9A16A}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_allegationtype_checklisttypeid_opc_Ch</RelationshipName>
-                            <RecordsPerPage>4</RecordsPerPage>
-                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            <IsUserView>false</IsUserView>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <AutoExpand>Auto</AutoExpand>
-                            <ChartGridMode>All</ChartGridMode>
-                            <VisualizationId />
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>true</EnableChartPicker>
+                            <RelationshipName>opc_checklisttype_allegationtypes_checklistty</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
@@ -60,44 +51,7 @@
                         </labels>
                         <control id="opc_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_type" disabled="false" />
                       </cell>
-                    </row>
-                    <row>
-                      <cell id="{ac377e7e-c5ab-2b12-66ae-762dc5e4aa5d}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{39aaea5d-2045-c203-e1a5-557e556a2461}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{4a80013f-7a67-47e3-8d6d-9f12a5acb9af}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{196c4132-5b61-33a0-c4e7-c47c70ae1d99}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{61c03c4e-9e6c-7cc6-622c-4b3e10ad0b76}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{d51b8cb9-32cd-076d-814e-8aece8dec4d8}" showlabel="false">
+                      <cell id="{a027de28-58c0-4c17-ba75-e4ce8a88d94d}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -111,35 +65,22 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="true" locklevel="0" id="{90014a72-2722-49f6-9a2e-d7ed73aaab3f}" rowspan="5" colspan="1" auto="true">
+                      <cell showlabel="false" locklevel="0" id="{154728ee-ae63-4118-9385-27d8306b2f3a}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Question Templates" languagecode="1033" />
+                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
-                        <control id="subgrid_question_templates" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{3d2db9ac-07cc-dcb5-b139-8610e60aacbc}">
+                        <control id="subgrid_question_templates" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>opc_questiontemplate</TargetEntityType>
                             <ViewId>{38025B05-4833-4DEB-AB37-0EDD10B2EA27}</ViewId>
                             <ViewIds>{38025B05-4833-4DEB-AB37-0EDD10B2EA27}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_QuestionTemplate_checklisttypeid_opc_</RelationshipName>
-                            <RecordsPerPage>10</RecordsPerPage>
-                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            <IsUserView>false</IsUserView>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <AutoExpand>Auto</AutoExpand>
-                            <ChartGridMode>All</ChartGridMode>
-                            <VisualizationId />
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>true</EnableChartPicker>
+                            <RelationshipName>opc_checklisttype_questiontemplates_checklist</RelationshipName>
                           </parameters>
                         </control>
                       </cell>
                     </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row height="auto" />
                   </rows>
                 </section>
               </sections>
@@ -197,7 +138,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

@@ -40,6 +40,7 @@
                       <cell showlabel="false" locklevel="0" id="{24a2a846-e6ee-4412-ab42-78529bec3914}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Question Templates" languagecode="1033" />
+                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_question_templates" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -47,7 +48,7 @@
                             <ViewId>{38025B05-4833-4DEB-AB37-0EDD10B2EA27}</ViewId>
                             <ViewIds>{38025B05-4833-4DEB-AB37-0EDD10B2EA27}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_QuestionTemplate_questiontypeid_opc_Q</RelationshipName>
+                            <RelationshipName>opc_questiontype_questiontemplates_questionty</RelationshipName>
                           </parameters>
                         </control>
                       </cell>

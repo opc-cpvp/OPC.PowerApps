@@ -7,16 +7,16 @@
     <FormActivationState>1</FormActivationState>
     <form>
       <tabs>
-        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{696d1921-984b-40de-b517-0139a32edef1}">
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_general" showlabel="false" labelid="{696d1921-984b-40de-b517-0139a32edef1}" locklevel="0" expanded="true">
           <labels>
-            <label description="Tab" languagecode="1033" />
+            <label description="General" languagecode="1033" />
           </labels>
           <columns>
             <column width="34%">
               <sections>
-                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{2a2c8742-6ee5-49ad-97e6-7fd13fe227ad}">
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="section_general" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{2a2c8742-6ee5-49ad-97e6-7fd13fe227ad}">
                   <labels>
-                    <label description="Section" languagecode="1033" />
+                    <label description="General" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -28,7 +28,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{4ea4771e-6b93-4e1c-9349-7a599a9ecf6a}" showlabel="true" locklevel="0" labelid="{92258bc0-027d-4b45-a52b-b7de20db5b26}">
+                      <cell id="{3b78b31a-39ff-47c4-9cbc-677b0fb89220}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Checklist Type" languagecode="1033" />
                         </labels>
@@ -36,7 +36,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{2ce20086-f188-4229-8826-0f90d872100e}" showlabel="true" locklevel="0" labelid="{7bafde9b-08fb-4fba-86d3-f5e88abb91ac}">
+                      <cell id="{11f37b1b-b4ae-4929-ac04-5b7893821a00}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Parent Question Template" languagecode="1033" />
                         </labels>
@@ -60,20 +60,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{b382f445-e7b4-4a3e-89d4-3021f0a379ec}" showlabel="true" locklevel="0" labelid="{17dc0d57-b4c6-4242-985f-d30eba79c5be}">
+                      <cell id="{58218fd2-5fc9-4838-b275-85424dbd95a0}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Question Type" languagecode="1033" />
                         </labels>
-                        <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" uniqueid="{02e5e7da-5d01-6ac5-b61a-4a71c008076e}">
-                          <parameters>
-                            <AutoResolve>true</AutoResolve>
-                            <DisableMru>true</DisableMru>
-                            <DisableQuickFind>false</DisableQuickFind>
-                            <DisableViewPicker>false</DisableViewPicker>
-                            <DefaultViewId>{3F594D71-842B-4A0C-8366-CADA29A8AB7E}</DefaultViewId>
-                            <AllowFilterOff>false</AllowFilterOff>
-                          </parameters>
-                        </control>
+                        <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -82,7 +73,7 @@
             </column>
             <column width="33%">
               <sections>
-                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{4b0426d3-0f21-4b8e-83c9-c85b30bf4e89}">
+                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{4b0426d3-0f21-4b8e-83c9-c85b30bf4e89}">
                   <labels>
                     <label description="Section" languagecode="1033" />
                   </labels>
@@ -100,7 +91,7 @@
             </column>
             <column width="33%">
               <sections>
-                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{b11cc538-3205-4310-abc9-380988a5bd20}">
+                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{b11cc538-3205-4310-abc9-380988a5bd20}">
                   <labels>
                     <label description="Section" languagecode="1033" />
                   </labels>

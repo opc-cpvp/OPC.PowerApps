@@ -29,22 +29,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{8ccba04b-a771-d248-bc42-8c207199025b}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Checklist Type" languagecode="1033" />
-                        </labels>
-                        <control id="opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{03ac6426-51eb-405c-207d-ad7300099b59}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Question Type" languagecode="1033" />
-                        </labels>
-                        <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{31d03c4d-1121-4103-b352-da364c31d4e7}">
                         <labels>
                           <label description="Owner" languagecode="1033" />

@@ -302,7 +302,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.146</IntroducedVersion>
+          <IntroducedVersion>1.0.150</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -435,14 +435,13 @@
           <LogicalName>opc_parentquestiontemplateid</LogicalName>
           <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.146</IntroducedVersion>
+          <IntroducedVersion>1.0.150</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -465,7 +464,7 @@
             <displayname description="Parent Question Template" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The parent question, if any exists." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_QuestionTemplateId">
@@ -517,7 +516,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.146</IntroducedVersion>
+          <IntroducedVersion>1.0.150</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -540,7 +539,7 @@
             <displayname description="Question Type" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The type of question" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_sequence">
@@ -580,7 +579,7 @@
             <displayname description="Sequence" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The order that this question appears in the checklist. Child questions should contain the parent question's number followed by a period, and the sequence within the set of child questions." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OverriddenCreatedOn">
@@ -1063,17 +1062,4 @@
   <FormXml />
   <SavedQueries />
   <RibbonDiffXml />
-  <HierarchyRules>
-    <HierarchyRule>
-      <HierarchyRuleID>{7a171a09-0f57-ea11-a811-000d3af46cc5}</HierarchyRuleID>
-      <PrimaryEntityFormID>{2af2552c-229b-4aff-a057-e5950f8dbaa8}</PrimaryEntityFormID>
-      <PrimaryEntityLogicalName>opc_questiontemplate</PrimaryEntityLogicalName>
-      <ShowDisabled>1</ShowDisabled>
-      <IntroducedVersion>1.0.146</IntroducedVersion>
-      <IsCustomizable>1</IsCustomizable>
-      <LocalizedNames>
-        <LocalizedName description="opc_parentquestiontemplate" languagecode="1033" />
-      </LocalizedNames>
-    </HierarchyRule>
-  </HierarchyRules>
 </Entity>

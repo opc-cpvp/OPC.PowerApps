@@ -12,9 +12,9 @@
         <row name="result" id="opc_questiontemplateid">
           <cell name="opc_sequence" width="100" />
           <cell name="opc_name" width="300" />
-          <cell name="opc_questiontypeid" width="204" />
-          <cell name="opc_parentquestiontemplateid" width="244" />
-          <cell name="opc_checklisttypeid" width="229" />
+          <cell name="opc_questiontypeid" width="137" />
+          <cell name="opc_parentquestiontemplateid" width="260" />
+          <cell name="opc_checklisttypeid" width="166" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -29,10 +29,10 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_checklisttypeid" />
-          <attribute name="opc_parentquestiontemplateid" />
-          <attribute name="opc_questiontypeid" />
           <attribute name="opc_sequence" />
+          <attribute name="opc_parentquestiontemplateid" />
+          <attribute name="opc_checklisttypeid" />
+          <attribute name="opc_questiontypeid" />
           <order attribute="opc_checklisttypeid" descending="false" />
           <order attribute="opc_sequence" descending="false" />
         </entity>
