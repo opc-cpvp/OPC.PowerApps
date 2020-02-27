@@ -76,11 +76,12 @@ namespace Compliance.Plugins
                 }
                 catch (Exception ex)
                 {
+                    userLanguageId = languages["english"];
                     localContext.Trace($"There was an error while trying to find the calling user's language. Defaulting to English. Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
                 }
                 finally 
                 {
-                    localContext.PluginExecutionContext.SharedVariables[UserLocaleId] = userLanguageId ?? languages["english"];
+                    localContext.PluginExecutionContext.SharedVariables[UserLocaleId] = userLanguageId;
                 }
             }
             // Remove identifying prefix
