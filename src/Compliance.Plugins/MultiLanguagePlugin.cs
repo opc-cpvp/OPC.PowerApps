@@ -78,10 +78,7 @@ namespace Compliance.Plugins
                 {
                     localContext.Trace($"There was an error while trying to find the calling user's language. Defaulting to English. Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
                 }
-                finally 
-                {
-                    localContext.PluginExecutionContext.SharedVariables[UserLocaleId] = userLanguageId;
-                }
+                localContext.PluginExecutionContext.SharedVariables[UserLocaleId] = userLanguageId;
             }
             // Remove identifying prefix
             name = name.Replace(prefix, string.Empty);
