@@ -38,7 +38,7 @@
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
     <IntroducedVersion>1.0.150</IntroducedVersion>
-    <IsHierarchical>0</IsHierarchical>
+    <IsHierarchical>1</IsHierarchical>
     <ReferencingEntityName>opc_QuestionTemplate</ReferencingEntityName>
     <ReferencedEntityName>opc_QuestionTemplate</ReferencedEntityName>
     <CascadeAssign>NoCascade</CascadeAssign>

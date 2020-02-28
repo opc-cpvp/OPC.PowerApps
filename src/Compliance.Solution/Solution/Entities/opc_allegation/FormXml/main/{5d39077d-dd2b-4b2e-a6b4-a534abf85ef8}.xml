@@ -72,10 +72,9 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="true" locklevel="0" id="{90c15352-a737-4b23-b38f-4dbdc05e43aa}" rowspan="1" colspan="1">
+                      <cell showlabel="true" locklevel="0" id="{a3242d0a-e6b2-49c9-9c3c-fba343736caf}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Checklist Responses" languagecode="1033" />
-                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_checklist_responses" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>

@@ -28,10 +28,9 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{d10ab1fd-47d8-466e-84e0-f16e7090fb2f}" rowspan="1" colspan="1">
+                      <cell showlabel="true" locklevel="0" id="{365a2317-e808-4e25-acb0-4baed19a6e0d}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegation Types" languagecode="1033" />
-                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_allegation_types" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -51,7 +50,7 @@
                         </labels>
                         <control id="opc_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_type" disabled="false" />
                       </cell>
-                      <cell id="{a027de28-58c0-4c17-ba75-e4ce8a88d94d}">
+                      <cell showlabel="true" locklevel="0" id="{80b3376e-1489-4e35-b9af-1b4b4ee9dcf5}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -65,10 +64,9 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{154728ee-ae63-4118-9385-27d8306b2f3a}" rowspan="1" colspan="1">
+                      <cell showlabel="true" locklevel="0" id="{7a56a5fb-d218-4e40-8641-4b070cd765c4}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Question Templates" languagecode="1033" />
-                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_question_templates" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -138,7 +136,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

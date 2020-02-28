@@ -31,16 +31,15 @@
                     </row>
                   </rows>
                 </section>
-                <section name="section_question_templates" id="3a5869ca-ace5-419b-a2ac-47e3910cbbe8" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_question_templates" id="3a5869ca-ace5-419b-a2ac-47e3910cbbe8" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Question Templates" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{24a2a846-e6ee-4412-ab42-78529bec3914}" rowspan="1" colspan="1">
+                      <cell showlabel="true" locklevel="0" id="{6c4c7602-04ab-4dce-8abb-2ff0b6dc5d41}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Question Templates" languagecode="1033" />
-                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_question_templates" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>

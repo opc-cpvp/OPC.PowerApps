@@ -63,16 +63,15 @@
                     </row>
                   </rows>
                 </section>
-                <section name="section_checklist_responses" id="4d84c900-a7b0-4f65-a219-6fa5b43eb53a" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_checklist_responses" id="4d84c900-a7b0-4f65-a219-6fa5b43eb53a" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Checklist Responses" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{e75d0eac-0288-44c4-a869-5c902d265864}" rowspan="1" colspan="1">
+                      <cell showlabel="true" locklevel="0" id="{dae04e57-5560-447d-99c2-162c253d380b}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Checklist Responses" languagecode="1033" />
-                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_checklist_responses" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -87,16 +86,15 @@
                     </row>
                   </rows>
                 </section>
-                <section name="section_child_question_templates" id="6150a3f3-0a60-43c3-b748-72b9406e0ddc" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_child_question_templates" id="6150a3f3-0a60-43c3-b748-72b9406e0ddc" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Child Question Templates" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{28892e7b-8bb2-45cc-9153-f6a2cbaee666}" rowspan="1" colspan="1">
+                      <cell showlabel="true" locklevel="0" id="{ff5dcb5d-67c9-449d-a6a5-6b15e6fa6d72}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Child Question Templates" languagecode="1033" />
-                          <label description="Erreurs de synchronisation" languagecode="1036" />
                         </labels>
                         <control id="subgrid_child_question_templates" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>

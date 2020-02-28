@@ -296,6 +296,7 @@
           <LogicalName>opc_checklisttypeid</LogicalName>
           <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
@@ -435,6 +436,7 @@
           <LogicalName>opc_parentquestiontemplateid</LogicalName>
           <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
@@ -510,6 +512,7 @@
           <LogicalName>opc_questiontypeid</LogicalName>
           <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
@@ -1062,4 +1065,20 @@
   <FormXml />
   <SavedQueries />
   <RibbonDiffXml />
+  <HierarchyRules>
+    <HierarchyRule>
+      <HierarchyRuleID>{1d1c7b6c-355a-ea11-a811-000d3af45c52}</HierarchyRuleID>
+      <PrimaryEntityFormID>{2af2552c-229b-4aff-a057-e5950f8dbaa8}</PrimaryEntityFormID>
+      <PrimaryEntityLogicalName>opc_questiontemplate</PrimaryEntityLogicalName>
+      <ShowDisabled>1</ShowDisabled>
+      <IntroducedVersion>1.0.152</IntroducedVersion>
+      <IsCustomizable>1</IsCustomizable>
+      <LocalizedNames>
+        <LocalizedName description="opc_questiontemplatehierarchy" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="Hierarchical relationship between Question Templates" languagecode="1033" />
+      </Descriptions>
+    </HierarchyRule>
+  </HierarchyRules>
 </Entity>
