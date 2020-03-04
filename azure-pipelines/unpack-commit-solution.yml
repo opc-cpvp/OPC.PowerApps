@@ -47,8 +47,19 @@ steps:
       /serviceContextName:"$(SolutionName)" `
       /username:"$(crm.username)" `
       /password:"$(crm.password)"
+
+    & $crmsvcexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
+      /out:"$(Build.SourcesDirectory)/src/$(SolutionName).Entities/OptionSets.cs" `
+      /namespace:"$(SolutionName).Entities" `
+      /codewriterfilter:"CrmSvcUtil.Filter.GenerateOptionSetEnums.FilteringService, CrmSvcUtil.Filter" `
+      /codecustomization:"CrmSvcUtil.Filter.GenerateOptionSetEnums.CodeCustomizationService, CrmSvcUtil.Filter" `
+      /namingservice:"CrmSvcUtil.Filter.GenerateOptionSetEnums.NamingService, CrmSvcUtil.Filter" `
+      /serviceContextName:"$(SolutionName)" `
+      /username:"$(crm.username)" `
+      /password:"$(crm.password)"
       
-  displayName: 'Update C# entities'
+  displayName: 'Update C# entities and optionsets'
+
 
 - task: print-env-task@1
 - task: print-fs-structure-task@1
