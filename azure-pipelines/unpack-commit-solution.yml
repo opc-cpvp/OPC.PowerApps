@@ -15,28 +15,49 @@ steps:
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'MSCRM Tool Installer'
-
-- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportSolution.MSCRMExportSolution@10
-  displayName: 'MSCRM Export Solution'
+  
+- task: NuGetToolInstaller@1
   inputs:
-    crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
-    solutionName: '$(SolutionName)'
-    exportManaged: true
-    outputPath: '$(Agent.TempDirectory)'
+    versionSpec: 
 
-- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractSolution.MSCRMExtractSolution@10
-  displayName: 'MSCRM Extract Solution'
-  inputs:
-    unpackedFilesFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Solution\Solution'
-    packageType: Both
-    solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
-    localize: false
+- powershell: |
+
+    & "$(NUGETEXETOOLPATH)" install  src/XrmDefinitelyTyped/packages.config -NonInteractive -Outputdirectory src/packages
+    
+    $xdtexe = Get-ChildItem src/packages -Filter XrmDefinitelyTyped.exe -recurse | select -first 1 -ExpandProperty FullName
+    & $xdtexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
+      /out:"../$(SolutionName).WebResources/@types/xrmdefinitelytyped" `
+      /jsLib:"../$(SolutionName).WebResources/js/lib/xrmquery" `
+      /web:"" `
+      /solutions:"$(SolutionName)" `
+      /username:"$(crm.username)" `
+      /password:"$(crm.password)" `
+      /oneFile:"true"
+
+  displayName: 'Update TypeScript entities'
+
+- powershell: |
+
+    & "$(NUGETEXETOOLPATH)" install src/CrmSvcUtil.Filter/packages.config -NonInteractive -OutputDirectory src/packages
+    
+    $crmsvcexe = Get-ChildItem src/packages -Filter CrmSvcUtil.exe -recurse | select -first 1 -ExpandProperty FullName
+    & $crmsvcexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
+      /out:"$(Build.SourcesDirectory)/src/$(SolutionName).Entities/Entities.cs" `
+      /namespace:"$(SolutionName).Entities" `
+      /serviceContextName:"$(SolutionName)" `
+      /username:"$(crm.username)" `
+      /password:"$(crm.password)"
+      
+  displayName: 'Update C# entities'
+
+- task: print-env-task@1
+- task: print-fs-structure-task@1
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"
    $branch = $branch.Replace("refs/heads/", "")
    
-   echo "Commit all changes"
+   echo "Committing all CDS solution changes"
    git config user.email "nepasrepondre-noreply@priv.gc.ca"
    git config user.name "opc-buildbot"
    git checkout $branch
