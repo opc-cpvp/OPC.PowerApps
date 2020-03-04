@@ -26,8 +26,8 @@ steps:
     
     $xdtexe = Get-ChildItem src/packages -Filter XrmDefinitelyTyped.exe -recurse | select -first 1 -ExpandProperty FullName
     & $xdtexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
-      /out:"../$(SolutionName).WebResources/@types/xrmdefinitelytyped" `
-      /jsLib:"../$(SolutionName).WebResources/js/lib/xrmquery" `
+      /out:"$(Build.SourcesDirectory)/src/$(SolutionName).WebResources/@types/xrmdefinitelytyped" `
+      /jsLib:"$(Build.SourcesDirectory)/src/$(SolutionName).WebResources/js/lib/xrmquery" `
       /web:"" `
       /solutions:"$(SolutionName)" `
       /username:"$(crm.username)" `
