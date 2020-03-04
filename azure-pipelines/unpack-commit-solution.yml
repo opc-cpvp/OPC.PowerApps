@@ -36,6 +36,12 @@ steps:
 
   displayName: 'Update TypeScript entities'
 
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
