@@ -44,7 +44,7 @@ steps:
 
 - powershell: |
 
-    & "$(NUGETEXETOOLPATH)" install src/CrmSvcUtil.Filter/packages.config -NonInteractive -OutputDirectory src/packages
+    # & "$(NUGETEXETOOLPATH)" install src/CrmSvcUtil.Filter/packages.config -NonInteractive -OutputDirectory src/packages
     
     $crmsvcexe = Get-ChildItem src/CrmSvcUtil.Filter -Filter CrmSvcUtil.exe -recurse | select -first 1 -ExpandProperty FullName
     & $crmsvcexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
