@@ -38,10 +38,9 @@ steps:
 
 - task: MSBuild@1
   inputs:
-    solution: '**/CrmSvcUtil.Filter.csproj'
+    solution: '**/*.sln'
     platform: 'x86'
     configuration: 'Release'
-    restoreNugetPackages: true
 
 - powershell: |
 
