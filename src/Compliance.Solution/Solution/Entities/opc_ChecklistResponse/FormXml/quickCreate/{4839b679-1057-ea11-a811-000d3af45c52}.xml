@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4839b679-1057-ea11-a811-000d3af45c52}</formid>
+    <IntroducedVersion>1.0.146</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_general" showlabel="false" labelid="{58c527e9-9e52-4612-a435-36d6eb3afdcc}" locklevel="0" expanded="true">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="34%">
+              <sections>
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="section_general" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{7fd2833a-4e21-44de-9c10-53de134ea693}" height="auto">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5849381f-9c45-4a43-9467-421b677125fa}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{69a99365-c7af-47af-afe9-34dc7a60452e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Allegation" languagecode="1033" />
+                        </labels>
+                        <control id="opc_allegationid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{669d3175-0672-4b5f-a7d6-c03e5bb5f42d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Question" languagecode="1033" />
+                        </labels>
+                        <control id="opc_questionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questionid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5154efcc-211a-4a1e-bbb7-90bfadd9d8b6}" showlabel="true" locklevel="0" auto="true" labelid="{b9560ae1-02f0-4c52-8433-74dee506f244}">
+                        <labels>
+                          <label description="Response" languagecode="1033" />
+                        </labels>
+                        <control id="opc_response" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_response" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{9f0588a0-3fef-4f4c-b6ec-8f424a20be68}">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{ebeb65c4-2f04-4717-bae2-82113cb20de7}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{e54facf7-a647-491c-9c69-6cfc700168f6}">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{738a7e87-e387-416d-ad5c-10fc178fdc94}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        <Role Id="{b9e4c233-a86c-4078-8a62-56c79d33450f}" />
+        <Role Id="{4c99f292-cbed-48d9-8550-a867733ad0be}" />
+        <Role Id="{04c05c2f-357f-490b-b587-da55fbe37827}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick Create" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>
