@@ -38,7 +38,7 @@ steps:
 
 - task: MSBuild@1
   inputs:
-    solution: 'SvcUtilFilter.Filter.csproj'
+    solution: '**/SvcUtilFilter.Filter.csproj'
 
 - powershell: |
 
