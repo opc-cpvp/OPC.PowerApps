@@ -17,7 +17,7 @@
     <ReferencingAttributeName>opc_sectorid</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="The sector in which a PIPEDA complaint falls under" languagecode="1033" />
+        <Description description="The sector in which a the complaint falls under" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

@@ -10,7 +10,7 @@
         <LocalizedCollectionName description="Sectors" languagecode="1033" />
       </LocalizedCollectionNames>
       <Descriptions>
-        <Description description="The sector which a complaint applies" languagecode="1033" />
+        <Description description="The sector in which the record applies. The business sector(s) where something is under" languagecode="1033" />
       </Descriptions>
       <attributes>
         <attribute PhysicalName="CreatedBy">
@@ -477,6 +477,7 @@
           <LogicalName>opc_parentsectorid</LogicalName>
           <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>

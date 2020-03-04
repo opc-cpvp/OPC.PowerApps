@@ -69,16 +69,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{9d584d69-cd06-4061-8a25-fc071f8ca96b}" showlabel="true" locklevel="0">
+                      <cell id="{b07b5cbe-03f8-4aef-968f-24cbb01fc53d}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="OPC Priority" languagecode="1033" />
                         </labels>
-                        <control id="opc_opcpriorityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_opcpriorityid" disabled="false">
-                          <parameters>
-                            <DefaultViewId>{CD499A09-D39A-4AA0-B455-3E87EBD55DF9}</DefaultViewId>
-                            <AvailableViewIds>{CD499A09-D39A-4AA0-B455-3E87EBD55DF9},{CFA4E511-3C81-456C-9FA3-53F324A52CF7},{13E08D37-EF58-4F08-BC40-E6E3E0F83570}</AvailableViewIds>
-                          </parameters>
-                        </control>
+                        <control id="opc_opcpriorityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_opcpriorityid" disabled="false" />
                       </cell>
                     </row>
                     <row>

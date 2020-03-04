@@ -79,7 +79,7 @@
   <EntityRelationship Name="opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite" />
   <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />
   <EntityRelationship Name="opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType" />
-  <EntityRelationship Name="opc_opcpriority_complaints__opcpriority" />
+  <EntityRelationship Name="opc_opcpriority_complaints_opcpriority" />
   <EntityRelationship Name="opc_reminders_users_additionaluserstonotify" />
   <EntityRelationship Name="opc_RiskAssessment_ActualRiskAppetite_opc" />
   <EntityRelationship Name="opc_RiskAssessment_BypassInitiatedBy_Syst" />

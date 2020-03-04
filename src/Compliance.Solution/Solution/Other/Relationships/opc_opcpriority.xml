@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <EntityRelationship Name="opc_opcpriority_complaints__opcpriority">
+  <EntityRelationship Name="opc_opcpriority_complaints_opcpriority">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.137</IntroducedVersion>
+    <IntroducedVersion>1.0.147</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_complaint</ReferencingEntityName>
     <ReferencedEntityName>opc_opcpriority</ReferencedEntityName>
@@ -29,7 +29,7 @@
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>opc_opcpriority_complaints__opcpriority</NavigationPropertyName>
+        <NavigationPropertyName>opc_opcpriority_complaints_opcpriority</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
