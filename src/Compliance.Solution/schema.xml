@@ -86,6 +86,7 @@
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
       <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Value" name="opc_value" type="number" customfield="true" />
     </fields>
     <relationships />
   </entity>
