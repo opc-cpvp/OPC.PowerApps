@@ -162,13 +162,13 @@
       <field displayname="Queue" name="queueid" type="guid" primaryKey="true" />
       <field displayname="Type" name="queueviewtype" type="optionsetvalue" />
     </fields>
+    <relationships />
     <filter>
       &lt;filter type="and" &gt;
       &lt;condition attribute="name" operator="not-begin-with" value="&amp;lt;" /&gt;
       &lt;condition attribute="name" operator="not-end-with" value="&amp;gt;" /&gt;
       &lt;/filter&gt;
     </filter>
-    <relationships />
   </entity>
   <entity name="opc_checklisttype" displayname="Checklist Type" etc="10601" primaryidfield="opc_checklisttypeid" primarynamefield="opc_name" disableplugins="false">
     <fields>
@@ -177,6 +177,7 @@
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
       <field displayname="Type" name="opc_type" type="optionsetvalue" customfield="true" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -200,6 +201,7 @@
       <field displayname="Sequence" name="opc_sequence" type="string" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
