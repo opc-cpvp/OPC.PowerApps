@@ -32,6 +32,15 @@ steps:
     solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
     localize: false
 
+
+- powershell: |
+    
+    npm install jsonlint -g
+    Get-ChildItem src/(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach { jsonlint $_.FullName --in-place }
+
+  displayName: 'Lint Json Workflows'
+
+
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
