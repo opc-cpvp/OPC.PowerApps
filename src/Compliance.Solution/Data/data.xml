@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-03-05T16:15:44.5520754Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-03-05T16:44:40.1688019Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -66,6 +66,7 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_value" value="1" />
       </record>
       <record id="a63f1cd6-ff3d-ea11-a812-000d3af46fff">
         <field name="opc_name" value="2 - Lower" />
@@ -73,6 +74,7 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_value" value="2" />
       </record>
       <record id="db3f1cd6-ff3d-ea11-a812-000d3af46fff">
         <field name="opc_name" value="3 - Moderate" />
@@ -80,6 +82,7 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_value" value="3" />
       </record>
       <record id="c9d241dc-ff3d-ea11-a812-000d3af46fff">
         <field name="opc_name" value="4 - Higher" />
@@ -87,6 +90,7 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_value" value="4" />
       </record>
       <record id="4b7a5be2-ff3d-ea11-a812-000d3af46fff">
         <field name="opc_name" value="5 - Extreme" />
@@ -94,6 +98,7 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_value" value="5" />
       </record>
     </records>
     <m2mrelationships />
