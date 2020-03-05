@@ -36,7 +36,7 @@ steps:
 - powershell: |
     
     npm install jsonlint -g
-    Get-ChildItem src/(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach { jsonlint $_.FullName --in-place }
+    Get-ChildItem src/$(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach { jsonlint $_.FullName --in-place }
 
   displayName: 'Lint Json Workflows'
 
