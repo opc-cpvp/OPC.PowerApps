@@ -42,16 +42,13 @@ steps:
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Restore .NET Core NuGet Packages'
-  inputs:
-    command: restore
-    projects: '**/*.csproj'
-
-
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
+    msbuildVersion: '15.0'
+    platform: 'any cpu'
+    configuration: 'release'
+    clean: true
 
 - powershell: |
 
