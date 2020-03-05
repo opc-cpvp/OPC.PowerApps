@@ -37,7 +37,7 @@ steps:
     
     npm install jsonlint -g
     Get-ChildItem src/$(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach { 
-      echo "Linting $_.Name ..."
+      echo "Linting $_.Name"
       jsonlint $_.FullName --in-place 
     }
 
