@@ -1,1 +1,125 @@
-{"properties":{"connectionReferences":{"shared_commondataserviceforapps":{"runtimeSource":"embedded","connection":{},"api":{"name":"shared_commondataserviceforapps"}}},"definition":{"$schema":"https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#","contentVersion":"1.0.0.0","parameters":{"$connections":{"defaultValue":{},"type":"Object"},"$authentication":{"defaultValue":{},"type":"SecureObject"}},"triggers":{"When_an_Allegation_is_created":{"type":"OpenApiConnectionWebhook","inputs":{"host":{"connectionName":"shared_commondataserviceforapps","operationId":"SubscribeWebhookTrigger","apiId":"/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"},"parameters":{"subscriptionRequest/message":1,"subscriptionRequest/entityname":"opc_allegation","subscriptionRequest/scope":4},"authentication":"@parameters('$authentication')"}}},"actions":{"Get_Allegation_Types_linked_to_Allegation":{"runAfter":{},"type":"OpenApiConnection","inputs":{"host":{"connectionName":"shared_commondataserviceforapps","operationId":"ListRecords","apiId":"/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"},"parameters":{"entityName":"opc_allegationtypes","$select":"opc_checklisttypeid","$filter":"statecode eq 0 and opc_allegationtypeid eq @{triggerOutputs()?['body/_opc_allegationtypeid_value']}","$top":1},"authentication":"@parameters('$authentication')"}},"Apply_to_each_Allegation_Type":{"foreach":"@outputs('Get_Allegation_Types_linked_to_Allegation')?['body/value']","actions":{"Get_Question_Templates_linked_to_Checklist_Type_(from_Allegation_Type)":{"runAfter":{},"type":"OpenApiConnection","inputs":{"host":{"connectionName":"shared_commondataserviceforapps","operationId":"ListRecords","apiId":"/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"},"parameters":{"entityName":"opc_questiontemplates","$select":"opc_questiontemplateid,_opc_checklisttypeid_value,opc_sequence,opc_name,_opc_parentquestiontemplateid_value","$filter":"statecode eq 0 and _opc_checklisttypeid_value eq @{items('Apply_to_each_Allegation_Type')?['_opc_checklisttypeid_value']}","$orderby":"opc_sequence"},"authentication":"@parameters('$authentication')"}},"Apply_to_each_Question_Template":{"foreach":"@outputs('Get_Question_Templates_linked_to_Checklist_Type_(from_Allegation_Type)')?['body/value']","actions":{"Create_Checklist_Response_based_on_Question_Template":{"runAfter":{},"type":"OpenApiConnection","inputs":{"host":{"connectionName":"shared_commondataserviceforapps","operationId":"CreateRecord","apiId":"/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"},"parameters":{"entityName":"opc_checklistresponses","item/opc_allegationid@odata.bind":"/opc_allegations(@{triggerOutputs()?['body/opc_allegationid']})","item/opc_name":"@{items('Apply_to_each_Question_Template')?['opc_sequence']} - @{items('Apply_to_each_Question_Template')?['opc_name']}","item/opc_questionid@odata.bind":"opc_questiontemplates(@{items('Apply_to_each_Question_Template')?['opc_questiontemplateid']})"},"authentication":"@parameters('$authentication')"}}},"runAfter":{"Get_Question_Templates_linked_to_Checklist_Type_(from_Allegation_Type)":["Succeeded"]},"type":"Foreach"}},"runAfter":{"Get_Allegation_Types_linked_to_Allegation":["Succeeded"]},"type":"Foreach"}},"outputs":{}}},"schemaVersion":"1.0.0.0"}
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_an_Allegation_is_created": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "opc_allegation",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_Allegation_Types_linked_to_Allegation": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "opc_allegationtypes",
+              "$select": "opc_checklisttypeid",
+              "$filter": "statecode eq 0 and opc_allegationtypeid eq @{triggerOutputs()?['body/_opc_allegationtypeid_value']}",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_Allegation_Type": {
+          "foreach": "@outputs('Get_Allegation_Types_linked_to_Allegation')?['body/value']",
+          "actions": {
+            "Get_Question_Templates_linked_to_Checklist_Type_(from_Allegation_Type)": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "opc_questiontemplates",
+                  "$select": "opc_questiontemplateid,_opc_checklisttypeid_value,opc_sequence,opc_name,_opc_parentquestiontemplateid_value",
+                  "$filter": "statecode eq 0 and _opc_checklisttypeid_value eq @{items('Apply_to_each_Allegation_Type')?['_opc_checklisttypeid_value']}",
+                  "$orderby": "opc_sequence"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each_Question_Template": {
+              "foreach": "@outputs('Get_Question_Templates_linked_to_Checklist_Type_(from_Allegation_Type)')?['body/value']",
+              "actions": {
+                "Create_Checklist_Response_based_on_Question_Template": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "opc_checklistresponses",
+                      "item/opc_allegationid@odata.bind": "/opc_allegations(@{triggerOutputs()?['body/opc_allegationid']})",
+                      "item/opc_name": "@{items('Apply_to_each_Question_Template')?['opc_sequence']} - @{items('Apply_to_each_Question_Template')?['opc_name']}",
+                      "item/opc_questionid@odata.bind": "opc_questiontemplates(@{items('Apply_to_each_Question_Template')?['opc_questiontemplateid']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_Question_Templates_linked_to_Checklist_Type_(from_Allegation_Type)": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Get_Allegation_Types_linked_to_Allegation": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
