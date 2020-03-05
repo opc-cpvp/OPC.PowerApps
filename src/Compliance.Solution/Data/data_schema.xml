@@ -6,6 +6,7 @@
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
   </entity>
   <entity name="businessunit" displayname="Business Unit" etc="10" primaryidfield="businessunitid" primarynamefield="name" disableplugins="false">
@@ -84,6 +85,7 @@
       <field updateCompare="true" displayname="Risk Appetite" name="opc_riskappetiteid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -95,6 +97,7 @@
       <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -106,6 +109,7 @@
       <field displayname="Risk Assessment Factor Template" name="opc_riskassessmentfactortemplate" type="entityreference" lookupType="opc_riskassessmentfactortemplate" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -117,6 +121,7 @@
       <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -126,6 +131,7 @@
       <field updateCompare="true" displayname="Risk Assessment Type" name="opc_riskassessmenttypeid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -141,7 +147,23 @@
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
+  </entity>
+  <entity name="queue" displayname="Queue" etc="2020" primaryidfield="queueid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Name" name="name" type="string" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Queue" name="queueid" type="guid" primaryKey="true" />
+      <field displayname="Type" name="queueviewtype" type="optionsetvalue" />
+    </fields>
+    <filter>    &lt;filter type="and" &gt;
+      &lt;condition attribute="name" operator="not-begin-with" value="&amp;lt;" /&gt;
+      &lt;condition attribute="name" operator="not-end-with" value="&amp;gt;" /&gt;
+    &lt;/filter&gt;</filter>
   </entity>
 </entities>
