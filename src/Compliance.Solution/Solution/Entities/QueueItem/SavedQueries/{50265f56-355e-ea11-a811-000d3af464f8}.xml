@@ -32,12 +32,11 @@
           <attribute name="queueitemid" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
-            <condition attribute="objecttypecode" operator="eq" value="10581" />
+            <condition attribute="objecttypecode" operator="eq" value="10605" />
             <condition attribute="queueid" operator="eq" value="{4645d1a6-8d5c-ea11-a811-000d3af46fff}" uiname="Review" uitype="queue" />
           </filter>
           <link-entity name="opc_complaint" from="opc_complaintid" to="objectid" link-type="inner" alias="opc_complaint">
             <attribute name="opc_actualriskappetitevalue" />
-            <order attribute="opc_actualriskappetitevalue" descending="true" />
           </link-entity>
         </entity>
       </fetch>

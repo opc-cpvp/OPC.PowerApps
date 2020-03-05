@@ -32,7 +32,7 @@
           <attribute name="queueitemid" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
-            <condition attribute="objecttypecode" operator="eq" value="10581" />
+            <condition attribute="objecttypecode" operator="eq" value="10605" />
             <condition attribute="queueid" operator="eq" value="{c1545086-8d5c-ea11-a811-000d3af46fff}" uiname="Backlog" uitype="queue" />
           </filter>
           <link-entity name="opc_complaint" from="opc_complaintid" to="objectid" link-type="inner" alias="opc_complaint">
