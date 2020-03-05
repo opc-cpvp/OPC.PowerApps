@@ -19,7 +19,10 @@
     <AppModuleComponent type="60" id="{098ae145-1567-41ec-8398-86dbaac70c9b}" />
     <AppModuleComponent type="60" id="{d7ea7bb0-e0d9-49f9-8409-7df03ad34691}" />
     <AppModuleComponent type="60" id="{2205c86d-ed88-4a2f-a447-3b86a8781f2e}" />
+    <AppModuleComponent type="1" schemaName="opc_allegationtype" />
     <AppModuleComponent type="1" schemaName="opc_allegation" />
+    <AppModuleComponent type="1" schemaName="opc_checklistresponse" />
+    <AppModuleComponent type="1" schemaName="opc_checklisttype" />
     <AppModuleComponent type="1" schemaName="opc_complaint" />
     <AppModuleComponent type="1" schemaName="contact" />
     <AppModuleComponent type="60" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}" />
@@ -47,6 +50,8 @@
     <AppModuleComponent type="26" id="{e899847e-8bd6-4061-b7aa-ddc0693fc6ed}" />
     <AppModuleComponent type="26" id="{3b7d8177-15ca-41a1-9232-ce49d4ff1bfd}" />
     <AppModuleComponent type="59" id="{794e51f6-5e5d-ea11-a811-000d3af464f8}" />
+    <AppModuleComponent type="1" schemaName="opc_questiontemplate" />
+    <AppModuleComponent type="1" schemaName="opc_questiontype" />
     <AppModuleComponent type="1" schemaName="opc_recommendation" />
     <AppModuleComponent type="1" schemaName="opc_reminder" />
     <AppModuleComponent type="1" schemaName="opc_riskappetite" />

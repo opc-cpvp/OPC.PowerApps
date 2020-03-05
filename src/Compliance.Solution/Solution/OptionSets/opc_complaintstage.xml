@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_complaintstage" localizedName="Complaint Stage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.146</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Complaint Stage" languagecode="1033" />
+  </displaynames>
+  <options>
+    <option value="924340000">
+      <labels>
+        <label description="Intake" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>
