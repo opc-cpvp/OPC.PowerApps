@@ -20,10 +20,19 @@ steps:
   inputs:
     versionSpec: 
 
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/XrmDefinitelyTyped/packages.config'
+    feedsToUse: 'select'
+    restoreDirectory: '../packages'
+  displayName: 'Restore XrmDefinitelyTyped project packages'
+
 - powershell: |
 
-    & "$(NUGETEXETOOLPATH)" install  src/XrmDefinitelyTyped/packages.config -NonInteractive -Outputdirectory src/packages
+    # & "$(NUGETEXETOOLPATH)" install  src/XrmDefinitelyTyped/packages.config -NonInteractive -Outputdirectory src/packages
     
+    echo "Preparing to update all Typescript early bound type definitions..."
     $xdtexe = Get-ChildItem src/packages -Filter XrmDefinitelyTyped.exe -recurse | select -first 1 -ExpandProperty FullName
     & $xdtexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
       /out:"$(Build.SourcesDirectory)/src/$(SolutionName).WebResources/@types/xrmdefinitelytyped" `
@@ -33,6 +42,7 @@ steps:
       /username:"$(crm.username)" `
       /password:"$(crm.password)" `
       /oneFile:"true"
+    echo "Succesfully updated all Typescript early bound type definitions"
 
   displayName: 'Update TypeScript entities'
 
@@ -42,16 +52,16 @@ steps:
     restoreSolution: '**/CrmSvcUtil.Filter/packages.config'
     feedsToUse: 'select'
     restoreDirectory: '../packages'
+  displayName: 'Restore CrmSvcUtil.Filter project packages'
 
 - task: MSBuild@1
   inputs:
     solution: '**/CrmSvcUtil.Filter.csproj'
-    msbuildVersion: '15.0'
+  displayName: 'Build CrmSvcUtil.Filter'
 
 - powershell: |
-
-    # & "$(NUGETEXETOOLPATH)" install src/CrmSvcUtil.Filter/packages.config -NonInteractive -OutputDirectory src/packages
     
+    echo "Preparing to update all C# early bound entities..."
     $crmsvcexe = Get-ChildItem src/CrmSvcUtil.Filter -Filter CrmSvcUtil.exe -recurse | select -first 1 -ExpandProperty FullName
     & $crmsvcexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
       /out:"$(Build.SourcesDirectory)/src/$(SolutionName).Entities/Entities.cs" `
@@ -59,7 +69,9 @@ steps:
       /serviceContextName:"$(SolutionName)" `
       /username:"$(crm.username)" `
       /password:"$(crm.password)"
-
+    echo "Succesfully updated all C# early bound entities"
+    
+    echo "Preparing to update all C# early bound optionsets..."
     & $crmsvcexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
       /out:"$(Build.SourcesDirectory)/src/$(SolutionName).Entities/OptionSets.cs" `
       /namespace:"$(SolutionName).Entities" `
@@ -69,6 +81,7 @@ steps:
       /serviceContextName:"$(SolutionName)" `
       /username:"$(crm.username)" `
       /password:"$(crm.password)"
+    echo "Succesfully updated all C# early bound optionsets"
       
   displayName: 'Update C# entities and optionsets'
 
