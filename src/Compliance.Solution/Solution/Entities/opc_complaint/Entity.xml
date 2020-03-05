@@ -369,6 +369,45 @@
             <Description description="Define who the complaint is targetting" languagecode="1033" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="opc_actualriskappetitevalue">
+          <Type>int</Type>
+          <Name>opc_actualriskappetitevalue</Name>
+          <LogicalName>opc_actualriskappetitevalue</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForReadApi>1</ValidForReadApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.146</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>2</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>1</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>none</Format>
+          <MinValue>-2147483648</MinValue>
+          <MaxValue>2147483647</MaxValue>
+          <displaynames>
+            <displayname description="Actual Risk Appetite (Value)" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+          <FormulaDefinitionFileName>/Formulas/opc_complaint-opc_actualriskappetitevalue.xaml</FormulaDefinitionFileName>
+        </attribute>
         <attribute PhysicalName="opc_complainant">
           <Type>lookup</Type>
           <Name>opc_complainant</Name>
@@ -1312,7 +1351,7 @@
       <IsBusinessProcessEnabled>1</IsBusinessProcessEnabled>
       <IsRequiredOffline>0</IsRequiredOffline>
       <IsInteractionCentricEnabled>0</IsInteractionCentricEnabled>
-      <IsCollaboration>0</IsCollaboration>
+      <IsCollaboration>1</IsCollaboration>
       <AutoRouteToOwnerQueue>0</AutoRouteToOwnerQueue>
       <IsConnectionsEnabled>0</IsConnectionsEnabled>
       <EntityColor></EntityColor>
@@ -1376,5 +1415,6 @@
   </EntityInfo>
   <FormXml />
   <SavedQueries />
+  <Visualizations />
   <RibbonDiffXml />
 </Entity>

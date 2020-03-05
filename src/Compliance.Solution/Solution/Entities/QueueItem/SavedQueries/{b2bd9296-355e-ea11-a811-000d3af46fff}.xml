@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b2bd9296-355e-ea11-a811-000d3af46fff}</savedqueryid>
+    <layoutxml>
+      <grid name="queueitems" jump="title" select="1" icon="1" preview="1">
+        <row name="queueitem" id="objectid" multiobjectidfield="objecttypecode">
+          <cell name="title" width="300" />
+          <cell name="opc_complaint.opc_actualriskappetitevalue" width="165" />
+          <cell name="enteredon" width="140" />
+          <cell name="queueid" width="150" />
+          <cell name="workerid" width="150" />
+          <cell name="queueitemid" ishidden="1" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="queueitem">
+          <attribute name="title" />
+          <attribute name="enteredon" />
+          <attribute name="objecttypecode" />
+          <attribute name="queueid" />
+          <attribute name="workerid" />
+          <attribute name="objectid" />
+          <attribute name="queueitemid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+            <condition attribute="objecttypecode" operator="eq" value="10581" />
+            <condition attribute="queueid" operator="eq" value="{0318d98e-8a5c-ea11-a811-000d3af46fff}" uiname="Triage" uitype="queue" />
+          </filter>
+          <link-entity name="opc_complaint" from="opc_complaintid" to="objectid" link-type="inner" alias="opc_complaint">
+            <attribute name="opc_actualriskappetitevalue" />
+          </link-entity>
+          <order attribute="enteredon" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.146</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Complaints in Triage Queue" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Complaints in Triage Queue" languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

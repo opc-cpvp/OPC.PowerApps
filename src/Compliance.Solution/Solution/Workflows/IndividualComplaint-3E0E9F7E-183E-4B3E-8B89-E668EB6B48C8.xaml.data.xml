@@ -31,18 +31,24 @@
   </Descriptions>
   <labels>
     <steplabels id="{e0bf78b2-9a4e-44f1-8d12-b5ed83ce3c6f}">
-      <label languagecode="1033" description="Intake" />
-    </steplabels>
-    <steplabels id="{7c03c837-0648-4998-b423-ed6a6f1ce76e}">
-      <label languagecode="1033" description="Recommend to registrar" />
-    </steplabels>
-    <steplabels id="{c37661cb-c27e-422d-8fd6-393195d935e1}">
-      <label languagecode="1033" description="Recommend to" />
-    </steplabels>
-    <steplabels id="{45f2a2cf-9ace-41f0-81e8-205c341346b2}">
-      <label languagecode="1033" description="Reason to decline" />
+      <label languagecode="1033" description="Triage" />
     </steplabels>
     <steplabels id="{37b923cd-8ccb-426b-9581-e14752e0271e}">
+      <label languagecode="1033" description="Complaint Disposition" />
+    </steplabels>
+    <steplabels id="{a6c493c6-ac5e-434e-ac45-233fcca6aef2}">
+      <label languagecode="1033" description="Intake" />
+    </steplabels>
+    <steplabels id="{f959954c-a7d6-486b-9473-ec5e27057097}">
+      <label languagecode="1033" description="Recommend to registrar" />
+    </steplabels>
+    <steplabels id="{b24b7467-d187-4f1c-9efa-d14341e7c48f}">
+      <label languagecode="1033" description="Recommend to" />
+    </steplabels>
+    <steplabels id="{8353dbf9-a2da-4614-a5ba-0a791f792180}">
+      <label languagecode="1033" description="Reason to decline" />
+    </steplabels>
+    <steplabels id="{9f0352d1-9f84-459a-8cfd-0be39db003da}">
       <label languagecode="1033" description="Complaint Disposition" />
     </steplabels>
     <steplabels id="{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}">
