@@ -16,6 +16,22 @@ steps:
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'MSCRM Tool Installer'
 
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportSolution.MSCRMExportSolution@10
+  displayName: 'MSCRM Export Solution'
+  inputs:
+    crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
+    solutionName: '$(SolutionName)'
+    exportManaged: true
+    outputPath: '$(Agent.TempDirectory)'
+
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractSolution.MSCRMExtractSolution@10
+  displayName: 'MSCRM Extract Solution'
+  inputs:
+    unpackedFilesFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Solution\Solution'
+    packageType: Both
+    solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
+    localize: false
+
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
@@ -84,10 +100,6 @@ steps:
     echo "Succesfully updated all C# early bound optionsets"
       
   displayName: 'Update C# entities and optionsets'
-
-
-- task: print-env-task@1
-- task: print-fs-structure-task@1
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"
