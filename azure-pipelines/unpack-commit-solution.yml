@@ -47,9 +47,6 @@ steps:
   inputs:
     solution: '**/CrmSvcUtil.Filter.csproj'
     msbuildVersion: '15.0'
-    platform: 'any cpu'
-    configuration: 'release'
-    clean: true
 
 - powershell: |
 
