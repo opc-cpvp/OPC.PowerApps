@@ -53,7 +53,7 @@
                             <label description="Queue Item" languagecode="1033" />
                             <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
-                          <control id="Component6777687" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <control id="chart_complaint_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{5e16aa3c-ccd6-8e70-9e4d-a66c9ebb5a76}">
                             <parameters>
                               <ViewId>{34F4B8B5-A25C-EA11-A811-000D3AF46FFF}</ViewId>
                               <IsUserView>false</IsUserView>
@@ -62,14 +62,14 @@
                               <AutoExpand>Fixed</AutoExpand>
                               <EnableQuickFind>false</EnableQuickFind>
                               <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds />
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
                               <EnableJumpBar>false</EnableJumpBar>
                               <ChartGridMode>Chart</ChartGridMode>
                               <VisualizationId>{794E51F6-5E5D-EA11-A811-000D3AF464F8}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
-                              <RecordsPerPage>7</RecordsPerPage>
-                              <HeaderColorCode />
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             </parameters>
                           </control>
                         </cell>
@@ -89,7 +89,7 @@
                               <HeaderColorCode>#F3F3F3</HeaderColorCode>
                               <ViewId>{E5B8A3E8-313D-EA11-A812-000D3AF46CC5}</ViewId>
                               <IsUserView>false</IsUserView>
-                              <ViewIds />
+                              <ViewIds>{E5B8A3E8-313D-EA11-A812-000D3AF46CC5}</ViewIds>
                               <AutoExpand>Fixed</AutoExpand>
                               <VisualizationId />
                               <IsUserChart>false</IsUserChart>
@@ -138,7 +138,7 @@
                             <label description="Complaint" languagecode="1033" />
                             <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
-                          <control id="Component1954975" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{9b1b0349-0876-388b-0c8d-0321a064bb66}">
+                          <control id="chart_complaint_by_created_on" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{9b1b0349-0876-388b-0c8d-0321a064bb66}">
                             <parameters>
                               <ViewId>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewId>
                               <IsUserView>false</IsUserView>
@@ -147,14 +147,14 @@
                               <AutoExpand>Fixed</AutoExpand>
                               <EnableQuickFind>false</EnableQuickFind>
                               <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds />
+                              <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewIds>
                               <EnableJumpBar>false</EnableJumpBar>
                               <ChartGridMode>Chart</ChartGridMode>
                               <VisualizationId>{39B07AE9-585D-EA11-A811-000D3AF464F8}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
-                              <RecordsPerPage>7</RecordsPerPage>
-                              <HeaderColorCode />
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             </parameters>
                           </control>
                         </cell>
@@ -163,7 +163,7 @@
                             <label description="Individual Complaint" languagecode="1033" />
                             <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
-                          <control id="Component6489610" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{c945abcb-9b9c-3349-3e5a-23ac20235514}">
+                          <control id="chart_complaint_by_active_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{c945abcb-9b9c-3349-3e5a-23ac20235514}">
                             <parameters>
                               <ViewId>{892E58DC-0535-4ABD-A7F0-D68630051C20}</ViewId>
                               <IsUserView>false</IsUserView>
@@ -172,14 +172,14 @@
                               <AutoExpand>Fixed</AutoExpand>
                               <EnableQuickFind>false</EnableQuickFind>
                               <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds />
+                              <ViewIds>{892E58DC-0535-4ABD-A7F0-D68630051C20}</ViewIds>
                               <EnableJumpBar>false</EnableJumpBar>
                               <ChartGridMode>Chart</ChartGridMode>
                               <VisualizationId>{2EFB3A64-595D-EA11-A811-000D3AF464F8}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
-                              <RecordsPerPage>7</RecordsPerPage>
-                              <HeaderColorCode />
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             </parameters>
                           </control>
                         </cell>
