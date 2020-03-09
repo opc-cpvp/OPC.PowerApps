@@ -14,7 +14,7 @@
           <columns>
             <column width="67%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c6ea7ba6-d402-451b-9ae9-a79575e343c1}" name="section_general">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c6ea7ba6-d402-451b-9ae9-a79575e343c1}" name="section_general" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>
@@ -28,44 +28,85 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{a6d93dc7-e2f2-4896-95de-1a9e56671204}" showlabel="true" locklevel="0">
+                      <cell id="{a6d93dc7-e2f2-4896-95de-1a9e56671204}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="Complainant" languagecode="1033" />
                         </labels>
-                        <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" />
+                        <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" uniqueid="{387734eb-27c6-2ca9-b04b-05d2c3095a2b}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{4c7ab1c0-ea6d-438d-818d-6b6cf50ba6be}" showlabel="true" locklevel="0">
+                      <cell id="{4c7ab1c0-ea6d-438d-818d-6b6cf50ba6be}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="Complainant Representative" languagecode="1033" />
                         </labels>
-                        <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" />
+                        <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" uniqueid="{2a7ea693-d85a-6739-757d-dab67d51ec4b}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{2b3d4e09-c4b9-468a-97c4-3968300d146c}" showlabel="true" locklevel="0">
+                      <cell id="{2b3d4e09-c4b9-468a-97c4-3968300d146c}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="Legislation" languagecode="1033" />
                         </labels>
-                        <control id="opc_legislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_legislation" disabled="false" />
+                        <control id="opc_legislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_legislation" disabled="false" uniqueid="{e09cd1db-691d-a869-e862-8671e775e60c}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{5BC148F8-EF50-4808-BC46-BB5CAD4C3966}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}">
+                      <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}" showlabel="true" locklevel="1" colspan="1">
                         <labels>
                           <label description="Owner" languagecode="1033" />
                           <label description="Propriétaire" languagecode="1036" />
                         </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{9b16320b-5e25-7005-203a-488178664a0a}" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{b7eaa1ef-a333-4619-8654-f52b0dc2e439}" showlabel="true" locklevel="0">
+                      <cell id="{b7eaa1ef-a333-4619-8654-f52b0dc2e439}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="Respondent" languagecode="1033" />
                         </labels>
-                        <control id="opc_accountid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_accountid" disabled="false" />
+                        <control id="opc_accountid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_accountid" disabled="false" uniqueid="{e2536cc1-80d7-9eaa-a53e-44707a43e336}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -347,6 +388,14 @@
                     <label description="Risk Assessments" languagecode="1033" />
                   </labels>
                   <rows>
+                    <row>
+                      <cell id="{d87b0318-e77a-44e0-b68c-fa55962e00a7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Actual Risk Appetite (Value)" languagecode="1033" />
+                        </labels>
+                        <control id="opc_actualriskappetitevalue" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_actualriskappetitevalue" disabled="false" />
+                      </cell>
+                    </row>
                     <row>
                       <cell showlabel="false" locklevel="0" id="{a37cc6b7-373c-4e49-b6c7-21fd43b3bc29}" rowspan="6" colspan="1" auto="false">
                         <labels>

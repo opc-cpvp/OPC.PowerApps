@@ -10,6 +10,8 @@
   <AppModuleComponents>
     <AppModuleComponent type="62" schemaName="opc_compliance" />
     <AppModuleComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" />
+    <AppModuleComponent type="60" id="{38dd3fd7-365e-ea11-a811-000d3af46fff}" />
+    <AppModuleComponent type="60" id="{85c64e3e-e23e-ea11-a812-000d3af46489}" />
     <AppModuleComponent type="1" schemaName="account" />
     <AppModuleComponent type="60" id="{b028db32-3619-48a5-ac51-cf3f947b0ef3}" />
     <AppModuleComponent type="60" id="{69cff312-cfb6-4289-9631-249ab85d2c62}" />
@@ -35,6 +37,19 @@
     <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
     <AppModuleComponent type="1" schemaName="opc_issue" />
     <AppModuleComponent type="1" schemaName="opc_notification" />
+    <AppModuleComponent type="1" schemaName="queue" />
+    <AppModuleComponent type="1" schemaName="queueitem" />
+    <AppModuleComponent type="26" id="{34f4b8b5-a25c-ea11-a811-000d3af46fff}" />
+    <AppModuleComponent type="26" id="{2d8d408d-c255-4587-9e34-596d496e6738}" />
+    <AppModuleComponent type="26" id="{c581a9c1-a25c-ea11-a811-000d3af46fff}" />
+    <AppModuleComponent type="26" id="{c85db4cd-a25c-ea11-a811-000d3af46fff}" />
+    <AppModuleComponent type="26" id="{81484acc-c30c-4869-b40c-2d1154fc1e5f}" />
+    <AppModuleComponent type="26" id="{8ef40d37-0868-440c-af6b-cac0c62e78e3}" />
+    <AppModuleComponent type="26" id="{31c1d587-5374-4c22-bdcf-54fe8cd1aee5}" />
+    <AppModuleComponent type="26" id="{fad31c91-6638-45e7-84db-7257bd940e9c}" />
+    <AppModuleComponent type="26" id="{e899847e-8bd6-4061-b7aa-ddc0693fc6ed}" />
+    <AppModuleComponent type="26" id="{3b7d8177-15ca-41a1-9232-ce49d4ff1bfd}" />
+    <AppModuleComponent type="59" id="{794e51f6-5e5d-ea11-a811-000d3af464f8}" />
     <AppModuleComponent type="1" schemaName="opc_questiontemplate" />
     <AppModuleComponent type="1" schemaName="opc_questiontype" />
     <AppModuleComponent type="1" schemaName="opc_recommendation" />
@@ -51,8 +66,8 @@
     <AppModuleComponent type="1" schemaName="opc_topic" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
-    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
     <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
     <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
   </AppModuleRoleMaps>
   <LocalizedNames>

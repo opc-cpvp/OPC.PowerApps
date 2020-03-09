@@ -11,6 +11,7 @@
       <grid name="resultset" jump="opc_number" select="1" icon="1" preview="1">
         <row name="result" id="opc_complaintid">
           <cell name="opc_number" width="300" />
+          <cell name="opc_actualriskappetitevalue" width="165" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -22,10 +23,12 @@
           <attribute name="opc_complaintid" />
           <attribute name="opc_number" />
           <attribute name="createdon" />
-          <order attribute="opc_number" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="opc_actualriskappetitevalue" />
+          <order attribute="opc_actualriskappetitevalue" descending="true" />
+          <order attribute="createdon" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <LocalizedNames>
-    <LocalizedName description="Compliance Dashboard" languagecode="1033" />
+    <LocalizedName description="My Intake Dashboard" languagecode="1033" />
   </LocalizedNames>
   <FormId>{85c64e3e-e23e-ea11-a812-000d3af46489}</FormId>
   <IsCustomizable>1</IsCustomizable>
-  <IsDefault>0</IsDefault>
+  <IsDefault>1</IsDefault>
   <FormXml>
     <forms type="dashboard">
       <form>
@@ -23,9 +23,60 @@
                     </labels>
                     <rows>
                       <row>
-                        <cell colspan="2" rowspan="12" showlabel="true" id="{3f2a7d26-e665-482e-a51e-fe220fa9967b}" auto="false">
+                        <cell colspan="2" rowspan="9" showlabel="true" id="{e20fc9d6-1373-47b5-b429-1d18c9d5db43}" auto="false">
+                          <labels>
+                            <label description="My Complaints" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
+                          </labels>
+                          <control id="grid_my_complaints" uniqueid="{8c717716-3666-51ec-7a40-8cd9655b9012}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <RecordsPerPage>5</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{C85DB4CD-A25C-EA11-A811-000D3AF46FFF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{475E6F02-32AE-4081-8CB8-E3E24A9FBC0F}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{736270eb-4cd3-c138-d078-e86630ae9784}" showlabel="false" colspan="1" auto="false" rowspan="9">
+                          <labels>
+                            <label description="Queue Item" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
+                          </labels>
+                          <control id="chart_complaint_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{5e16aa3c-ccd6-8e70-9e4d-a66c9ebb5a76}">
+                            <parameters>
+                              <ViewId>{34F4B8B5-A25C-EA11-A811-000D3AF46FFF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{794E51F6-5E5D-EA11-A811-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="9" showlabel="true" id="{3f2a7d26-e665-482e-a51e-fe220fa9967b}" auto="false">
                           <labels>
                             <label description="Notifications" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="grid_notifications" uniqueid="{659c1434-5679-ac17-4356-6bd2b1a5522c}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -34,11 +85,11 @@
                               <EnableQuickFind>false</EnableQuickFind>
                               <EnableViewPicker>false</EnableViewPicker>
                               <EnableJumpBar>false</EnableJumpBar>
-                              <RecordsPerPage>9</RecordsPerPage>
+                              <RecordsPerPage>6</RecordsPerPage>
                               <HeaderColorCode>#F3F3F3</HeaderColorCode>
                               <ViewId>{E5B8A3E8-313D-EA11-A812-000D3AF46CC5}</ViewId>
                               <IsUserView>false</IsUserView>
-                              <ViewIds />
+                              <ViewIds>{E5B8A3E8-313D-EA11-A812-000D3AF46CC5}</ViewIds>
                               <AutoExpand>Fixed</AutoExpand>
                               <VisualizationId />
                               <IsUserChart>false</IsUserChart>
@@ -47,15 +98,7 @@
                             </parameters>
                           </control>
                         </cell>
-                        <cell colspan="2" rowspan="12" showlabel="false" ispreviewcell="true" id="{e20fc9d6-1373-47b5-b429-1d18c9d5db43}">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
                       </row>
-                      <row />
-                      <row />
-                      <row />
                       <row />
                       <row />
                       <row />
@@ -65,20 +108,82 @@
                       <row />
                       <row />
                       <row>
-                        <cell colspan="2" rowspan="12" showlabel="false" ispreviewcell="true" id="{995e35c4-60ee-469b-b97d-125a1c85de9b}">
+                        <cell id="{e90bdb91-507e-6eea-e089-81e1446a7c76}" showlabel="true" colspan="2" auto="false" rowspan="9">
                           <labels>
-                            <label description="" languagecode="1033" />
+                            <label description="Available Complaints" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
+                          <control id="grid_available_complaints" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{7ae07285-ada8-e00d-9cc8-1eca9a624ea0}">
+                            <parameters>
+                              <ViewId>{C581A9C1-A25C-EA11-A811-000D3AF46FFF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{475E6F02-32AE-4081-8CB8-E3E24A9FBC0F}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>5</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
                         </cell>
-                        <cell colspan="2" rowspan="12" showlabel="false" ispreviewcell="true" id="{148ee101-a58c-4f84-8c94-4a5ea986df8a}">
+                        <cell id="{b9ad530c-aed7-d815-7dc8-95a5784d1d1e}" showlabel="false" colspan="1" auto="false" rowspan="9">
                           <labels>
-                            <label description="" languagecode="1033" />
+                            <label description="Complaint" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
+                          <control id="chart_complaint_by_created_on" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{9b1b0349-0876-388b-0c8d-0321a064bb66}">
+                            <parameters>
+                              <ViewId>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>opc_complaint</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{39B07AE9-585D-EA11-A811-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{7b872a75-ebcb-eca2-d1a4-a24eaad9d421}" showlabel="false" colspan="1" auto="false" rowspan="9">
+                          <labels>
+                            <label description="Individual Complaint" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
+                          </labels>
+                          <control id="chart_complaint_by_active_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{c945abcb-9b9c-3349-3e5a-23ac20235514}">
+                            <parameters>
+                              <ViewId>{892E58DC-0535-4ABD-A7F0-D68630051C20}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>opc_individualcomplaint_bp</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{892E58DC-0535-4ABD-A7F0-D68630051C20}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{2EFB3A64-595D-EA11-A811-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
                         </cell>
                       </row>
-                      <row />
-                      <row />
-                      <row />
                       <row />
                       <row />
                       <row />
