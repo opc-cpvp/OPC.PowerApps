@@ -91,6 +91,7 @@
       <RootComponent type="1" schemaName="opc_notification" behavior="0" />
       <RootComponent type="1" schemaName="opc_questiontemplate" behavior="0" />
       <RootComponent type="1" schemaName="opc_questiontype" behavior="0" />
+      <RootComponent type="1" schemaName="opc_opcpriority" behavior="0" />
       <RootComponent type="1" schemaName="opc_recommendation" behavior="0" />
       <RootComponent type="1" schemaName="opc_reminder" behavior="0" />
       <RootComponent type="1" schemaName="opc_riskappetite" behavior="0" />
@@ -101,6 +102,7 @@
       <RootComponent type="1" schemaName="opc_riskassessmentdefinitiontemplate" behavior="0" />
       <RootComponent type="1" schemaName="opc_riskassessmentfactortemplate" behavior="0" />
       <RootComponent type="1" schemaName="opc_riskassessmenttype" behavior="0" />
+      <RootComponent type="1" schemaName="opc_sector" behavior="0" />
       <RootComponent type="1" schemaName="opc_theme" behavior="0" />
       <RootComponent type="1" schemaName="opc_topic" behavior="0" />
       <RootComponent type="1" schemaName="queueitem" behavior="1" />
@@ -189,11 +191,15 @@
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
+        <Required key="2" type="60" displayName="account card" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{b028db32-3619-48a5-ac51-cf3f947b0ef3}" />
+        <Dependent key="1" type="80" schemaName="opc_compliance" displayName="Compliance" />
+      </MissingDependency>
+      <MissingDependency>
         <Required key="0" type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.2002.4006)" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
         <Dependent key="1" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="2" type="60" displayName="account card" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{b028db32-3619-48a5-ac51-cf3f947b0ef3}" />
+        <Required key="2" type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.2002.4006)" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
         <Dependent key="1" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
