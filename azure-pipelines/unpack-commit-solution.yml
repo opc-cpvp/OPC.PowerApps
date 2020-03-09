@@ -113,6 +113,8 @@ steps:
       
   displayName: 'Update C# entities and optionsets'
 
+- task: print-fs-structure-task@1
+
 - powershell: |
    $branch = "$(Build.SourceBranch)"
    $branch = $branch.Replace("refs/heads/", "")
