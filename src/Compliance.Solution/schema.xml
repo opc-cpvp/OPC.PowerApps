@@ -178,4 +178,31 @@
     </fields>
     <relationships />
   </entity>
+  <entity name="opc_opcpriority" displayname="OPC Priority" etc="10539" primaryidfield="opc_opcpriorityid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Description" name="opc_frenchdescription" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field updateCompare="true" displayname="OPC Priority" name="opc_opcpriorityid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_sector" displayname="Sector" etc="10540" primaryidfield="opc_sectorid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Parent Sector" name="opc_parentsectorid" type="entityreference" lookupType="opc_sector" customfield="true" />
+      <field updateCompare="true" displayname="Sector" name="opc_sectorid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
 </entities>

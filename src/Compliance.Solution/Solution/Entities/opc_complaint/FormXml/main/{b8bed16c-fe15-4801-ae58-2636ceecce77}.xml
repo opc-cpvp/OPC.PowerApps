@@ -68,6 +68,22 @@
                         <control id="opc_accountid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_accountid" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{b07b5cbe-03f8-4aef-968f-24cbb01fc53d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="OPC Priority" languagecode="1033" />
+                        </labels>
+                        <control id="opc_opcpriorityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_opcpriorityid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5fe9e631-3a7c-49f4-9dd2-32ca192c86e9}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Sector" languagecode="1033" />
+                        </labels>
+                        <control id="opc_sectorid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_sectorid" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -385,6 +401,7 @@
                       <cell showlabel="false" locklevel="0" id="{374495f1-afba-4c51-af12-cc59aac0baad}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Reminders" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_reminders" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
