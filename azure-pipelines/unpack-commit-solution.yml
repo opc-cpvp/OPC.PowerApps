@@ -91,7 +91,6 @@ steps:
     & $crmsvcexe /url:$(crm.url)"/XRMServices/2011/Organization.svc" `
       /out:"$(Build.SourcesDirectory)/src/$(SolutionName).Entities/Entities.cs" `
       /namespace:"$(SolutionName).Entities" `
-      /serviceContextName:"$(SolutionName)" `
       /username:"$(crm.username)" `
       /password:"$(crm.password)"
 
@@ -105,15 +104,12 @@ steps:
       /codewriterfilter:"CrmSvcUtil.Filter.GenerateOptionSetEnums.FilteringService, CrmSvcUtil.Filter" `
       /codecustomization:"CrmSvcUtil.Filter.GenerateOptionSetEnums.CodeCustomizationService, CrmSvcUtil.Filter" `
       /namingservice:"CrmSvcUtil.Filter.GenerateOptionSetEnums.NamingService, CrmSvcUtil.Filter" `
-      /serviceContextName:"$(SolutionName)" `
       /username:"$(crm.username)" `
       /password:"$(crm.password)"
 
     echo "Succesfully updated all C# early bound optionsets"
       
   displayName: 'Update C# entities and optionsets'
-
-- task: print-fs-structure-task@1
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"
