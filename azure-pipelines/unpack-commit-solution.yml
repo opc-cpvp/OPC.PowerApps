@@ -32,7 +32,6 @@ steps:
     solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
     localize: false
 
-
 - powershell: |
     
     npm install jsonlint -g
@@ -43,7 +42,6 @@ steps:
 
   displayName: 'Lint Json Workflows'
 
-
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
@@ -51,7 +49,6 @@ steps:
     feedsToUse: 'select'
     restoreDirectory: '../packages'
   displayName: 'Restore XrmDefinitelyTyped project packages'
-- task: print-fs-structure-task@1
 
 - task: PowerShell@2
   inputs:
