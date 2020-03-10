@@ -107,9 +107,3 @@ steps:
    echo "Push solution changes to the remote repository"
    git -c http.extraheader="AUTHORIZATION: basic $(System.AccessToken)" push --force origin $branch
   displayName: 'Commit Unpacked Solution to the Repository'
-
-
-test
-- task: PowerShell@2
-  inputs:
-    workingDirectory: 'test'
