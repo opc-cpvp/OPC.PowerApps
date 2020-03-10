@@ -6,6 +6,7 @@
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
   </entity>
   <entity name="businessunit" displayname="Business Unit" etc="10" primaryidfield="businessunitid" primarynamefield="name" disableplugins="false">
@@ -84,6 +85,8 @@
       <field updateCompare="true" displayname="Risk Appetite" name="opc_riskappetiteid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Value" name="opc_value" type="number" customfield="true" />
     </fields>
     <relationships />
   </entity>
@@ -95,6 +98,7 @@
       <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -106,6 +110,7 @@
       <field displayname="Risk Assessment Factor Template" name="opc_riskassessmentfactortemplate" type="entityreference" lookupType="opc_riskassessmentfactortemplate" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -117,6 +122,7 @@
       <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -126,6 +132,7 @@
       <field updateCompare="true" displayname="Risk Assessment Type" name="opc_riskassessmenttypeid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -139,11 +146,30 @@
       <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
       <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Checklist Type" name="opc_checklisttypeid" type="entityreference" lookupType="opc_checklisttype" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
-      <field displayname="Checklist Type" name="opc_checklisttypeid" type="entityreference" lookupType="opc_checklisttype" customfield="true" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
+  </entity>
+  <entity name="queue" displayname="Queue" etc="2020" primaryidfield="queueid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Name" name="name" type="string" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Queue" name="queueid" type="guid" primaryKey="true" />
+      <field displayname="Type" name="queueviewtype" type="optionsetvalue" />
+    </fields>
+    <relationships />
+    <filter>
+      &lt;filter type="and" &gt;
+      &lt;condition attribute="name" operator="not-begin-with" value="&amp;lt;" /&gt;
+      &lt;condition attribute="name" operator="not-end-with" value="&amp;gt;" /&gt;
+      &lt;/filter&gt;
+    </filter>
   </entity>
   <entity name="opc_checklisttype" displayname="Checklist Type" etc="10601" primaryidfield="opc_checklisttypeid" primarynamefield="opc_name" disableplugins="false">
     <fields>
@@ -152,6 +178,7 @@
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
       <field displayname="Type" name="opc_type" type="optionsetvalue" customfield="true" />
+      <field displayname="Owner" name="ownerid" type="owner" />
     </fields>
     <relationships />
   </entity>
@@ -173,6 +200,34 @@
       <field updateCompare="true" displayname="Question Template" name="opc_questiontemplateid" type="guid" primaryKey="true" />
       <field displayname="Question Type" name="opc_questiontypeid" type="entityreference" lookupType="opc_questiontype" customfield="true" />
       <field displayname="Sequence" name="opc_sequence" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_opcpriority" displayname="OPC Priority" etc="10539" primaryidfield="opc_opcpriorityid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Description" name="opc_frenchdescription" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field updateCompare="true" displayname="OPC Priority" name="opc_opcpriorityid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_sector" displayname="Sector" etc="10540" primaryidfield="opc_sectorid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Parent Sector" name="opc_parentsectorid" type="entityreference" lookupType="opc_sector" customfield="true" />
+      <field updateCompare="true" displayname="Sector" name="opc_sectorid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
     </fields>

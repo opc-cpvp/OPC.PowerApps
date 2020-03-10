@@ -92,6 +92,7 @@
       <RootComponent type="1" schemaName="opc_opcpriority" behavior="0" />
       <RootComponent type="1" schemaName="opc_questiontemplate" behavior="0" />
       <RootComponent type="1" schemaName="opc_questiontype" behavior="0" />
+      <RootComponent type="1" schemaName="opc_opcpriority" behavior="0" />
       <RootComponent type="1" schemaName="opc_recommendation" behavior="0" />
       <RootComponent type="1" schemaName="opc_reminder" behavior="0" />
       <RootComponent type="1" schemaName="opc_riskappetite" behavior="0" />
@@ -219,7 +220,7 @@
         <Dependent key="1" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="8" type="60" displayName="Contact Reference Panel" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}" />
+        <Required key="8" type="60" displayName="Account Reference Panel" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{098ae145-1567-41ec-8398-86dbaac70c9b}" />
         <Dependent key="1" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
