@@ -6,15 +6,12 @@
       <Titles>
         <Title LCID="1033" Title="Compliance" />
       </Titles>
-      <Group Id="group_dashboard" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+      <Group Id="group_my_work" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
-          <Title LCID="1033" Title="Dashboards" />
+          <Title LCID="1033" Title="My Work" />
         </Titles>
-        <SubArea Id="subarea_compliance" ResourceId="Homepage_Dashboards" DescriptionResourceId="Dashboards_Description" Icon="/_imgs/imagestrips/transparent_spacer.gif" Url="/workplace/home_dashboards.aspx" DefaultDashboard="85c64e3e-e23e-ea11-a812-000d3af46489" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA">
-          <Titles>
-            <Title LCID="1033" Title="Compliance" />
-          </Titles>
-        </SubArea>
+        <SubArea Id="subarea_dashboards" ResourceId="Homepage_Dashboards" DescriptionResourceId="Dashboards_Description" Icon="/_imgs/imagestrips/transparent_spacer.gif" Url="/workplace/home_dashboards.aspx" DefaultDashboard="85c64e3e-e23e-ea11-a812-000d3af46489" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_queue_items" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="queueitem" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
       <Group Id="group_compliance" ResourceId="SitemapDesigner.NewGroup" DescriptionResourceId="SitemapDesigner.NewGroup" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
@@ -38,6 +35,7 @@
         <Titles>
           <Title LCID="1033" Title="Configuration" />
         </Titles>
+        <SubArea Id="subarea_queues" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="queue" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="subarea_allegation_types" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="opc_allegationtype" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="subarea_themes" Entity="opc_theme" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="subarea_topics" Entity="opc_topic" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />

@@ -362,6 +362,14 @@ declare const enum opc_notification_statuscode {
   Inactive = 2,
   Read = 924340000,
 }
+declare const enum opc_opcpriority_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_opcpriority_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum opc_questiontemplate_statecode {
   Active = 0,
   Inactive = 1,
@@ -458,6 +466,14 @@ declare const enum opc_riskassessmenttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum opc_sector_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_sector_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum opc_theme_statecode {
   Active = 0,
   Inactive = 1,
@@ -473,6 +489,28 @@ declare const enum opc_topic_statecode {
 declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum queueitem_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum queueitem_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum queueitem_objecttypecode {
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  RecurringAppointment = 4251,
+  KnowledgeArticle = 9953,
+  KnowledgeArticleTemplate = 10007,
+  Complaint = 10658,
 }
 declare const enum activityparty_instancetypecode {
   NotRecurring = 0,
@@ -3986,6 +4024,7 @@ declare namespace Form.opc_complaint.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_acceptancedate"): Xrm.DateAttribute | null;
       get(name: "opc_accountid"): Xrm.LookupAttribute<"account">;
+      get(name: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
@@ -3993,7 +4032,9 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
       get(name: "opc_number"): Xrm.Attribute<string>;
+      get(name: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector">;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
       get(name: string): undefined;
@@ -4007,6 +4048,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
       get(name: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
@@ -4022,10 +4064,13 @@ declare namespace Form.opc_complaint.Main {
       get(name: "header_process_statuscode8"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_accountid"): Xrm.LookupControl<"account">;
+      get(name: "opc_actualriskappetitevalue"): Xrm.NumberControl;
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: "opc_number"): Xrm.StringControl;
+      get(name: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
+      get(name: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
@@ -4054,6 +4099,7 @@ declare namespace Form.opc_complaint.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute | null;
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account">;
+    getAttribute(attributeName: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
@@ -4061,7 +4107,9 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector">;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
     getAttribute(attributeName: string): undefined;
@@ -4070,6 +4118,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
     getControl(controlName: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
@@ -4085,10 +4134,13 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "header_process_statuscode8"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
+    getControl(controlName: "opc_actualriskappetitevalue"): Xrm.NumberControl;
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: "opc_number"): Xrm.StringControl;
+    getControl(controlName: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
+    getControl(controlName: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
@@ -4121,6 +4173,7 @@ declare namespace Form.opc_complaint.Quick {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+      get(name: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
       get(name: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
@@ -4166,6 +4219,7 @@ declare namespace Form.opc_complaint.Quick {
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
+    getControl(controlName: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
     getControl(controlName: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
@@ -4190,15 +4244,8 @@ declare namespace Form.opc_complaint.Quick {
 declare namespace Form.opc_individualcomplaint_bp.Main {
   namespace Information {
     namespace Tabs {
-      interface StageStep13 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep13_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep21 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep21_section1"): Xrm.PageSection;
+      interface StageStep17 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep17_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4260,6 +4307,20 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
+      interface StageStep53 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep53_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep7 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep7_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_acceptancedate"): Xrm.DateAttribute;
@@ -4276,6 +4337,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_acceptancedate"): Xrm.DateControl;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complaintdisposition"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complaintdisposition1"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_declinereason"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
@@ -4295,8 +4357,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "StageStep13"): Xrm.PageTab<Tabs.StageStep13>;
-      get(name: "StageStep21"): Xrm.PageTab<Tabs.StageStep21>;
+      get(name: "StageStep17"): Xrm.PageTab<Tabs.StageStep17>;
       get(name: "StageStep25"): Xrm.PageTab<Tabs.StageStep25>;
       get(name: "StageStep29"): Xrm.PageTab<Tabs.StageStep29>;
       get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
@@ -4305,6 +4366,8 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "StageStep41"): Xrm.PageTab<Tabs.StageStep41>;
       get(name: "StageStep45"): Xrm.PageTab<Tabs.StageStep45>;
       get(name: "StageStep49"): Xrm.PageTab<Tabs.StageStep49>;
+      get(name: "StageStep53"): Xrm.PageTab<Tabs.StageStep53>;
+      get(name: "StageStep7"): Xrm.PageTab<Tabs.StageStep7>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -4321,6 +4384,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_acceptancedate"): Xrm.DateControl;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complaintdisposition"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complaintdisposition1"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_declinereason"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
@@ -4566,6 +4630,102 @@ declare namespace Form.opc_notification.Main {
   }
 }
 declare namespace Form.opc_notification.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_opcpriority.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_descriptionenglish"): Xrm.Attribute<string>;
+      get(name: "opc_frenchdescription"): Xrm.Attribute<string>;
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_descriptionenglish"): Xrm.StringControl;
+      get(name: "opc_frenchdescription"): Xrm.StringControl;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_descriptionenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_frenchdescription"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_frenchdescription"): Xrm.StringControl;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_opcpriority.Quick {
   namespace Information {
     namespace Tabs {
     }
@@ -5100,6 +5260,7 @@ declare namespace Form.opc_riskappetite.QuickCreate {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_value"): Xrm.NumberAttribute;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -5107,6 +5268,7 @@ declare namespace Form.opc_riskappetite.QuickCreate {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_value"): Xrm.NumberControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -5122,8 +5284,10 @@ declare namespace Form.opc_riskappetite.QuickCreate {
   }
   interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_value"): Xrm.NumberAttribute;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_value"): Xrm.NumberControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -5176,6 +5340,7 @@ declare namespace Form.opc_riskappetite.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_value"): Xrm.NumberAttribute;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -5185,6 +5350,7 @@ declare namespace Form.opc_riskappetite.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_value"): Xrm.NumberControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -5200,10 +5366,12 @@ declare namespace Form.opc_riskappetite.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_value"): Xrm.NumberAttribute;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_value"): Xrm.NumberControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -6250,6 +6418,108 @@ declare namespace Form.opc_riskassessmenttype.Quick {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.opc_sector.Main {
+  namespace Information {
+    namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface tab_superseded_sectors extends Xrm.SectionCollectionBase {
+        get(name: "section_superseded_sectors"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
+      get(name: "opc_parentsectorid"): Xrm.LookupAttribute<"opc_sector">;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "grid_superseded_sectors"): Xrm.SubGridControl<"opc_sector">;
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
+      get(name: "opc_parentsectorid"): Xrm.LookupControl<"opc_sector">;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
+      get(name: "tab_superseded_sectors"): Xrm.PageTab<Tabs.tab_superseded_sectors>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_parentsectorid"): Xrm.LookupAttribute<"opc_sector">;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "grid_superseded_sectors"): Xrm.SubGridControl<"opc_sector">;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
+    getControl(controlName: "opc_parentsectorid"): Xrm.LookupControl<"opc_sector">;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.opc_sector.Quick {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.opc_theme.Quick {
   namespace Information {
     namespace Tabs {
@@ -6451,6 +6721,66 @@ declare namespace Form.opc_topic.Main {
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_themeid"): Xrm.LookupControl<"opc_theme">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.queueitem.Main {
+  namespace Information {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "enteredon"): Xrm.DateAttribute;
+      get(name: "modifiedon"): Xrm.DateAttribute;
+      get(name: "objectid"): Xrm.LookupAttribute<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
+      get(name: "queueid"): Xrm.LookupAttribute<"queue">;
+      get(name: "statecode"): Xrm.OptionSetAttribute<queueitem_statecode>;
+      get(name: "workerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "enteredon"): Xrm.DateControl;
+      get(name: "footer_statecode"): Xrm.OptionSetControl<queueitem_statecode>;
+      get(name: "modifiedon"): Xrm.DateControl;
+      get(name: "objectid"): Xrm.LookupControl<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
+      get(name: "queueid"): Xrm.LookupControl<"queue">;
+      get(name: "workerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "enteredon"): Xrm.DateAttribute;
+    getAttribute(attributeName: "modifiedon"): Xrm.DateAttribute;
+    getAttribute(attributeName: "objectid"): Xrm.LookupAttribute<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
+    getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
+    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<queueitem_statecode>;
+    getAttribute(attributeName: "workerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "enteredon"): Xrm.DateControl;
+    getControl(controlName: "footer_statecode"): Xrm.OptionSetControl<queueitem_statecode>;
+    getControl(controlName: "modifiedon"): Xrm.DateControl;
+    getControl(controlName: "objectid"): Xrm.LookupControl<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
+    getControl(controlName: "queueid"): Xrm.LookupControl<"queue">;
+    getControl(controlName: "workerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -6830,6 +7160,29 @@ interface opc_notification_Create extends opc_notification {
 }
 interface opc_notification_Update extends opc_notification {
 }
+interface opc_opcpriority_Base extends WebEntity {
+}
+interface opc_opcpriority_Fixed extends WebEntity_Fixed {
+  opc_opcpriorityid: string;
+}
+interface opc_opcpriority extends opc_opcpriority_Base, opc_opcpriority_Relationships {
+}
+interface opc_opcpriority_Relationships {
+}
+interface opc_opcpriority_Result extends opc_opcpriority_Base, opc_opcpriority_Relationships {
+}
+interface opc_opcpriority_FormattedResult {
+}
+interface opc_opcpriority_Select {
+}
+interface opc_opcpriority_Expand {
+}
+interface opc_opcpriority_Filter {
+}
+interface opc_opcpriority_Create extends opc_opcpriority {
+}
+interface opc_opcpriority_Update extends opc_opcpriority {
+}
 interface opc_QuestionTemplate_Base extends WebEntity {
 }
 interface opc_QuestionTemplate_Fixed extends WebEntity_Fixed {
@@ -7106,6 +7459,29 @@ interface opc_RiskAssessmentType_Create extends opc_RiskAssessmentType {
 }
 interface opc_RiskAssessmentType_Update extends opc_RiskAssessmentType {
 }
+interface opc_sector_Base extends WebEntity {
+}
+interface opc_sector_Fixed extends WebEntity_Fixed {
+  opc_sectorid: string;
+}
+interface opc_sector extends opc_sector_Base, opc_sector_Relationships {
+}
+interface opc_sector_Relationships {
+}
+interface opc_sector_Result extends opc_sector_Base, opc_sector_Relationships {
+}
+interface opc_sector_FormattedResult {
+}
+interface opc_sector_Select {
+}
+interface opc_sector_Expand {
+}
+interface opc_sector_Filter {
+}
+interface opc_sector_Create extends opc_sector {
+}
+interface opc_sector_Update extends opc_sector {
+}
 interface opc_theme_Base extends WebEntity {
 }
 interface opc_theme_Fixed extends WebEntity_Fixed {
@@ -7151,6 +7527,29 @@ interface opc_topic_Filter {
 interface opc_topic_Create extends opc_topic {
 }
 interface opc_topic_Update extends opc_topic {
+}
+interface QueueItem_Base extends WebEntity {
+}
+interface QueueItem_Fixed extends WebEntity_Fixed {
+  queueitemid: string;
+}
+interface QueueItem extends QueueItem_Base, QueueItem_Relationships {
+}
+interface QueueItem_Relationships {
+}
+interface QueueItem_Result extends QueueItem_Base, QueueItem_Relationships {
+}
+interface QueueItem_FormattedResult {
+}
+interface QueueItem_Select {
+}
+interface QueueItem_Expand {
+}
+interface QueueItem_Filter {
+}
+interface QueueItem_Create extends QueueItem {
+}
+interface QueueItem_Update extends QueueItem {
 }
 interface ActivityParty_Base extends WebEntity {
 }
@@ -8955,6 +9354,9 @@ interface opc_complaint_Base extends WebEntity {
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
   opc_acceptancedate?: Date | null;
+  opc_actualriskappetitevalue?: number | null;
+  opc_actualriskappetitevalue_date?: Date | null;
+  opc_actualriskappetitevalue_state?: number | null;
   opc_complaintdisposition?: opc_complaintdisposition | null;
   opc_complaintid?: string | null;
   opc_declinereason?: opc_declinereason | null;
@@ -8974,6 +9376,7 @@ interface opc_complaint_Base extends WebEntity {
 interface opc_complaint_Relationships {
   bpf_opc_complaint_opc_individualcomplaint_bp?: opc_individualcomplaint_bp_Result[] | null;
   opc_RiskAssessment_Complaint_opc_complain?: opc_RiskAssessment_Result[] | null;
+  opc_complaint_QueueItems?: QueueItem_Result[] | null;
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
   opc_complaint_notifications_complaint?: opc_notification_Result[] | null;
@@ -8986,6 +9389,8 @@ interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships 
   opc_complainant_bind$contacts?: string | null;
   opc_complainantrep_bind$contacts?: string | null;
   opc_legislation_bind$opc_legislations?: string | null;
+  opc_opcpriorityid_bind$opc_opcpriorities?: string | null;
+  opc_sectorid_bind$opc_sectors?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
   stageid_bind$processstages?: string | null;
@@ -9004,6 +9409,9 @@ interface opc_complaint_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_complaint_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_acceptancedate: WebAttribute<opc_complaint_Select, { opc_acceptancedate: Date | null }, { opc_acceptancedate_formatted?: string }>;
   opc_accountid_guid: WebAttribute<opc_complaint_Select, { opc_accountid_guid: string | null }, { opc_accountid_formatted?: string }>;
+  opc_actualriskappetitevalue: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue: number | null }, {  }>;
+  opc_actualriskappetitevalue_date: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue_date: Date | null }, { opc_actualriskappetitevalue_date_formatted?: string }>;
+  opc_actualriskappetitevalue_state: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue_state: number | null }, {  }>;
   opc_complainant_guid: WebAttribute<opc_complaint_Select, { opc_complainant_guid: string | null }, { opc_complainant_formatted?: string }>;
   opc_complainantrep_guid: WebAttribute<opc_complaint_Select, { opc_complainantrep_guid: string | null }, { opc_complainantrep_formatted?: string }>;
   opc_complaintdisposition: WebAttribute<opc_complaint_Select, { opc_complaintdisposition: opc_complaintdisposition | null }, { opc_complaintdisposition_formatted?: string }>;
@@ -9012,7 +9420,9 @@ interface opc_complaint_Select {
   opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
   opc_legislation_guid: WebAttribute<opc_complaint_Select, { opc_legislation_guid: string | null }, { opc_legislation_formatted?: string }>;
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
+  opc_opcpriorityid_guid: WebAttribute<opc_complaint_Select, { opc_opcpriorityid_guid: string | null }, { opc_opcpriorityid_formatted?: string }>;
   opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: boolean | null }, {  }>;
+  opc_sectorid_guid: WebAttribute<opc_complaint_Select, { opc_sectorid_guid: string | null }, { opc_sectorid_formatted?: string }>;
   overriddencreatedon: WebAttribute<opc_complaint_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_complaint_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_complaint_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -9037,6 +9447,9 @@ interface opc_complaint_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_acceptancedate: Date;
   opc_accountid_guid: XQW.Guid;
+  opc_actualriskappetitevalue: number;
+  opc_actualriskappetitevalue_date: Date;
+  opc_actualriskappetitevalue_state: number;
   opc_complainant_guid: XQW.Guid;
   opc_complainantrep_guid: XQW.Guid;
   opc_complaintdisposition: opc_complaintdisposition;
@@ -9045,7 +9458,9 @@ interface opc_complaint_Filter {
   opc_intakedisposition: opc_intakedisposition;
   opc_legislation_guid: XQW.Guid;
   opc_number: string;
+  opc_opcpriorityid_guid: XQW.Guid;
   opc_recommendtoregistrar: boolean;
+  opc_sectorid_guid: XQW.Guid;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -9066,6 +9481,7 @@ interface opc_complaint_Expand {
   opc_accountid: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_accountid: Account_Result }>;
   opc_complainant: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainant: Contact_Result }>;
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
+  opc_complaint_QueueItems: WebExpand<opc_complaint_Expand, QueueItem_Select, QueueItem_Filter, { opc_complaint_QueueItems: QueueItem_Result[] }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
   opc_complaint_notifications_complaint: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaint: opc_notification_Result[] }>;
@@ -9073,6 +9489,8 @@ interface opc_complaint_Expand {
   opc_complaint_reminders_complaint: WebExpand<opc_complaint_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_complaint_reminders_complaint: opc_reminder_Result[] }>;
   opc_complaints_topics_relatedtopics: WebExpand<opc_complaint_Expand, opc_topic_Select, opc_topic_Filter, { opc_complaints_topics_relatedtopics: opc_topic_Result[] }>;
   opc_legislation: WebExpand<opc_complaint_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
+  opc_opcpriorityid: WebExpand<opc_complaint_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { opc_opcpriorityid: opc_opcpriority_Result }>;
+  opc_sectorid: WebExpand<opc_complaint_Expand, opc_sector_Select, opc_sector_Filter, { opc_sectorid: opc_sector_Result }>;
 }
 interface opc_complaint_FormattedResult {
   createdby_formatted?: string;
@@ -9083,12 +9501,15 @@ interface opc_complaint_FormattedResult {
   modifiedonbehalfby_formatted?: string;
   opc_acceptancedate_formatted?: string;
   opc_accountid_formatted?: string;
+  opc_actualriskappetitevalue_date_formatted?: string;
   opc_complainant_formatted?: string;
   opc_complainantrep_formatted?: string;
   opc_complaintdisposition_formatted?: string;
   opc_declinereason_formatted?: string;
   opc_intakedisposition_formatted?: string;
   opc_legislation_formatted?: string;
+  opc_opcpriorityid_formatted?: string;
+  opc_sectorid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -9107,6 +9528,8 @@ interface opc_complaint_Result extends opc_complaint_Base, opc_complaint_Relatio
   opc_complainant_guid: string | null;
   opc_complainantrep_guid: string | null;
   opc_legislation_guid: string | null;
+  opc_opcpriorityid_guid: string | null;
+  opc_sectorid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
@@ -9117,10 +9540,13 @@ interface opc_complaint_RelatedOne {
   opc_complainant: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   opc_complainantrep: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  opc_opcpriorityid: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  opc_sectorid: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
 }
 interface opc_complaint_RelatedMany {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
   opc_RiskAssessment_Complaint_opc_complain: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  opc_complaint_QueueItems: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
   opc_complaint_notifications_complaint: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
@@ -9650,6 +10076,130 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   opc_notifications: WebMappingCUDA<opc_notification_Create,opc_notification_Update,opc_notification_Select>;
 }
+interface opc_opcpriority_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_descriptionenglish?: string | null;
+  opc_frenchdescription?: string | null;
+  opc_islocalizable?: boolean | null;
+  opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
+  opc_opcpriorityid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_opcpriority_statecode | null;
+  statuscode?: opc_opcpriority_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_opcpriority_Relationships {
+  opc_opcpriority_complaints_opcpriority?: opc_complaint_Result[] | null;
+}
+interface opc_opcpriority extends opc_opcpriority_Base, opc_opcpriority_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_opcpriority_Create extends opc_opcpriority {
+}
+interface opc_opcpriority_Update extends opc_opcpriority {
+}
+interface opc_opcpriority_Select {
+  createdby_guid: WebAttribute<opc_opcpriority_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_opcpriority_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_opcpriority_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_opcpriority_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_opcpriority_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_opcpriority_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_opcpriority_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_descriptionenglish: WebAttribute<opc_opcpriority_Select, { opc_descriptionenglish: string | null }, {  }>;
+  opc_frenchdescription: WebAttribute<opc_opcpriority_Select, { opc_frenchdescription: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_opcpriority_Select, { opc_islocalizable: boolean | null }, {  }>;
+  opc_name: WebAttribute<opc_opcpriority_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_opcpriority_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_opcpriority_Select, { opc_namefrench: string | null }, {  }>;
+  opc_opcpriorityid: WebAttribute<opc_opcpriority_Select, { opc_opcpriorityid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_opcpriority_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_opcpriority_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_opcpriority_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_opcpriority_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_opcpriority_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_opcpriority_Select, { statecode: opc_opcpriority_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_opcpriority_Select, { statuscode: opc_opcpriority_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_opcpriority_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_opcpriority_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_opcpriority_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_opcpriority_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_descriptionenglish: string;
+  opc_frenchdescription: string;
+  opc_islocalizable: boolean;
+  opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
+  opc_opcpriorityid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_opcpriority_statecode;
+  statuscode: opc_opcpriority_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_opcpriority_Expand {
+  opc_opcpriority_complaints_opcpriority: WebExpand<opc_opcpriority_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_opcpriority_complaints_opcpriority: opc_complaint_Result[] }>;
+}
+interface opc_opcpriority_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_opcpriority_Result extends opc_opcpriority_Base, opc_opcpriority_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_opcpriority_RelatedOne {
+}
+interface opc_opcpriority_RelatedMany {
+  opc_opcpriority_complaints_opcpriority: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_opcpriorities: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_opcpriorities: WebMappingRelated<opc_opcpriority_RelatedOne,opc_opcpriority_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_opcpriorities: WebMappingCUDA<opc_opcpriority_Create,opc_opcpriority_Update,opc_opcpriority_Select>;
+}
 interface opc_QuestionTemplate_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
@@ -10132,6 +10682,7 @@ interface opc_RiskAppetite_Base extends WebEntity {
   modifiedon?: Date | null;
   opc_name?: string | null;
   opc_riskappetiteid?: string | null;
+  opc_value?: number | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_riskappetite_statecode | null;
   statuscode?: opc_riskappetite_statuscode | null;
@@ -10164,6 +10715,7 @@ interface opc_RiskAppetite_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_RiskAppetite_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_name: WebAttribute<opc_RiskAppetite_Select, { opc_name: string | null }, {  }>;
   opc_riskappetiteid: WebAttribute<opc_RiskAppetite_Select, { opc_riskappetiteid: string | null }, {  }>;
+  opc_value: WebAttribute<opc_RiskAppetite_Select, { opc_value: number | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_RiskAppetite_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_RiskAppetite_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_RiskAppetite_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -10185,6 +10737,7 @@ interface opc_RiskAppetite_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_name: string;
   opc_riskappetiteid: XQW.Guid;
+  opc_value: number;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -10251,6 +10804,7 @@ interface opc_RiskAssessment_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
+  opc_actualriskappetitevalue?: number | null;
   opc_bypassrationale?: string | null;
   opc_bypasssuggestedriskappetite?: boolean | null;
   opc_name?: string | null;
@@ -10292,6 +10846,7 @@ interface opc_RiskAssessment_Select {
   modifiedon: WebAttribute<opc_RiskAssessment_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_RiskAssessment_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_actualriskappetite_guid: WebAttribute<opc_RiskAssessment_Select, { opc_actualriskappetite_guid: string | null }, { opc_actualriskappetite_formatted?: string }>;
+  opc_actualriskappetitevalue: WebAttribute<opc_RiskAssessment_Select, { opc_actualriskappetitevalue: number | null }, {  }>;
   opc_bypassinitiatedby_guid: WebAttribute<opc_RiskAssessment_Select, { opc_bypassinitiatedby_guid: string | null }, { opc_bypassinitiatedby_formatted?: string }>;
   opc_bypassrationale: WebAttribute<opc_RiskAssessment_Select, { opc_bypassrationale: string | null }, {  }>;
   opc_bypasssuggestedriskappetite: WebAttribute<opc_RiskAssessment_Select, { opc_bypasssuggestedriskappetite: boolean | null }, {  }>;
@@ -10320,6 +10875,7 @@ interface opc_RiskAssessment_Filter {
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
   opc_actualriskappetite_guid: XQW.Guid;
+  opc_actualriskappetitevalue: number;
   opc_bypassinitiatedby_guid: XQW.Guid;
   opc_bypassrationale: string;
   opc_bypasssuggestedriskappetite: boolean;
@@ -11191,6 +11747,134 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   opc_riskassessmenttypes: WebMappingCUDA<opc_RiskAssessmentType_Create,opc_RiskAssessmentType_Update,opc_RiskAssessmentType_Select>;
 }
+interface opc_sector_Base extends WebEntity {
+  createdon?: Date | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  opc_islocalizable?: boolean | null;
+  opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
+  opc_sectorid?: string | null;
+  overriddencreatedon?: Date | null;
+  statecode?: opc_sector_statecode | null;
+  statuscode?: opc_sector_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface opc_sector_Relationships {
+  opc_sector_complaints_sector?: opc_complaint_Result[] | null;
+  opc_sector_parentsectorid_sectors?: opc_sector_Result[] | null;
+}
+interface opc_sector extends opc_sector_Base, opc_sector_Relationships {
+  opc_parentsectorid_bind$opc_sectors?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface opc_sector_Create extends opc_sector {
+}
+interface opc_sector_Update extends opc_sector {
+}
+interface opc_sector_Select {
+  createdby_guid: WebAttribute<opc_sector_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<opc_sector_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<opc_sector_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  importsequencenumber: WebAttribute<opc_sector_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<opc_sector_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<opc_sector_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<opc_sector_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_islocalizable: WebAttribute<opc_sector_Select, { opc_islocalizable: boolean | null }, {  }>;
+  opc_name: WebAttribute<opc_sector_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_sector_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_sector_Select, { opc_namefrench: string | null }, {  }>;
+  opc_parentsectorid_guid: WebAttribute<opc_sector_Select, { opc_parentsectorid_guid: string | null }, { opc_parentsectorid_formatted?: string }>;
+  opc_sectorid: WebAttribute<opc_sector_Select, { opc_sectorid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<opc_sector_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<opc_sector_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<opc_sector_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<opc_sector_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<opc_sector_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<opc_sector_Select, { statecode: opc_sector_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<opc_sector_Select, { statuscode: opc_sector_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<opc_sector_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<opc_sector_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<opc_sector_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_sector_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  opc_islocalizable: boolean;
+  opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
+  opc_parentsectorid_guid: XQW.Guid;
+  opc_sectorid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: opc_sector_statecode;
+  statuscode: opc_sector_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface opc_sector_Expand {
+  opc_parentsectorid: WebExpand<opc_sector_Expand, opc_sector_Select, opc_sector_Filter, { opc_parentsectorid: opc_sector_Result }>;
+  opc_sector_complaints_sector: WebExpand<opc_sector_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_sector_complaints_sector: opc_complaint_Result[] }>;
+  opc_sector_parentsectorid_sectors: WebExpand<opc_sector_Expand, opc_sector_Select, opc_sector_Filter, { opc_sector_parentsectorid_sectors: opc_sector_Result[] }>;
+}
+interface opc_sector_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_parentsectorid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface opc_sector_Result extends opc_sector_Base, opc_sector_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  opc_parentsectorid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface opc_sector_RelatedOne {
+  opc_parentsectorid: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+}
+interface opc_sector_RelatedMany {
+  opc_sector_complaints_sector: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_sector_parentsectorid_sectors: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_sectors: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_sectors: WebMappingRelated<opc_sector_RelatedOne,opc_sector_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_sectors: WebMappingCUDA<opc_sector_Create,opc_sector_Update,opc_sector_Select>;
+}
 interface opc_theme_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
@@ -11445,6 +12129,175 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_topics: WebMappingCUDA<opc_topic_Create,opc_topic_Update,opc_topic_Select>;
+}
+interface QueueItem_Base extends WebEntity {
+  createdon?: Date | null;
+  enteredon?: Date | null;
+  exchangerate?: number | null;
+  importsequencenumber?: number | null;
+  modifiedon?: Date | null;
+  objecttypecode?: queueitem_objecttypecode | null;
+  overriddencreatedon?: Date | null;
+  priority?: number | null;
+  queueitemid?: string | null;
+  sender?: string | null;
+  state?: number | null;
+  statecode?: queueitem_statecode | null;
+  status?: number | null;
+  statuscode?: queueitem_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  title?: string | null;
+  torecipients?: string | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+  workeridmodifiedon?: Date | null;
+}
+interface QueueItem_Relationships {
+  objectid_opc_complaint?: opc_complaint_Result | null;
+}
+interface QueueItem extends QueueItem_Base, QueueItem_Relationships {
+  transactioncurrencyid_bind$transactioncurrencies?: string | null;
+  workerid_systemuser_bind$systemusers?: string | null;
+  workerid_team_bind$teams?: string | null;
+}
+interface QueueItem_Create extends QueueItem {
+  objectid_activitypointer_bind$activitypointers?: string | null;
+  objectid_appointment_bind$appointments?: string | null;
+  objectid_email_bind$emails?: string | null;
+  objectid_fax_bind$faxes?: string | null;
+  objectid_knowledgearticle_bind$knowledgearticles?: string | null;
+  objectid_letter_bind$letters?: string | null;
+  objectid_msdyn_knowledgearticletemplate_bind$msdyn_knowledgearticletemplates?: string | null;
+  objectid_opc_complaint_bind$opc_complaints?: string | null;
+  objectid_phonecall_bind$phonecalls?: string | null;
+  objectid_recurringappointmentmaster_bind$recurringappointmentmasters?: string | null;
+  objectid_socialactivity_bind$socialactivities?: string | null;
+  objectid_task_bind$tasks?: string | null;
+  queueid_bind$queues?: string | null;
+}
+interface QueueItem_Update extends QueueItem {
+}
+interface QueueItem_Select {
+  createdby_guid: WebAttribute<QueueItem_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<QueueItem_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<QueueItem_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  enteredon: WebAttribute<QueueItem_Select, { enteredon: Date | null }, { enteredon_formatted?: string }>;
+  exchangerate: WebAttribute<QueueItem_Select, { exchangerate: number | null }, {  }>;
+  importsequencenumber: WebAttribute<QueueItem_Select, { importsequencenumber: number | null }, {  }>;
+  modifiedby_guid: WebAttribute<QueueItem_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<QueueItem_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<QueueItem_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  objectid_guid: WebAttribute<QueueItem_Select, { objectid_guid: string | null }, { objectid_formatted?: string }>;
+  objecttypecode: WebAttribute<QueueItem_Select, { objecttypecode: queueitem_objecttypecode | null }, { objecttypecode_formatted?: string }>;
+  organizationid_guid: WebAttribute<QueueItem_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
+  overriddencreatedon: WebAttribute<QueueItem_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<QueueItem_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<QueueItem_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owninguser_guid: WebAttribute<QueueItem_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  priority: WebAttribute<QueueItem_Select, { priority: number | null }, {  }>;
+  queueid_guid: WebAttribute<QueueItem_Select, { queueid_guid: string | null }, { queueid_formatted?: string }>;
+  queueitemid: WebAttribute<QueueItem_Select, { queueitemid: string | null }, {  }>;
+  sender: WebAttribute<QueueItem_Select, { sender: string | null }, {  }>;
+  state: WebAttribute<QueueItem_Select, { state: number | null }, {  }>;
+  statecode: WebAttribute<QueueItem_Select, { statecode: queueitem_statecode | null }, { statecode_formatted?: string }>;
+  status: WebAttribute<QueueItem_Select, { status: number | null }, {  }>;
+  statuscode: WebAttribute<QueueItem_Select, { statuscode: queueitem_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<QueueItem_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  title: WebAttribute<QueueItem_Select, { title: string | null }, {  }>;
+  torecipients: WebAttribute<QueueItem_Select, { torecipients: string | null }, {  }>;
+  transactioncurrencyid_guid: WebAttribute<QueueItem_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  utcconversiontimezonecode: WebAttribute<QueueItem_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<QueueItem_Select, { versionnumber: number | null }, {  }>;
+  workerid_guid: WebAttribute<QueueItem_Select, { workerid_guid: string | null }, { workerid_formatted?: string }>;
+  workeridmodifiedon: WebAttribute<QueueItem_Select, { workeridmodifiedon: Date | null }, { workeridmodifiedon_formatted?: string }>;
+}
+interface QueueItem_Filter {
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  enteredon: Date;
+  exchangerate: any;
+  importsequencenumber: number;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  objectid_guid: XQW.Guid;
+  objecttypecode: queueitem_objecttypecode;
+  organizationid_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  priority: number;
+  queueid_guid: XQW.Guid;
+  queueitemid: XQW.Guid;
+  sender: string;
+  state: number;
+  statecode: queueitem_statecode;
+  status: number;
+  statuscode: queueitem_statuscode;
+  timezoneruleversionnumber: number;
+  title: string;
+  torecipients: string;
+  transactioncurrencyid_guid: XQW.Guid;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+  workerid_guid: XQW.Guid;
+  workeridmodifiedon: Date;
+}
+interface QueueItem_Expand {
+  objectid_opc_complaint: WebExpand<QueueItem_Expand, opc_complaint_Select, opc_complaint_Filter, { objectid_opc_complaint: opc_complaint_Result }>;
+}
+interface QueueItem_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  enteredon_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  objectid_formatted?: string;
+  objecttypecode_formatted?: string;
+  organizationid_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owninguser_formatted?: string;
+  queueid_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+  workerid_formatted?: string;
+  workeridmodifiedon_formatted?: string;
+}
+interface QueueItem_Result extends QueueItem_Base, QueueItem_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  objectid_guid: string | null;
+  organizationid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owninguser_guid: string | null;
+  queueid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+  workerid_guid: string | null;
+}
+interface QueueItem_RelatedOne {
+  objectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface QueueItem_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  queueitems: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  queueitems: WebMappingRelated<QueueItem_RelatedOne,QueueItem_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  queueitems: WebMappingCUDA<QueueItem_Create,QueueItem_Update,QueueItem_Select>;
 }
 interface ActivityParty_Base extends WebEntity {
   activitypartyid?: string | null;
