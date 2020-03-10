@@ -7,7 +7,7 @@ if($NonInteractive){
 	& $crmSvcUtil `
 		/username:"$username" `
 		/password:"$password" `
-		/url:"$url/XRMServices/2011/Organization.svc" `
+		/url:"$Url/XRMServices/2011/Organization.svc" `
 		/out:"../Compliance.Entities/Entities.cs" `
 		/namespace:"Compliance.Entities" `
 		/codewriterfilter:"CrmSvcUtil.Filter.GenerateOptionSetEnums.FilteringService, CrmSvcUtil.Filter" `
