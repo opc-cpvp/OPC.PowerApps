@@ -15,6 +15,14 @@ git clone https://github.com/opc-cpvp/OPC.PowerApps.git
 - Microsoft .NET 4.7+
 - PowerShell v3+
 
+### Xrm Definitely Typed
+
+To start generating TypeScript type definitions for webresources through the **get_XrmDefinitlyTypes.ps1** script you will need to reinstall the nuget packages using this following command in the Package Manager Console:
+
+```
+Update-Package -reinstall -project XrmDefinitelyTyped
+```
+
 ### Installing
 
 After compiling and packaging the solution, you can simply import it into your Dynamics / PowerApps environment.
