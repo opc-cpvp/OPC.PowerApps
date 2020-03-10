@@ -1,6 +1,7 @@
 Param([switch]$NonInteractive = $false, [string]$UserName, [string]$Password, [string]$Solution,[string]$Url)
 
 $xdtexe = Get-ChildItem "../packages" -Filter XrmDefinitelyTyped.exe -recurse | select -first 1 -ExpandProperty FullName
+write-host $xdtexe
 
 if($NonInteractive){
 
