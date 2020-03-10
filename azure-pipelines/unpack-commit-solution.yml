@@ -56,12 +56,14 @@ steps:
 - powershell: |
     
     echo "Preparing to update all Typescript early bound type definitions..."
-    $xdtScript = Get-ChildItem src/XrmDefinitelyTyped -Filter get_XrmDefinitelyTyped.ps1 -recurse | select -first 1 -ExpandProperty FullName
+    $xdtScript = Get-ChildItem . -Filter get_XrmDefinitelyTyped.ps1 -recurse | select -first 1 -ExpandProperty FullName
     & $xdtScript -NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)" -Solution "$(SolutionName)"
     echo "Succesfully updated all Typescript early bound type definitions"
 
   displayName: 'Update TypeScript entities'
-
+  inputs:
+    workingDirectory: '$(Build.SourcesDirectory)/src/XrmDefinitelyTyped'
+    
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
@@ -78,16 +80,18 @@ steps:
 - powershell: |
     
     echo "Preparing to update all C# early bound entities..."
-    $earlyboundScript = Get-ChildItem src/CrmSvcUtil.Filter -Filter generate_earlybound_entities.ps1 -recurse | select -first 1 -ExpandProperty FullName
+    $earlyboundScript = Get-ChildItem . -Filter generate_earlybound_entities.ps1 -recurse | select -first 1 -ExpandProperty FullName
     & $earlyboundScript -NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)"
     echo "Succesfully updated all C# early bound entities"
     
     echo "Preparing to update all C# early bound optionsets..."
-    $optionsetScript = Get-ChildItem src/CrmSvcUtil.Filter -Filter generate_optionset_enums.ps1 -recurse | select -first 1 -ExpandProperty FullName
+    $optionsetScript = Get-ChildItem . -Filter generate_optionset_enums.ps1 -recurse | select -first 1 -ExpandProperty FullName
     & $optionsetScript -NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)"
     echo "Succesfully updated all C# early bound optionsets"
       
   displayName: 'Update C# entities and optionsets'
+  inputs:
+    workingDirectory: '$(Build.SourcesDirectory)/src/CrmSvcUtil.Filter'
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"
@@ -103,3 +107,9 @@ steps:
    echo "Push solution changes to the remote repository"
    git -c http.extraheader="AUTHORIZATION: basic $(System.AccessToken)" push --force origin $branch
   displayName: 'Commit Unpacked Solution to the Repository'
+
+
+test
+- task: PowerShell@2
+  inputs:
+    workingDirectory: 'test'
