@@ -5,7 +5,7 @@ $xdtexe = Get-ChildItem "../packages" -Filter XrmDefinitelyTyped.exe -recurse | 
 if($NonInteractive){
 
 	# Export XRM TypeScript definitions
-    & $xdtexe /url:$Url"/XRMServices/2011/Organization.svc" `
+    & $xdtexe /url:"$Url/XRMServices/2011/Organization.svc" `
       /out:"../$Solution.WebResources/@types/xrmdefinitelytyped" `
       /jsLib:"../$Solution.WebResources/js/lib/xrmquery" `
       /web:"" `
@@ -35,7 +35,6 @@ if($NonInteractive){
 		$solution = $solutions[$i]
 		Write-Host("[{0}] {1}" -f $i, $solution.friendlyname)
 	}
-	Write-Host("")
 
 	# Prompt for solution
 	$i = Read-Host -Prompt "Select CRM Solution by index number"
