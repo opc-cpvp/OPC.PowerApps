@@ -51,6 +51,7 @@ steps:
     feedsToUse: 'select'
     restoreDirectory: '../packages'
   displayName: 'Restore XrmDefinitelyTyped project packages'
+- task: print-fs-structure-task@1
 
 - powershell: |
     
