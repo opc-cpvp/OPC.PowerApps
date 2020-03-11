@@ -160,12 +160,12 @@
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
-  <EntityRelationship Name="owner_opc_questiontemplate">
+  <EntityRelationship Name="owner_opc_opcpriority">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.146</IntroducedVersion>
+    <IntroducedVersion>1.0.137</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>opc_QuestionTemplate</ReferencingEntityName>
+    <ReferencingEntityName>opc_opcpriority</ReferencingEntityName>
     <ReferencedEntityName>Owner</ReferencedEntityName>
     <CascadeAssign>NoCascade</CascadeAssign>
     <CascadeDelete>NoCascade</CascadeDelete>
@@ -180,12 +180,12 @@
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
-  <EntityRelationship Name="owner_opc_opcpriority">
+  <EntityRelationship Name="owner_opc_questiontemplate">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.137</IntroducedVersion>
+    <IntroducedVersion>1.0.146</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>opc_opcpriority</ReferencingEntityName>
+    <ReferencingEntityName>opc_QuestionTemplate</ReferencingEntityName>
     <ReferencedEntityName>Owner</ReferencedEntityName>
     <CascadeAssign>NoCascade</CascadeAssign>
     <CascadeDelete>NoCascade</CascadeDelete>
