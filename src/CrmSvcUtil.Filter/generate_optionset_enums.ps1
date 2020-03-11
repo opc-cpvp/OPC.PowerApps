@@ -7,7 +7,7 @@ if($NonInteractive){
 		/username:"$username" `
 		/password:"$password" `
 		/url:"$Url/XRMServices/2011/Organization.svc" `
-		/out:"../Compliance.Entities/Entities.cs" `
+		/out:"../Compliance.Entities/OptionSets.cs" `
 		/namespace:"Compliance.Entities" `
 		/codewriterfilter:"CrmSvcUtil.Filter.GenerateOptionSetEnums.FilteringService, CrmSvcUtil.Filter" `
 		/codecustomization:"CrmSvcUtil.Filter.GenerateOptionSetEnums.CodeCustomizationService, CrmSvcUtil.Filter" `
@@ -15,7 +15,7 @@ if($NonInteractive){
 } else {
 	& $crmSvcUtil `
 		/interactivelogin `
-		/out:"../Compliance.Entities/Entities.cs" `
+		/out:"../Compliance.Entities/OptionSets.cs" `
 		/namespace:"Compliance.Entities" `
 		/codewriterfilter:"CrmSvcUtil.Filter.GenerateOptionSetEnums.FilteringService, CrmSvcUtil.Filter" `
 		/codecustomization:"CrmSvcUtil.Filter.GenerateOptionSetEnums.CodeCustomizationService, CrmSvcUtil.Filter" `
