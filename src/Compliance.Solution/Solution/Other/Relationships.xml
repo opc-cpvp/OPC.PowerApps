@@ -11,7 +11,6 @@
   <EntityRelationship Name="business_unit_opc_notification" />
   <EntityRelationship Name="business_unit_opc_opcpriority" />
   <EntityRelationship Name="business_unit_opc_questiontemplate" />
-  <EntityRelationship Name="business_unit_opc_opcpriority" />
   <EntityRelationship Name="business_unit_opc_recommendation" />
   <EntityRelationship Name="business_unit_opc_reminder" />
   <EntityRelationship Name="business_unit_opc_riskappetite" />
@@ -51,8 +50,6 @@
   <EntityRelationship Name="lk_opc_questiontemplate_modifiedby" />
   <EntityRelationship Name="lk_opc_questiontype_createdby" />
   <EntityRelationship Name="lk_opc_questiontype_modifiedby" />
-  <EntityRelationship Name="lk_opc_opcpriority_createdby" />
-  <EntityRelationship Name="lk_opc_opcpriority_modifiedby" />
   <EntityRelationship Name="lk_opc_recommendation_createdby" />
   <EntityRelationship Name="lk_opc_recommendation_modifiedby" />
   <EntityRelationship Name="lk_opc_reminder_createdby" />
@@ -100,7 +97,6 @@
   <EntityRelationship Name="opc_questiontemplate_checklistresponses_quest" />
   <EntityRelationship Name="opc_questiontemplate_questiontemplates_parent" />
   <EntityRelationship Name="opc_questiontype_questiontemplates_questionty" />
-  <EntityRelationship Name="opc_opcpriority_complaints_opcpriority" />
   <EntityRelationship Name="opc_reminders_users_additionaluserstonotify" />
   <EntityRelationship Name="opc_RiskAssessment_ActualRiskAppetite_opc" />
   <EntityRelationship Name="opc_RiskAssessment_BypassInitiatedBy_Syst" />
@@ -133,7 +129,6 @@
   <EntityRelationship Name="owner_opc_notification" />
   <EntityRelationship Name="owner_opc_opcpriority" />
   <EntityRelationship Name="owner_opc_questiontemplate" />
-  <EntityRelationship Name="owner_opc_opcpriority" />
   <EntityRelationship Name="owner_opc_recommendation" />
   <EntityRelationship Name="owner_opc_reminder" />
   <EntityRelationship Name="owner_opc_riskappetite" />
@@ -157,7 +152,6 @@
   <EntityRelationship Name="team_opc_notification" />
   <EntityRelationship Name="team_opc_opcpriority" />
   <EntityRelationship Name="team_opc_questiontemplate" />
-  <EntityRelationship Name="team_opc_opcpriority" />
   <EntityRelationship Name="team_opc_recommendation" />
   <EntityRelationship Name="team_opc_reminder" />
   <EntityRelationship Name="team_opc_riskappetite" />
@@ -181,7 +175,6 @@
   <EntityRelationship Name="user_opc_notification" />
   <EntityRelationship Name="user_opc_opcpriority" />
   <EntityRelationship Name="user_opc_questiontemplate" />
-  <EntityRelationship Name="user_opc_opcpriority" />
   <EntityRelationship Name="user_opc_recommendation" />
   <EntityRelationship Name="user_opc_reminder" />
   <EntityRelationship Name="user_opc_riskappetite" />
