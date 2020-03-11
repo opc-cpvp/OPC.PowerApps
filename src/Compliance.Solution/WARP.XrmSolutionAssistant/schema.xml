@@ -1,0 +1,236 @@
+<entities >
+  <entity name="opc_legislation" displayname="Legislation" etc="10063" primaryidfield="opc_legislationid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
+      <field updateCompare="true" displayname="Legislation" name="opc_legislationid" type="guid" primaryKey="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+  </entity>
+  <entity name="businessunit" displayname="Business Unit" etc="10" primaryidfield="businessunitid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Address 1: Address Type" name="address1_addresstypecode" type="optionsetvalue" />
+      <field displayname="Address 1: County" name="address1_county" type="string" />
+      <field displayname="Address 1: Fax" name="address1_fax" type="string" />
+      <field displayname="Address 1: ID" name="address1_addressid" type="guid" primaryKey="true" />
+      <field displayname="Address 1: Latitude" name="address1_latitude" type="float" />
+      <field displayname="Address 1: Longitude" name="address1_longitude" type="float" />
+      <field displayname="Address 1: Name" name="address1_name" type="string" />
+      <field displayname="Address 1: Post Office Box" name="address1_postofficebox" type="string" />
+      <field displayname="Address 1: Shipping Method" name="address1_shippingmethodcode" type="optionsetvalue" />
+      <field displayname="Address 1: Telephone 3" name="address1_telephone3" type="string" />
+      <field displayname="Address 1: UPS Zone" name="address1_upszone" type="string" />
+      <field displayname="Address 1: UTC Offset" name="address1_utcoffset" type="number" />
+      <field displayname="Address 2: Address Type" name="address2_addresstypecode" type="optionsetvalue" />
+      <field displayname="Address 2: County" name="address2_county" type="string" />
+      <field displayname="Address 2: Fax" name="address2_fax" type="string" />
+      <field displayname="Address 2: ID" name="address2_addressid" type="guid" primaryKey="true" />
+      <field displayname="Address 2: Latitude" name="address2_latitude" type="float" />
+      <field displayname="Address 2: Longitude" name="address2_longitude" type="float" />
+      <field displayname="Address 2: Name" name="address2_name" type="string" />
+      <field displayname="Address 2: Post Office Box" name="address2_postofficebox" type="string" />
+      <field displayname="Address 2: Shipping Method" name="address2_shippingmethodcode" type="optionsetvalue" />
+      <field displayname="Address 2: Telephone 1" name="address2_telephone1" type="string" />
+      <field displayname="Address 2: Telephone 2" name="address2_telephone2" type="string" />
+      <field displayname="Address 2: Telephone 3" name="address2_telephone3" type="string" />
+      <field displayname="Address 2: UPS Zone" name="address2_upszone" type="string" />
+      <field displayname="Address 2: UTC Offset" name="address2_utcoffset" type="number" />
+      <field displayname="Bill To City" name="address1_city" type="string" />
+      <field displayname="Bill To Country/Region" name="address1_country" type="string" />
+      <field displayname="Bill To State/Province" name="address1_stateorprovince" type="string" />
+      <field displayname="Bill To Street 1" name="address1_line1" type="string" />
+      <field displayname="Bill To Street 2" name="address1_line2" type="string" />
+      <field displayname="Bill To Street 3" name="address1_line3" type="string" />
+      <field displayname="Bill To ZIP/Postal Code" name="address1_postalcode" type="string" />
+      <field updateCompare="true" displayname="Business Unit" name="businessunitid" type="guid" primaryKey="true" />
+      <field displayname="Calendar" name="calendarid" type="entityreference" lookupType="calendar" />
+      <field displayname="Cost Center" name="costcenter" type="string" />
+      <field displayname="Credit Limit" name="creditlimit" type="float" />
+      <field displayname="Currency" name="transactioncurrencyid" type="entityreference" lookupType="transactioncurrency" />
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Disable Reason" name="disabledreason" type="string" />
+      <field displayname="Division" name="divisionname" type="string" />
+      <field displayname="Email" name="emailaddress" type="string" />
+      <field displayname="Exchange Rate" name="exchangerate" type="decimal" />
+      <field displayname="File as Name" name="fileasname" type="string" />
+      <field displayname="FTP Site" name="ftpsiteurl" type="string" />
+      <field displayname="Inheritance Mask" name="inheritancemask" type="number" />
+      <field displayname="Is Disabled" name="isdisabled" type="bool" />
+      <field displayname="Main Phone" name="address1_telephone1" type="string" />
+      <field displayname="Name" name="name" type="string" />
+      <field displayname="Other Phone" name="address1_telephone2" type="string" />
+      <field displayname="Parent Business" name="parentbusinessunitid" type="entityreference" lookupType="businessunit" />
+      <field displayname="Picture" name="picture" type="string" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Ship To City" name="address2_city" type="string" />
+      <field displayname="Ship To Country/Region" name="address2_country" type="string" />
+      <field displayname="Ship To State/Province" name="address2_stateorprovince" type="string" />
+      <field displayname="Ship To Street 1" name="address2_line1" type="string" />
+      <field displayname="Ship To Street 2" name="address2_line2" type="string" />
+      <field displayname="Ship To Street 3" name="address2_line3" type="string" />
+      <field displayname="Ship To ZIP/Postal Code" name="address2_postalcode" type="string" />
+      <field displayname="Stock Exchange" name="stockexchange" type="string" />
+      <field displayname="Ticker Symbol" name="tickersymbol" type="string" />
+      <field displayname="UTC Offset" name="utcoffset" type="number" />
+      <field displayname="Website" name="websiteurl" type="string" />
+      <field displayname="Workflow Suspended" name="workflowsuspended" type="bool" />
+    </fields>
+    <filter>&lt;filter type="and"&gt;&lt;condition attribute="parentbusinessunitid" operator="not-null" /&gt;&lt;/filter&gt;</filter>
+  </entity>
+  <entity name="opc_riskappetite" displayname="Risk Appetite" etc="10290" primaryidfield="opc_riskappetiteid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field updateCompare="true" displayname="Risk Appetite" name="opc_riskappetiteid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Value" name="opc_value" type="number" customfield="true" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_riskassessmentcategorytemplate" displayname="Risk Assessment Category Template" etc="10293" primaryidfield="opc_riskassessmentcategorytemplateid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field updateCompare="true" displayname="Risk Assessment Category Template" name="opc_riskassessmentcategorytemplateid" type="guid" primaryKey="true" />
+      <field displayname="Risk Assessment Type" name="opc_riskassessmenttype" type="entityreference" lookupType="opc_riskassessmenttype" customfield="true" />
+      <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_riskassessmentdefinitiontemplate" displayname="Risk Assessment Definition Template" etc="10295" primaryidfield="opc_riskassessmentdefinitiontemplateid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Risk Appetite" name="opc_riskappetite" type="entityreference" lookupType="opc_riskappetite" customfield="true" />
+      <field updateCompare="true" displayname="Risk Assessment Definition Template" name="opc_riskassessmentdefinitiontemplateid" type="guid" primaryKey="true" />
+      <field displayname="Risk Assessment Factor Template" name="opc_riskassessmentfactortemplate" type="entityreference" lookupType="opc_riskassessmentfactortemplate" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_riskassessmentfactortemplate" displayname="Risk Assessment Factor Template" etc="10296" primaryidfield="opc_riskassessmentfactortemplateid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Risk Assessment Category Template" name="opc_riskassessmentcategorytemplate" type="entityreference" lookupType="opc_riskassessmentcategorytemplate" customfield="true" />
+      <field updateCompare="true" displayname="Risk Assessment Factor Template" name="opc_riskassessmentfactortemplateid" type="guid" primaryKey="true" />
+      <field displayname="Sequence" name="opc_sequence" type="number" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_riskassessmenttype" displayname="Risk Assessment Type" etc="10297" primaryidfield="opc_riskassessmenttypeid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field updateCompare="true" displayname="Risk Assessment Type" name="opc_riskassessmenttypeid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_allegationtype" displayname="Allegation Type" etc="10432" primaryidfield="opc_allegationtypeid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
+      <field updateCompare="true" displayname="Allegation Type" name="opc_allegationtypeid" type="guid" primaryKey="true" />
+      <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Description" name="opc_descriptionfrench" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Checklist Type" name="opc_checklisttypeid" type="entityreference" lookupType="opc_checklisttype" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="queue" displayname="Queue" etc="2020" primaryidfield="queueid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Name" name="name" type="string" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Queue" name="queueid" type="guid" primaryKey="true" />
+      <field displayname="Type" name="queueviewtype" type="optionsetvalue" />
+    </fields>
+    <relationships />
+    <filter>
+      &lt;filter type="and" &gt;
+      &lt;condition attribute="name" operator="not-begin-with" value="&amp;lt;" /&gt;
+      &lt;condition attribute="name" operator="not-end-with" value="&amp;gt;" /&gt;
+      &lt;/filter&gt;
+    </filter>
+  </entity>
+  <entity name="opc_checklisttype" displayname="Checklist Type" etc="10601" primaryidfield="opc_checklisttypeid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field updateCompare="true" displayname="Checklist Type" name="opc_checklisttypeid" type="guid" primaryKey="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Type" name="opc_type" type="optionsetvalue" customfield="true" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_questiontype" displayname="Question Type" etc="10603" primaryidfield="opc_questiontypeid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field updateCompare="true" displayname="Question Type" name="opc_questiontypeid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_questiontemplate" displayname="Question Template" etc="10602" primaryidfield="opc_questiontemplateid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Checklist Type" name="opc_checklisttypeid" type="entityreference" lookupType="opc_checklisttype" customfield="true" />
+      <field displayname="Conditional Visibility" name="opc_conditionalvisibility" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Parent Question Template" name="opc_parentquestiontemplateid" type="entityreference" lookupType="opc_questiontemplate" customfield="true" />
+      <field updateCompare="true" displayname="Question Template" name="opc_questiontemplateid" type="guid" primaryKey="true" />
+      <field displayname="Question Type" name="opc_questiontypeid" type="entityreference" lookupType="opc_questiontype" customfield="true" />
+      <field displayname="Sequence" name="opc_sequence" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_opcpriority" displayname="OPC Priority" etc="10539" primaryidfield="opc_opcpriorityid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Description" name="opc_frenchdescription" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field updateCompare="true" displayname="OPC Priority" name="opc_opcpriorityid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="opc_sector" displayname="Sector" etc="10540" primaryidfield="opc_sectorid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Parent Sector" name="opc_parentsectorid" type="entityreference" lookupType="opc_sector" customfield="true" />
+      <field updateCompare="true" displayname="Sector" name="opc_sectorid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
+</entities>

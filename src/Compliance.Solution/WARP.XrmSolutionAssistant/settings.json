@@ -1,0 +1,11 @@
+﻿{
+  "EntityTypeCodes": [
+    {
+      "EntityLogicalName": "warp_customentity",
+      "TypeCode": 10145
+    }
+  ],
+  "SolutionVersionReset": {
+    "ResetVersion":  "1.0.0.0" 
+  } 
+}
