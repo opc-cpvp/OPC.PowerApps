@@ -1,7 +1,7 @@
 path_classifiers:
   library:
-  - "exclude \"src/Compliance.WebResources/@types\""
-  - "exclude \"src/Compliance.WebResources/js\""
+  - exclude "src/Compliance.WebResources/@types"
+  - exclude "src/Compliance.WebResources/js"
 extraction:
   csharp:
     index:
