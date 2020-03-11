@@ -52,15 +52,11 @@ steps:
 
 - task: PowerShell@2
   inputs:
-    targetType: 'inline'
-    workingDirectory: '$(Build.SourcesDirectory)/src/XrmDefinitelyTyped'
-    script: |
-      echo "Preparing to update all Typescript early bound type definitions..."
-      $xdtScript = Get-ChildItem . -Filter get_XrmDefinitelyTyped.ps1 -recurse | select -first 1 -ExpandProperty FullName
-      & $xdtScript -NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)" -Solution "$(SolutionName)"
-      echo "Succesfully updated all Typescript early bound type definitions"
+    filePath: 'src/XrmDefinitelyTyped/get_XrmDefinitelyTyped.ps1'
+    arguments: '-NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)" -Solution "$(SolutionName)'
+    workingDirectory: 'src/XrmDefinitelyTyped'
   displayName: 'Update TypeScript entities'
-    
+
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
@@ -89,6 +85,20 @@ steps:
       & $optionsetScript -NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)"
       echo "Succesfully updated all C# early bound optionsets"
   displayName: 'Update C# entities and optionsets'
+
+- task: PowerShell@2
+  inputs:
+    filePath: 'src/CrmSvcUtil.Filter/generate_earlybound_entities.ps1'
+    arguments: '-NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)'
+    workingDirectory: 'src/CrmSvcUtil.Filter'
+  displayName: 'Update C# early-bound entities'
+
+- task: PowerShell@2
+  inputs:
+    filePath: 'src/CrmSvcUtil.Filter/generate_optionset_enums.ps1'
+    arguments: '-NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)'
+    workingDirectory: 'src/CrmSvcUtil.Filter'
+  displayName: 'Update C# early-bound enums'
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"
