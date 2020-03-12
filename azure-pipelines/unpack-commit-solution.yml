@@ -49,11 +49,11 @@ steps:
 
   displayName: 'Lint Json Workflows'
 
-- task: PowerShell@2
+- task: DotNetCoreCLI@2
   inputs:
-    targetType: 'inline'
-    script: |
-      dotnet WARP.XrmSolutionAssistant/WARP.XrmSolutionAssistant.Console.dll ./Solution
+    command: 'custom'
+    custom: 'WARP.XrmSolutionAssistant/WARP.XrmSolutionAssistant.Console.dll'
+    arguments: './Solution'
     workingDirectory: '$(Build.SourcesDirectory)/src/$(SolutionName).Solution'
 
 - task: NuGetCommand@2
