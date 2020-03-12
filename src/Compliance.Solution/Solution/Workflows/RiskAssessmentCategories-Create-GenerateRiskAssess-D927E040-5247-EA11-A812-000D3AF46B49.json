@@ -1,0 +1,128 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_Risk_Assessment_Category_is_created": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "opc_riskassessmentcategory",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/name": "d927e040-5247-ea11-a812-000d3af46b49"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_associated_Risk_Assessment_Factor_Templates": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords"
+            },
+            "parameters": {
+              "entityName": "opc_riskassessmentfactortemplates",
+              "$select": "opc_riskassessmentfactortemplateid",
+              "$filter": "statecode eq 0 and _opc_riskassessmentcategorytemplate_value eq @{triggerOutputs()?['body/_opc_riskassessmentcategorytemplate_value']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_Risk_Assessment_Factor_Template": {
+          "foreach": "@outputs('Get_associated_Risk_Assessment_Factor_Templates')?['body/value']",
+          "actions": {
+            "Get_associated_Risk_Assessment_Definition_Templates": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords"
+                },
+                "parameters": {
+                  "entityName": "opc_riskassessmentdefinitiontemplates",
+                  "$select": "opc_riskassessmentdefinitiontemplateid,opc_name",
+                  "$filter": "statecode eq 0 and _opc_riskassessmentfactortemplate_value eq @{items('Apply_to_each_Risk_Assessment_Factor_Template')?['opc_riskassessmentfactortemplateid']}"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each_Risk_Assessment_Definition_Template": {
+              "foreach": "@outputs('Get_associated_Risk_Assessment_Definition_Templates')?['body/value']",
+              "actions": {
+                "Create_Risk_Assessment_Definition": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord"
+                    },
+                    "parameters": {
+                      "entityName": "opc_riskassessmentdefinitions",
+                      "item/opc_name": "@items('Apply_to_each_Risk_Assessment_Definition_Template')?['opc_name']",
+                      "item/opc_riskassessmentid@odata.bind": "/opc_riskassessments(@{triggerOutputs()?['body/_opc_riskassessment_value']})",
+                      "item/opc_RiskAssessmentCategory@odata.bind": "/opc_riskassessmentcategories(@{triggerOutputs()?['body/opc_riskassessmentcategoryid']})",
+                      "item/opc_RiskAssessmentDefinitionTemplate@odata.bind": "/opc_riskassessmentdefinitiontemplates(@{items('Apply_to_each_Risk_Assessment_Definition_Template')?['opc_riskassessmentdefinitiontemplateid']})",
+                      "item/opc_RiskAssessmentFactorTemplate@odata.bind": "/opc_riskassessmentfactortemplates(@{items('Apply_to_each_Risk_Assessment_Factor_Template')?['opc_riskassessmentfactortemplateid']})",
+                      "item/opc_isselected": false
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_associated_Risk_Assessment_Definition_Templates": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Get_associated_Risk_Assessment_Factor_Templates": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
