@@ -42,6 +42,13 @@ steps:
 
   displayName: 'Lint Json Workflows'
 
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      dotnet WARP.XrmSolutionAssistant/WARP.XrmSolutionAssistant.Console.dll ./Solution
+    workingDirectory: '$(Build.SourcesDirectory)/src/$(SolutionName).Solution'
+
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
