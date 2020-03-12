@@ -21,7 +21,7 @@ steps:
   inputs:
     crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
     solutionName: '$(SolutionName)'
-    exportManaged: true
+    exportManaged: false
     outputPath: '$(Agent.TempDirectory)'
 
 - task: PowerShell@2
@@ -55,6 +55,7 @@ steps:
     custom: 'WARP.XrmSolutionAssistant/WARP.XrmSolutionAssistant.Console.dll'
     arguments: './Solution'
     workingDirectory: '$(Build.SourcesDirectory)/src/$(SolutionName).Solution'
+  displayName: 'Decrease merge noise by cleaning unpacked solution files'
 
 - task: NuGetCommand@2
   inputs:
