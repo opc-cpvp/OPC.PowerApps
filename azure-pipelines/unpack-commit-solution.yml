@@ -21,21 +21,14 @@ steps:
   inputs:
     crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
     solutionName: '$(SolutionName)'
-    exportManaged: false
+    exportManaged: true
     outputPath: '$(Agent.TempDirectory)'
-
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      cd $(Agent.TempDirectory)
-      dir
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractSolution.MSCRMExtractSolution@10
   displayName: 'MSCRM Extract Solution'
   inputs:
     unpackedFilesFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Solution\Solution'
-    packageType: 'Unmanaged'
+    packageType: 'Both'
     solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
     localize: false
 
