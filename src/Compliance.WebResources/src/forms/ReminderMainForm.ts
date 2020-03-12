@@ -36,7 +36,7 @@ export namespace Reminder.Forms {
         *
         * @event OnSave
         */
-        private form_OnSave(context?: Xrm.ExecutionContext<Xrm.PageEntity<Form.opc_reminder.Main.Information.Attributes>, any>): void {
+        private form_OnSave(context?: Xrm.SaveEventContext<Xrm.PageEntity<Form.opc_reminder.Main.Information.Attributes>>): void {
             let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
 
             //Get the controls and their values

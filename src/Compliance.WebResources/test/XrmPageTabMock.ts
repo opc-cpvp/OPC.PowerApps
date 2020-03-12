@@ -5,6 +5,7 @@ export class XrmPageTabMock implements Xrm.PageTab<Xrm.SectionCollection>, IName
     private _label: string;
     private _isVisible: boolean;
     private _focus: boolean;
+
     sections: Xrm.SectionCollection;
 
     constructor() {
@@ -18,7 +19,7 @@ export class XrmPageTabMock implements Xrm.PageTab<Xrm.SectionCollection>, IName
     /* END OF NEW MEMBERS*/
 
     getName(): string {
-        throw new Error("Method not implemented.");
+        return this._name;
     }
     getDisplayState(): Xrm.CollapsableDisplayState {
         throw new Error("Method not implemented.");
@@ -50,8 +51,9 @@ export class XrmPageTabMock implements Xrm.PageTab<Xrm.SectionCollection>, IName
 }
 
 export class XrmPageSectionMock implements Xrm.PageSection, INamedComponent {
-
     private _name: string;
+    private _isVisible: boolean;
+
     controls: Xrm.Collection<Xrm.AnyControl>;
 
     constructor() {
@@ -67,7 +69,6 @@ export class XrmPageSectionMock implements Xrm.PageSection, INamedComponent {
     getName(): string {
         return this._name;
     }
-
     getParent(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>> {
         throw new Error("Method not implemented.");
     }
@@ -78,11 +79,9 @@ export class XrmPageSectionMock implements Xrm.PageSection, INamedComponent {
         throw new Error("Method not implemented.");
     }
     setVisible(visibility: boolean): void {
-        throw new Error("Method not implemented.");
+        this._isVisible = visibility;
     }
     getVisible(): boolean {
-        throw new Error("Method not implemented.");
+        return this._isVisible;
     }
-
-
 }
