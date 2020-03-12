@@ -114,7 +114,7 @@ steps:
   inputs:
     unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     mappingFile: src/$(SolutionName).Solution/map.xml
-    packageType: Unmanaged
+    packageType: Both
     outputPath: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder'
     localize: false
 
