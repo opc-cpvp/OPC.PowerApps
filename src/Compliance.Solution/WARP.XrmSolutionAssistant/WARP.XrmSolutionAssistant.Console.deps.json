@@ -24,7 +24,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "2.2.0"
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {
+          "Microsoft.Extensions.Configuration.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18315"
           }
@@ -35,7 +35,7 @@
           "Microsoft.Extensions.Primitives": "2.2.0"
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+          "Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18315"
           }
@@ -46,7 +46,7 @@
           "Microsoft.Extensions.Configuration": "2.2.0"
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {
+          "Microsoft.Extensions.Configuration.Binder.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.19081"
           }
@@ -58,7 +58,7 @@
           "Microsoft.Extensions.FileProviders.Physical": "2.2.0"
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {
+          "Microsoft.Extensions.Configuration.FileExtensions.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18315"
           }
@@ -71,7 +71,7 @@
           "Newtonsoft.Json": "12.0.1"
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll": {
+          "Microsoft.Extensions.Configuration.Json.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18315"
           }
@@ -82,7 +82,7 @@
           "Microsoft.Extensions.Primitives": "2.2.0"
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+          "Microsoft.Extensions.FileProviders.Abstractions.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18315"
           }
@@ -94,7 +94,7 @@
           "Microsoft.Extensions.FileSystemGlobbing": "2.2.0"
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll": {
+          "Microsoft.Extensions.FileProviders.Physical.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18315"
           }
@@ -102,7 +102,7 @@
       },
       "Microsoft.Extensions.FileSystemGlobbing/2.2.0": {
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+          "Microsoft.Extensions.FileSystemGlobbing.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18315"
           }
@@ -114,7 +114,7 @@
           "System.Runtime.CompilerServices.Unsafe": "4.5.1"
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll": {
+          "Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18315"
           }
@@ -122,7 +122,7 @@
       },
       "Newtonsoft.Json/12.0.1": {
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
             "fileVersion": "12.0.1.22727"
           }
@@ -130,7 +130,7 @@
       },
       "NLog/4.5.11": {
         "runtime": {
-          "lib/netstandard2.0/NLog.dll": {
+          "NLog.dll": {
             "assemblyVersion": "4.0.0.0",
             "fileVersion": "4.5.11.8645"
           }
