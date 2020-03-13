@@ -27,6 +27,14 @@
                         <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{f42aa2cb-67f0-4607-970f-fc19609d5fa5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Value" languagecode="1033" />
+                        </labels>
+                        <control id="opc_value" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_value" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
