@@ -10,46 +10,47 @@ var sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-describe("when form is loading", () => {
-    let service: ReminderService;
-    let form: Reminder.Forms.MainForm;
-    let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
-    let contextSpy: any;
-
-    beforeEach(function () {
-        service = new ReminderService();
-        form = new Reminder.Forms.MainForm(service);
-        mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
-        contextSpy = sandbox.spy(mockContext);
-    });
-
-    afterEach(function () {
-        sandbox.restore();
-    });
-
-    it("it should display the section to add additional users if the user chooses to notify additional users", () => {
-        // Arrange
-        mockContext.getFormContext().getAttribute("opc_notifyadditionalusers").setValue(true);
-
-        // Act
-        form.initializeComponents(mockContext);
-
-        // Assert
-        contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(true);
-    });
-
-    it("it should hide the section to add additional users if the user chooses not to notify additional users", () => {
-        // Arrange
-        mockContext.getFormContext().getAttribute("opc_notifyadditionalusers").setValue(false);
-
-        // Act
-        form.initializeComponents(mockContext);
-
-        // Assert
-        contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(false);
-    });
-});
 describe("Reminder", () => {
+    describe("when form is loading", () => {
+        let service: ReminderService;
+        let form: Reminder.Forms.MainForm;
+        let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
+        let contextSpy: any;
+
+        beforeEach(function () {
+            service = new ReminderService();
+            form = new Reminder.Forms.MainForm(service);
+            mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
+            contextSpy = sandbox.spy(mockContext);
+        });
+
+        afterEach(function () {
+            sandbox.restore();
+        });
+
+        it("it should display the section to add additional users if the user chooses to notify additional users", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_notifyadditionalusers").setValue(true);
+
+            // Act
+            form.initializeComponents(mockContext);
+
+            // Assert
+            contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(true);
+        });
+
+        it("it should hide the section to add additional users if the user chooses not to notify additional users", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_notifyadditionalusers").setValue(false);
+
+            // Act
+            form.initializeComponents(mockContext);
+
+            // Assert
+            contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(false);
+        });
+    });
+
     describe("when form is saving", () => {
         let service: ReminderService;
         let form: Reminder.Forms.MainForm;
