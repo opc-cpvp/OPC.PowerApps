@@ -3,6 +3,7 @@ import "reflect-metadata";
 import { IPowerForm, INotificationService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 
+
 export namespace Notification.Forms {
 
     @injectable()
@@ -13,7 +14,7 @@ export namespace Notification.Forms {
 
         constructor(@inject(nameof<INotificationService>()) notificationService: INotificationService, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
             this._notificationService = notificationService;
-            this._xrmNavigation = xrmNavigation
+            this._xrmNavigation = xrmNavigation;
         }
 
         /**

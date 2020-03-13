@@ -44,7 +44,6 @@
     <Folder Include="src\factories\" />
     <Folder Include="src\forms\" />
     <Folder Include="src\helpers\" />
-    <Folder Include="src\providers\" />
     <Folder Include="src\services\" />
     <Folder Include="test\" />
   </ItemGroup>
@@ -67,7 +66,6 @@
     <TypeScriptCompile Include="src\index.ts" />
     <TypeScriptCompile Include="src\interfaces.ts" />
     <TypeScriptCompile Include="src\inversify.config.ts" />
-    <TypeScriptCompile Include="src\providers\XrmNavigationProvider.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
     <TypeScriptCompile Include="src\services\NotificationService.ts" />

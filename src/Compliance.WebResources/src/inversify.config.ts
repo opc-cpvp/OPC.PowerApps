@@ -9,9 +9,6 @@ import { AllegationService } from "./services/AllegationService";
 import { ReminderService } from "./services/ReminderService";
 import { NotificationService } from "./services/NotificationService";
 
-// Providers
-import { XrmNavigationProvider } from "./providers/XrmNavigationProvider";
-
 // Forms
 import ComplaintMainForm = require("./forms/ComplaintMainForm");
 import Complaint = ComplaintMainForm.Complaint;
@@ -31,7 +28,7 @@ container.bind<i.IReminderService>(nameof<i.IReminderService>()).to(ReminderServ
 container.bind<i.INotificationService>(nameof<i.INotificationService>()).to(NotificationService);
 
 // Register Providers
-container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).to(XrmNavigationProvider);
+container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);
 
 // Register Forms
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);
