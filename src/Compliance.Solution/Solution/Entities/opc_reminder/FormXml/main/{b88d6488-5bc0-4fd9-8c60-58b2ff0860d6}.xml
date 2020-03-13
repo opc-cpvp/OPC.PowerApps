@@ -57,7 +57,7 @@
                         <labels>
                           <label description="Send Email Notification" languagecode="1033" />
                         </labels>
-                        <control id="opc_notifybyemail" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifybyemail" disabled="false" />
+                        <control id="opc_notifybyemail" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_notifybyemail" disabled="false" uniqueid="{23edd38c-01b8-4515-a424-aa4b7b635f52}" />
                       </cell>
                       <cell id="{4279a894-94bd-c037-6917-82500a40b579}" showlabel="false">
                         <labels>
@@ -80,7 +80,7 @@
                         <labels>
                           <label description="Notify Case Owner" languagecode="1033" />
                         </labels>
-                        <control id="opc_notifycaseowner" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifycaseowner" disabled="false" />
+                        <control id="opc_notifycaseowner" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_notifycaseowner" disabled="false" uniqueid="{cd10e1ad-208a-4dde-ac8c-03b42f916f36}" />
                       </cell>
                       <cell id="{51406639-3631-41b8-c384-72d1e327d262}" showlabel="false">
                         <labels>
@@ -103,7 +103,7 @@
                         <labels>
                           <label description="Notify Me" languagecode="1033" />
                         </labels>
-                        <control id="opc_notifyme" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifyme" disabled="false" />
+                        <control id="opc_notifyme" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_notifyme" disabled="false" uniqueid="{d468f560-b06d-4650-96a9-b352e409c489}" />
                       </cell>
                       <cell id="{bd54dbe7-6b66-736b-2a78-e554ad526942}" showlabel="false">
                         <labels>
@@ -126,7 +126,7 @@
                         <labels>
                           <label description="Notify Additional Users" languagecode="1033" />
                         </labels>
-                        <control id="opc_notifyadditionalusers" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifyadditionalusers" disabled="false" uniqueid="{ace9d887-8b50-e8a5-d54a-a59896d5bdd5}" />
+                        <control id="opc_notifyadditionalusers" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_notifyadditionalusers" disabled="false" uniqueid="{b61b8ab9-9bc6-416d-a93d-729bf086796c}" />
                       </cell>
                       <cell id="{7ca99d0b-c992-7b15-7004-93e6b0478347}" showlabel="false">
                         <labels>
@@ -286,7 +286,96 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
-      <controlDescriptions />
+      <controlDescriptions>
+        <controlDescription forControl="{23edd38c-01b8-4515-a424-aa4b7b635f52}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_notifybyemail</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifybyemail</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifybyemail</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifybyemail</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{cd10e1ad-208a-4dde-ac8c-03b42f916f36}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_notifycaseowner</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifycaseowner</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifycaseowner</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifycaseowner</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{d468f560-b06d-4650-96a9-b352e409c489}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_notifyme</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifyme</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifyme</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifyme</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{b61b8ab9-9bc6-416d-a93d-729bf086796c}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_notifyadditionalusers</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifyadditionalusers</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifyadditionalusers</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_notifyadditionalusers</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
       <footer id="{5c2ae2aa-29e8-462a-b4aa-967f4c79fdd2}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
           <row>
