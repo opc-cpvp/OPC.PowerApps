@@ -110,6 +110,7 @@ steps:
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
     
 - task: PowerShell@2
+  displayName: 'Generate Managed Files'
   inputs:
     filePath: 'azure-pipelines/scripts/create_managed_files.ps1'
     workingDirectory: 'src/$(SolutionName).Solution/Solution'
