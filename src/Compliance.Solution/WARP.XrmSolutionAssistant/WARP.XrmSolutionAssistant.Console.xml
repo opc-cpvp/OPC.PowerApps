@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WARP.XrmSolutionAssistant.Console</name>
+    </assembly>
+    <members>
+        <member name="T:WARP.XrmSolutionAssistant.Core.Console.Program">
+            <summary>
+            Application to tidy CRM changes pulled down from CRM in a multi developer environment
+            </summary>
+        </member>
+        <member name="T:WARP.XrmSolutionAssistant.Core.Console.Config">
+            <summary>
+            Container for app config items
+            </summary>
+        </member>
+        <member name="P:WARP.XrmSolutionAssistant.Core.Console.Config.Excludes">
+            <summary>
+            Gets or sets the assistants to exclude from running.
+            </summary>
+        </member>
+    </members>
+</doc>
