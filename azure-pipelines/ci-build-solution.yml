@@ -108,18 +108,10 @@ steps:
     target: xml
     unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
-
+    
 - task: PowerShell@2
   inputs:
-    targetType: 'inline'
-    script: |
-      
-      # Only generate _managed files for the packing. They are the same as unmanaged files
-      $files = Get-Childitem ./Entities/*/FormXml/*/* -Filter *.xml -Recurse
-      $files += Get-Childitem ./AppModuleSiteMaps/*/* -Filter *.xml -Recurse
-      $files += Get-Childitem ./AppModules/*/* -Filter *.xml -Recurse
-      $files | foreach { Copy-Item $_.FullName -Destination $_.FullName.Replace(".xml", "_managed.xml") }
-
+    filePath: 'azure-pipelines/scripts/create_managed_files.ps1'
     workingDirectory: 'src/$(SolutionName).Solution/Solution'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
