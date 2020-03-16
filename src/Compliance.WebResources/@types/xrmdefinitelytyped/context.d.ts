@@ -510,7 +510,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 10658,
+  Complaint = 10767,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,

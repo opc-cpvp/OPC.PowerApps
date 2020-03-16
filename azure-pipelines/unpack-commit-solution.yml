@@ -24,20 +24,14 @@ steps:
     exportManaged: true
     outputPath: '$(Agent.TempDirectory)'
 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      cd $(Agent.TempDirectory)
-      dir
-
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractSolution.MSCRMExtractSolution@10
   displayName: 'MSCRM Extract Solution'
   inputs:
     unpackedFilesFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Solution\Solution'
-    packageType: Both
+    packageType: 'Both'
     solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
     localize: false
+
 
 - powershell: |
     
@@ -55,6 +49,7 @@ steps:
     custom: 'WARP.XrmSolutionAssistant/WARP.XrmSolutionAssistant.Console.dll'
     arguments: './Solution'
     workingDirectory: '$(Build.SourcesDirectory)/src/$(SolutionName).Solution'
+  displayName: 'Decrease merge noise by cleaning unpacked solution files'
 
 - task: NuGetCommand@2
   inputs:
