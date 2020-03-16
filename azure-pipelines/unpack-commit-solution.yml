@@ -33,23 +33,21 @@ steps:
     localize: false
 
 
-- powershell: |
-    
+- powershell: |    
     npm install jsonlint -g
     Get-ChildItem src/$(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach { 
       echo "Linting $_.Name"
       jsonlint $_.FullName --in-place 
     }
-
-  displayName: 'Lint Json Workflows'
+  displayName: 'Lint JSON Workflows'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Lint Solution Files'
   inputs:
     command: 'custom'
     custom: 'WARP.XrmSolutionAssistant/WARP.XrmSolutionAssistant.Console.dll'
     arguments: './Solution'
     workingDirectory: '$(Build.SourcesDirectory)/src/$(SolutionName).Solution'
-  displayName: 'Decrease merge noise by cleaning unpacked solution files'
 
 - task: NuGetCommand@2
   inputs:
