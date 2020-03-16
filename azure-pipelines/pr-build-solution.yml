@@ -9,6 +9,12 @@ pr:
   branches:
     include:
     - master
+  paths:
+    include:
+    - azure-pipelines/*
+    - src/*
+    exclude:
+    - azure-pipelines/README.md
 
 pool:
   vmImage: 'vs2017-win2016'
@@ -95,6 +101,12 @@ steps:
     target: xml
     unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
+    
+- task: PowerShell@2
+  displayName: 'Generate Managed Files'
+  inputs:
+    filePath: 'azure-pipelines/scripts/create_managed_files.ps1'
+    workingDirectory: 'src/$(SolutionName).Solution/Solution'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
   displayName: 'Pack PowerApps Solution Version'
