@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="CIRD Dashboard" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{ccaf4946-a563-ea11-a812-000d3af464f8}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>1</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{8520b3bb-27eb-4b2b-aed9-1f5c6aa573bd}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="111" id="{a73a83d6-633d-4439-a87c-b87bdd854938}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{2b030488-2549-4765-a2ad-03cf6b4bc0a7}" auto="false">
+                          <labels>
+                            <label description="Individual Complaint" languagecode="1033" />
+                          </labels>
+                          <control id="chart_complaint_by_creation_month" uniqueid="{86ca2309-9724-14bd-7432-8e5cbc45355d}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>opc_complaint</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{39B07AE9-585D-EA11-A811-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{6511d31a-6dc9-07d0-6b81-d7a5c0be9ec0}" showlabel="false" colspan="1" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Queue Item" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
+                          </labels>
+                          <control id="chart_complaint_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{9d903a6d-b275-d969-d62c-e0495326b608}">
+                            <parameters>
+                              <ViewId>{C581A9C1-A25C-EA11-A811-000D3AF46FFF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{794E51F6-5E5D-EA11-A811-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{dbe318ed-3432-6ab5-68ac-ad7066c88c50}" showlabel="false" colspan="1" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Queue Item" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
+                          </labels>
+                          <control id="chart_complaint_by_resource" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{931ce0c4-1c70-9e91-6e07-bb0b383336b5}">
+                            <parameters>
+                              <ViewId>{930B794D-6764-EA11-A812-000D3AF464F8}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{97604B86-6764-EA11-A812-000D3AF46CC5}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell id="{138d333d-9a55-6b1d-5b25-5bb90db24a9d}" showlabel="false" colspan="2" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Individual Complaint" languagecode="1033" />
+                          </labels>
+                          <control id="chart_complaint_by_duration_in_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{6d0e430d-7c85-43da-e976-2423ba2edc3c}">
+                            <parameters>
+                              <ViewId>{46F448D1-7364-EA11-A812-000D3AF46CC5}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>opc_individualcomplaint_bp</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{892E58DC-0535-4ABD-A7F0-D68630051C20}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{624B3706-7464-EA11-A812-000D3AF46CC5}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{129d771d-826b-e0c7-b63b-a102550d9952}" showlabel="false" colspan="1" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Allegation/Concern" languagecode="1033" />
+                          </labels>
+                          <control id="Component9616512" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <ViewId>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>opc_allegation</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds />
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{8C0FBD6E-A067-EA11-A812-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell id="{5c84b2c9-3371-77ae-4007-957ac8a41665}" showlabel="true" colspan="3" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Complaint by Duration in Stage" languagecode="1033" />
+                          </labels>
+                          <control id="view_complaint_by_duration_in_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{4cc2451e-3283-5c9e-c9d0-1ac71b01c54c}">
+                            <parameters>
+                              <ViewId>{46F448D1-7364-EA11-A812-000D3AF46CC5}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>opc_individualcomplaint_bp</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{892E58DC-0535-4ABD-A7F0-D68630051C20},{46F448D1-7364-EA11-A812-000D3AF46CC5}</ViewIds>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <VisualizationId>{2EFB3A64-595D-EA11-A811-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>8</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <controlDescriptions />
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.0.162</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>
