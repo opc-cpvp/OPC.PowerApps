@@ -21,7 +21,7 @@ steps:
   inputs:
     crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
     solutionName: '$(SolutionName)'
-    exportManaged: true
+    exportManaged: false
     outputPath: '$(Agent.TempDirectory)'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractSolution.MSCRMExtractSolution@10
