@@ -138,7 +138,7 @@
                           <labels>
                             <label description="Allegation/Concern" languagecode="1033" />
                           </labels>
-                          <control id="Component9616512" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <control id="chart_top_allegation_types" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
                               <ViewId>{4ACAA934-E188-4AD4-B6C2-CD3C85FE0FCF}</ViewId>
                               <IsUserView>false</IsUserView>
@@ -175,7 +175,7 @@
                           <labels>
                             <label description="Complaint by Duration in Stage" languagecode="1033" />
                           </labels>
-                          <control id="view_complaint_by_duration_in_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{4cc2451e-3283-5c9e-c9d0-1ac71b01c54c}">
+                          <control id="grid_complaint_by_duration_in_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{4cc2451e-3283-5c9e-c9d0-1ac71b01c54c}">
                             <parameters>
                               <ViewId>{46F448D1-7364-EA11-A812-000D3AF46CC5}</ViewId>
                               <IsUserView>false</IsUserView>
