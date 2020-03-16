@@ -114,7 +114,7 @@ steps:
     targetType: 'inline'
     script: |
       
-      # Only generate _managed files for the packing. they are the same as unmanaged files
+      # Only generate _managed files for the packing. They are the same as unmanaged files
       $files = Get-Childitem ./Entities/*/FormXml/*/* -Filter *.xml -Recurse
       $files += Get-Childitem ./AppModuleSiteMaps/*/* -Filter *.xml -Recurse
       $files += Get-Childitem ./AppModules/*/* -Filter *.xml -Recurse
