@@ -14,7 +14,6 @@ chai.use(sinonChai);
 function ReplaceFunctions(service: NotificationService, mockContext: XrmExecutionContextMock<Form.opc_notification.Main.Information, any>): void {
     let markAsRead = sandbox.fake(function () {
         let attrStatusCode = mockContext.getFormContext().getAttribute("statuscode");
-        //attrStatusCode.setName("statuscode");
         attrStatusCode.setValue(opc_notification_statuscode.Read);
     });
 
@@ -70,7 +69,7 @@ describe("Notification", () => {
             contextSpy.getFormContext().getControl("opc_complaintid").getVisible().should.equal(false);
         });
 
-        it("it should call markAsRead", () => {
+        it("it should mark the Notification as Read", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("statecode").setValue(opc_notification_statecode.Active);
             mockContext.getFormContext().getAttribute("statuscode").setValue(opc_notification_statuscode.Unread);
@@ -81,19 +80,6 @@ describe("Notification", () => {
 
             // Assert
             serviceSpy.markAsRead.should.have.been.called;
-        });
-
-        it("it should change the status reason from unread to read", () => {
-            // Arrange
-            mockContext.getFormContext().getAttribute("statecode").setValue(opc_notification_statecode.Active);
-            mockContext.getFormContext().getAttribute("statuscode").setValue(opc_notification_statuscode.Unread);
-            ReplaceFunctions(service, mockContext);
-
-            // Act
-            form.initializeComponents(mockContext);
-
-            // Assert
-            contextSpy.getFormContext().getAttribute("statuscode").getValue().should.equal(opc_notification_statuscode.Read);
         });
 
         it("it should redirect user to Complaint page if it is related to a Complaint", () => {
