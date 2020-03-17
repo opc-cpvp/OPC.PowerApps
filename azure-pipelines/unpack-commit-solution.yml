@@ -28,7 +28,7 @@ steps:
   displayName: 'MSCRM Extract Solution'
   inputs:
     unpackedFilesFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Solution\Solution'
-    packageType: 'Both'
+    packageType: 'Unmanaged'
     solutionFile: '$(Agent.TempDirectory)\$(SolutionName).zip'
     localize: false
 
