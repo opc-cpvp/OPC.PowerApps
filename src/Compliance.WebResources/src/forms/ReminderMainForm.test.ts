@@ -70,7 +70,7 @@ describe("Reminder", () => {
             sandbox.restore();
         });
 
-        it("it should display notifications if the user chooses to notify the case owner but no case is related to the reminder", () => {
+        it("it should display notifications if the user chooses to notify the case owner while no case is related to the reminder", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(true);
             mockContext.getFormContext().getAttribute("opc_complaintid").setValue(null);
@@ -86,7 +86,7 @@ describe("Reminder", () => {
             contextSpy.getFormContext().getControl("opc_notifycaseowner").getNotificationsLength().should.equal(1);
         });
 
-        it("it should not display notifications if the user chooses to notify the case owner and has a case is related to the reminder", () => {
+        it("it should not display notifications if the user chooses to notify the case owner while a case is related to the reminder", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(true);
             mockContext.getFormContext().getAttribute("opc_complaintid").setValue("PA-000000");
@@ -164,7 +164,7 @@ describe("Reminder", () => {
         });
     });
 
-    describe("when fields value changes", () => {
+    describe("when notify additional users is selected", () => {
         let service: ReminderService;
         let form: Reminder.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
@@ -193,6 +193,24 @@ describe("Reminder", () => {
 
             // Assert
             contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(true);
+        });
+    });
+
+    describe("when notify additional users is not selected", () => {
+        let service: ReminderService;
+        let form: Reminder.Forms.MainForm;
+        let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
+        let contextSpy: any;
+
+        beforeEach(function () {
+            service = new ReminderService();
+            form = new Reminder.Forms.MainForm(service);
+            mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
+            contextSpy = sandbox.spy(mockContext);
+        });
+
+        afterEach(function () {
+            sandbox.restore();
         });
 
         it("it should hide the section to add additional users if the user chooses not to notify additional users", () => {
