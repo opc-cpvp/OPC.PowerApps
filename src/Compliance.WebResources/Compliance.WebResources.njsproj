@@ -40,6 +40,10 @@
     <Folder Include="js\lib\" />
     <Folder Include="js\lib\xrmquery\" />
     <Folder Include="src\" />
+    <Folder Include="src\controls\" />
+    <Folder Include="src\controls\Checklist\" />
+    <Folder Include="src\controls\RiskAssessment\" />
+    <Folder Include="src\controls\RiskAssessment\" />
     <Folder Include="src\factories\" />
     <Folder Include="src\forms\" />
     <Folder Include="src\helpers\" />
@@ -53,6 +57,8 @@
     <TypeScriptCompile Include="%40types\xrmdefinitelytyped\xrm.d.ts" />
     <TypeScriptCompile Include="%40types\xrmdefinitelytyped\_internal\sdk.d.ts" />
     <TypeScriptCompile Include="src\bootstrapper.ts" />
+    <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.ts" />
+    <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
@@ -94,6 +100,13 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\controls\Checklist\ChecklistControl.html" />
+    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
+    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
+    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
+    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
+    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
+    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
     <Content Include="tsconfig.json" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
