@@ -12,6 +12,7 @@ namespace Compliance.Plugins
         private const string isLocalizableAttribute = "opc_islocalizable";
         private const string prefix = "|^|";
         private const string userSettingsEntityName = "usersettings";
+        private const string userSettingsUserIdAttribute = "systemuserid";
         private const string uiLanguageId = "uilanguageid";
         private const string UserLocaleId = "UserLocaleId";
         private readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
@@ -65,20 +66,26 @@ namespace Compliance.Plugins
             }
             else
             {
-                try
+                QueryExpression queryExpression = new QueryExpression()
                 {
-                    // The user language isn't cached in the pipline, so get it here
-                    Entity userSettings = localContext.OrganizationService.Retrieve(
-                        userSettingsEntityName,
-                        localContext.PluginExecutionContext.InitiatingUserId,
-                        new ColumnSet(uiLanguageId));
-                    userLanguageId = userSettings.GetAttributeValue<int>(uiLanguageId);
-                }
-                catch (Exception ex)
-                {
+                    EntityName = userSettingsEntityName,
+                    ColumnSet = new ColumnSet(uiLanguageId),
+                    Criteria =
+                    {
+                        Conditions =
+                        {
+                            new ConditionExpression(userSettingsUserIdAttribute, ConditionOperator.Equal, localContext.PluginExecutionContext.InitiatingUserId)
+                        }
+                    }
+                };
+
+                EntityCollection userSettingsCollection = localContext.OrganizationService.RetrieveMultiple(queryExpression);
+
+                if (userSettingsCollection.Entities.Any())
+                    userLanguageId = userSettingsCollection.Entities.FirstOrDefault().GetAttributeValue<int>(uiLanguageId);
+                else
                     userLanguageId = languages["english"];
-                    localContext.Trace($"There was an error while trying to find the calling user's language. Defaulting to English. Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
-                }
+
                 localContext.PluginExecutionContext.SharedVariables[UserLocaleId] = userLanguageId;
             }
             // Remove identifying prefix

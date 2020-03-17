@@ -1,14 +1,16 @@
 ﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { INamedComponent } from "./INamedComponent";
-export class XrmBaseControlMock implements Xrm.BaseControl, INamedComponent {
+export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INamedComponent {
     protected context: XrmExecutionContextMock<any, any>;
     private _type: Xrm.ControlType;
     private _isVisible: boolean;
     private _name: string;
+    private _notifications: any[] = [];
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this.context = executionContext;
     }
+
     /* NEW MEMBERS TO HELP MOCKING */
     setControlType(type: Xrm.ControlType) {
         this._type = type;
@@ -16,7 +18,11 @@ export class XrmBaseControlMock implements Xrm.BaseControl, INamedComponent {
     setName(name: string): void {
         this._name = name;
     }
+    getNotificationsLength(): number {
+        return this._notifications.length;
+    }
     /* END OF NEW MEMBERS*/
+
     getControlType(): Xrm.ControlType {
         return this._type;
     }
@@ -42,12 +48,15 @@ export class XrmBaseControlMock implements Xrm.BaseControl, INamedComponent {
         this._isVisible = visible;
     }
     setNotification(message: string, uniqueId?: string): boolean {
-        throw new Error("Method not implemented.");
+        let notification = { message: message, uniqueId: uniqueId };
+        return this._notifications.push(notification) > 0;
     }
     clearNotification(uniqueId?: string): boolean {
-        throw new Error("Method not implemented.");
+        let notificationCountBefore = this._notifications.length;
+        this._notifications = this._notifications.filter(f => f.uniqueId !== uniqueId);
+        return this._notifications.length < notificationCountBefore;
     }
     addNotification(notification: Xrm.AddNotificationObject): void {
-        throw new Error("Method not implemented.");
+        this._notifications.push(notification);
     }
 }

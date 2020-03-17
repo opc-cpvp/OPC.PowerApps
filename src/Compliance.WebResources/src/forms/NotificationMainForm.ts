@@ -3,15 +3,18 @@ import "reflect-metadata";
 import { IPowerForm, INotificationService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 
+
 export namespace Notification.Forms {
 
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_notification.Main.Information> {
 
         private _notificationService: INotificationService;
+        private _xrmNavigation: Xrm.Navigation;
 
-        constructor(@inject(nameof<INotificationService>()) notificationService: INotificationService) {
+        constructor(@inject(nameof<INotificationService>()) notificationService: INotificationService, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
             this._notificationService = notificationService;
+            this._xrmNavigation = xrmNavigation;
         }
 
         /**
@@ -38,8 +41,9 @@ export namespace Notification.Forms {
             }
 
             // Redirect to the related case if there is any.
-            if (entityFormOptions.entityName !== "")
-                Xrm.Navigation.openForm(entityFormOptions);
+            if (entityFormOptions.entityName !== "") {
+                this._xrmNavigation.openForm(entityFormOptions);
+            }
         }
     }
 }

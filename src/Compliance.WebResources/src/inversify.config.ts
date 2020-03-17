@@ -27,6 +27,9 @@ container.bind<i.IAllegationService>(nameof<i.IAllegationService>()).to(Allegati
 container.bind<i.IReminderService>(nameof<i.IReminderService>()).to(ReminderService);
 container.bind<i.INotificationService>(nameof<i.INotificationService>()).to(NotificationService);
 
+// Register Providers
+container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);
+
 // Register Forms
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegation_information").to(Allegation.Forms.MainForm);
