@@ -2,18 +2,10 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {},
         "api": {
           "name": "shared_commondataserviceforapps"
-        }
-      },
-      "shared_commondataservice": {
-        "runtimeSource": "embedded",
-        "connection": {},
-        "api": {
-          "name": "shared_commondataservice"
         }
       }
     },
@@ -51,13 +43,13 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords"
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
               "entityName": "opc_reminders",
-              "$filter": "statecode eq 0 and opc_reminderdate ge '@{utcNow('yyyy-MM-ddT05:00:00Z')}' and opc_reminderdate le '@{utcNow('yyyy-MM-ddT23:59:59Z')}'"
+              "$filter": "statecode eq 0 and opc_reminderdate ge '@{utcNow('yyyy-MM-ddT01:00:00Z')}' and opc_reminderdate le '@{utcNow('yyyy-MM-ddT23:59:59Z')}'"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -72,9 +64,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "CreateRecord"
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "opc_notifications",
@@ -92,9 +84,9 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                           "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "CreateRecord"
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
                           "entityName": "emails",
@@ -123,9 +115,9 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                           "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "PerformBoundAction"
+                          "operationId": "PerformBoundAction",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
                           "entityName": "emails",
@@ -157,16 +149,14 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice",
-                          "connectionName": "shared_commondataservice",
-                          "operationId": "PatchItem_V2"
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
-                          "dataset": "default.cds",
-                          "table": "opc_notifications",
-                          "id": "@outputs('Create_Notification_for_Case_Owner')?['body/opc_notificationid']",
-                          "item/_opc_complaintid_value": "@outputs('Get_Related_Case')?['body/opc_complaintid']",
-                          "item/_ownerid_type": ""
+                          "entityName": "opc_notifications",
+                          "recordId": "@outputs('Create_Notification_for_Case_Owner')?['body/opc_notificationid']",
+                          "item/opc_complaintid@odata.bind": "opc_complaints(@{variables('RelatedComplaintID')})"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -208,9 +198,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "CreateRecord"
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "opc_notifications",
@@ -228,9 +218,9 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                           "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "CreateRecord"
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
                           "entityName": "emails",
@@ -259,9 +249,9 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                           "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "PerformBoundAction"
+                          "operationId": "PerformBoundAction",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
                           "entityName": "emails",
@@ -293,16 +283,14 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice",
-                          "connectionName": "shared_commondataservice",
-                          "operationId": "PatchItem_V2"
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
-                          "dataset": "default.cds",
-                          "table": "opc_notifications",
-                          "id": "@outputs('Create_Notification_for_Reminder_Owner')?['body/opc_notificationid']",
-                          "item/_opc_complaintid_value": "@outputs('Get_Related_Case')?['body/opc_complaintid']",
-                          "item/_ownerid_type": ""
+                          "entityName": "opc_notifications",
+                          "recordId": "@outputs('Create_Notification_for_Reminder_Owner')?['body/opc_notificationid']",
+                          "item/opc_complaintid@odata.bind": "opc_complaints(@{variables('RelatedComplaintID')})"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -352,9 +340,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "UpdateRecord"
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
                   "entityName": "opc_reminders",
@@ -371,9 +359,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "GetItem"
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "opc_complaints",
@@ -437,9 +425,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "ListRecords"
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "opc_reminder_userset",
@@ -456,9 +444,9 @@
                       "type": "OpenApiConnection",
                       "inputs": {
                         "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                           "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "CreateRecord"
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                         },
                         "parameters": {
                           "entityName": "opc_notifications",
@@ -476,9 +464,9 @@
                           "type": "OpenApiConnection",
                           "inputs": {
                             "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                               "connectionName": "shared_commondataserviceforapps",
-                              "operationId": "CreateRecord"
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                             },
                             "parameters": {
                               "entityName": "emails",
@@ -507,9 +495,9 @@
                           "type": "OpenApiConnection",
                           "inputs": {
                             "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                               "connectionName": "shared_commondataserviceforapps",
-                              "operationId": "PerformBoundAction"
+                              "operationId": "PerformBoundAction",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                             },
                             "parameters": {
                               "entityName": "emails",
@@ -541,16 +529,14 @@
                           "type": "OpenApiConnection",
                           "inputs": {
                             "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice",
-                              "connectionName": "shared_commondataservice",
-                              "operationId": "PatchItem_V2"
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "UpdateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                             },
                             "parameters": {
-                              "dataset": "default.cds",
-                              "table": "opc_notifications",
-                              "id": "@outputs('Create_Notification_for_Other_Users')?['body/opc_notificationid']",
-                              "item/_opc_complaintid_value": "@outputs('Get_Related_Case')?['body/opc_complaintid']",
-                              "item/_ownerid_type": ""
+                              "entityName": "opc_notifications",
+                              "recordId": "@outputs('Create_Notification_for_Other_Users')?['body/opc_notificationid']",
+                              "item/opc_complaintid@odata.bind": "opc_complaints(@{variables('RelatedComplaintID')})"
                             },
                             "authentication": "@parameters('$authentication')"
                           }
@@ -643,9 +629,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords"
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
               "entityName": "systemusers",

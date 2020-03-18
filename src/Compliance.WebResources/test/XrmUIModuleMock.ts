@@ -4,8 +4,8 @@ import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { XrmBaseControlMock } from "./XrmBaseControlMock";
 
 export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.ControlCollection> {
-
     private _context: XrmExecutionContextMock<any, any>;
+    private _formNotifications: any[] = [];
 
     tabs: XrmCollectionMock<XrmPageTabMock>;
     controls: XrmCollectionMock<XrmBaseControlMock>;
@@ -19,6 +19,12 @@ export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.Cont
         this.controls = new XrmCollectionMock<XrmBaseControlMock>(XrmBaseControlMock, context);
         this._context = executionContext;
     }
+
+    /* NEW MEMBERS TO HELP MOCKING */
+    getFormNotificationsLength(): number {
+        return this._formNotifications.length;
+    }
+    /* END OF NEW MEMBERS*/
 
     getFormType(): Xrm.FormType {
         throw new Error("Method not implemented.");
@@ -39,10 +45,13 @@ export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.Cont
         throw new Error("Method not implemented.");
     }
     clearFormNotification(uniqueId: string): boolean {
-        throw new Error("Method not implemented.");
+        let notificationCountBefore = this._formNotifications.length;
+        this._formNotifications = this._formNotifications.filter(f => f.uniqueId !== uniqueId);
+        return this._formNotifications.length < notificationCountBefore;
     }
     setFormNotification(message: string, level: Xrm.NotificationLevel, uniqueId: string): boolean {
-        throw new Error("Method not implemented.");
+        let notification = { message: message, level: level, uniqueId: uniqueId };
+        return this._formNotifications.push(notification) > 0;
     }
     addOnLoad(myFunction: (context?: Xrm.OnLoadEventContext) => any): void {
         throw new Error("Method not implemented.");

@@ -4,10 +4,11 @@ import { XrmDataModuleMock } from "./XrmDataModuleMock";
 import { XrmUIModuleMock } from "./XrmUIModuleMock";
 import { XrmUIProcessModuleMock } from "./XrmUIProcessModuleMock";
 import { XrmBaseControlMock } from "./XrmBaseControlMock";
+import { XrmControlMock } from "./XrmControlMock";
 
 export class XrmPageBaseMock<T, V> implements Xrm.BasicPage {
     private _executionContext: XrmExecutionContextMock<T, V>;
-    private _ctrls: Xrm.AnyControl[] = [];
+    private _ctrls: XrmControlMock[] = [];
     private _attr: XrmAttributeMock[] = [];
 
     data: XrmDataModuleMock;
@@ -26,18 +27,20 @@ export class XrmPageBaseMock<T, V> implements Xrm.BasicPage {
         let attr = this._attr.find(a => a.getName() == attrName);
         if (!attr) {
             attr = new XrmAttributeMock(this._executionContext);
+            attr.setName(attrName);
             this._attr.push(attr);
         }
         return attr;
     }
 
-    getControl(ctrlName: string): Xrm.AnyControl {
+    getControl(ctrlName: string): XrmBaseControlMock {
         // TODO: Following line should work, but i think because of the <any> it cannot call getFormContext()
         //return this.ui.controls.get(ctrlName);
 
         let ctrl = this._ctrls.find(a => a.getName() == ctrlName);
         if (!ctrl) {
-            ctrl = new XrmBaseControlMock(this._executionContext);
+            ctrl = new XrmControlMock(this._executionContext);
+            ctrl.setName(ctrlName);
             this._ctrls.push(ctrl);
         }
         return ctrl;

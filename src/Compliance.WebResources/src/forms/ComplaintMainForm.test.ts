@@ -9,25 +9,27 @@ chai.should();
 chai.use(sinonChai);
 
 // SAMPLE TEST
-describe("when initialized", () => {
+describe("Complaint", () => {
+    describe("when initialized", () => {
 
-    it("it should call load complaint", () => {
-        // Arrange
-        let service = new ComplaintService();
-        let getComplaint = sinon.fake.returns(null)
+        it("it should call load complaint", () => {
+            // Arrange
+            let service = new ComplaintService();
+            let getComplaint = sinon.fake.returns(null)
 
-        sinon.replace(service, "getComplaint", getComplaint);
-        let sut = new Complaint.Forms.MainForm(service);
+            sinon.replace(service, "getComplaint", getComplaint);
+            let sut = new Complaint.Forms.MainForm(service);
 
-        let mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
-        let contextSpy = sinon.spy(mockContext);
+            let mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
+            let contextSpy = sinon.spy(mockContext);
 
-        // Act
-        sut.initializeComponents(mockContext);
+            // Act
+            sut.initializeComponents(mockContext);
 
-        // Assert
-        getComplaint.should.have.been.called;
-        contextSpy.getFormContext.should.have.been.called;
+            // Assert
+            getComplaint.should.have.been.called;
+            contextSpy.getFormContext.should.have.been.called;
+        });
+
     });
-
 });
