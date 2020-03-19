@@ -3548,6 +3548,7 @@ declare namespace Form.opc_allegation.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "WebResource_checklist"): Xrm.WebResourceControl;
       get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.StringControl;
@@ -3574,6 +3575,7 @@ declare namespace Form.opc_allegation.Main {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "WebResource_checklist"): Xrm.WebResourceControl;
     getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_description"): Xrm.StringControl;
