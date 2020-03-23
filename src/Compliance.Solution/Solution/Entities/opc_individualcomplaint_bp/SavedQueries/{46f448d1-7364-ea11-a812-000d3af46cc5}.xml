@@ -30,6 +30,11 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <link-entity name="opc_complaint" alias="aa" link-type="inner" from="opc_complaintid" to="bpf_opc_complaintid">
+            <filter type="and">
+              <condition attribute="statecode" operator="eq" value="0" />
+            </filter>
+          </link-entity>
         </entity>
       </fetch>
     </fetchxml>
