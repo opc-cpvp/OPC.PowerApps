@@ -130,7 +130,7 @@ steps:
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
   displayName: 'Pack PowerApps Solution'
   inputs:
-    unpackedFilesFolder: 
+    unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     mappingFile: src/$(SolutionName).Solution/map.xml
     packageType: Both
     outputPath: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder'
