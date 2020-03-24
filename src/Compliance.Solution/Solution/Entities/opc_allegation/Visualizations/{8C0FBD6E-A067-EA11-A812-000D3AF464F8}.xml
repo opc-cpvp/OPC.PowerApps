@@ -32,7 +32,7 @@
       </Series>
       <ChartAreas>
         <ChartArea BorderColor="White" BorderDashStyle="Solid">
-          <AxisY LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181" IntervalAutoMode="VariableCount">
+          <AxisY Title="Allegation Type" LabelAutoFitMinFontSize="8" TitleForeColor="59, 59, 59" TitleFont="{0}, 10.5px" LineColor="165, 172, 181" IntervalAutoMode="VariableCount">
             <MajorGrid LineColor="239, 242, 246" />
             <MajorTickMark LineColor="165, 172, 181" />
             <LabelStyle Font="{0}, 10.5px" ForeColor="59, 59, 59" />
