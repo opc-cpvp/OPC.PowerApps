@@ -7,7 +7,9 @@
         <fetch mapping="logical" aggregate="true" count="10">
           <entity name="opc_allegation">
             <order alias="_CRMAutoGen_aggregate_column_Num_0" descending="true" />
-            <attribute name="opc_allegationtypeid" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" />
+            <link-entity name="opc_allegationtype" from="opc_allegationtypeid" to="opc_allegationtypeid" link-type="outer">
+              <attribute name="opc_nameenglish" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" />
+            </link-entity>
             <attribute name="opc_complaintid" aggregate="count" alias="_CRMAutoGen_aggregate_column_Num_0" />
           </entity>
         </fetch>
