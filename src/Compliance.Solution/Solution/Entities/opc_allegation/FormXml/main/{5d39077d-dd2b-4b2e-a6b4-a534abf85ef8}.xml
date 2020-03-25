@@ -14,7 +14,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65029ad5-f4c2-42a3-a89c-d118ae76d766}" name="section_general" columns="1">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65029ad5-f4c2-42a3-a89c-d118ae76d766}" name="section_general" columns="1" height="auto">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>
@@ -46,22 +46,38 @@
                     <row />
                     <row />
                     <row />
-                    <row />
+                    <row height="auto" />
                     <row>
-                      <cell id="{80497d98-8680-4158-8aa9-5cb90e9484fd}" showlabel="true" locklevel="0">
+                      <cell id="{c4d0ad2e-178d-4c9c-9839-ab2ab0f1ad37}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Disposition Allegation" languagecode="1033" />
+                          <label description="Disposition" languagecode="1033" />
                         </labels>
-                        <control id="opc_allegationdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_allegationdisposition" disabled="false" />
+                        <control id="opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{630f574b-10f8-4909-a395-352477318a96}" showlabel="true" locklevel="0">
+                      <cell id="{89d5be88-93dd-471f-8a8a-0683f14eb6e3}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
+                          <label description="Disposition Reason" languagecode="1033" />
                         </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                        <control id="opc_dispositionreason" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionreason" disabled="false" uniqueid="{bd7ea882-7359-51a4-3adc-17870dae2734}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{63BFA332-531C-46ED-810A-A44AA0375263}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{781a7489-e964-4f8e-87ef-ad59d1909085}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Disposition Action" languagecode="1033" />
+                        </labels>
+                        <control id="opc_dispositionaction" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionaction" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -112,6 +128,13 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{630f574b-10f8-4909-a395-352477318a96}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
           </row>
         </rows>
       </header>
@@ -136,6 +159,37 @@
           </row>
         </rows>
       </footer>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

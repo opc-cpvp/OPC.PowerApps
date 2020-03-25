@@ -6,6 +6,8 @@
   <EntityRelationship Name="business_unit_opc_checklistresponse" />
   <EntityRelationship Name="business_unit_opc_checklisttype" />
   <EntityRelationship Name="business_unit_opc_complaint" />
+  <EntityRelationship Name="business_unit_opc_dispositionaction" />
+  <EntityRelationship Name="business_unit_opc_dispositionreason" />
   <EntityRelationship Name="business_unit_opc_issue" />
   <EntityRelationship Name="business_unit_opc_legislation" />
   <EntityRelationship Name="business_unit_opc_notification" />
@@ -34,6 +36,10 @@
   <EntityRelationship Name="lk_opc_checklisttype_modifiedby" />
   <EntityRelationship Name="lk_opc_complaint_createdby" />
   <EntityRelationship Name="lk_opc_complaint_modifiedby" />
+  <EntityRelationship Name="lk_opc_dispositionaction_createdby" />
+  <EntityRelationship Name="lk_opc_dispositionaction_modifiedby" />
+  <EntityRelationship Name="lk_opc_dispositionreason_createdby" />
+  <EntityRelationship Name="lk_opc_dispositionreason_modifiedby" />
   <EntityRelationship Name="lk_opc_individualcomplaint_bp_activestageid" />
   <EntityRelationship Name="lk_opc_individualcomplaint_bp_createdby" />
   <EntityRelationship Name="lk_opc_individualcomplaint_bp_modifiedby" />
@@ -78,6 +84,8 @@
   <EntityRelationship Name="lk_opc_topic_modifiedby" />
   <EntityRelationship Name="opc_account_complaints_respondent" />
   <EntityRelationship Name="opc_allegation_checklistresponses_allegation" />
+  <EntityRelationship Name="opc_allegation_dispositionaction_opc_disp" />
+  <EntityRelationship Name="opc_allegation_dispositionreason_opc_disp" />
   <EntityRelationship Name="opc_allegationtype_allegations_allegationtype" />
   <EntityRelationship Name="opc_checklisttype_allegationtypes_checklistty" />
   <EntityRelationship Name="opc_checklisttype_questiontemplates_checklist" />
@@ -89,6 +97,7 @@
   <EntityRelationship Name="opc_complaints_topics_relatedtopics" />
   <EntityRelationship Name="opc_contact_complaints_complainant" />
   <EntityRelationship Name="opc_contact_complaints_complainantreps" />
+  <EntityRelationship Name="opc_dispositionaction_dispositionreason_o" />
   <EntityRelationship Name="opc_legislation_complaints_legislation" />
   <EntityRelationship Name="opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite" />
   <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />
@@ -124,6 +133,8 @@
   <EntityRelationship Name="owner_opc_checklistresponse" />
   <EntityRelationship Name="owner_opc_checklisttype" />
   <EntityRelationship Name="owner_opc_complaint" />
+  <EntityRelationship Name="owner_opc_dispositionaction" />
+  <EntityRelationship Name="owner_opc_dispositionreason" />
   <EntityRelationship Name="owner_opc_issue" />
   <EntityRelationship Name="owner_opc_legislation" />
   <EntityRelationship Name="owner_opc_notification" />
@@ -147,6 +158,8 @@
   <EntityRelationship Name="team_opc_checklistresponse" />
   <EntityRelationship Name="team_opc_checklisttype" />
   <EntityRelationship Name="team_opc_complaint" />
+  <EntityRelationship Name="team_opc_dispositionaction" />
+  <EntityRelationship Name="team_opc_dispositionreason" />
   <EntityRelationship Name="team_opc_issue" />
   <EntityRelationship Name="team_opc_legislation" />
   <EntityRelationship Name="team_opc_notification" />
@@ -170,6 +183,8 @@
   <EntityRelationship Name="user_opc_checklistresponse" />
   <EntityRelationship Name="user_opc_checklisttype" />
   <EntityRelationship Name="user_opc_complaint" />
+  <EntityRelationship Name="user_opc_dispositionaction" />
+  <EntityRelationship Name="user_opc_dispositionreason" />
   <EntityRelationship Name="user_opc_issue" />
   <EntityRelationship Name="user_opc_legislation" />
   <EntityRelationship Name="user_opc_notification" />

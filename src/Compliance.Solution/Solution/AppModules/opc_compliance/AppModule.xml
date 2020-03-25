@@ -35,6 +35,8 @@
     <AppModuleComponent type="60" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
     <AppModuleComponent type="60" id="{f3b707fb-3b5f-45f9-9c6b-5e573bb5d19e}" />
     <AppModuleComponent type="60" id="{7bb87dfd-ec3e-4ed9-8e3e-5725d3067295}" />
+    <AppModuleComponent type="1" schemaName="opc_dispositionaction" />
+    <AppModuleComponent type="1" schemaName="opc_dispositionreason" />
     <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
     <AppModuleComponent type="1" schemaName="opc_issue" />
     <AppModuleComponent type="1" schemaName="opc_notification" />
@@ -70,9 +72,9 @@
     <AppModuleComponent type="1" schemaName="opc_topic" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
-    <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
-    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
     <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
   </AppModuleRoleMaps>
   <LocalizedNames>
     <LocalizedName description="Compliance" languagecode="1033" />

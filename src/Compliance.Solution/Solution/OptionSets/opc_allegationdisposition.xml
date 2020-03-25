@@ -1,49 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<optionset Name="opc_allegationdisposition" localizedName="Allegation Disposition" description="Define all possible dispositions for allegations/concerns." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<optionset Name="opc_allegationdisposition" localizedName="Allegation Disposition" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <OptionSetType>picklist</OptionSetType>
   <IsGlobal>1</IsGlobal>
-  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IntroducedVersion>1.0.191</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <displaynames>
     <displayname description="Allegation Disposition" languagecode="1033" />
   </displaynames>
   <Descriptions>
-    <Description description="Define all possible dispositions for allegations/concerns." languagecode="1033" />
+    <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
     <option value="924340000">
       <labels>
-        <label description="Suitable" languagecode="1033" />
+        <label description="Acceptable" languagecode="1033" />
       </labels>
     </option>
     <option value="924340001">
       <labels>
-        <label description="No action required" languagecode="1033" />
+        <label description="Unacceptable" languagecode="1033" />
       </labels>
     </option>
     <option value="924340002">
       <labels>
-        <label description="No jurisdiction" languagecode="1033" />
+        <label description="Withdrawn" languagecode="1033" />
       </labels>
     </option>
     <option value="924340003">
       <labels>
-        <label description="Redirected to Information Center" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340004">
-      <labels>
-        <label description="Redirected to Institution" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340005">
-      <labels>
         <label description="Resolved" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340006">
-      <labels>
-        <label description="Unresponsive inquirer" languagecode="1033" />
       </labels>
     </option>
   </options>
