@@ -9,7 +9,7 @@
     <!--<link rel="stylesheet" type="text/css" href="/WebResources/opc_compliance/css/checklist_control.css" />-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body onload="compliance.ChecklistCtrl.ChecklistControl.control_OnLoad()">
+<body onload="compliance.Bootstrapper.ControlFactory.createControl('ChecklistControl')">
     <form id="checklist" class="mx-1" onsubmit="return false;">
     </form>
     <script type="text/javascript" src="/WebResources/clientGlobalcontext.js.aspx"></script>
@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script>
+        // Kept outside of typescript library because late event binding is simpler with jQuery and did not want to introduce a depency on jquery in the framework.
         $(document).on('hide.bs.collapse', function (e) {
             var srcElementTarget = e.target.className.match(/toggle-[a-z0-9-]+/i);
             var $srcElement = $("input:checked[data-target='." + srcElementTarget + "']");
@@ -28,6 +29,10 @@
             var srcElementTarget = e.target.className.match(/toggle-[a-z0-9-]+/i);
             var $srcElement =  $("input:checked[data-target='." + srcElementTarget + "']");
             if ($srcElement.val() == 0) e.preventDefault();
+        });
+
+        $(document).on("change", "input, textarea", function (e) {
+            if (!e.target.className.includes("dirty")) e.target.className += ' dirty';
         });
     </script>
 </body>

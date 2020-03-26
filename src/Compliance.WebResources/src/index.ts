@@ -13,4 +13,3 @@ export { Bootstrapper } from "./bootstrapper";
 
 // TODO: Temporary, move to factory with IoC container
 export { Controls as RiskAssessmentCtrl } from "./controls/RiskAssessment/RiskAssessmentControl";
-export { Controls as ChecklistCtrl } from "./controls/Checklist/ChecklistControl";
