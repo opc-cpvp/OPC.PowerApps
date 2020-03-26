@@ -1,0 +1,87 @@
+<entities >
+  <entity name="account" displayname="Account" etc="1" primaryidfield="accountid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Address 1: City" name="address1_city" type="string" />
+      <field displayname="Account" name="accountid" type="guid" primaryKey="true" />
+      <field displayname="Account Name" name="name" type="string" />
+      <field displayname="Address 1: Country/Region" name="address1_country" type="string" />
+      <field displayname="Address 1: Street 1" name="address1_line1" type="string" />
+      <field displayname="Address 1: Street 2" name="address1_line2" type="string" />
+      <field displayname="Address 1: ZIP/Postal Code" name="address1_postalcode" type="string" />
+      <field displayname="Address 1: State/Province" name="address1_stateorprovince" type="string" />
+      <field displayname="Address 2: County" name="address2_county" type="string" />
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Created By (Delegate)" name="createdonbehalfby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Fax" name="fax" type="string" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Website" name="websiteurl" type="string" />
+      <field displayname="Main Phone" name="telephone1" type="string" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+  </entity>
+  <entity name="contact" displayname="Contact" etc="2" primaryidfield="contactid" primarynamefield="fullname" disableplugins="false">
+    <fields>
+      <field displayname="Contact" name="contactid" type="guid" primaryKey="true" />
+      <field displayname="Address 1: City" name="address1_city" type="string" />
+      <field displayname="Address 1: Country/Region" name="address1_country" type="string" />
+      <field displayname="Address 1: Street 1" name="address1_line1" type="string" />
+      <field displayname="Address 1: Street 2" name="address1_line2" type="string" />
+      <field displayname="Address 1: ZIP/Postal Code" name="address1_postalcode" type="string" />
+      <field displayname="Address 1: State/Province" name="address1_stateorprovince" type="string" />
+      <field displayname="Birthday" name="birthdate" type="datetime" />
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Email" name="emailaddress1" type="string" />
+      <field displayname="Fax" name="fax" type="string" />
+      <field displayname="First Name" name="firstname" type="string" />
+      <field displayname="Gender" name="gendercode" type="optionsetvalue" />
+      <field displayname="Job Title" name="jobtitle" type="string" />
+      <field displayname="Last Name" name="lastname" type="string" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Secondary Phone" name="telephone2" type="string" />
+      <field displayname="Primary Phone" name="telephone1" type="string" />
+      <field displayname="Company Name" name="parentcustomerid" type="entityreference" lookupType="account|contact" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+  </entity>
+  <entity name="opc_complaint" displayname="Complaint" etc="10902" primaryidfield="opc_complaintid" primarynamefield="opc_number" disableplugins="false">
+    <fields>
+      <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
+      <field displayname="Legislation" name="opc_legislation" type="entityreference" lookupType="opc_legislation" customfield="true" />
+      <field displayname="OPC Priority" name="opc_opcpriorityid" type="entityreference" lookupType="opc_opcpriority" customfield="true" />
+      <field displayname="Sector" name="opc_sectorid" type="entityreference" lookupType="opc_sector" customfield="true" />
+      <field displayname="Record Created On" name="overriddencreatedon" type="datetime" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+  </entity>
+  <entity name="opc_individualcomplaint_bp" displayname="Individual Complaint" etc="10903" primaryidfield="businessprocessflowinstanceid" primarynamefield="bpf_name" disableplugins="false">
+    <fields>
+      <field displayname="Active Stage" name="activestageid" type="entityreference" lookupType="processstage" />
+      <field displayname="Active Stage Started On" name="activestagestartedon" type="datetime" />
+      <field displayname="Individual Complaint" name="businessprocessflowinstanceid" type="guid" primaryKey="true" />
+      <field displayname="Traversed Path" name="traversedpath" type="string" />
+    </fields>
+  </entity>
+  <entity name="queueitem" displayname="Queue Item" etc="2029" primaryidfield="queueitemid" primarynamefield="title" disableplugins="false">
+    <fields>
+      <field displayname="Queue Item" name="queueitemid" type="guid" primaryKey="true" />
+      <field displayname="Worked By" name="workerid" type="entityreference" lookupType="systemuser|team" />
+      <field displayname="Worker Type" name="workeridtype" type="string" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+    </fields>
+  </entity>
+  <entity name="opc_allegation" displayname="Allegation/Concern" etc="10898" primaryidfield="opc_allegationid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Allegation/Concern" name="opc_allegationid" type="guid" primaryKey="true" />
+      <field displayname="Disposition Allegation" name="opc_allegationdisposition" type="optionsetvalue" customfield="true" />
+      <field displayname="Allegation Type" name="opc_allegationtypeid" type="entityreference" lookupType="opc_allegationtype" customfield="true" />
+      <field displayname="Complaint" name="opc_complaintid" type="entityreference" lookupType="opc_complaint" customfield="true" />
+      <field displayname="Description" name="opc_description" type="string" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+    </fields>
+  </entity>
+</entities>
