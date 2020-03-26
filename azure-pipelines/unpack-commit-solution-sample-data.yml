@@ -1,0 +1,39 @@
+trigger: none
+
+pr: none
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  SolutionName: 'Compliance'
+  crm.username: 'SVC_OPC_CRM_Admin@priv.gc.ca'
+
+steps:
+- checkout: self
+  persistCredentials: true
+
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
+  displayName: 'MSCRM Tool Installer'
+
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportCMData.MSCRMExportCMData@9
+  displayName: 'MSCRM Export Configuration Migration Data'
+  inputs:
+    crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
+    schemaFile: src/$(SolutionName).Solution/sampledata-schema.xml
+    dataFile: src/$(SolutionName).Solution/Data/sample-data.zip
+
+- powershell: |
+   $branch = "$(Build.SourceBranch)"
+      $branch = $branch.Replace("refs/heads/", "")
+
+      echo "Commit all changes"
+      git config user.email "nepasrepondre-noreply@priv.gc.ca"
+      git config user.name "opc-buildbot"
+      git checkout $branch
+      git add --all
+      git commit -m "Update Solution - $(SolutionName): $(CommitMessage)"
+
+      echo "Push solution changes to the remote repository"
+      git -c http.extraheader="AUTHORIZATION: basic $(System.AccessToken)" push --force origin $branch
+  displayName: 'Commit Unpacked Solution Data to the Repository'
