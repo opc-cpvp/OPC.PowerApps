@@ -1,7 +1,7 @@
 ﻿import { injectable } from "inversify";
 
 export interface IComplaintService {
-    getComplaint(id:string): opc_complaint
+    getComplaint(id: string): opc_complaint
 }
 
 export interface IAllegationService {
@@ -24,15 +24,45 @@ export interface IChecklistService {
 }
 
 export interface IFormFactory {
-    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>) : IPowerForm<TForm>
+    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>): IPowerForm<TForm>
 }
 
 export interface IControlFactory {
-     createControl<TControl extends IPowerControl>(controlName: string): TControl
+    createControl<TControl extends IPowerControl>(controlName: string): TControl
 }
 
 export interface IPowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>> {
     initializeComponents(context: Xrm.ExecutionContext<TForm, any>): void;
+}
+
+@injectable()
+export abstract class PowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>
+    implements IPowerForm<TForm>
+{
+    public initializeComponents(context: Xrm.ExecutionContext<TForm, any>): void {
+
+        // Automatically wire-up save event dispatching to iframes
+        context.getFormContext().data.entity.addOnSave(ctx => this.handleIFrameSaves(ctx));
+    }
+
+    private handleIFrameSaves(ctx: Xrm.SaveEventContext<Xrm.PageEntity<Xrm.AttributeCollectionBase>>): any {
+
+        // Find all iframes and dispatch save events
+        ctx.getFormContext().ui.controls.forEach(ctrl => {
+            // If control is a web resource or an iframe (basically same thing?)
+            let ctype = ctrl.getControlType();
+            if (ctype === "webresource" || ctype === "iframe") {
+                // Retrieve the iframe and dispatch the custom save event
+                let iframe = <HTMLIFrameElement>ctrl.getObject();
+                if (iframe) {
+                    // Note if iframe is not loaded, its not going to get in here.
+                    let event = new Event("entity-save");
+                    (iframe.contentDocument || iframe.contentWindow.document).dispatchEvent(event);
+                }
+            }
+        });
+    }
+
 }
 
 @injectable()
@@ -47,7 +77,7 @@ export abstract class PowerIFrameControl implements IPowerControl {
 
     public initializeControl() {
         // Add listener for parent form trigerred save event
-        document.addEventListener("entity-save", (e) => {
+        this.documentContext.addEventListener("entity-save", (e) => {
             this.save()
         });
     }
@@ -56,5 +86,5 @@ export abstract class PowerIFrameControl implements IPowerControl {
 }
 
 export interface IPowerControl {
-    initializeControl() : void
+    initializeControl(): void
 }
