@@ -23,6 +23,11 @@
             var srcElementTarget = e.target.className.match(/toggle-[a-z0-9-]+/i);
             var $srcElement = $("input:checked[data-target='." + srcElementTarget + "']");
             if ($srcElement.val() == 1) e.preventDefault();
+
+            // Clear all values on hide
+            $(e.target).find("input:text, textarea").val("").trigger("change");
+            $(e.target).find(":checked").prop("checked", false).trigger("change");
+            $(e.target).find(":selected").prop("selected", false).trigger("change");
         });
 
         $(document).on('show.bs.collapse', function (e) {
@@ -31,7 +36,8 @@
             if ($srcElement.val() == 0) e.preventDefault();
         });
 
-        $(document).on("change", "input, textarea", function (e) {
+        // :input should cover all form field types
+        $(document).on("change", ":input", function (e) {
             if (!e.target.className.includes("dirty")) e.target.className += ' dirty';
         });
     </script>

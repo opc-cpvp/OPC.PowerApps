@@ -132,7 +132,18 @@ export namespace Controls {
 
                         // Skip if its radio input and not the selected one
                         if (input.type == "radio") {
-                            if (!input.checked) continue;
+
+                            // If it's radio we want to ensure:
+                            //  - We are not sending multiple updates
+                            //  - We are updating to null when both values are unselected
+                            if (!input.checked) {
+
+                                // If all inputs of this group are unchecked, update response to null
+                                let relatedInputs = Array.from(this.documentContext.getElementsByName(input.name));
+                                if (relatedInputs.every(di => !(<HTMLInputElement>di).checked)) value = null;
+                                else continue;
+
+                            }
                             id = input.name.replace("q-", "");
                         }
 
