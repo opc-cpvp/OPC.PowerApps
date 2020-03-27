@@ -100,7 +100,7 @@ steps:
   displayName: 'Pack Configuration Migration Data'
   inputs:
     dataFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder\data.zip'
-    extractFolder: 'src\$(SolutionName).Solution\Data'
+    extractFolder: 'src\$(SolutionName).Solution\Data\Lookups'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMSetVersion.MSCRMSetVersion@10
   displayName: 'Set PowerApps Solution Version'
@@ -135,6 +135,12 @@ steps:
     packageType: Both
     outputPath: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder'
     localize: false
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'src\$(SolutionName).Solution\Data'
+    Contents: 'sample-data.zip'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts'
