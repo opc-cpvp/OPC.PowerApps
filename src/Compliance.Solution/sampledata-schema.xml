@@ -43,6 +43,7 @@
       <field displayname="Primary Phone" name="telephone1" type="string" />
       <field displayname="Company Name" name="parentcustomerid" type="entityreference" lookupType="account|contact" />
       <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Full Name" name="fullname" type="string" />
     </fields>
   </entity>
   <entity name="opc_complaint" displayname="Complaint" etc="10902" primaryidfield="opc_complaintid" primarynamefield="opc_number" disableplugins="false">
@@ -55,6 +56,8 @@
       <field displayname="Owner" name="ownerid" type="owner" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Complaint" name="opc_complaintid" type="guid" primaryKey="true" />
+      <field displayname="Number" name="opc_number" type="string" customfield="true" />
     </fields>
   </entity>
   <entity name="opc_individualcomplaint_bp" displayname="Individual Complaint" etc="10903" primaryidfield="businessprocessflowinstanceid" primarynamefield="bpf_name" disableplugins="false">
@@ -63,6 +66,7 @@
       <field displayname="Active Stage Started On" name="activestagestartedon" type="datetime" />
       <field displayname="Individual Complaint" name="businessprocessflowinstanceid" type="guid" primaryKey="true" />
       <field displayname="Traversed Path" name="traversedpath" type="string" />
+      <field displayname="Name" name="bpf_name" type="string" customfield="true" />
     </fields>
   </entity>
   <entity name="queueitem" displayname="Queue Item" etc="2029" primaryidfield="queueitemid" primarynamefield="title" disableplugins="false">
@@ -71,6 +75,7 @@
       <field displayname="Worked By" name="workerid" type="entityreference" lookupType="systemuser|team" />
       <field displayname="Worker Type" name="workeridtype" type="string" />
       <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Title" name="title" type="string" />
     </fields>
   </entity>
   <entity name="opc_allegation" displayname="Allegation/Concern" etc="10898" primaryidfield="opc_allegationid" primarynamefield="opc_name" disableplugins="false">
