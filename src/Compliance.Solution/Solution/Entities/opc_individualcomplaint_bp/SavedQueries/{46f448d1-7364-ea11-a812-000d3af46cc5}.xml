@@ -2,19 +2,18 @@
 <savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <savedquery>
     <IsCustomizable>1</IsCustomizable>
-    <CanBeDeleted>0</CanBeDeleted>
+    <CanBeDeleted>1</CanBeDeleted>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
     <isdefault>0</isdefault>
-    <savedqueryid>{9efb07c0-417d-44d2-8264-38dbb3abe9ec}</savedqueryid>
+    <savedqueryid>{46f448d1-7364-ea11-a812-000d3af46cc5}</savedqueryid>
     <layoutxml>
       <grid name="resultset" jump="bpf_name" select="1" icon="1" preview="1">
         <row name="result" id="businessprocessflowinstanceid">
-          <cell name="bpf_opc_complaintid" width="300" />
+          <cell name="bpf_opc_complaintid" width="139" />
           <cell name="activestageid" width="150" />
-          <cell name="statuscode" width="150" />
+          <cell name="activestagestartedon" width="199" />
           <cell name="createdon" width="150" />
-          <cell name="processid" width="300" />
         </row>
       </grid>
     </layoutxml>
@@ -22,25 +21,21 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="opc_individualcomplaint_bp">
-          <attribute name="businessprocessflowinstanceid" />
-          <attribute name="bpf_name" />
           <attribute name="createdon" />
-          <attribute name="bpf_opc_complaintid" />
           <attribute name="activestageid" />
-          <attribute name="statecode" />
-          <attribute name="createdby" />
-          <attribute name="processid" />
-          <order attribute="bpf_name" descending="false" />
+          <attribute name="activestagestartedon" />
+          <attribute name="bpf_opc_complaintid" />
+          <order attribute="activestagestartedon" descending="false" />
+          <attribute name="businessprocessflowinstanceid" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="statuscode" />
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>1.0</IntroducedVersion>
+    <IntroducedVersion>1.0.162</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Active Individual Complaint" languagecode="1033" />
+      <LocalizedName description="Complaint by Duration in Stage" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -2,14 +2,15 @@
 import { XrmAttributeMock } from "./XrmAttributeMock";
 import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
+import { XrmPageEntityMock } from "./XrmPageEntityMock";
 
 export class XrmDataModuleMock implements Xrm.DataModule<XrmCollectionMock<XrmAttributeMock>> {
-
-    entity: Xrm.PageEntity<XrmCollectionMock<XrmAttributeMock>>;
+    entity: XrmPageEntityMock<any, any>;
     process: XrmProcessModuleMock;
     attributes: XrmCollectionMock<XrmAttributeMock>;
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
+        this.entity = new XrmPageEntityMock(executionContext);
         this.process = new XrmProcessModuleMock();
         this.attributes = new XrmCollectionMock<XrmAttributeMock>(XrmAttributeMock, executionContext);
     }

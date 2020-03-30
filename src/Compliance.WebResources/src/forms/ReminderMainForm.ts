@@ -36,7 +36,7 @@ export namespace Reminder.Forms {
         *
         * @event OnSave
         */
-        private form_OnSave(context?: Xrm.ExecutionContext<Xrm.PageEntity<Form.opc_reminder.Main.Information.Attributes>, any>): void {
+        private form_OnSave(context?: Xrm.SaveEventContext<Xrm.PageEntity<Form.opc_reminder.Main.Information.Attributes>>): void {
             let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
 
             //Get the controls and their values
@@ -72,7 +72,7 @@ export namespace Reminder.Forms {
         *
         * @event OnChanged
         */
-        private control_OnChange_ClearAllNotifications(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
+        private control_OnChange_ClearAllNotifications(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
             let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
             formContext.ui.clearFormNotification("formNotificationError");
             formContext.ui.controls.forEach(control => control.clearNotification());
@@ -82,7 +82,7 @@ export namespace Reminder.Forms {
         *
         * @event OnChanged
         */
-        private notifyAdditionalUsers_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
+        private notifyAdditionalUsers_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
             let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
             let shouldNotifyAdditionalUsers = formContext.getControl("opc_notifyadditionalusers").getAttribute().getValue();
             let sectionNotifyUsers = formContext.ui.tabs.get("tab_general").sections.get("section_additionalusers");
