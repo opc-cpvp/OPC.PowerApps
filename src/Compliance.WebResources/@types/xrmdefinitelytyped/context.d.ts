@@ -211,6 +211,11 @@ declare const enum contact_shippingmethodcode {
 declare const enum contact_address3_freighttermscode {
   DefaultValue = 1,
 }
+declare const enum opc_multiplecomplaintstrategy {
+  NotApplied = 924340000,
+  Proposed = 924340001,
+  Applied = 924340002,
+}
 declare const enum contact_statecode {
   Active = 0,
   Inactive = 1,
@@ -299,11 +304,6 @@ declare const enum opc_complaint_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_intakedisposition {
-  MovetoEarlyResolution = 924340000,
-  MovetoInvestigation = 924340001,
-  Declinetoinvestigate = 924340002,
-}
 declare const enum opc_complaintdisposition {
   Discontinued = 924340000,
   Investigationcompleted = 924340001,
@@ -313,6 +313,11 @@ declare const enum opc_complaintdisposition {
   Settled = 924340005,
   Unresponsiveinquirer = 924340006,
   Withdrawn = 924340007,
+}
+declare const enum opc_intakedisposition {
+  MovetoEarlyResolution = 924340000,
+  MovetoInvestigation = 924340001,
+  Declinetoinvestigate = 924340002,
 }
 declare const enum opc_declinereason {
   Nojurisdiction = 924340000,
@@ -510,7 +515,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 10767,
+  Complaint = 11064,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -2203,6 +2208,7 @@ declare namespace Form.contact.Main {
       get(name: "mobilephone"): Xrm.Attribute<string> | null;
       get(name: "name"): Xrm.Attribute<string> | null;
       get(name: "opc_duplicatedetectionresult"): Xrm.OptionSetAttribute<opc_duplicatedetectionresult>;
+      get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
       get(name: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
@@ -2262,6 +2268,7 @@ declare namespace Form.contact.Main {
       get(name: "jobtitle"): Xrm.StringControl;
       get(name: "mapcontrol"): Xrm.BaseControl;
       get(name: "notescontrol"): Xrm.BaseControl;
+      get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
       get(name: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
       get(name: "paymenttermscode"): Xrm.OptionSetControl<contact_paymenttermscode>;
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
@@ -2318,6 +2325,7 @@ declare namespace Form.contact.Main {
     getAttribute(attributeName: "mobilephone"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: "name"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: "opc_duplicatedetectionresult"): Xrm.OptionSetAttribute<opc_duplicatedetectionresult>;
+    getAttribute(attributeName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
     getAttribute(attributeName: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
@@ -2372,6 +2380,7 @@ declare namespace Form.contact.Main {
     getControl(controlName: "jobtitle"): Xrm.StringControl;
     getControl(controlName: "mapcontrol"): Xrm.BaseControl;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
+    getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
     getControl(controlName: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
     getControl(controlName: "paymenttermscode"): Xrm.OptionSetControl<contact_paymenttermscode>;
     getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
@@ -4031,6 +4040,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
+      get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
       get(name: "opc_number"): Xrm.Attribute<string>;
       get(name: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
@@ -4068,6 +4078,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
+      get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
       get(name: "opc_number"): Xrm.StringControl;
       get(name: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
       get(name: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
@@ -4106,6 +4117,7 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
+    getAttribute(attributeName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
@@ -4138,6 +4150,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
+    getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
     getControl(controlName: "opc_number"): Xrm.StringControl;
     getControl(controlName: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
     getControl(controlName: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
@@ -5184,10 +5197,10 @@ declare namespace Form.opc_reminder.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_notifyadditionalusers"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "opc_notifycaseowner"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "opc_notifyme"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_notifyadditionalusers"): Xrm.Attribute<any>;
+      get(name: "opc_notifybyemail"): Xrm.Attribute<any>;
+      get(name: "opc_notifycaseowner"): Xrm.Attribute<any>;
+      get(name: "opc_notifyme"): Xrm.Attribute<any>;
       get(name: "opc_reminderdate"): Xrm.DateAttribute;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
@@ -5202,10 +5215,10 @@ declare namespace Form.opc_reminder.Main {
       get(name: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
       get(name: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_notifyadditionalusers"): Xrm.OptionSetControl<boolean>;
-      get(name: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
-      get(name: "opc_notifycaseowner"): Xrm.OptionSetControl<boolean>;
-      get(name: "opc_notifyme"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_notifybyemail"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_reminderdate"): Xrm.DateControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -5224,10 +5237,10 @@ declare namespace Form.opc_reminder.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_notifyadditionalusers"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "opc_notifycaseowner"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "opc_notifyme"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_notifyadditionalusers"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_notifybyemail"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_notifycaseowner"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_notifyme"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_reminderdate"): Xrm.DateAttribute;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
@@ -5237,10 +5250,10 @@ declare namespace Form.opc_reminder.Main {
     getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
     getControl(controlName: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_notifyadditionalusers"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "opc_notifycaseowner"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "opc_notifyme"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_notifybyemail"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_reminderdate"): Xrm.DateControl;
     getControl(controlName: string): undefined;
   }
@@ -8293,6 +8306,7 @@ interface Contact_Base extends WebEntity {
   numberofchildren?: number | null;
   onholdtime?: number | null;
   opc_duplicatedetectionresult?: opc_duplicatedetectionresult | null;
+  opc_multiplecomplaintstrategy?: opc_multiplecomplaintstrategy | null;
   overriddencreatedon?: Date | null;
   pager?: string | null;
   participatesinworkflow?: boolean | null;
@@ -8499,6 +8513,7 @@ interface Contact_Select {
   numberofchildren: WebAttribute<Contact_Select, { numberofchildren: number | null }, {  }>;
   onholdtime: WebAttribute<Contact_Select, { onholdtime: number | null }, {  }>;
   opc_duplicatedetectionresult: WebAttribute<Contact_Select, { opc_duplicatedetectionresult: opc_duplicatedetectionresult | null }, { opc_duplicatedetectionresult_formatted?: string }>;
+  opc_multiplecomplaintstrategy: WebAttribute<Contact_Select, { opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy | null }, { opc_multiplecomplaintstrategy_formatted?: string }>;
   overriddencreatedon: WebAttribute<Contact_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<Contact_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<Contact_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -8688,6 +8703,7 @@ interface Contact_Filter {
   numberofchildren: number;
   onholdtime: number;
   opc_duplicatedetectionresult: opc_duplicatedetectionresult;
+  opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -8781,6 +8797,7 @@ interface Contact_FormattedResult {
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
   opc_duplicatedetectionresult_formatted?: string;
+  opc_multiplecomplaintstrategy_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -9361,6 +9378,7 @@ interface opc_complaint_Base extends WebEntity {
   opc_complaintid?: string | null;
   opc_declinereason?: opc_declinereason | null;
   opc_intakedisposition?: opc_intakedisposition | null;
+  opc_multiplecomplaintstrategy?: opc_multiplecomplaintstrategy | null;
   opc_number?: string | null;
   opc_recommendtoregistrar?: boolean | null;
   overriddencreatedon?: Date | null;
@@ -9419,6 +9437,7 @@ interface opc_complaint_Select {
   opc_declinereason: WebAttribute<opc_complaint_Select, { opc_declinereason: opc_declinereason | null }, { opc_declinereason_formatted?: string }>;
   opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
   opc_legislation_guid: WebAttribute<opc_complaint_Select, { opc_legislation_guid: string | null }, { opc_legislation_formatted?: string }>;
+  opc_multiplecomplaintstrategy: WebAttribute<opc_complaint_Select, { opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy | null }, { opc_multiplecomplaintstrategy_formatted?: string }>;
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
   opc_opcpriorityid_guid: WebAttribute<opc_complaint_Select, { opc_opcpriorityid_guid: string | null }, { opc_opcpriorityid_formatted?: string }>;
   opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: boolean | null }, {  }>;
@@ -9457,6 +9476,7 @@ interface opc_complaint_Filter {
   opc_declinereason: opc_declinereason;
   opc_intakedisposition: opc_intakedisposition;
   opc_legislation_guid: XQW.Guid;
+  opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy;
   opc_number: string;
   opc_opcpriorityid_guid: XQW.Guid;
   opc_recommendtoregistrar: boolean;
@@ -9508,6 +9528,7 @@ interface opc_complaint_FormattedResult {
   opc_declinereason_formatted?: string;
   opc_intakedisposition_formatted?: string;
   opc_legislation_formatted?: string;
+  opc_multiplecomplaintstrategy_formatted?: string;
   opc_opcpriorityid_formatted?: string;
   opc_sectorid_formatted?: string;
   overriddencreatedon_formatted?: string;

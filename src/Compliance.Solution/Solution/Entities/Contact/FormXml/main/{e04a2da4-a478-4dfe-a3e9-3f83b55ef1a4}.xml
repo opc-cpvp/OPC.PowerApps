@@ -99,6 +99,14 @@
                         <control id="preferredcontactmethodcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="preferredcontactmethodcode" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{b838b1ab-0f5c-44de-b7ed-e0a994bdb6a0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Multiple Complaint Strategy" languagecode="1033" />
+                        </labels>
+                        <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="section_address" showlabel="true" showbar="false" locklevel="0" id="{48217560-909d-6ea6-b10b-a782ecc3e105}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
@@ -264,7 +272,7 @@
               </sections>
             </column>
             <column width="25%">
-              <sections></sections>
+              <sections />
             </column>
           </columns>
         </tab>

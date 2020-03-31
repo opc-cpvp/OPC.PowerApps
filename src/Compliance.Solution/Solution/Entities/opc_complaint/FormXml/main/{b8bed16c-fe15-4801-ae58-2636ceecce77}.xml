@@ -45,6 +45,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{99f0f014-2519-4862-8cbf-e423e8447124}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Multiple Complaint Strategy" languagecode="1033" />
+                        </labels>
+                        <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{4c7ab1c0-ea6d-438d-818d-6b6cf50ba6be}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="Complainant Representative" languagecode="1033" />
