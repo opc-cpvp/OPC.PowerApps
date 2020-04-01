@@ -1,0 +1,231 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_contact_is_created_or_updated_and_MCS_is_applied": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "contact",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "opc_multiplecomplaintstrategy",
+              "subscriptionRequest/filterexpression": "opc_multiplecomplaintstrategy ne 924340000"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_AdminUserAccountId_variable": {
+          "runAfter": {},
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "AdminUserAccountId",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Get_Admin_User_Account": {
+          "runAfter": {
+            "Initialize_AdminUserAccountId_variable": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "systemusers",
+              "$filter": "domainname eq 'SVC_OPC_CRM_Admin@priv.gc.ca'",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "For_each_user_retrieved": {
+          "foreach": "@outputs('Get_Admin_User_Account')?['body/value']",
+          "actions": {
+            "Set_AdminUserAccountId_variable": {
+              "runAfter": {},
+              "type": "SetVariable",
+              "inputs": {
+                "name": "AdminUserAccountId",
+                "value": "@items('For_each_user_retrieved')?['systemuserid']"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Admin_User_Account": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "If_Multiple_Complaint_Strategy_is_Proposed": {
+          "actions": {
+            "Get_All_Compliance_Intake_Managers": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "fetchXml": "<fetch mapping=\"logical\" version=\"1.0\">\n<entity name=\"systemuser\">\n<link-entity name=\"systemuserroles\" from=\"systemuserid\" to=\"systemuserid\">\n<link-entity name=\"role\" from=\"roleid\" to=\"roleid\" link-type=\"inner\" alias=\"role\">\n<filter type=\"and\">\n<condition attribute=\"name\" operator=\"eq\" value=\"Compliance - Intake Manager\"/>\n</filter>\n</link-entity>\n</link-entity>\n</entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "For_Each_Compliance_Intake_Manager": {
+              "foreach": "@outputs('Get_All_Compliance_Intake_Managers')?['body/value']",
+              "actions": {
+                "Create_a_Notification": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "opc_notifications",
+                      "item/opc_notifybyemail": false,
+                      "item/opc_name": "A contact has been proposed for the Multiple Complaint Strategy and is waiting for approval.",
+                      "item/ownerid@odata.bind": "systemusers(@{items('For_Each_Compliance_Intake_Manager')?['systemuserid']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_All_Compliance_Intake_Managers": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "For_each_user_retrieved": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "If_Complainant_has_an_email": {
+                "actions": {
+                  "Create_Email_Message_for_Complainant": {
+                    "runAfter": {},
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "CreateRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "emails",
+                        "item/activitypointer_activity_parties": [
+                          {
+                            "participationtypemask": 1,
+                            "partyid@odata.bind": "systemusers(@{variables('AdminUserAccountId')})"
+                          },
+                          {
+                            "participationtypemask": 2,
+                            "partyid@odata.bind": "contacts(@{triggerOutputs()?['body/contactid']})"
+                          }
+                        ],
+                        "item/description": "(English follows) <br />\nVous etes MCS. <br />\n<br />\n**********************************************************<br />\n<br />\n(English) <br />\nYou are MCS. <br />",
+                        "item/subject": "YOU ARE MCS!"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  },
+                  "Send_Email_Message": {
+                    "runAfter": {
+                      "Create_Email_Message_for_Complainant": [
+                        "Succeeded"
+                      ]
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "PerformBoundAction",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "emails",
+                        "actionName": "Microsoft.Dynamics.CRM.SendEmail",
+                        "recordId": "@outputs('Create_Email_Message_for_Complainant')?['body/activityid']",
+                        "item/IssueSend": false
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                },
+                "runAfter": {},
+                "expression": {
+                  "not": {
+                    "equals": [
+                      "@triggerOutputs()?['body/emailaddress1']",
+                      "@null"
+                    ]
+                  }
+                },
+                "type": "If"
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@triggerOutputs()?['body/opc_multiplecomplaintstrategy']",
+              924340001
+            ]
+          },
+          "type": "If"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
