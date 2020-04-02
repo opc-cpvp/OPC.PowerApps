@@ -123,17 +123,13 @@ export namespace Complaint.Forms {
             let multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
             let multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
             let complainantEntityReference = formContext.getAttribute("opc_complainant").getValue();
+            let complainantFullname = complainantEntityReference ? complainantEntityReference[0].name : "";
 
             // Clear Notification
             formContext.ui.clearFormNotification("formNotificationMCS");
 
             // Check if Complainant is part of the Multiple Complaint Strategy
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
-                // complainantEntityReference[0] should never be null since opc_multiplecomplaintstrategy's
-                // value can only be "Applied" if there is a complainant linked to the case.
-
-                let complainantFullname = complainantEntityReference ? complainantEntityReference[0].name : "";
-
                 // Display Notification
                 formContext.ui.setFormNotification(`The Complainant ${complainantFullname} is part of the Multiple Complaint Strategy.`, "INFO", "formNotificationMCS");
             }
