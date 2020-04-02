@@ -109,7 +109,7 @@ export namespace Controls {
                         `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_name}</div>` +
                         '<div class="form-check form-check-inline">' +
                             `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggle-${cr.opc_questionid_guid}'>` +
-                            `<label class="form-check-label for="q-${cr.opc_checklistresponseid}-opt1">Yes</label>` +
+                            `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">Yes</label>` +
                         '</div>' +
                         '<div class="form-check form-check-inline">' +
                             `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggle-${cr.opc_questionid_guid}'>` +
