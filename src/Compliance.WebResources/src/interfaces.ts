@@ -82,7 +82,7 @@ export abstract class PowerIFrameControl implements IPowerControl {
         });
     }
 
-    protected abstract save(): void;
+    public abstract save(): void;
 }
 
 export interface IPowerControl {
