@@ -34,7 +34,10 @@
       <label languagecode="1033" description="Triage" />
     </steplabels>
     <steplabels id="{37b923cd-8ccb-426b-9581-e14752e0271e}">
-      <label languagecode="1033" description="Complaint Disposition" />
+      <label languagecode="1033" description="Legislation" />
+    </steplabels>
+    <steplabels id="{81e8b5c5-7cb3-4576-9032-72a01cda272b}">
+      <label languagecode="1033" description="Sector" />
     </steplabels>
     <steplabels id="{a6c493c6-ac5e-434e-ac45-233fcca6aef2}">
       <label languagecode="1033" description="Intake" />
@@ -48,26 +51,14 @@
     <steplabels id="{8353dbf9-a2da-4614-a5ba-0a791f792180}">
       <label languagecode="1033" description="Reason to decline" />
     </steplabels>
-    <steplabels id="{9f0352d1-9f84-459a-8cfd-0be39db003da}">
-      <label languagecode="1033" description="Complaint Disposition" />
-    </steplabels>
     <steplabels id="{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}">
       <label languagecode="1033" description="Acceptance" />
-    </steplabels>
-    <steplabels id="{4b567f7a-208f-4ff8-be5b-cc32a9fd7dce}">
-      <label languagecode="1033" description="Decision" />
     </steplabels>
     <steplabels id="{1fe6d57a-4240-4a38-9cb2-1b5243141ad9}">
       <label languagecode="1033" description="Acceptance Date" />
     </steplabels>
-    <steplabels id="{bfb917ce-3313-4193-9e53-857b596219c8}">
-      <label languagecode="1033" description="Status Reason" />
-    </steplabels>
-    <steplabels id="{a89fc949-4e6f-4c0d-b447-3e36ec2878de}">
-      <label languagecode="1033" description="Early Resolution" />
-    </steplabels>
-    <steplabels id="{44515437-a633-4e48-a984-64d4d39d588e}">
-      <label languagecode="1033" description="Status Reason" />
+    <steplabels id="{4b567f7a-208f-4ff8-be5b-cc32a9fd7dce}">
+      <label languagecode="1033" description="Decision" />
     </steplabels>
     <steplabels id="{34649765-2943-4b28-aa58-cf2c44af4060}">
       <label languagecode="1033" description="Investigation" />
@@ -76,7 +67,7 @@
       <label languagecode="1033" description="Status Reason" />
     </steplabels>
     <steplabels id="{a52e31c9-0cad-4800-b80c-ef45c28726e5}">
-      <label languagecode="1033" description="Closed" />
+      <label languagecode="1033" description="Close" />
     </steplabels>
     <steplabels id="{69dd9e4c-7cbb-4693-9f48-719c969c1adf}">
       <label languagecode="1033" description="Status Reason" />
@@ -94,19 +85,19 @@
       <label languagecode="1033" description="Status Reason" />
     </steplabels>
     <steplabels id="{da76887d-434e-4b18-9f18-4c82ae5daadd}">
-      <label languagecode="1033" description="Closed" />
+      <label languagecode="1033" description="Close" />
     </steplabels>
     <steplabels id="{d57ba287-ce23-4c1a-a005-3777450cf3b0}">
       <label languagecode="1033" description="Status Reason" />
     </steplabels>
     <steplabels id="{57863eb5-5caf-47c0-aabf-8b50814a4190}">
-      <label languagecode="1033" description="Closed" />
+      <label languagecode="1033" description="Close" />
     </steplabels>
     <steplabels id="{f269bee4-98e8-4bd7-98e4-94dd19bfe148}">
       <label languagecode="1033" description="Status Reason" />
     </steplabels>
     <steplabels id="{dd5bbf69-bc1b-4db8-a075-9e6cc6c263ef}">
-      <label languagecode="1033" description="Closed" />
+      <label languagecode="1033" description="Close" />
     </steplabels>
     <steplabels id="{643f9c47-d5f5-4201-91de-31470ced9c0c}">
       <label languagecode="1033" description="Status Reason" />
