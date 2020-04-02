@@ -40,7 +40,7 @@
                         <labels>
                           <label description="Question" languagecode="1033" />
                         </labels>
-                        <control id="opc_questionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questionid" disabled="false" />
+                        <control id="opc_questiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questionid" disabled="false" />
                       </cell>
                     </row>
                     <row>
