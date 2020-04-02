@@ -8,6 +8,7 @@ import { ComplaintService } from "./services/ComplaintService";
 import { AllegationService } from "./services/AllegationService";
 import { ReminderService } from "./services/ReminderService";
 import { NotificationService } from "./services/NotificationService";
+import { ContactService } from "./services/ContactService";
 
 // Forms
 import ComplaintMainForm = require("./forms/ComplaintMainForm");
@@ -26,6 +27,7 @@ container.bind<i.IComplaintService>(nameof<i.IComplaintService>()).to(ComplaintS
 container.bind<i.IAllegationService>(nameof<i.IAllegationService>()).to(AllegationService);
 container.bind<i.IReminderService>(nameof<i.IReminderService>()).to(ReminderService);
 container.bind<i.INotificationService>(nameof<i.INotificationService>()).to(NotificationService);
+container.bind<i.IContactService>(nameof<i.IContactService>()).to(ContactService);
 
 // Register Providers
 container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);

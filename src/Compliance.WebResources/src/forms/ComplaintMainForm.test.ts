@@ -1,6 +1,7 @@
 ﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
 import { Complaint } from './ComplaintMainForm';
 import { ComplaintService } from '.././services/ComplaintService';
+import { ContactService } from '../services/ContactService';
 
 var chai = require("chai");
 var sinon = require("sinon");
@@ -14,11 +15,14 @@ describe("Complaint", () => {
 
         it("it should call load complaint", () => {
             // Arrange
-            let service = new ComplaintService();
+            let complaintService = new ComplaintService();
+            let contactService = new ContactService();
             let getComplaint = sinon.fake.returns(null)
 
-            sinon.replace(service, "getComplaint", getComplaint);
-            let sut = new Complaint.Forms.MainForm(service);
+            sinon.replace(complaintService, nameof(complaintService.getComplaint), getComplaint);
+            sinon.replace(contactService, nameof(contactService.getContact), getComplaint);
+
+            let sut = new Complaint.Forms.MainForm(complaintService, contactService);
 
             let mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
             let contextSpy = sinon.spy(mockContext);
