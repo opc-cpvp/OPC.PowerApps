@@ -21,7 +21,6 @@ export namespace Complaint.Forms {
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
 
-            this._complaintService.getComplaint("test");
             let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
@@ -132,7 +131,8 @@ export namespace Complaint.Forms {
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
                 // complainantEntityReference[0] should never be null since opc_multiplecomplaintstrategy's
                 // value can only be "Applied" if there is a complainant linked to the case.
-                let complainantFullname = complainantEntityReference[0].name;
+
+                let complainantFullname = complainantEntityReference ? complainantEntityReference[0].name : "";
 
                 // Display Notification
                 formContext.ui.setFormNotification(`The Complainant ${complainantFullname} is part of the Multiple Complaint Strategy.`, "INFO", "formNotificationMCS");
