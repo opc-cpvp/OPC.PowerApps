@@ -25,14 +25,14 @@ export namespace Complaint.Forms {
             let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
-            formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
+            /*formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
             this.handle_StageStates(formContext);
             formContext.getAttribute("opc_recommendtoregistrar").addOnChange(x => this.recommendtoregistrar_OnChange(x));
-            formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
+            formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));*/
 
             // Sequence matters
-            formContext.getAttribute("opc_intakedisposition").fireOnChange();
-            formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
+            /*formContext.getAttribute("opc_intakedisposition").fireOnChange();
+            formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();*/
         }
 
         /**
@@ -42,11 +42,11 @@ export namespace Complaint.Forms {
         */
         private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
-            let isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
+            /*let isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
 
             formContext.getAttribute("opc_intakedisposition").controls.forEach(control => XrmHelper.turn(control, isRecommending));
             formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => XrmHelper.turn(control, !isRecommending));
-            formContext.getAttribute("opc_declinereason").controls.forEach(control => XrmHelper.turnOff(control));
+            formContext.getAttribute("opc_declinereason").controls.forEach(control => XrmHelper.turnOff(control));*/
         }
 
         /**
@@ -56,7 +56,7 @@ export namespace Complaint.Forms {
         */
         private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>, any>): void {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
-            switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
+            /*switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
                 case opc_intakedisposition.Declinetoinvestigate:
                     formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => XrmHelper.turnOff(control));
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.turnOff(control));
@@ -69,7 +69,7 @@ export namespace Complaint.Forms {
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.turnOn(control));
                     formContext.getAttribute("opc_declinereason").controls.forEach(control => XrmHelper.turnOff(control));
                     break;
-            }
+            }*/
         }
 
         /**
@@ -90,7 +90,7 @@ export namespace Complaint.Forms {
         */
         private handle_StageStates(formContext: Form.opc_complaint.Main.Information) {
             // Handle all visibility stuff related to process stages
-            let currentStage = formContext.data.process.getActiveStage().getName().toLowerCase();
+            /*let currentStage = formContext.data.process.getActiveStage().getName().toLowerCase();
             switch (currentStage) {
                 case "intake":
                     formContext.ui.tabs.get("tab_issues").setVisible(false);
@@ -110,7 +110,7 @@ export namespace Complaint.Forms {
                     break;
                 case "closed":
                     break;
-            }
+            }*/
         }
     }
 }
