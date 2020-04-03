@@ -3697,7 +3697,7 @@ declare namespace Form.opc_checklistresponse.QuickCreate {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_questionid"): Xrm.LookupAttribute<"NoAttribute">;
+      get(name: "opc_questiontemplateid"): Xrm.LookupAttribute<"NoAttribute">;
       get(name: "opc_response"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -3725,7 +3725,7 @@ declare namespace Form.opc_checklistresponse.QuickCreate {
   interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
     getAttribute(attributeName: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_questionid"): Xrm.LookupAttribute<"NoAttribute">;
+    getAttribute(attributeName: "opc_questiontemplateid"): Xrm.LookupAttribute<"NoAttribute">;
     getAttribute(attributeName: "opc_response"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
@@ -3749,7 +3749,7 @@ declare namespace Form.opc_checklistresponse.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_questionid"): Xrm.LookupAttribute<"NoAttribute">;
+        get(name: "opc_questiontemplateid"): Xrm.LookupAttribute<"NoAttribute">;
       get(name: "opc_response"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -3779,7 +3779,7 @@ declare namespace Form.opc_checklistresponse.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_questionid"): Xrm.LookupAttribute<"NoAttribute">;
+      getAttribute(attributeName: "opc_questiontemplateid"): Xrm.LookupAttribute<"NoAttribute">;
     getAttribute(attributeName: "opc_response"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;

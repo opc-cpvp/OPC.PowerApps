@@ -44,7 +44,7 @@ export namespace Controls {
                     crArray.forEach(cr => {
 
                         // Create controls based on type defined in question type entity
-                        switch (cr.opc_questionid.opc_questiontypeid_guid) {
+                        switch (cr.opc_questiontemplateid.opc_questiontypeid_guid) {
                             case this._questionTypes.find(qt => qt.type === "Text").id:
                                 this.addTextQuestion(cr);
                                 break;
@@ -62,15 +62,15 @@ export namespace Controls {
                 }).catch(() => console.error("error loading checklist responses"));
         }
 
-        private addTextQuestion(cr: { opc_questionid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+        private addTextQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             // Check if there is a parent question in visibilitytoggles array and what's the loading state
-            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questionid.opc_parentquestiontemplateid_guid);
+            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid);
             let isVisible = false;
             if (visibleTuple) isVisible = visibleTuple.value;
 
             let questionHtml =
-                `<div class="form-group border-bottom pb-4 ${cr.opc_questionid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questionid.opc_parentquestiontemplateid_guid : ""}}">` +
-                    `<div class="ml-${cr.opc_questionid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
+                `<div class="form-group border-bottom pb-4 ${cr.opc_questiontemplateid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid : ""}}">` +
+                `<div class="ml-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
                         `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
                         `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" />` +
                     '</div>' +
@@ -78,15 +78,15 @@ export namespace Controls {
             this._placeholder.insertAdjacentHTML('beforeend', questionHtml);
         }
 
-        private addTextAreaQuestion(cr: { opc_questionid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+        private addTextAreaQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             // Check if there is a parent question in visibilitytoggles array and what's the loading state
-            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questionid.opc_parentquestiontemplateid_guid);
+            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid);
             let isVisible = false;
             if (visibleTuple) isVisible = visibleTuple.value;
 
             let questionHtml =
-                `<div class="form-group border-bottom pb-4 ${cr.opc_questionid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questionid.opc_parentquestiontemplateid_guid : ""} ">` +
-                    `<div class="ml-${cr.opc_questionid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
+                `<div class="form-group border-bottom pb-4 ${cr.opc_questiontemplateid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid : ""} ">` +
+                `<div class="ml-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
                         `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
                         `<textarea id="q-${cr.opc_checklistresponseid}" rows="3" class="form-control">${cr.opc_response || ""}</textarea>` +
                     '</div>' +
@@ -94,25 +94,25 @@ export namespace Controls {
             this._placeholder.insertAdjacentHTML('beforeend', questionHtml);
         }
 
-        private addTwoOptionsQuestion(cr: { opc_questionid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+        private addTwoOptionsQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             // We don't know if its a toggle, but just in case we add in the array
-            this._visbilityToggles.push({ id: cr.opc_questionid_guid, value: cr.opc_response == "1" });
+            this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response == "1" });
 
             // Check if there is a parent question in visibilitytoggles array and what's the loading state
-            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questionid.opc_parentquestiontemplateid_guid);
+            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid);
             let isVisible = false;
             if (visibleTuple) isVisible = visibleTuple.value;
 
             let questionHtml =
-                `<div class="form-group border-bottom pb-4 ${cr.opc_questionid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questionid.opc_parentquestiontemplateid_guid : ""}">` +
-                    `<div class="ml-${cr.opc_questionid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
+                `<div class="form-group border-bottom pb-4 ${cr.opc_questiontemplateid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid : ""}">` +
+                `<div class="ml-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
                         `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_name}</div>` +
                         '<div class="form-check form-check-inline">' +
-                            `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggle-${cr.opc_questionid_guid}'>` +
+                `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggle-${cr.opc_questiontemplateid_guid}'>` +
                             `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">Yes</label>` +
                         '</div>' +
                         '<div class="form-check form-check-inline">' +
-                            `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggle-${cr.opc_questionid_guid}'>` +
+                `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggle-${cr.opc_questiontemplateid_guid}'>` +
                             `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">No</label>` +
                         '</div>' +
                     '</div>' +
@@ -122,7 +122,7 @@ export namespace Controls {
 
         public save(): void {
 
-            let dirtyInputs = this.documentContext.getElementsByClassName("dirty");
+            let dirtyInputs = this._placeholder.getElementsByClassName("dirty");
             let doubleDirtyRadios : string[] = [];
 
             for (let i = 0; i < dirtyInputs.length; i++) {

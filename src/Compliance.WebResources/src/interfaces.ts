@@ -18,7 +18,7 @@ export interface INotificationService {
 }
 
 export interface IChecklistService {
-    getChecklist(id: string): Promise<({ opc_questionid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result)[]>
+    getChecklist(id: string): Promise<({ opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result)[]>
     getQuestionTypes(): Promise<{ id: string, type: string }[]>
     updateChecklistResponse(responseid: string, value: string): Promise<undefined>
 }

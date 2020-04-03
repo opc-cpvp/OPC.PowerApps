@@ -78,6 +78,50 @@ describe("ChecklistControl", () => {
             // Assert
             getChecklist.should.have.been.called;
         });
+
+                //it("it should only load all question responses when question types are loaded", async () => {
+
+        //    let checklistResponses: Array<any>[] = [null];
+        //    //let forEachFake = sandbox.fake();
+        //    let forEachFake=sandbox.spy(Array, 'forEach');
+        //    sandbox.stub(service, 'getQuestionTypes').resolves([]);
+        //    sandbox.stub(service, 'getChecklist').resolves(checklistResponses);
+        //    //sinon.stub(service, "getQuestionTypes").returns(new Promise((resolve, reject) => {
+        //    //    setTimeout(() => resolve(qTypes), 10);
+        //    //}));
+
+        //    // Act
+        //    control.initializeControl();
+
+        //    // Assert
+        //    //clock.tick(10);
+        //    forEachFake.should.have.been.called;
+
+        //    //    // Arrange
+        //    //    let arr: ({ opc_questionid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result)[] = [ null ];
+        //    //    let qTypesArraySpy = sandbox.spy(arr);
+        //    //    let getChecklist = sandbox.stub(service, 'getChecklist').resolves(arr);
+        //    //    sandbox.stub(service, 'getQuestionTypes').resolves([]);
+
+        //    //    // Act
+        //    //    control.initializeControl();
+
+        //    //    // Assert
+        //    //    qTypesArraySpy.forEach.should.have.been.called;
+        //});
+
+        //it("it should create text questions", () => {
+        //    // Arrange
+        //    let qTypes: { id: string, type: string }[] = [{ id: "1", type: "Text" }];
+        //    sandbox.stub(service, 'getChecklist').resolves([]);
+        //    sinon.stub(service, "getQuestionTypes").resolves(qTypes);
+
+        //    // Act
+        //    control.initializeControl();
+
+        //    // Assert
+        //    clock.tick(10);
+        //})
     });
 
     describe("when form is saving", () => {
@@ -108,7 +152,7 @@ describe("ChecklistControl", () => {
 
         afterEach(function () {
             sandbox.restore();
-            document.body.removeChild(formElement); // not a through dom reset, tried jsdom and had several issues
+            documentContext.body.removeChild(formElement); // not a true dom reset, tried jsdom and had several issues
         });
 
         it("it should only update input text marked dirty", () => {
@@ -119,11 +163,15 @@ describe("ChecklistControl", () => {
             formElement.insertAdjacentHTML("beforeend", "<input type='text' id='q-2' value='val' />")
 
             // Act
-            control.save(); 
+            //documentContext.dispatchEvent(new Event("entity-save"));
+            control.save();
 
             // Assert
             updateQuestionResponseStub.should.have.been.calledOnce;
             updateQuestionResponseStub.should.have.been.calledWith("1");
+
+            //sandbox.restore();
+            //document.body.removeChild(formElement); 
         });
 
 
@@ -134,10 +182,11 @@ describe("ChecklistControl", () => {
             formElement.insertAdjacentHTML("beforeend", "<textarea id='q-2'>do not update</textarea>")
 
             // Act
+            //documentContext.dispatchEvent(new Event("entity-save"));
             control.save();
 
             // Assert
-            //updateQuestionResponseStub.should.have.been.calledOnce; //tweak the code to make this work
+            updateQuestionResponseStub.should.have.been.calledOnce;
             updateQuestionResponseStub.should.have.been.calledWith("1", "update");
         });
 
@@ -168,7 +217,7 @@ describe("ChecklistControl", () => {
             control.save();
 
             // Assert
-            updateQuestionResponseStub.should.have.been.calledOnce; //tweak the code to make this work
+            updateQuestionResponseStub.should.have.been.calledOnce;
             updateQuestionResponseStub.should.have.been.calledWith("1", null);
         });
 
@@ -182,7 +231,7 @@ describe("ChecklistControl", () => {
             control.save();
 
             // Assert
-            updateQuestionResponseStub.should.have.been.calledOnce; //tweak the code to make this work
+            updateQuestionResponseStub.should.have.been.calledOnce;
             updateQuestionResponseStub.should.have.been.calledWith("1", "1");
         });
 
