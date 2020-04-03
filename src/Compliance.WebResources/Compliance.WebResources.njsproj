@@ -56,6 +56,8 @@
     <TypeScriptCompile Include="src\bootstrapper.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\ContactMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\ContactMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
@@ -67,6 +69,7 @@
     <TypeScriptCompile Include="src\interfaces.ts" />
     <TypeScriptCompile Include="src\inversify.config.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />
+    <TypeScriptCompile Include="src\services\ContactService.ts" />
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
     <TypeScriptCompile Include="src\services\NotificationService.ts" />
     <TypeScriptCompile Include="src\services\ReminderService.ts" />

@@ -15,6 +15,10 @@ export interface INotificationService {
     markAsRead(id: string): void
 }
 
+export interface IContactService {
+    getContact(id: string): Contact
+}
+
 export interface IFormFactory {
     createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>) : IPowerForm<TForm>
 }
