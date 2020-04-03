@@ -116,7 +116,7 @@
             "For_Each_Compliance_Intake_Manager": {
               "foreach": "@outputs('Get_All_Compliance_Intake_Managers')?['body/value']",
               "actions": {
-                "Create_a_Notification": {
+                "Create_a_Notification_MCS_Proposed": {
                   "runAfter": {},
                   "type": "OpenApiConnection",
                   "inputs": {
@@ -173,36 +173,67 @@
                             "partyid@odata.bind": "contacts(@{triggerOutputs()?['body/contactid']})"
                           }
                         ],
-                        "item/description": "(English follows) <br />\nVous etes MCS. <br />\n<br />\n**********************************************************<br />\n<br />\n(English) <br />\nYou are MCS. <br />",
-                        "item/subject": "YOU ARE MCS!"
-                      },
-                      "authentication": "@parameters('$authentication')"
-                    }
-                  },
-                  "Send_Email_Message": {
-                    "runAfter": {
-                      "Create_Email_Message_for_Complainant": [
-                        "Succeeded"
-                      ]
-                    },
-                    "type": "OpenApiConnection",
-                    "inputs": {
-                      "host": {
-                        "connectionName": "shared_commondataserviceforapps",
-                        "operationId": "PerformBoundAction",
-                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                      },
-                      "parameters": {
-                        "entityName": "emails",
-                        "actionName": "Microsoft.Dynamics.CRM.SendEmail",
-                        "recordId": "@outputs('Create_Email_Message_for_Complainant')?['body/activityid']",
-                        "item/IssueSend": false
+                        "item/description": "(English follows) <br />\nMonsieur/Madame <br />\nLa présente a pour but de vous informer que le Commissariat à la protection de la vie privée du Canada (le « CPVP ») ne fera pas enquête pour le moment sur les nouvelles plaintes que vous avez déposées, eu égard au grand nombre de plaintes et de correspondances déjà reçues de votre part. <br />\n<br />\n**********************************************************<br />\n<br />\n(English) <br />\nMr./Mrs. <br />\nThis is to advise that in light of the large number of complaints and correspondence you have submitted to the Office of the Privacy Commissioner of Canada (OPC) in recent months, we will not be investigating your new complaints at this time. <br />",
+                        "item/subject": "CPVP/OPC - Plaintes Multiples/Multiple Complaints"
                       },
                       "authentication": "@parameters('$authentication')"
                     }
                   }
                 },
                 "runAfter": {},
+                "else": {
+                  "actions": {
+                    "Create_Email_Message_for_Intake_Manager": {
+                      "runAfter": {},
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "emails",
+                          "item/activitypointer_activity_parties": [
+                            {
+                              "participationtypemask": 1,
+                              "partyid@odata.bind": "systemusers(@{variables('AdminUserAccountId')})"
+                            },
+                            {
+                              "participationtypemask": 2,
+                              "partyid@odata.bind": "systemusers(@{triggerOutputs()?['body/_modifiedby_value']})"
+                            }
+                          ],
+                          "item/description": "(English follows) <br />\nNous n'avons pas pu envoyer un courriel au plaintif @{triggerOutputs()?['body/fullname']} pour leur laisser savoir qu'ils font maintenant partie de la Stratégie pour les Plaintes Multiples parce qu'ils n'ont pas d'adresse courriel. <br />\n<br />\nVeuillez leur envoyer la lettre d'avis ci-joint par courrier. <br />\n<br />\n**********************************************************<br />\n<br />\n(English) <br />\nWe could not send an email to the complainant @{triggerOutputs()?['body/fullname']} to let them know they are now part of Multiple Complaint Strategy because they don't have an email address.  <br />\n<br />\nPlease send the attached letter of notification by mail. <br />",
+                          "item/subject": "Warning: Could not send MCS letter of notification to complainant."
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Send_Email_Message_for_Intake_Manager": {
+                      "runAfter": {
+                        "Create_Email_Message_for_Intake_Manager": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "PerformBoundAction",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "emails",
+                          "actionName": "Microsoft.Dynamics.CRM.SendEmail",
+                          "recordId": "@outputs('Create_Email_Message_for_Intake_Manager')?['body/activityid']",
+                          "item/IssueSend": false
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                },
                 "expression": {
                   "not": {
                     "equals": [

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{8f4e4358-7a73-ea11-a811-000d3af45c52}" Name="Contact - Create/Update - Send Multiple Complaint Strategy Emails and Notifications" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Workflow WorkflowId="{8f4e4358-7a73-ea11-a811-000d3af45c52}" Name="Contact - Create/Update - Send Multiple Complaint Strategy Emails &amp; Notifications" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <JsonFileName>/Workflows/Contact-CreateUpdate-SendMultipleComplaintStrategy-8F4E4358-7A73-EA11-A811-000D3AF45C52.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
@@ -20,6 +20,6 @@
   <BusinessProcessType>0</BusinessProcessType>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Contact - Create/Update - Send Multiple Complaint Strategy Emails and Notifications" />
+    <LocalizedName languagecode="1033" description="Contact - Create/Update - Send Multiple Complaint Strategy Emails &amp; Notifications" />
   </LocalizedNames>
 </Workflow>
