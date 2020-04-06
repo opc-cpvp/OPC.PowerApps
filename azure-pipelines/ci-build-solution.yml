@@ -137,6 +137,7 @@ steps:
     localize: false
 
 - task: CopyFiles@2
+  displayName: 'Copy Sample Data Package to Build Artifacts'
   inputs:
     SourceFolder: 'src\$(SolutionName).Solution\Data'
     Contents: 'sample-data.zip'
