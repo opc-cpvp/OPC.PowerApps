@@ -1,7 +1,6 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IPowerForm, IContactService } from "../interfaces";
-import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Contact.Forms {
 
@@ -27,25 +26,18 @@ export namespace Contact.Forms {
         *
         * @event OnChanged
         */
-        private multipleComplaintStrategy_setVisibleValues(): void {
-            // Since the GUID will always be the same because it is hardcoded
-            // SEE: OPC.PowerApps\src\Compliance.Package\Deployment\ComplianceDeployment.cs
-            let intakeManagerRoleGuid = "194707af-f01d-4984-b8e2-4d7b5d54d565";
+        private multipleComplaintStrategy_setVisibleValues(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
+            let formContext = <Form.contact.Main.Information>context.getFormContext();
 
-            // TODO: DEPRECATED IF YOU LOOK AT DOC ONLINE. SHOULD USE roles BUT IS NOT AVAILABLE.
-            // I THINK THE RELEASE DATE IS April 24, 2020
-            // LOOK INTO THIS https://docs.microsoft.com/en-us/power-platform/important-changes-coming
-            let userSecurityRoles = Xrm.Utility.getGlobalContext().userSettings.securityRoles;
-            let userRoles = Xrm.Utility.getGlobalContext().userSettings;
+            // Since the GUID will always be different depending on the environment, we will use the role name
+            let intakeManagerRoleName = "Compliance - Intake Manager";
+            let userSecurityRoles = Xrm.Utility.getGlobalContext().userSettings.roles;
+            let isIntakeManager: boolean = false;
+            userSecurityRoles.forEach(x => { if (eval(x).name === intakeManagerRoleName) isIntakeManager = true });
 
-            console.log(Xrm.Utility.getGlobalContext().userSettings);
-            console.log("YOOOOOOOOO JOJO");
-            console.log(userSecurityRoles);
-            console.log("!userSecurityRoles.includes(intakeManagerRoleGuid)");
-            console.log(!userSecurityRoles.includes(intakeManagerRoleGuid));
-
-            if (!userSecurityRoles.includes(intakeManagerRoleGuid)) {
-                //let multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
+            if (!isIntakeManager) {
+                let multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
+                //let optionSetValues = multipleComplaintStrategyControl.getAttribute().getOptions();
 
 
             }
