@@ -33,6 +33,7 @@ container.bind<i.IContactService>(nameof<i.IContactService>()).to(ContactService
 
 // Register Providers
 container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);
+container.bind<Xrm.Utility>(nameof<Xrm.Utility>()).toConstantValue(Xrm.Utility);
 
 // Register Forms
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);

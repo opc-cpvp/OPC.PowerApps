@@ -75,6 +75,10 @@
     <TypeScriptCompile Include="src\services\ReminderService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
     <TypeScriptCompile Include="test\INamedComponent.ts" />
+    <TypeScriptCompile Include="test\XrmContextMock.ts" />
+    <TypeScriptCompile Include="test\XrmOptionMock.ts" />
+    <TypeScriptCompile Include="test\XrmUserSettingsMock.ts" />
+    <TypeScriptCompile Include="test\XrmUtilityMock.ts" />
     <TypeScriptCompile Include="test\XrmSaveEventContextMock.ts" />
     <TypeScriptCompile Include="test\XrmNavigationMock.ts" />
     <TypeScriptCompile Include="test\XrmAttributeMock.ts" />

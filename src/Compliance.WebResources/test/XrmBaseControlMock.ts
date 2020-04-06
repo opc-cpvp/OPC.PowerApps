@@ -1,11 +1,14 @@
 ﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { INamedComponent } from "./INamedComponent";
+import { XrmOptionMock } from "./XrmOptionMock";
+
 export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INamedComponent {
     protected context: XrmExecutionContextMock<any, any>;
     private _type: Xrm.ControlType;
     private _isVisible: boolean;
     private _name: string;
     private _notifications: any[] = [];
+    options: XrmOptionMock[] = [];
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this.context = executionContext;
@@ -20,6 +23,12 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
     }
     getNotificationsLength(): number {
         return this._notifications.length;
+    }
+    getOptions(): XrmOptionMock[] {
+        return this.options;
+    }
+    removeOption(number: number): void {
+        this.options = this.options.filter(f => f.value !== number);
     }
     /* END OF NEW MEMBERS*/
 

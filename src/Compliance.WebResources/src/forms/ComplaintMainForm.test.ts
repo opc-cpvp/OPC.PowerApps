@@ -10,7 +10,6 @@ var sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-// SAMPLE TEST
 describe("Complaint", () => {
     describe("when the complainant is part of the Multiple Complaint Strategy", () => {
         let service: ComplaintService;

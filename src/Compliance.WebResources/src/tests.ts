@@ -6,4 +6,4 @@ import 'mocha';
 import "./forms/ComplaintMainForm.test";
 import "./forms/NotificationMainForm.test";
 import "./forms/ReminderMainForm.test";
-import "./formsContactMainForm.test";
+import "./forms/ContactMainForm.test";

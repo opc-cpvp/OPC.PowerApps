@@ -8,9 +8,11 @@ export namespace Contact.Forms {
     export class MainForm implements IPowerForm<Form.contact.Main.ComplianceContact> {
 
         private _contactService: IContactService;
+        private _xrmUtility: Xrm.Utility;
 
-        constructor(@inject(nameof<IContactService>()) contactService: IContactService) {
+        constructor(@inject(nameof<IContactService>()) contactService: IContactService, @inject(nameof<Xrm.Utility>()) xrmUtility: Xrm.Utility) {
             this._contactService = contactService;
+            this._xrmUtility = xrmUtility;
         }
 
         /**
@@ -32,10 +34,10 @@ export namespace Contact.Forms {
             // Since the GUID will always be different depending on the environment, we will use the role name
             let intakeManagerRoleName = "Compliance - Intake Manager";
             let isIntakeManager: boolean = false;
-            let userSecurityRoles = Xrm.Utility.getGlobalContext().userSettings.roles;
+            let userSecurityRoles = this._xrmUtility.getGlobalContext().userSettings.roles;
             let multipleComplaintStrategyValue = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
 
-            userSecurityRoles.forEach(x => { if (eval(x).name === intakeManagerRoleName) isIntakeManager = true });
+            userSecurityRoles.forEach(x => { if (JSON.parse(x).name === intakeManagerRoleName) isIntakeManager = true });
 
             if (!isIntakeManager && multipleComplaintStrategyValue !== opc_multiplecomplaintstrategy.Applied) {
                 formContext.getControl("opc_multiplecomplaintstrategy").removeOption(opc_multiplecomplaintstrategy.Applied);
