@@ -38,9 +38,7 @@ export namespace Contact.Forms {
             let multipleComplaintStrategyValue = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
 
             // TODO: I need to find a proper way to do this check instead of JSON.parse(JSON.stringify(x))
-            userSecurityRoles.forEach(x => {
-                if (JSON.parse(JSON.stringify(x)).name === intakeManagerRoleName) isIntakeManager = true
-            });
+            userSecurityRoles.forEach(x => { if (JSON.parse(JSON.stringify(x)).name === intakeManagerRoleName) isIntakeManager = true });
 
             if (!isIntakeManager && multipleComplaintStrategyValue !== opc_multiplecomplaintstrategy.Applied) {
                 formContext.getControl("opc_multiplecomplaintstrategy").removeOption(opc_multiplecomplaintstrategy.Applied);
