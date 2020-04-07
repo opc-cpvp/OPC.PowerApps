@@ -56,6 +56,7 @@
     <TypeScriptCompile Include="src\bootstrapper.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\AllegationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />

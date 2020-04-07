@@ -19,8 +19,8 @@
 
 
 export class XrmHelper {
-    static turn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, state: boolean) {
-        state ? XrmHelper.turnOn(control) : XrmHelper.turnOff(control)
+    static turn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, state: boolean, withReset?: boolean) {
+        state ? XrmHelper.turnOn(control, withReset) : XrmHelper.turnOff(control)
     }
 
     static turnOff<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
@@ -29,7 +29,12 @@ export class XrmHelper {
         control.getAttribute().setValue();
     }
 
-    static turnOn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
+    /*
+     * 
+     */
+    static turnOn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, withReset?: boolean): void {
+        // If withReset means that if its same visible value, reset before turning on
+        if (withReset && control.getVisible()) control.getAttribute().setValue();
         control.setVisible(true);
         control.setDisabled(false);
     }
