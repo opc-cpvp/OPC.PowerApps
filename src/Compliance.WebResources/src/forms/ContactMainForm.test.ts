@@ -34,6 +34,7 @@ describe("Contact", () => {
             mcsControl = mockContext.getFormContext().getControl("opc_multiplecomplaintstrategy");
             controlSpy = sandbox.spy(mcsControl);
             mcsControl.options = mcsOptions;
+            mockContext.getFormContext().ui.formType = Xrm.FormType.Update;
         });
 
         afterEach(function () {
@@ -75,6 +76,89 @@ describe("Contact", () => {
             // Assert
             controlSpy.getOptions().should.not.contain.deep.members([{ text: "Applied", value: opc_multiplecomplaintstrategy.Applied }]);
             controlSpy.getOptions().length.should.equal(2);
+        });
+    });
+    describe("when the contact is part of the Multiple Complaint Strategy", () => {
+        let service: ContactService;
+        let form: Contact.Forms.MainForm;
+        let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
+        let mockUtility: XrmUtilityMock;
+        let contextSpy: any;
+
+        beforeEach(function () {
+            service = new ContactService();
+            mockUtility = new XrmUtilityMock();
+            form = new Contact.Forms.MainForm(service, mockUtility);
+            mockContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
+            contextSpy = sandbox.spy(mockContext);
+            mockContext.getFormContext().ui.formType = Xrm.FormType.Update;
+            mockUtility.getGlobalContext().userSettings.roles = [];
+        });
+
+        afterEach(function () {
+            sandbox.restore();
+        });
+
+        it("it should display a form notification", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+
+            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
+        });
+    });
+    describe("when the contact is not part of the Multiple Complaint Strategy", () => {
+        let service: ContactService;
+        let form: Contact.Forms.MainForm;
+        let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
+        let mockUtility: XrmUtilityMock;
+        let contextSpy: any;
+
+        beforeEach(function () {
+            service = new ContactService();
+            mockUtility = new XrmUtilityMock();
+            form = new Contact.Forms.MainForm(service, mockUtility);
+            mockContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
+            contextSpy = sandbox.spy(mockContext);
+            mockContext.getFormContext().ui.formType = Xrm.FormType.Update;
+            mockUtility.getGlobalContext().userSettings.roles = [];
+        });
+
+        afterEach(function () {
+            sandbox.restore();
+        });
+
+        it("it should not display a form notification(if not applied)", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
+
+            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
+        });
+        it("it should not display a form notification(if proposed)", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Proposed);
+
+            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
     });
 });
