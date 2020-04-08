@@ -523,7 +523,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11010,
+  Complaint = 11064,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -3553,8 +3553,8 @@ declare namespace Form.opc_allegation.Main {
       get(name: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.Attribute<string>;
       get(name: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
-      get(name: "opc_dispositionaction"): Xrm.LookupAttribute<"opc_dispositionaction">;
-      get(name: "opc_dispositionreason"): Xrm.LookupAttribute<"opc_dispositionreason">;
+      get(name: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
+      get(name: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -3567,8 +3567,8 @@ declare namespace Form.opc_allegation.Main {
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.StringControl;
       get(name: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
-      get(name: "opc_dispositionaction"): Xrm.LookupControl<"opc_dispositionaction">;
-      get(name: "opc_dispositionreason"): Xrm.LookupControl<"opc_dispositionreason">;
+      get(name: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
+      get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "subgrid_checklist_responses"): Xrm.SubGridControl<"opc_checklistresponse">;
       get(name: string): undefined;
@@ -3588,8 +3588,8 @@ declare namespace Form.opc_allegation.Main {
     getAttribute(attributeName: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
     getAttribute(attributeName: "opc_description"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
-    getAttribute(attributeName: "opc_dispositionaction"): Xrm.LookupAttribute<"opc_dispositionaction">;
-    getAttribute(attributeName: "opc_dispositionreason"): Xrm.LookupAttribute<"opc_dispositionreason">;
+    getAttribute(attributeName: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
+    getAttribute(attributeName: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
@@ -3597,8 +3597,8 @@ declare namespace Form.opc_allegation.Main {
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_description"): Xrm.StringControl;
     getControl(controlName: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
-    getControl(controlName: "opc_dispositionaction"): Xrm.LookupControl<"opc_dispositionaction">;
-    getControl(controlName: "opc_dispositionreason"): Xrm.LookupControl<"opc_dispositionreason">;
+    getControl(controlName: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
+    getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "subgrid_checklist_responses"): Xrm.SubGridControl<"opc_checklistresponse">;
     getControl(controlName: string): undefined;
@@ -4301,10 +4301,20 @@ declare namespace Form.opc_dispositionaction.Quick {
 declare namespace Form.opc_dispositionaction.Main {
   namespace Information {
     namespace Tabs {
+      interface tab_general extends Xrm.SectionCollectionBase {
+        get(name: "section_general"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_dispositionreason"): Xrm.LookupAttribute<"opc_dispositionreason">;
+      get(name: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
+      get(name: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -4313,14 +4323,18 @@ declare namespace Form.opc_dispositionaction.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: "opc_dispositionreason"): Xrm.LookupControl<"opc_dispositionreason">;
+      get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
+      get(name: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -4328,13 +4342,19 @@ declare namespace Form.opc_dispositionaction.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_dispositionreason"): Xrm.LookupAttribute<"opc_dispositionreason">;
+    getAttribute(attributeName: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
+    getAttribute(attributeName: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: "opc_dispositionreason"): Xrm.LookupControl<"opc_dispositionreason">;
+    getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
+    getControl(controlName: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -4387,7 +4407,10 @@ declare namespace Form.opc_dispositionreason.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+      get(name: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -4397,7 +4420,10 @@ declare namespace Form.opc_dispositionreason.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+      get(name: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "subgrid_disposition_action"): Xrm.SubGridControl<"opc_dispositionaction">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -4414,12 +4440,18 @@ declare namespace Form.opc_dispositionreason.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
+    getAttribute(attributeName: "opc_islocalizable"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+    getControl(controlName: "opc_islocalizable"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "subgrid_disposition_action"): Xrm.SubGridControl<"opc_dispositionaction">;
     getControl(controlName: string): undefined;
   }
@@ -9096,8 +9128,8 @@ interface opc_allegation_Relationships {
 interface opc_allegation extends opc_allegation_Base, opc_allegation_Relationships {
   opc_allegationtypeid_bind$opc_allegationtypes?: string | null;
   opc_complaintid_bind$opc_complaints?: string | null;
-  opc_dispositionaction_bind$opc_dispositionactions?: string | null;
-  opc_dispositionreason_bind$opc_dispositionreasons?: string | null;
+  opc_dispositionactionid_bind$opc_dispositionactions?: string | null;
+  opc_dispositionreasonid_bind$opc_dispositionreasons?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -9118,8 +9150,8 @@ interface opc_allegation_Select {
   opc_complaintid_guid: WebAttribute<opc_allegation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
   opc_description: WebAttribute<opc_allegation_Select, { opc_description: string | null }, {  }>;
   opc_disposition: WebAttribute<opc_allegation_Select, { opc_disposition: opc_allegationdisposition | null }, { opc_disposition_formatted?: string }>;
-  opc_dispositionaction_guid: WebAttribute<opc_allegation_Select, { opc_dispositionaction_guid: string | null }, { opc_dispositionaction_formatted?: string }>;
-  opc_dispositionreason_guid: WebAttribute<opc_allegation_Select, { opc_dispositionreason_guid: string | null }, { opc_dispositionreason_formatted?: string }>;
+  opc_dispositionactionid_guid: WebAttribute<opc_allegation_Select, { opc_dispositionactionid_guid: string | null }, { opc_dispositionactionid_formatted?: string }>;
+  opc_dispositionreasonid_guid: WebAttribute<opc_allegation_Select, { opc_dispositionreasonid_guid: string | null }, { opc_dispositionreasonid_formatted?: string }>;
   opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_allegation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_allegation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
@@ -9145,8 +9177,8 @@ interface opc_allegation_Filter {
   opc_complaintid_guid: XQW.Guid;
   opc_description: string;
   opc_disposition: opc_allegationdisposition;
-  opc_dispositionaction_guid: XQW.Guid;
-  opc_dispositionreason_guid: XQW.Guid;
+  opc_dispositionactionid_guid: XQW.Guid;
+  opc_dispositionreasonid_guid: XQW.Guid;
   opc_name: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
@@ -9163,8 +9195,8 @@ interface opc_allegation_Expand {
   opc_allegation_checklistresponses_allegation: WebExpand<opc_allegation_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { opc_allegation_checklistresponses_allegation: opc_ChecklistResponse_Result[] }>;
   opc_allegationtypeid: WebExpand<opc_allegation_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_allegationtypeid: opc_allegationtype_Result }>;
   opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
-  opc_dispositionaction: WebExpand<opc_allegation_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionaction: opc_dispositionaction_Result }>;
-  opc_dispositionreason: WebExpand<opc_allegation_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreason: opc_dispositionreason_Result }>;
+  opc_dispositionactionid: WebExpand<opc_allegation_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionactionid: opc_dispositionaction_Result }>;
+  opc_dispositionreasonid: WebExpand<opc_allegation_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreasonid: opc_dispositionreason_Result }>;
 }
 interface opc_allegation_FormattedResult {
   createdby_formatted?: string;
@@ -9176,8 +9208,8 @@ interface opc_allegation_FormattedResult {
   opc_allegationtypeid_formatted?: string;
   opc_complaintid_formatted?: string;
   opc_disposition_formatted?: string;
-  opc_dispositionaction_formatted?: string;
-  opc_dispositionreason_formatted?: string;
+  opc_dispositionactionid_formatted?: string;
+  opc_dispositionreasonid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -9194,8 +9226,8 @@ interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Rela
   modifiedonbehalfby_guid: string | null;
   opc_allegationtypeid_guid: string | null;
   opc_complaintid_guid: string | null;
-  opc_dispositionaction_guid: string | null;
-  opc_dispositionreason_guid: string | null;
+  opc_dispositionactionid_guid: string | null;
+  opc_dispositionreasonid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
@@ -9204,8 +9236,8 @@ interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Rela
 interface opc_allegation_RelatedOne {
   opc_allegationtypeid: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-  opc_dispositionaction: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
-  opc_dispositionreason: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  opc_dispositionactionid: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  opc_dispositionreasonid: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
 }
 interface opc_allegation_RelatedMany {
   opc_allegation_checklistresponses_allegation: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
@@ -9860,7 +9892,10 @@ interface opc_dispositionaction_Base extends WebEntity {
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
   opc_dispositionactionid?: string | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_dispositionaction_statecode | null;
   statuscode?: opc_dispositionaction_statuscode | null;
@@ -9869,10 +9904,10 @@ interface opc_dispositionaction_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface opc_dispositionaction_Relationships {
-  opc_allegation_dispositionaction_opc_disp?: opc_allegation_Result[] | null;
+  opc_dispositionaction_allegations_action?: opc_allegation_Result[] | null;
 }
 interface opc_dispositionaction extends opc_dispositionaction_Base, opc_dispositionaction_Relationships {
-  opc_dispositionreason_bind$opc_dispositionreasons?: string | null;
+  opc_dispositionreasonid_bind$opc_dispositionreasons?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -9889,8 +9924,11 @@ interface opc_dispositionaction_Select {
   modifiedon: WebAttribute<opc_dispositionaction_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_dispositionaction_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_dispositionactionid: WebAttribute<opc_dispositionaction_Select, { opc_dispositionactionid: string | null }, {  }>;
-  opc_dispositionreason_guid: WebAttribute<opc_dispositionaction_Select, { opc_dispositionreason_guid: string | null }, { opc_dispositionreason_formatted?: string }>;
+  opc_dispositionreasonid_guid: WebAttribute<opc_dispositionaction_Select, { opc_dispositionreasonid_guid: string | null }, { opc_dispositionreasonid_formatted?: string }>;
+  opc_islocalizable: WebAttribute<opc_dispositionaction_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_dispositionaction_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_dispositionaction_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_dispositionaction_Select, { opc_namefrench: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_dispositionaction_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_dispositionaction_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_dispositionaction_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -9911,8 +9949,11 @@ interface opc_dispositionaction_Filter {
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
   opc_dispositionactionid: XQW.Guid;
-  opc_dispositionreason_guid: XQW.Guid;
+  opc_dispositionreasonid_guid: XQW.Guid;
+  opc_islocalizable: boolean;
   opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -9925,8 +9966,8 @@ interface opc_dispositionaction_Filter {
   versionnumber: number;
 }
 interface opc_dispositionaction_Expand {
-  opc_allegation_dispositionaction_opc_disp: WebExpand<opc_dispositionaction_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegation_dispositionaction_opc_disp: opc_allegation_Result[] }>;
-  opc_dispositionreason: WebExpand<opc_dispositionaction_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreason: opc_dispositionreason_Result }>;
+  opc_dispositionaction_allegations_action: WebExpand<opc_dispositionaction_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_dispositionaction_allegations_action: opc_allegation_Result[] }>;
+  opc_dispositionreasonid: WebExpand<opc_dispositionaction_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreasonid: opc_dispositionreason_Result }>;
 }
 interface opc_dispositionaction_FormattedResult {
   createdby_formatted?: string;
@@ -9935,7 +9976,7 @@ interface opc_dispositionaction_FormattedResult {
   modifiedby_formatted?: string;
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
-  opc_dispositionreason_formatted?: string;
+  opc_dispositionreasonid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -9950,17 +9991,17 @@ interface opc_dispositionaction_Result extends opc_dispositionaction_Base, opc_d
   createdonbehalfby_guid: string | null;
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
-  opc_dispositionreason_guid: string | null;
+  opc_dispositionreasonid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
   owninguser_guid: string | null;
 }
 interface opc_dispositionaction_RelatedOne {
-  opc_dispositionreason: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  opc_dispositionreasonid: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
 }
 interface opc_dispositionaction_RelatedMany {
-  opc_allegation_dispositionaction_opc_disp: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  opc_dispositionaction_allegations_action: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_dispositionactions: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
@@ -9977,7 +10018,10 @@ interface opc_dispositionreason_Base extends WebEntity {
   modifiedon?: Date | null;
   opc_allegationdisposition?: opc_allegationdisposition | null;
   opc_dispositionreasonid?: string | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_dispositionreason_statecode | null;
   statuscode?: opc_dispositionreason_statuscode | null;
@@ -9986,8 +10030,8 @@ interface opc_dispositionreason_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface opc_dispositionreason_Relationships {
-  opc_allegation_dispositionreason_opc_disp?: opc_allegation_Result[] | null;
-  opc_dispositionaction_dispositionreason_o?: opc_dispositionaction_Result[] | null;
+  opc_dispositionreason_allegations_reason?: opc_allegation_Result[] | null;
+  opc_dispositionreason_dispositionactions_reas?: opc_dispositionaction_Result[] | null;
 }
 interface opc_dispositionreason extends opc_dispositionreason_Base, opc_dispositionreason_Relationships {
   ownerid_bind$systemusers?: string | null;
@@ -10007,7 +10051,10 @@ interface opc_dispositionreason_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_dispositionreason_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_allegationdisposition: WebAttribute<opc_dispositionreason_Select, { opc_allegationdisposition: opc_allegationdisposition | null }, { opc_allegationdisposition_formatted?: string }>;
   opc_dispositionreasonid: WebAttribute<opc_dispositionreason_Select, { opc_dispositionreasonid: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_dispositionreason_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_dispositionreason_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_dispositionreason_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_dispositionreason_Select, { opc_namefrench: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_dispositionreason_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_dispositionreason_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_dispositionreason_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -10029,7 +10076,10 @@ interface opc_dispositionreason_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_allegationdisposition: opc_allegationdisposition;
   opc_dispositionreasonid: XQW.Guid;
+  opc_islocalizable: boolean;
   opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -10042,8 +10092,8 @@ interface opc_dispositionreason_Filter {
   versionnumber: number;
 }
 interface opc_dispositionreason_Expand {
-  opc_allegation_dispositionreason_opc_disp: WebExpand<opc_dispositionreason_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegation_dispositionreason_opc_disp: opc_allegation_Result[] }>;
-  opc_dispositionaction_dispositionreason_o: WebExpand<opc_dispositionreason_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionaction_dispositionreason_o: opc_dispositionaction_Result[] }>;
+  opc_dispositionreason_allegations_reason: WebExpand<opc_dispositionreason_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_dispositionreason_allegations_reason: opc_allegation_Result[] }>;
+  opc_dispositionreason_dispositionactions_reas: WebExpand<opc_dispositionreason_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionreason_dispositionactions_reas: opc_dispositionaction_Result[] }>;
 }
 interface opc_dispositionreason_FormattedResult {
   createdby_formatted?: string;
@@ -10075,8 +10125,8 @@ interface opc_dispositionreason_Result extends opc_dispositionreason_Base, opc_d
 interface opc_dispositionreason_RelatedOne {
 }
 interface opc_dispositionreason_RelatedMany {
-  opc_allegation_dispositionreason_opc_disp: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
-  opc_dispositionaction_dispositionreason_o: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  opc_dispositionreason_allegations_reason: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  opc_dispositionreason_dispositionactions_reas: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_dispositionreasons: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;

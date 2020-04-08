@@ -7,7 +7,7 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls">
       <tabs>
-        <tab verticallayout="true" id="{4d24e328-50af-48ee-a3ce-a7bd72216f9f}" IsUserDefined="1">
+        <tab verticallayout="true" id="{4d24e328-50af-48ee-a3ce-a7bd72216f9f}" IsUserDefined="1" name="tab_general">
           <labels>
             <label description="General" languagecode="1033" />
             <label description="Général" languagecode="1036" />
@@ -15,35 +15,75 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{34ff5f3d-7482-4438-8ad8-1175748206db}">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{34ff5f3d-7482-4438-8ad8-1175748206db}" name="section_general" columns="11">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{d589c892-7340-49d0-aceb-59b913946612}" showlabel="true" locklevel="0">
+                      <cell id="{680ec071-ac70-40cc-91c3-b1905776f657}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Disposition Reason" languagecode="1033" />
+                          <label description="English Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_dispositionreason" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionreason" disabled="false" uniqueid="{d9a354ec-b110-39ed-78d2-cc8ce4bd6a7a}">
-                          <parameters>
-                            <AutoResolve>true</AutoResolve>
-                            <DisableMru>true</DisableMru>
-                            <DisableQuickFind>false</DisableQuickFind>
-                            <DisableViewPicker>false</DisableViewPicker>
-                            <DefaultViewId>{63BFA332-531C-46ED-810A-A44AA0375263}</DefaultViewId>
-                            <AllowFilterOff>false</AllowFilterOff>
-                          </parameters>
-                        </control>
+                        <control id="opc_nameenglish" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_nameenglish" disabled="false" />
+                      </cell>
+                      <cell id="{a9ca783b-b60a-4340-a3c1-c74d315207a7}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="French Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_namefrench" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_namefrench" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{b408c712-575b-4dbb-b056-6af050e61550}">
+                      <cell id="{2ec2b46c-1081-4cf3-b2ba-4033961652ae}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Is Localizable" languagecode="1033" />
+                        </labels>
+                        <control id="opc_islocalizable" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_islocalizable" disabled="true" />
+                      </cell>
+                      <cell showlabel="false" locklevel="0" id="{e4b89143-2f4b-40f0-bc6e-331070060f77}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b408c712-575b-4dbb-b056-6af050e61550}" visible="false">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{5dae6a82-c694-4aee-8339-7bc85224bce8}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{de1aaed3-e42f-48e5-9086-834cab073761}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Disposition Reason" languagecode="1033" />
+                        </labels>
+                        <control id="opc_dispositionreasonid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionreasonid" disabled="false" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{2382dfe3-5f8b-4757-8cb3-e38fe2589ec6}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{62bdbc88-659f-4755-9db6-04dc6924fcff}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{0edcfbc7-f856-48a1-8e23-2bedb8bca9fe}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -103,7 +143,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

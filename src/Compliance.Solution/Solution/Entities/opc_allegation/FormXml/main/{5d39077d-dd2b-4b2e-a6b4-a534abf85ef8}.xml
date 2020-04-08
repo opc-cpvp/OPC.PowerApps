@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{274b9ff7-ebd6-4d74-9e35-c2584680902e}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -56,11 +56,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{89d5be88-93dd-471f-8a8a-0683f14eb6e3}" showlabel="true" locklevel="0">
+                      <cell id="{e47c08a5-5a31-4206-b47e-ffc423aca82d}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Disposition Reason" languagecode="1033" />
                         </labels>
-                        <control id="opc_dispositionreason" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionreason" disabled="false" uniqueid="{bd7ea882-7359-51a4-3adc-17870dae2734}">
+                        <control id="opc_dispositionreasonid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionreasonid" disabled="false" uniqueid="{09626129-95b7-d468-cb23-da11c793d040}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>true</DisableMru>
@@ -73,11 +73,23 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{781a7489-e964-4f8e-87ef-ad59d1909085}" showlabel="true" locklevel="0">
+                      <cell id="{3f5039ab-4e0e-4607-9125-4d17769806cb}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Disposition Action" languagecode="1033" />
                         </labels>
-                        <control id="opc_dispositionaction" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionaction" disabled="false" />
+                        <control id="opc_dispositionactionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionactionid" disabled="false" uniqueid="{333926e1-221b-2a17-e4d7-a99a0aab699e}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E9866CEC-25A9-4487-863B-BE49B492C53D}</DefaultViewId>
+                            <FilterRelationshipName>opc_dispositionreason_dispositionactions_reas</FilterRelationshipName>
+                            <DependentAttributeName>opc_allegation.opc_dispositionreasonid</DependentAttributeName>
+                            <DependentAttributeType>opc_dispositionreason</DependentAttributeType>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>
@@ -160,7 +172,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -190,6 +202,16 @@
         </NavBarAreas>
       </Navigation>
       <controlDescriptions />
+      <formLibraries>
+        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{895c08e2-3ddd-e23d-ad1d-628020cac6de}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{a7d32904-2356-a48a-ee4b-de0bda91135c}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

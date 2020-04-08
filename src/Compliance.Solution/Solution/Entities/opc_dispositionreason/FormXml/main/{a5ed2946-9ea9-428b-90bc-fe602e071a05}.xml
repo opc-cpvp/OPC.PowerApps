@@ -15,12 +15,52 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{95c667ba-94af-4c59-b2db-1c34cbd1192b}" name="section_general">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{95c667ba-94af-4c59-b2db-1c34cbd1192b}" name="section_general" columns="11">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
+                    <row>
+                      <cell id="{d91441bf-b297-46a9-bc8a-d0b5cdc86dd5}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="English Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_nameenglish" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_nameenglish" disabled="false" />
+                      </cell>
+                      <cell id="{fc7bf7a4-64aa-4c07-89f1-767414a299f4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="French Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_namefrench" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_namefrench" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bac3f15a-5aec-4890-a4ff-780e6372ef14}" showlabel="true" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Is Localizable" languagecode="1033" />
+                        </labels>
+                        <control id="opc_islocalizable" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_islocalizable" disabled="true" />
+                      </cell>
+                      <cell showlabel="false" locklevel="0" id="{852d3833-e8ec-4455-91dc-d047fde89dd0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fbd94224-fcba-48b7-b0e1-6f4ab7cbb1a4}" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{afa10f87-a75f-49e9-a130-d7b9124df61b}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                     <row>
                       <cell id="{13134b2e-4826-4890-b0b0-94d4396bf61b}" showlabel="true" locklevel="0">
                         <labels>
@@ -28,13 +68,10 @@
                         </labels>
                         <control id="opc_allegationdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_allegationdisposition" disabled="false" />
                       </cell>
-                    </row>
-                    <row>
-                      <cell id="{fbd94224-fcba-48b7-b0e1-6f4ab7cbb1a4}">
+                      <cell showlabel="true" locklevel="0" id="{f9289719-450b-4c7e-b0c4-41af05d6eddd}">
                         <labels>
-                          <label description="Name" languagecode="1033" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
                     </row>
                     <row>
@@ -48,9 +85,26 @@
                             <ViewId>{4D5EEBA0-4B5D-45CD-A116-899EC68341B0}</ViewId>
                             <ViewIds>{4D5EEBA0-4B5D-45CD-A116-899EC68341B0}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_dispositionaction_dispositionreason_o</RelationshipName>
+                            <RelationshipName>opc_dispositionreason_dispositionactions_reas</RelationshipName>
                           </parameters>
                         </control>
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{45d4abdc-8e3c-45e3-9053-9be0a720909d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{5e5a2f9e-d287-480d-b037-9643b0f666f4}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{faaae154-99a2-4cec-bfbe-589abe62cafd}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>

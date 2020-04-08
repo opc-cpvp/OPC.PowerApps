@@ -84,8 +84,6 @@
   <EntityRelationship Name="lk_opc_topic_modifiedby" />
   <EntityRelationship Name="opc_account_complaints_respondent" />
   <EntityRelationship Name="opc_allegation_checklistresponses_allegation" />
-  <EntityRelationship Name="opc_allegation_dispositionaction_opc_disp" />
-  <EntityRelationship Name="opc_allegation_dispositionreason_opc_disp" />
   <EntityRelationship Name="opc_allegationtype_allegations_allegationtype" />
   <EntityRelationship Name="opc_checklisttype_allegationtypes_checklistty" />
   <EntityRelationship Name="opc_checklisttype_questiontemplates_checklist" />
@@ -97,7 +95,9 @@
   <EntityRelationship Name="opc_complaints_topics_relatedtopics" />
   <EntityRelationship Name="opc_contact_complaints_complainant" />
   <EntityRelationship Name="opc_contact_complaints_complainantreps" />
-  <EntityRelationship Name="opc_dispositionaction_dispositionreason_o" />
+  <EntityRelationship Name="opc_dispositionaction_allegations_action" />
+  <EntityRelationship Name="opc_dispositionreason_allegations_reason" />
+  <EntityRelationship Name="opc_dispositionreason_dispositionactions_reas" />
   <EntityRelationship Name="opc_legislation_complaints_legislation" />
   <EntityRelationship Name="opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite" />
   <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />

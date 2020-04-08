@@ -13,7 +13,7 @@
           <cell name="opc_name" width="200" />
           <cell name="opc_description" width="300" />
           <cell name="opc_disposition" width="153" />
-          <cell name="opc_dispositionreason" width="300" />
+          <cell name="opc_dispositionreasonid" width="300" />
         </row>
       </grid>
     </layoutxml>
@@ -26,9 +26,9 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_allegationid" />
           <attribute name="opc_disposition" />
-          <attribute name="opc_dispositionreason" />
+          <attribute name="opc_allegationid" />
+          <attribute name="opc_dispositionreasonid" />
         </entity>
       </fetch>
     </fetchxml>
