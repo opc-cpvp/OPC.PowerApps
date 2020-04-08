@@ -26,5 +26,10 @@
         <label description="Applied" languagecode="1033" />
       </labels>
     </option>
+    <option value="924340003">
+      <labels>
+        <label description="Former" languagecode="1033" />
+      </labels>
+    </option>
   </options>
 </optionset>

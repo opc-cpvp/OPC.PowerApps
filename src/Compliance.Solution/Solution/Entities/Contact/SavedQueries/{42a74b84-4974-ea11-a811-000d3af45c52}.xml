@@ -35,7 +35,7 @@
     </fetchxml>
     <IntroducedVersion>1.0.208</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Multiple Complaint Strategy Contact List" languagecode="1033" />
+      <LocalizedName description="MCS Contact List" languagecode="1033" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Contacts that have been approved for the Multiple Complaint Strategy." languagecode="1033" />

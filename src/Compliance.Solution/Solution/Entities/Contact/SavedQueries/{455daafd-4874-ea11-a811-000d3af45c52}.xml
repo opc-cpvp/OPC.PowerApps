@@ -36,7 +36,7 @@
     </fetchxml>
     <IntroducedVersion>1.0.208</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Pending Approval for Multi Complaint Strategy" languagecode="1033" />
+      <LocalizedName description="MCS Pending Approval Contact List" languagecode="1033" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Contacts that are waiting for approval to be on the Multiple Complaint Strategy list." languagecode="1033" />
