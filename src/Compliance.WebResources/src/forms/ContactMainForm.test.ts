@@ -23,7 +23,8 @@ describe("Contact", () => {
         let mcsOptions: XrmOptionMock[] = [
             { text: "Not Applied", value: opc_multiplecomplaintstrategy.NotApplied },
             { text: "Proposed", value: opc_multiplecomplaintstrategy.Proposed },
-            { text: "Applied", value: opc_multiplecomplaintstrategy.Applied }
+            { text: "Applied", value: opc_multiplecomplaintstrategy.Applied },
+            { text: "Former", value: opc_multiplecomplaintstrategy.Former }
         ];
 
         beforeEach(function () {
@@ -50,7 +51,7 @@ describe("Contact", () => {
 
             // Assert
             controlSpy.getOptions().should.contain.deep.members([{ text: "Applied", value: opc_multiplecomplaintstrategy.Applied }]);
-            controlSpy.getOptions().length.should.equal(3);
+            controlSpy.getOptions().length.should.equal(4);
         });
 
         it("it should contain option 'Applied' if user is not Intake Manager BUT MCS value is already 'Applied'", () => {
@@ -63,7 +64,7 @@ describe("Contact", () => {
 
             // Assert
             controlSpy.getOptions().should.contain.deep.members([{ text: "Applied", value: opc_multiplecomplaintstrategy.Applied }]);
-            controlSpy.getOptions().length.should.equal(3);
+            controlSpy.getOptions().length.should.equal(4);
         });
 
         it("it should not contain option 'Applied' if user is not Intake Manager", () => {
@@ -75,7 +76,7 @@ describe("Contact", () => {
 
             // Assert
             controlSpy.getOptions().should.not.contain.deep.members([{ text: "Applied", value: opc_multiplecomplaintstrategy.Applied }]);
-            controlSpy.getOptions().length.should.equal(2);
+            controlSpy.getOptions().length.should.equal(3);
         });
     });
     describe("when the contact is part of the Multiple Complaint Strategy", () => {
@@ -150,6 +151,19 @@ describe("Contact", () => {
         it("it should not display a form notification(if proposed)", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Proposed);
+
+            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
+        });
+        it("it should not display a form notification(if former)", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Former);
 
             //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockContext);
