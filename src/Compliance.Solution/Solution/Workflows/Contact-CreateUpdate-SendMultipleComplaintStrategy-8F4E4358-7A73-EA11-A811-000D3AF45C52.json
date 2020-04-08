@@ -36,7 +36,7 @@
               "subscriptionRequest/entityname": "contact",
               "subscriptionRequest/scope": 4,
               "subscriptionRequest/filteringattributes": "opc_multiplecomplaintstrategy",
-              "subscriptionRequest/filterexpression": "opc_multiplecomplaintstrategy ne 924340000"
+              "subscriptionRequest/filterexpression": "opc_multiplecomplaintstrategy eq 924340001 or opc_multiplecomplaintstrategy eq 924340002"
             },
             "authentication": "@parameters('$authentication')"
           }
