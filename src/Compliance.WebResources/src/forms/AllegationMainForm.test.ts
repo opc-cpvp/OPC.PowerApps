@@ -47,20 +47,20 @@ describe("Allegation", () => {
         it("it should ensure change of disposition reason is handled", () => {
             // Arrange
             let getAttribute = sandbox.spy(formContext, 'getAttribute');
-            let dispostionAttributeaddOnChange = sandbox.spy(formContext.getAttribute('opc_dispositionreason'), 'addOnChange');
+            let dispostionAttributeaddOnChange = sandbox.spy(formContext.getAttribute('opc_dispositionreasonid'), 'addOnChange');
 
             // Act
             form.initializeComponents(mockContext);
 
             // Assert
-            getAttribute.should.have.been.calledWith('opc_dispositionreason');
+            getAttribute.should.have.been.calledWith('opc_dispositionreasonid');
             dispostionAttributeaddOnChange.should.have.been.calledOnce;
         });
 
         it.skip("it should ensure disposition reason filtering is properly handled", () => {
             //TODO: Add mocking of LookupControls
             // Arrange
-            let dispositionReason = formContext.getAttribute('opc_dispositionreason').controls.get('opc_dispositionreason');
+            let dispositionReason = formContext.getAttribute('opc_dispositionreasonid').controls.get('opc_dispositionreasonid');
             let addPreSearch = sandbox.stub(dispositionReason, 'addPreSearch').callsFake(sinon.fake());
 
             // Act
@@ -73,7 +73,7 @@ describe("Allegation", () => {
         it.skip("it should ensure disposition action filtering is properly handled", () => {
             //TODO: Add mocking of LookupControls
             // Arrange
-            let dispositionAction = formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction');
+            let dispositionAction = formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionactionid');
             let addPreSearch = sandbox.stub(dispositionAction, 'addPreSearch').callsFake(sinon.fake());
 
             // Act
@@ -106,80 +106,80 @@ describe("Allegation", () => {
         it("to 'Acceptable', it should HIDE disposition reason and disposition action", () => {
             // Arrange
             formContext.getAttribute('opc_disposition').setValue(opc_allegationdisposition.Acceptable);
-            formContext.getAttribute('opc_dispositionreason').controls.get('opc_dispositionreason');
-            formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction').setVisible(true);//the get creates a record
+            formContext.getAttribute('opc_dispositionreasonid').controls.get('opc_dispositionreasonid');
+            formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionactionid').setVisible(true);//the get creates a record
 
             // Act
             formContext.getAttribute("opc_disposition").fireOnChange();
 
             // Assert
-            formContext.getAttribute('opc_dispositionreason').controls.forEach(
+            formContext.getAttribute('opc_dispositionreasonid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), false));
-            formContext.getAttribute('opc_dispositionaction').controls.forEach(
+            formContext.getAttribute('opc_dispositionactionid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), false));
         });
 
         it("to 'Resolved', it should SHOW disposition reason and HIDE disposition action", () => {
             // Arrange
             formContext.getAttribute('opc_disposition').setValue(opc_allegationdisposition.Resolved);
-            formContext.getAttribute('opc_dispositionreason').controls.get('opc_dispositionreason'); 
-            formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction').setVisible(true);;
+            formContext.getAttribute('opc_dispositionreasonid').controls.get('opc_dispositionreasonid'); 
+            formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionactionid').setVisible(true);;
 
             // Act
             formContext.getAttribute("opc_disposition").fireOnChange();
 
             // Assert
-            formContext.getAttribute('opc_dispositionreason').controls.forEach(
+            formContext.getAttribute('opc_dispositionreasonid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), true));
-            formContext.getAttribute('opc_dispositionaction').controls.forEach(
+            formContext.getAttribute('opc_dispositionactionid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), false));
         });
 
         it("to 'Unacceptable', it should SHOW disposition reason and HIDE disposition action", () => {
             // Arrange
             formContext.getAttribute('opc_disposition').setValue(opc_allegationdisposition.Unacceptable);
-            formContext.getAttribute('opc_dispositionreason').controls.get('opc_dispositionreason'); 
-            formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction').setVisible(true);;
+            formContext.getAttribute('opc_dispositionreasonid').controls.get('opc_dispositionreasonid'); 
+            formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionactionid').setVisible(true);;
 
             // Act
             formContext.getAttribute("opc_disposition").fireOnChange();
 
             // Assert
-            formContext.getAttribute('opc_dispositionreason').controls.forEach(
+            formContext.getAttribute('opc_dispositionreasonid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), true));
-            formContext.getAttribute('opc_dispositionaction').controls.forEach(
+            formContext.getAttribute('opc_dispositionactionid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), false));
         });
 
         it("to 'Withdrawn', it should HIDE disposition reason and disposition action", () => {
             // Arrange
             formContext.getAttribute('opc_disposition').setValue(opc_allegationdisposition.Withdrawn);
-            formContext.getAttribute('opc_dispositionreason').controls.get('opc_dispositionreason');
-            formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction').setVisible(true);;
+            formContext.getAttribute('opc_dispositionreasonid').controls.get('opc_dispositionreasonid');
+            formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionactionid').setVisible(true);;
 
             // Act
             formContext.getAttribute("opc_disposition").fireOnChange();
 
             // Assert
-            formContext.getAttribute('opc_dispositionreason').controls.forEach(
+            formContext.getAttribute('opc_dispositionreasonid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), false));
-            formContext.getAttribute('opc_dispositionaction').controls.forEach(
+            formContext.getAttribute('opc_dispositionactionid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), false));
         });
 
         it("and disposition reason and disposition action were set, it should reset both values", () => {
             // Arrange
-            formContext.getAttribute('opc_dispositionreason').controls.get('opc_dispositionreason');
-            formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction');
-            formContext.getAttribute('opc_dispositionreason').setValue([{ id: "val1" }]);
-            formContext.getAttribute('opc_dispositionaction').setValue([{ id: "val2" }]);
+            formContext.getAttribute('opc_dispositionreasonid').controls.get('opc_dispositionreasonid');
+            formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionactionid');
+            formContext.getAttribute('opc_dispositionreasonid').setValue([{ id: "val1" }]);
+            formContext.getAttribute('opc_dispositionactionid').setValue([{ id: "val2" }]);
 
             // Act
             formContext.getAttribute("opc_disposition").fireOnChange();
 
             // Assert
-            sinon.assert.match(formContext.getAttribute('opc_dispositionreason').getValue(), undefined);
-            sinon.assert.match(formContext.getAttribute('opc_dispositionaction').getValue(), undefined);
+            sinon.assert.match(formContext.getAttribute('opc_dispositionreasonid').getValue(), undefined);
+            sinon.assert.match(formContext.getAttribute('opc_dispositionactionid').getValue(), undefined);
         });
 
     });
@@ -204,41 +204,41 @@ describe("Allegation", () => {
 
         it("to 'Not a Privacy Complaint', it should SHOW disposition action", () => {
             // Arrange
-            formContext.getAttribute('opc_dispositionreason').setValue([{id:"{11DF9980-A76E-EA11-A811-000D3AF45A96}"}]);
-            formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction');
+            formContext.getAttribute('opc_dispositionreasonid').setValue([{id:"{11DF9980-A76E-EA11-A811-000D3AF45A96}"}]);
+            formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionactionid');
 
             // Act
-            formContext.getAttribute("opc_dispositionreason").fireOnChange();
+            formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
 
             // Assert
-            formContext.getAttribute('opc_dispositionaction').controls.forEach(
+            formContext.getAttribute('opc_dispositionactionid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), true));
         });
 
         it("to anything else, it should HIDE disposition action", () => {
             // Arrange
-            formContext.getAttribute('opc_dispositionreason').setValue([{ id: "anything else" }]);
-            formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction');
+            formContext.getAttribute('opc_dispositionreasonid').setValue([{ id: "anything else" }]);
+            formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionaction');
 
             // Act
-            formContext.getAttribute("opc_dispositionreason").fireOnChange();
+            formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
 
             // Assert
-            formContext.getAttribute('opc_dispositionaction').controls.forEach(
+            formContext.getAttribute('opc_dispositionactionid').controls.forEach(
                 ctrl => sinon.assert.match(ctrl.getVisible(), false));
         });
 
         it("and disposition action was set, it should reset the value", () => {
             // Arrange
-            formContext.getAttribute('opc_dispositionreason').controls.get('opc_dispositionreason');
-            formContext.getAttribute('opc_dispositionaction').controls.get('opc_dispositionaction');
-            formContext.getAttribute('opc_dispositionaction').setValue([{ id: "val2" }]);
+            formContext.getAttribute('opc_dispositionreasonid').controls.get('opc_dispositionreasonid');
+            formContext.getAttribute('opc_dispositionactionid').controls.get('opc_dispositionactionid');
+            formContext.getAttribute('opc_dispositionactionid').setValue([{ id: "val2" }]);
 
             // Act
-            formContext.getAttribute("opc_dispositionreason").fireOnChange();
+            formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
 
             // Assert
-            sinon.assert.match(formContext.getAttribute('opc_dispositionaction').getValue(), undefined);
+            sinon.assert.match(formContext.getAttribute('opc_dispositionactionid').getValue(), undefined);
         });
     });
 });
