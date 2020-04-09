@@ -458,8 +458,8 @@
           <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
-          <MaxLength>175</MaxLength>
-          <Length>350</Length>
+          <MaxLength>354</MaxLength>
+          <Length>708</Length>
           <displaynames>
             <displayname description="Name" languagecode="1033" />
           </displaynames>
