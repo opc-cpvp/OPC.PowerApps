@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_nextstep" localizedName="Next Step" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.210</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Next Step" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="924340000">
+      <labels>
+        <label description="Transfer to investigations" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340001">
+      <labels>
+        <label description="Resolved" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340002">
+      <labels>
+        <label description="Withdrawn" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340003">
+      <labels>
+        <label description="Settled" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340004">
+      <labels>
+        <label description="Discontinued" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>
