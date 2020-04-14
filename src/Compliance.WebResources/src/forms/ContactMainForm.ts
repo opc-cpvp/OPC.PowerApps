@@ -143,7 +143,7 @@ export namespace Contact.Forms {
         }
 
         /**
-        * Handle setting readonly value on the Multiple Complaint Strategy field.
+        * Returns wether the current user is an Intake Manager, a System Administrator or a System Customizer
         *
         * @event OnChange
         */
