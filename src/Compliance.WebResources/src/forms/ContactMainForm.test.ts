@@ -13,13 +13,15 @@ chai.should();
 chai.use(sinonChai);
 
 describe("Contact", () => {
-    describe("when MCS field is loading", () => {
+    describe("after MCS field is loading", () => {
         let service: ContactService;
         let form: Contact.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
         let mockUtility: XrmUtilityMock;
         let mcsControl: XrmBaseControlMock;
         let controlSpy: any;
+        let roleIntakeManager: { id: string, name: string } = { id: "8fcba750-362e-ea11-a810-000d3af46757", name: "Compliance - Intake Manager" };
+        let roleNotIntakeManager: { id: string, name: string } = { id: "B2D7179F-913E-42B4-B040-84E375AF8831", name: "NOT Intake Manager" };
         let mcsOptions: XrmOptionMock[] = [
             { text: "Not Applied", value: opc_multiplecomplaintstrategy.NotApplied },
             { text: "Proposed", value: opc_multiplecomplaintstrategy.Proposed },
@@ -44,7 +46,7 @@ describe("Contact", () => {
 
         it("it should contain option 'Applied' if user is Intake Manager", () => {
             // Arrange
-            mockUtility.getGlobalContext().userSettings.roles = ['{"name":"Compliance - Intake Manager"}']
+            mockUtility.getGlobalContext().userSettings.roles = [<string><unknown>roleIntakeManager];
 
             // Act
             form.initializeComponents(mockContext);
@@ -56,7 +58,7 @@ describe("Contact", () => {
 
         it("it should contain option 'Applied' if user is not Intake Manager BUT MCS value is already 'Applied'", () => {
             // Arrange
-            mockUtility.getGlobalContext().userSettings.roles = ['{"name":"NOT Intake Manager"}']
+            mockUtility.getGlobalContext().userSettings.roles = [<string><unknown>roleNotIntakeManager]
             mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
 
             // Act
@@ -69,7 +71,7 @@ describe("Contact", () => {
 
         it("it should not contain option 'Applied' if user is not Intake Manager", () => {
             // Arrange
-            mockUtility.getGlobalContext().userSettings.roles = ['{"name":"NOT Intake Manager"}']
+            mockUtility.getGlobalContext().userSettings.roles = [<string><unknown>roleNotIntakeManager]
 
             // Act
             form.initializeComponents(mockContext);
@@ -85,6 +87,8 @@ describe("Contact", () => {
         let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
         let mockUtility: XrmUtilityMock;
         let contextSpy: any;
+        let roleIntakeManager: { id: string, name: string } = { id: "8fcba750-362e-ea11-a810-000d3af46757", name: "Compliance - Intake Manager" };
+        let roleNotIntakeManager: { id: string, name: string } = { id: "B2D7179F-913E-42B4-B040-84E375AF8831", name: "NOT Intake Manager" };
 
         beforeEach(function () {
             service = new ContactService();
@@ -112,6 +116,36 @@ describe("Contact", () => {
 
             // Assert
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
+        });
+
+        it("it should lock the field if user is not Intake Manager", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            mockUtility.getGlobalContext().userSettings.roles = [<string><unknown>roleNotIntakeManager]
+
+            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().getControl("opc_multiplecomplaintstrategy").getDisabled().should.equal(true);
+        });
+
+        it("it should not lock the field if user is Intake Manager", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            mockUtility.getGlobalContext().userSettings.roles = [<string><unknown>roleIntakeManager]
+
+            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().getControl("opc_multiplecomplaintstrategy").getDisabled().should.equal(false);
         });
     });
     describe("when the contact is not part of the Multiple Complaint Strategy", () => {
