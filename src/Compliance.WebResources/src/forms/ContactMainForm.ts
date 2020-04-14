@@ -143,7 +143,7 @@ export namespace Contact.Forms {
         }
 
         /**
-        * Returns wether the current user is an Intake Manager, a System Administrator or a System Customizer
+        * Returns whether the current user is an Intake Manager, a System Administrator or a System Customizer
         *
         * @event OnChange
         */
