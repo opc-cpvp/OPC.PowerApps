@@ -294,7 +294,7 @@
           <Type>datetime</Type>
           <Name>opc_acceptancedate</Name>
           <LogicalName>opc_acceptancedate</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
+          <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -638,6 +638,45 @@
           </displaynames>
           <Descriptions>
             <Description description="Defines the dispositions to move out of the intake phase." languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="opc_lastmilestone">
+          <Type>picklist</Type>
+          <Name>opc_lastmilestone</Name>
+          <LogicalName>opc_lastmilestone</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.210</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>924340000</AppDefaultValue>
+          <OptionSetName>opc_complaintmilestone</OptionSetName>
+          <displaynames>
+            <displayname description="Last Milestone" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Last milestone for the complaint" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_legislation">

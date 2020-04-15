@@ -1,16 +1,8 @@
-declare const enum account_preferredcontactmethodcode {
-  Any = 1,
-  Email = 2,
-  Phone = 3,
-  Fax = 4,
-  Mail = 5,
-}
-declare const enum account_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum account_accountratingcode {
-  DefaultValue = 1,
+declare const enum account_address1_addresstypecode {
+  BillTo = 1,
+  ShipTo = 2,
+  Primary = 3,
+  Other = 4,
 }
 declare const enum account_address1_shippingmethodcode {
   Airborne = 1,
@@ -21,8 +13,77 @@ declare const enum account_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
+declare const enum account_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum account_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum account_accountratingcode {
+  DefaultValue = 1,
+}
+declare const enum account_preferredappointmenttimecode {
+  Morning = 1,
+  Afternoon = 2,
+  Evening = 3,
+}
+declare const enum account_accountclassificationcode {
+  DefaultValue = 1,
+}
+declare const enum account_customertypecode {
+  Competitor = 1,
+  Consultant = 2,
+  Customer = 3,
+  Investor = 4,
+  Partner = 5,
+  Influencer = 6,
+  Press = 7,
+  Prospect = 8,
+  Reseller = 9,
+  Supplier = 10,
+  Vendor = 11,
+  Other = 12,
+}
+declare const enum account_preferredcontactmethodcode {
+  Any = 1,
+  Email = 2,
+  Phone = 3,
+  Fax = 4,
+  Mail = 5,
+}
+declare const enum account_ownershipcode {
+  Public = 1,
+  Private = 2,
+  Subsidiary = 3,
+  Other = 4,
+}
+declare const enum account_address2_addresstypecode {
+  DefaultValue = 1,
+}
 declare const enum account_businesstypecode {
   DefaultValue = 1,
+}
+declare const enum account_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum account_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
+declare const enum account_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum account_customersizecode {
+  DefaultValue = 1,
+}
+declare const enum account_accountcategorycode {
+  PreferredCustomer = 1,
+  Standard = 2,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -59,52 +120,6 @@ declare const enum account_industrycode {
   VehicleRetail = 32,
   Wholesale = 33,
 }
-declare const enum account_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum account_preferredappointmenttimecode {
-  Morning = 1,
-  Afternoon = 2,
-  Evening = 3,
-}
-declare const enum account_address2_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum account_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
-declare const enum account_accountclassificationcode {
-  DefaultValue = 1,
-}
-declare const enum account_ownershipcode {
-  Public = 1,
-  Private = 2,
-  Subsidiary = 3,
-  Other = 4,
-}
-declare const enum account_territorycode {
-  DefaultValue = 1,
-}
-declare const enum account_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum account_address2_addresstypecode {
-  DefaultValue = 1,
-}
-declare const enum account_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum account_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
-declare const enum account_customersizecode {
-  DefaultValue = 1,
-}
 declare const enum account_preferredappointmentdaycode {
   Sunday = 0,
   Monday = 1,
@@ -114,29 +129,14 @@ declare const enum account_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum account_customertypecode {
-  Competitor = 1,
-  Consultant = 2,
-  Customer = 3,
-  Investor = 4,
-  Partner = 5,
-  Influencer = 6,
-  Press = 7,
-  Prospect = 8,
-  Reseller = 9,
-  Supplier = 10,
-  Vendor = 11,
-  Other = 12,
+declare const enum account_address2_shippingmethodcode {
+  DefaultValue = 1,
 }
-declare const enum account_accountcategorycode {
-  PreferredCustomer = 1,
-  Standard = 2,
+declare const enum account_address2_freighttermscode {
+  DefaultValue = 1,
 }
-declare const enum account_address1_addresstypecode {
-  BillTo = 1,
-  ShipTo = 2,
-  Primary = 3,
-  Other = 4,
+declare const enum account_territorycode {
+  DefaultValue = 1,
 }
 declare const enum contact_address3_addresstypecode {
   DefaultValue = 1,
@@ -146,6 +146,15 @@ declare const enum contact_address1_addresstypecode {
   ShipTo = 2,
   Primary = 3,
   Other = 4,
+}
+declare const enum contact_address1_shippingmethodcode {
+  Airborne = 1,
+  DHL = 2,
+  FedEx = 3,
+  UPS = 4,
+  PostalMail = 5,
+  FullLoad = 6,
+  WillCall = 7,
 }
 declare const enum contact_paymenttermscode {
   Net30 = 1,
@@ -157,33 +166,31 @@ declare const enum contact_gendercode {
   Male = 1,
   Female = 2,
 }
-declare const enum contact_address1_shippingmethodcode {
-  Airborne = 1,
-  DHL = 2,
-  FedEx = 3,
-  UPS = 4,
-  PostalMail = 5,
-  FullLoad = 6,
-  WillCall = 7,
-}
 declare const enum opc_duplicatedetectionresult {
   None = 924340000,
   Potentialduplicate = 924340001,
   Duplicatefound = 924340002,
-}
-declare const enum contact_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
 }
 declare const enum contact_preferredappointmenttimecode {
   Morning = 1,
   Afternoon = 2,
   Evening = 3,
 }
+declare const enum contact_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum contact_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
 declare const enum contact_address3_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_customertypecode {
+  DefaultValue = 1,
+}
+declare const enum contact_educationcode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -193,28 +200,12 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
-declare const enum contact_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum contact_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum contact_educationcode {
-  DefaultValue = 1,
-}
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
 declare const enum contact_accountrolecode {
   DecisionMaker = 1,
   Employee = 2,
   Influencer = 3,
 }
 declare const enum contact_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum contact_address3_freighttermscode {
@@ -251,13 +242,18 @@ declare const enum contact_familystatuscode {
 declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
+declare const enum contact_address2_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_territorycode {
+  DefaultValue = 1,
+}
 declare const enum opc_allegation_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_allegation_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum opc_allegationdisposition {
   Suitable = 924340000,
@@ -267,6 +263,10 @@ declare const enum opc_allegationdisposition {
   RedirectedtoInstitution = 924340004,
   Resolved = 924340005,
   Unresponsiveinquirer = 924340006,
+}
+declare const enum opc_allegation_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_allegationtype_statecode {
   Active = 0,
@@ -288,12 +288,12 @@ declare const enum opc_checklisttype_statecode {
   Active = 0,
   Inactive = 1,
 }
+declare const enum opc_complaintstage {
+  Intake = 924340000,
+}
 declare const enum opc_checklisttype_statuscode {
   Active = 1,
   Inactive = 2,
-}
-declare const enum opc_complaintstage {
-  Intake = 924340000,
 }
 declare const enum opc_nextstep {
   Transfertoinvestigations = 924340000,
@@ -302,9 +302,32 @@ declare const enum opc_nextstep {
   Settled = 924340003,
   Discontinued = 924340004,
 }
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
+}
 declare const enum opc_complaint_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
+}
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
 }
 declare const enum opc_yesorno {
   Yes = 924340000,
@@ -331,31 +354,9 @@ declare const enum opc_complaint_statuscode {
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
 }
-declare const enum opc_closereason {
-  Redirection = 924340000,
-  Duplicate = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
-  Createdinerror = 924340004,
-}
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
-}
 declare const enum opc_individualcomplaint_bp_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_individualcomplaint_bp_statuscode {
-  Active = 1,
-  Finished = 2,
-  Aborted = 3,
 }
 declare const enum processstage_category {
   Qualify = 0,
@@ -371,6 +372,11 @@ declare const enum processstage_category {
   Acceptance = 924340002,
   EarlyResoloution = 924340003,
   Investigation = 924340004,
+}
+declare const enum opc_individualcomplaint_bp_statuscode {
+  Active = 1,
+  Finished = 2,
+  Aborted = 3,
 }
 declare const enum opc_issue_statecode {
   Active = 0,
@@ -469,13 +475,13 @@ declare const enum opc_riskassessmentcategorytemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentdefinition_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_riskassessmentdefinition_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_riskassessmentdefinition_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_riskassessmentdefinitiontemplate_statecode {
   Active = 0,
@@ -547,13 +553,6 @@ declare const enum queueitem_objecttypecode {
   KnowledgeArticleTemplate = 10007,
   Complaint = 11091,
 }
-declare const enum activityparty_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
-}
 declare const enum activityparty_participationtypemask {
   Sender = 1,
   ToRecipient = 2,
@@ -567,9 +566,12 @@ declare const enum activityparty_participationtypemask {
   Resource = 10,
   Customer = 11,
 }
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum activityparty_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
 }
 declare const enum connection_statuscode {
   Active = 1,
@@ -620,6 +622,10 @@ declare const enum connection_record2objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
+}
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare namespace Form.account.Quick {
   namespace AccountHierarchyTileForm {
@@ -4064,6 +4070,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+      get(name: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_number"): Xrm.Attribute<string>;
@@ -4081,14 +4088,13 @@ declare namespace Form.opc_complaint.Main {
       get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
       get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
       get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+      get(name: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
       get(name: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason4"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason5"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
@@ -4101,7 +4107,6 @@ declare namespace Form.opc_complaint.Main {
       get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode3"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_accountid"): Xrm.LookupControl<"account">;
@@ -4145,6 +4150,7 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+    getAttribute(attributeName: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
@@ -4157,14 +4163,13 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
     getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
     getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+    getControl(controlName: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
     getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason4"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason5"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
@@ -4177,7 +4182,6 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode3"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
@@ -4226,8 +4230,6 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason4"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason5"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
@@ -4240,7 +4242,6 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode3"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -4279,8 +4280,6 @@ declare namespace Form.opc_complaint.Quick {
     getControl(controlName: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason4"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason5"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
@@ -4293,7 +4292,6 @@ declare namespace Form.opc_complaint.Quick {
     getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode3"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -4305,15 +4303,22 @@ declare namespace Form.opc_complaint.Quick {
 declare namespace Form.opc_individualcomplaint_bp.Main {
   namespace Information {
     namespace Tabs {
-      interface StageStep13 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep13_section1"): Xrm.PageSection;
+      interface StageStep11 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep11_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep23 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep23_section1"): Xrm.PageSection;
+      interface StageStep21 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep21_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep29 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep29_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4326,57 +4331,43 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep31 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep31_section1"): Xrm.PageSection;
+      interface StageStep33 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep33_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep35 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep35_section1"): Xrm.PageSection;
+      interface StageStep37 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep37_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep39 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep39_section1"): Xrm.PageSection;
+      interface StageStep41 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep41_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep43 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep43_section1"): Xrm.PageSection;
+      interface StageStep45 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep45_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep47 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep47_section1"): Xrm.PageSection;
+      interface StageStep49 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep49_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep51 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep51_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep57 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep57_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep63 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep63_section1"): Xrm.PageSection;
+      interface StageStep55 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep55_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4406,8 +4397,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason1"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason2"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason3"): Xrm.OptionSetControl<number>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason4"): Xrm.OptionSetControl<number>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason5"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainant"): Xrm.LookupControl<"opc_complaints">;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
@@ -4420,24 +4409,22 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode1"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode2"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode3"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "StageStep13"): Xrm.PageTab<Tabs.StageStep13>;
-      get(name: "StageStep23"): Xrm.PageTab<Tabs.StageStep23>;
+      get(name: "StageStep11"): Xrm.PageTab<Tabs.StageStep11>;
+      get(name: "StageStep21"): Xrm.PageTab<Tabs.StageStep21>;
+      get(name: "StageStep29"): Xrm.PageTab<Tabs.StageStep29>;
       get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
-      get(name: "StageStep31"): Xrm.PageTab<Tabs.StageStep31>;
-      get(name: "StageStep35"): Xrm.PageTab<Tabs.StageStep35>;
-      get(name: "StageStep39"): Xrm.PageTab<Tabs.StageStep39>;
-      get(name: "StageStep43"): Xrm.PageTab<Tabs.StageStep43>;
-      get(name: "StageStep47"): Xrm.PageTab<Tabs.StageStep47>;
-      get(name: "StageStep51"): Xrm.PageTab<Tabs.StageStep51>;
-      get(name: "StageStep57"): Xrm.PageTab<Tabs.StageStep57>;
-      get(name: "StageStep63"): Xrm.PageTab<Tabs.StageStep63>;
+      get(name: "StageStep33"): Xrm.PageTab<Tabs.StageStep33>;
+      get(name: "StageStep37"): Xrm.PageTab<Tabs.StageStep37>;
+      get(name: "StageStep41"): Xrm.PageTab<Tabs.StageStep41>;
+      get(name: "StageStep45"): Xrm.PageTab<Tabs.StageStep45>;
+      get(name: "StageStep49"): Xrm.PageTab<Tabs.StageStep49>;
+      get(name: "StageStep55"): Xrm.PageTab<Tabs.StageStep55>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -4462,8 +4449,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason1"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason2"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason3"): Xrm.OptionSetControl<number>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason4"): Xrm.OptionSetControl<number>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason5"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainant"): Xrm.LookupControl<"opc_complaints">;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
@@ -4476,7 +4461,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode1"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode2"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode3"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: string): undefined;
   }
 }
@@ -9440,6 +9424,7 @@ interface opc_complaint_Base extends WebEntity {
   opc_complaintdisposition?: opc_complaintdisposition | null;
   opc_complaintid?: string | null;
   opc_intakedisposition?: opc_intakedisposition | null;
+  opc_lastmilestone?: opc_complaintmilestone | null;
   opc_nextstep?: opc_nextstep | null;
   opc_number?: string | null;
   opc_recommendtoregistrar?: opc_yesorno | null;
@@ -9498,6 +9483,7 @@ interface opc_complaint_Select {
   opc_complaintdisposition: WebAttribute<opc_complaint_Select, { opc_complaintdisposition: opc_complaintdisposition | null }, { opc_complaintdisposition_formatted?: string }>;
   opc_complaintid: WebAttribute<opc_complaint_Select, { opc_complaintid: string | null }, {  }>;
   opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
+  opc_lastmilestone: WebAttribute<opc_complaint_Select, { opc_lastmilestone: opc_complaintmilestone | null }, { opc_lastmilestone_formatted?: string }>;
   opc_legislation_guid: WebAttribute<opc_complaint_Select, { opc_legislation_guid: string | null }, { opc_legislation_formatted?: string }>;
   opc_nextstep: WebAttribute<opc_complaint_Select, { opc_nextstep: opc_nextstep | null }, { opc_nextstep_formatted?: string }>;
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
@@ -9537,6 +9523,7 @@ interface opc_complaint_Filter {
   opc_complaintdisposition: opc_complaintdisposition;
   opc_complaintid: XQW.Guid;
   opc_intakedisposition: opc_intakedisposition;
+  opc_lastmilestone: opc_complaintmilestone;
   opc_legislation_guid: XQW.Guid;
   opc_nextstep: opc_nextstep;
   opc_number: string;
@@ -9589,6 +9576,7 @@ interface opc_complaint_FormattedResult {
   opc_complainantrep_formatted?: string;
   opc_complaintdisposition_formatted?: string;
   opc_intakedisposition_formatted?: string;
+  opc_lastmilestone_formatted?: string;
   opc_legislation_formatted?: string;
   opc_nextstep_formatted?: string;
   opc_opcpriorityid_formatted?: string;

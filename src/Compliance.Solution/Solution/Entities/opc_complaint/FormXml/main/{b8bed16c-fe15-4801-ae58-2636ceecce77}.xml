@@ -495,6 +495,12 @@
               </labels>
               <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
             </cell>
+            <cell id="{9a1af0ed-0bac-45b9-84ea-dd4285d4ac7d}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Last Milestone" languagecode="1033" />
+              </labels>
+              <control id="header_opc_lastmilestone" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_lastmilestone" disabled="false" />
+            </cell>
           </row>
         </rows>
       </header>
