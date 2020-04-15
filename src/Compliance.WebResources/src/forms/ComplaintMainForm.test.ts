@@ -70,8 +70,8 @@ describe("Complaint", () => {
 
             contacts = [
                 {
-                    id: "asd",
-                    name: "test",
+                    id: "233A4366-A101-4B59-9004-DA83CE087922",
+                    name: "Marc Dupre",
                     entityType: "contact"
                 }
             ];
@@ -99,8 +99,8 @@ describe("Complaint", () => {
 
             contacts = [
                 {
-                    id: "asd",
-                    name: "test",
+                    id: "0C0F0F9E-6E8E-4EBA-A58E-160C4D9CE970",
+                    name: "Alexis Fortin",
                     entityType: "contact"
                 }
             ];
@@ -185,8 +185,8 @@ describe("Complaint", () => {
 
             contacts = [
                 {
-                    id: "asd",
-                    name: "test",
+                    id: "700E2913-51B5-44B0-A5E1-EF48487C5DE3",
+                    name: "Bruce Springsteen",
                     entityType: "contact"
                 }
             ];
