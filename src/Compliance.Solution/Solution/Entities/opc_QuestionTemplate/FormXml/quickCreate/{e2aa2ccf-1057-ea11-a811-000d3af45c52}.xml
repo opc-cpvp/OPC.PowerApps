@@ -20,11 +20,27 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{c06eeedc-7e35-420c-9e49-98d6c14cf3c1}" showlabel="true" locklevel="0" labelid="{546c7a83-c6df-4980-9387-5e67440f75c8}">
+                      <cell id="{c06eeedc-7e35-420c-9e49-98d6c14cf3c1}" showlabel="true" locklevel="0" labelid="{546c7a83-c6df-4980-9387-5e67440f75c8}" visible="false">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{23b389f6-adf8-4ba5-9531-ac2ac4e3563a}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name English" languagecode="1033" />
+                        </labels>
+                        <control id="opc_nameenglish" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_nameenglish" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6c2e57ca-d229-4fa5-b0a0-ce3ad79a940d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Name French" languagecode="1033" />
+                        </labels>
+                        <control id="opc_namefrench" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_namefrench" disabled="false" />
                       </cell>
                     </row>
                     <row>
