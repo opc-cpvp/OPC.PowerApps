@@ -510,7 +510,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 10767,
+  Complaint = 11064,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -5184,10 +5184,10 @@ declare namespace Form.opc_reminder.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_notifyadditionalusers"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "opc_notifycaseowner"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "opc_notifyme"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_notifyadditionalusers"): Xrm.Attribute<any>;
+      get(name: "opc_notifybyemail"): Xrm.Attribute<any>;
+      get(name: "opc_notifycaseowner"): Xrm.Attribute<any>;
+      get(name: "opc_notifyme"): Xrm.Attribute<any>;
       get(name: "opc_reminderdate"): Xrm.DateAttribute;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
@@ -5202,10 +5202,10 @@ declare namespace Form.opc_reminder.Main {
       get(name: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
       get(name: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_notifyadditionalusers"): Xrm.OptionSetControl<boolean>;
-      get(name: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
-      get(name: "opc_notifycaseowner"): Xrm.OptionSetControl<boolean>;
-      get(name: "opc_notifyme"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_notifybyemail"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
+      get(name: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_reminderdate"): Xrm.DateControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -5224,10 +5224,10 @@ declare namespace Form.opc_reminder.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_notifyadditionalusers"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "opc_notifybyemail"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "opc_notifycaseowner"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "opc_notifyme"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_notifyadditionalusers"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_notifybyemail"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_notifycaseowner"): Xrm.Attribute<any>;
+    getAttribute(attributeName: "opc_notifyme"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_reminderdate"): Xrm.DateAttribute;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
@@ -5237,10 +5237,10 @@ declare namespace Form.opc_reminder.Main {
     getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
     getControl(controlName: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_notifyadditionalusers"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "opc_notifybyemail"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "opc_notifycaseowner"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "opc_notifyme"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_notifybyemail"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
+    getControl(controlName: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_reminderdate"): Xrm.DateControl;
     getControl(controlName: string): undefined;
   }
