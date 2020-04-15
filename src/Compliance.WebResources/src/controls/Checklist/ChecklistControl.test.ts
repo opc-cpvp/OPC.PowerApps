@@ -79,49 +79,25 @@ describe("ChecklistControl", () => {
             getChecklist.should.have.been.called;
         });
 
-                //it("it should only load all question responses when question types are loaded", async () => {
+        it.skip("it should only load all question responses when question types are loaded", async () => {
 
-        //    let checklistResponses: Array<any>[] = [null];
-        //    //let forEachFake = sandbox.fake();
-        //    let forEachFake=sandbox.spy(Array, 'forEach');
-        //    sandbox.stub(service, 'getQuestionTypes').resolves([]);
-        //    sandbox.stub(service, 'getChecklist').resolves(checklistResponses);
-        //    //sinon.stub(service, "getQuestionTypes").returns(new Promise((resolve, reject) => {
-        //    //    setTimeout(() => resolve(qTypes), 10);
-        //    //}));
+            let checklistResponses: Array<any>[] = [null];
+            let qTypes: { id: string, type: string }[] = [{ id: "1", type: "Text" }];
+            let forEachFake = sandbox.stub(checklistResponses, 'forEach').callsFake(sinon.fake());
+            sandbox.stub(service, 'getChecklist').resolves(checklistResponses);
+            sinon.stub(service, "getQuestionTypes").returns(new Promise((resolve, reject) => {
+                setTimeout(() => resolve(qTypes), 10);
+            }));
 
-        //    // Act
-        //    control.initializeControl();
+            // Act
+            control.initializeControl();
 
-        //    // Assert
-        //    //clock.tick(10);
-        //    forEachFake.should.have.been.called;
+            // Assert
+            forEachFake.should.not.have.been.called;
+            clock.tick(15);
+            forEachFake.should.have.been.called;
+        });
 
-        //    //    // Arrange
-        //    //    let arr: ({ opc_questionid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result)[] = [ null ];
-        //    //    let qTypesArraySpy = sandbox.spy(arr);
-        //    //    let getChecklist = sandbox.stub(service, 'getChecklist').resolves(arr);
-        //    //    sandbox.stub(service, 'getQuestionTypes').resolves([]);
-
-        //    //    // Act
-        //    //    control.initializeControl();
-
-        //    //    // Assert
-        //    //    qTypesArraySpy.forEach.should.have.been.called;
-        //});
-
-        //it("it should create text questions", () => {
-        //    // Arrange
-        //    let qTypes: { id: string, type: string }[] = [{ id: "1", type: "Text" }];
-        //    sandbox.stub(service, 'getChecklist').resolves([]);
-        //    sinon.stub(service, "getQuestionTypes").resolves(qTypes);
-
-        //    // Act
-        //    control.initializeControl();
-
-        //    // Assert
-        //    clock.tick(10);
-        //})
     });
 
     describe("when form is saving", () => {
@@ -159,8 +135,8 @@ describe("ChecklistControl", () => {
             // Arrange
             let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
 
-            formElement.insertAdjacentHTML("beforeend", "<input type='text' id='q-1' value='val' class='dirty'/>")
-            formElement.insertAdjacentHTML("beforeend", "<input type='text' id='q-2' value='val' />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='text' id='q-1' data-responseid='1' value='val' class='dirty'/>")
+            formElement.insertAdjacentHTML("beforeend", "<input type='text' id='q-2' data-responseid='2' value='val' />")
 
             // Act
             //documentContext.dispatchEvent(new Event("entity-save"));
@@ -178,8 +154,8 @@ describe("ChecklistControl", () => {
         it("it should only update textareas marked dirty", () => {
             // Arrange
             let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
-            formElement.insertAdjacentHTML("beforeend", "<textarea id='q-1' class='dirty'>update</textarea>")
-            formElement.insertAdjacentHTML("beforeend", "<textarea id='q-2'>do not update</textarea>")
+            formElement.insertAdjacentHTML("beforeend", "<textarea id='q-1' data-responseid='1' class='dirty'>update</textarea>")
+            formElement.insertAdjacentHTML("beforeend", "<textarea id='q-2' data-responseid='2'>do not update</textarea>")
 
             // Act
             //documentContext.dispatchEvent(new Event("entity-save"));
@@ -194,10 +170,10 @@ describe("ChecklistControl", () => {
         it("it should only update 'yes/no' input radios marked dirty", () => {
             // Arrange
             let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
-            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt1' name='q-1' value='1' class='dirty' checked />")
-            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt2' name='q-1' value='0' />")
-            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-2-opt1' name='q-2' value='1' />")
-            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-2-opt2' name='q-2' value='0' />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt1' name='q-1' data-responseid='1' value='1' class='dirty' checked />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt2' name='q-1' data-responseid='1' value='0' />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-2-opt1' name='q-2' data-responseid='2' value='1' />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-2-opt2' name='q-2' data-responseid='2' value='0' />")
 
             // Act
             control.save();
@@ -210,8 +186,8 @@ describe("ChecklistControl", () => {
         it("it should update dirty 'yes/no' options to null if none are selected", () => {
             // Arrange
             let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
-            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt1' name='q-1' value='1' class='dirty' />")
-            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt2' name='q-1' value='0' class='dirty' />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt1' data-responseid='1' name='q-1' value='1' class='dirty' />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt2' data-responseid='1' name='q-1' value='0' class='dirty' />")
 
             // Act
             control.save();
@@ -224,8 +200,8 @@ describe("ChecklistControl", () => {
         it("it should only update dirty 'yes/no' selected option", () => {
             // Arrange
             let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
-            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt1' name='q-1' value='1' class='dirty' checked />")
-            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt2' name='q-1' value='0' class='dirty' />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt1' data-responseid='1' name='q-1' value='1' class='dirty' checked />")
+            formElement.insertAdjacentHTML("beforeend", "<input type='radio' id='q-1-opt2' data-responseid='1' name='q-1' value='0' class='dirty' />")
 
             // Act
             control.save();

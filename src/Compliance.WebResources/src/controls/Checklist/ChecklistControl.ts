@@ -29,7 +29,7 @@ export namespace Controls {
             super.initializeControl();
 
             // Fetch question type to cross reference later
-            let qTypesPromise = this._checklistService.getQuestionTypes()
+            const qTypesPromise = this._checklistService.getQuestionTypes()
                 .then(x => { this._questionTypes = x; })
                 .catch(() => console.error("error loading question types"));
 
@@ -40,99 +40,99 @@ export namespace Controls {
                     // Both requests can run at the same time, but before processing results 
                     // we want to make sure to have the question types.
                     await qTypesPromise;
+                    crArray.forEach(cr => this.addQuestion(cr));
 
-                    crArray.forEach(cr => {
-
-                        // Create controls based on type defined in question type entity
-                        switch (cr.opc_questiontemplateid.opc_questiontypeid_guid) {
-                            case this._questionTypes.find(qt => qt.type === "Text").id:
-                                this.addTextQuestion(cr);
-                                break;
-                            case this._questionTypes.find(qt => qt.type === "Text Area").id:
-                                this.addTextAreaQuestion(cr);
-                                break;
-                            case this._questionTypes.find(qt => qt.type === "Two Options").id:
-                                this.addTwoOptionsQuestion(cr);
-                                break;
-                            default:
-                                console.log("control type not supported - not adding control");
-                                break;
-                        }
-                    });
                 }).catch(() => console.error("error loading checklist responses"));
         }
 
-        private addTextQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+        private addQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result): void {
+
             // Check if there is a parent question in visibilitytoggles array and what's the loading state
-            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid);
             let isVisible = false;
+            const visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid);
             if (visibleTuple) isVisible = visibleTuple.value;
 
-            let questionHtml =
-                `<div class="form-group border-bottom pb-4 ${cr.opc_questiontemplateid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid : ""}}">` +
-                `<div class="ml-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
-                        `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
-                        `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" />` +
-                    '</div>' +
-                '</div>';
-            this._placeholder.insertAdjacentHTML('beforeend', questionHtml);
+            // Create question container/wrapper
+            const questionContainer = this.documentContext.createElement("div");
+            questionContainer.classList.add("form-group", "border-bottom", "pb-4");
+
+            // Check whether or not the question should be conditionally visible
+            if (cr.opc_questiontemplateid.opc_conditionalvisibility) {
+                // If so set respective visibility and means for "parent" control to toggle visibility
+                if (isVisible) questionContainer.classList.add("show");
+                questionContainer.classList.add("collapse", `toggledby-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid}`);
+            }
+
+            // Create container used for indentation
+            const indentingContainer = this.documentContext.createElement("div");
+            indentingContainer.classList.add(`ml-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid ? "5" : "3"}`);
+            questionContainer.appendChild(indentingContainer);
+
+            // Create controls based on type defined in question type entity
+            switch (cr.opc_questiontemplateid.opc_questiontypeid_guid) {
+                case this._questionTypes.find(qt => qt.type === "Text").id:
+                    this.addTextQuestion(indentingContainer, cr);
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Text Area").id:
+                    this.addTextAreaQuestion(indentingContainer, cr);
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Two Options").id:
+                    this.addTwoOptionsQuestion(indentingContainer, cr);
+                    break;
+                default:
+                    console.log("control type not supported - not adding control");
+                    break;
+            }
+
+            // Append created question
+            this._placeholder.appendChild(questionContainer);
         }
 
-        private addTextAreaQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
-            // Check if there is a parent question in visibilitytoggles array and what's the loading state
-            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid);
-            let isVisible = false;
-            if (visibleTuple) isVisible = visibleTuple.value;
-
-            let questionHtml =
-                `<div class="form-group border-bottom pb-4 ${cr.opc_questiontemplateid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid : ""} ">` +
-                `<div class="ml-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
-                        `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
-                        `<textarea id="q-${cr.opc_checklistresponseid}" rows="3" class="form-control">${cr.opc_response || ""}</textarea>` +
-                    '</div>' +
-                '</div>';
-            this._placeholder.insertAdjacentHTML('beforeend', questionHtml);
+        private addTextQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+            const questionHtml =
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
+                `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" data-responseguid='${cr.opc_checklistresponseid}' />`;
+            element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
-        private addTwoOptionsQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+        private addTextAreaQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+            const questionHtml =
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
+                `<textarea id="q-${cr.opc_checklistresponseid}" rows="3" class="form-control" data-responseguid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</textarea>`;
+            element.insertAdjacentHTML('beforeend', questionHtml);
+        }
+
+        private addTwoOptionsQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             // We don't know if its a toggle, but just in case we add in the array
             this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response == "1" });
 
-            // Check if there is a parent question in visibilitytoggles array and what's the loading state
-            let visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid);
-            let isVisible = false;
-            if (visibleTuple) isVisible = visibleTuple.value;
-
-            let questionHtml =
-                `<div class="form-group border-bottom pb-4 ${cr.opc_questiontemplateid.opc_conditionalvisibility ? (isVisible ? "show " : "") + "collapse toggle-" + cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid : ""}">` +
-                `<div class="ml-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid ? "5" : "3"}">` +
-                        `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_name}</div>` +
-                        '<div class="form-check form-check-inline">' +
-                `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggle-${cr.opc_questiontemplateid_guid}'>` +
-                            `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">Yes</label>` +
-                        '</div>' +
-                        '<div class="form-check form-check-inline">' +
-                `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggle-${cr.opc_questiontemplateid_guid}'>` +
-                            `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">No</label>` +
-                        '</div>' +
-                    '</div>' +
+            const questionHtml =
+                `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_name}</div>` +
+                '<div class="form-check form-check-inline">' +
+                `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
+                    `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">Yes</label>` +
+                '</div>' +
+                '<div class="form-check form-check-inline">' +
+                `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
+                    `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">No</label>` +
                 '</div>';
-            this._placeholder.insertAdjacentHTML('beforeend', questionHtml);
+            element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         public save(): void {
 
-            let dirtyInputs = this._placeholder.getElementsByClassName("dirty");
-            let doubleDirtyRadios : string[] = [];
+            const dirtyInputs = this._placeholder.getElementsByClassName("dirty");
+            const doubleDirtyRadios : string[] = [];
 
+            // Iterate over all dirty elements to persist the state
             for (let i = 0; i < dirtyInputs.length; i++) {
-                let id: string = dirtyInputs[i].id.replace('q-','');
+                const id: string = dirtyInputs[i].getAttribute("data-responseid");
                 let value: string = null;
 
                 // Extract ID and Values based on type of inputs
                 switch (dirtyInputs[i].tagName.toLowerCase()) {
                     case "input":
-                        let input = <HTMLInputElement>dirtyInputs[i];
+                        const input = <HTMLInputElement>dirtyInputs[i];
                         value = input.value;
 
                         // Skip if its radio input and not the selected one
@@ -144,7 +144,7 @@ export namespace Controls {
                             if (!input.checked) {
 
                                 // If all inputs of this group are unchecked, update response to null
-                                let relatedInputs = Array.from(this.documentContext.getElementsByName(input.name));
+                                const relatedInputs = Array.from(this.documentContext.getElementsByName(input.name));
                                 if (relatedInputs.every(di => !(<HTMLInputElement>di).checked) && !doubleDirtyRadios.includes(input.name)) {
                                     value = null;
                                     doubleDirtyRadios.push(input.name);
@@ -152,13 +152,11 @@ export namespace Controls {
                                 else continue;
 
                             }
-                            id = input.name.replace("q-", "");
                         }
 
                         break;
                     case "textarea":
-                        let textarea = <HTMLTextAreaElement>dirtyInputs[i];
-                        value = textarea.value;
+                        value = (<HTMLTextAreaElement>dirtyInputs[i]).value;
                         break;
                     default:
                         console.log("unsupported element type:" + dirtyInputs[i].tagName);

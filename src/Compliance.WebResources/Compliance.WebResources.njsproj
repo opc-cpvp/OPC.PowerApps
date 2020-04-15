@@ -44,7 +44,6 @@
     <Folder Include="src\controls\" />
     <Folder Include="src\controls\Checklist\" />
     <Folder Include="src\controls\RiskAssessment\" />
-    <Folder Include="src\controls\RiskAssessment\" />
     <Folder Include="src\factories\" />
     <Folder Include="src\forms\" />
     <Folder Include="src\helpers\" />
@@ -114,10 +113,6 @@
     <Content Include="README.md" />
     <Content Include="src\controls\Checklist\ChecklistControl.html" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
-    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
-    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
-    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
-    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
     <Content Include="tsconfig.json" />
     <Content Include="webpack.config.js" />
