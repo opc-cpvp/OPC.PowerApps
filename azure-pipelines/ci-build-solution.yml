@@ -115,6 +115,18 @@ steps:
     filePath: 'azure-pipelines/scripts/create_managed_files.ps1'
     workingDirectory: 'src/$(SolutionName).Solution/Solution'
 
+- task: MagicChunks@2
+  displayName: 'Update Managed State of Solution'
+  inputs:
+    sourcePath: 'src/$(SolutionName).Solution/Solution/Other/Solution.xml'
+    fileType: 'Xml'
+    targetPathType: 'source'
+    transformationType: 'json'
+    transformations: |
+      {
+        "ImportExportXml/SolutionManifest/Managed": "2"
+      }
+
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
   displayName: 'Pack PowerApps Solution'
   inputs:
