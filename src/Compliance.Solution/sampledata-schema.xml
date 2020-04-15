@@ -67,6 +67,7 @@
       <field updateCompare="true" displayname="Individual Complaint" name="businessprocessflowinstanceid" type="guid" primaryKey="true" />
       <field displayname="Traversed Path" name="traversedpath" type="string" />
       <field displayname="Name" name="bpf_name" type="string" customfield="true" />
+      <field displayname="Complaint" name="bpf_opc_complaintid" type="entityreference" lookupType="opc_complaint" customfield="true" />
     </fields>
   </entity>
   <entity name="queueitem" displayname="Queue Item" etc="2029" primaryidfield="queueitemid" primarynamefield="title" disableplugins="false">
@@ -90,6 +91,9 @@
     </fields>
   </entity>
   <entity name="queue" displayname="Queue" etc="2020" primaryidfield="queueid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Name" name="name" type="string" />
+    </fields>
     <relationships>
       <relationship name="queuemembership" manyToMany="true" relatedEntityName="queuemembership" m2mTargetEntity="systemuser" m2mTargetEntityPrimaryKey="systemuserid" />
     </relationships>
