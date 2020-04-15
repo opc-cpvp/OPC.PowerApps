@@ -91,14 +91,14 @@ export namespace Controls {
         private addTextQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
-                `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" data-responseguid='${cr.opc_checklistresponseid}' />`;
+                `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         private addTextAreaQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
-                `<textarea id="q-${cr.opc_checklistresponseid}" rows="3" class="form-control" data-responseguid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</textarea>`;
+                `<textarea id="q-${cr.opc_checklistresponseid}" rows="3" class="form-control" data-responseid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</textarea>`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
 

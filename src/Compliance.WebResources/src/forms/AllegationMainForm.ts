@@ -21,6 +21,12 @@ export namespace Allegation.Forms {
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_allegation.Main.Information, any>): void {
             super.initializeComponents(initializationContext);
+            const formContext = <Form.opc_allegation.Main.Information>initializationContext.getFormContext();
+
+            // If not in create mode, display checklist responses section containing iframe
+            if (formContext.ui.getFormType() !== Xrm.FormType.Create) {
+                formContext.ui.tabs.get("tab_general").sections.get("section_checklist_responses").setVisible(true);
+            }
         }
     }
 }
