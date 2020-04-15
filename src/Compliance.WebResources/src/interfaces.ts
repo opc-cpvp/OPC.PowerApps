@@ -17,6 +17,7 @@ export interface INotificationService {
 
 export interface IContactService {
     getContact(id: string): Promise<Contact_Result>
+    getContactDuplicateStatus(id: string, successCallback: (result: opc_duplicatedetectionresult) => void): void
 }
 
 export interface IFormFactory {

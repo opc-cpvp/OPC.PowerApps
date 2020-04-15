@@ -63,28 +63,28 @@ export namespace Complaint.Forms {
 
         private getDuplicateStatus(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, any>, contactType: string) {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
-            const duplicationNotificationId = "duplicateNotificationId" + contactType;
+            const contact = context.getEventSource().getValue();
+            const duplicationNotificationId = `duplicateNotificationId - ${contactType}`;
 
             // reset the notification
-            formContext.ui.clearFormNotification(duplicationNotificationId);
+            formContext.ui.clearFormNotification(duplicationNotificationId);           
 
-            // Get the value of the contact lookup that triggered the event
-            const contact = context.getEventSource().getValue();
-            console.log(contact);
-            if (contact != null) {
-                const contactInfoPromise = this._contactService.getContact(contact[0].id);
-                contactInfoPromise.then(contactInfo => {
-                    this.showContactDuplicateStatusNotification(formContext, contactType, contactInfo.opc_duplicatedetectionresult, duplicationNotificationId);
-                });
+            if (contact != null && contact.length > 0) {
+                // Capture "this" for the function to work
+                let getDuplicateStatusSuccess = (duplicationResult: opc_duplicatedetectionresult) => {
+                    this.showContactDuplicateStatusNotification(formContext, contactType, duplicationResult, duplicationNotificationId);
+                };
+
+                this._contactService.getContactDuplicateStatus(contact[0].id, getDuplicateStatusSuccess);
             }
         }
 
-        private showContactDuplicateStatusNotification(formContext: Form.opc_complaint.Main.Information, contactType: string, duplicateResult: opc_duplicatedetectionresult, notificationId : string) {
+        private showContactDuplicateStatusNotification(formContext: Form.opc_complaint.Main.Information, contactType: string, duplicateResult: opc_duplicatedetectionresult, notificationId: string) {
             if (duplicateResult == opc_duplicatedetectionresult.Potentialduplicate)
-                formContext.ui.setFormNotification(`Please review ${contactType} contact, there's a potential duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view"`, "WARNING", notificationId);
+                formContext.ui.setFormNotification(`Please review ${contactType} contact, there's a potential duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view`, "WARNING", notificationId);
 
             if (duplicateResult == opc_duplicatedetectionresult.Duplicatefound)
-                formContext.ui.setFormNotification(`Please review ${contactType} contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view"`, "WARNING", notificationId);
+                formContext.ui.setFormNotification(`Please review ${contactType} contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view`, "WARNING", notificationId);
         }
 
         /**
