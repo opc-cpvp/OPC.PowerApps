@@ -83,6 +83,7 @@
     <TypeScriptCompile Include="test\XrmContextMock.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="test\XrmUserSettingsMock.ts" />
     <TypeScriptCompile Include="test\XrmSaveEventContextMock.ts" />
     <TypeScriptCompile Include="test\XrmNavigationMock.ts" />
     <TypeScriptCompile Include="test\XrmAttributeMock.ts" />
