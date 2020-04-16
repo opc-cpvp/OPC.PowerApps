@@ -12,6 +12,7 @@ export namespace Controls {
         private _questionTypes: { id: string, type: string }[];
         private _visbilityToggles: { id: string, value: boolean }[] = [];
         private _placeholder: HTMLElement;
+        private _isCurrentLanguageEnglish: boolean = true;
 
         constructor(@inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
             @inject(nameof<Document>()) documentContext: Document,
@@ -22,6 +23,9 @@ export namespace Controls {
             this._allegationId = this.xrmContext.getQueryStringParameters().id;
             this._placeholder = this.documentContext.getElementById("checklist");
             this._checklistService = checklistService;
+
+            // REVISIT: Adding this here for now, but either multilangual plugin should handle it, or it should be at some other level in TS.
+            this._isCurrentLanguageEnglish = xrmContext.userSettings.languageId === 1033;
         }
 
         public initializeControl() {
@@ -42,7 +46,7 @@ export namespace Controls {
                     await qTypesPromise;
                     crArray.forEach(cr => this.addQuestion(cr));
 
-                }).catch(() => console.error("error loading checklist responses"));
+                }, reason => console.error(reason)).catch(() => console.error("error loading checklist responses"));
         }
 
         private addQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result): void {
@@ -90,14 +94,14 @@ export namespace Controls {
 
         private addTextQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
+                `<label for="q-${cr.opc_checklistresponseid}">${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
                 `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         private addTextAreaQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_name}</label>` +
+                `<label for="q-${cr.opc_checklistresponseid}">${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
                 `<textarea id="q-${cr.opc_checklistresponseid}" rows="3" class="form-control" data-responseid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</textarea>`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
@@ -107,14 +111,14 @@ export namespace Controls {
             this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response == "1" });
 
             const questionHtml =
-                `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_name}</div>` +
+                `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</div>` +
                 '<div class="form-check form-check-inline">' +
                 `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
-                    `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">Yes</label>` +
+                `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">${this._isCurrentLanguageEnglish ? "Yes" : "Oui"}</label>` +
                 '</div>' +
                 '<div class="form-check form-check-inline">' +
                 `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
-                    `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">No</label>` +
+                `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">${this._isCurrentLanguageEnglish ? "No" : "Non"}</label>` +
                 '</div>';
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
@@ -122,7 +126,7 @@ export namespace Controls {
         public save(): void {
 
             const dirtyInputs = this._placeholder.getElementsByClassName("dirty");
-            const doubleDirtyRadios : string[] = [];
+            const doubleDirtyRadios: string[] = [];
 
             // Iterate over all dirty elements to persist the state
             for (let i = 0; i < dirtyInputs.length; i++) {
