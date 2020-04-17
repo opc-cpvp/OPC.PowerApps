@@ -3,7 +3,6 @@ import { XrmUtilityMock } from '../../test/XrmUtilityMock';
 import { XrmOptionMock } from '../../test/XrmOptionMock';
 import { XrmBaseControlMock } from '../../test/XrmBaseControlMock';
 import { Contact } from './ContactMainForm';
-import { ContactService } from '.././services/ContactService';
 
 var chai = require("chai");
 var sinon = require("sinon");

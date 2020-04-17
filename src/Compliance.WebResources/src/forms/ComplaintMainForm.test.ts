@@ -1,7 +1,6 @@
 ﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
 import { XrmSaveEventContextMock } from '../../test/XrmSaveEventContextMock';
 import { Complaint } from './ComplaintMainForm';
-import { ComplaintService } from '.././services/ComplaintService';
 
 var chai = require("chai");
 var sinon = require("sinon");

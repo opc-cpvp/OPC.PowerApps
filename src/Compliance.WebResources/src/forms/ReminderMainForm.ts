@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IReminderService } from "../interfaces";
+import { IPowerForm } from "../interfaces";
 
 export namespace Reminder.Forms {
 

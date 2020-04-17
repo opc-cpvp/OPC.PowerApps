@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IComplaintService } from "../interfaces";
+import { IPowerForm } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Complaint.Forms {

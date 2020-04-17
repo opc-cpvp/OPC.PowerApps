@@ -1,11 +1,6 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IAllegationService } from "../interfaces";
-
-//export function symbolfor<T>(func?: (obj: T) => void) : symbol {
-//    return Symbol.for(nameof<T>());
-//}
-
+import { IPowerForm } from "../interfaces";
 
 export namespace Allegation.Forms {
 
