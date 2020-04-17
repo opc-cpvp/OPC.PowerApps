@@ -136,7 +136,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -166,12 +166,12 @@
         </NavBarAreas>
       </Navigation>
       <formLibraries>
-        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{d9625a64-ee56-8e35-74d3-74ecb2424900}" />
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{69893147-e2a7-46d5-8b8b-c928c1a0535b}" />
       </formLibraries>
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
-            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{734925a1-3bd2-0e99-aeed-2c99d111c555}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{734925a1-3bd2-0e99-aeed-2c99d111c555}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

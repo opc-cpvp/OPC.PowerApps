@@ -570,12 +570,12 @@
       </Navigation>
       <controlDescriptions />
       <formLibraries>
-        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{9437b3a7-8c38-bac0-ad4d-a7d0217de4d4}" />
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{b6c03c50-74db-aa6e-b442-b00a509d4394}" />
       </formLibraries>
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
-            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{b04c9ede-d355-22d3-5bbe-2e9740a222bb}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{b04c9ede-d355-22d3-5bbe-2e9740a222bb}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

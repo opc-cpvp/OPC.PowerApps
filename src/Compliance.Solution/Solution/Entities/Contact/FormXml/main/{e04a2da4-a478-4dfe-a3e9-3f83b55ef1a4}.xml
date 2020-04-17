@@ -279,12 +279,12 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{61cc0fce-4fc8-4c19-89bf-aacd9d8b1b6f}">
+                      <cell id="{61cc0fce-4fc8-4c19-89bf-aacd9d8b1b6f}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell id="{8f9c87e2-f3aa-49ec-8c27-ab83f466fe8f}">
+                      <cell id="{8f9c87e2-f3aa-49ec-8c27-ab83f466fe8f}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -564,7 +564,7 @@
             <Handler functionName="AppCommon.Contact.Instance.form_onload" libraryName="AppCommon/Contact/Contact_main_system_library.js" handlerUniqueId="4ea24ebd-795d-434e-af94-6812c3867b54" enabled="true" />
           </InternalHandlers>
           <Handlers>
-            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{635251c0-da0e-d6b0-c269-de374544133d}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{635251c0-da0e-d6b0-c269-de374544133d}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>
@@ -876,7 +876,7 @@
         </rows>
       </footer>
       <formLibraries>
-        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{88462847-2b4c-78ca-4e5c-069e9ed9a3bb}" />
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{40517d98-58aa-4610-a84c-a249076d67b1}" />
       </formLibraries>
       <DisplayConditions FallbackForm="true" Order="2">
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
