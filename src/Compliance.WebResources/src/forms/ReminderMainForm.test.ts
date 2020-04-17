@@ -12,14 +12,12 @@ chai.use(sinonChai);
 
 describe("Reminder", () => {
     describe("when form is loading", () => {
-        let service: ReminderService;
         let form: Reminder.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
         let contextSpy: any;
 
         beforeEach(function () {
-            service = new ReminderService();
-            form = new Reminder.Forms.MainForm(service);
+            form = new Reminder.Forms.MainForm();
             mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
             contextSpy = sandbox.spy(mockContext);
         });
@@ -52,15 +50,13 @@ describe("Reminder", () => {
     });
 
     describe("when form is saving", () => {
-        let service: ReminderService;
         let form: Reminder.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
         let contextSpy: any;
         let eventArgsSpy: any;
 
         beforeEach(function () {
-            service = new ReminderService();
-            form = new Reminder.Forms.MainForm(service);
+            form = new Reminder.Forms.MainForm();
             mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
             contextSpy = sandbox.spy(mockContext);
             eventArgsSpy = sandbox.spy(mockContext.getEventArgs());
@@ -165,14 +161,12 @@ describe("Reminder", () => {
     });
 
     describe("when notify additional users is selected", () => {
-        let service: ReminderService;
         let form: Reminder.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
         let contextSpy: any;
 
         beforeEach(function () {
-            service = new ReminderService();
-            form = new Reminder.Forms.MainForm(service);
+            form = new Reminder.Forms.MainForm();
             mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
             contextSpy = sandbox.spy(mockContext);
         });
@@ -197,14 +191,12 @@ describe("Reminder", () => {
     });
 
     describe("when notify additional users is not selected", () => {
-        let service: ReminderService;
         let form: Reminder.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
         let contextSpy: any;
 
         beforeEach(function () {
-            service = new ReminderService();
-            form = new Reminder.Forms.MainForm(service);
+            form = new Reminder.Forms.MainForm();
             mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
             contextSpy = sandbox.spy(mockContext);
         });

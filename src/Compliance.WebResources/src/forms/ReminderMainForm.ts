@@ -7,12 +7,6 @@ export namespace Reminder.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_reminder.Main.Information> {
 
-        private _reminderService: IReminderService;
-
-        constructor(@inject(nameof<IReminderService>()) reminderService: IReminderService) {
-            this._reminderService = reminderService;
-        }
-
         /**
          * Handle the form OnLoad event.
          *

@@ -8,12 +8,6 @@ export namespace Complaint.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_complaint.Main.Information> {
 
-        private _complaintService: IComplaintService;
-
-        constructor(@inject(nameof<IComplaintService>()) complaintService: IComplaintService) {
-            this._complaintService = complaintService;
-        }
-
         /**
          * Handle the form OnLoad event.
          *

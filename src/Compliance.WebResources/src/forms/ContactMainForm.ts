@@ -7,7 +7,6 @@ export namespace Contact.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.contact.Main.ComplianceContact> {
 
-        private _contactService: IContactService;
         private _xrmUtility: Xrm.Utility;
         private _saveEventConfirmed: boolean = false;
 
@@ -15,8 +14,7 @@ export namespace Contact.Forms {
         readonly sysAdminRoleGuid = "34f59588-e306-ea11-a813-000d3af436d7";
         readonly sysCustomizerRoleGuid = "85f99588-e306-ea11-a813-000d3af436d7";
 
-        constructor(@inject(nameof<IContactService>()) contactService: IContactService, @inject(nameof<Xrm.Utility>()) xrmUtility: Xrm.Utility) {
-            this._contactService = contactService;
+        constructor(@inject(nameof<Xrm.Utility>()) xrmUtility: Xrm.Utility) {
             this._xrmUtility = xrmUtility;
         }
 

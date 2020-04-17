@@ -12,14 +12,12 @@ chai.use(sinonChai);
 
 describe("Complaint", () => {
     describe("when the complainant is part of the Multiple Complaint Strategy", () => {
-        let service: ComplaintService;
         let form: Complaint.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
         let contextSpy: any;
 
         beforeEach(function () {
-            service = new ComplaintService();
-            form = new Complaint.Forms.MainForm(service);
+            form = new Complaint.Forms.MainForm();
             mockContext = new XrmSaveEventContextMock<Form.opc_complaint.Main.Information>();
             contextSpy = sandbox.spy(mockContext);
         });
@@ -43,14 +41,12 @@ describe("Complaint", () => {
         });
     });
     describe("when the complainant is not part of the Multiple Complaint Strategy", () => {
-        let service: ComplaintService;
         let form: Complaint.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
         let contextSpy: any;
 
         beforeEach(function () {
-            service = new ComplaintService();
-            form = new Complaint.Forms.MainForm(service);
+            form = new Complaint.Forms.MainForm();
             mockContext = new XrmSaveEventContextMock<Form.opc_complaint.Main.Information>();
             contextSpy = sandbox.spy(mockContext);
         });

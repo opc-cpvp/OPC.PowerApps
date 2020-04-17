@@ -14,7 +14,6 @@ chai.use(sinonChai);
 
 describe("Contact", () => {
     describe("after MCS field is loaded", () => {
-        let service: ContactService;
         let form: Contact.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
         let mockUtility: XrmUtilityMock;
@@ -30,9 +29,8 @@ describe("Contact", () => {
         ];
 
         beforeEach(function () {
-            service = new ContactService();
             mockUtility = new XrmUtilityMock();
-            form = new Contact.Forms.MainForm(service, mockUtility);
+            form = new Contact.Forms.MainForm(mockUtility);
             mockContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
             mcsControl = mockContext.getFormContext().getControl("opc_multiplecomplaintstrategy");
             controlSpy = sandbox.spy(mcsControl);
@@ -82,7 +80,6 @@ describe("Contact", () => {
         });
     });
     describe("when the contact is part of the Multiple Complaint Strategy", () => {
-        let service: ContactService;
         let form: Contact.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
         let mockUtility: XrmUtilityMock;
@@ -91,9 +88,8 @@ describe("Contact", () => {
         let roleNotIntakeManager: { id: string, name: string } = { id: "B2D7179F-913E-42B4-B040-84E375AF8831", name: "NOT Intake Manager" };
 
         beforeEach(function () {
-            service = new ContactService();
             mockUtility = new XrmUtilityMock();
-            form = new Contact.Forms.MainForm(service, mockUtility);
+            form = new Contact.Forms.MainForm(mockUtility);
             mockContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
             contextSpy = sandbox.spy(mockContext);
             mockContext.getFormContext().ui.formType = Xrm.FormType.Update;
@@ -149,16 +145,14 @@ describe("Contact", () => {
         });
     });
     describe("when the contact is not part of the Multiple Complaint Strategy", () => {
-        let service: ContactService;
         let form: Contact.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
         let mockUtility: XrmUtilityMock;
         let contextSpy: any;
 
         beforeEach(function () {
-            service = new ContactService();
             mockUtility = new XrmUtilityMock();
-            form = new Contact.Forms.MainForm(service, mockUtility);
+            form = new Contact.Forms.MainForm(mockUtility);
             mockContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
             contextSpy = sandbox.spy(mockContext);
             mockContext.getFormContext().ui.formType = Xrm.FormType.Update;
