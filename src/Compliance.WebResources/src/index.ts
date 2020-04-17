@@ -11,3 +11,4 @@ import "./inversify.config";
 // Composition Root
 export { Bootstrapper } from "./bootstrapper";
 export { Controls } from "./controls/RiskAssessment/RiskAssessmentControl";
+export { Utilities } from "./utils/CustomIcons";
