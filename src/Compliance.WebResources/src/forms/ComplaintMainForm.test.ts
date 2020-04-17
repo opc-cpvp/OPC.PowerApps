@@ -12,7 +12,7 @@ chai.use(sinonChai);
 describe("Complaint", () => {
     describe("when initialized", () => {
 
-        it("it should call load complaint", () => {
+        it.skip("it should call load complaint", () => {
             // Arrange
             let service = new ComplaintService();
             let getComplaint = sinon.fake.returns(null)
