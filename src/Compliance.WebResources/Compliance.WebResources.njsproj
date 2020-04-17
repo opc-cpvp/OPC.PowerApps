@@ -40,8 +40,8 @@
     <Folder Include="js\" />
     <Folder Include="js\lib\" />
     <Folder Include="js\lib\xrmquery\" />
-    <Folder Include="js\utils\" />
-    <Folder Include="js\utils\imgs\" />
+    <Folder Include="src\utils\" />
+    <Folder Include="src\utils\imgs\" />
     <Folder Include="src\" />
     <Folder Include="src\factories\" />
     <Folder Include="src\forms\" />
@@ -105,11 +105,11 @@
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.js" />
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.min.js" />
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.promise.min.js" />
-    <Content Include="js\utils\CustomIcons.js">
+    <Content Include="src\utils\CustomIcons.ts">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="js\utils\imgs\icon64x64_read_notification.png" />
-    <Content Include="js\utils\imgs\icon64x64_unread_notification.png" />
+    <Content Include="src\utils\imgs\icon64x64_read_notification.png" />
+    <Content Include="src\utils\imgs\icon64x64_unread_notification.png" />
     <Content Include="npm.targets" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />

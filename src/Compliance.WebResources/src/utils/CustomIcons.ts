@@ -1,9 +1,9 @@
 export class CustomIcons {
-    static displayNotificationIcon(rowData, userLCID) {
-        var str = JSON.parse(rowData);
-        var coldata = str.statuscode_Value;
-        var imgName = "";
-        var tooltip = "";
+    static displayNotificationIcon(rowData: string, userLCID: number): string[] {
+        let str = JSON.parse(rowData);
+        let coldata: string = str.statuscode_Value;
+        let imgName: string = "";
+        let tooltip: string = "";
 
         switch (parseInt(coldata, 10)) {
             case 1:  //Unread = 1
@@ -32,7 +32,7 @@ export class CustomIcons {
                 break;
         }
 
-        var resultarray = [imgName, tooltip];
+        let resultarray = [imgName, tooltip];
         return resultarray;
         //try {
         //    switch (parseInt(coldata, 10)) {
