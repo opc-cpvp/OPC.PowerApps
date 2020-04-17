@@ -31,8 +31,8 @@ export namespace Complaint.Forms {
             formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
 
             // Sequence matters
-            formContext.getAttribute("opc_intakedisposition").fireOnChange();
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
+            formContext.getAttribute("opc_intakedisposition").fireOnChange();
         }
 
         /**
@@ -48,8 +48,9 @@ export namespace Complaint.Forms {
             formContext.getAttribute("opc_intakedisposition").controls.forEach(control => XrmHelper.toggle(control, isRecommending === opc_yesorno.Yes));
             formContext.getAttribute("opc_closereason").controls.forEach(control => {
 
+                console.log("recommendtoregistrar handler:" + isRecommending );
                 // Toggle visibility
-                XrmHelper.toggle(control, isRecommending === opc_yesorno.No)
+                XrmHelper.toggle(control, isRecommending === opc_yesorno.No || formContext.getAttribute("opc_intakedisposition").getValue() === opc_intakedisposition.Close)
 
                 // Clear options before adding the options valid for the current scenario
                 control.clearOptions();
@@ -74,6 +75,7 @@ export namespace Complaint.Forms {
         */
         private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>, any>): void {
             const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            console.log("intakedisposition handler:" + formContext.getAttribute("opc_intakedisposition").getValue());
             switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
                 case opc_intakedisposition.Close:
                     formContext.getAttribute("opc_closereason").controls.forEach(control => {
@@ -90,10 +92,11 @@ export namespace Complaint.Forms {
                     break;
                 case opc_intakedisposition.MovetoEarlyResolution:
                 case opc_intakedisposition.MovetoInvestigation:
-                default:
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOn(control));
                     formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
                     formContext.getAttribute("opc_closereason").setRequiredLevel("none");
+                    break;
+                default:
                     break;
             }
         }
