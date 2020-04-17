@@ -9,8 +9,8 @@ export class ContactService implements IContactService {
         return XrmQuery.retrieve(x => x.contacts, id).promise();
     }
 
-    getContactDuplicateStatus(id: string, successCallback: (result: opc_duplicatedetectionresult) => void): void {
-        XrmQuery.retrieve(x => x.contacts, id).select(x => [x.opc_duplicatedetectionresult])
-            .promise().then(d => successCallback(d.opc_duplicatedetectionresult));
+    getDuplicateStatus(id: string): Promise<(Contact_Fixed & { opc_duplicatedetectionresult: opc_duplicatedetectionresult})> {
+        return XrmQuery.retrieve(x => x.contacts, id).select(x => [x.opc_duplicatedetectionresult])
+            .promise();        
     }
 }

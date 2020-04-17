@@ -1,5 +1,5 @@
 ﻿export interface IComplaintService {
-    getComplaint(id:string): opc_complaint
+    getComplaint(id: string): opc_complaint
 }
 
 export interface IAllegationService {
@@ -17,11 +17,11 @@ export interface INotificationService {
 
 export interface IContactService {
     getContact(id: string): Promise<Contact_Result>
-    getContactDuplicateStatus(id: string, successCallback: (result: opc_duplicatedetectionresult) => void): void
+    getDuplicateStatus(id: string): Promise<(Contact_Fixed & { opc_duplicatedetectionresult: opc_duplicatedetectionresult })>
 }
 
 export interface IFormFactory {
-    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>) : IPowerForm<TForm>
+    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>): IPowerForm<TForm>
 }
 
 export interface IPowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>> {
