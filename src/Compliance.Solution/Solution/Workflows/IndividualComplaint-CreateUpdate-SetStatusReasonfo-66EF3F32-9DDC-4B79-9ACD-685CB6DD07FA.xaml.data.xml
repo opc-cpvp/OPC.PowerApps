@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{66c9ed60-1da2-425e-a7ff-cd0df39467b5}" Name="Set Active Stage Category" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/SetActiveStageCategory-66C9ED60-1DA2-425E-A7FF-CD0DF39467B5.xaml</XamlFileName>
+<Workflow WorkflowId="{66ef3f32-9ddc-4b79-9acd-685cb6dd07fa}" Name="Individual Complaint - Create/Update - Set Status Reason for Complaint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/IndividualComplaint-CreateUpdate-SetStatusReasonfo-66EF3F32-9DDC-4B79-9ACD-685CB6DD07FA.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>0</Category>
@@ -22,6 +22,6 @@
   <IsCustomizable>1</IsCustomizable>
   <PrimaryEntity>opc_individualcomplaint_bp</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Set Active Stage Category" />
+    <LocalizedName languagecode="1033" description="Individual Complaint - Create/Update - Set Status Reason for Complaint" />
   </LocalizedNames>
 </Workflow>

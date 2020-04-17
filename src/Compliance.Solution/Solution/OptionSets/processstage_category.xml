@@ -3,6 +3,7 @@
   <OptionSetType>picklist</OptionSetType>
   <IsGlobal>1</IsGlobal>
   <IntroducedVersion>6.0.0.0</IntroducedVersion>
+  <ExternalTypeName></ExternalTypeName>
   <displaynames>
     <displayname description="Stage Category" languagecode="1033" />
     <displayname description="Catégorie de phase" languagecode="1036" />
@@ -12,78 +13,54 @@
     <Description description="Catégorie de la phase du processus." languagecode="1036" />
   </Descriptions>
   <options>
-    <option value="0">
+    <option value="924340000" ExternalValue="" Color="">
       <labels>
-        <label description="Qualify" languagecode="1033" />
-        <label description="Inclure" languagecode="1036" />
+        <label description="Triage" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="1">
+    <option value="924340001" ExternalValue="" Color="">
       <labels>
-        <label description="Develop" languagecode="1033" />
-        <label description="Développer" languagecode="1036" />
+        <label description="Intake" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="2">
+    <option value="924340002" ExternalValue="" Color="">
       <labels>
-        <label description="Propose" languagecode="1033" />
-        <label description="Proposer" languagecode="1036" />
+        <label description="Acceptance" languagecode="1033" />
       </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
-    <option value="3">
+    <option value="924340003" ExternalValue="" Color="">
+      <labels>
+        <label description="Early Resoloution" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="924340004" ExternalValue="" Color="">
+      <labels>
+        <label description="Investigation" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="3" ExternalValue="" Color="">
       <labels>
         <label description="Close" languagecode="1033" />
         <label description="Fermer" languagecode="1036" />
       </labels>
-    </option>
-    <option value="4">
-      <labels>
-        <label description="Identify" languagecode="1033" />
-        <label description="Identifier" languagecode="1036" />
-      </labels>
-    </option>
-    <option value="5">
-      <labels>
-        <label description="Research" languagecode="1033" />
-        <label description="Rechercher" languagecode="1036" />
-      </labels>
-    </option>
-    <option value="6">
-      <labels>
-        <label description="Resolve" languagecode="1033" />
-        <label description="Résoudre" languagecode="1036" />
-      </labels>
-    </option>
-    <option value="7">
-      <labels>
-        <label description="Approval" languagecode="1033" />
-        <label description="Approbation" languagecode="1036" />
-      </labels>
-    </option>
-    <option value="924340000">
-      <labels>
-        <label description="Triage" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340001">
-      <labels>
-        <label description="Intake" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340002">
-      <labels>
-        <label description="Acceptance" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340003">
-      <labels>
-        <label description="Early Resoloution" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340004">
-      <labels>
-        <label description="Investigation" languagecode="1033" />
-      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
     </option>
   </options>
 </optionset>

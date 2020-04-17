@@ -359,14 +359,7 @@ declare const enum opc_individualcomplaint_bp_statecode {
   Inactive = 1,
 }
 declare const enum processstage_category {
-  Qualify = 0,
-  Develop = 1,
-  Propose = 2,
   Close = 3,
-  Identify = 4,
-  Research = 5,
-  Resolve = 6,
-  Approval = 7,
   Triage = 924340000,
   Intake = 924340001,
   Acceptance = 924340002,

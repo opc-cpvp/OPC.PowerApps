@@ -444,7 +444,7 @@
             <displayname description="Reason to close" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Reason to close this complaint" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_complainant">
