@@ -13,7 +13,7 @@ chai.should();
 chai.use(sinonChai);
 
 describe("Contact", () => {
-    describe("after MCS field is loading", () => {
+    describe("after MCS field is loaded", () => {
         let service: ContactService;
         let form: Contact.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
