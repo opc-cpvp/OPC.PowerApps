@@ -40,7 +40,7 @@ container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint
 container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegation_information").to(Allegation.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_reminder.Main.Information>>("opc_reminder_information").to(Reminder.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_notification.Main.Information>>("opc_notification_information").to(Notification.Forms.MainForm);
-container.bind<i.IPowerForm<Form.contact.Main.ComplianceContact>>("contact_compliance").to(Contact.Forms.MainForm);
+container.bind<i.IPowerForm<Form.contact.Main.ComplianceContact>>("contact_compliancecontact").to(Contact.Forms.MainForm);
 
 // Bootstrapper/Composition Root setup
 container.bind<i.IFormFactory>(nameof<i.IFormFactory>()).toConstantValue(new FormFactory(container));
