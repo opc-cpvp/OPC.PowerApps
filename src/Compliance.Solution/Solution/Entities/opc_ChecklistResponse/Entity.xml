@@ -406,10 +406,10 @@
             <Description description="Required name field" languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="opc_questionid">
+        <attribute PhysicalName="opc_questiontemplateid">
           <Type>lookup</Type>
-          <Name>opc_questionid</Name>
-          <LogicalName>opc_questionid</LogicalName>
+          <Name>opc_questiontemplateid</Name>
+          <LogicalName>opc_questiontemplateid</LogicalName>
           <RequiredLevel>required</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>

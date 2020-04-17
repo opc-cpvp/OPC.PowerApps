@@ -96,7 +96,7 @@
                       "entityName": "opc_checklistresponses",
                       "item/opc_allegationid@odata.bind": "/opc_allegations(@{triggerOutputs()?['body/opc_allegationid']})",
                       "item/opc_name": "@{items('Apply_to_each_Question_Template')?['opc_sequence']} - @{items('Apply_to_each_Question_Template')?['opc_name']}",
-                      "item/opc_questionid@odata.bind": "opc_questiontemplates(@{items('Apply_to_each_Question_Template')?['opc_questiontemplateid']})"
+                      "item/opc_questiontemplateid@odata.bind": "opc_questiontemplates(@{items('Apply_to_each_Question_Template')?['opc_questiontemplateid']})"
                     },
                     "authentication": "@parameters('$authentication')"
                   }
