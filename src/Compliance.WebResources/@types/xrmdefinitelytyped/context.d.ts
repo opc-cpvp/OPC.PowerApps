@@ -523,7 +523,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11064,
+  Complaint = 11091,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -3563,14 +3563,15 @@ declare namespace Form.opc_allegation.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "WebResource_checklist"): Xrm.WebResourceControl;
+      get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.StringControl;
       get(name: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
       get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "subgrid_checklist_responses"): Xrm.SubGridControl<"opc_checklistresponse">;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -3593,14 +3594,15 @@ declare namespace Form.opc_allegation.Main {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "WebResource_checklist"): Xrm.WebResourceControl;
+    getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_description"): Xrm.StringControl;
     getControl(controlName: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
     getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "subgrid_checklist_responses"): Xrm.SubGridControl<"opc_checklistresponse">;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -3716,7 +3718,7 @@ declare namespace Form.opc_checklistresponse.QuickCreate {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_questionid"): Xrm.LookupAttribute<"opc_questiontemplate">;
+      get(name: "opc_questiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
       get(name: "opc_response"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -3726,7 +3728,7 @@ declare namespace Form.opc_checklistresponse.QuickCreate {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_questionid"): Xrm.LookupControl<"opc_questiontemplate">;
+      get(name: "opc_questiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
       get(name: "opc_response"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -3744,12 +3746,12 @@ declare namespace Form.opc_checklistresponse.QuickCreate {
   interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
     getAttribute(attributeName: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_questionid"): Xrm.LookupAttribute<"opc_questiontemplate">;
+    getAttribute(attributeName: "opc_questiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
     getAttribute(attributeName: "opc_response"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_questionid"): Xrm.LookupControl<"opc_questiontemplate">;
+    getControl(controlName: "opc_questiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
     getControl(controlName: "opc_response"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
@@ -3768,7 +3770,7 @@ declare namespace Form.opc_checklistresponse.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_questionid"): Xrm.LookupAttribute<"opc_questiontemplate">;
+      get(name: "opc_questiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
       get(name: "opc_response"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -3778,7 +3780,7 @@ declare namespace Form.opc_checklistresponse.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
-      get(name: "header_opc_questionid"): Xrm.LookupControl<"opc_questiontemplate">;
+      get(name: "header_opc_questiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_response"): Xrm.StringControl;
@@ -3798,12 +3800,12 @@ declare namespace Form.opc_checklistresponse.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_questionid"): Xrm.LookupAttribute<"opc_questiontemplate">;
+    getAttribute(attributeName: "opc_questiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
     getAttribute(attributeName: "opc_response"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
-    getControl(controlName: "header_opc_questionid"): Xrm.LookupControl<"opc_questiontemplate">;
+    getControl(controlName: "header_opc_questiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_response"): Xrm.StringControl;
@@ -3906,6 +3908,8 @@ declare namespace Form.opc_checklisttype.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "opc_type"): Xrm.OptionSetAttribute<opc_complaintstage>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -3916,6 +3920,8 @@ declare namespace Form.opc_checklisttype.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "opc_type"): Xrm.OptionSetControl<opc_complaintstage>;
       get(name: "subgrid_allegation_types"): Xrm.SubGridControl<"opc_allegationtype">;
       get(name: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
@@ -3934,11 +3940,15 @@ declare namespace Form.opc_checklisttype.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_type"): Xrm.OptionSetAttribute<opc_complaintstage>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_type"): Xrm.OptionSetControl<opc_complaintstage>;
     getControl(controlName: "subgrid_allegation_types"): Xrm.SubGridControl<"opc_allegationtype">;
     getControl(controlName: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
@@ -4993,6 +5003,8 @@ declare namespace Form.opc_questiontemplate.QuickCreate {
       get(name: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
       get(name: "opc_conditionalvisibility"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "opc_parentquestiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
       get(name: "opc_questiontypeid"): Xrm.LookupAttribute<"opc_questiontype">;
       get(name: "opc_sequence"): Xrm.Attribute<string>;
@@ -5005,6 +5017,8 @@ declare namespace Form.opc_questiontemplate.QuickCreate {
       get(name: "opc_checklisttypeid"): Xrm.LookupControl<"opc_checklisttype">;
       get(name: "opc_conditionalvisibility"): Xrm.OptionSetControl<boolean>;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "opc_parentquestiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
       get(name: "opc_questiontypeid"): Xrm.LookupControl<"opc_questiontype">;
       get(name: "opc_sequence"): Xrm.StringControl;
@@ -5025,6 +5039,8 @@ declare namespace Form.opc_questiontemplate.QuickCreate {
     getAttribute(attributeName: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
     getAttribute(attributeName: "opc_conditionalvisibility"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_parentquestiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
     getAttribute(attributeName: "opc_questiontypeid"): Xrm.LookupAttribute<"opc_questiontype">;
     getAttribute(attributeName: "opc_sequence"): Xrm.Attribute<string>;
@@ -5032,6 +5048,8 @@ declare namespace Form.opc_questiontemplate.QuickCreate {
     getControl(controlName: "opc_checklisttypeid"): Xrm.LookupControl<"opc_checklisttype">;
     getControl(controlName: "opc_conditionalvisibility"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_parentquestiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
     getControl(controlName: "opc_questiontypeid"): Xrm.LookupControl<"opc_questiontype">;
     getControl(controlName: "opc_sequence"): Xrm.StringControl;
@@ -5055,6 +5073,8 @@ declare namespace Form.opc_questiontemplate.Main {
       get(name: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
       get(name: "opc_conditionalvisibility"): Xrm.Attribute<any>;
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "opc_parentquestiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
       get(name: "opc_questiontypeid"): Xrm.LookupAttribute<"opc_questiontype">;
       get(name: "opc_sequence"): Xrm.Attribute<string>;
@@ -5069,6 +5089,8 @@ declare namespace Form.opc_questiontemplate.Main {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_conditionalvisibility"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "opc_parentquestiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
       get(name: "opc_questiontypeid"): Xrm.LookupControl<"opc_questiontype">;
       get(name: "opc_sequence"): Xrm.StringControl;
@@ -5091,6 +5113,8 @@ declare namespace Form.opc_questiontemplate.Main {
     getAttribute(attributeName: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
     getAttribute(attributeName: "opc_conditionalvisibility"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_parentquestiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
     getAttribute(attributeName: "opc_questiontypeid"): Xrm.LookupAttribute<"opc_questiontype">;
     getAttribute(attributeName: "opc_sequence"): Xrm.Attribute<string>;
@@ -5100,6 +5124,8 @@ declare namespace Form.opc_questiontemplate.Main {
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_conditionalvisibility"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_parentquestiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
     getControl(controlName: "opc_questiontypeid"): Xrm.LookupControl<"opc_questiontype">;
     getControl(controlName: "opc_sequence"): Xrm.StringControl;
@@ -5114,6 +5140,8 @@ declare namespace Form.opc_questiontemplate.Quick {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -5122,6 +5150,8 @@ declare namespace Form.opc_questiontemplate.Quick {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -5137,9 +5167,13 @@ declare namespace Form.opc_questiontemplate.Quick {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
@@ -5159,6 +5193,8 @@ declare namespace Form.opc_questiontype.QuickCreate {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -5166,6 +5202,8 @@ declare namespace Form.opc_questiontype.QuickCreate {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -5181,8 +5219,12 @@ declare namespace Form.opc_questiontype.QuickCreate {
   }
   interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -5232,6 +5274,8 @@ declare namespace Form.opc_questiontype.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -5239,6 +5283,8 @@ declare namespace Form.opc_questiontype.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -5255,8 +5301,12 @@ declare namespace Form.opc_questiontype.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
     getControl(controlName: string): undefined;
   }
@@ -9403,7 +9453,7 @@ interface opc_ChecklistResponse_Relationships {
 }
 interface opc_ChecklistResponse extends opc_ChecklistResponse_Base, opc_ChecklistResponse_Relationships {
   opc_allegationid_bind$opc_allegations?: string | null;
-  opc_questionid_bind$opc_questiontemplates?: string | null;
+  opc_questiontemplateid_bind$opc_questiontemplates?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -9422,7 +9472,7 @@ interface opc_ChecklistResponse_Select {
   opc_allegationid_guid: WebAttribute<opc_ChecklistResponse_Select, { opc_allegationid_guid: string | null }, { opc_allegationid_formatted?: string }>;
   opc_checklistresponseid: WebAttribute<opc_ChecklistResponse_Select, { opc_checklistresponseid: string | null }, {  }>;
   opc_name: WebAttribute<opc_ChecklistResponse_Select, { opc_name: string | null }, {  }>;
-  opc_questionid_guid: WebAttribute<opc_ChecklistResponse_Select, { opc_questionid_guid: string | null }, { opc_questionid_formatted?: string }>;
+  opc_questiontemplateid_guid: WebAttribute<opc_ChecklistResponse_Select, { opc_questiontemplateid_guid: string | null }, { opc_questiontemplateid_formatted?: string }>;
   opc_response: WebAttribute<opc_ChecklistResponse_Select, { opc_response: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_ChecklistResponse_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_ChecklistResponse_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
@@ -9446,7 +9496,7 @@ interface opc_ChecklistResponse_Filter {
   opc_allegationid_guid: XQW.Guid;
   opc_checklistresponseid: XQW.Guid;
   opc_name: string;
-  opc_questionid_guid: XQW.Guid;
+  opc_questiontemplateid_guid: XQW.Guid;
   opc_response: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
@@ -9461,7 +9511,7 @@ interface opc_ChecklistResponse_Filter {
 }
 interface opc_ChecklistResponse_Expand {
   opc_allegationid: WebExpand<opc_ChecklistResponse_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationid: opc_allegation_Result }>;
-  opc_questionid: WebExpand<opc_ChecklistResponse_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questionid: opc_QuestionTemplate_Result }>;
+  opc_questiontemplateid: WebExpand<opc_ChecklistResponse_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questiontemplateid: opc_QuestionTemplate_Result }>;
 }
 interface opc_ChecklistResponse_FormattedResult {
   createdby_formatted?: string;
@@ -9471,7 +9521,7 @@ interface opc_ChecklistResponse_FormattedResult {
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
   opc_allegationid_formatted?: string;
-  opc_questionid_formatted?: string;
+  opc_questiontemplateid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -9487,7 +9537,7 @@ interface opc_ChecklistResponse_Result extends opc_ChecklistResponse_Base, opc_C
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
   opc_allegationid_guid: string | null;
-  opc_questionid_guid: string | null;
+  opc_questiontemplateid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
@@ -9495,7 +9545,7 @@ interface opc_ChecklistResponse_Result extends opc_ChecklistResponse_Base, opc_C
 }
 interface opc_ChecklistResponse_RelatedOne {
   opc_allegationid: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
-  opc_questionid: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  opc_questiontemplateid: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
 }
 interface opc_ChecklistResponse_RelatedMany {
 }
@@ -9513,7 +9563,10 @@ interface opc_ChecklistType_Base extends WebEntity {
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
   opc_checklisttypeid?: string | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
   opc_type?: opc_complaintstage | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_checklisttype_statecode | null;
@@ -9543,7 +9596,10 @@ interface opc_ChecklistType_Select {
   modifiedon: WebAttribute<opc_ChecklistType_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_ChecklistType_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_checklisttypeid: WebAttribute<opc_ChecklistType_Select, { opc_checklisttypeid: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_ChecklistType_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_ChecklistType_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_ChecklistType_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_ChecklistType_Select, { opc_namefrench: string | null }, {  }>;
   opc_type: WebAttribute<opc_ChecklistType_Select, { opc_type: opc_complaintstage | null }, { opc_type_formatted?: string }>;
   overriddencreatedon: WebAttribute<opc_ChecklistType_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_ChecklistType_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
@@ -9565,7 +9621,10 @@ interface opc_ChecklistType_Filter {
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
   opc_checklisttypeid: XQW.Guid;
+  opc_islocalizable: boolean;
   opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
   opc_type: opc_complaintstage;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
@@ -10730,7 +10789,10 @@ interface opc_QuestionTemplate_Base extends WebEntity {
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
   opc_conditionalvisibility?: boolean | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
   opc_questiontemplateid?: string | null;
   opc_sequence?: string | null;
   overriddencreatedon?: Date | null;
@@ -10765,7 +10827,10 @@ interface opc_QuestionTemplate_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_QuestionTemplate_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_checklisttypeid_guid: WebAttribute<opc_QuestionTemplate_Select, { opc_checklisttypeid_guid: string | null }, { opc_checklisttypeid_formatted?: string }>;
   opc_conditionalvisibility: WebAttribute<opc_QuestionTemplate_Select, { opc_conditionalvisibility: boolean | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_QuestionTemplate_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_QuestionTemplate_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_QuestionTemplate_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_QuestionTemplate_Select, { opc_namefrench: string | null }, {  }>;
   opc_parentquestiontemplateid_guid: WebAttribute<opc_QuestionTemplate_Select, { opc_parentquestiontemplateid_guid: string | null }, { opc_parentquestiontemplateid_formatted?: string }>;
   opc_questiontemplateid: WebAttribute<opc_QuestionTemplate_Select, { opc_questiontemplateid: string | null }, {  }>;
   opc_questiontypeid_guid: WebAttribute<opc_QuestionTemplate_Select, { opc_questiontypeid_guid: string | null }, { opc_questiontypeid_formatted?: string }>;
@@ -10791,7 +10856,10 @@ interface opc_QuestionTemplate_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_checklisttypeid_guid: XQW.Guid;
   opc_conditionalvisibility: boolean;
+  opc_islocalizable: boolean;
   opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
   opc_parentquestiontemplateid_guid: XQW.Guid;
   opc_questiontemplateid: XQW.Guid;
   opc_questiontypeid_guid: XQW.Guid;
@@ -10868,7 +10936,10 @@ interface opc_QuestionType_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
   opc_questiontypeid?: string | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_questiontype_statecode | null;
@@ -10894,7 +10965,10 @@ interface opc_QuestionType_Select {
   modifiedby_guid: WebAttribute<opc_QuestionType_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_QuestionType_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_QuestionType_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_islocalizable: WebAttribute<opc_QuestionType_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_QuestionType_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_QuestionType_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_QuestionType_Select, { opc_namefrench: string | null }, {  }>;
   opc_questiontypeid: WebAttribute<opc_QuestionType_Select, { opc_questiontypeid: string | null }, {  }>;
   organizationid_guid: WebAttribute<opc_QuestionType_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
   overriddencreatedon: WebAttribute<opc_QuestionType_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
@@ -10912,7 +10986,10 @@ interface opc_QuestionType_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
+  opc_islocalizable: boolean;
   opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
   opc_questiontypeid: XQW.Guid;
   organizationid_guid: XQW.Guid;
   overriddencreatedon: Date;

@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-04-08T22:29:02.7069178Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-04-15T20:03:31.7791815Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -1471,6 +1471,9 @@
       <record id="6816fb34-1157-ea11-a811-000d3af46cc5">
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" />
         <field name="opc_name" value="Intake - Access" />
+        <field name="opc_nameenglish" value="Intake - Access" />
+        <field name="opc_namefrench" value="Intake - Access [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="opc_type" value="924340000" />
@@ -1483,18 +1486,27 @@
     <records>
       <record id="7815fa86-1157-ea11-a811-000d3af46cc5">
         <field name="opc_name" value="Two Options" />
+        <field name="opc_nameenglish" value="Two Options" />
+        <field name="opc_namefrench" value="Deux options" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="30c8e88d-1157-ea11-a811-000d3af46cc5">
         <field name="opc_name" value="Text Area" />
+        <field name="opc_nameenglish" value="Text Area" />
+        <field name="opc_namefrench" value="Zone de texte" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontypeid" value="30c8e88d-1157-ea11-a811-000d3af46cc5" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="e0c9e88d-1157-ea11-a811-000d3af46cc5">
         <field name="opc_name" value="Text" />
+        <field name="opc_nameenglish" value="Text" />
+        <field name="opc_namefrench" value="Texte" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontypeid" value="e0c9e88d-1157-ea11-a811-000d3af46cc5" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -1508,6 +1520,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="False" />
         <field name="opc_name" value="Was the request made in accordance with PIPEDA?" />
+        <field name="opc_nameenglish" value="Was the request made in accordance with PIPEDA?" />
+        <field name="opc_namefrench" value="Was the request made in accordance with PIPEDA? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="611770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
         <field name="opc_sequence" value="1" />
@@ -1519,6 +1534,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="Was the request made in writing?" />
+        <field name="opc_nameenglish" value="Was the request made in writing?" />
+        <field name="opc_namefrench" value="Was the request made in writing? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="611770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Was the request made in accordance with PIPEDA?" />
         <field name="opc_questiontemplateid" value="631770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
@@ -1531,6 +1549,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="Was the request sent to the Privacy Officer (P.O.)? (Also verify exact address or URL the request was sent to.)" />
+        <field name="opc_nameenglish" value="Was the request sent to the Privacy Officer (P.O.)? (Also verify exact address or URL the request was sent to.)" />
+        <field name="opc_namefrench" value="Was the request sent to the Privacy Officer (P.O.)? (Also verify exact address or URL the request was sent to.) [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="611770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Was the request made in accordance with PIPEDA?" />
         <field name="opc_questiontemplateid" value="651770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
@@ -1543,6 +1564,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="False" />
         <field name="opc_name" value="Did the organisation respond to the individual?" />
+        <field name="opc_nameenglish" value="Did the organisation respond to the individual?" />
+        <field name="opc_namefrench" value="Did the organisation respond to the individual? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="671770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
         <field name="opc_sequence" value="2" />
@@ -1554,6 +1578,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="If yes, obtain copies of correspondence." />
+        <field name="opc_nameenglish" value="If yes, obtain copies of correspondence." />
+        <field name="opc_namefrench" value="If yes, obtain copies of correspondence. [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="671770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Did the organisation respond to the individual?" />
         <field name="opc_questiontemplateid" value="691770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
@@ -1564,8 +1591,11 @@
       </record>
       <record id="6b1770a9-9859-ea11-a811-000d3af4382c">
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
-        <field name="opc_conditionalvisibility" value="False" />
+        <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="If no, did the individual allow 30 days for the organisation to respond?" />
+        <field name="opc_nameenglish" value="If no, did the individual allow 30 days for the organisation to respond?" />
+        <field name="opc_namefrench" value="If no, did the individual allow 30 days for the organisation to respond? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="671770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Did the organisation respond to the individual?" />
         <field name="opc_questiontemplateid" value="6b1770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
@@ -1578,6 +1608,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="False" />
         <field name="opc_name" value="Is the individual complaining that there are missing documents? (Other than a response of “no records found”.)" />
+        <field name="opc_nameenglish" value="Is the individual complaining that there are missing documents? (Other than a response of “no records found”.)" />
+        <field name="opc_namefrench" value="Is the individual complaining that there are missing documents? (Other than a response of “no records found”.) [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="6d1770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
         <field name="opc_sequence" value="3" />
@@ -1589,6 +1622,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="Why do they believe this?" />
+        <field name="opc_nameenglish" value="Why do they believe this?" />
+        <field name="opc_namefrench" value="Why do they believe this? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="6d1770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Is the individual complaining that there are missing documents? (Other than a response of “no records found”.)" />
         <field name="opc_questiontemplateid" value="6f1770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="30c8e88d-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Text Area" />
@@ -1601,6 +1637,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="What documents are missing?" />
+        <field name="opc_nameenglish" value="What documents are missing?" />
+        <field name="opc_namefrench" value="What documents are missing? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="6d1770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Is the individual complaining that there are missing documents? (Other than a response of “no records found”.)" />
         <field name="opc_questiontemplateid" value="711770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="30c8e88d-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Text Area" />
@@ -1613,6 +1652,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="False" />
         <field name="opc_name" value="Is the individual complaining about a response of “no records found”?" />
+        <field name="opc_nameenglish" value="Is the individual complaining about a response of “no records found”?" />
+        <field name="opc_namefrench" value="Is the individual complaining about a response of “no records found”? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="731770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
         <field name="opc_sequence" value="4" />
@@ -1624,6 +1666,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="If yes, did the individual’s request specify what records they were seeking?" />
+        <field name="opc_nameenglish" value="If yes, did the individual’s request specify what records they were seeking?" />
+        <field name="opc_namefrench" value="If yes, did the individual’s request specify what records they were seeking? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="731770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Is the individual complaining about a response of “no records found”?" />
         <field name="opc_questiontemplateid" value="751770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
@@ -1634,8 +1679,11 @@
       </record>
       <record id="771770a9-9859-ea11-a811-000d3af4382c">
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
-        <field name="opc_conditionalvisibility" value="False" />
+        <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="If no, ask the individual why they did not specify this in their request." />
+        <field name="opc_nameenglish" value="If no, ask the individual why they did not specify this in their request." />
+        <field name="opc_namefrench" value="If no, ask the individual why they did not specify this in their request. [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="731770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Is the individual complaining about a response of “no records found”?" />
         <field name="opc_questiontemplateid" value="771770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="30c8e88d-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Text Area" />
@@ -1648,6 +1696,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="False" />
         <field name="opc_name" value="Is the individual complaining about the exemptions?" />
+        <field name="opc_nameenglish" value="Is the individual complaining about the exemptions?" />
+        <field name="opc_namefrench" value="Is the individual complaining about the exemptions? [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="791770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Two Options" />
         <field name="opc_sequence" value="5" />
@@ -1659,6 +1710,9 @@
         <field name="opc_checklisttypeid" value="6816fb34-1157-ea11-a811-000d3af46cc5" lookupentity="opc_checklisttype" lookupentityname="Intake - Access" />
         <field name="opc_conditionalvisibility" value="True" />
         <field name="opc_name" value="If yes, identify which exemptions were applied (if specified in the correspondence)." />
+        <field name="opc_nameenglish" value="If yes, identify which exemptions were applied (if specified in the correspondence)." />
+        <field name="opc_namefrench" value="If yes, identify which exemptions were applied (if specified in the correspondence). [fr]" />
+        <field name="opc_islocalizable" value="True" />
         <field name="opc_parentquestiontemplateid" value="791770a9-9859-ea11-a811-000d3af4382c" lookupentity="opc_questiontemplate" lookupentityname="Is the individual complaining about the exemptions?" />
         <field name="opc_questiontemplateid" value="7b1770a9-9859-ea11-a811-000d3af4382c" />
         <field name="opc_questiontypeid" value="30c8e88d-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="Text Area" />

@@ -175,6 +175,9 @@
     <fields>
       <field updateCompare="true" displayname="Checklist Type" name="opc_checklisttypeid" type="guid" primaryKey="true" />
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
       <field displayname="Type" name="opc_type" type="optionsetvalue" customfield="true" />
@@ -185,6 +188,9 @@
   <entity name="opc_questiontype" displayname="Question Type" etc="10603" primaryidfield="opc_questiontypeid" primarynamefield="opc_name" disableplugins="false">
     <fields>
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
       <field updateCompare="true" displayname="Question Type" name="opc_questiontypeid" type="guid" primaryKey="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
@@ -196,6 +202,9 @@
       <field displayname="Checklist Type" name="opc_checklisttypeid" type="entityreference" lookupType="opc_checklisttype" customfield="true" />
       <field displayname="Conditional Visibility" name="opc_conditionalvisibility" type="bool" customfield="true" />
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
       <field displayname="Parent Question Template" name="opc_parentquestiontemplateid" type="entityreference" lookupType="opc_questiontemplate" customfield="true" />
       <field updateCompare="true" displayname="Question Template" name="opc_questiontemplateid" type="guid" primaryKey="true" />
       <field displayname="Question Type" name="opc_questiontypeid" type="entityreference" lookupType="opc_questiontype" customfield="true" />
