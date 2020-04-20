@@ -3,12 +3,18 @@ import "reflect-metadata";
 import { IPowerForm } from "../interfaces";
 
 export namespace Contact.Forms {
+    //enum RoleGuids {
+    //    IntakeManager = "8fcba750-362e-ea11-a810-000d3af46757",
+    //    SystemAdministrator = "34f59588-e306-ea11-a813-000d3af436d7",
+    //    SystemCustomizer = "85f99588-e306-ea11-a813-000d3af436d7",
+    //}
 
     @injectable()
     export class MainForm implements IPowerForm<Form.contact.Main.ComplianceContact> {
 
         private _xrmUtility: Xrm.Utility;
         private _saveEventConfirmed: boolean = false;
+        private _isIntakeManager: boolean;
 
         readonly intakeManagerGuid = "8fcba750-362e-ea11-a810-000d3af46757";
         readonly sysAdminRoleGuid = "34f59588-e306-ea11-a813-000d3af436d7";
@@ -24,13 +30,14 @@ export namespace Contact.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.contact.Main.ComplianceContact, any>): void {
-            let formContext = <Form.contact.Main.ComplianceContact>initializationContext.getFormContext();
+            const formContext = <Form.contact.Main.ComplianceContact>initializationContext.getFormContext();
 
             // Register handlers
             formContext.getAttribute("opc_multiplecomplaintstrategy").addOnChange(x => this.multipleComplaintStrategy_OnChange(x));
             formContext.data.entity.addOnSave(x => this.form_OnSave(x));
 
             // Execution sequence matters
+            this._isIntakeManager = this.isIntakeManager();
             this.multipleComplaintStrategy_setVisibleValues(formContext);
             formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
         }
@@ -48,7 +55,7 @@ export namespace Contact.Forms {
         * @event OnChanged
         */
         private multipleComplaintStrategy_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            let formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
+            const formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
 
             if (formContext.ui.getFormType() !== Xrm.FormType.Create) {
                 this.multipleComplaintStrategy_DisplayNotification(formContext);
@@ -62,11 +69,9 @@ export namespace Contact.Forms {
         * @event OnChange
         */
         private multipleComplaintStrategy_setVisibleValues(formContext: Form.contact.Main.ComplianceContact): void {
-            let isIntakeManager: boolean = this.isIntakeManager();
+            const multipleComplaintStrategyValue = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
 
-            let multipleComplaintStrategyValue = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
-
-            if (!isIntakeManager && multipleComplaintStrategyValue !== opc_multiplecomplaintstrategy.Applied) {
+            if (!this._isIntakeManager && multipleComplaintStrategyValue !== opc_multiplecomplaintstrategy.Applied) {
                 formContext.getControl("opc_multiplecomplaintstrategy").removeOption(opc_multiplecomplaintstrategy.Applied);
             }
         }
@@ -77,10 +82,10 @@ export namespace Contact.Forms {
         * @event OnChange
         */
         private multipleComplaintStrategy_DisplayNotification(formContext: Form.contact.Main.ComplianceContact): void {
-            let multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
-            let multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
-            let firstName = formContext.getAttribute("firstname").getValue();
-            let lastName = formContext.getAttribute("lastname").getValue();
+            const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
+            const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
+            const firstName = formContext.getAttribute("firstname").getValue();
+            const lastName = formContext.getAttribute("lastname").getValue();
 
             // Clear Notification
             formContext.ui.clearFormNotification("formNotificationMCS");
@@ -98,13 +103,12 @@ export namespace Contact.Forms {
         * @event OnChange
         */
         private multipleComplaintStrategy_SetDisabled(formContext: Form.contact.Main.ComplianceContact): void {
-            let multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
-            let multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
-            let isIntakeManager: boolean = this.isIntakeManager();
+            const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
+            const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
 
             // Check if Contact is part of the Multiple Complaint Strategy
             // and lock the field unless user role is Intake Manager, Sys Admin or Sys Customizer
-            multipleComplaintStrategyControl.setDisabled(multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !isIntakeManager);
+            multipleComplaintStrategyControl.setDisabled(multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._isIntakeManager);
         }
 
         /**
@@ -113,12 +117,12 @@ export namespace Contact.Forms {
         * @event OnSave
         */
         private multipleComplaintStrategy_ConfirmDialog(context: Xrm.SaveEventContext<Xrm.PageEntity<Form.contact.Main.ComplianceContact.Attributes>>): void {
-            let formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
-            let multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
-            let multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
+            const formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
+            const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
+            const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
 
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._saveEventConfirmed) {
-                let confirmStrings = {
+                const confirmStrings = {
                     text: "You are about to include this contact in the Multiple Complaint Strategy list. Would you like to proceed?",
                     title: "Multiple Complaint Strategy Confirmation"
                 };
@@ -150,16 +154,36 @@ export namespace Contact.Forms {
             // Only returns an array of string for now. Must be a bug.
             let userSecurityRoles = this._xrmUtility.getGlobalContext().userSettings.roles;
             let isIntakeManager: boolean = false;
+            //let count: number = 0;
 
             userSecurityRoles.forEach(role => {
                 // Cast the string to the object it should be
-                let roleObject = <{ id: string, name: string }><unknown>role;
-
+                const roleObject = <{ id: string, name: string }><unknown>role;
+                //count++;
                 if (roleObject.id === this.intakeManagerGuid || roleObject.id === this.sysAdminRoleGuid || roleObject.id === this.sysCustomizerRoleGuid) {
                     isIntakeManager = true
                 }
             });
+            //console.log(userSecurityRoles);
+            //let test = <{ id: string, name: string }[]><unknown[]>userSecurityRoles;
+            //console.log(test);
+            //for (let as of test) {
+            //    console.log(as.id);
+            //    console.log(as.name);
+            //}
+            //console.log(userSecurityRoles.length);
+            //for (let i = 0; i < userSecurityRoles.length; i++) {
+            //    console.log(userSecurityRoles[i]);
+            //    count++;
+            //    // Cast the string to the object it should be
+            //    const roleObject = <{ id: string, name: string }><unknown>userSecurityRoles[i];
 
+            //    if (roleObject.id === this.intakeManagerGuid || roleObject.id === this.sysAdminRoleGuid || roleObject.id === this.sysCustomizerRoleGuid) {
+            //        isIntakeManager = true
+            //        break;
+            //    }
+            //}
+            //console.log(count);
             return isIntakeManager;
         }
     }

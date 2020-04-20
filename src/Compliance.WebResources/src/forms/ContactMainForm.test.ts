@@ -12,20 +12,21 @@ chai.should();
 chai.use(sinonChai);
 
 describe("Contact", () => {
+    const roleIntakeManager: { id: string, name: string } = { id: "8fcba750-362e-ea11-a810-000d3af46757", name: "Compliance - Intake Manager" };
+    const roleNotIntakeManager: { id: string, name: string } = { id: "B2D7179F-913E-42B4-B040-84E375AF8831", name: "NOT Intake Manager" };
+    const mcsOptions: XrmOptionMock[] = [
+        { text: "Not Applied", value: opc_multiplecomplaintstrategy.NotApplied },
+        { text: "Proposed", value: opc_multiplecomplaintstrategy.Proposed },
+        { text: "Applied", value: opc_multiplecomplaintstrategy.Applied },
+        { text: "Former", value: opc_multiplecomplaintstrategy.Former }
+    ];
+
     describe("after MCS field is loaded", () => {
         let form: Contact.Forms.MainForm;
         let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
         let mockUtility: XrmUtilityMock;
         let mcsControl: XrmBaseControlMock;
         let controlSpy: any;
-        let roleIntakeManager: { id: string, name: string } = { id: "8fcba750-362e-ea11-a810-000d3af46757", name: "Compliance - Intake Manager" };
-        let roleNotIntakeManager: { id: string, name: string } = { id: "B2D7179F-913E-42B4-B040-84E375AF8831", name: "NOT Intake Manager" };
-        let mcsOptions: XrmOptionMock[] = [
-            { text: "Not Applied", value: opc_multiplecomplaintstrategy.NotApplied },
-            { text: "Proposed", value: opc_multiplecomplaintstrategy.Proposed },
-            { text: "Applied", value: opc_multiplecomplaintstrategy.Applied },
-            { text: "Former", value: opc_multiplecomplaintstrategy.Former }
-        ];
 
         beforeEach(function () {
             mockUtility = new XrmUtilityMock();
@@ -83,8 +84,6 @@ describe("Contact", () => {
         let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
         let mockUtility: XrmUtilityMock;
         let contextSpy: any;
-        let roleIntakeManager: { id: string, name: string } = { id: "8fcba750-362e-ea11-a810-000d3af46757", name: "Compliance - Intake Manager" };
-        let roleNotIntakeManager: { id: string, name: string } = { id: "B2D7179F-913E-42B4-B040-84E375AF8831", name: "NOT Intake Manager" };
 
         beforeEach(function () {
             mockUtility = new XrmUtilityMock();
