@@ -221,7 +221,32 @@ namespace Compliance.Package.Deployment
                 PackageTemplate.PackageLog.Log($"Creating Team: {name}");
 
                 // Create the Team.
-                var teamId = PackageTemplate.CrmSvc.Create(team);
+                Guid teamId = default;
+                try
+                {
+                    teamId = PackageTemplate.CrmSvc.Create(team);
+                }
+                catch (Exception)
+                {
+                    PackageTemplate.PackageLog.Log($"Failed to create AD Security Team: {name}");
+                    PackageTemplate.PackageLog.Log($"Attempting to create Security Team: {name}");
+
+                    team.TeamType = new OptionSetValue((int)TeamTeamType.Access);
+                    team.AzureActiveDirectoryObjectId = null;
+                    teamId = PackageTemplate.CrmSvc.Create(team);
+                    PackageTemplate.PackageLog.Log($"Security Team {name} created.");
+                }
+                finally
+                {
+                    // Associate the Role to the Team.
+                    PackageTemplate.CrmSvc.Associate(
+                        Team.EntityLogicalName,
+                        teamId,
+                        new Relationship("teamroles_association"),
+                        new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
+                    );
+
+                }
 
                 // Associate the Role to the Team.
                 PackageTemplate.CrmSvc.Associate(
