@@ -231,8 +231,12 @@ namespace Compliance.Package.Deployment
                     PackageTemplate.PackageLog.Log($"Failed to create AD Security Team: {name}");
                     PackageTemplate.PackageLog.Log($"Attempting to create Security Team: {name}");
 
-                    team.TeamType = new OptionSetValue((int)TeamTeamType.Owner);
-                    team.AzureActiveDirectoryObjectId = null;
+                    team = new Team
+                    {
+                        Name = name,
+                        TeamType = new OptionSetValue((int)TeamTeamType.Owner),
+                        BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id)
+                    };
                     teamId = PackageTemplate.CrmSvc.Create(team);
                     PackageTemplate.PackageLog.Log($"Security Team {name} created.");
                 }
