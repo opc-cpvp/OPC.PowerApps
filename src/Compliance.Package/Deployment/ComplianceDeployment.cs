@@ -225,20 +225,27 @@ namespace Compliance.Package.Deployment
                 try
                 {
                     teamId = PackageTemplate.CrmSvc.Create(team);
-                } 
+                }
                 catch (Exception)
                 {
                     PackageTemplate.PackageLog.Log($"Failed to create AD Security Team: {name}");
                     PackageTemplate.PackageLog.Log($"Attempting to create Security Team: {name}");
 
-                    team = new Team
+                    try
                     {
-                        Name = name,
-                        TeamType = new OptionSetValue((int)TeamTeamType.Owner),
-                        BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id)
-                    };
-                    teamId = PackageTemplate.CrmSvc.Create(team);
-                    PackageTemplate.PackageLog.Log($"Security Team {name} created.");
+                        team = new Team
+                        {
+                            Name = name,
+                            TeamType = new OptionSetValue((int)TeamTeamType.Owner),
+                            BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id)
+                        };
+                        teamId = PackageTemplate.CrmSvc.Create(team);
+                        PackageTemplate.PackageLog.Log($"Security Team {name} created.");
+                    }
+                    catch (Exception ex)
+                    {
+                        PackageTemplate.PackageLog.Log($"Exception: {ex.Message}");
+                    }
                 }
                 finally
                 {
