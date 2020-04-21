@@ -35,7 +35,7 @@ export namespace Notification.Forms {
 
             // Display the lookup field that contains the link to the related case if not empty.
             if (complaintIdValue != null) {
-                XrmHelper.turnOn(formContext.getControl("opc_complaintid"));
+                XrmHelper.toggleOn(formContext.getControl("opc_complaintid"));
                 entityFormOptions["entityName"] = "opc_complaint";
                 entityFormOptions["entityId"] = complaintIdValue[0].id;
             }

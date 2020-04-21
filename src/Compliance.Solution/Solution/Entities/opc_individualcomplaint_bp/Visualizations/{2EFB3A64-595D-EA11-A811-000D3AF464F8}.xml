@@ -6,7 +6,7 @@
       <fetchcollection>
         <fetch mapping="logical" aggregate="true">
           <entity name="opc_individualcomplaint_bp">
-            <attribute name="activestageid" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" />
+            <attribute name="opc_activestagecategory" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" />
             <attribute name="bpf_opc_complaintid" aggregate="count" alias="_CRMAutoGen_aggregate_column_Num_0" />
           </entity>
         </fetch>
