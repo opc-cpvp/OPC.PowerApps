@@ -1307,21 +1307,6 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.29")]
-	public enum opc_intakedisposition
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MovetoEarlyResolution = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MovetoInvestigation = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Declinetoinvestigate = 924340002,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.29")]
 	public enum sharepoint_validationstatusreason
 	{
 		
@@ -3048,9 +3033,6 @@ namespace Compliance.Entities
 		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -3063,16 +3045,10 @@ namespace Compliance.Entities
 		RecurringAppointment = 4251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		User = 8,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Goal = 9600,
-
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Activity = 4200
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -3133,9 +3109,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfileRule = 9400,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PhoneCall = 4210,
@@ -4530,9 +4503,6 @@ namespace Compliance.Entities
 		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManagedProperty = 9812,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfile = 9866,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -4552,9 +4522,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AnalysisComponent = 10029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistoryDataSource = 10001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryDataSource = 10001,
@@ -4608,9 +4575,6 @@ namespace Compliance.Entities
 		HelpPage = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -4618,9 +4582,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ODatav4DataSource = 10008,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleTemplate = 10007,
@@ -5670,9 +5631,6 @@ namespace Compliance.Entities
 		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManagedProperty = 9812,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfile = 9866,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -5692,9 +5650,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AnalysisComponent = 10029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistoryDataSource = 10001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryDataSource = 10001,
@@ -5748,9 +5703,6 @@ namespace Compliance.Entities
 		HelpPage = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -5758,9 +5710,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ODatav4DataSource = 10008,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleTemplate = 10007,
@@ -7647,9 +7596,6 @@ namespace Compliance.Entities
 		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManagedProperty = 9812,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfile = 9866,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -7669,9 +7615,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AnalysisComponent = 10029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistoryDataSource = 10001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryDataSource = 10001,
@@ -7725,9 +7668,6 @@ namespace Compliance.Entities
 		HelpPage = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -7735,9 +7675,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ODatav4DataSource = 10008,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleTemplate = 10007,
@@ -10440,12 +10377,6 @@ namespace Compliance.Entities
 		Task = 4212,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 10875,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Activity = 4200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -11964,9 +11895,6 @@ namespace Compliance.Entities
 		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManagedProperty = 9812,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfile = 9866,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -11986,9 +11914,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AnalysisComponent = 10029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistoryDataSource = 10001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryDataSource = 10001,
@@ -12042,9 +11967,6 @@ namespace Compliance.Entities
 		HelpPage = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -12052,9 +11974,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ODatav4DataSource = 10008,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleTemplate = 10007,
