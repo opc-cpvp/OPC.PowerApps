@@ -221,7 +221,7 @@ namespace Compliance.Package.Deployment
                 PackageTemplate.PackageLog.Log($"Creating Team: {name}");
 
                 // Create the Team.
-                Guid teamId = default;
+                var teamId = Guid.Empty;
                 try
                 {
                     teamId = PackageTemplate.CrmSvc.Create(team);
