@@ -251,14 +251,6 @@ namespace Compliance.Package.Deployment
                     );
 
                 }
-
-                // Associate the Role to the Team.
-                PackageTemplate.CrmSvc.Associate(
-                    Team.EntityLogicalName,
-                    teamId,
-                    new Relationship("teamroles_association"),
-                    new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
-                );
             }
         }
     }
