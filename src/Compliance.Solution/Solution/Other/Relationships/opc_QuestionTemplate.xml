@@ -14,7 +14,7 @@
     <CascadeUnshare>NoCascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>opc_questionid</ReferencingAttributeName>
+    <ReferencingAttributeName>opc_questiontemplateid</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
         <Description description="The question asked in this checklist" languagecode="1033" />
@@ -25,7 +25,7 @@
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>opc_questionid</NavigationPropertyName>
+        <NavigationPropertyName>opc_questiontemplateid</NavigationPropertyName>
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>

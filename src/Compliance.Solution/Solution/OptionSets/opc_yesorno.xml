@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_yesorno" localizedName="Yes or No" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.210</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Yes or No" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="924340000">
+      <labels>
+        <label description="Yes" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340001">
+      <labels>
+        <label description="No" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>
