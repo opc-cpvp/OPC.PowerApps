@@ -1,4 +1,8 @@
-﻿export class XrmUserSettingsMock implements Xrm.userSettings {
+﻿import { XrmCollectionMock } from "./XrmCollectionMock";
+import { XrmRoleMock } from "./XrmRoleMock";
+
+export class XrmUserSettingsMock implements Xrm.userSettings {
+    roles: XrmCollectionMock<XrmRoleMock>;
     dateFormattingInfo: Xrm.dateFormattingInfo;
     defaultDashboardId: string;
     isGuidedHelpEnabled: boolean;
@@ -6,7 +10,6 @@
     isRTL: boolean;
     languageId: number;
     securityRolePrivileges: string[];
-    roles: string[];
     userName: string;
     userId: string;
 

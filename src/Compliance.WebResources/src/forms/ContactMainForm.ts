@@ -3,25 +3,23 @@ import "reflect-metadata";
 import { IPowerForm } from "../interfaces";
 
 export namespace Contact.Forms {
-    //enum RoleGuids {
-    //    IntakeManager = "8fcba750-362e-ea11-a810-000d3af46757",
-    //    SystemAdministrator = "34f59588-e306-ea11-a813-000d3af436d7",
-    //    SystemCustomizer = "85f99588-e306-ea11-a813-000d3af436d7",
-    //}
+    enum ROLES_GUIDS {
+        IntakeManager = "8fcba750-362e-ea11-a810-000d3af46757",
+        SystemAdministrator = "34f59588-e306-ea11-a813-000d3af436d7",
+        SystemCustomizer = "85f99588-e306-ea11-a813-000d3af436d7",
+    }
 
     @injectable()
     export class MainForm implements IPowerForm<Form.contact.Main.ComplianceContact> {
 
         private _xrmUtility: Xrm.Utility;
+        private _xrmNavigation: Xrm.Navigation;
         private _saveEventConfirmed: boolean = false;
         private _isIntakeManager: boolean;
 
-        readonly intakeManagerGuid = "8fcba750-362e-ea11-a810-000d3af46757";
-        readonly sysAdminRoleGuid = "34f59588-e306-ea11-a813-000d3af436d7";
-        readonly sysCustomizerRoleGuid = "85f99588-e306-ea11-a813-000d3af436d7";
-
-        constructor(@inject(nameof<Xrm.Utility>()) xrmUtility: Xrm.Utility) {
+        constructor(@inject(nameof<Xrm.Utility>()) xrmUtility: Xrm.Utility, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
             this._xrmUtility = xrmUtility;
+            this._xrmNavigation = xrmNavigation;
         }
 
         /**
@@ -131,7 +129,7 @@ export namespace Contact.Forms {
                 // the confirmation dialog is async and the save event will continue while the dialog is open.
                 context.getEventArgs().preventDefault();
 
-                Xrm.Navigation.openConfirmDialog(confirmStrings).then(
+                this._xrmNavigation.openConfirmDialog(confirmStrings).then(
                     (success) => {
                         if (success.confirmed) {
                             this._saveEventConfirmed = true;
@@ -150,40 +148,17 @@ export namespace Contact.Forms {
         * @event OnChange
         */
         private isIntakeManager(): boolean {
-            // Is supposed to return an array of objects containing id and name of each of the security role or teams that the user is associated with.
-            // Only returns an array of string for now. Must be a bug.
-            let userSecurityRoles = this._xrmUtility.getGlobalContext().userSettings.roles;
+            const userSecurityRoles: Xrm.Collection<Xrm.Role> = this._xrmUtility.getGlobalContext().userSettings.roles;
+            const intakeManagerGuids: string[] = [ROLES_GUIDS.IntakeManager, ROLES_GUIDS.SystemAdministrator, ROLES_GUIDS.SystemCustomizer];
             let isIntakeManager: boolean = false;
-            //let count: number = 0;
 
-            userSecurityRoles.forEach(role => {
-                // Cast the string to the object it should be
-                const roleObject = <{ id: string, name: string }><unknown>role;
-                //count++;
-                if (roleObject.id === this.intakeManagerGuid || roleObject.id === this.sysAdminRoleGuid || roleObject.id === this.sysCustomizerRoleGuid) {
-                    isIntakeManager = true
+            for (const role of userSecurityRoles.get()) {
+                if (intakeManagerGuids.includes(role.id)) {
+                    isIntakeManager = true;
+                    break;
                 }
-            });
-            //console.log(userSecurityRoles);
-            //let test = <{ id: string, name: string }[]><unknown[]>userSecurityRoles;
-            //console.log(test);
-            //for (let as of test) {
-            //    console.log(as.id);
-            //    console.log(as.name);
-            //}
-            //console.log(userSecurityRoles.length);
-            //for (let i = 0; i < userSecurityRoles.length; i++) {
-            //    console.log(userSecurityRoles[i]);
-            //    count++;
-            //    // Cast the string to the object it should be
-            //    const roleObject = <{ id: string, name: string }><unknown>userSecurityRoles[i];
+            }
 
-            //    if (roleObject.id === this.intakeManagerGuid || roleObject.id === this.sysAdminRoleGuid || roleObject.id === this.sysCustomizerRoleGuid) {
-            //        isIntakeManager = true
-            //        break;
-            //    }
-            //}
-            //console.log(count);
             return isIntakeManager;
         }
     }
