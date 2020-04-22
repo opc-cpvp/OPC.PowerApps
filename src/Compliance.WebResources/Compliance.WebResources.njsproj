@@ -68,16 +68,12 @@
     <TypeScriptCompile Include="src\inversify.config.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
-    <TypeScriptCompile Include="src\services\ContactService.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\services\ContactService.ts" />
     <TypeScriptCompile Include="src\services\NotificationService.ts" />
     <TypeScriptCompile Include="src\services\ReminderService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
     <TypeScriptCompile Include="test\INamedComponent.ts" />
-    <TypeScriptCompile Include="test\XrmLookupAttributeMock.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="test\XrmLookupAttributeMock.ts" />
     <TypeScriptCompile Include="test\XrmSaveEventContextMock.ts" />
     <TypeScriptCompile Include="test\XrmNavigationMock.ts" />
     <TypeScriptCompile Include="test\XrmAttributeMock.ts" />

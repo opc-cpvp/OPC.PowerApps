@@ -27,8 +27,6 @@ export namespace Complaint.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
-
-            this._complaintService.getComplaint("test");
             let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
