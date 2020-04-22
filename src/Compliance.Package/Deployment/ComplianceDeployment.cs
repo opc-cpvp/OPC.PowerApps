@@ -268,7 +268,11 @@ namespace Compliance.Package.Deployment
                     }
                 }
 
-                if (teamId == null) continue;
+                if (teamId == null)
+                {
+                    PackageTemplate.PackageLog.Log($"Could not create or find team {name}... skipping.");
+                    continue;
+                }
 
                 // Associate the Role to the Team.
                 PackageTemplate.CrmSvc.Associate(
