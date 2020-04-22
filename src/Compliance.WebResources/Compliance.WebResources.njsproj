@@ -43,6 +43,9 @@
     <Folder Include="src\utils\" />
     <Folder Include="src\utils\imgs\" />
     <Folder Include="src\" />
+    <Folder Include="src\controls\" />
+    <Folder Include="src\controls\Checklist\" />
+    <Folder Include="src\controls\RiskAssessment\" />
     <Folder Include="src\factories\" />
     <Folder Include="src\forms\" />
     <Folder Include="src\helpers\" />
@@ -56,6 +59,10 @@
     <TypeScriptCompile Include="%40types\xrmdefinitelytyped\xrm.d.ts" />
     <TypeScriptCompile Include="%40types\xrmdefinitelytyped\_internal\sdk.d.ts" />
     <TypeScriptCompile Include="src\bootstrapper.ts" />
+    <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.ts" />
+    <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
+    <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
+    <TypeScriptCompile Include="src\factories\ControlFactory.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ContactMainForm.ts" />
@@ -70,6 +77,7 @@
     <TypeScriptCompile Include="src\index.ts" />
     <TypeScriptCompile Include="src\interfaces.ts" />
     <TypeScriptCompile Include="src\inversify.config.ts" />
+    <TypeScriptCompile Include="src\services\ChecklistService.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />
     <TypeScriptCompile Include="src\services\ContactService.ts" />
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
@@ -116,6 +124,9 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\controls\Checklist\ChecklistControl.html" />
+    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
+    <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
     <Content Include="tsconfig.json" />
     <Content Include="webpack.config.js" />
   </ItemGroup>

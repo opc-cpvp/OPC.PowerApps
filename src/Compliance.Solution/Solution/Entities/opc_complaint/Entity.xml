@@ -294,7 +294,7 @@
           <Type>datetime</Type>
           <Name>opc_acceptancedate</Name>
           <LogicalName>opc_acceptancedate</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
+          <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -407,6 +407,45 @@
             <Description description="" languagecode="1033" />
           </Descriptions>
           <FormulaDefinitionFileName>/Formulas/opc_complaint-opc_actualriskappetitevalue.xaml</FormulaDefinitionFileName>
+        </attribute>
+        <attribute PhysicalName="opc_closereason">
+          <Type>picklist</Type>
+          <Name>opc_closereason</Name>
+          <LogicalName>opc_closereason</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.210</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>opc_closereason</OptionSetName>
+          <displaynames>
+            <displayname description="Reason to close" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Reason to close this complaint" languagecode="1033" />
+          </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_complainant">
           <Type>lookup</Type>
@@ -562,45 +601,6 @@
             <Description description="Identificateur unique des instances d'entité" languagecode="1036" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="opc_declinereason">
-          <Type>picklist</Type>
-          <Name>opc_declinereason</Name>
-          <LogicalName>opc_declinereason</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>-1</AppDefaultValue>
-          <OptionSetName>opc_declinereason</OptionSetName>
-          <displaynames>
-            <displayname description="Reason" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Reasons to decline to investigate a complaint." languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="opc_intakedisposition">
           <Type>picklist</Type>
           <Name>opc_intakedisposition</Name>
@@ -640,6 +640,45 @@
             <Description description="Defines the dispositions to move out of the intake phase." languagecode="1033" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="opc_lastmilestone">
+          <Type>picklist</Type>
+          <Name>opc_lastmilestone</Name>
+          <LogicalName>opc_lastmilestone</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.210</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>924340000</AppDefaultValue>
+          <OptionSetName>opc_complaintmilestone</OptionSetName>
+          <displaynames>
+            <displayname description="Last Milestone" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Last milestone for the complaint" languagecode="1033" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="opc_legislation">
           <Type>lookup</Type>
           <Name>opc_legislation</Name>
@@ -677,6 +716,45 @@
           </displaynames>
           <Descriptions>
             <Description description="Legislation related to the complaint." languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="opc_nextstep">
+          <Type>picklist</Type>
+          <Name>opc_nextstep</Name>
+          <LogicalName>opc_nextstep</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.210</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>opc_nextstep</OptionSetName>
+          <displaynames>
+            <displayname description="Next Step" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Indicates next action to take on the file" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_multiplecomplaintstrategy">
@@ -797,10 +875,10 @@
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_recommendtoregistrar">
-          <Type>bit</Type>
+          <Type>picklist</Type>
           <Name>opc_recommendtoregistrar</Name>
           <LogicalName>opc_recommendtoregistrar</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
+          <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -809,7 +887,7 @@
           <IsCustomField>1</IsCustomField>
           <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IntroducedVersion>1.0.210</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -826,42 +904,20 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="opc_complaint_opc_recommendtoregistrar">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.0.0</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <displaynames>
-              <displayname description="Local Enumeration" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="Whether or not a recommendation should be made to the registrar." languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>opc_yesorno</OptionSetName>
           <displaynames>
             <displayname description="Recommend to registrar" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Whether or not a recommendation should be made to the registrar." languagecode="1033" />
+            <Description description="Recommend to registrar" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_sectorid">
           <Type>lookup</Type>
           <Name>opc_sectorid</Name>
           <LogicalName>opc_sectorid</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
+          <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
@@ -1222,7 +1278,7 @@
                   <label description="Active" languagecode="1033" />
                 </labels>
               </state>
-              <state value="1" defaultstatus="924340000" invariantname="Inactive">
+              <state value="1" defaultstatus="924340002" invariantname="Inactive">
                 <labels>
                   <label description="Inactive" languagecode="1033" />
                 </labels>
@@ -1283,32 +1339,52 @@
             <statuses>
               <status value="924340010" state="0" TransitionData="" Color="#0000ff">
                 <labels>
-                  <label description="Active" languagecode="1033" />
+                  <label description="New" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340011" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Initial assessment" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340012" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Under early resolution" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340013" state="0" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Under investigation" languagecode="1033" />
                 </labels>
               </status>
               <status value="924340002" state="1" TransitionData="" Color="#0000ff">
                 <labels>
-                  <label description="Discontinued" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340006" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="Investigation completed" languagecode="1033" />
-                </labels>
-              </status>
-              <status value="924340000" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="No jurisdiction" languagecode="1033" />
+                  <label description="Duplicate" languagecode="1033" />
                 </labels>
               </status>
               <status value="924340001" state="1" TransitionData="" Color="#0000ff">
                 <labels>
-                  <label description="Resolved at early resolution" languagecode="1033" />
+                  <label description="Declined" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340014" state="1" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Investigation discontinued" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340007" state="1" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Investigation completed" languagecode="1033" />
                 </labels>
               </status>
               <status value="924340004" state="1" TransitionData="" Color="#0000ff">
                 <labels>
-                  <label description="Resolved at intake" languagecode="1033" />
+                  <label description="Resolved" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340006" state="1" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Redirected" languagecode="1033" />
                 </labels>
               </status>
               <status value="924340005" state="1" TransitionData="" Color="#0000ff">
@@ -1316,14 +1392,14 @@
                   <label description="Settled" languagecode="1033" />
                 </labels>
               </status>
-              <status value="924340007" state="1" TransitionData="" Color="#0000ff">
-                <labels>
-                  <label description="Unresponsive inquirer" languagecode="1033" />
-                </labels>
-              </status>
               <status value="924340003" state="1" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="Withdrawn" languagecode="1033" />
+                </labels>
+              </status>
+              <status value="924340015" state="1" TransitionData="" Color="#0000ff">
+                <labels>
+                  <label description="Created in error" languagecode="1033" />
                 </labels>
               </status>
             </statuses>

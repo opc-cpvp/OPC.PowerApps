@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{274b9ff7-ebd6-4d74-9e35-c2584680902e}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -14,7 +14,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65029ad5-f4c2-42a3-a89c-d118ae76d766}" name="section_general" columns="1">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65029ad5-f4c2-42a3-a89c-d118ae76d766}" name="section_general" columns="1" height="auto">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>
@@ -46,7 +46,7 @@
                     <row />
                     <row />
                     <row />
-                    <row />
+                    <row height="auto" />
                     <row>
                       <cell id="{80497d98-8680-4158-8aa9-5cb90e9484fd}" showlabel="true" locklevel="0">
                         <labels>
@@ -66,27 +66,54 @@
                     </row>
                   </rows>
                 </section>
-                <section name="section_checklist_responses" id="b98a32cd-c4bf-4c25-b19d-bf871bcd7a85" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_checklist_responses" id="b98a32cd-c4bf-4c25-b19d-bf871bcd7a85" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
                   <labels>
                     <label description="Checklist Responses" languagecode="1033" />
+                    <label description="Checklist Responses" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="true" locklevel="0" id="{a3242d0a-e6b2-49c9-9c3c-fba343736caf}" rowspan="1" colspan="1">
+                      <cell id="{ae430ea1-c040-a106-b014-28c5c0dc67d4}" showlabel="false" colspan="1" auto="false" rowspan="20">
                         <labels>
-                          <label description="Checklist Responses" languagecode="1033" />
+                          <label description="Checklist" languagecode="1033" />
                         </labels>
-                        <control id="subgrid_checklist_responses" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="WebResource_checklist" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
                           <parameters>
-                            <TargetEntityType>opc_checklistresponse</TargetEntityType>
-                            <ViewId>{D2D0995F-A058-EA11-A811-000D3AF46CC5}</ViewId>
-                            <ViewIds>{D91175CB-52A3-4A79-B441-3BDB09C5C436},{D2D0995F-A058-EA11-A811-000D3AF46CC5}</ViewIds>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_allegation_checklistresponses_allegation</RelationshipName>
+                            <Url>opc_compliance/checklist_control.html</Url>
+                            <PassParameters>true</PassParameters>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <WebResourceId>{7EE8DE84-8668-EA11-A812-000D3AF46757}</WebResourceId>
                           </parameters>
                         </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -136,6 +163,51 @@
           </row>
         </rows>
       </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+              <Title LCID="1036" Text="Éléments communs" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+              <Title LCID="1036" Text="Ventes" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+              <Title LCID="1036" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+              <Title LCID="1036" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+              <Title LCID="1036" Text="Sessions de traitement" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <formLibraries>
+        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{9a36b48d-d77e-ce83-e264-6b962a373a8a}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{56bb70da-5bab-8078-c390-7a169d617b50}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>
