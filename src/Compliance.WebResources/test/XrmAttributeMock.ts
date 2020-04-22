@@ -35,6 +35,10 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     getFormat(): Xrm.AttributeFormat {
         throw new Error("Method not implemented.");
     }
+    getOptions(): Xrm.Option<any>[] {
+        // TODO: Implement for testing
+        return [];
+    }
     getIsDirty(): boolean {
         throw new Error("Method not implemented.");
     }
@@ -63,7 +67,8 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
         throw new Error("Method not implemented.");
     }
     setRequiredLevel(level: Xrm.AttributeRequiredLevel): void {
-        throw new Error("Method not implemented.");
+        // TODO: Implement for testing
+        //throw new Error("Method not implemented.");
     }
     getSubmitMode(): Xrm.AttributeSubmitMode {
         throw new Error("Method not implemented.");
