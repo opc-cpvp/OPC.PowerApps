@@ -295,14 +295,22 @@ declare const enum opc_checklisttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum opc_nextstep {
+  Transfertoinvestigations = 924340000,
+  Resolved = 924340001,
+  Withdrawn = 924340002,
+  Settled = 924340003,
+  Discontinued = 924340004,
+}
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
+}
 declare const enum opc_complaint_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_intakedisposition {
-  MovetoEarlyResolution = 924340000,
-  MovetoInvestigation = 924340001,
-  Declinetoinvestigate = 924340002,
 }
 declare const enum opc_complaintdisposition {
   Discontinued = 924340000,
@@ -314,23 +322,49 @@ declare const enum opc_complaintdisposition {
   Unresponsiveinquirer = 924340006,
   Withdrawn = 924340007,
 }
-declare const enum opc_declinereason {
-  Nojurisdiction = 924340000,
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
+}
+declare const enum opc_yesorno {
+  Yes = 924340000,
+  No = 924340001,
+}
+declare const enum opc_intakedisposition {
+  MovetoEarlyResolution = 924340000,
+  MovetoInvestigation = 924340001,
+  Declinetoinvestigate = 924340002,
+  Close = 924340003,
 }
 declare const enum opc_complaint_statuscode {
-  Nojurisdiction = 924340000,
-  Resolvedatearlyresolution = 924340001,
-  Discontinued = 924340002,
+  Declined = 924340001,
+  Duplicate = 924340002,
   Withdrawn = 924340003,
-  Resolvedatintake = 924340004,
+  Resolved = 924340004,
   Settled = 924340005,
-  Investigationcompleted = 924340006,
-  Unresponsiveinquirer = 924340007,
-  Active = 924340010,
+  Redirected = 924340006,
+  Investigationcompleted = 924340007,
+  New = 924340010,
+  Initialassessment = 924340011,
+  Underearlyresolution = 924340012,
+  Underinvestigation = 924340013,
+  Investigationdiscontinued = 924340014,
+  Createdinerror = 924340015,
 }
 declare const enum opc_individualcomplaint_bp_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum processstage_category {
+  Close = 3,
+  Triage = 924340000,
+  Intake = 924340001,
+  Acceptance = 924340002,
+  EarlyResoloution = 924340003,
+  Investigation = 924340004,
 }
 declare const enum opc_individualcomplaint_bp_statuscode {
   Active = 1,
@@ -510,7 +544,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11064,
+  Complaint = 11091,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -3548,12 +3582,12 @@ declare namespace Form.opc_allegation.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "WebResource_checklist"): Xrm.WebResourceControl;
       get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.StringControl;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: "subgrid_checklist_responses"): Xrm.SubGridControl<"opc_checklistresponse">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -3574,12 +3608,12 @@ declare namespace Form.opc_allegation.Main {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "WebResource_checklist"): Xrm.WebResourceControl;
     getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_description"): Xrm.StringControl;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: "subgrid_checklist_responses"): Xrm.SubGridControl<"opc_checklistresponse">;
     getControl(controlName: string): undefined;
   }
 }
@@ -3695,7 +3729,7 @@ declare namespace Form.opc_checklistresponse.QuickCreate {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_questionid"): Xrm.LookupAttribute<"opc_questiontemplate">;
+      get(name: "opc_questiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
       get(name: "opc_response"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -3705,7 +3739,7 @@ declare namespace Form.opc_checklistresponse.QuickCreate {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_questionid"): Xrm.LookupControl<"opc_questiontemplate">;
+      get(name: "opc_questiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
       get(name: "opc_response"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -3723,12 +3757,12 @@ declare namespace Form.opc_checklistresponse.QuickCreate {
   interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
     getAttribute(attributeName: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_questionid"): Xrm.LookupAttribute<"opc_questiontemplate">;
+    getAttribute(attributeName: "opc_questiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
     getAttribute(attributeName: "opc_response"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_questionid"): Xrm.LookupControl<"opc_questiontemplate">;
+    getControl(controlName: "opc_questiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
     getControl(controlName: "opc_response"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
@@ -3747,7 +3781,7 @@ declare namespace Form.opc_checklistresponse.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_questionid"): Xrm.LookupAttribute<"opc_questiontemplate">;
+      get(name: "opc_questiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
       get(name: "opc_response"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -3757,7 +3791,7 @@ declare namespace Form.opc_checklistresponse.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
-      get(name: "header_opc_questionid"): Xrm.LookupControl<"opc_questiontemplate">;
+      get(name: "header_opc_questiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_response"): Xrm.StringControl;
@@ -3777,12 +3811,12 @@ declare namespace Form.opc_checklistresponse.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_allegationid"): Xrm.LookupAttribute<"opc_allegation">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_questionid"): Xrm.LookupAttribute<"opc_questiontemplate">;
+    getAttribute(attributeName: "opc_questiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
     getAttribute(attributeName: "opc_response"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_opc_allegationid"): Xrm.LookupControl<"opc_allegation">;
-    getControl(controlName: "header_opc_questionid"): Xrm.LookupControl<"opc_questiontemplate">;
+    getControl(controlName: "header_opc_questiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_response"): Xrm.StringControl;
@@ -3885,6 +3919,8 @@ declare namespace Form.opc_checklisttype.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "opc_type"): Xrm.OptionSetAttribute<opc_complaintstage>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -3895,6 +3931,8 @@ declare namespace Form.opc_checklisttype.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "opc_type"): Xrm.OptionSetControl<opc_complaintstage>;
       get(name: "subgrid_allegation_types"): Xrm.SubGridControl<"opc_allegationtype">;
       get(name: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
@@ -3913,11 +3951,15 @@ declare namespace Form.opc_checklisttype.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_type"): Xrm.OptionSetAttribute<opc_complaintstage>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_type"): Xrm.OptionSetControl<opc_complaintstage>;
     getControl(controlName: "subgrid_allegation_types"): Xrm.SubGridControl<"opc_allegationtype">;
     getControl(controlName: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
@@ -4025,18 +4067,19 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_acceptancedate"): Xrm.DateAttribute | null;
       get(name: "opc_accountid"): Xrm.LookupAttribute<"account">;
       get(name: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
+      get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
-      get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
-      get(name: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+      get(name: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
+      get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_number"): Xrm.Attribute<string>;
       get(name: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
-      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
       get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector">;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
+      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -4046,22 +4089,26 @@ declare namespace Form.opc_complaint.Main {
       get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
       get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
       get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+      get(name: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
-      get(name: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
-      get(name: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
-      get(name: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
+      get(name: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
+      get(name: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-      get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
+      get(name: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_nextstep1"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_nextstep2"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
+      get(name: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
       get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode3"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode4"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode5"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode6"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode7"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode8"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+      get(name: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_accountid"): Xrm.LookupControl<"account">;
       get(name: "opc_actualriskappetitevalue"): Xrm.NumberControl;
@@ -4100,38 +4147,43 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute | null;
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account">;
     getAttribute(attributeName: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
-    getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
-    getAttribute(attributeName: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+    getAttribute(attributeName: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
+    getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
-    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
     getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector">;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
+    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
     getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
     getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+    getControl(controlName: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
-    getControl(controlName: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
-    getControl(controlName: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
-    getControl(controlName: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
+    getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
+    getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-    getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
+    getControl(controlName: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_nextstep1"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_nextstep2"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
+    getControl(controlName: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
     getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode3"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode4"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode5"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode6"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode7"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode8"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+    getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
     getControl(controlName: "opc_actualriskappetitevalue"): Xrm.NumberControl;
@@ -4155,14 +4207,16 @@ declare namespace Form.opc_complaint.Quick {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_acceptancedate"): Xrm.DateAttribute | null;
+      get(name: "opc_accountid"): Xrm.LookupAttribute<"account"> | null;
+      get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
-      get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
-      get(name: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
+      get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_number"): Xrm.Attribute<string>;
-      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
+      get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector"> | null;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
       get(name: string): undefined;
@@ -4172,21 +4226,23 @@ declare namespace Form.opc_complaint.Quick {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
-      get(name: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
-      get(name: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
-      get(name: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
+      get(name: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
+      get(name: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-      get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
+      get(name: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_nextstep1"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_nextstep2"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
+      get(name: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
       get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode3"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode4"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode5"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode6"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode7"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode8"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -4206,33 +4262,37 @@ declare namespace Form.opc_complaint.Quick {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute | null;
+    getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account"> | null;
+    getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
-    getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
-    getAttribute(attributeName: "opc_declinereason"): Xrm.OptionSetAttribute<opc_declinereason> | null;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
+    getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
+    getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector"> | null;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
-    getControl(controlName: "header_process_opc_complaintdisposition"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
-    getControl(controlName: "header_process_opc_complaintdisposition1"): Xrm.OptionSetControl<opc_complaintdisposition> | null;
-    getControl(controlName: "header_process_opc_declinereason"): Xrm.OptionSetControl<opc_declinereason> | null;
+    getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
+    getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-    getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
+    getControl(controlName: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_nextstep1"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_nextstep2"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
+    getControl(controlName: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
     getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode3"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode4"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode5"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode6"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode7"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode8"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -4244,15 +4304,15 @@ declare namespace Form.opc_complaint.Quick {
 declare namespace Form.opc_individualcomplaint_bp.Main {
   namespace Information {
     namespace Tabs {
-      interface StageStep17 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep17_section1"): Xrm.PageSection;
+      interface StageStep11 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep11_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep25 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep25_section1"): Xrm.PageSection;
+      interface StageStep21 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep21_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4307,15 +4367,8 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep53 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep53_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep7 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep7_section1"): Xrm.PageSection;
+      interface StageStep55 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep55_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4324,10 +4377,14 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_acceptancedate"): Xrm.DateAttribute;
-      get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<number>;
-      get(name: "opc_declinereason"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_accountid"): Xrm.LookupAttribute<"opc_complaints">;
+      get(name: "opc_closereason"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_complainant"): Xrm.LookupAttribute<"opc_complaints">;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<number>;
-      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_complaints">;
+      get(name: "opc_nextstep"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_complaints">;
       get(name: "statuscode"): Xrm.OptionSetAttribute<opc_individualcomplaint_bp_statuscode>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -4336,29 +4393,31 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_acceptancedate"): Xrm.DateControl;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complaintdisposition"): Xrm.OptionSetControl<number>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complaintdisposition1"): Xrm.OptionSetControl<number>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_declinereason"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_accountid"): Xrm.LookupControl<"opc_complaints">;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason1"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason2"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason3"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainant"): Xrm.LookupControl<"opc_complaints">;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_legislation"): Xrm.LookupControl<"opc_complaints">;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep1"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep2"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_recommendtoregistrar"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sectorid"): Xrm.LookupControl<"opc_complaints">;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode1"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode2"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode3"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode4"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode5"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode6"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode7"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode8"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "StageStep17"): Xrm.PageTab<Tabs.StageStep17>;
-      get(name: "StageStep25"): Xrm.PageTab<Tabs.StageStep25>;
+      get(name: "StageStep11"): Xrm.PageTab<Tabs.StageStep11>;
+      get(name: "StageStep21"): Xrm.PageTab<Tabs.StageStep21>;
       get(name: "StageStep29"): Xrm.PageTab<Tabs.StageStep29>;
       get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
       get(name: "StageStep33"): Xrm.PageTab<Tabs.StageStep33>;
@@ -4366,8 +4425,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "StageStep41"): Xrm.PageTab<Tabs.StageStep41>;
       get(name: "StageStep45"): Xrm.PageTab<Tabs.StageStep45>;
       get(name: "StageStep49"): Xrm.PageTab<Tabs.StageStep49>;
-      get(name: "StageStep53"): Xrm.PageTab<Tabs.StageStep53>;
-      get(name: "StageStep7"): Xrm.PageTab<Tabs.StageStep7>;
+      get(name: "StageStep55"): Xrm.PageTab<Tabs.StageStep55>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -4376,28 +4434,34 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute;
-    getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<number>;
-    getAttribute(attributeName: "opc_declinereason"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"opc_complaints">;
+    getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"opc_complaints">;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<number>;
-    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_complaints">;
+    getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_complaints">;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_individualcomplaint_bp_statuscode>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_acceptancedate"): Xrm.DateControl;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complaintdisposition"): Xrm.OptionSetControl<number>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complaintdisposition1"): Xrm.OptionSetControl<number>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_declinereason"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_accountid"): Xrm.LookupControl<"opc_complaints">;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason1"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason2"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason3"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainant"): Xrm.LookupControl<"opc_complaints">;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_recommendtoregistrar"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_legislation"): Xrm.LookupControl<"opc_complaints">;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep1"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep2"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_recommendtoregistrar"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sectorid"): Xrm.LookupControl<"opc_complaints">;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode1"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode2"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode3"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode4"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode5"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode6"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode7"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode8"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: string): undefined;
   }
 }
@@ -4778,6 +4842,8 @@ declare namespace Form.opc_questiontemplate.QuickCreate {
       get(name: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
       get(name: "opc_conditionalvisibility"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "opc_parentquestiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
       get(name: "opc_questiontypeid"): Xrm.LookupAttribute<"opc_questiontype">;
       get(name: "opc_sequence"): Xrm.Attribute<string>;
@@ -4790,6 +4856,8 @@ declare namespace Form.opc_questiontemplate.QuickCreate {
       get(name: "opc_checklisttypeid"): Xrm.LookupControl<"opc_checklisttype">;
       get(name: "opc_conditionalvisibility"): Xrm.OptionSetControl<boolean>;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "opc_parentquestiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
       get(name: "opc_questiontypeid"): Xrm.LookupControl<"opc_questiontype">;
       get(name: "opc_sequence"): Xrm.StringControl;
@@ -4810,6 +4878,8 @@ declare namespace Form.opc_questiontemplate.QuickCreate {
     getAttribute(attributeName: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
     getAttribute(attributeName: "opc_conditionalvisibility"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_parentquestiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
     getAttribute(attributeName: "opc_questiontypeid"): Xrm.LookupAttribute<"opc_questiontype">;
     getAttribute(attributeName: "opc_sequence"): Xrm.Attribute<string>;
@@ -4817,6 +4887,8 @@ declare namespace Form.opc_questiontemplate.QuickCreate {
     getControl(controlName: "opc_checklisttypeid"): Xrm.LookupControl<"opc_checklisttype">;
     getControl(controlName: "opc_conditionalvisibility"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_parentquestiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
     getControl(controlName: "opc_questiontypeid"): Xrm.LookupControl<"opc_questiontype">;
     getControl(controlName: "opc_sequence"): Xrm.StringControl;
@@ -4840,6 +4912,8 @@ declare namespace Form.opc_questiontemplate.Main {
       get(name: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
       get(name: "opc_conditionalvisibility"): Xrm.Attribute<any>;
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "opc_parentquestiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
       get(name: "opc_questiontypeid"): Xrm.LookupAttribute<"opc_questiontype">;
       get(name: "opc_sequence"): Xrm.Attribute<string>;
@@ -4854,6 +4928,8 @@ declare namespace Form.opc_questiontemplate.Main {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_conditionalvisibility"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "opc_parentquestiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
       get(name: "opc_questiontypeid"): Xrm.LookupControl<"opc_questiontype">;
       get(name: "opc_sequence"): Xrm.StringControl;
@@ -4876,6 +4952,8 @@ declare namespace Form.opc_questiontemplate.Main {
     getAttribute(attributeName: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
     getAttribute(attributeName: "opc_conditionalvisibility"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_parentquestiontemplateid"): Xrm.LookupAttribute<"opc_questiontemplate">;
     getAttribute(attributeName: "opc_questiontypeid"): Xrm.LookupAttribute<"opc_questiontype">;
     getAttribute(attributeName: "opc_sequence"): Xrm.Attribute<string>;
@@ -4885,6 +4963,8 @@ declare namespace Form.opc_questiontemplate.Main {
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_conditionalvisibility"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_parentquestiontemplateid"): Xrm.LookupControl<"opc_questiontemplate">;
     getControl(controlName: "opc_questiontypeid"): Xrm.LookupControl<"opc_questiontype">;
     getControl(controlName: "opc_sequence"): Xrm.StringControl;
@@ -4899,6 +4979,8 @@ declare namespace Form.opc_questiontemplate.Quick {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -4907,6 +4989,8 @@ declare namespace Form.opc_questiontemplate.Quick {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -4922,9 +5006,13 @@ declare namespace Form.opc_questiontemplate.Quick {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
@@ -4944,6 +5032,8 @@ declare namespace Form.opc_questiontype.QuickCreate {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -4951,6 +5041,8 @@ declare namespace Form.opc_questiontype.QuickCreate {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -4966,8 +5058,12 @@ declare namespace Form.opc_questiontype.QuickCreate {
   }
   interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -5017,6 +5113,8 @@ declare namespace Form.opc_questiontype.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_name"): Xrm.Attribute<string>;
+      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
+      get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -5024,6 +5122,8 @@ declare namespace Form.opc_questiontype.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_name"): Xrm.StringControl;
+      get(name: "opc_nameenglish"): Xrm.StringControl;
+      get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -5040,8 +5140,12 @@ declare namespace Form.opc_questiontype.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_name"): Xrm.StringControl;
+    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
+    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
     getControl(controlName: string): undefined;
   }
@@ -9128,7 +9232,7 @@ interface opc_ChecklistResponse_Relationships {
 }
 interface opc_ChecklistResponse extends opc_ChecklistResponse_Base, opc_ChecklistResponse_Relationships {
   opc_allegationid_bind$opc_allegations?: string | null;
-  opc_questionid_bind$opc_questiontemplates?: string | null;
+  opc_questiontemplateid_bind$opc_questiontemplates?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -9147,7 +9251,7 @@ interface opc_ChecklistResponse_Select {
   opc_allegationid_guid: WebAttribute<opc_ChecklistResponse_Select, { opc_allegationid_guid: string | null }, { opc_allegationid_formatted?: string }>;
   opc_checklistresponseid: WebAttribute<opc_ChecklistResponse_Select, { opc_checklistresponseid: string | null }, {  }>;
   opc_name: WebAttribute<opc_ChecklistResponse_Select, { opc_name: string | null }, {  }>;
-  opc_questionid_guid: WebAttribute<opc_ChecklistResponse_Select, { opc_questionid_guid: string | null }, { opc_questionid_formatted?: string }>;
+  opc_questiontemplateid_guid: WebAttribute<opc_ChecklistResponse_Select, { opc_questiontemplateid_guid: string | null }, { opc_questiontemplateid_formatted?: string }>;
   opc_response: WebAttribute<opc_ChecklistResponse_Select, { opc_response: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_ChecklistResponse_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_ChecklistResponse_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
@@ -9171,7 +9275,7 @@ interface opc_ChecklistResponse_Filter {
   opc_allegationid_guid: XQW.Guid;
   opc_checklistresponseid: XQW.Guid;
   opc_name: string;
-  opc_questionid_guid: XQW.Guid;
+  opc_questiontemplateid_guid: XQW.Guid;
   opc_response: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
@@ -9186,7 +9290,7 @@ interface opc_ChecklistResponse_Filter {
 }
 interface opc_ChecklistResponse_Expand {
   opc_allegationid: WebExpand<opc_ChecklistResponse_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationid: opc_allegation_Result }>;
-  opc_questionid: WebExpand<opc_ChecklistResponse_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questionid: opc_QuestionTemplate_Result }>;
+  opc_questiontemplateid: WebExpand<opc_ChecklistResponse_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questiontemplateid: opc_QuestionTemplate_Result }>;
 }
 interface opc_ChecklistResponse_FormattedResult {
   createdby_formatted?: string;
@@ -9196,7 +9300,7 @@ interface opc_ChecklistResponse_FormattedResult {
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
   opc_allegationid_formatted?: string;
-  opc_questionid_formatted?: string;
+  opc_questiontemplateid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -9212,7 +9316,7 @@ interface opc_ChecklistResponse_Result extends opc_ChecklistResponse_Base, opc_C
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
   opc_allegationid_guid: string | null;
-  opc_questionid_guid: string | null;
+  opc_questiontemplateid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
@@ -9220,7 +9324,7 @@ interface opc_ChecklistResponse_Result extends opc_ChecklistResponse_Base, opc_C
 }
 interface opc_ChecklistResponse_RelatedOne {
   opc_allegationid: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
-  opc_questionid: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  opc_questiontemplateid: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
 }
 interface opc_ChecklistResponse_RelatedMany {
 }
@@ -9238,7 +9342,10 @@ interface opc_ChecklistType_Base extends WebEntity {
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
   opc_checklisttypeid?: string | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
   opc_type?: opc_complaintstage | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_checklisttype_statecode | null;
@@ -9268,7 +9375,10 @@ interface opc_ChecklistType_Select {
   modifiedon: WebAttribute<opc_ChecklistType_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_ChecklistType_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_checklisttypeid: WebAttribute<opc_ChecklistType_Select, { opc_checklisttypeid: string | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_ChecklistType_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_ChecklistType_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_ChecklistType_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_ChecklistType_Select, { opc_namefrench: string | null }, {  }>;
   opc_type: WebAttribute<opc_ChecklistType_Select, { opc_type: opc_complaintstage | null }, { opc_type_formatted?: string }>;
   overriddencreatedon: WebAttribute<opc_ChecklistType_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_ChecklistType_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
@@ -9290,7 +9400,10 @@ interface opc_ChecklistType_Filter {
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
   opc_checklisttypeid: XQW.Guid;
+  opc_islocalizable: boolean;
   opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
   opc_type: opc_complaintstage;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
@@ -9357,12 +9470,14 @@ interface opc_complaint_Base extends WebEntity {
   opc_actualriskappetitevalue?: number | null;
   opc_actualriskappetitevalue_date?: Date | null;
   opc_actualriskappetitevalue_state?: number | null;
+  opc_closereason?: opc_closereason | null;
   opc_complaintdisposition?: opc_complaintdisposition | null;
   opc_complaintid?: string | null;
-  opc_declinereason?: opc_declinereason | null;
   opc_intakedisposition?: opc_intakedisposition | null;
+  opc_lastmilestone?: opc_complaintmilestone | null;
+  opc_nextstep?: opc_nextstep | null;
   opc_number?: string | null;
-  opc_recommendtoregistrar?: boolean | null;
+  opc_recommendtoregistrar?: opc_yesorno | null;
   overriddencreatedon?: Date | null;
   processid?: string | null;
   stageid?: string | null;
@@ -9412,16 +9527,18 @@ interface opc_complaint_Select {
   opc_actualriskappetitevalue: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue: number | null }, {  }>;
   opc_actualriskappetitevalue_date: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue_date: Date | null }, { opc_actualriskappetitevalue_date_formatted?: string }>;
   opc_actualriskappetitevalue_state: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue_state: number | null }, {  }>;
+  opc_closereason: WebAttribute<opc_complaint_Select, { opc_closereason: opc_closereason | null }, { opc_closereason_formatted?: string }>;
   opc_complainant_guid: WebAttribute<opc_complaint_Select, { opc_complainant_guid: string | null }, { opc_complainant_formatted?: string }>;
   opc_complainantrep_guid: WebAttribute<opc_complaint_Select, { opc_complainantrep_guid: string | null }, { opc_complainantrep_formatted?: string }>;
   opc_complaintdisposition: WebAttribute<opc_complaint_Select, { opc_complaintdisposition: opc_complaintdisposition | null }, { opc_complaintdisposition_formatted?: string }>;
   opc_complaintid: WebAttribute<opc_complaint_Select, { opc_complaintid: string | null }, {  }>;
-  opc_declinereason: WebAttribute<opc_complaint_Select, { opc_declinereason: opc_declinereason | null }, { opc_declinereason_formatted?: string }>;
   opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
+  opc_lastmilestone: WebAttribute<opc_complaint_Select, { opc_lastmilestone: opc_complaintmilestone | null }, { opc_lastmilestone_formatted?: string }>;
   opc_legislation_guid: WebAttribute<opc_complaint_Select, { opc_legislation_guid: string | null }, { opc_legislation_formatted?: string }>;
+  opc_nextstep: WebAttribute<opc_complaint_Select, { opc_nextstep: opc_nextstep | null }, { opc_nextstep_formatted?: string }>;
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
   opc_opcpriorityid_guid: WebAttribute<opc_complaint_Select, { opc_opcpriorityid_guid: string | null }, { opc_opcpriorityid_formatted?: string }>;
-  opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: boolean | null }, {  }>;
+  opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: opc_yesorno | null }, { opc_recommendtoregistrar_formatted?: string }>;
   opc_sectorid_guid: WebAttribute<opc_complaint_Select, { opc_sectorid_guid: string | null }, { opc_sectorid_formatted?: string }>;
   overriddencreatedon: WebAttribute<opc_complaint_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_complaint_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
@@ -9450,16 +9567,18 @@ interface opc_complaint_Filter {
   opc_actualriskappetitevalue: number;
   opc_actualriskappetitevalue_date: Date;
   opc_actualriskappetitevalue_state: number;
+  opc_closereason: opc_closereason;
   opc_complainant_guid: XQW.Guid;
   opc_complainantrep_guid: XQW.Guid;
   opc_complaintdisposition: opc_complaintdisposition;
   opc_complaintid: XQW.Guid;
-  opc_declinereason: opc_declinereason;
   opc_intakedisposition: opc_intakedisposition;
+  opc_lastmilestone: opc_complaintmilestone;
   opc_legislation_guid: XQW.Guid;
+  opc_nextstep: opc_nextstep;
   opc_number: string;
   opc_opcpriorityid_guid: XQW.Guid;
-  opc_recommendtoregistrar: boolean;
+  opc_recommendtoregistrar: opc_yesorno;
   opc_sectorid_guid: XQW.Guid;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
@@ -9502,13 +9621,16 @@ interface opc_complaint_FormattedResult {
   opc_acceptancedate_formatted?: string;
   opc_accountid_formatted?: string;
   opc_actualriskappetitevalue_date_formatted?: string;
+  opc_closereason_formatted?: string;
   opc_complainant_formatted?: string;
   opc_complainantrep_formatted?: string;
   opc_complaintdisposition_formatted?: string;
-  opc_declinereason_formatted?: string;
   opc_intakedisposition_formatted?: string;
+  opc_lastmilestone_formatted?: string;
   opc_legislation_formatted?: string;
+  opc_nextstep_formatted?: string;
   opc_opcpriorityid_formatted?: string;
+  opc_recommendtoregistrar_formatted?: string;
   opc_sectorid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
@@ -9621,6 +9743,7 @@ interface opc_individualcomplaint_bp_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
+  opc_activestagecategory?: processstage_category | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_individualcomplaint_bp_statecode | null;
   statuscode?: opc_individualcomplaint_bp_statuscode | null;
@@ -9655,6 +9778,7 @@ interface opc_individualcomplaint_bp_Select {
   modifiedby_guid: WebAttribute<opc_individualcomplaint_bp_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_individualcomplaint_bp_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_individualcomplaint_bp_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_activestagecategory: WebAttribute<opc_individualcomplaint_bp_Select, { opc_activestagecategory: processstage_category | null }, { opc_activestagecategory_formatted?: string }>;
   organizationid_guid: WebAttribute<opc_individualcomplaint_bp_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
   overriddencreatedon: WebAttribute<opc_individualcomplaint_bp_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   processid_guid: WebAttribute<opc_individualcomplaint_bp_Select, { processid_guid: string | null }, { processid_formatted?: string }>;
@@ -9680,6 +9804,7 @@ interface opc_individualcomplaint_bp_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
+  opc_activestagecategory: processstage_category;
   organizationid_guid: XQW.Guid;
   overriddencreatedon: Date;
   processid_guid: XQW.Guid;
@@ -9704,6 +9829,7 @@ interface opc_individualcomplaint_bp_FormattedResult {
   modifiedby_formatted?: string;
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
+  opc_activestagecategory_formatted?: string;
   organizationid_formatted?: string;
   overriddencreatedon_formatted?: string;
   processid_formatted?: string;
@@ -10205,7 +10331,10 @@ interface opc_QuestionTemplate_Base extends WebEntity {
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
   opc_conditionalvisibility?: boolean | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
   opc_questiontemplateid?: string | null;
   opc_sequence?: string | null;
   overriddencreatedon?: Date | null;
@@ -10240,7 +10369,10 @@ interface opc_QuestionTemplate_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_QuestionTemplate_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_checklisttypeid_guid: WebAttribute<opc_QuestionTemplate_Select, { opc_checklisttypeid_guid: string | null }, { opc_checklisttypeid_formatted?: string }>;
   opc_conditionalvisibility: WebAttribute<opc_QuestionTemplate_Select, { opc_conditionalvisibility: boolean | null }, {  }>;
+  opc_islocalizable: WebAttribute<opc_QuestionTemplate_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_QuestionTemplate_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_QuestionTemplate_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_QuestionTemplate_Select, { opc_namefrench: string | null }, {  }>;
   opc_parentquestiontemplateid_guid: WebAttribute<opc_QuestionTemplate_Select, { opc_parentquestiontemplateid_guid: string | null }, { opc_parentquestiontemplateid_formatted?: string }>;
   opc_questiontemplateid: WebAttribute<opc_QuestionTemplate_Select, { opc_questiontemplateid: string | null }, {  }>;
   opc_questiontypeid_guid: WebAttribute<opc_QuestionTemplate_Select, { opc_questiontypeid_guid: string | null }, { opc_questiontypeid_formatted?: string }>;
@@ -10266,7 +10398,10 @@ interface opc_QuestionTemplate_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_checklisttypeid_guid: XQW.Guid;
   opc_conditionalvisibility: boolean;
+  opc_islocalizable: boolean;
   opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
   opc_parentquestiontemplateid_guid: XQW.Guid;
   opc_questiontemplateid: XQW.Guid;
   opc_questiontypeid_guid: XQW.Guid;
@@ -10343,7 +10478,10 @@ interface opc_QuestionType_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
+  opc_islocalizable?: boolean | null;
   opc_name?: string | null;
+  opc_nameenglish?: string | null;
+  opc_namefrench?: string | null;
   opc_questiontypeid?: string | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_questiontype_statecode | null;
@@ -10369,7 +10507,10 @@ interface opc_QuestionType_Select {
   modifiedby_guid: WebAttribute<opc_QuestionType_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_QuestionType_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_QuestionType_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_islocalizable: WebAttribute<opc_QuestionType_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_QuestionType_Select, { opc_name: string | null }, {  }>;
+  opc_nameenglish: WebAttribute<opc_QuestionType_Select, { opc_nameenglish: string | null }, {  }>;
+  opc_namefrench: WebAttribute<opc_QuestionType_Select, { opc_namefrench: string | null }, {  }>;
   opc_questiontypeid: WebAttribute<opc_QuestionType_Select, { opc_questiontypeid: string | null }, {  }>;
   organizationid_guid: WebAttribute<opc_QuestionType_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
   overriddencreatedon: WebAttribute<opc_QuestionType_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
@@ -10387,7 +10528,10 @@ interface opc_QuestionType_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
+  opc_islocalizable: boolean;
   opc_name: string;
+  opc_nameenglish: string;
+  opc_namefrench: string;
   opc_questiontypeid: XQW.Guid;
   organizationid_guid: XQW.Guid;
   overriddencreatedon: Date;

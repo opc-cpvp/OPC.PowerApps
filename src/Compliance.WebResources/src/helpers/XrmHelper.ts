@@ -19,17 +19,17 @@
 
 
 export class XrmHelper {
-    static turn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, state: boolean) {
-        state ? XrmHelper.turnOn(control) : XrmHelper.turnOff(control)
+    static toggle<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, state: boolean) {
+        state ? XrmHelper.toggleOn(control) : XrmHelper.toggleOff(control)
     }
 
-    static turnOff<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
+    static toggleOff<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
         control.setVisible(false);
         control.setDisabled(true);
         control.getAttribute().setValue();
     }
 
-    static turnOn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
+    static toggleOn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
         control.setVisible(true);
         control.setDisabled(false);
     }

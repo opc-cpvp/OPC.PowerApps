@@ -6,137 +6,137 @@
 trigger:
   branches:
     include:
-      - master
+    - master
   paths:
     include:
-      - azure-pipelines/*
-      - src/*
+    - azure-pipelines/*
+    - src/*
     exclude:
-      - azure-pipelines/README.md
+    - azure-pipelines/README.md
 
 pr: none
 
 pool:
-  vmImage: "vs2017-win2016"
+  vmImage: 'vs2017-win2016'
 
 variables:
-  BuildPlatform: "any cpu"
-  BuildConfiguration: "release"
-  Version.MajorMinor: "1.0"
+  BuildPlatform: 'any cpu'
+  BuildConfiguration: 'release'
+  Version.MajorMinor: '1.0'
   Version.Patch: $[counter(variables['Version.MajorMinor'], 0)]
-  SolutionName: "Compliance"
+  SolutionName: 'Compliance'
 
 steps:
-  - task: NuGetCommand@2
-    displayName: "Restore .NET Framework NuGet Packages"
+- task: NuGetCommand@2
+  displayName: 'Restore .NET Framework NuGet Packages'
 
-  - task: DotNetCoreCLI@2
-    displayName: "Restore .NET Core NuGet Packages"
-    inputs:
-      command: restore
-      projects: "**/*.csproj"
+- task: DotNetCoreCLI@2
+  displayName: 'Restore .NET Core NuGet Packages'
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
 
-  - task: VSBuild@1
-    displayName: "Build Solution"
-    inputs:
-      vsVersion: 15.0
-      platform: "$(BuildPlatform)"
-      configuration: "$(BuildConfiguration)"
+- task: VSBuild@1
+  displayName: 'Build Solution'
+  inputs:
+    vsVersion: 15.0
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
 
-  - task: Npm@1
-    displayName: "NPM | Install"
-    inputs:
-      command: "install"
-      workingDir: "$(Build.SourcesDirectory)/src/$(SolutionName).WebResources"
+- task: Npm@1
+  displayName: 'NPM | Install'
+  inputs:
+    command: 'install'
+    workingDir: '$(Build.SourcesDirectory)/src/$(SolutionName).WebResources'
 
-  - task: Npm@1
-    displayName: "NPM | Build"
-    inputs:
-      command: "custom"
-      workingDir: "$(Build.SourcesDirectory)/src/$(SolutionName).WebResources"
-      customCommand: "run build:prod"
+- task: Npm@1
+  displayName: 'NPM | Build'
+  inputs:
+    command: 'custom'
+    workingDir: '$(Build.SourcesDirectory)/src/$(SolutionName).WebResources'
+    customCommand: 'run build:prod'
 
-  - task: VSTest@2
-    displayName: "Test Assemblies"
-    inputs:
-      testSelector: "testAssemblies"
-      testAssemblyVer2: |
-        **\*test*.dll
-        !**\*TestAdapter.dll
-        !**\obj\**
-      searchFolder: "$(System.DefaultWorkingDirectory)"
-      resultsFolder: '$(Agent.TempDirectory)\test-output'
-      testRunTitle: ".NET - xUnit"
-      platform: "$(BuildPlatform)"
-      configuration: "$(BuildConfiguration)"
+- task: VSTest@2
+  displayName: 'Test Assemblies'
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    resultsFolder: '$(Agent.TempDirectory)\test-output'
+    testRunTitle: '.NET - xUnit'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
 
-  - task: Npm@1
-    displayName: "NPM | Mocha tests"
-    continueOnError: true
-    inputs:
-      command: "custom"
-      workingDir: "$(Build.SourcesDirectory)/src/$(SolutionName).WebResources"
-      customCommand: "run test:pipeline"
+- task: Npm@1
+  displayName: 'NPM | Mocha tests'
+  continueOnError: true
+  inputs:
+    command: 'custom'
+    workingDir: '$(Build.SourcesDirectory)/src/$(SolutionName).WebResources'
+    customCommand: 'run test:pipeline'
 
-  - task: PublishTestResults@2
-    displayName: Publish Mocha tests
-    inputs:
-      testResultsFormat: "JUnit"
-      testResultsFiles: "$(Build.SourcesDirectory)/src/$(SolutionName).WebResources/test-output/test-mocha*.xml"
-      searchFolder: "$(Build.SourcesDirectory)"
-      testRunTitle: "TypeScript - Mocha"
+- task: PublishTestResults@2
+  displayName: Publish Mocha tests
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '$(Build.SourcesDirectory)/src/$(SolutionName).WebResources/test-output/test-mocha*.xml'
+    searchFolder: '$(Build.SourcesDirectory)'
+    testRunTitle: 'TypeScript - Mocha'
 
-  - task: CopyFiles@2
-    displayName: "Copy Solution Package to Build Artifacts"
-    inputs:
-      SourceFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Package\bin\$(BuildConfiguration)'
-      Contents: "**"
-      TargetFolder: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package'
+- task: CopyFiles@2
+  displayName: 'Copy Solution Package to Build Artifacts'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\$(SolutionName).Package\bin\$(BuildConfiguration)'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package'
 
-  - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
-    displayName: "Install MSCRM Tools"
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
+  displayName: 'Install MSCRM Tools'
 
-  - task: MSCRMPackCMData@9
-    displayName: "Pack Configuration Migration Data"
-    inputs:
-      dataFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder\data.zip'
-      extractFolder: 'src\$(SolutionName).Solution\Data'
+- task: MSCRMPackCMData@9
+  displayName: 'Pack Configuration Migration Data'
+  inputs:
+    dataFile: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder\data.zip'
+    extractFolder: 'src\$(SolutionName).Solution\Data'
 
-  - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMSetVersion.MSCRMSetVersion@10
-    displayName: "Set PowerApps Solution Version"
-    inputs:
-      target: xml
-      unpackedFilesFolder: src/$(SolutionName).Solution/Solution
-      versionNumber: "$(Version.MajorMinor).$(Version.Patch)"
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMSetVersion.MSCRMSetVersion@10
+  displayName: 'Set PowerApps Solution Version'
+  inputs:
+    target: xml
+    unpackedFilesFolder: src/$(SolutionName).Solution/Solution
+    versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
+    
+- task: PowerShell@2
+  displayName: 'Generate Managed Files'
+  inputs:
+    filePath: 'azure-pipelines/scripts/create_managed_files.ps1'
+    workingDirectory: 'src/$(SolutionName).Solution/Solution'
 
-  - task: PowerShell@2
-    displayName: "Generate Managed Files"
-    inputs:
-      filePath: "azure-pipelines/scripts/create_managed_files.ps1"
-      workingDirectory: "src/$(SolutionName).Solution/Solution"
+- task: MagicChunks@2
+  displayName: 'Update Managed State of Solution'
+  inputs:
+    sourcePath: 'src/$(SolutionName).Solution/Solution/Other/Solution.xml'
+    fileType: 'Xml'
+    targetPathType: 'source'
+    transformationType: 'json'
+    transformations: |
+      {
+        "ImportExportXml/SolutionManifest/Managed": "2"
+      }
 
-  - task: MagicChunks@2
-    displayName: "Update Managed State of Solution"
-    inputs:
-      sourcePath: "src/$(SolutionName).Solution/Solution/Other/Solution.xml"
-      fileType: "Xml"
-      targetPathType: "source"
-      transformationType: "json"
-      transformations: |
-        {
-          "ImportExportXml/SolutionManifest/Managed": "2"
-        }
+- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
+  displayName: 'Pack PowerApps Solution'
+  inputs:
+    unpackedFilesFolder: src/$(SolutionName).Solution/Solution
+    mappingFile: src/$(SolutionName).Solution/map.xml
+    packageType: Both
+    outputPath: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder'
+    localize: false
 
-  - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMPackSolution.MSCRMPackSolution@10
-    displayName: "Pack PowerApps Solution"
-    inputs:
-      unpackedFilesFolder: src/$(SolutionName).Solution/Solution
-      mappingFile: src/$(SolutionName).Solution/map.xml
-      packageType: Both
-      outputPath: '$(Build.ArtifactStagingDirectory)\$(SolutionName).Package\PkgFolder'
-      localize: false
-
-  - task: PublishBuildArtifacts@1
-    displayName: "Publish Artifacts"
-    inputs:
-      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
