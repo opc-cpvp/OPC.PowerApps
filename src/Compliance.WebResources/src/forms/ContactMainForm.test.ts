@@ -1,11 +1,10 @@
 ﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
-import { XrmUtilityMock } from '../../test/XrmUtilityMock';
 import { XrmOptionMock } from '../../test/XrmOptionMock';
-import { XrmBaseControlMock } from '../../test/XrmBaseControlMock';
-import { XrmCollectionMock } from '../../test/XrmCollectionMock';
 import { XrmNavigationMock } from '../../test/XrmNavigationMock';
-import { XrmRoleMock } from '../../test/XrmRoleMock';
+import { XrmOptionSetControlMock } from '../../test/XrmOptionSetControlMock';
 import { Contact } from './ContactMainForm';
+import { ContactService } from '../services/ContactService';
+
 
 var chai = require("chai");
 var sinon = require("sinon");
@@ -15,33 +14,35 @@ chai.should();
 chai.use(sinonChai);
 
 describe("Contact", () => {
-    const roleIntakeManager: XrmRoleMock = new XrmRoleMock("8fcba750-362e-ea11-a810-000d3af46757", "Compliance - Intake Manager");
-    const roleNotIntakeManager: XrmRoleMock = new XrmRoleMock("B2D7179F-913E-42B4-B040-84E375AF8831", "NOT Intake Manager");
-    const mcsOptions: XrmOptionMock[] = [
+    const mcsOptions: XrmOptionMock<any>[] = [
         { text: "Not Applied", value: opc_multiplecomplaintstrategy.NotApplied },
         { text: "Proposed", value: opc_multiplecomplaintstrategy.Proposed },
         { text: "Applied", value: opc_multiplecomplaintstrategy.Applied },
         { text: "Former", value: opc_multiplecomplaintstrategy.Former }
     ];
 
-    describe("after MCS field is loaded", () => {
-        let form: Contact.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
-        let mockUtility: XrmUtilityMock;
-        let mockNavigation: XrmNavigationMock;
-        let mcsControl: XrmBaseControlMock;
-        let controlSpy: any;
+    let service: ContactService;
+    let form: Contact.Forms.MainForm;
+    let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
+    let mockNavigation: XrmNavigationMock;
+    let mcsControl: XrmOptionSetControlMock;
+    let contextSpy: any;
+    let controlSpy: any;
+    let isIntakeManager: any;
+    let formContext: any;
+    let getControl: any;
 
+    describe("after MCS field is loaded", () => {
         beforeEach(function () {
-            mockUtility = new XrmUtilityMock();
+            service = new ContactService();
             mockNavigation = new XrmNavigationMock();
-            form = new Contact.Forms.MainForm(mockUtility, mockNavigation);
+            form = new Contact.Forms.MainForm(service, mockNavigation);
             mockContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
-            mcsControl = mockContext.getFormContext().getControl("opc_multiplecomplaintstrategy");
+            mcsControl = new XrmOptionSetControlMock();
             controlSpy = sandbox.spy(mcsControl);
-            mcsControl.options = mcsOptions;
+            mcsControl.setOptions(mcsOptions);
             mockContext.getFormContext().ui.formType = Xrm.FormType.Update;
-            mockUtility.getGlobalContext().userSettings.roles = new XrmCollectionMock<XrmRoleMock>(XrmRoleMock, mockContext);
+
         });
 
         afterEach(function () {
@@ -50,7 +51,8 @@ describe("Contact", () => {
 
         it("it should contain option 'Applied' if user is Intake Manager", () => {
             // Arrange
-            mockUtility.getGlobalContext().userSettings.roles.collection.push(roleIntakeManager);
+            isIntakeManager = sandbox.fake.returns(true);
+            sandbox.replace(service, nameof(service.isIntakeManager), isIntakeManager);
 
             // Act
             form.initializeComponents(mockContext);
@@ -62,7 +64,8 @@ describe("Contact", () => {
 
         it("it should contain option 'Applied' if user is not Intake Manager BUT MCS value is already 'Applied'", () => {
             // Arrange
-            mockUtility.getGlobalContext().userSettings.roles.collection.push(roleNotIntakeManager);
+            isIntakeManager = sandbox.fake.returns(false);
+            sandbox.replace(service, nameof(service.isIntakeManager), isIntakeManager);
             mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
 
             // Act
@@ -75,7 +78,11 @@ describe("Contact", () => {
 
         it("it should not contain option 'Applied' if user is not Intake Manager", () => {
             // Arrange
-            mockUtility.getGlobalContext().userSettings.roles.collection.push(roleNotIntakeManager);
+            isIntakeManager = sandbox.fake.returns(false);
+            sandbox.replace(service, nameof(service.isIntakeManager), isIntakeManager);
+            formContext = mockContext.getFormContext();
+            getControl = sandbox.fake.returns(mcsControl);
+            sandbox.replace(formContext, nameof(formContext.getControl), getControl);
 
             // Act
             form.initializeComponents(mockContext);
@@ -86,20 +93,13 @@ describe("Contact", () => {
         });
     });
     describe("when the contact is part of the Multiple Complaint Strategy", () => {
-        let form: Contact.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
-        let mockUtility: XrmUtilityMock;
-        let mockNavigation: XrmNavigationMock;
-        let contextSpy: any;
-
         beforeEach(function () {
-            mockUtility = new XrmUtilityMock();
+            service = new ContactService();
             mockNavigation = new XrmNavigationMock();
-            form = new Contact.Forms.MainForm(mockUtility, mockNavigation);
+            form = new Contact.Forms.MainForm(service, mockNavigation);
             mockContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
             contextSpy = sandbox.spy(mockContext);
             mockContext.getFormContext().ui.formType = Xrm.FormType.Update;
-            mockUtility.getGlobalContext().userSettings.roles = new XrmCollectionMock<XrmRoleMock>(XrmRoleMock, mockContext);
         });
 
         afterEach(function () {
@@ -109,6 +109,8 @@ describe("Contact", () => {
         it("it should display a form notification", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            isIntakeManager = sandbox.fake.returns(true);
+            sandbox.replace(service, nameof(service.isIntakeManager), isIntakeManager);
 
             //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockContext);
@@ -123,7 +125,8 @@ describe("Contact", () => {
         it("it should lock the field if user is not Intake Manager", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
-            mockUtility.getGlobalContext().userSettings.roles.collection.push(roleNotIntakeManager);
+            isIntakeManager = sandbox.fake.returns(false);
+            sandbox.replace(service, nameof(service.isIntakeManager), isIntakeManager);
 
             //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockContext);
@@ -138,7 +141,8 @@ describe("Contact", () => {
         it("it should not lock the field if user is Intake Manager", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
-            mockUtility.getGlobalContext().userSettings.roles.collection.push(roleIntakeManager);
+            isIntakeManager = sandbox.fake.returns(true);
+            sandbox.replace(service, nameof(service.isIntakeManager), isIntakeManager);
 
             //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockContext);
@@ -151,20 +155,20 @@ describe("Contact", () => {
         });
     });
     describe("when the contact is not part of the Multiple Complaint Strategy", () => {
-        let form: Contact.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
-        let mockUtility: XrmUtilityMock;
-        let mockNavigation: XrmNavigationMock;
-        let contextSpy: any;
-
         beforeEach(function () {
-            mockUtility = new XrmUtilityMock();
+            service = new ContactService();
             mockNavigation = new XrmNavigationMock();
-            form = new Contact.Forms.MainForm(mockUtility, mockNavigation);
+            form = new Contact.Forms.MainForm(service, mockNavigation);
             mockContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
             contextSpy = sandbox.spy(mockContext);
             mockContext.getFormContext().ui.formType = Xrm.FormType.Update;
-            mockUtility.getGlobalContext().userSettings.roles = new XrmCollectionMock<XrmRoleMock>(XrmRoleMock, mockContext);
+
+            isIntakeManager = sandbox.fake.returns(false);
+            sandbox.replace(service, nameof(service.isIntakeManager), isIntakeManager);
+
+            formContext = mockContext.getFormContext();
+            getControl = sandbox.fake.returns(mcsControl);
+            sandbox.replace(formContext, nameof(formContext.getControl), getControl);
         });
 
         afterEach(function () {

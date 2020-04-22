@@ -12,6 +12,7 @@ export interface INotificationService {
 }
 
 export interface IContactService {
+    isIntakeManager(): boolean
 }
 
 export interface IFormFactory {

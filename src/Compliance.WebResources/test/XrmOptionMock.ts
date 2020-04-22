@@ -1,4 +1,4 @@
-﻿export class XrmOptionMock implements Xrm.Option<any> {
+﻿export class XrmOptionMock<T> implements Xrm.Option<any> {
     text: string;
-    value: any;
+    value: T;
 }
