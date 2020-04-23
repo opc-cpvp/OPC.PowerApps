@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Generate Random Data"
   DTS:PackageType="5"
-  DTS:VersionBuild="205"
-  DTS:VersionGUID="{B65A855F-1F8E-4EFE-B482-81782AFCF314}">
+  DTS:VersionBuild="218"
+  DTS:VersionGUID="{B211B49E-17A1-498F-A36F-BBD1A564BD33}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -135,6 +135,33 @@
           </SOAP-ENV:Body>
         </SOAP-ENV:Envelope>
       </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C20A30C9-6A0C-4789-A5EA-CAD52DEB2B0D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="IndividualComplaintsBPF">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0477C33-D6E8-46ED-B26D-03FDCCAE0855}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IndividualComplaintsBPF_FirstStage">
+      <DTS:VariableValue
+        DTS:DataType="8">e0bf78b2-9a4e-44f1-8d12-b5ed83ce3c6f</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -24794,6 +24821,124 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               </outputs>
             </component>
             <component
+              refId="Package\Set variables\Individual Complaints BPF"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
+              description="Extract data from CDS, PowerApps, Microsoft Dynamics 365 CE."
+              name="Individual Complaints BPF"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">1</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity"></property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true"&gt;
+  &lt;entity name="processstage" &gt;
+    &lt;attribute name="processstageid" /&gt;
+    &lt;filter type="and" &gt;
+      &lt;condition attribute="primaryentitytypecode" operator="eq" value="10040" /&gt;
+    &lt;/filter&gt;
+  &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.String"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs"></property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CdsSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set variables\Individual Complaints BPF.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Set variables\Individual Complaints BPF.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set variables\Individual Complaints BPF.Outputs[Primary Output].Columns[processstageid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set variables\Individual Complaints BPF.Outputs[Primary Output].ExternalColumns[processstageid]"
+                      lineageId="Package\Set variables\Individual Complaints BPF.Outputs[Primary Output].Columns[processstageid]"
+                      name="processstageid"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set variables\Individual Complaints BPF.Outputs[Primary Output].ExternalColumns[processstageid]"
+                      dataType="guid"
+                      name="processstageid" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Set variables\Individual Complaints BPF Recordset"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Individual Complaints BPF Recordset">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::IndividualComplaintsBPF</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Set variables\Individual Complaints BPF Recordset.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set variables\Individual Complaints BPF Recordset.Inputs[Recordset Destination Input].Columns[processstageid]"
+                      cachedDataType="guid"
+                      cachedName="processstageid"
+                      lineageId="Package\Set variables\Individual Complaints BPF.Outputs[Primary Output].Columns[processstageid]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
               refId="Package\Set variables\Legislation Recordset"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -25216,6 +25361,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\Set variables\Users (Queue Items) Recordset.Inputs[Recordset Destination Input]"
               name="Primary Output"
               startId="Package\Set variables\Get Users (Queue Items).Outputs[Primary Output]" />
+            <path
+              refId="Package\Set variables.Paths[Primary Output8]"
+              endId="Package\Set variables\Individual Complaints BPF Recordset.Inputs[Recordset Destination Input]"
+              name="Primary Output"
+              startId="Package\Set variables\Individual Complaints BPF.Outputs[Primary Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -25234,6 +25384,80 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Update Individual Complaint BPF\Add Active Stage"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Add Active Stage"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Update Individual Complaint BPF\Add Active Stage.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Update Individual Complaint BPF\Add Active Stage.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Output].Columns[activestageid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="36"
+                      lineageId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Output].Columns[activestageid]"
+                      name="activestageid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"123456789012345678901234567890123456"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"123456789012345678901234567890123456"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Update Individual Complaint BPF\Add Active Stage.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Update Individual Complaint BPF\CDS Source"
               componentClassID="Microsoft.ManagedComponentHost"
@@ -25260,7 +25484,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   expressionType="Notify"
                   name="FetchXML">&lt;fetch mapping='logical'&gt;
     &lt;entity name='opc_individualcomplaint_bp'&gt;
-        &lt;attribute name='activestageid'/&gt;
         &lt;attribute name='traversedpath'/&gt;
         &lt;link-entity name="opc_complaint" from="opc_complaintid" to="bpf_opc_complaintid" alias="opc_complaint"&gt;
             &lt;attribute name="createdon"/&gt;
@@ -25306,15 +25529,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   name="Primary Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[activestageid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].ExternalColumns[activestageid]"
-                      lineageId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[activestageid]"
-                      name="activestageid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[businessprocessflowinstanceid]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
@@ -25345,15 +25559,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].ExternalColumns[activestageid]"
-                      dataType="guid"
-                      name="activestageid" />
-                    <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].ExternalColumns[activestageidname]"
-                      dataType="wstr"
-                      length="100"
-                      name="activestageidname" />
                     <externalMetadataColumn
                       refId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].ExternalColumns[businessprocessflowinstanceid]"
                       dataType="guid"
@@ -25391,46 +25596,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Primary Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Update Individual Complaint BPF\Data Anonymizer.Inputs[Primary Input].Columns[activestageid]"
-                      cachedDataType="guid"
-                      cachedName="activestageid"
-                      lineageId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[activestageid]"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="SpawnType"
-                          name="SpawnType"
-                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.SpawnType, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2019.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">6</property>
-                        <property
-                          dataType="System.Int32"
-                          description="RandomSeed"
-                          name="RandomSeed">0</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="UseSourceDataAffinity"
-                          name="UseSourceDataAffinity">false</property>
-                        <property
-                          dataType="System.String"
-                          description="ListOfValues"
-                          expressionType="Notify"
-                          name="ListOfValues">a6c493c6-ac5e-434e-ac45-233fcca6aef2,a89fc949-4e6f-4c0d-b447-3e36ec2878de,62ba6bdd-fb3a-4162-8a2c-4190e6c5e5dc,da76887d-434e-4b18-9f18-4c82ae5daadd,f4dd2c83-cf58-4328-a1c7-515dc7a977a8,681295a9-e97d-479a-9c1d-65386c3f95a8,57863eb5-5caf-47c0-aabf-8b50814a4190,dd5bbf69-bc1b-4db8-a075-9e6cc6c263ef,e0bf78b2-9a4e-44f1-8d12-b5ed83ce3c6f,34649765-2943-4b28-aa58-cf2c44af4060,a52e31c9-0cad-4800-b80c-ef45c28726e5</property>
-                        <property
-                          dataType="System.String"
-                          description="Delimiter"
-                          expressionType="Notify"
-                          name="Delimiter">,</property>
-                        <property
-                          dataType="System.Int32"
-                          description="SpawnOrder"
-                          expressionType="Notify"
-                          name="SpawnOrder"
-                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.SpawnOrder, KingswaySoft.IntegrationToolkit.ProductivityPack, Version=1.0.2019.0, Culture=neutral, PublicKeyToken=705df8e0751bcea7">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -25473,11 +25638,923 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               </outputs>
             </component>
             <component
-              refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF"
+              refId="Package\Update Individual Complaint BPF\Randomize Active Stage"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;12"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Randomize Active Stage"
+              version="12">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+    public Object IndividualComplaintsBPF
+    {
+        get
+        {
+            return (Object)(ParentComponent.ReadOnlyVariables["IndividualComplaintsBPF"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+using System.Data.OleDb;
+using System.Windows.Forms;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+
+    DataTable dt = new DataTable();
+    Random random = new Random(); // Create random number object
+
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+        */
+        OleDbDataAdapter adapter = new OleDbDataAdapter();
+        adapter.Fill(dt, Variables.IndividualComplaintsBPF);
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        int rowNum = random.Next(dt.Rows.Count); //Generate random number between 1 and rows from Data Table
+        Row.activestageid = dt.Rows[rowNum][0].ToString(); //Set the active stage field to a random row from the Data Table
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String activestageid
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool activestageid_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties.Settings.get_Default():SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties.Sett" +
+    "ings")]
+
+namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_ccb9ee405d8942e48c0fafc4e0526ee0.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2c9c7da4-d444-4b88-9337-855f2a2b6939}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_ccb9ee405d8942e48c0fafc4e0526ee0</RootNamespace>
+    <AssemblyName>SC_CD406095799B4153BC20C98E58E79354</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_ccb9ee405d8942e48c0fafc4e0526ee0" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_ccb9ee405d8942e48c0fafc4e0526ee0</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_ccb9ee405d8942e48c0fafc4e0526ee0</msb:DisplayName>
+    <msb:ProjectId>{DE224E1B-3CAA-48EA-8387-7FA80C61831A}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_ccb9ee405d8942e48c0fafc4e0526ee0.csproj" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_ccb9ee405d8942e48c0fafc4e0526ee0")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_ccb9ee405d8942e48c0fafc4e0526ee0")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_CD406095799B4153BC20C98E58E79354.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDANjioV4AAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAAKjUA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAANg0AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAMBUAAAAgAAAAFgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAYAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAM
+NQAAAAAAAEgAAAACAAUAOCIAAOgRAAABAAAAAAAAACA0AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAI4CKBAAAApzEQAACgJ7AQAABAJ7BAAABG8SAAAGbxIAAAom
+Kh4CKBMAAAoqEzADAD8AAAABAAARAnsCAAAEAnsBAAAEbxQAAApvFQAACm8WAAAKCgMCewEAAARv
+FAAACgZvFwAAChZvGAAACm8ZAAAKbwcAAAYqdgJzGgAACn0BAAAEAnMbAAAKfQIAAAQCKAwAAAYq
+KgIDBAUoHAAACipSAnsdAAAKAnseAAAKFpRvHwAACiomAhYDKCAAAAoqIgIWKCEAAAoqWgMsCAIW
+KCIAAAoqcgEAAHBzIwAACnoeAigkAAAKKh4CKCUAAAoqfgIoJgAACgICcxAAAAZ9AwAABAICcxEA
+AAZ9BAAABCqSBHKeAABwGm8nAAAKLBUCBQIDKCgAAAoOBHMFAAAGbw4AAAYqSisHAgNvDwAABgNv
+CgAABi3xKgYqOgIoKQAACgIDfQUAAAQqOgIoKQAACgIDfQYAAAQqggJ7BgAABG8qAAAKcq4AAHBv
+KwAACigsAAAKby0AAAoqHgIoKQAACiqufgcAAAQtHnLeAABw0AcAAAIoLgAACm8vAAAKczAAAAqA
+BwAABH4HAAAEKhp+CAAABCoeAoAIAAAEKhp+CQAABCoeAigxAAAKKi5zGAAABoAJAAAEKgAAQlNK
+QgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAAQAYAACN+AACsBgAA6AcAACNTdHJpbmdz
+AAAAAJQOAABQAQAAI1VTAOQPAAAQAAAAI0dVSUQAAAD0DwAA9AEAACNCbG9iAAAAAAAAAAIAAAFX
+FaIBCQEAAAD6ATMAFgAAAQAAACkAAAAIAAAACQAAABkAAAAPAAAAMQAAABAAAAABAAAABAAAAAYA
+AAAJAAAAAQAAAAYAAAABAAAAAACyAwEAAAAAAAYAoAKtBQYANAOtBQYA7AGaBQ8AIQYAAAYAGQKB
+BAYAgwKBBAYAZAKBBAYAGwOBBAYAwAKBBAYA2QKBBAYAMAKBBAYASwJvAwoA9AIeAQ4A5gCLAAYA
+MgQrBAoAMwUeARIAJAUeAQoA3AQeAQoA/wYeAQYAvwYrBAYAzwGaBQYARAXNBQYA0ARsBBYAnwGc
+AxYAAAKcAxYAhwFXBAYAtAGtBQ4AfAWXAA4AkwSLAA4AbAGLAA4AtAeLAAYApQQrBAYAlQMrBAYA
+vwQrBBoAEQBUBRoAAQBUBU8AhAcAABoAIgBUBQYAPwErBAYA8AArBAYA3weBBAAAAABeAAAAAAAB
+AAEAAQAQAEwEAAAQAAEAAQABABAAFwUAAEEAAwAFAAEAEADhBgAATQADAAwAAQAQAKoGAABRAAUA
+EAABABAAawYAAFEABgARAAAAEADUBTAGUQAHABMAAAEQAJoGMAZpAAkAFwABAMYGugABADkEvgAG
+AKoGwgAGAGsGxgABAO8GygABAO8GygARAEAEzgARAFwB0gARANYA1gBQIAAAAADGAFIDBgABAHQg
+AAAAAMYAXQMGAAEAfCAAAAAAxgC8B9oAAQDHIAAAAACGGI0FBgACAOUgAAAAAIYYjQVDAAIA8CAA
+AAAAhgiyAD8ABQAFIQAAAACGCMQAEAAFAA8hAAAAAIYI3wNlAAYAGCEAAAAAhgj4A+AABgAvIQAA
+AACGANMHZQAHADchAAAAAIYAyQZlAAcAPyEAAAAAhhiNBQYABwBfIQAAAADGAF4H5QAHAIQhAAAA
+AMYBVwfaAAsAlyEAAAAAxgG8B9oADACZIQAAAACGGI0F7wANAKghAAAAAIYYjQXvAA4AtyEAAAAA
+hghvAPUADwDYIQAAAACDGI0FBgAPAOAhAAAAAJMIQAX5AA8ADCIAAAAAkwhEAf4ADwATIgAAAACT
+CFABAwEPABsiAAAAAJYI1QYJARAAIiIAAAAAhhiNBQYAEAAqIgAAAACRGJMFDgEQAAAAAQDXBwAA
+AQA5BQAAAgB1BgAAAwDqBAAAAQBpAwAAAQBpAwAAAQBnAAAAAgAUAQAAAwA5BQAABADqBAAAAQA5
+BQAAAQDXBwAAAQAFBwAAAQAFBwAAAQBpAwkAjQUBABEAjQUGABkAjQUKACkAjQUQADEAjQUQADkA
+jQUQAEEAjQUQAEkAjQUQAFEAjQUQAFkAjQUQAGEAjQUQAGkAjQUGAKkAjQUGAMkAjQUVANkAjQUG
+AJkAUgMGAOEAjQUGAOEA2gMbAJkAXQMGAHEAtgYmAPEADwcrAHkAawcvAOkAGQQ0APkAGQQ6AKEA
+iQM/AHEAjQUGAHkAjQUGAIEAjQVDAIEAOQVNAIEAdQZRAIkAkgNVAIEAIgRaAIEACgRgAIEAEQQB
+AAEBjQUQAIEA0wdlAIEAyQZlAJkAjQUGAAkBowZpAJkAiQZxAKEAjQUGAJkAXwZ3ABkBGQR9AJkA
+nweEACEBcAeKADkBAgGRADkB2weaALEAjQWgANEAjQUGAC4ACwAtAS4AEwA2AS4AGwBVAS4AIwBe
+AS4AKwCHAS4AMwCHAS4AOwCHAS4AQwBeAS4ASwCNAS4AUwCHAS4AWwCkAUMAYwDuAYkAcwBVAakA
+cwBVAeMAawDuASEBewDuASIAAwABAAYAAwAHAAQACAAGAAAAyAASAQAA/AMWAQAAcwAaAQAARAUe
+AQAAZAEjAQAA2QYoAQIABgADAAEABwADAAIACAAFAAEACQAFAAIAEgAHAAIAFAAJAAIAFQALAAEA
+FgALAAIAFwANAASAAAABAAAAAAAAAAAAAAAAADoAAAAEAAAAAAAAAAAAAACoAKkAAAAAAA8AAAAA
+AAAAAAAAALEAGQcAAAAABAAAAAAAAAAAAAAAqACLAAAAAAAPAAAAAAAAAAAAAACxADYHAAAAAAQA
+AAAAAAAAAAAAAKgAKwQAAAAADwAAAAAAAAAAAAAAsQD0BAAAAAAAAAAAAQAAAN4FAAAAAABJRFRT
+VmFyaWFibGUxMDAASURUU1ZhcmlhYmxlczEwMABJRFRTRXZhbHVhdG9yQ29udGV4dDEwMABTQ19D
+RDQwNjA5NTc5OUI0MTUzQkMyMEM5OEU1OEU3OTM1NAA8TW9kdWxlPgBJbnB1dElEAGdldF9JbmRp
+dmlkdWFsQ29tcGxhaW50c0JQRgBTeXN0ZW0uRGF0YQBTeXN0ZW0uRGF0YS5PbGVEYgBtc2Nvcmxp
+YgBnZXRfYWN0aXZlc3RhZ2VpZABzZXRfYWN0aXZlc3RhZ2VpZABkZWZhdWx0SW5zdGFuY2UARGF0
+YVRhYmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAElucHV0TmFtZQBNaWNy
+b3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZQBUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJl
+AHJlc291cmNlQ3VsdHVyZQBJbnRlcm5hbERhdGFDb2xsZWN0aW9uQmFzZQBBcHBsaWNhdGlvblNl
+dHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0
+ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9y
+QnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1h
+cmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlv
+bkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhh
+dGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0
+QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0cmlidXRlAEFzc2VtYmx5
+Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBQcmVFeGVjdXRl
+AFBvc3RFeGVjdXRlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcAR2V0
+U3RyaW5nAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ19DRDQwNjA5NTc5OUI0MTUzQkMyMEM5OEU1
+OEU3OTM1NC5kbGwARmlsbABnZXRfYWN0aXZlc3RhZ2VpZF9Jc051bGwAc2V0X2FjdGl2ZXN0YWdl
+aWRfSXNOdWxsAFNldE51bGwAZ2V0X0l0ZW0Ac2V0X0l0ZW0AU3lzdGVtAFJhbmRvbQByYW5kb20A
+cmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFs
+aXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBEYXRhUm93Q29sbGVjdGlvbgBJbnZhbGlkT3BlcmF0
+aW9uRXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AT3V0cHV0TmFtZU1hcABP
+dXRwdXRNYXAATWljcm9zb2Z0LlNxbFNlcnZlci5EVFNSdW50aW1lV3JhcABJbnB1dDBCdWZmZXIA
+UGlwZWxpbmVCdWZmZXIAU2NyaXB0QnVmZmVyAGdldF9SZXNvdXJjZU1hbmFnZXIATWljcm9zb2Z0
+LlNxbFNlcnZlci5EdHMuUnVudGltZS5XcmFwcGVyAE9sZURiRGF0YUFkYXB0ZXIALmN0b3IALmNj
+dG9yAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5
+c3RlbS5SZXNvdXJjZXMAU0NfY2NiOWVlNDA1ZDg5NDJlNDhjMGZhZmM0ZTA1MjZlZTAuUHJvcGVy
+dGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDX2NjYjllZTQwNWQ4OTQy
+ZTQ4YzBmYWZjNGUwNTI2ZWUwLlByb3BlcnRpZXMAZ2V0X1JlYWRPbmx5VmFyaWFibGVzAEJ1ZmZl
+ckNvbHVtbkluZGV4ZXMAR2V0Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAQ29ubmVjdGlv
+bnMAZ2V0X1Jvd3MAT2JqZWN0AGR0AEVuZE9mUm93c2V0AGdldF9EZWZhdWx0AFVzZXJDb21wb25l
+bnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABnZXRfQ291bnQATWljcm9zb2Z0LlNx
+bFNlcnZlci5UeFNjcmlwdABNaWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9zdABJbnB1dDBf
+UHJvY2Vzc0lucHV0AE5leHQAR2V0VmFsdWVXaXRoQ29udGV4dABTY3JpcHRDb21wb25lbnRFdmFs
+Q29udGV4dABnZXRfRXZhbHVhdG9yQ29udGV4dABEYXRhUm93AElucHV0MF9Qcm9jZXNzSW5wdXRS
+b3cATmV4dFJvdwBnZXRfQXNzZW1ibHkAAICbSQBzAE4AdQBsAGwAIABwAHIAbwBwAGUAcgB0AHkA
+IABjAGEAbgBuAG8AdAAgAGIAZQAgAHMAZQB0ACAAdABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBp
+AGcAbgAgAGEAIAB2AGEAbAB1AGUAIAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMA
+dABlAGEAZAAuAAAPSQBuAHAAdQB0ACAAMAAAL0kAbgBkAGkAdgBpAGQAdQBhAGwAQwBvAG0AcABs
+AGEAaQBuAHQAcwBCAFAARgAAcVMAQwBfAGMAYwBiADkAZQBlADQAMAA1AGQAOAA5ADQAMgBlADQA
+OABjADAAZgBhAGYAYwA0AGUAMAA1ADIANgBlAGUAMAAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBS
+AGUAcwBvAHUAcgBjAGUAcwAAxZmuSPpqyEeniiOAlAJV8AAEIAEBCAMgAAEFIAEBEREEIAEBDgUg
+AQERYQYgAggSORwDBwEIBCAAEnUDIAAIBCABCAgFIAESfQgEIAEcCAMgAA4JIAMBEkUdCBJJAwYS
+RQMGHQgEIAEOCAUgAgEIHAQgAQIIAyAAAgcgAgIOEYCJBSABHQgIBSAAEoCNBiABEoCRHAUAABKA
+lQYgARwSgJkIAAESgJ0RgKEFIAASgKUHIAIBDhKApQi3elxWGTTgiQiJhF3NgIDMkQMGEjkDBhI9
+AwYSFAMGEhgDBhJNAwYSWQMGEl0DBhIgBSABARIMBCABAQIJIAQBCA4SRRJJBSABARJNAyAAHAQA
+ABJZBAAAEl0FAAEBEl0EAAASIAMAAAEDKAAOAygAAgMoABwECAASWQQIABJdBAgAEiAIAQAIAAAA
+AAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NDX2NjYjllZTQw
+NWQ4OTQyZTQ4YzBmYWZjNGUwNTI2ZWUwAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjAAAEkB
+ABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNwEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5F
+VCBGcmFtZXdvcmsgNC43BAEAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJl
+c291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWws
+IFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1l
+UmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAAA1AAAAAAAAAAAAABo1AAAAIAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAMNQAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAA
+AAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABI
+AAAAWEAAAOwDAAAAAAAAAAAAAOwDNAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAA
+AAC9BO/+AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAA
+AAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4A
+AAAAAAAAsARMAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAAoAwAAAQAwADAAMAAw
+ADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABhAG4A
+eQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAA
+AFMAQwBfAGMAYwBiADkAZQBlADQAMAA1AGQAOAA5ADQAMgBlADQAOABjADAAZgBhAGYAYwA0AGUA
+MAA1ADIANgBlAGUAMAAAADAACAABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgAw
+AC4AMAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBDAF8AQwBEADQAMAA2ADAA
+OQA1ADcAOQA5AEIANAAxADUAMwBCAEMAMgAwAEMAOQA4AEUANQA4AEUANwA5ADMANQA0AC4AZABs
+AGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgA
+dAAgAEAAIAAgADIAMAAyADAAAAAqAAEAAQBMAGUAZwBhAGwAVAByAGEAZABlAG0AYQByAGsAcwAA
+AAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBtAGUAAABTAEMAXwBDAEQA
+NAAwADYAMAA5ADUANwA5ADkAQgA0ADEANQAzAEIAQwAyADAAQwA5ADgARQA1ADgARQA3ADkAMwA1
+ADQALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAAUwBDAF8AYwBjAGIA
+OQBlAGUANAAwADUAZAA4ADkANAAyAGUANAA4AGMAMABmAGEAZgBjADQAZQAwADUAMgA2AGUAZQAw
+AAAANAAIAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAADgA
+CAABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAAAsNQAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_cd406095799b4153bc20c98e58e79354</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">User::IndividualComplaintsBPF</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">23</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Update Individual Complaint BPF\Randomize Active Stage.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update Individual Complaint BPF\Randomize Active Stage.Inputs[Input 0].Columns[activestageid]"
+                      cachedDataType="wstr"
+                      cachedLength="36"
+                      cachedName="activestageid"
+                      lineageId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Output].Columns[activestageid]"
+                      usageType="readWrite" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update Individual Complaint BPF\Randomize Active Stage.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\Update Individual Complaint BPF\Randomize Active Stage.Inputs[Input 0]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update Individual Complaint BPF\Update Active Stage Started On"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
               description="Populate data into CDS, PowerApps, Microsoft Dynamics 365 CE."
-              name="Update Active Stage Start date for BPF"
+              name="Update Active Stage Started On"
               usesDispositions="true"
               version="3">
               <properties>
@@ -25570,7 +26647,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Connections[DynamicsCRM]"
+                  refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Connections[DynamicsCRM]"
                   connectionManagerID="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   connectionManagerRefId="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   description="Dynamics CRM Connection Manager"
@@ -25578,29 +26655,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input]"
+                  refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].Columns[businessprocessflowinstanceid]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].Columns[businessprocessflowinstanceid]"
                       cachedDataType="guid"
                       cachedName="businessprocessflowinstanceid"
-                      externalMetadataColumnId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[businessprocessflowinstanceid]"
+                      externalMetadataColumnId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[businessprocessflowinstanceid]"
                       lineageId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[businessprocessflowinstanceid]" />
                     <inputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].Columns[opc_complaint.createdon]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].Columns[opc_complaint.createdon]"
                       cachedDataType="dbTimeStamp"
                       cachedName="opc_complaint.createdon"
-                      externalMetadataColumnId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[activestagestartedon]"
+                      externalMetadataColumnId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[activestagestartedon]"
                       lineageId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[opc_complaint.createdon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[activestageid]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[activestageid]"
                       dataType="guid"
                       name="activestageid">
                       <properties>
@@ -25616,7 +26693,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[activestagestartedon]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[activestagestartedon]"
                       dataType="dbTimeStamp"
                       name="activestagestartedon">
                       <properties>
@@ -25629,7 +26706,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[bpf_name]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[bpf_name]"
                       dataType="wstr"
                       length="100"
                       name="bpf_name">
@@ -25643,7 +26720,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[bpf_opc_complaintid]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[bpf_opc_complaintid]"
                       dataType="guid"
                       name="bpf_opc_complaintid">
                       <properties>
@@ -25656,7 +26733,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[businessprocessflowinstanceid]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[businessprocessflowinstanceid]"
                       dataType="guid"
                       name="businessprocessflowinstanceid">
                       <properties>
@@ -25669,7 +26746,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[completedon]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[completedon]"
                       dataType="dbTimeStamp"
                       name="completedon">
                       <properties>
@@ -25682,7 +26759,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[modifiedby]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[modifiedby]"
                       dataType="guid"
                       name="modifiedby">
                       <properties>
@@ -25695,7 +26772,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[processid]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[processid]"
                       dataType="guid"
                       name="processid">
                       <properties>
@@ -25708,7 +26785,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[statecode]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[statecode]"
                       dataType="i4"
                       name="statecode">
                       <properties>
@@ -25721,7 +26798,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[statuscode]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[statuscode]"
                       dataType="i4"
                       name="statuscode">
                       <properties>
@@ -25734,7 +26811,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
                       dataType="i4"
                       name="timezoneruleversionnumber">
                       <properties>
@@ -25747,7 +26824,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[traversedpath]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[traversedpath]"
                       dataType="wstr"
                       length="1250"
                       name="traversedpath">
@@ -25761,7 +26838,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
                       dataType="i4"
                       name="utcconversiontimezonecode">
                       <properties>
@@ -25778,48 +26855,48 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Error Output]"
+                  refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Error Output"
-                  synchronousInputId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input]">
+                  synchronousInputId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Error Output].Columns[ErrorCode]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Error Output].Columns[ErrorColumn]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Error Output].Columns[CrmErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Error Output].Columns[CrmErrorMessage]"
                       name="CrmErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Default Output]"
+                  refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Default Output]"
                   exclusionGroup="1"
                   name="Default Output"
-                  synchronousInputId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input]">
+                  synchronousInputId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Default Output].Columns[CrmRecordId]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Default Output].Columns[CrmRecordId]"
                       dataType="guid"
-                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Default Output].Columns[CrmRecordId]"
+                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Default Output].Columns[CrmRecordId]"
                       name="CrmRecordId" />
                     <outputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Default Output].Columns[IsNew]"
+                      refId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Default Output].Columns[IsNew]"
                       dataType="bool"
-                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Outputs[Default Output].Columns[IsNew]"
+                      lineageId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Outputs[Default Output].Columns[IsNew]"
                       name="IsNew" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -25951,18 +27028,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       externalMetadataColumnId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Inputs[Input].ExternalColumns[activestagestartedon]"
                       lineageId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[opc_complaint.createdon]" />
                     <inputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Inputs[Input].Columns[activestageid]"
-                      cachedDataType="guid"
-                      cachedName="activestageid"
-                      externalMetadataColumnId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Inputs[Input].ExternalColumns[activestageid]"
-                      lineageId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[activestageid]" />
-                    <inputColumn
                       refId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Inputs[Input].Columns[traversedpath]"
                       cachedDataType="wstr"
                       cachedLength="1250"
                       cachedName="traversedpath"
                       externalMetadataColumnId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Inputs[Input].ExternalColumns[traversedpath]"
                       lineageId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[traversedpath]" />
+                    <inputColumn
+                      refId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Inputs[Input].Columns[activestageid]"
+                      cachedDataType="wstr"
+                      cachedLength="36"
+                      cachedName="activestageid"
+                      externalMetadataColumnId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Inputs[Input].ExternalColumns[activestageid]"
+                      lineageId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Output].Columns[activestageid]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -26207,11 +27285,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Update Individual Complaint BPF\Update Traversed Path for BPF.Inputs[Derived Column Input].Columns[activestageid]"
-                      cachedDataType="guid"
-                      cachedName="activestageid"
-                      lineageId="Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[activestageid]" />
-                    <inputColumn
                       refId="Package\Update Individual Complaint BPF\Update Traversed Path for BPF.Inputs[Derived Column Input].Columns[traversedpath]"
                       cachedDataType="wstr"
                       cachedLength="1250"
@@ -26226,15 +27299,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[LOWER]([REPLACE]([REPLACE]("e0bf78b2-9a4e-44f1-8d12-b5ed83ce3c6f," + (DT_WSTR,100)#{Package\Update Individual Complaint BPF\CDS Source.Outputs[Primary Output].Columns[activestageid]},"{",""),"}",""))</property>
+                          name="Expression">[LOWER]([REPLACE]([REPLACE](@[User::IndividualComplaintsBPF_FirstStage] + "," + (DT_WSTR,100)#{Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Output].Columns[activestageid]},"{",""),"}",""))</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">LOWER(REPLACE(REPLACE("e0bf78b2-9a4e-44f1-8d12-b5ed83ce3c6f," + (DT_WSTR,100)activestageid,"{",""),"}",""))</property>
+                          name="FriendlyExpression">LOWER(REPLACE(REPLACE(@[User::IndividualComplaintsBPF_FirstStage] + "," + (DT_WSTR,100)activestageid,"{",""),"}",""))</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Update Individual Complaint BPF\Update Traversed Path for BPF.Inputs[Derived Column Input].Columns[activestageid]"
+                      cachedDataType="wstr"
+                      cachedLength="36"
+                      cachedName="activestageid"
+                      lineageId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Output].Columns[activestageid]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -26277,12 +27356,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           <paths>
             <path
               refId="Package\Update Individual Complaint BPF.Paths[Default Output]"
-              endId="Package\Update Individual Complaint BPF\Update Traversed Path for BPF.Inputs[Derived Column Input]"
+              endId="Package\Update Individual Complaint BPF\Add Active Stage.Inputs[Derived Column Input]"
               name="Default Output"
               startId="Package\Update Individual Complaint BPF\Data Anonymizer.Outputs[Default Output]" />
             <path
               refId="Package\Update Individual Complaint BPF.Paths[Default Output1]"
-              endId="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF.Inputs[Input]"
+              endId="Package\Update Individual Complaint BPF\Update Active Stage Started On.Inputs[Input]"
               name="Default Output"
               startId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Outputs[Default Output]" />
             <path
@@ -26290,6 +27369,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\Update Individual Complaint BPF\Update Individual Complaint BPF.Inputs[Input]"
               name="Derived Column Output"
               startId="Package\Update Individual Complaint BPF\Update Traversed Path for BPF.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Update Individual Complaint BPF.Paths[Derived Column Output1]"
+              endId="Package\Update Individual Complaint BPF\Randomize Active Stage.Inputs[Input 0]"
+              name="Derived Column Output"
+              startId="Package\Update Individual Complaint BPF\Add Active Stage.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Update Individual Complaint BPF.Paths[Output 0]"
+              endId="Package\Update Individual Complaint BPF\Update Traversed Path for BPF.Inputs[Derived Column Input]"
+              name="Output 0"
+              startId="Package\Update Individual Complaint BPF\Randomize Active Stage.Outputs[Output 0]" />
             <path
               refId="Package\Update Individual Complaint BPF.Paths[Primary Output]"
               endId="Package\Update Individual Complaint BPF\Data Anonymizer.Inputs[Primary Input]"
@@ -28086,13 +29175,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">4</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
                   expressionType="Notify"
                   name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
                 <property
                   dataType="System.String"
                   description="Workflow to be executed."
@@ -28516,13 +29605,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">4</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
                   expressionType="Notify"
                   name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
                 <property
                   dataType="System.String"
                   description="Workflow to be executed."
@@ -28946,13 +30035,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   description="Specify what action will be taken when multiple matches are found with Upsert action."
                   expressionType="Notify"
                   name="HandlingOfMultipleMatches"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">4</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmUpsertHandlingOfMultipleMatches">4</property>
                 <property
                   dataType="System.Int32"
                   description="Specify whether to use optimizations when there are duplicate records form the source system."
                   expressionType="Notify"
                   name="OptimizationOnSourceDuplicates"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">1</property>
                 <property
                   dataType="System.String"
                   description="Workflow to be executed."
@@ -29701,19 +30790,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Deactivate Closed Complaints">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="156,42"
-          Id="Package\Deactivate Closed Complaints\Add State Code"
-          TopLeft="144.583331178874,147.333336106518" />
+          Size="159,43"
+          Id="Package\Deactivate Closed Complaints\CDS Destination"
+          TopLeft="224.583329986781,253.157899501912" />
         <NodeLayout
           Size="139,43"
           Id="Package\Deactivate Closed Complaints\CDS Source"
           TopLeft="89.9999986588955,62.0350888869549" />
         <NodeLayout
-          Size="159,43"
-          Id="Package\Deactivate Closed Complaints\CDS Destination"
-          TopLeft="224.583329986781,253.157899501912" />
+          Size="156,42"
+          Id="Package\Deactivate Closed Complaints\Add State Code"
+          TopLeft="144.583331178874,147.333336106518" />
         <EdgeLayout
           Id="Package\Deactivate Closed Complaints.Paths[Primary Output]"
           TopLeft="159.499998658895,105.035088886955">
@@ -29745,7 +30834,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -29779,7 +30870,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -29881,7 +30974,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -29915,7 +31010,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -29949,7 +31046,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -29983,7 +31082,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -29993,253 +31094,89 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Generate Allegations">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="225,43"
-          Id="Package\Generate Allegations\Sort Complaints (RowNumber)"
-          TopLeft="432.666666666667,413.333333333334" />
-        <NodeLayout
-          Size="159,43"
-          Id="Package\Generate Allegations\CDS Destination"
-          TopLeft="617.333333333333,640.666666666667" />
-        <NodeLayout
-          Size="228,43"
-          Id="Package\Generate Allegations\Add RowNumber to Allegations"
-          TopLeft="786,262" />
-        <NodeLayout
-          Size="208,43"
-          Id="Package\Generate Allegations\Set Allegation RowNumber"
-          TopLeft="773.333333333334,330" />
-        <NodeLayout
-          Size="224,43"
-          Id="Package\Generate Allegations\Sort Allegations (RowNumber)"
-          TopLeft="718,416" />
-        <NodeLayout
-          Size="209,43"
-          Id="Package\Generate Allegations\Set Complaint RowNumber"
-          TopLeft="259.333333333334,327.333333333333" />
-        <NodeLayout
-          Size="132,43"
-          Id="Package\Generate Allegations\Merge Join"
-          TopLeft="616.666666666667,535.333333333333" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="139,43"
           Id="Package\Generate Allegations\CDS Source"
           TopLeft="113.333333333333,167.333333333333" />
         <NodeLayout
+          Size="159,43"
+          Id="Package\Generate Allegations\CDS Destination"
+          TopLeft="617.333333333333,640.666666666667" />
+        <NodeLayout
+          Size="208,43"
+          Id="Package\Generate Allegations\Set Allegation RowNumber"
+          TopLeft="773.333333333334,330" />
+        <NodeLayout
+          Size="132,43"
+          Id="Package\Generate Allegations\Merge Join"
+          TopLeft="616.666666666667,535.333333333333" />
+        <NodeLayout
           Size="229,43"
           Id="Package\Generate Allegations\Add RowNumber to Complaints"
           TopLeft="137.333333333333,249.333333333333" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Generate Allegations\Add Allegation Type"
-          TopLeft="914.333333333333,102.666666666667" />
+          Size="224,43"
+          Id="Package\Generate Allegations\Sort Allegations (RowNumber)"
+          TopLeft="718,416" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Generate Allegations\Randomize Allegation Type"
+          TopLeft="834.333333333333,182.666666666667" />
+        <NodeLayout
+          Size="228,43"
+          Id="Package\Generate Allegations\Add RowNumber to Allegations"
+          TopLeft="786,262" />
+        <NodeLayout
+          Size="225,43"
+          Id="Package\Generate Allegations\Sort Complaints (RowNumber)"
+          TopLeft="432.666666666667,413.333333333334" />
         <NodeLayout
           Size="147,43"
           Id="Package\Generate Allegations\Data Spawner"
           TopLeft="987.666666666667,31.6666666666666" />
+        <NodeLayout
+          Size="209,43"
+          Id="Package\Generate Allegations\Set Complaint RowNumber"
+          TopLeft="259.333333333334,327.333333333333" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Generate Allegations\Add Allegation Type"
+          TopLeft="914.333333333333,102.666666666667" />
         <EdgeLayout
-          Id="Package\Generate Allegations.Paths[Derived Column Output1]"
-          TopLeft="900,305">
+          Id="Package\Generate Allegations.Paths[Output 02]"
+          TopLeft="940.833333333333,224.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22.6666666666659,25"
+              EndConnector="-40.833333333333,37.333333333333"
               Start="0,0"
-              End="-22.6666666666659,17.5">
+              End="-40.833333333333,29.833333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.5" />
+                    End="0,14.6666666666665" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.5"
-                    Point2="0,12.5"
-                    Point3="-4,12.5" />
+                    Point1="0,14.6666666666665"
+                    Point2="0,18.6666666666665"
+                    Point3="-4,18.6666666666665" />
                   <mssgle:LineSegment
-                    End="-18.6666666666659,12.5" />
+                    End="-36.833333333333,18.6666666666665" />
                   <mssgle:CubicBezierSegment
-                    Point1="-18.6666666666659,12.5"
-                    Point2="-22.6666666666659,12.5"
-                    Point3="-22.6666666666659,16.5" />
+                    Point1="-36.833333333333,18.6666666666665"
+                    Point2="-40.833333333333,18.6666666666665"
+                    Point3="-40.833333333333,22.6666666666665" />
                   <mssgle:LineSegment
-                    End="-22.6666666666659,17.5" />
+                    End="-40.833333333333,29.833333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Generate Allegations.Paths[Derived Column Output]"
-          TopLeft="252,292">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="112,35.3333333333333"
-              Start="0,0"
-              End="112,27.8333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.6666666666666" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.6666666666666"
-                    Point2="0,17.6666666666666"
-                    Point3="4,17.6666666666666" />
-                  <mssgle:LineSegment
-                    End="108,17.6666666666666" />
-                  <mssgle:CubicBezierSegment
-                    Point1="108,17.6666666666666"
-                    Point2="112,17.6666666666666"
-                    Point3="112,21.6666666666666" />
-                  <mssgle:LineSegment
-                    End="112,27.8333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Generate Allegations.Paths[Default Output]"
-          TopLeft="1061.16666666667,74.6666666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-58.3333333333339,28.0000000000004"
-              Start="0,0"
-              End="-58.3333333333339,20.5000000000004">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.0000000000002" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.0000000000002"
-                    Point2="0,14.0000000000002"
-                    Point3="-4,14.0000000000002" />
-                  <mssgle:LineSegment
-                    End="-54.3333333333339,14.0000000000002" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-54.3333333333339,14.0000000000002"
-                    Point2="-58.3333333333339,14.0000000000002"
-                    Point3="-58.3333333333339,18.0000000000002" />
-                  <mssgle:LineSegment
-                    End="-58.3333333333339,20.5000000000004" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Generate Allegations.Paths[Sort Output1]"
-          TopLeft="830,458.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-126.666666666667,76.6666666666663"
-              Start="0,0"
-              End="-126.666666666667,69.1666666666663">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.449101796407" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.449101796407"
-                    Point2="0,45.449101796407"
-                    Point3="-4,45.449101796407" />
-                  <mssgle:LineSegment
-                    End="-122.666666666667,45.449101796407" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-122.666666666667,45.449101796407"
-                    Point2="-126.666666666667,45.449101796407"
-                    Point3="-126.666666666667,49.449101796407" />
-                  <mssgle:LineSegment
-                    End="-126.666666666667,69.1666666666663" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Generate Allegations.Paths[Sort Output]"
-          TopLeft="545.333333333333,456">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="116.666666666667,79.333333333333"
-              Start="0,0"
-              End="116.666666666667,71.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.0299401197603" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.0299401197603"
-                    Point2="0,47.0299401197603"
-                    Point3="4,47.0299401197603" />
-                  <mssgle:LineSegment
-                    End="112.666666666667,47.0299401197603" />
-                  <mssgle:CubicBezierSegment
-                    Point1="112.666666666667,47.0299401197603"
-                    Point2="116.666666666667,47.0299401197603"
-                    Point3="116.666666666667,51.0299401197603" />
-                  <mssgle:LineSegment
-                    End="116.666666666667,71.833333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Generate Allegations.Paths[Primary Output]"
-          TopLeft="183,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="69,39.3333333333334"
-              Start="0,0"
-              End="69,31.8333333333334">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.6666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.6666666666667"
-                    Point2="0,19.6666666666667"
-                    Point3="4,19.6666666666667" />
-                  <mssgle:LineSegment
-                    End="65,19.6666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="65,19.6666666666667"
-                    Point2="69,19.6666666666667"
-                    Point3="69,23.6666666666667" />
-                  <mssgle:LineSegment
-                    End="69,31.8333333333334" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30273,7 +31210,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30307,7 +31246,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30341,13 +31282,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="213,42"
-          Id="Package\Generate Allegations\Randomize Allegation Type"
-          TopLeft="834.333333333333,182.666666666667" />
         <EdgeLayout
           Id="Package\Generate Allegations.Paths[Derived Column Output2]"
           TopLeft="1002.83333333333,144.666666666667">
@@ -30379,41 +31318,225 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Generate Allegations.Paths[Output 02]"
-          TopLeft="940.833333333333,224.666666666667">
+          Id="Package\Generate Allegations.Paths[Derived Column Output1]"
+          TopLeft="900,305">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-40.833333333333,37.333333333333"
+              EndConnector="-22.6666666666659,25"
               Start="0,0"
-              End="-40.833333333333,29.833333333333">
+              End="-22.6666666666659,17.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.6666666666665" />
+                    End="0,8.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.6666666666665"
-                    Point2="0,18.6666666666665"
-                    Point3="-4,18.6666666666665" />
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="-4,12.5" />
                   <mssgle:LineSegment
-                    End="-36.833333333333,18.6666666666665" />
+                    End="-18.6666666666659,12.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-36.833333333333,18.6666666666665"
-                    Point2="-40.833333333333,18.6666666666665"
-                    Point3="-40.833333333333,22.6666666666665" />
+                    Point1="-18.6666666666659,12.5"
+                    Point2="-22.6666666666659,12.5"
+                    Point3="-22.6666666666659,16.5" />
                   <mssgle:LineSegment
-                    End="-40.833333333333,29.833333333333" />
+                    End="-22.6666666666659,17.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Allegations.Paths[Derived Column Output]"
+          TopLeft="252,292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112,35.3333333333333"
+              Start="0,0"
+              End="112,27.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.6666666666666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.6666666666666"
+                    Point2="0,17.6666666666666"
+                    Point3="4,17.6666666666666" />
+                  <mssgle:LineSegment
+                    End="108,17.6666666666666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108,17.6666666666666"
+                    Point2="112,17.6666666666666"
+                    Point3="112,21.6666666666666" />
+                  <mssgle:LineSegment
+                    End="112,27.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Allegations.Paths[Default Output]"
+          TopLeft="1061.16666666667,74.6666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.3333333333339,28.0000000000004"
+              Start="0,0"
+              End="-58.3333333333339,20.5000000000004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.0000000000002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.0000000000002"
+                    Point2="0,14.0000000000002"
+                    Point3="-4,14.0000000000002" />
+                  <mssgle:LineSegment
+                    End="-54.3333333333339,14.0000000000002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.3333333333339,14.0000000000002"
+                    Point2="-58.3333333333339,14.0000000000002"
+                    Point3="-58.3333333333339,18.0000000000002" />
+                  <mssgle:LineSegment
+                    End="-58.3333333333339,20.5000000000004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Allegations.Paths[Sort Output1]"
+          TopLeft="830,458.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-126.666666666667,76.6666666666663"
+              Start="0,0"
+              End="-126.666666666667,69.1666666666663">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.449101796407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.449101796407"
+                    Point2="0,45.449101796407"
+                    Point3="-4,45.449101796407" />
+                  <mssgle:LineSegment
+                    End="-122.666666666667,45.449101796407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-122.666666666667,45.449101796407"
+                    Point2="-126.666666666667,45.449101796407"
+                    Point3="-126.666666666667,49.449101796407" />
+                  <mssgle:LineSegment
+                    End="-126.666666666667,69.1666666666663" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Allegations.Paths[Sort Output]"
+          TopLeft="545.333333333333,456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116.666666666667,79.333333333333"
+              Start="0,0"
+              End="116.666666666667,71.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.0299401197603" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.0299401197603"
+                    Point2="0,47.0299401197603"
+                    Point3="4,47.0299401197603" />
+                  <mssgle:LineSegment
+                    End="112.666666666667,47.0299401197603" />
+                  <mssgle:CubicBezierSegment
+                    Point1="112.666666666667,47.0299401197603"
+                    Point2="116.666666666667,47.0299401197603"
+                    Point3="116.666666666667,51.0299401197603" />
+                  <mssgle:LineSegment
+                    End="116.666666666667,71.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Generate Allegations.Paths[Primary Output]"
+          TopLeft="183,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69,39.3333333333334"
+              Start="0,0"
+              End="69,31.8333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.6666666666667"
+                    Point2="0,19.6666666666667"
+                    Point3="4,19.6666666666667" />
+                  <mssgle:LineSegment
+                    End="65,19.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65,19.6666666666667"
+                    Point2="69,19.6666666666667"
+                    Point3="69,23.6666666666667" />
+                  <mssgle:LineSegment
+                    End="69,31.8333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30895,39 +32018,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Link Contacts to Accounts">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="131,43"
-          Id="Package\Link Contacts to Accounts\Merge Join"
-          TopLeft="385.333333333333,467.333333333333" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Link Contacts to Accounts\Add Additional Fields"
-          TopLeft="382,551.333333333333" />
-        <NodeLayout
-          Size="216,43"
-          Id="Package\Link Contacts to Accounts\Add RowNumber to Contacts"
-          TopLeft="127.333333333333,179.333333333333" />
-        <NodeLayout
-          Size="141,43"
-          Id="Package\Link Contacts to Accounts\Get Accounts"
-          TopLeft="694,99.3333333333333" />
-        <NodeLayout
-          Size="213,43"
-          Id="Package\Link Contacts to Accounts\Sort Accounts (RowNumber)"
-          TopLeft="505.333333333333,338.666666666667" />
-        <NodeLayout
-          Size="140,43"
-          Id="Package\Link Contacts to Accounts\Get Contacts"
-          TopLeft="118,92.6666666666667" />
-        <NodeLayout
-          Size="195,43"
-          Id="Package\Link Contacts to Accounts\Set Contact RowNumber"
-          TopLeft="170,265.333333333333" />
-        <NodeLayout
-          Size="212,43"
-          Id="Package\Link Contacts to Accounts\Sort Contacts (RowNumber)"
-          TopLeft="189.333333333333,348" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="156,43"
           Id="Package\Link Contacts to Accounts\CDS Destination"
@@ -30940,6 +32031,38 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Size="197,43"
           Id="Package\Link Contacts to Accounts\Set Account RowNumber"
           TopLeft="546,260.666666666667" />
+        <NodeLayout
+          Size="131,43"
+          Id="Package\Link Contacts to Accounts\Merge Join"
+          TopLeft="385.333333333333,467.333333333333" />
+        <NodeLayout
+          Size="141,43"
+          Id="Package\Link Contacts to Accounts\Get Accounts"
+          TopLeft="694,99.3333333333333" />
+        <NodeLayout
+          Size="140,43"
+          Id="Package\Link Contacts to Accounts\Get Contacts"
+          TopLeft="118,92.6666666666667" />
+        <NodeLayout
+          Size="216,43"
+          Id="Package\Link Contacts to Accounts\Add RowNumber to Contacts"
+          TopLeft="127.333333333333,179.333333333333" />
+        <NodeLayout
+          Size="195,43"
+          Id="Package\Link Contacts to Accounts\Set Contact RowNumber"
+          TopLeft="170,265.333333333333" />
+        <NodeLayout
+          Size="212,43"
+          Id="Package\Link Contacts to Accounts\Sort Contacts (RowNumber)"
+          TopLeft="189.333333333333,348" />
+        <NodeLayout
+          Size="213,43"
+          Id="Package\Link Contacts to Accounts\Sort Accounts (RowNumber)"
+          TopLeft="505.333333333333,338.666666666667" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Link Contacts to Accounts\Add Additional Fields"
+          TopLeft="382,551.333333333333" />
         <EdgeLayout
           Id="Package\Link Contacts to Accounts.Paths[Sort Output]"
           TopLeft="295.333333333333,390.666666666667">
@@ -30971,7 +32094,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31005,7 +32130,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31039,7 +32166,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31073,7 +32202,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31107,7 +32238,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31141,7 +32274,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31163,7 +32298,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31197,7 +32334,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31231,7 +32370,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31265,7 +32406,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31277,21 +32420,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="182,42"
-          Id="Package\Set variables\Get Users (Contacts)"
-          TopLeft="345,57" />
+          Size="201,42"
+          Id="Package\Set variables\Get Users (Queue Items)"
+          TopLeft="92,458" />
         <NodeLayout
-          Size="213,42"
-          Id="Package\Set variables\Allegation Types Recordset"
-          TopLeft="510,534" />
-        <NodeLayout
-          Size="214,42"
-          Id="Package\Set variables\Users (Contacts) Recordset"
-          TopLeft="383,132" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Set variables\Legislation Recordset"
-          TopLeft="152,333" />
+          Size="178,42"
+          Id="Package\Set variables\Get Users (Account)"
+          TopLeft="57,66" />
         <NodeLayout
           Size="116,42"
           Id="Package\Set variables\Sectors"
@@ -31301,30 +32436,130 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\Set variables\OPC Priorities Recordset"
           TopLeft="443,341" />
         <NodeLayout
-          Size="169,42"
-          Id="Package\Set variables\Sectors Recordset"
-          TopLeft="718,333" />
+          Size="234,42"
+          Id="Package\Set variables\Users (Queue Items) Recordset"
+          TopLeft="130,533" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Set variables\Get Users (Contacts)"
+          TopLeft="345,57" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Set variables\Get Legislations"
+          TopLeft="94,247" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Set variables\Users (Complaints) Recordset"
+          TopLeft="668,135" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Set variables\Allegation Types Recordset"
+          TopLeft="436,527" />
         <NodeLayout
           Size="149,42"
           Id="Package\Set variables\OPC Priorities"
           TopLeft="385,255" />
         <NodeLayout
+          Size="211,42"
+          Id="Package\Set variables\Users (Account) Recordset"
+          TopLeft="115,152" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Set variables\Legislation Recordset"
+          TopLeft="152,333" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Set variables\Users (Contacts) Recordset"
+          TopLeft="383,132" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Set variables\Get Users (Complaints)"
+          TopLeft="630,60" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Set variables\Sectors Recordset"
+          TopLeft="718,333" />
+        <NodeLayout
           Size="160,42"
           Id="Package\Set variables\Allegation Types"
-          TopLeft="452,448" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Set variables\Get Legislations"
-          TopLeft="94,247" />
+          TopLeft="419,448" />
         <EdgeLayout
-          Id="Package\Set variables.Paths[Primary Output4]"
-          TopLeft="532,490">
+          Id="Package\Set variables.Paths[Primary Output7]"
+          TopLeft="192.5,500">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="84.5,44"
+              EndConnector="54.5,33"
               Start="0,0"
-              End="84.5,36.5">
+              End="54.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
+                  <mssgle:LineSegment
+                    End="50.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.5,16.5"
+                    Point2="54.5,16.5"
+                    Point3="54.5,20.5" />
+                  <mssgle:LineSegment
+                    End="54.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Set variables.Paths[Primary Output6]"
+          TopLeft="727,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54,33"
+              Start="0,0"
+              End="54,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
+                  <mssgle:LineSegment
+                    End="50,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50,16.5"
+                    Point2="54,16.5"
+                    Point3="54,20.5" />
+                  <mssgle:LineSegment
+                    End="54,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Set variables.Paths[Primary Output5]"
+          TopLeft="146,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.5,44"
+              Start="0,0"
+              End="74.5,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -31335,13 +32570,47 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     Point2="0,22"
                     Point3="4,22" />
                   <mssgle:LineSegment
-                    End="80.5,22" />
+                    End="70.5,22" />
                   <mssgle:CubicBezierSegment
-                    Point1="80.5,22"
-                    Point2="84.5,22"
-                    Point3="84.5,26" />
+                    Point1="70.5,22"
+                    Point2="74.5,22"
+                    Point3="74.5,26" />
                   <mssgle:LineSegment
-                    End="84.5,36.5" />
+                    End="74.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Set variables.Paths[Primary Output4]"
+          TopLeft="499,490">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.5,37"
+              Start="0,0"
+              End="43.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="39.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.5,18.5"
+                    Point2="43.5,18.5"
+                    Point3="43.5,22.5" />
+                  <mssgle:LineSegment
+                    End="43.5,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31487,123 +32756,39 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="178,42"
-          Id="Package\Set variables\Get Users (Account)"
-          TopLeft="57,66" />
+          Size="208,42"
+          Id="Package\Set variables\Individual Complaints BPF"
+          TopLeft="699,456" />
         <NodeLayout
-          Size="211,42"
-          Id="Package\Set variables\Users (Account) Recordset"
-          TopLeft="115,152" />
+          Size="261,42"
+          Id="Package\Set variables\Individual Complaints BPF Recordset"
+          TopLeft="731,528" />
         <EdgeLayout
-          Id="Package\Set variables.Paths[Primary Output5]"
-          TopLeft="146,108">
+          Id="Package\Set variables.Paths[Primary Output8]"
+          TopLeft="803,498">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="74.5,44"
+              EndConnector="58.5,30"
               Start="0,0"
-              End="74.5,36.5">
+              End="58.5,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18" />
+                    End="0,11" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18"
-                    Point2="0,22"
-                    Point3="4,22" />
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
                   <mssgle:LineSegment
-                    End="70.5,22" />
+                    End="54.5,15" />
                   <mssgle:CubicBezierSegment
-                    Point1="70.5,22"
-                    Point2="74.5,22"
-                    Point3="74.5,26" />
+                    Point1="54.5,15"
+                    Point2="58.5,15"
+                    Point3="58.5,19" />
                   <mssgle:LineSegment
-                    End="74.5,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="194,42"
-          Id="Package\Set variables\Get Users (Complaints)"
-          TopLeft="630,60" />
-        <NodeLayout
-          Size="226,42"
-          Id="Package\Set variables\Users (Complaints) Recordset"
-          TopLeft="668,135" />
-        <EdgeLayout
-          Id="Package\Set variables.Paths[Primary Output6]"
-          TopLeft="727,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54,33"
-              Start="0,0"
-              End="54,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.5"
-                    Point2="0,16.5"
-                    Point3="4,16.5" />
-                  <mssgle:LineSegment
-                    End="50,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="50,16.5"
-                    Point2="54,16.5"
-                    Point3="54,20.5" />
-                  <mssgle:LineSegment
-                    End="54,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="201,42"
-          Id="Package\Set variables\Get Users (Queue Items)"
-          TopLeft="92,458" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Set variables\Users (Queue Items) Recordset"
-          TopLeft="130,533" />
-        <EdgeLayout
-          Id="Package\Set variables.Paths[Primary Output7]"
-          TopLeft="192.5,500">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54.5,33"
-              Start="0,0"
-              End="54.5,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.5"
-                    Point2="0,16.5"
-                    Point3="4,16.5" />
-                  <mssgle:LineSegment
-                    End="50.5,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="50.5,16.5"
-                    Point2="54.5,16.5"
-                    Point3="54.5,20.5" />
-                  <mssgle:LineSegment
-                    End="54.5,25.5" />
+                    End="58.5,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31627,113 +32812,41 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <NodeLayout
           Size="161,43"
           Id="Package\Update Individual Complaint BPF\Data Anonymizer"
-          TopLeft="247.91666297242,235.824565842321" />
+          TopLeft="170.91666297242,99.824565842321" />
         <NodeLayout
           Size="237,43"
           Id="Package\Update Individual Complaint BPF\Update Individual Complaint BPF"
           TopLeft="345.833328180015,413.192986757581" />
         <NodeLayout
-          Size="264,43"
-          Id="Package\Update Individual Complaint BPF\Update Active Stage Start date for BPF"
-          TopLeft="398.749994058162,484.877202109067" />
-        <NodeLayout
           Size="139,43"
           Id="Package\Update Individual Complaint BPF\CDS Source"
-          TopLeft="216,106" />
-        <EdgeLayout
-          Id="Package\Update Individual Complaint BPF.Paths[Default Output1]"
-          TopLeft="464.499994846682,455.859653424248">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="66.2499992114803,29.0175486848187"
-              Start="0,0"
-              End="66.2499992114803,21.5175486848187">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.5087743424093" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.5087743424093"
-                    Point2="0,14.5087743424093"
-                    Point3="4,14.5087743424093" />
-                  <mssgle:LineSegment
-                    End="62.2499992114803,14.5087743424093" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.2499992114803,14.5087743424093"
-                    Point2="66.2499992114803,14.5087743424093"
-                    Point3="66.2499992114803,18.5087743424093" />
-                  <mssgle:LineSegment
-                    End="66.2499992114803,21.5175486848187" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update Individual Complaint BPF.Paths[Default Output]"
-          TopLeft="328.41666297242,278.824565842321">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="47.66666649282,52.78947548721"
-              Start="0,0"
-              End="47.66666649282,45.28947548721">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.394737743605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.394737743605"
-                    Point2="0,26.394737743605"
-                    Point3="4,26.394737743605" />
-                  <mssgle:LineSegment
-                    End="43.66666649282,26.394737743605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="43.66666649282,26.394737743605"
-                    Point2="47.66666649282,26.394737743605"
-                    Point3="47.66666649282,30.394737743605" />
-                  <mssgle:LineSegment
-                    End="47.66666649282,45.28947548721" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="54,32" />
         <EdgeLayout
           Id="Package\Update Individual Complaint BPF.Paths[Primary Output]"
-          TopLeft="285.666666666667,148.666666666667">
+          TopLeft="123.5,75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="42.9166629724205,87.1578991756545"
+              EndConnector="127.91666297242,24.824565842321"
               Start="0,0"
-              End="42.9166629724205,79.6578991756545">
+              End="127.91666297242,17.324565842321">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5789495878273" />
+                    End="0,8.4122829211605" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,39.5789495878273"
-                    Point2="0,43.5789495878273"
-                    Point3="4,43.5789495878273" />
+                    Point1="0,8.4122829211605"
+                    Point2="0,12.4122829211605"
+                    Point3="4,12.4122829211605" />
                   <mssgle:LineSegment
-                    End="38.9166629724205,43.5789495878273" />
+                    End="123.91666297242,12.4122829211605" />
                   <mssgle:CubicBezierSegment
-                    Point1="38.9166629724205,43.5789495878273"
-                    Point2="42.9166629724205,43.5789495878273"
-                    Point3="42.9166629724205,47.5789495878273" />
+                    Point1="123.91666297242,12.4122829211605"
+                    Point2="127.91666297242,12.4122829211605"
+                    Point3="127.91666297242,16.4122829211605" />
                   <mssgle:LineSegment
-                    End="42.9166629724205,79.6578991756545" />
+                    End="127.91666297242,17.324565842321" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31776,60 +32889,40 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Update Queue Items for Complaints">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="185,42"
-          Id="Package\Update Queue Items for Complaints\Randomize Worker Id"
-          TopLeft="391.666666666667,339.333333333333" />
+          Size="199,42"
+          Id="Package\Update Individual Complaint BPF\Randomize Active Stage"
+          TopLeft="260,253.877202109067" />
         <NodeLayout
-          Size="159,43"
-          Id="Package\Update Queue Items for Complaints\CDS Destination"
-          TopLeft="179,398.333333333333" />
-        <NodeLayout
-          Size="161,43"
-          Id="Package\Update Queue Items for Complaints\Data Anonymizer"
-          TopLeft="334.333333333333,186.333333333333" />
-        <NodeLayout
-          Size="139,43"
-          Id="Package\Update Queue Items for Complaints\CDS Source"
-          TopLeft="152.666666666667,142" />
-        <NodeLayout
-          Size="137,42"
-          Id="Package\Update Queue Items for Complaints\Add Worker"
-          TopLeft="505.666666666667,256.333333333333" />
+          Size="163,42"
+          Id="Package\Update Individual Complaint BPF\Add Active Stage"
+          TopLeft="245,173.877202109067" />
         <EdgeLayout
-          Id="Package\Update Queue Items for Complaints.Paths[Primary Output]"
-          TopLeft="291.666666666667,163.5">
+          Id="Package\Update Individual Complaint BPF.Paths[Default Output]"
+          TopLeft="251.41666297242,142.824565842321">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="42.6666666666661,44.333333333333"
+              EndConnector="75.08333702758,31.052636266746"
               Start="0,0"
-              End="35.1666666666661,44.333333333333">
+              End="75.08333702758,23.552636266746">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="17.333333333333,0" />
+                    End="0,11.526318133373" />
                   <mssgle:CubicBezierSegment
-                    Point1="17.333333333333,0"
-                    Point2="21.333333333333,0"
-                    Point3="21.333333333333,4" />
+                    Point1="0,11.526318133373"
+                    Point2="0,15.526318133373"
+                    Point3="4,15.526318133373" />
                   <mssgle:LineSegment
-                    End="21.333333333333,40.333333333333" />
+                    End="71.08333702758,15.526318133373" />
                   <mssgle:CubicBezierSegment
-                    Point1="21.333333333333,40.333333333333"
-                    Point2="21.333333333333,44.333333333333"
-                    Point3="25.333333333333,44.333333333333" />
+                    Point1="71.08333702758,15.526318133373"
+                    Point2="75.08333702758,15.526318133373"
+                    Point3="75.08333702758,19.526318133373" />
                   <mssgle:LineSegment
-                    End="35.1666666666661,44.333333333333" />
+                    End="75.08333702758,23.552636266746" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31838,6 +32931,140 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Individual Complaint BPF.Paths[Derived Column Output1]"
+          TopLeft="326.5,215.877202109067">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33,38"
+              Start="0,0"
+              End="33,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="29,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29,19"
+                    Point2="33,19"
+                    Point3="33,23" />
+                  <mssgle:LineSegment
+                    End="33,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Individual Complaint BPF.Paths[Output 0]"
+          TopLeft="359.5,295.877202109067">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.58332946524,35.736839220464"
+              Start="0,0"
+              End="16.58332946524,28.236839220464">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.868419610232" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.868419610232"
+                    Point2="0,17.868419610232"
+                    Point3="4,17.868419610232" />
+                  <mssgle:LineSegment
+                    End="12.58332946524,17.868419610232" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.58332946524,17.868419610232"
+                    Point2="16.58332946524,17.868419610232"
+                    Point3="16.58332946524,21.868419610232" />
+                  <mssgle:LineSegment
+                    End="16.58332946524,28.236839220464" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Update Individual Complaint BPF\Update Active Stage Started On"
+          TopLeft="455,490" />
+        <EdgeLayout
+          Id="Package\Update Individual Complaint BPF.Paths[Default Output1]"
+          TopLeft="464.333328180015,456.192986757581">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.166671819985,33.807013242419"
+              Start="0,0"
+              End="108.166671819985,26.307013242419">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.9035066212095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.9035066212095"
+                    Point2="0,16.9035066212095"
+                    Point3="4,16.9035066212095" />
+                  <mssgle:LineSegment
+                    End="104.166671819985,16.9035066212095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.166671819985,16.9035066212095"
+                    Point2="108.166671819985,16.9035066212095"
+                    Point3="108.166671819985,20.9035066212095" />
+                  <mssgle:LineSegment
+                    End="108.166671819985,26.307013242419" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Update Queue Items for Complaints">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="159,43"
+          Id="Package\Update Queue Items for Complaints\CDS Destination"
+          TopLeft="179,398.333333333333" />
+        <NodeLayout
+          Size="139,43"
+          Id="Package\Update Queue Items for Complaints\CDS Source"
+          TopLeft="152.666666666667,142" />
+        <NodeLayout
+          Size="161,43"
+          Id="Package\Update Queue Items for Complaints\Data Anonymizer"
+          TopLeft="334.333333333333,186.333333333333" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Update Queue Items for Complaints\Add Worker"
+          TopLeft="505.666666666667,256.333333333333" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Update Queue Items for Complaints\Randomize Worker Id"
+          TopLeft="391.666666666667,339.333333333333" />
         <EdgeLayout
           Id="Package\Update Queue Items for Complaints.Paths[Default Output]"
           TopLeft="414.833333333333,229.333333333333">
@@ -31869,41 +33096,45 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update Queue Items for Complaints.Paths[Derived Column Output]"
-          TopLeft="574.166666666667,298.333333333333">
+          Id="Package\Update Queue Items for Complaints.Paths[Primary Output]"
+          TopLeft="291.666666666667,163.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-90,41"
+              EndConnector="42.6666666666661,44.333333333333"
               Start="0,0"
-              End="-90,33.5">
+              End="35.1666666666661,44.333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.5" />
+                    End="17.333333333333,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="-4,20.5" />
+                    Point1="17.333333333333,0"
+                    Point2="21.333333333333,0"
+                    Point3="21.333333333333,4" />
                   <mssgle:LineSegment
-                    End="-86,20.5" />
+                    End="21.333333333333,40.333333333333" />
                   <mssgle:CubicBezierSegment
-                    Point1="-86,20.5"
-                    Point2="-90,20.5"
-                    Point3="-90,24.5" />
+                    Point1="21.333333333333,40.333333333333"
+                    Point2="21.333333333333,44.333333333333"
+                    Point3="25.333333333333,44.333333333333" />
                   <mssgle:LineSegment
-                    End="-90,33.5" />
+                    End="35.1666666666661,44.333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31937,7 +33168,45 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Queue Items for Complaints.Paths[Derived Column Output]"
+          TopLeft="574.166666666667,298.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90,41"
+              Start="0,0"
+              End="-90,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-86,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86,20.5"
+                    Point2="-90,20.5"
+                    Point3="-90,24.5" />
+                  <mssgle:LineSegment
+                    End="-90,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31947,7 +33216,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Update Queue Members to Backlog Queue">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="128,42"
           Id="Package\Update Queue Members to Backlog Queue\Get Users"
@@ -31991,7 +33260,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -32025,7 +33296,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -32035,7 +33308,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Update Queue Members to Review Queue">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="128,42"
           Id="Package\Update Queue Members to Review Queue\Get Users"
@@ -32079,7 +33352,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -32113,7 +33388,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -32123,7 +33400,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Update Queue Members to Triage Queue">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="128,42"
           Id="Package\Update Queue Members to Triage Queue\Get Users"
@@ -32167,7 +33444,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -32201,7 +33480,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
