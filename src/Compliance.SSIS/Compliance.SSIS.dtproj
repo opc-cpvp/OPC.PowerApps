@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">Generate Random Data</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">210</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">220</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{44D9BC06-36AE-4D86-928E-D06015C3F2B9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{16FC7C6E-4ADA-4EBA-A7BA-674BC7F4A679}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

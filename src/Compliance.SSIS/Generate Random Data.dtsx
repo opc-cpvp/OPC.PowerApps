@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Generate Random Data"
   DTS:PackageType="5"
-  DTS:VersionBuild="218"
-  DTS:VersionGUID="{B211B49E-17A1-498F-A36F-BBD1A564BD33}">
+  DTS:VersionBuild="220"
+  DTS:VersionGUID="{16FC7C6E-4ADA-4EBA-A7BA-674BC7F4A679}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -188,7 +188,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="NumberOfAccounts">
       <DTS:VariableValue
-        DTS:DataType="3">1000</DTS:VariableValue>
+        DTS:DataType="3">75</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -206,7 +206,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="NumberOfComplaints">
       <DTS:VariableValue
-        DTS:DataType="3">1000</DTS:VariableValue>
+        DTS:DataType="3">100</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -215,7 +215,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="NumberOfContacts">
       <DTS:VariableValue
-        DTS:DataType="3">1000</DTS:VariableValue>
+        DTS:DataType="3">75</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -3030,7 +3030,7 @@
                   dataType="System.Int32"
                   description="The number of rows to spawn."
                   expressionType="Notify"
-                  name="NumberOfRowsToSpawn">1000</property>
+                  name="NumberOfRowsToSpawn">75</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.DataSpawnerComponent</property>
@@ -3485,18 +3485,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -3511,36 +3511,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -3658,7 +3658,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -3821,13 +3821,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -3962,7 +3962,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -3978,11 +3978,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -4021,8 +4021,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -4032,15 +4032,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -4054,7 +4054,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -5442,18 +5442,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -5468,36 +5468,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -5615,7 +5615,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -5778,13 +5778,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -5919,7 +5919,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -5935,11 +5935,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -5978,8 +5978,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -5989,15 +5989,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -6011,7 +6011,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -6276,7 +6276,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -6292,11 +6292,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -6448,7 +6448,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -6671,18 +6671,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -6697,36 +6697,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -6829,13 +6829,13 @@ public class Variables
     "ings")]
 
 namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -6878,8 +6878,8 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
     "):Void")]
 
 namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -6889,15 +6889,15 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -6911,7 +6911,7 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -7157,7 +7157,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -7173,11 +7173,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -7329,7 +7329,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -7552,18 +7552,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -7578,36 +7578,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -7710,13 +7710,13 @@ public class Variables
     "ings")]
 
 namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -7759,8 +7759,8 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
     "):Void")]
 
 namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -7770,15 +7770,15 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -7792,7 +7792,7 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -9154,7 +9154,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   dataType="System.Int32"
                   description="The number of rows to spawn."
                   expressionType="Notify"
-                  name="NumberOfRowsToSpawn">1000</property>
+                  name="NumberOfRowsToSpawn">100</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.DataSpawnerComponent</property>
@@ -9307,18 +9307,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -9333,36 +9333,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -9480,7 +9480,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -9643,13 +9643,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -9784,7 +9784,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -9800,11 +9800,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -9843,8 +9843,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -9854,15 +9854,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -9876,7 +9876,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -10219,18 +10219,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -10245,36 +10245,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -10392,7 +10392,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -10555,13 +10555,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -10696,7 +10696,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -10712,11 +10712,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -10755,8 +10755,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -10766,15 +10766,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -10788,7 +10788,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -11131,18 +11131,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -11157,36 +11157,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -11304,7 +11304,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -11467,13 +11467,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -11608,7 +11608,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -11624,11 +11624,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -11667,8 +11667,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -11678,15 +11678,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -11700,7 +11700,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -12043,18 +12043,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -12069,36 +12069,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -12216,7 +12216,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -12379,13 +12379,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -12520,7 +12520,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -12536,11 +12536,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -12579,8 +12579,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -12590,15 +12590,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -12612,7 +12612,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -15595,7 +15595,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   dataType="System.Int32"
                   description="The number of rows to spawn."
                   expressionType="Notify"
-                  name="NumberOfRowsToSpawn">1000</property>
+                  name="NumberOfRowsToSpawn">75</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.DataSpawnerComponent</property>
@@ -16216,18 +16216,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -16242,36 +16242,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -16389,7 +16389,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -16553,13 +16553,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -16694,7 +16694,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -16710,11 +16710,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -16753,8 +16753,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -16764,15 +16764,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -16786,7 +16786,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -22148,7 +22148,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -22164,11 +22164,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -22320,7 +22320,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -22543,18 +22543,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -22569,36 +22569,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -22701,13 +22701,13 @@ public class Variables
     "ings")]
 
 namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -22750,8 +22750,8 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
     "):Void")]
 
 namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22761,15 +22761,15 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -22783,7 +22783,7 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -23029,7 +23029,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -23045,11 +23045,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -23201,7 +23201,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -23424,18 +23424,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -23450,36 +23450,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -23582,13 +23582,13 @@ public class Variables
     "ings")]
 
 namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -23631,8 +23631,8 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
     "):Void")]
 
 namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23642,15 +23642,15 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -23664,7 +23664,7 @@ namespace SC_0094e7ead70143cf90c8ed3265849d91.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -25740,18 +25740,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -25766,36 +25766,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -25913,7 +25913,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -26076,13 +26076,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -26217,7 +26217,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -26233,11 +26233,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -26276,8 +26276,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -26287,15 +26287,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -26309,7 +26309,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -28187,18 +28187,18 @@ public class Variables
                     <arrayElement
                       dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -28213,36 +28213,36 @@ public class Variables
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -28360,7 +28360,7 @@ public class ScriptMain : UserComponent
      *
      * If the component needs to hold a connection open while processing rows, override the
      * AcquireConnections and ReleaseConnections methods.
-     * 
+     *
      * Example of using an ADO.Net connection manager to acquire a SqlConnection:
      *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
      *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
@@ -28523,13 +28523,13 @@ public class Input0Buffer: ScriptBuffer
     "ings")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         private static Settings defaultInstance = new Settings();
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
@@ -28664,7 +28664,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
 using System.Runtime.CompilerServices;
 
 //
-// General Information about an assembly is controlled through the following 
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
@@ -28680,11 +28680,11 @@ using System.Runtime.CompilerServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.0.0")]
@@ -28723,8 +28723,8 @@ using System.Runtime.CompilerServices;
     "):Void")]
 
 namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -28734,15 +28734,15 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     // with the /str option, or rebuild your VS project.
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -28756,7 +28756,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
