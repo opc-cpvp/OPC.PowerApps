@@ -22,8 +22,8 @@ export namespace Complaint.Forms {
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
 
             this._complaintService.getComplaint("test");
-            let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
-
+            const formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
+            
             // Register handlers
             formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
             this.handle_StageStates(formContext);
@@ -31,8 +31,8 @@ export namespace Complaint.Forms {
             formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
 
             // Sequence matters
-            formContext.getAttribute("opc_intakedisposition").fireOnChange();
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
+            formContext.getAttribute("opc_intakedisposition").fireOnChange();
         }
 
         /**
@@ -40,13 +40,32 @@ export namespace Complaint.Forms {
         *
         * @event OnChanged
         */
-        private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, any>): void {
-            let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
-            let isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
+        private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_yesorno>, any>): void {
+            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
+            const closeReasons = formContext.getAttribute("opc_closereason").getOptions();
 
-            formContext.getAttribute("opc_intakedisposition").controls.forEach(control => XrmHelper.turn(control, isRecommending));
-            formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => XrmHelper.turn(control, !isRecommending));
-            formContext.getAttribute("opc_declinereason").controls.forEach(control => XrmHelper.turnOff(control));
+            formContext.getAttribute("opc_intakedisposition").controls.forEach(control => XrmHelper.toggle(control, isRecommending === opc_yesorno.Yes));
+            formContext.getAttribute("opc_closereason").controls.forEach(control => {
+
+                console.log("recommendtoregistrar handler:" + isRecommending );
+                // Toggle visibility
+                XrmHelper.toggle(control, isRecommending === opc_yesorno.No || formContext.getAttribute("opc_intakedisposition").getValue() === opc_intakedisposition.Close)
+
+                // Clear options before adding the options valid for the current scenario
+                control.clearOptions();
+                if (isRecommending === opc_yesorno.Yes) {
+                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Redirection));
+                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Resolved));
+                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Withdrawn));
+                } else if (isRecommending === opc_yesorno.No) {
+                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Createdinerror));
+                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Duplicate));
+                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Redirection));
+                }
+            });
+            formContext.getAttribute("opc_intakedisposition").setRequiredLevel(isRecommending === opc_yesorno.Yes ? "required" : "none");
+            formContext.getAttribute("opc_closereason").setRequiredLevel(isRecommending === opc_yesorno.No ? "required" : "none");
         }
 
         /**
@@ -55,19 +74,29 @@ export namespace Complaint.Forms {
         * @event OnChanged
         */
         private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>, any>): void {
-            let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            console.log("intakedisposition handler:" + formContext.getAttribute("opc_intakedisposition").getValue());
             switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
+                case opc_intakedisposition.Close:
+                    formContext.getAttribute("opc_closereason").controls.forEach(control => {
+                        XrmHelper.toggleOn(control);
+                        // when closereason off filter reason based on stage.
+                    });
+                    formContext.getAttribute("opc_closereason").setRequiredLevel("required");
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOff(control));
+                    break;
                 case opc_intakedisposition.Declinetoinvestigate:
-                    formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => XrmHelper.turnOff(control));
-                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.turnOff(control));
-                    formContext.getAttribute("opc_declinereason").controls.forEach(control => XrmHelper.turnOn(control));
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOff(control));
+                    formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
+                    formContext.getAttribute("opc_closereason").setRequiredLevel("none");
                     break;
                 case opc_intakedisposition.MovetoEarlyResolution:
                 case opc_intakedisposition.MovetoInvestigation:
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOn(control));
+                    formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
+                    formContext.getAttribute("opc_closereason").setRequiredLevel("none");
+                    break;
                 default:
-                    formContext.getAttribute("opc_complaintdisposition").controls.forEach(control => XrmHelper.turnOff(control));
-                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.turnOn(control));
-                    formContext.getAttribute("opc_declinereason").controls.forEach(control => XrmHelper.turnOff(control));
                     break;
             }
         }
@@ -79,7 +108,7 @@ export namespace Complaint.Forms {
         */
         private process_OnStageChanged(executionContext?: Xrm.StageChangeContext): void {
             // Relay context to reusable handler
-            let formContext = <Form.opc_complaint.Main.Information>executionContext.getFormContext();
+            const formContext = <Form.opc_complaint.Main.Information>executionContext.getFormContext();
             this.handle_StageStates(formContext);
         }
 
@@ -90,12 +119,10 @@ export namespace Complaint.Forms {
         */
         private handle_StageStates(formContext: Form.opc_complaint.Main.Information) {
             // Handle all visibility stuff related to process stages
-            let currentStage = formContext.data.process.getActiveStage().getName().toLowerCase();
+            const currentStage = formContext.data.process.getActiveStage().getName().toLowerCase();
             switch (currentStage) {
+                case "triage":
                 case "intake":
-                    formContext.ui.tabs.get("tab_issues").setVisible(false);
-                    formContext.ui.tabs.get("tab_recommendations").setVisible(false);
-                    break;
                 case "acceptance":
                     formContext.ui.tabs.get("tab_issues").setVisible(false);
                     formContext.ui.tabs.get("tab_recommendations").setVisible(false);
