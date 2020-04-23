@@ -65,7 +65,7 @@ namespace Compliance.Plugins
         {
             // Check the plugin cache to see if the language is set
             if (localContext.PluginExecutionContext.SharedVariables.ContainsKey(LanguageKey))
-                return (Language)localContext.PluginExecutionContext.SharedVariables[LanguageKey];
+                return (Language)(int)localContext.PluginExecutionContext.SharedVariables[LanguageKey];
 
             // Check the user settings to see if the language is set
             var query = new QueryExpression()
@@ -84,21 +84,18 @@ namespace Compliance.Plugins
             var userSettings = localContext.OrganizationService.RetrieveMultiple(query);
             if (userSettings.Entities.Any())
             {
-                var userLanguage = userSettings.Entities.First().GetAttributeValue<string>(LanguageAttribute);
-                if (Enum.TryParse(userLanguage, out Language language))
+                // Check if the language is supported
+                var userLanguage = userSettings.Entities.First().GetAttributeValue<int>(LanguageAttribute);
+                if (Enum.IsDefined(typeof(Language), userLanguage) | userLanguage.ToString().Contains(","))
                 {
-                    // Check if the language is supported
-                    if (Enum.IsDefined(typeof(Language), language) | language.ToString().Contains(","))
-                    {
-                        localContext.PluginExecutionContext.SharedVariables[LanguageKey] = language;
-                        return language;
-                    }
+                    localContext.PluginExecutionContext.SharedVariables[LanguageKey] = userLanguage;
+                    return (Language)userLanguage;
                 }
             }
 
             // Fallback to English if no other language was detected / supported
             var defaultLanguage = Language.English;
-            localContext.PluginExecutionContext.SharedVariables[LanguageKey] = defaultLanguage;
+            localContext.PluginExecutionContext.SharedVariables[LanguageKey] = (int)defaultLanguage;
             return defaultLanguage;
         }
 
