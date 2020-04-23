@@ -33,11 +33,11 @@ export class XrmCollectionMock<T extends INamedComponent> extends XrmCollectionB
         if (param === undefined || param === null)
             return null;
         if (typeof param === "number") {
-            obj = this.collection[param] || new this.type(this.args);
+            obj = this.collection[param] || new this.type(...this.args);
             this.collection.push(obj);
         }
         if (typeof param === "string") {
-            obj = this.collection.find(t => t.getName() == param) || new this.type(this.args);
+            obj = this.collection.find(t => t.getName() == param) || new this.type(...this.args);
             obj.setName(param);
             this.collection.push(obj);
             return obj;

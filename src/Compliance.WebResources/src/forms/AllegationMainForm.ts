@@ -8,6 +8,7 @@ export namespace Allegation.Forms {
     export class MainForm extends PowerForm<Form.opc_allegation.Main.Information> {
 
         private _allegationService: IAllegationService;
+        private _initializing: boolean = false;
 
         constructor(@inject(nameof<IAllegationService>()) complaintService: IAllegationService) {
             super();
