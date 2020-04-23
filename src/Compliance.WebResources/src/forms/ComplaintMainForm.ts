@@ -53,6 +53,7 @@ export namespace Complaint.Forms {
             let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             const contact = context.getEventSource().getValue();
             const duplicationNotificationId = `duplicateNotificationId - ${contactType}`;
+
             // reset the notification
             formContext.ui.clearFormNotification(duplicationNotificationId);
 

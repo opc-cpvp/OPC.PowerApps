@@ -61,7 +61,9 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
         this._onChangeHandlers = this._onChangeHandlers.filter(f => f !== functionRef);
     }
     fireOnChange(): void {
-        this._onChangeHandlers.forEach(f => f(this._executionContext));
+        this._executionContext.setEventSource(this);
+        this._onChangeHandlers.forEach(f => { f(this._executionContext) });
+        this._executionContext.setEventSource(null);
     }
     getRequiredLevel(): Xrm.AttributeRequiredLevel {
         throw new Error("Method not implemented.");

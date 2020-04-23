@@ -1,5 +1,4 @@
 ﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
-import { XrmLookupAttributeMock } from '../../test/XrmLookupAttributeMock';
 import { Complaint } from './ComplaintMainForm';
 import { ComplaintService } from '.././services/ComplaintService';
 import { ContactService } from '../services/ContactService';
@@ -12,12 +11,10 @@ chai.use(sinonChai);
 var sandbox = sinon.createSandbox();
 
 
-describe("Complaint", () => {
-    // TODO: Mock GetEventSource to make tests easier     
+describe("Complaint", () => {  
 
     let complaintService: ComplaintService;
     let contactService: ContactService;
-    let contactLookupAttribute: XrmLookupAttributeMock;
     let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
     let contextSpy: any;
     let sut: Complaint.Forms.MainForm;
@@ -28,13 +25,9 @@ describe("Complaint", () => {
         mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
         contextSpy = sandbox.spy(mockContext);
         sut = new Complaint.Forms.MainForm(complaintService, contactService);
-        contactLookupAttribute = new XrmLookupAttributeMock();
-        contactLookupAttribute.setValue([]);
-
+        mockContext.getFormContext().getAttribute("opc_complainant").setValue([]);
         let getComplaint = sandbox.fake.returns(null);
-        let getEventSource = sandbox.fake.returns(contactLookupAttribute);
         sandbox.replace(complaintService, nameof(complaintService.getComplaint), getComplaint);
-        sandbox.replace(mockContext, nameof(mockContext.getEventSource), getEventSource);
 
         // Run the Initialize first so that the form doesn't set notifications yet without a contact,
         // testing will be done when firing the on change
@@ -63,19 +56,15 @@ describe("Complaint", () => {
                     entityType: "contact"
                 }
             ];
-
-            contactLookupAttribute.setValue(contacts);
+            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contacts);
 
             // Act
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
 
             // Assert
+            await getContactDup;
             getContactDup.should.have.been.called;
-
-            // Any better way?
-            await contactService.getDuplicateStatus("fakeId").then(() => {
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
-            });
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
         });
 
         it("it should not have a notification if a contact does not have a duplication status", async () => {
@@ -92,16 +81,15 @@ describe("Complaint", () => {
                 }
             ];
 
-            contactLookupAttribute.setValue(contacts);
+            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contacts);
 
             // Act
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
 
             // Assert
             getContactDup.should.have.been.called;
-            await contactService.getDuplicateStatus("fakeId").then(() => {
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-            });
+            await getContactDup;
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
 
         it("it should not have notifications if no contacts exist", async () => {
@@ -109,16 +97,15 @@ describe("Complaint", () => {
             let getDuplicateDup = sandbox.stub(contactService, nameof(contactService.getDuplicateStatus)).resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
 
             // No contact
-            contactLookupAttribute.setValue([]);
+            mockContext.getFormContext().getAttribute("opc_complainant").setValue([]);
 
             // Act
             sut.initializeComponents(mockContext);
 
             // Assert
             getDuplicateDup.should.not.have.been.called;
-            await contactService.getDuplicateStatus("fakeId").then(() => {
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-            });
+            await getDuplicateDup;
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
 
         it("it should have multiple notifications if multiple duplicate contacts exist", async () => {
@@ -135,7 +122,8 @@ describe("Complaint", () => {
                 }
             ];
 
-            contactLookupAttribute.setValue(contacts);
+            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contacts);
+            mockContext.getFormContext().getAttribute("opc_complainantrep").setValue(contacts);
 
             // Act
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
@@ -144,9 +132,8 @@ describe("Complaint", () => {
             // Assert
             // Any better way?
             getContactDup.should.have.been.called;
-            await contactService.getDuplicateStatus("fakeId").then(() => {
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(2);
-            });
+            await getContactDup;
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(2);
         });
 
         it("it should remove exsiting notifications when no duplicate status is found", async () => {
@@ -163,7 +150,9 @@ describe("Complaint", () => {
                 }
             ];
 
-            contactLookupAttribute.setValue(contacts);
+            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contacts);
+            mockContext.getFormContext().getAttribute("opc_complainantrep").setValue(contacts);
+
 
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - Complainant");
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - Representative");
@@ -175,9 +164,8 @@ describe("Complaint", () => {
             // Assert
             // Any better way?
             getContactDup.should.have.been.called;
-            await contactService.getDuplicateStatus("fakeId").then(() => {
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-            });
+            await getContactDup;
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
 
         it("it should remove exsiting notifications when no contacts are found", async () => {
@@ -186,7 +174,8 @@ describe("Complaint", () => {
                 sandbox.stub(contactService, nameof(contactService.getDuplicateStatus))
                     .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.None });
 
-            contactLookupAttribute.setValue([]);
+            // No contact
+            mockContext.getFormContext().getAttribute("opc_complainant").setValue([]);
 
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - Complainant");
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - Representative");
@@ -198,9 +187,8 @@ describe("Complaint", () => {
             // Assert
             // Any better way?
             getContactDup.should.not.have.been.called;
-            await contactService.getDuplicateStatus("fakeId").then(() => {
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-            });
+            await getContactDup;
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
     });
 });
