@@ -242,4 +242,30 @@
     </fields>
     <relationships />
   </entity>
+  <entity name="opc_dispositionreason" displayname="Disposition Reason" etc="11033" primaryidfield="opc_dispositionreasonid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Allegation Disposition" name="opc_allegationdisposition" type="optionsetvalue" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Disposition Reason" name="opc_dispositionreasonid" type="guid" primaryKey="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+    </fields>
+  </entity>
+  <entity name="opc_dispositionaction" displayname="Disposition Action" etc="11034" primaryidfield="opc_dispositionactionid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Disposition Action" name="opc_dispositionactionid" type="guid" primaryKey="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Disposition Reason" name="opc_dispositionreasonid" type="entityreference" lookupType="opc_dispositionreason" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+    </fields>
+  </entity>
 </entities>

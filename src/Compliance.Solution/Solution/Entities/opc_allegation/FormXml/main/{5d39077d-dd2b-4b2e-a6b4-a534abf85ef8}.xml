@@ -48,20 +48,48 @@
                     <row />
                     <row height="auto" />
                     <row>
-                      <cell id="{80497d98-8680-4158-8aa9-5cb90e9484fd}" showlabel="true" locklevel="0">
+                      <cell id="{c4d0ad2e-178d-4c9c-9839-ab2ab0f1ad37}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Disposition Allegation" languagecode="1033" />
+                          <label description="Disposition" languagecode="1033" />
                         </labels>
-                        <control id="opc_allegationdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_allegationdisposition" disabled="false" />
+                        <control id="opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{630f574b-10f8-4909-a395-352477318a96}" showlabel="true" locklevel="0">
+                      <cell id="{e47c08a5-5a31-4206-b47e-ffc423aca82d}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
+                          <label description="Disposition Reason" languagecode="1033" />
                         </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                        <control id="opc_dispositionreasonid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionreasonid" disabled="false" uniqueid="{09626129-95b7-d468-cb23-da11c793d040}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{63BFA332-531C-46ED-810A-A44AA0375263}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3f5039ab-4e0e-4607-9125-4d17769806cb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Disposition Action" languagecode="1033" />
+                        </labels>
+                        <control id="opc_dispositionactionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionactionid" disabled="false" uniqueid="{333926e1-221b-2a17-e4d7-a99a0aab699e}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{E9866CEC-25A9-4487-863B-BE49B492C53D}</DefaultViewId>
+                            <FilterRelationshipName>opc_dispositionreason_dispositionactions_reas</FilterRelationshipName>
+                            <DependentAttributeName>opc_allegation.opc_dispositionreasonid</DependentAttributeName>
+                            <DependentAttributeType>opc_dispositionreason</DependentAttributeType>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>
@@ -139,6 +167,13 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{630f574b-10f8-4909-a395-352477318a96}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+            </cell>
           </row>
         </rows>
       </header>
@@ -198,13 +233,14 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <controlDescriptions />
       <formLibraries>
-        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{9a36b48d-d77e-ce83-e264-6b962a373a8a}" />
+        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{895c08e2-3ddd-e23d-ad1d-628020cac6de}" />
       </formLibraries>
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
-            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{56bb70da-5bab-8078-c390-7a169d617b50}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{a7d32904-2356-a48a-ee4b-de0bda91135c}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>
