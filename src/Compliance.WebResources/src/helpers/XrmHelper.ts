@@ -19,8 +19,8 @@
 
 
 export class XrmHelper {
-    static toggle<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, state: boolean) {
-        state ? XrmHelper.toggleOn(control) : XrmHelper.toggleOff(control)
+    static toggle<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, state: boolean, withReset?: boolean) {
+        state ? XrmHelper.toggleOn(control, withReset) : XrmHelper.toggleOff(control)
     }
 
     static toggleOff<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
@@ -29,7 +29,9 @@ export class XrmHelper {
         control.getAttribute().setValue();
     }
 
-    static toggleOn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
+    static toggleOn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, withReset?: boolean): void {
+        // If withReset means that if its same visible value, reset before turning on
+        if (withReset && control.getVisible()) control.getAttribute().setValue();
         control.setVisible(true);
         control.setDisabled(false);
     }
