@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Generate Random Data"
   DTS:PackageType="5"
-  DTS:VersionBuild="220"
-  DTS:VersionGUID="{16FC7C6E-4ADA-4EBA-A7BA-674BC7F4A679}">
+  DTS:VersionBuild="228"
+  DTS:VersionGUID="{AFF617AC-FC2C-4E48-8BC3-6D7170277D73}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -90,6 +90,15 @@
           </SOAP-ENV:Body>
         </SOAP-ENV:Envelope>
       </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E2EA7CDE-A3DC-4A65-94D8-9D53DEE30080}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Complaint_BPF">
+      <DTS:VariableValue
+        DTS:DataType="8">Individual Complaint</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -24848,7 +24857,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
   &lt;entity name="processstage" &gt;
     &lt;attribute name="processstageid" /&gt;
     &lt;filter type="and" &gt;
-      &lt;condition attribute="primaryentitytypecode" operator="eq" value="10040" /&gt;
+    &lt;condition attribute="processidname" operator="eq" value="@[User::Complaint_BPF]" /&gt;
     &lt;/filter&gt;
   &lt;/entity&gt;
 &lt;/fetch&gt;</property>
@@ -26194,7 +26203,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
     <msb:CodeName>SC_ccb9ee405d8942e48c0fafc4e0526ee0</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_ccb9ee405d8942e48c0fafc4e0526ee0</msb:DisplayName>
-    <msb:ProjectId>{DE224E1B-3CAA-48EA-8387-7FA80C61831A}</msb:ProjectId>
+    <msb:ProjectId>{A2AA32B7-4C50-4676-A303-85A9B7C162EA}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_ccb9ee405d8942e48c0fafc4e0526ee0.csproj" />
@@ -26341,7 +26350,7 @@ namespace SC_ccb9ee405d8942e48c0fafc4e0526ee0.Properties {
                     <arrayElement
                       dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDANjioV4AAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAAKjUA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAB/iol4AAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAAKjUA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAANg0AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -26429,7 +26438,7 @@ AGcAbgAgAGEAIAB2AGEAbAB1AGUAIAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMA
 dABlAGEAZAAuAAAPSQBuAHAAdQB0ACAAMAAAL0kAbgBkAGkAdgBpAGQAdQBhAGwAQwBvAG0AcABs
 AGEAaQBuAHQAcwBCAFAARgAAcVMAQwBfAGMAYwBiADkAZQBlADQAMAA1AGQAOAA5ADQAMgBlADQA
 OABjADAAZgBhAGYAYwA0AGUAMAA1ADIANgBlAGUAMAAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBS
-AGUAcwBvAHUAcgBjAGUAcwAAxZmuSPpqyEeniiOAlAJV8AAEIAEBCAMgAAEFIAEBEREEIAEBDgUg
+AGUAcwBvAHUAcgBjAGUAcwAA2FRTIu3P/kedzXTf33tMwQAEIAEBCAMgAAEFIAEBEREEIAEBDgUg
 AQERYQYgAggSORwDBwEIBCAAEnUDIAAIBCABCAgFIAESfQgEIAEcCAMgAA4JIAMBEkUdCBJJAwYS
 RQMGHQgEIAEOCAUgAgEIHAQgAQIIAyAAAgcgAgIOEYCJBSABHQgIBSAAEoCNBiABEoCRHAUAABKA
 lQYgARwSgJkIAAESgJ0RgKEFIAASgKUHIAIBDhKApQi3elxWGTTgiQiJhF3NgIDMkQMGEjkDBhI9
@@ -30418,54 +30427,54 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <NodeLayout
           Size="223,43"
           Id="Package\Deactivate Closed Complaints"
-          TopLeft="427.833327136934,465.736847540018" />
+          TopLeft="427.833327136934,517.736847540018" />
         <NodeLayout
           Size="173,42"
           Id="Package\Generate Accounts"
-          TopLeft="99.9999985098839,89.933331814607" />
+          TopLeft="99.9999985098839,141.933331814607" />
         <NodeLayout
           Size="180,43"
           Id="Package\Generate Allegations"
-          TopLeft="725.416657421738,478.631586262394" />
+          TopLeft="725.416657421738,530.631586262394" />
         <NodeLayout
           Size="177,43"
           Id="Package\Generate Complaints"
-          TopLeft="594.999991133809,183.7385867657" />
+          TopLeft="594.999991133809,235.7385867657" />
         <NodeLayout
           Size="167,43"
           Id="Package\Generate Contacts"
-          TopLeft="338.749994952231,88.5192931693556" />
+          TopLeft="338.749994952231,140.519293169356" />
         <NodeLayout
           Size="201,43"
           Id="Package\Link Contacts to Accounts"
-          TopLeft="577.083324734122,83.6157812036485" />
+          TopLeft="577.083324734122,135.615781203649" />
         <NodeLayout
           Size="143,42"
           Id="Package\Set variables"
-          TopLeft="93,0" />
+          TopLeft="109,72" />
         <NodeLayout
           Size="237,43"
           Id="Package\Update Individual Complaint BPF"
-          TopLeft="273.749995920807,191.105266660865" />
+          TopLeft="273.749995920807,243.105266660865" />
         <NodeLayout
           Size="254,42"
           Id="Package\Update Queue Items for Complaints"
-          TopLeft="63.249998714775,437.614040350759" />
+          TopLeft="63.249998714775,489.614040350759" />
         <NodeLayout
           Size="289,42"
           Id="Package\Update Queue Members to Backlog Queue"
-          TopLeft="392,315" />
+          TopLeft="392,367" />
         <NodeLayout
           Size="286,42"
           Id="Package\Update Queue Members to Review Queue"
-          TopLeft="616,372" />
+          TopLeft="616,424" />
         <NodeLayout
           Size="281,42"
           Id="Package\Update Queue Members to Triage Queue"
-          TopLeft="83.5,275.5" />
+          TopLeft="83.5,327.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="272.999998509884,110.476312491981">
+          TopLeft="272.999998509884,162.476312491981">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30487,7 +30496,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="505.416661618898,107.400870519835">
+          TopLeft="505.416661618898,159.400870519835">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30509,7 +30518,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="759,414">
+          TopLeft="759,466">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30543,7 +30552,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="680.541657933966,126.282447870315">
+          TopLeft="680.541657933966,178.282447870315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30565,7 +30574,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="594.999991133809,208.755260046616">
+          TopLeft="594.999991133809,260.755260046616">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30587,7 +30596,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="392.249995920807,234.105266660865">
+          TopLeft="392.249995920807,286.105266660865">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30621,7 +30630,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="317.249998714775,458.614040350759">
+          TopLeft="317.249998714775,510.614040350759">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30655,7 +30664,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="650.833327136934,487.236847540018">
+          TopLeft="650.833327136934,539.236847540018">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30689,7 +30698,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="364.5,296.5">
+          TopLeft="364.5,348.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -30723,30 +30732,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="164.5,42">
+          TopLeft="183.499999254942,114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21.9999985098839,47.933331814607"
+              EndConnector="0,27.933331814607"
               Start="0,0"
-              End="21.9999985098839,40.433331814607">
+              End="0,20.433331814607">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.9666659073035" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.9666659073035"
-                    Point2="0,23.9666659073035"
-                    Point3="4,23.9666659073035" />
-                  <mssgle:LineSegment
-                    End="17.9999985098839,23.9666659073035" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.9999985098839,23.9666659073035"
-                    Point2="21.9999985098839,23.9666659073035"
-                    Point3="21.9999985098839,27.9666659073035" />
-                  <mssgle:LineSegment
-                    End="21.9999985098839,40.433331814607" />
+                    End="0,20.433331814607" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30757,7 +30754,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="681,336">
+          TopLeft="681,388">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -31610,7 +31607,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31638,7 +31637,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31672,7 +31673,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31742,7 +31745,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31776,7 +31781,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31810,7 +31817,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31906,7 +31915,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31940,7 +31951,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31974,7 +31987,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -32008,7 +32023,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -32420,6 +32437,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="214,42"
+          Id="Package\Set variables\Users (Contacts) Recordset"
+          TopLeft="383,132" />
+        <NodeLayout
           Size="201,42"
           Id="Package\Set variables\Get Users (Queue Items)"
           TopLeft="92,458" />
@@ -32427,34 +32448,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Size="178,42"
           Id="Package\Set variables\Get Users (Account)"
           TopLeft="57,66" />
-        <NodeLayout
-          Size="116,42"
-          Id="Package\Set variables\Sectors"
-          TopLeft="660,247" />
-        <NodeLayout
-          Size="202,42"
-          Id="Package\Set variables\OPC Priorities Recordset"
-          TopLeft="443,341" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Set variables\Users (Queue Items) Recordset"
-          TopLeft="130,533" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\Set variables\Get Users (Contacts)"
-          TopLeft="345,57" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Set variables\Get Legislations"
-          TopLeft="94,247" />
-        <NodeLayout
-          Size="226,42"
-          Id="Package\Set variables\Users (Complaints) Recordset"
-          TopLeft="668,135" />
-        <NodeLayout
-          Size="213,42"
-          Id="Package\Set variables\Allegation Types Recordset"
-          TopLeft="436,527" />
         <NodeLayout
           Size="149,42"
           Id="Package\Set variables\OPC Priorities"
@@ -32468,17 +32461,49 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\Set variables\Legislation Recordset"
           TopLeft="152,333" />
         <NodeLayout
-          Size="214,42"
-          Id="Package\Set variables\Users (Contacts) Recordset"
-          TopLeft="383,132" />
+          Size="169,42"
+          Id="Package\Set variables\Sectors Recordset"
+          TopLeft="718,333" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\Set variables\Individual Complaints BPF Recordset"
+          TopLeft="750,531" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Set variables\Get Users (Contacts)"
+          TopLeft="345,57" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Set variables\Get Legislations"
+          TopLeft="94,247" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Set variables\Allegation Types Recordset"
+          TopLeft="436,527" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Set variables\Users (Queue Items) Recordset"
+          TopLeft="130,533" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Set variables\Sectors"
+          TopLeft="660,247" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Set variables\Individual Complaints BPF"
+          TopLeft="724,441" />
         <NodeLayout
           Size="194,42"
           Id="Package\Set variables\Get Users (Complaints)"
           TopLeft="630,60" />
         <NodeLayout
-          Size="169,42"
-          Id="Package\Set variables\Sectors Recordset"
-          TopLeft="718,333" />
+          Size="202,42"
+          Id="Package\Set variables\OPC Priorities Recordset"
+          TopLeft="443,341" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Set variables\Users (Complaints) Recordset"
+          TopLeft="668,135" />
         <NodeLayout
           Size="160,42"
           Id="Package\Set variables\Allegation Types"
@@ -32755,40 +32780,32 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="208,42"
-          Id="Package\Set variables\Individual Complaints BPF"
-          TopLeft="699,456" />
-        <NodeLayout
-          Size="261,42"
-          Id="Package\Set variables\Individual Complaints BPF Recordset"
-          TopLeft="731,528" />
         <EdgeLayout
           Id="Package\Set variables.Paths[Primary Output8]"
-          TopLeft="803,498">
+          TopLeft="828,483">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.5,30"
+              EndConnector="52.5,48"
               Start="0,0"
-              End="58.5,22.5">
+              End="52.5,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11" />
+                    End="0,20" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11"
-                    Point2="0,15"
-                    Point3="4,15" />
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
                   <mssgle:LineSegment
-                    End="54.5,15" />
+                    End="48.5,24" />
                   <mssgle:CubicBezierSegment
-                    Point1="54.5,15"
-                    Point2="58.5,15"
-                    Point3="58.5,19" />
+                    Point1="48.5,24"
+                    Point2="52.5,24"
+                    Point3="52.5,28" />
                   <mssgle:LineSegment
-                    End="58.5,22.5" />
+                    End="52.5,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -32806,123 +32823,59 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="233,42"
-          Id="Package\Update Individual Complaint BPF\Update Traversed Path for BPF"
-          TopLeft="259.58332946524,331.614041329531" />
+          Size="237,43"
+          Id="Package\Update Individual Complaint BPF\Update Individual Complaint BPF"
+          TopLeft="345.833328180015,413.192986757581" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Update Individual Complaint BPF\Update Active Stage Started On"
+          TopLeft="455,490" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Update Individual Complaint BPF\Add Active Stage"
+          TopLeft="245,173.877202109067" />
         <NodeLayout
           Size="161,43"
           Id="Package\Update Individual Complaint BPF\Data Anonymizer"
           TopLeft="170.91666297242,99.824565842321" />
         <NodeLayout
-          Size="237,43"
-          Id="Package\Update Individual Complaint BPF\Update Individual Complaint BPF"
-          TopLeft="345.833328180015,413.192986757581" />
-        <NodeLayout
           Size="139,43"
           Id="Package\Update Individual Complaint BPF\CDS Source"
           TopLeft="54,32" />
-        <EdgeLayout
-          Id="Package\Update Individual Complaint BPF.Paths[Primary Output]"
-          TopLeft="123.5,75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127.91666297242,24.824565842321"
-              Start="0,0"
-              End="127.91666297242,17.324565842321">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,8.4122829211605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.4122829211605"
-                    Point2="0,12.4122829211605"
-                    Point3="4,12.4122829211605" />
-                  <mssgle:LineSegment
-                    End="123.91666297242,12.4122829211605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.91666297242,12.4122829211605"
-                    Point2="127.91666297242,12.4122829211605"
-                    Point3="127.91666297242,16.4122829211605" />
-                  <mssgle:LineSegment
-                    End="127.91666297242,17.324565842321" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update Individual Complaint BPF.Paths[Derived Column Output]"
-          TopLeft="376.08332946524,373.614041329531">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="88.249998714775,39.57894542805"
-              Start="0,0"
-              End="88.249998714775,32.07894542805">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.789472714025" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.789472714025"
-                    Point2="0,19.789472714025"
-                    Point3="4,19.789472714025" />
-                  <mssgle:LineSegment
-                    End="84.249998714775,19.789472714025" />
-                  <mssgle:CubicBezierSegment
-                    Point1="84.249998714775,19.789472714025"
-                    Point2="88.249998714775,19.789472714025"
-                    Point3="88.249998714775,23.789472714025" />
-                  <mssgle:LineSegment
-                    End="88.249998714775,32.07894542805" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Update Individual Complaint BPF\Update Traversed Path for BPF"
+          TopLeft="259.58332946524,331.614041329531" />
         <NodeLayout
           Size="199,42"
           Id="Package\Update Individual Complaint BPF\Randomize Active Stage"
           TopLeft="260,253.877202109067" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Update Individual Complaint BPF\Add Active Stage"
-          TopLeft="245,173.877202109067" />
         <EdgeLayout
-          Id="Package\Update Individual Complaint BPF.Paths[Default Output]"
-          TopLeft="251.41666297242,142.824565842321">
+          Id="Package\Update Individual Complaint BPF.Paths[Output 0]"
+          TopLeft="359.5,295.877202109067">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="75.08333702758,31.052636266746"
+              EndConnector="16.58332946524,35.736839220464"
               Start="0,0"
-              End="75.08333702758,23.552636266746">
+              End="16.58332946524,28.236839220464">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.526318133373" />
+                    End="0,13.868419610232" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.526318133373"
-                    Point2="0,15.526318133373"
-                    Point3="4,15.526318133373" />
+                    Point1="0,13.868419610232"
+                    Point2="0,17.868419610232"
+                    Point3="4,17.868419610232" />
                   <mssgle:LineSegment
-                    End="71.08333702758,15.526318133373" />
+                    End="12.58332946524,17.868419610232" />
                   <mssgle:CubicBezierSegment
-                    Point1="71.08333702758,15.526318133373"
-                    Point2="75.08333702758,15.526318133373"
-                    Point3="75.08333702758,19.526318133373" />
+                    Point1="12.58332946524,17.868419610232"
+                    Point2="16.58332946524,17.868419610232"
+                    Point3="16.58332946524,21.868419610232" />
                   <mssgle:LineSegment
-                    End="75.08333702758,23.552636266746" />
+                    End="16.58332946524,28.236839220464" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -32966,31 +32919,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update Individual Complaint BPF.Paths[Output 0]"
-          TopLeft="359.5,295.877202109067">
+          Id="Package\Update Individual Complaint BPF.Paths[Derived Column Output]"
+          TopLeft="376.08332946524,373.614041329531">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.58332946524,35.736839220464"
+              EndConnector="88.249998714775,39.57894542805"
               Start="0,0"
-              End="16.58332946524,28.236839220464">
+              End="88.249998714775,32.07894542805">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.868419610232" />
+                    End="0,15.789472714025" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.868419610232"
-                    Point2="0,17.868419610232"
-                    Point3="4,17.868419610232" />
+                    Point1="0,15.789472714025"
+                    Point2="0,19.789472714025"
+                    Point3="4,19.789472714025" />
                   <mssgle:LineSegment
-                    End="12.58332946524,17.868419610232" />
+                    End="84.249998714775,19.789472714025" />
                   <mssgle:CubicBezierSegment
-                    Point1="12.58332946524,17.868419610232"
-                    Point2="16.58332946524,17.868419610232"
-                    Point3="16.58332946524,21.868419610232" />
+                    Point1="84.249998714775,19.789472714025"
+                    Point2="88.249998714775,19.789472714025"
+                    Point3="88.249998714775,23.789472714025" />
                   <mssgle:LineSegment
-                    End="16.58332946524,28.236839220464" />
+                    End="88.249998714775,32.07894542805" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -32999,10 +32952,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="235,42"
-          Id="Package\Update Individual Complaint BPF\Update Active Stage Started On"
-          TopLeft="455,490" />
         <EdgeLayout
           Id="Package\Update Individual Complaint BPF.Paths[Default Output1]"
           TopLeft="464.333328180015,456.192986757581">
@@ -33029,6 +32978,74 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     Point3="108.166671819985,20.9035066212095" />
                   <mssgle:LineSegment
                     End="108.166671819985,26.307013242419" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Individual Complaint BPF.Paths[Default Output]"
+          TopLeft="251.41666297242,142.824565842321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.08333702758,31.052636266746"
+              Start="0,0"
+              End="75.08333702758,23.552636266746">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.526318133373" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.526318133373"
+                    Point2="0,15.526318133373"
+                    Point3="4,15.526318133373" />
+                  <mssgle:LineSegment
+                    End="71.08333702758,15.526318133373" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.08333702758,15.526318133373"
+                    Point2="75.08333702758,15.526318133373"
+                    Point3="75.08333702758,19.526318133373" />
+                  <mssgle:LineSegment
+                    End="75.08333702758,23.552636266746" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Individual Complaint BPF.Paths[Primary Output]"
+          TopLeft="123.5,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.91666297242,24.824565842321"
+              Start="0,0"
+              End="127.91666297242,17.324565842321">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.4122829211605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.4122829211605"
+                    Point2="0,12.4122829211605"
+                    Point3="4,12.4122829211605" />
+                  <mssgle:LineSegment
+                    End="123.91666297242,12.4122829211605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.91666297242,12.4122829211605"
+                    Point2="127.91666297242,12.4122829211605"
+                    Point3="127.91666297242,16.4122829211605" />
+                  <mssgle:LineSegment
+                    End="127.91666297242,17.324565842321" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
