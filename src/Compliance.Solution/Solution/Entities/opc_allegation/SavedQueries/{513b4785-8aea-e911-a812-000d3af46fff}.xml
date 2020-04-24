@@ -11,8 +11,9 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_allegationid">
           <cell name="opc_name" width="200" />
-          <cell name="opc_allegationdisposition" width="241" />
           <cell name="opc_description" width="300" />
+          <cell name="opc_disposition" width="153" />
+          <cell name="opc_dispositionreasonid" width="300" />
         </row>
       </grid>
     </layoutxml>
@@ -21,12 +22,13 @@
       <fetch version="1.0" output-format="xml-platform" mapping="logical">
         <entity name="opc_allegation">
           <attribute name="opc_name" />
-          <attribute name="opc_allegationid" />
           <attribute name="opc_description" />
-          <attribute name="opc_allegationdisposition" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="opc_disposition" />
+          <attribute name="opc_allegationid" />
+          <attribute name="opc_dispositionreasonid" />
         </entity>
       </fetch>
     </fetchxml>

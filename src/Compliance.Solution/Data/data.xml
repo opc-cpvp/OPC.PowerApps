@@ -36,7 +36,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Restricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org08168fc9" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org96765ebd" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="e960220a-3f2e-ea11-a810-000d3af46757">
@@ -52,7 +52,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unclassified" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org08168fc9" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org96765ebd" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="a6bd0471-3739-ea11-a813-000d3af46757">
@@ -68,7 +68,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unrestricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org08168fc9" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org96765ebd" />
         <field name="workflowsuspended" value="False" />
       </record>
     </records>
@@ -2462,6 +2462,170 @@
         <field name="opc_sectorid" value="bdb9d729-3d57-ea11-a811-000d3af46489" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_dispositionreason" displayname="Disposition Reason">
+    <records>
+      <record id="2d42b272-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340001" />
+        <field name="opc_name" value="No Jurisdiction" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="No Jurisdiction" />
+        <field name="opc_namefrench" value="No Jurisdiction" />
+        <field name="opc_dispositionreasonid" value="2d42b272-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="bb307579-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340001" />
+        <field name="opc_name" value="Not a Canadian Citizen or Permanent Resident" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="Not a Canadian Citizen or Permanent Resident" />
+        <field name="opc_namefrench" value="Not a Canadian Citizen or Permanent Resident" />
+        <field name="opc_dispositionreasonid" value="bb307579-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="11df9980-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340001" />
+        <field name="opc_name" value="Not a privacy complaint" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="Not a privacy complaint" />
+        <field name="opc_namefrench" value="Not a privacy complaint" />
+        <field name="opc_dispositionreasonid" value="11df9980-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="16df9980-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340001" />
+        <field name="opc_name" value="Unresponsive Inquirer" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="Unresponsive Inquirer" />
+        <field name="opc_namefrench" value="Unresponsive Inquirer" />
+        <field name="opc_dispositionreasonid" value="16df9980-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="6cd1ff86-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340001" />
+        <field name="opc_name" value="the complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="the complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
+        <field name="opc_namefrench" value="the complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
+        <field name="opc_dispositionreasonid" value="6cd1ff86-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="6c76fa8c-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340003" />
+        <field name="opc_name" value="The complaint could be dealt with more appropriately (either initially or completely) by a procedure provided for under other federal or provincial laws; 12(1) (b)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="The complaint could be dealt with more appropriately (either initially or completely) by a procedure provided for under other federal or provincial laws; 12(1) (b)" />
+        <field name="opc_namefrench" value="The complaint could be dealt with more appropriately (either initially or completely) by a procedure provided for under other federal or provincial laws; 12(1) (b)" />
+        <field name="opc_dispositionreasonid" value="6c76fa8c-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="8a76fa8c-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340002" />
+        <field name="opc_name" value="The complaint was not filed within a reasonable period of time 12(1) (c)" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="The complaint was not filed within a reasonable period of time 12(1) (c)" />
+        <field name="opc_namefrench" value="The complaint was not filed within a reasonable period of time 12(1) (c)" />
+        <field name="opc_dispositionreasonid" value="8a76fa8c-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="e62f4693-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340001" />
+        <field name="opc_name" value="TL outside of limit" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="TL outside of limit" />
+        <field name="opc_namefrench" value="TL outside of limit" />
+        <field name="opc_dispositionreasonid" value="e62f4693-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="dfcc05a9-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340003" />
+        <field name="opc_name" value="Clarified with situation with respondent" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="Clarified with situation with respondent" />
+        <field name="opc_namefrench" value="Clarified with situation with respondent" />
+        <field name="opc_dispositionreasonid" value="dfcc05a9-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="d745b3af-a76e-ea11-a811-000d3af45a96">
+        <field name="opc_allegationdisposition" value="924340003" />
+        <field name="opc_name" value="Proposed alternative solution" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="opc_nameenglish" value="Proposed alternative solution" />
+        <field name="opc_namefrench" value="Proposed alternative solution" />
+        <field name="opc_dispositionreasonid" value="d745b3af-a76e-ea11-a811-000d3af45a96" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_dispositionaction" displayname="Disposition Action">
+    <records>
+      <record id="ebf5aede-b16e-ea11-a811-000d3af45a96">
+        <field name="opc_dispositionactionid" value="ebf5aede-b16e-ea11-a811-000d3af45a96" />
+        <field name="opc_name" value="Redirected to OIC" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_dispositionreasonid" value="11df9980-a76e-ea11-a811-000d3af45a96" lookupentity="opc_dispositionreason" lookupentityname="Not a privacy complaint" />
+        <field name="opc_nameenglish" value="Redirected to OIC" />
+        <field name="opc_namefrench" value="Redirected to OIC" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="5b63aee4-b16e-ea11-a811-000d3af45a96">
+        <field name="opc_dispositionactionid" value="5b63aee4-b16e-ea11-a811-000d3af45a96" />
+        <field name="opc_name" value="Redirected to Provincial Institution" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_dispositionreasonid" value="11df9980-a76e-ea11-a811-000d3af45a96" lookupentity="opc_dispositionreason" lookupentityname="Not a privacy complaint" />
+        <field name="opc_nameenglish" value="Redirected to Provincial Institution" />
+        <field name="opc_namefrench" value="Redirected to Provincial Institution" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="e76cabea-b16e-ea11-a811-000d3af45a96">
+        <field name="opc_dispositionactionid" value="e76cabea-b16e-ea11-a811-000d3af45a96" />
+        <field name="opc_name" value="Redirected to other Federal Institution" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_dispositionreasonid" value="11df9980-a76e-ea11-a811-000d3af45a96" lookupentity="opc_dispositionreason" lookupentityname="Not a privacy complaint" />
+        <field name="opc_nameenglish" value="Redirected to other Federal Institution" />
+        <field name="opc_namefrench" value="Redirected to other Federal Institution" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
+      <record id="ce4fadf0-b16e-ea11-a811-000d3af45a96">
+        <field name="opc_dispositionactionid" value="ce4fadf0-b16e-ea11-a811-000d3af45a96" />
+        <field name="opc_name" value="Redirected to CIC" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_dispositionreasonid" value="11df9980-a76e-ea11-a811-000d3af45a96" lookupentity="opc_dispositionreason" lookupentityname="Not a privacy complaint" />
+        <field name="opc_nameenglish" value="Redirected to CIC" />
+        <field name="opc_namefrench" value="Redirected to CIC" />
+        <field name="opc_islocalizable" value="True" />
       </record>
     </records>
     <m2mrelationships />
