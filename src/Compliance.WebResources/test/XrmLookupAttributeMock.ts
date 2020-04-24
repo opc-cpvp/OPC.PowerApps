@@ -1,32 +1,18 @@
-﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
+import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { INamedComponent } from "./INamedComponent";
 import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmControlMock } from "./XrmControlMock";
 
-export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
+export class XrmLookupAttributeMock implements Xrm.LookupAttribute<any> {
 
-    private _executionContext: XrmExecutionContextMock<any, any>;
-    private _name: string;
+    controls: Xrm.Collection<Xrm.LookupControl<any>>;
+
     private _value: any;
-    private _onChangeHandlers: ((context?: Xrm.ExecutionContext<this, any>) => any)[] = [];
 
-    controls: XrmCollectionMock<XrmControlMock>;
-
-    constructor(executionContext: XrmExecutionContextMock<any, any>) {
-        this._executionContext = executionContext;
-        this.controls = new XrmCollectionMock<XrmControlMock>(XrmControlMock, executionContext);
-    }
-
-    /* NEW MEMBERS TO HELP MOCKING */
-    setName(name: string): void {
-        this._name = name;
-    }
-    /* END OF NEW MEMBERS*/
-
-    getValue() {
+    getValue(): Xrm.EntityReference<any>[] {
         return this._value;
     }
-    setValue(val?: any): void {
+    setValue(val?: Xrm.EntityReference<any>[]): void {
         this._value = val;
     }
     getAttributeType(): Xrm.AttributeType {
@@ -35,10 +21,6 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     getFormat(): Xrm.AttributeFormat {
         throw new Error("Method not implemented.");
     }
-    getOptions(): Xrm.Option<any>[] {
-        // TODO: Implement for testing
-        return [];
-    }
     getIsDirty(): boolean {
         throw new Error("Method not implemented.");
     }
@@ -46,7 +28,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
         throw new Error("Method not implemented.");
     }
     getName(): string {
-        return this._name;
+        throw new Error("Method not implemented.");
     }
     getParent(): Xrm.PageEntity<Xrm.Collection<Xrm.Attribute<any>>> {
         throw new Error("Method not implemented.");
@@ -54,23 +36,20 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     getUserPrivilege(): Xrm.UserPrivilege {
         throw new Error("Method not implemented.");
     }
-    addOnChange(functionRef: (context?: Xrm.ExecutionContext<this, any>) => any): void {
-        this._onChangeHandlers.push(functionRef);
+    addOnChange(functionRef: (context?: Xrm.ExecutionContext<this, undefined>) => any): void {
+        throw new Error("Method not implemented.");
     }
     removeOnChange(functionRef: Function): void {
-        this._onChangeHandlers = this._onChangeHandlers.filter(f => f !== functionRef);
+        throw new Error("Method not implemented.");
     }
     fireOnChange(): void {
-        this._executionContext.setEventSource(this);
-        this._onChangeHandlers.forEach(f => { f(this._executionContext) });
-        this._executionContext.setEventSource(null);
+        throw new Error("Method not implemented.");
     }
     getRequiredLevel(): Xrm.AttributeRequiredLevel {
         throw new Error("Method not implemented.");
     }
     setRequiredLevel(level: Xrm.AttributeRequiredLevel): void {
-        // TODO: Implement for testing
-        //throw new Error("Method not implemented.");
+        throw new Error("Method not implemented.");
     }
     getSubmitMode(): Xrm.AttributeSubmitMode {
         throw new Error("Method not implemented.");
@@ -81,7 +60,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     isValid(): boolean {
         throw new Error("Method not implemented.");
     }
-    setIsValid(): void{
+    setIsValid(bool: boolean, message?: string) {
         throw new Error("Method not implemented.");
     }
 }

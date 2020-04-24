@@ -19,6 +19,11 @@ export interface INotificationService {
     markAsRead(id: string): void
 }
 
+export interface IContactService {
+    getContact(id: string): Promise<Contact_Result>
+    getDuplicateStatus(id: string): Promise<(Contact_Fixed & { opc_duplicatedetectionresult: opc_duplicatedetectionresult })>
+}
+
 export interface IChecklistService {
     getChecklist(id: string): Promise<({ opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result)[]>
     getQuestionTypes(): Promise<{ id: string, type: string }[]>
