@@ -14,7 +14,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{5d8b614f-402c-487d-bfde-278a953dbe9c}">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{5d8b614f-402c-487d-bfde-278a953dbe9c}" height="auto">
                   <labels>
                     <label description="GENERAL" languagecode="1033" />
                   </labels>
@@ -38,13 +38,13 @@
                     <row />
                     <row />
                     <row />
-                    <row />
+                    <row height="auto" />
                     <row>
-                      <cell id="{e5c37807-3d47-4dab-b684-19203678dd1e}" showlabel="true" locklevel="0">
+                      <cell id="{b94b9ba5-3d96-41fd-a68d-e3d82142cce9}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Disposition" languagecode="1033" />
                         </labels>
-                        <control id="opc_allegationdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_allegationdisposition" disabled="false" />
+                        <control id="opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
                       </cell>
                     </row>
                     <row>

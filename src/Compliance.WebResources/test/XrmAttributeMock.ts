@@ -35,6 +35,10 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     getFormat(): Xrm.AttributeFormat {
         throw new Error("Method not implemented.");
     }
+    getOptions(): Xrm.Option<any>[] {
+        // TODO: Implement for testing
+        return [];
+    }
     getIsDirty(): boolean {
         throw new Error("Method not implemented.");
     }
@@ -57,13 +61,16 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
         this._onChangeHandlers = this._onChangeHandlers.filter(f => f !== functionRef);
     }
     fireOnChange(): void {
-        this._onChangeHandlers.forEach(f => f(this._executionContext));
+        this._executionContext.setEventSource(this);
+        this._onChangeHandlers.forEach(f => { f(this._executionContext) });
+        this._executionContext.setEventSource(null);
     }
     getRequiredLevel(): Xrm.AttributeRequiredLevel {
         throw new Error("Method not implemented.");
     }
     setRequiredLevel(level: Xrm.AttributeRequiredLevel): void {
-        throw new Error("Method not implemented.");
+        // TODO: Implement for testing
+        //throw new Error("Method not implemented.");
     }
     getSubmitMode(): Xrm.AttributeSubmitMode {
         throw new Error("Method not implemented.");

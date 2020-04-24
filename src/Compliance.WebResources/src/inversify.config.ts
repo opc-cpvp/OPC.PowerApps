@@ -11,6 +11,7 @@ import { ReminderService } from "./services/ReminderService";
 import { NotificationService } from "./services/NotificationService";
 import { ChecklistService } from "./services/ChecklistService";
 import { ContactService } from "./services/ContactService";
+import { UserService } from "./services/UserService";
 
 // Forms
 import ComplaintMainForm = require("./forms/ComplaintMainForm");

@@ -1,12 +1,25 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm } from "../interfaces";
+import { IPowerForm, IComplaintService, IContactService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Complaint.Forms {
 
+    enum ContactType {
+        Complainant = "Complainant",
+        Representative = "Representative"
+    }
+
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_complaint.Main.Information> {
+
+        private _complaintService: IComplaintService;
+        private _contactService: IContactService;
+
+        constructor(@inject(nameof<IComplaintService>()) complaintService: IComplaintService, @inject(nameof<IContactService>()) contactService: IContactService) {
+            this._complaintService = complaintService;
+            this._contactService = contactService;
+        }
 
         /**
          * Handle the form OnLoad event.
@@ -14,7 +27,6 @@ export namespace Complaint.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
-
             let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
@@ -25,9 +37,43 @@ export namespace Complaint.Forms {
             formContext.getAttribute("opc_multiplecomplaintstrategy").addOnChange(x => this.multipleComplaintStrategy_OnChange(x));
 
             // Sequence matters
-            formContext.getAttribute("opc_intakedisposition").fireOnChange();
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
             formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            this.setupDuplicateContactChecking(formContext);
+        }
+
+        private setupDuplicateContactChecking(formContext: Form.opc_complaint.Main.Information) {
+            formContext.getAttribute("opc_complainant").addOnChange(x => this.getDuplicateStatus(x, ContactType.Complainant));
+            formContext.getAttribute("opc_complainantrep").addOnChange(x => this.getDuplicateStatus(x, ContactType.Representative));
+
+            formContext.getAttribute("opc_complainant").fireOnChange();
+            formContext.getAttribute("opc_complainantrep").fireOnChange();
+        }
+
+        private getDuplicateStatus(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, any>, contactType: ContactType): void {
+            let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const contact = context.getEventSource().getValue();
+            const duplicationNotificationId = `duplicateNotificationId - ${contactType}`;
+
+            // reset the notification
+            formContext.ui.clearFormNotification(duplicationNotificationId);
+
+            if (contact != null && contact.length > 0) {
+                this._contactService.getDuplicateStatus(contact[0].id)
+                    .then(x => {
+                        this.showContactDuplicateStatusNotification(formContext, contactType, x.opc_duplicatedetectionresult, duplicationNotificationId);
+                    })
+                    .catch(() => console.error(`error getting duplicate status of ${contactType}`));
+            }
+        }
+
+        private showContactDuplicateStatusNotification(formContext: Form.opc_complaint.Main.Information, contactType: ContactType, duplicateResult: opc_duplicatedetectionresult, notificationId: string) {
+            if (duplicateResult == opc_duplicatedetectionresult.Potentialduplicate)
+                formContext.ui.setFormNotification(`Please review ${contactType} contact, there's a potential duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view`, "WARNING", notificationId);
+            else if (duplicateResult == opc_duplicatedetectionresult.Duplicatefound) {
+                formContext.ui.setFormNotification(`Please review ${contactType} contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view`, "WARNING", notificationId);
+            }
         }
 
         /**
