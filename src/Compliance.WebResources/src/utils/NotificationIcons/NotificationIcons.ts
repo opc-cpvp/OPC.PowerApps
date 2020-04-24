@@ -1,6 +1,6 @@
 export namespace Utilities {
-    export class CustomIcons {
-        static displayNotificationIcon(rowData: string, userLCID: number): string[] {
+    export class NotificationIcons {
+        static displayNotificationIcons(rowData: string, userLCID: number): string[] {
             let str = JSON.parse(rowData);
             let coldata: string = str.statuscode_Value;
             let imgName: string = "";

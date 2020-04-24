@@ -20,7 +20,10 @@ export interface IChecklistService {
 }
 
 export interface IContactService {
-    isIntakeManager(): boolean
+}
+
+export interface IUserService {
+    hasIntakeManagerPermissions(userSecurityRoles: Xrm.Collection<Xrm.Role>): boolean
 }
 
 export interface IFormFactory {

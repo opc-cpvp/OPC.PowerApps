@@ -1,19 +1,21 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IContactService } from "../interfaces";
+import { IPowerForm, IUserService } from "../interfaces";
 
 export namespace Contact.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.contact.Main.ComplianceContact> {
 
-        private _contactService: IContactService;
+        private _userService: IUserService;
         private _xrmNavigation: Xrm.Navigation;
+        private _xrmContext: Xrm.context;
         private _saveEventConfirmed: boolean = false;
-        private _isIntakeManager: boolean = false;
+        private _hasIntakeManagerPermissions: boolean = false;
 
-        constructor(@inject(nameof<IContactService>()) contactService: IContactService, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
-            this._contactService = contactService;
+        constructor(@inject(nameof<IUserService>()) userService: IUserService, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation, @inject(nameof<Xrm.context>()) xrmContext: Xrm.context) {
+            this._userService = userService;
             this._xrmNavigation = xrmNavigation;
+            this._xrmContext = xrmContext;
         }
 
         /**
@@ -29,7 +31,7 @@ export namespace Contact.Forms {
             formContext.data.entity.addOnSave(x => this.form_OnSave(x));
 
             // Execution sequence matters
-            this._isIntakeManager = this._contactService.isIntakeManager();
+            this._hasIntakeManagerPermissions = this._userService.hasIntakeManagerPermissions(this._xrmContext.userSettings.roles);
             this.multipleComplaintStrategy_setVisibleValues(formContext);
             formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
         }
@@ -63,7 +65,7 @@ export namespace Contact.Forms {
         private multipleComplaintStrategy_setVisibleValues(formContext: Form.contact.Main.ComplianceContact): void {
             const multipleComplaintStrategyValue = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
 
-            if (!this._isIntakeManager && multipleComplaintStrategyValue !== opc_multiplecomplaintstrategy.Applied) {
+            if (!this._hasIntakeManagerPermissions && multipleComplaintStrategyValue !== opc_multiplecomplaintstrategy.Applied) {
                 formContext.getControl("opc_multiplecomplaintstrategy").removeOption(opc_multiplecomplaintstrategy.Applied);
             }
         }
@@ -99,7 +101,7 @@ export namespace Contact.Forms {
 
             // Check if Contact is part of the Multiple Complaint Strategy
             // and lock the field unless user role is Intake Manager, Sys Admin or Sys Customizer
-            multipleComplaintStrategyControl.setDisabled(multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._isIntakeManager);
+            multipleComplaintStrategyControl.setDisabled(multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._hasIntakeManagerPermissions);
         }
 
         /**

@@ -41,7 +41,6 @@
     <Folder Include="js\lib\" />
     <Folder Include="js\lib\xrmquery\" />
     <Folder Include="src\utils\" />
-    <Folder Include="src\utils\imgs\" />
     <Folder Include="src\" />
     <Folder Include="src\controls\" />
     <Folder Include="src\controls\Checklist\" />
@@ -50,6 +49,8 @@
     <Folder Include="src\forms\" />
     <Folder Include="src\helpers\" />
     <Folder Include="src\services\" />
+    <Folder Include="src\utils\NotificationIcons\" />
+    <Folder Include="src\utils\NotificationIcons\imgs\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +63,7 @@
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
+    <TypeScriptCompile Include="src\enums.ts" />
     <TypeScriptCompile Include="src\factories\ControlFactory.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
@@ -83,10 +85,13 @@
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
     <TypeScriptCompile Include="src\services\NotificationService.ts" />
     <TypeScriptCompile Include="src\services\ReminderService.ts" />
+    <TypeScriptCompile Include="src\services\UserService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
+    <TypeScriptCompile Include="src\utils\NotificationIcons\NotificationIcons.ts" />
     <TypeScriptCompile Include="test\INamedComponent.ts" />
     <TypeScriptCompile Include="test\XrmContextMock.ts" />
     <TypeScriptCompile Include="test\XrmOptionMock.ts" />
+    <TypeScriptCompile Include="test\XrmOptionSetAttributeMock.ts" />
     <TypeScriptCompile Include="test\XrmOptionSetControlMock.ts" />
     <TypeScriptCompile Include="test\XrmRoleMock.ts" />
     <TypeScriptCompile Include="test\XrmUserSettingsMock.ts" />
@@ -115,11 +120,6 @@
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.js" />
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.min.js" />
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.promise.min.js" />
-    <Content Include="src\utils\CustomIcons.ts">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="src\utils\imgs\icon64x64_read_notification.png" />
-    <Content Include="src\utils\imgs\icon64x64_unread_notification.png" />
     <Content Include="npm.targets" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
@@ -127,6 +127,8 @@
     <Content Include="src\controls\Checklist\ChecklistControl.html" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
+    <Content Include="src\utils\NotificationIcons\imgs\icon64x64_read_notification.png" />
+    <Content Include="src\utils\NotificationIcons\imgs\icon64x64_unread_notification.png" />
     <Content Include="tsconfig.json" />
     <Content Include="webpack.config.js" />
   </ItemGroup>

@@ -1,9 +1,12 @@
 ﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { XrmOptionMock } from "./XrmOptionMock";
+import { INamedComponent } from "./INamedComponent";
+import { XrmControlMock } from "./XrmControlMock";
 
-export class XrmOptionSetControlMock implements Xrm.OptionSetControl<any> {
+export class XrmOptionSetControlMock implements Xrm.OptionSetControl<any>, INamedComponent/*, XrmControlMock*/ {
     private _options: XrmOptionMock<any>[] = [];
     private _isDisabled: boolean = false;
+    private _name: string;
 
     /* NEW MEMBERS TO HELP MOCKING */
     setOptions(options: XrmOptionMock<any>[]): void {
@@ -42,7 +45,10 @@ export class XrmOptionSetControlMock implements Xrm.OptionSetControl<any> {
         throw new Error("Method not implemented.");
     }
     getName(): string {
-        throw new Error("Method not implemented.");
+        return this._name;
+    }
+    setName(name: string): void {
+        this._name = name;
     }
     getLabel(): string {
         throw new Error("Method not implemented.");

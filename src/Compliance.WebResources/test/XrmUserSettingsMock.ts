@@ -1,6 +1,4 @@
-﻿import { XrmBaseControlMock } from "./XrmBaseControlMock";
-import { XrmAttributeMock } from "./XrmAttributeMock";
-import { XrmCollectionMock } from "./XrmCollectionMock";
+﻿import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmRoleMock } from "./XrmRoleMock";
 
 export class XrmUserSettingsMock implements Xrm.userSettings {

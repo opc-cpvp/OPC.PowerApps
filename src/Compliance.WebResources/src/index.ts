@@ -10,7 +10,7 @@ import "./inversify.config";
 
 // Composition Root
 export { Bootstrapper } from "./bootstrapper";
-export { Utilities } from "./utils/CustomIcons";
+export { Utilities } from "./utils/NotificationIcons/NotificationIcons";
 
 // TODO: Temporary, move to factory with IoC container
 export { Controls as RiskAssessmentCtrl } from "./controls/RiskAssessment/RiskAssessmentControl";
