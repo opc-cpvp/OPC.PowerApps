@@ -6,7 +6,7 @@ export interface IComplaintService {
 export interface IAllegationService {
     getAllegation(id: string): opc_allegation
     getAllegationDispositionFilter(disposition: opc_allegationdisposition): string
-    getAllegationDispositionActionFilter(dispositionReason: string): string 
+    getAllegationDispositionActionFilter(dispositionReason: string): string
 }
 
 export interface IReminderService {

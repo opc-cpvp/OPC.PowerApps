@@ -2,13 +2,12 @@
 import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmOptionSetControlMock } from "./XrmOptionSetControlMock";
 import { XrmOptionMock } from "./XrmOptionMock";
-import { XrmAttributeMock } from "./XrmAttributeMock";
-import { XrmControlMock } from "./XrmControlMock";
 
-export class XrmOptionSetAttributeMock /*extends XrmAttributeMock*/ implements Xrm.OptionSetAttribute<any> {
+export class XrmOptionSetAttributeMock implements Xrm.OptionSetAttribute<any> {
     private _options: XrmOptionMock<any>[] = [];
     private _name: string;
-    controls: XrmCollectionMock<XrmOptionSetControlMock>;
+
+    controls: Xrm.Collection<Xrm.OptionSetControl<any>>;
 
     getInitialValue() {
         throw new Error("Method not implemented.");
@@ -17,10 +16,10 @@ export class XrmOptionSetAttributeMock /*extends XrmAttributeMock*/ implements X
         throw new Error("Method not implemented.");
     }
     getOption(value: any): Xrm.Option<any> {
-        throw new Error("Method not implemented.");
+        return this._options.find(option => option.value == value);
     }
     getOptions(): Xrm.Option<any>[] {
-        throw new Error("Method not implemented.");
+        return this._options;
     }
     getSelectedOption(): Xrm.Option<any> {
         throw new Error("Method not implemented.");

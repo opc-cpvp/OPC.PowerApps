@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IComplaintService, IContactService } from "../interfaces";
+import { IPowerForm, IContactService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Complaint.Forms {
@@ -13,11 +13,9 @@ export namespace Complaint.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_complaint.Main.Information> {
 
-        private _complaintService: IComplaintService;
         private _contactService: IContactService;
 
-        constructor(@inject(nameof<IComplaintService>()) complaintService: IComplaintService, @inject(nameof<IContactService>()) contactService: IContactService) {
-            this._complaintService = complaintService;
+        constructor(@inject(nameof<IContactService>()) contactService: IContactService) {
             this._contactService = contactService;
         }
 

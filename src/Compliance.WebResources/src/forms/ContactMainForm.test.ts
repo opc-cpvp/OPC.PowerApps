@@ -41,7 +41,7 @@ describe("Contact", () => {
             mockContext = new XrmContextMock();
             form = new Contact.Forms.MainForm(userService, mockNavigation, mockContext);
             mockExecutionContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
-            mcsControl = new XrmOptionSetControlMock();
+            mcsControl = new XrmOptionSetControlMock(mockExecutionContext);
             controlSpy = sandbox.spy(mcsControl);
             mcsControl.setOptions(mcsOptions);
             mockExecutionContext.getFormContext().ui.formType = Xrm.FormType.Update;
