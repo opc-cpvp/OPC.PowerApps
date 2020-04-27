@@ -1,12 +1,10 @@
 ﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { XrmOptionMock } from "./XrmOptionMock";
 import { XrmOptionSetAttributeMock } from "./XrmOptionSetAttributeMock";
-import { XrmBaseControlMock } from "./XrmBaseControlMock";
+import { XrmControlMock } from "./XrmControlMock";
 
-export class XrmOptionSetControlMock extends XrmBaseControlMock implements Xrm.OptionSetControl<XrmOptionSetAttributeMock> {
-
+export class XrmOptionSetControlMock extends XrmControlMock implements Xrm.OptionSetControl<XrmOptionSetAttributeMock> {
     private _options: XrmOptionMock<any>[] = [];
-    private _isDisabled: boolean = false;
 
     /* NEW MEMBERS TO HELP MOCKING */
     setOptions(options: XrmOptionMock<any>[]): void {
@@ -28,14 +26,5 @@ export class XrmOptionSetControlMock extends XrmBaseControlMock implements Xrm.O
     }
     getAttribute(): Xrm.OptionSetAttribute<XrmOptionSetAttributeMock> {
         throw new Error("Method not implemented.");
-    }
-    //getAttribute(): Xrm.Attribute<XrmOptionSetAttributeMock> {
-    //    return this.context.getFormContext().getAttribute(this.getName());
-    //}
-    getDisabled(): boolean {
-        return this._isDisabled;
-    }
-    setDisabled(disable: boolean): void {
-        this._isDisabled = disable;
     }
 }

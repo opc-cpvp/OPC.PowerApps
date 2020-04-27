@@ -31,10 +31,9 @@ describe("Complaint", () => {
         // Initialize the form for every test
         beforeEach(function () {
             initializeMock();
-            //mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
-            //// Run the Initialize first so that the form doesn't set notifications yet without a contact,
-            //// testing will be done when firing the on change
-            //form.initializeComponents(mockContext);
+
+            // No contact
+            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
         });
 
         afterEach(function () {
@@ -43,7 +42,6 @@ describe("Complaint", () => {
 
         it("it should have notifications if a duplicate contacts exists", async () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);
@@ -73,7 +71,6 @@ describe("Complaint", () => {
 
         it("it should not have a notification if a contact does not have a duplication status", async () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);
@@ -103,15 +100,11 @@ describe("Complaint", () => {
 
         it("it should not have notifications if no contacts exist", async () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);
 
             let getDuplicateDup = sandbox.stub(contactService, nameof(contactService.getDuplicateStatus)).resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
-
-            // No contact
-            //mockContext.getFormContext().getAttribute("opc_complainant").setValue([]);
 
             // Act
             form.initializeComponents(mockContext);
@@ -124,7 +117,6 @@ describe("Complaint", () => {
 
         it("it should have multiple notifications if multiple duplicate contacts exist", async () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);
@@ -157,7 +149,6 @@ describe("Complaint", () => {
 
         it("it should remove exsiting notifications when no duplicate status is found", async () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);
@@ -194,7 +185,6 @@ describe("Complaint", () => {
 
         it("it should remove exsiting notifications when no contacts are found", async () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);

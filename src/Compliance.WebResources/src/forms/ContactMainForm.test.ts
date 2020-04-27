@@ -30,9 +30,7 @@ describe("Contact", () => {
     let mcsControl: XrmOptionSetControlMock;
     let contextSpy: any;
     let controlSpy: any;
-    let isIntakeManager: any;
-    let formContext: any;
-    let getControl: any;
+    let hasIntakeManagerPermissions: any;
 
     describe("after MCS field is loaded", () => {
         beforeEach(function () {
@@ -44,8 +42,9 @@ describe("Contact", () => {
             mcsControl = new XrmOptionSetControlMock(mockExecutionContext);
             controlSpy = sandbox.spy(mcsControl);
             mcsControl.setOptions(mcsOptions);
+            mcsControl.setName("opc_multiplecomplaintstrategy");
+            mockExecutionContext.getFormContext().addControl(mcsControl);
             mockExecutionContext.getFormContext().ui.formType = Xrm.FormType.Update;
-
         });
 
         afterEach(function () {
@@ -54,8 +53,8 @@ describe("Contact", () => {
 
         it("it should contain option 'Applied' if user is Intake Manager", () => {
             // Arrange
-            isIntakeManager = sandbox.fake.returns(true);
-            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), isIntakeManager);
+            hasIntakeManagerPermissions = sandbox.fake.returns(true);
+            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), hasIntakeManagerPermissions);
 
             // Act
             form.initializeComponents(mockExecutionContext);
@@ -67,8 +66,8 @@ describe("Contact", () => {
 
         it("it should contain option 'Applied' if user is not Intake Manager BUT MCS value is already 'Applied'", () => {
             // Arrange
-            isIntakeManager = sandbox.fake.returns(false);
-            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), isIntakeManager);
+            hasIntakeManagerPermissions = sandbox.fake.returns(false);
+            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), hasIntakeManagerPermissions);
             mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
 
             // Act
@@ -81,11 +80,8 @@ describe("Contact", () => {
 
         it("it should not contain option 'Applied' if user is not Intake Manager", () => {
             // Arrange
-            isIntakeManager = sandbox.fake.returns(false);
-            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), isIntakeManager);
-            formContext = mockExecutionContext.getFormContext();
-            getControl = sandbox.fake.returns(mcsControl);
-            sandbox.replace(formContext, nameof(formContext.getControl), getControl);
+            hasIntakeManagerPermissions = sandbox.fake.returns(false);
+            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), hasIntakeManagerPermissions);
 
             // Act
             form.initializeComponents(mockExecutionContext);
@@ -104,6 +100,7 @@ describe("Contact", () => {
             mockExecutionContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
             contextSpy = sandbox.spy(mockExecutionContext);
             mockExecutionContext.getFormContext().ui.formType = Xrm.FormType.Update;
+            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
         });
 
         afterEach(function () {
@@ -112,9 +109,8 @@ describe("Contact", () => {
 
         it("it should display a form notification", () => {
             // Arrange
-            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
-            isIntakeManager = sandbox.fake.returns(true);
-            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), isIntakeManager);
+            hasIntakeManagerPermissions = sandbox.fake.returns(false);
+            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), hasIntakeManagerPermissions);
 
             //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
@@ -128,9 +124,8 @@ describe("Contact", () => {
 
         it("it should lock the field if user is not Intake Manager", () => {
             // Arrange
-            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
-            isIntakeManager = sandbox.fake.returns(false);
-            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), isIntakeManager);
+            hasIntakeManagerPermissions = sandbox.fake.returns(false);
+            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), hasIntakeManagerPermissions);
 
             //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
@@ -144,9 +139,8 @@ describe("Contact", () => {
 
         it("it should not lock the field if user is Intake Manager", () => {
             // Arrange
-            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
-            isIntakeManager = sandbox.fake.returns(true);
-            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), isIntakeManager);
+            hasIntakeManagerPermissions = sandbox.fake.returns(true);
+            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), hasIntakeManagerPermissions);
 
             //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
@@ -166,14 +160,14 @@ describe("Contact", () => {
             form = new Contact.Forms.MainForm(userService, mockNavigation, mockContext);
             mockExecutionContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
             contextSpy = sandbox.spy(mockExecutionContext);
+            mcsControl = new XrmOptionSetControlMock(mockExecutionContext);
+            controlSpy = sandbox.spy(mcsControl);
+            mcsControl.setOptions(mcsOptions);
+            mcsControl.setName("opc_multiplecomplaintstrategy");
+            mockExecutionContext.getFormContext().addControl(mcsControl);
             mockExecutionContext.getFormContext().ui.formType = Xrm.FormType.Update;
-
-            isIntakeManager = sandbox.fake.returns(false);
-            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), isIntakeManager);
-
-            formContext = mockExecutionContext.getFormContext();
-            getControl = sandbox.fake.returns(mcsControl);
-            sandbox.replace(formContext, nameof(formContext.getControl), getControl);
+            hasIntakeManagerPermissions = sandbox.fake.returns(false);
+            sandbox.replace(userService, nameof(userService.hasIntakeManagerPermissions), hasIntakeManagerPermissions);
         });
 
         afterEach(function () {

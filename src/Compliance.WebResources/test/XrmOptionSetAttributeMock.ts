@@ -1,6 +1,4 @@
 ﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
-import { XrmCollectionMock } from "./XrmCollectionMock";
-import { XrmOptionSetControlMock } from "./XrmOptionSetControlMock";
 import { XrmOptionMock } from "./XrmOptionMock";
 
 export class XrmOptionSetAttributeMock implements Xrm.OptionSetAttribute<any> {
