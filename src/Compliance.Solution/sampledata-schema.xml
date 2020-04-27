@@ -77,6 +77,7 @@
       <field displayname="Worker Type" name="workeridtype" type="string" />
       <field displayname="Owner" name="ownerid" type="owner" />
       <field displayname="Title" name="title" type="string" />
+      <field displayname="Type" name="objecttypecode" type="optionsetvalue" />
     </fields>
   </entity>
   <entity name="opc_allegation" displayname="Allegation/Concern" etc="10898" primaryidfield="opc_allegationid" primarynamefield="opc_name" disableplugins="false">
