@@ -46,7 +46,7 @@
       <field displayname="Full Name" name="fullname" type="string" />
     </fields>
   </entity>
-  <entity name="opc_complaint" displayname="Complaint" etc="10902" primaryidfield="opc_complaintid" primarynamefield="opc_number" disableplugins="false">
+  <entity name="opc_complaint" displayname="Complaint" etc="10902" primaryidfield="opc_complaintid" primarynamefield="opc_number" disableplugins="true">
     <fields>
       <field displayname="Created By" name="createdby" type="entityreference" lookupType="systemuser" />
       <field displayname="Legislation" name="opc_legislation" type="entityreference" lookupType="opc_legislation" customfield="true" />
