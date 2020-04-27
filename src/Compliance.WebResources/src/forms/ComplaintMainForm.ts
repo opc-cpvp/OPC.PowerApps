@@ -87,7 +87,6 @@ export namespace Complaint.Forms {
             formContext.getAttribute("opc_intakedisposition").controls.forEach(control => XrmHelper.toggle(control, isRecommending === opc_yesorno.Yes));
             formContext.getAttribute("opc_closereason").controls.forEach(control => {
 
-                console.log("recommendtoregistrar handler:" + isRecommending );
                 // Toggle visibility
                 XrmHelper.toggle(control, isRecommending === opc_yesorno.No || formContext.getAttribute("opc_intakedisposition").getValue() === opc_intakedisposition.Close)
 
@@ -127,13 +126,12 @@ export namespace Complaint.Forms {
                 case opc_intakedisposition.Declinetoinvestigate:
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOff(control));
                     formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
-                    formContext.getAttribute("opc_closereason").setRequiredLevel("none");
                     break;
                 case opc_intakedisposition.MovetoEarlyResolution:
                 case opc_intakedisposition.MovetoInvestigation:
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOn(control));
                     formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
-                    formContext.getAttribute("opc_closereason").setRequiredLevel("none");
+                    formContext.getAttribute("opc_acceptancedate").setRequiredLevel("required");
                     break;
                 default:
                     break;
@@ -160,9 +158,13 @@ export namespace Complaint.Forms {
             // Handle all visibility stuff related to process stages
             const currentStage = formContext.data.process.getActiveStage().getName().toLowerCase();
             switch (currentStage) {
+                case "acceptance":
+                    const disposition = formContext.getAttribute("opc_intakedisposition").getValue();
+                    if (disposition == opc_intakedisposition.MovetoEarlyResolution || disposition == opc_intakedisposition.MovetoInvestigation) {
+                        formContext.getAttribute("opc_acceptancedate").setRequiredLevel("required");
+                    }
                 case "triage":
                 case "intake":
-                case "acceptance":
                     formContext.ui.tabs.get("tab_issues").setVisible(false);
                     formContext.ui.tabs.get("tab_recommendations").setVisible(false);
                     break;

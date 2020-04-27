@@ -26,7 +26,10 @@ export class XrmHelper {
     static toggleOff<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
         control.setVisible(false);
         control.setDisabled(true);
-        control.getAttribute().setValue();
+
+        const attr = control.getAttribute();
+        attr.setValue();
+        attr.setRequiredLevel("none");
     }
 
     static toggleOn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, withReset?: boolean): void {
