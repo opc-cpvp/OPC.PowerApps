@@ -257,6 +257,12 @@ declare const enum contact_familystatuscode {
 declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum opc_allegationdisposition {
+  Acceptable = 924340000,
+  Unacceptable = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+}
 declare const enum opc_allegation_statecode {
   Active = 0,
   Inactive = 1,
@@ -264,12 +270,6 @@ declare const enum opc_allegation_statecode {
 declare const enum opc_allegation_statuscode {
   Active = 1,
   Inactive = 2,
-}
-declare const enum opc_allegationdisposition {
-  Acceptable = 924340000,
-  Unacceptable = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
 }
 declare const enum opc_allegationtype_statecode {
   Active = 0,
@@ -295,6 +295,9 @@ declare const enum opc_checklisttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum opc_complaintstage {
+  Intake = 924340000,
+}
 declare const enum opc_nextstep {
   Transfertoinvestigations = 924340000,
   Resolved = 924340001,
@@ -302,35 +305,9 @@ declare const enum opc_nextstep {
   Settled = 924340003,
   Discontinued = 924340004,
 }
-declare const enum opc_complaintmilestone {
-  Triage = 924340000,
-  Intake = 924340001,
-  EarlyResolution = 924340002,
-  Investigation = 924340003,
-}
-declare const enum opc_complaintstage {
-  Intake = 924340000,
-}
 declare const enum opc_complaint_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
-}
-declare const enum opc_closereason {
-  Redirection = 924340000,
-  Duplicate = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
-  Createdinerror = 924340004,
 }
 declare const enum opc_yesorno {
   Yes = 924340000,
@@ -341,6 +318,12 @@ declare const enum opc_intakedisposition {
   MovetoInvestigation = 924340001,
   Declinetoinvestigate = 924340002,
   Close = 924340003,
+}
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
 }
 declare const enum opc_complaint_statuscode {
   Declined = 924340001,
@@ -356,6 +339,23 @@ declare const enum opc_complaint_statuscode {
   Underinvestigation = 924340013,
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
+}
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
 }
 declare const enum opc_dispositionaction_statecode {
   Active = 0,
@@ -377,18 +377,25 @@ declare const enum opc_individualcomplaint_bp_statecode {
   Active = 0,
   Inactive = 1,
 }
+declare const enum opc_individualcomplaint_bp_statuscode {
+  Active = 1,
+  Finished = 2,
+  Aborted = 3,
+}
 declare const enum processstage_category {
+  Qualify = 0,
+  Develop = 1,
+  Propose = 2,
   Close = 3,
+  Identify = 4,
+  Research = 5,
+  Resolve = 6,
+  Approval = 7,
   Triage = 924340000,
   Intake = 924340001,
   Acceptance = 924340002,
   EarlyResoloution = 924340003,
   Investigation = 924340004,
-}
-declare const enum opc_individualcomplaint_bp_statuscode {
-  Active = 1,
-  Finished = 2,
-  Aborted = 3,
 }
 declare const enum opc_issue_statecode {
   Active = 0,
@@ -431,13 +438,13 @@ declare const enum opc_questiontemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_questiontype_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_questiontype_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_questiontype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_recommendation_statecode {
   Active = 0,
@@ -563,7 +570,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11091,
+  Complaint = 11149,
 }
 declare const enum activityparty_instancetypecode {
   NotRecurring = 0,
@@ -3609,14 +3616,13 @@ declare namespace Form.opc_allegation.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "WebResource_checklist"): Xrm.WebResourceControl;
-      get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.StringControl;
       get(name: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
       get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -3640,14 +3646,13 @@ declare namespace Form.opc_allegation.Main {
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "WebResource_checklist"): Xrm.WebResourceControl;
-    getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_description"): Xrm.StringControl;
     getControl(controlName: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
     getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -4104,12 +4109,11 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
-      get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
-      get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
+      get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_number"): Xrm.Attribute<string>;
       get(name: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
@@ -4129,21 +4133,21 @@ declare namespace Form.opc_complaint.Main {
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
       get(name: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason_1"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-      get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+      get(name: "header_process_opc_intakedisposition_1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
       get(name: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
-      get(name: "header_process_opc_nextstep1"): Xrm.OptionSetControl<opc_nextstep> | null;
-      get(name: "header_process_opc_nextstep2"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_nextstep_1"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
       get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
       get(name: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
       get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+      get(name: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+      get(name: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_accountid"): Xrm.LookupControl<"account">;
@@ -4187,12 +4191,11 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
-    getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
-    getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
+    getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
@@ -4207,21 +4210,21 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
     getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason_1"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-    getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+    getControl(controlName: "header_process_opc_intakedisposition_1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
     getControl(controlName: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
-    getControl(controlName: "header_process_opc_nextstep1"): Xrm.OptionSetControl<opc_nextstep> | null;
-    getControl(controlName: "header_process_opc_nextstep2"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_nextstep_1"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
     getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
     getControl(controlName: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
     getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+    getControl(controlName: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+    getControl(controlName: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
@@ -4251,7 +4254,6 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
-      get(name: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
@@ -4269,21 +4271,21 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
       get(name: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
-      get(name: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason_1"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
+      get(name: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-      get(name: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+      get(name: "header_process_opc_intakedisposition_1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
       get(name: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
-      get(name: "header_process_opc_nextstep1"): Xrm.OptionSetControl<opc_nextstep> | null;
-      get(name: "header_process_opc_nextstep2"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_nextstep_1"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
       get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
       get(name: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
       get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+      get(name: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+      get(name: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -4307,7 +4309,6 @@ declare namespace Form.opc_complaint.Quick {
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
-    getAttribute(attributeName: "opc_complaintdisposition"): Xrm.OptionSetAttribute<opc_complaintdisposition> | null;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
@@ -4320,21 +4321,21 @@ declare namespace Form.opc_complaint.Quick {
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
     getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason1"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason2"): Xrm.OptionSetControl<opc_closereason> | null;
-    getControl(controlName: "header_process_opc_closereason3"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason_1"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
+    getControl(controlName: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
-    getControl(controlName: "header_process_opc_intakedisposition1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
+    getControl(controlName: "header_process_opc_intakedisposition_1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
     getControl(controlName: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
-    getControl(controlName: "header_process_opc_nextstep1"): Xrm.OptionSetControl<opc_nextstep> | null;
-    getControl(controlName: "header_process_opc_nextstep2"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_nextstep_1"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
     getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
     getControl(controlName: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
     getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+    getControl(controlName: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
+    getControl(controlName: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -7208,8 +7209,8 @@ declare namespace Form.connection.Main {
     getControl(controlName: string): undefined;
   }
 }
-type WebResourceImage = "opc_compliance/imgs/icon64x64_unread_notification.png"
-  | "opc_compliance/imgs/icon64x64_read_notification.png"
+type WebResourceImage = "opc_compliance/imgs/icon64x64_read_notification.png"
+  | "opc_compliance/imgs/icon64x64_unread_notification.png"
 declare const enum LCID {
   English = 1033,
   French = 1036,
@@ -9776,8 +9777,8 @@ interface opc_complaint_Base extends WebEntity {
   opc_complaintid?: string | null;
   opc_intakedisposition?: opc_intakedisposition | null;
   opc_lastmilestone?: opc_complaintmilestone | null;
-  opc_nextstep?: opc_nextstep | null;
   opc_multiplecomplaintstrategy?: opc_multiplecomplaintstrategy | null;
+  opc_nextstep?: opc_nextstep | null;
   opc_number?: string | null;
   opc_recommendtoregistrar?: opc_yesorno | null;
   overriddencreatedon?: Date | null;
@@ -9837,8 +9838,8 @@ interface opc_complaint_Select {
   opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
   opc_lastmilestone: WebAttribute<opc_complaint_Select, { opc_lastmilestone: opc_complaintmilestone | null }, { opc_lastmilestone_formatted?: string }>;
   opc_legislation_guid: WebAttribute<opc_complaint_Select, { opc_legislation_guid: string | null }, { opc_legislation_formatted?: string }>;
-  opc_nextstep: WebAttribute<opc_complaint_Select, { opc_nextstep: opc_nextstep | null }, { opc_nextstep_formatted?: string }>;
   opc_multiplecomplaintstrategy: WebAttribute<opc_complaint_Select, { opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy | null }, { opc_multiplecomplaintstrategy_formatted?: string }>;
+  opc_nextstep: WebAttribute<opc_complaint_Select, { opc_nextstep: opc_nextstep | null }, { opc_nextstep_formatted?: string }>;
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
   opc_opcpriorityid_guid: WebAttribute<opc_complaint_Select, { opc_opcpriorityid_guid: string | null }, { opc_opcpriorityid_formatted?: string }>;
   opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: opc_yesorno | null }, { opc_recommendtoregistrar_formatted?: string }>;
@@ -9878,8 +9879,8 @@ interface opc_complaint_Filter {
   opc_intakedisposition: opc_intakedisposition;
   opc_lastmilestone: opc_complaintmilestone;
   opc_legislation_guid: XQW.Guid;
-  opc_nextstep: opc_nextstep;
   opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy;
+  opc_nextstep: opc_nextstep;
   opc_number: string;
   opc_opcpriorityid_guid: XQW.Guid;
   opc_recommendtoregistrar: opc_yesorno;
@@ -9932,8 +9933,8 @@ interface opc_complaint_FormattedResult {
   opc_intakedisposition_formatted?: string;
   opc_lastmilestone_formatted?: string;
   opc_legislation_formatted?: string;
-  opc_nextstep_formatted?: string;
   opc_multiplecomplaintstrategy_formatted?: string;
+  opc_nextstep_formatted?: string;
   opc_opcpriorityid_formatted?: string;
   opc_recommendtoregistrar_formatted?: string;
   opc_sectorid_formatted?: string;
