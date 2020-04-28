@@ -193,9 +193,6 @@ describe("Complaint", () => {
                 sandbox.stub(contactService, nameof(contactService.getDuplicateStatus))
                     .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.None });
 
-            // No contact
-           // mockContext.getFormContext().getAttribute("opc_complainant").setValue([]);
-
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - Complainant");
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - Representative");
 

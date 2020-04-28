@@ -10,11 +10,11 @@ chai.should();
 chai.use(sinonChai);
 
 describe("Reminder", () => {
-    describe("when form is loading", () => {
-        let form: Reminder.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
-        let contextSpy: any;
+    let form: Reminder.Forms.MainForm;
+    let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
+    let contextSpy: any;
 
+    describe("when form is loading", () => {
         beforeEach(function () {
             form = new Reminder.Forms.MainForm();
             mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
@@ -49,9 +49,6 @@ describe("Reminder", () => {
     });
 
     describe("when form is saving", () => {
-        let form: Reminder.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
-        let contextSpy: any;
         let eventArgsSpy: any;
 
         beforeEach(function () {
@@ -160,10 +157,6 @@ describe("Reminder", () => {
     });
 
     describe("when notify additional users is selected", () => {
-        let form: Reminder.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
-        let contextSpy: any;
-
         beforeEach(function () {
             form = new Reminder.Forms.MainForm();
             mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();

@@ -25,7 +25,7 @@ export namespace Complaint.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
-            let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
+            const formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
             formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
@@ -50,7 +50,7 @@ export namespace Complaint.Forms {
         }
 
         private getDuplicateStatus(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, any>, contactType: ContactType): void {
-            let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             const contact = context.getEventSource().getValue();
             const duplicationNotificationId = `duplicateNotificationId - ${contactType}`;
 
@@ -184,11 +184,11 @@ export namespace Complaint.Forms {
         * @event OnChanged
         */
         private multipleComplaintStrategy_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
-            let multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
-            let multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
-            let complainantEntityReference = formContext.getAttribute("opc_complainant").getValue();
-            let complainantFullname = complainantEntityReference ? complainantEntityReference[0].name : "";
+            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
+            const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
+            const complainantEntityReference = formContext.getAttribute("opc_complainant").getValue();
+            const complainantFullname = complainantEntityReference ? complainantEntityReference[0].name : "";
 
             // Clear Notification
             formContext.ui.clearFormNotification("formNotificationMCS");
