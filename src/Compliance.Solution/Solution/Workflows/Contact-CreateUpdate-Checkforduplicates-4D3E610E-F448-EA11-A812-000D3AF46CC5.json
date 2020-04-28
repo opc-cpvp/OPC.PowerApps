@@ -2,7 +2,6 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {},
         "api": {
@@ -28,16 +27,15 @@
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "SubscribeWebhookTrigger"
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
               "subscriptionRequest/message": 4,
               "subscriptionRequest/entityname": "contact",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "statecode,firstname,lastname,telephone1,telephone2,address1_postalcode,emailaddress1",
-              "subscriptionRequest/name": "4d3e610e-f448-ea11-a812-000d3af46cc5"
+              "subscriptionRequest/filteringattributes": "statecode,firstname,lastname,telephone1,telephone2,address1_postalcode,emailaddress1"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -68,9 +66,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "ListRecords"
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
                   "entityName": "contacts",
@@ -244,9 +242,9 @@
                           "type": "OpenApiConnection",
                           "inputs": {
                             "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                               "connectionName": "shared_commondataserviceforapps",
-                              "operationId": "UpdateRecord"
+                              "operationId": "UpdateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                             },
                             "parameters": {
                               "entityName": "contacts",
@@ -285,9 +283,9 @@
                                 "type": "OpenApiConnection",
                                 "inputs": {
                                   "host": {
-                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                                     "connectionName": "shared_commondataserviceforapps",
-                                    "operationId": "UpdateRecord"
+                                    "operationId": "UpdateRecord",
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                                   },
                                   "parameters": {
                                     "entityName": "contacts",
@@ -332,9 +330,9 @@
                                   "type": "OpenApiConnection",
                                   "inputs": {
                                     "host": {
-                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                                       "connectionName": "shared_commondataserviceforapps",
-                                      "operationId": "UpdateRecord"
+                                      "operationId": "UpdateRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                                     },
                                     "parameters": {
                                       "entityName": "contacts",
@@ -439,9 +437,9 @@
                           "type": "OpenApiConnection",
                           "inputs": {
                             "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                               "connectionName": "shared_commondataserviceforapps",
-                              "operationId": "UpdateRecord"
+                              "operationId": "UpdateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                             },
                             "parameters": {
                               "entityName": "contacts",
@@ -476,9 +474,9 @@
                                 "type": "OpenApiConnection",
                                 "inputs": {
                                   "host": {
-                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                                     "connectionName": "shared_commondataserviceforapps",
-                                    "operationId": "UpdateRecord"
+                                    "operationId": "UpdateRecord",
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                                   },
                                   "parameters": {
                                     "entityName": "contacts",
@@ -523,9 +521,9 @@
                                   "type": "OpenApiConnection",
                                   "inputs": {
                                     "host": {
-                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                                       "connectionName": "shared_commondataserviceforapps",
-                                      "operationId": "UpdateRecord"
+                                      "operationId": "UpdateRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                                     },
                                     "parameters": {
                                       "entityName": "contacts",
@@ -602,9 +600,9 @@
                         "type": "OpenApiConnection",
                         "inputs": {
                           "host": {
-                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                             "connectionName": "shared_commondataserviceforapps",
-                            "operationId": "UpdateRecord"
+                            "operationId": "UpdateRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                           },
                           "parameters": {
                             "entityName": "contacts",
