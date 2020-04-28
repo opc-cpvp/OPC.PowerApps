@@ -37,6 +37,7 @@ container.bind<i.IReminderService>(nameof<i.IReminderService>()).to(ReminderServ
 container.bind<i.INotificationService>(nameof<i.INotificationService>()).to(NotificationService);
 container.bind<i.IChecklistService>(nameof<i.IChecklistService>()).to(ChecklistService);
 container.bind<i.IContactService>(nameof<i.IContactService>()).to(ContactService);
+container.bind<i.IUserService>(nameof<i.IUserService>()).to(UserService);
 
 // Register Providers
 container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);
