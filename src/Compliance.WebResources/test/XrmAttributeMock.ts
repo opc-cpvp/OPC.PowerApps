@@ -7,6 +7,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
 
     private _executionContext: XrmExecutionContextMock<any, any>;
     private _name: string;
+    private _isDirty: boolean;
     private _value: any;
     private _onChangeHandlers: ((context?: Xrm.ExecutionContext<this, any>) => any)[] = [];
 
@@ -20,6 +21,9 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     /* NEW MEMBERS TO HELP MOCKING */
     setName(name: string): void {
         this._name = name;
+    }
+    setIsDirty(isDirty: boolean): void {
+        this._isDirty = isDirty;
     }
     /* END OF NEW MEMBERS*/
 
@@ -40,7 +44,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
         return [];
     }
     getIsDirty(): boolean {
-        throw new Error("Method not implemented.");
+        return this._isDirty;
     }
     getMaxLength(): number {
         throw new Error("Method not implemented.");

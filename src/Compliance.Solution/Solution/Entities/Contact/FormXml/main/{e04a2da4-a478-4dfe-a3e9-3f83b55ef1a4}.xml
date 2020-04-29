@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form showImage="true" headerdensity="HighWithControls">
+    <form showImage="true" headerdensity="HighWithControls" shownavigationbar="true" maxWidth="1920">
       <ancestor id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       <hiddencontrols>
         <data id="fullname" datafieldname="fullname" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
@@ -97,6 +97,14 @@
                           <label description="Mode de communication privilégié" languagecode="1036" />
                         </labels>
                         <control id="preferredcontactmethodcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="preferredcontactmethodcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b838b1ab-0f5c-44de-b7ed-e0a994bdb6a0}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Multiple Complaint Strategy" languagecode="1033" />
+                        </labels>
+                        <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -264,7 +272,27 @@
               </sections>
             </column>
             <column width="25%">
-              <sections></sections>
+              <sections>
+                <section id="{12582701-08f9-49e4-a8f0-4fd05a793e25}" name="tab_summary_column_3_section_1" columns="11" showlabel="false" showbar="false" IsUserDefined="0">
+                  <labels>
+                    <label description="section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{61cc0fce-4fc8-4c19-89bf-aacd9d8b1b6f}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{8f9c87e2-f3aa-49ec-8c27-ab83f466fe8f}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
             </column>
           </columns>
         </tab>
@@ -535,6 +563,9 @@
           <InternalHandlers>
             <Handler functionName="AppCommon.Contact.Instance.form_onload" libraryName="AppCommon/Contact/Contact_main_system_library.js" handlerUniqueId="4ea24ebd-795d-434e-af94-6812c3867b54" enabled="true" />
           </InternalHandlers>
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{635251c0-da0e-d6b0-c269-de374544133d}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
         </event>
       </events>
       <Navigation>
@@ -844,6 +875,9 @@
           </row>
         </rows>
       </footer>
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{40517d98-58aa-4610-a84c-a249076d67b1}" />
+      </formLibraries>
       <DisplayConditions FallbackForm="true" Order="2">
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
@@ -852,7 +886,7 @@
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
-      <LocalizedName description="Compliance - Contact" languagecode="1033" />
+      <LocalizedName description="ComplianceContact" languagecode="1033" />
     </LocalizedNames>
   </systemform>
 </forms>

@@ -9,7 +9,7 @@ import 'jsdom-global/register';
 import "./forms/ComplaintMainForm.test";
 import "./forms/NotificationMainForm.test";
 import "./forms/ReminderMainForm.test";
-
+import "./forms/ContactMainForm.test";
 
 /* Controls */
 import "./controls/Checklist/ChecklistControl.test"

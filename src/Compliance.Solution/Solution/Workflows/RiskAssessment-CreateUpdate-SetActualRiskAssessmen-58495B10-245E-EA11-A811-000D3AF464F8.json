@@ -2,7 +2,6 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {},
         "api": {
@@ -28,16 +27,15 @@
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "SubscribeWebhookTrigger"
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
               "subscriptionRequest/message": 4,
               "subscriptionRequest/entityname": "opc_riskassessment",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "opc_actualriskappetite",
-              "subscriptionRequest/name": "58495b10-245e-ea11-a811-000d3af464f8"
+              "subscriptionRequest/filteringattributes": "opc_actualriskappetite"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -49,9 +47,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "GetItem"
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
               "entityName": "opc_riskappetites",
@@ -70,9 +68,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "UpdateRecord"
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
               "entityName": "opc_riskassessments",

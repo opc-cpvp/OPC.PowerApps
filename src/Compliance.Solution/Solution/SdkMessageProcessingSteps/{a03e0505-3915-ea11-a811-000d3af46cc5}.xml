@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SdkMessageProcessingStep Name="Compliance.Plugins.MultiLanguagePlugin: RetrieveMultiple of  any Entity" SdkMessageProcessingStepId="{a03e0505-3915-ea11-a811-000d3af46cc5}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>03bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
   <PluginTypeName>Compliance.Plugins.MultiLanguagePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548</PluginTypeName>
   <PluginTypeId>dd55a870-8ad7-4927-8871-14d3a0dc6cd2</PluginTypeId>
   <AsyncAutoDelete>0</AsyncAutoDelete>
@@ -7,7 +8,6 @@
   <InvocationSource>0</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>
-  <SdkMessageId>{03bebb1b-ea3e-db11-86a7-000a3a5473e8}</SdkMessageId>
   <EventHandlerTypeCode>4602</EventHandlerTypeCode>
   <Stage>40</Stage>
   <IsCustomizable>1</IsCustomizable>
