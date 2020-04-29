@@ -6,7 +6,8 @@
         throw new Error("Method not implemented.");
     }
     openConfirmDialog(confirmStrings: Xrm.ConfirmStrings, confirmOptions?: Xrm.SizeOptions): Promise<Xrm.ConfirmDialogResult> {
-        throw new Error("Method not implemented.");
+        return new Promise<Xrm.ConfirmDialogResult>(() => { });
+        //throw new Error("Method not implemented.");
     }
     openErrorDialog(errorOptions: Xrm.ErrorOptions): Promise<undefined> {
         throw new Error("Method not implemented.");
