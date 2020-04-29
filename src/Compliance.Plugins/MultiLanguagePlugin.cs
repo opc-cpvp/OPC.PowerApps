@@ -86,7 +86,7 @@ namespace Compliance.Plugins
             {
                 // Check if the language is supported
                 var userLanguage = userSettings.Entities.First().GetAttributeValue<int>(LanguageAttribute);
-                if (Enum.IsDefined(typeof(Language), userLanguage) | userLanguage.ToString().Contains(","))
+                if (Enum.IsDefined(typeof(Language), userLanguage) || userLanguage.ToString().Contains(","))
                 {
                     localContext.PluginExecutionContext.SharedVariables[LanguageKey] = userLanguage;
                     return (Language)userLanguage;
