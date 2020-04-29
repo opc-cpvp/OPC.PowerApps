@@ -13,11 +13,9 @@ export namespace Complaint.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_complaint.Main.Information> {
 
-        private _complaintService: IComplaintService;
         private _contactService: IContactService;
 
-        constructor(@inject(nameof<IComplaintService>()) complaintService: IComplaintService, @inject(nameof<IContactService>()) contactService: IContactService) {
-            this._complaintService = complaintService;
+        constructor(@inject(nameof<IContactService>()) contactService: IContactService) {
             this._contactService = contactService;
         }
 
@@ -113,7 +111,7 @@ export namespace Complaint.Forms {
         */
         private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>, any>): void {
             const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
-            console.log("intakedisposition handler:" + formContext.getAttribute("opc_intakedisposition").getValue());
+
             switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
                 case opc_intakedisposition.Close:
                     formContext.getAttribute("opc_closereason").controls.forEach(control => {

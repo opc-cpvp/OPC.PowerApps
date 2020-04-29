@@ -2,6 +2,7 @@
 import { Complaint } from './ComplaintMainForm';
 import { ComplaintService } from '.././services/ComplaintService';
 import { ContactService } from '../services/ContactService';
+import { XrmControlMock } from '../../test/XrmControlMock';
 
 var chai = require("chai");
 var sinon = require("sinon");
@@ -11,37 +12,37 @@ chai.use(sinonChai);
 var sandbox = sinon.createSandbox();
 
 
-describe("Complaint", () => {  
+describe("Complaint", () => {
 
-    let complaintService: ComplaintService;
     let contactService: ContactService;
     let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
     let contextSpy: any;
     let sut: Complaint.Forms.MainForm;
 
     function initializeMock() {
-        complaintService = new ComplaintService();
         contactService = new ContactService();
         mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
         contextSpy = sandbox.spy(mockContext);
-        sut = new Complaint.Forms.MainForm(complaintService, contactService);
-        mockContext.getFormContext().getAttribute("opc_complainant").setValue([]);
-        let getComplaint = sandbox.fake.returns(null);
-        sandbox.replace(complaintService, nameof(complaintService.getComplaint), getComplaint);
+        sut = new Complaint.Forms.MainForm(contactService);
 
         // Run the Initialize first so that the form doesn't set notifications yet without a contact,
         // testing will be done when firing the on change
         sut.initializeComponents(mockContext);
     }
 
+
+    // Initialize the form for every test
+    beforeEach(() => {
+
+        initializeMock()
+
+    });
+
+    afterEach(function () {
+        sandbox.restore();
+    });
+
     describe("Contact on change", () => {
-
-        // Initialize the form for every test
-        beforeEach(() => initializeMock());
-
-        afterEach(function () {
-            sandbox.restore();
-        });
 
         it("it should have notifications if a duplicate contacts exists", async () => {
             // Arrange
@@ -191,4 +192,159 @@ describe("Complaint", () => {
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
     });
+
+    describe("when recommending to registrar", () => {
+
+        beforeEach(() => {
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.Yes);
+        });
+
+        describe("and recommending to ER", () => {
+            it("acceptance date should be required", () => {
+                // Arrange
+                const acceptancedateAttributeSpy = sandbox.spy(mockContext.getFormContext().getAttribute("opc_acceptancedate"));
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                acceptancedateAttributeSpy.getRequiredLevel().should.equal("required");
+            });
+        });
+
+        describe("and recommending to investigation", () => {
+
+            it("acceptance date should be required", () => {
+                // Arrange
+                const acceptancedateAttributeSpy = sandbox.spy(mockContext.getFormContext().getAttribute("opc_acceptancedate"));
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                acceptancedateAttributeSpy.getRequiredLevel().should.equal("required");
+            });
+        });
+
+        describe("and recommending to close", () => {
+            it("acceptance date should not be required", () => {
+                // Arrange
+                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateAttributeSpy = sandbox.spy(acceptancedateAttributeMock);
+                acceptancedateAttributeMock.controls.get("opc_acceptancedate");
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                acceptancedateAttributeSpy.getRequiredLevel().should.equal("none");
+            });
+
+            it("reason to close should be required", () => {
+                // Arrange
+                const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+                const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
+                closeReasonAttribute.controls.get("opc_closereason");
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                closeReasonAttributeSpy.getRequiredLevel().should.equal("required");
+            });
+
+            it("reasons to close should be [Createdinerror, Duplicate, Redirection]", () => {
+                // Arrange
+                const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+                const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
+                closeReasonAttribute.controls.get("opc_closereason");
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                closeReasonAttributeSpy.getOptions().length.should.equal(3);
+                closeReasonAttributeSpy.getOptions().should.contain.deep.members([
+                    { value: opc_closereason.Createdinerror },
+                    { value: opc_closereason.Duplicate },
+                    { value: opc_closereason.Redirection }
+                ]);
+            });
+        });
+
+        describe("and recommending to decline", () => {
+            it("acceptance date should not be required", () => {
+                // Arrange
+                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateAttributeSpy = sandbox.spy(acceptancedateAttributeMock);
+                acceptancedateAttributeMock.controls.get("opc_acceptancedate");
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Declinetoinvestigate);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                acceptancedateAttributeSpy.getRequiredLevel().should.equal("none");
+            });
+        });
+
+    });
+
+
+    describe("when not recommending to registrar", () => {
+
+        it("reason to close should be required", () => {
+            // Arrange
+            const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+            const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
+            closeReasonAttribute.controls.get("opc_closereason");
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
+
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+
+            // Assert
+            closeReasonAttributeSpy.getRequiredLevel().should.equal("required");
+        });
+
+        it("reasons to close should be [Redirection, Resolved, Withdrawn]", () => {
+            // Arrange
+            const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+            const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
+            closeReasonAttribute.controls.get("opc_closereason");
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+
+            // Assert
+            closeReasonAttributeSpy.getOptions().length.should.equal(3);
+            closeReasonAttributeSpy.getOptions().should.contain.deep.members([
+                { value: opc_closereason.Redirection },
+                { value: opc_closereason.Resolved },
+                { value: opc_closereason.Withdrawn }
+            ]);
+        });
+
+        it("intake disposition should not be required", () => {
+            // Arrange
+            const intakeDispositionAttribute = mockContext.getFormContext().getAttribute("opc_intakedisposition");
+            const intakeDispositionAttributeSpy = sandbox.spy(intakeDispositionAttribute);
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+
+            // Assert
+            intakeDispositionAttributeSpy.getRequiredLevel().should.equal("none");
+        });
+
+    });
 });
+

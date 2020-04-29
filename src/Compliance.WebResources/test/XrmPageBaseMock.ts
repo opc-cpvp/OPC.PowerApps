@@ -29,6 +29,11 @@ export class XrmPageBaseMock<T, V> implements Xrm.BasicPage {
             attr = new XrmAttributeMock(this._executionContext);
             attr.setName(attrName);
             this._attr.push(attr);
+
+            // We often refer back to controls from an attribute, so always adding a default one
+            //attr.controls.get(attrName);
+            //const ctrl = <XrmControlMock>this.getControl(attrName);
+            //attr.controls.collection.push(ctrl);
         }
         return attr;
     }

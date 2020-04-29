@@ -9,6 +9,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     private _name: string;
     private _value: any;
     private _onChangeHandlers: ((context?: Xrm.ExecutionContext<this, any>) => any)[] = [];
+    private _requiredLevel: Xrm.AttributeRequiredLevel;
 
     controls: XrmCollectionMock<XrmControlMock>;
 
@@ -66,11 +67,10 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
         this._executionContext.setEventSource(null);
     }
     getRequiredLevel(): Xrm.AttributeRequiredLevel {
-        throw new Error("Method not implemented.");
+        return this._requiredLevel;
     }
     setRequiredLevel(level: Xrm.AttributeRequiredLevel): void {
-        // TODO: Implement for testing
-        //throw new Error("Method not implemented.");
+        this._requiredLevel = level;
     }
     getSubmitMode(): Xrm.AttributeSubmitMode {
         throw new Error("Method not implemented.");
