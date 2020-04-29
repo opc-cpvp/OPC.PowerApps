@@ -63,6 +63,7 @@
     <TypeScriptCompile Include="src\factories\ControlFactory.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\AllegationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
@@ -76,13 +77,12 @@
     <TypeScriptCompile Include="src\services\ChecklistService.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
+    <TypeScriptCompile Include="src\services\ContactService.ts" />
     <TypeScriptCompile Include="src\services\NotificationService.ts" />
     <TypeScriptCompile Include="src\services\ReminderService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
     <TypeScriptCompile Include="test\INamedComponent.ts" />
-    <TypeScriptCompile Include="test\XrmContextMock.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="test\XrmContextMock.ts" />
     <TypeScriptCompile Include="test\XrmUserSettingsMock.ts" />
     <TypeScriptCompile Include="test\XrmSaveEventContextMock.ts" />
     <TypeScriptCompile Include="test\XrmNavigationMock.ts" />

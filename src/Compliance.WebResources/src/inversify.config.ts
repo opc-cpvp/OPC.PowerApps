@@ -10,6 +10,7 @@ import { AllegationService } from "./services/AllegationService";
 import { ReminderService } from "./services/ReminderService";
 import { NotificationService } from "./services/NotificationService";
 import { ChecklistService } from "./services/ChecklistService";
+import { ContactService } from "./services/ContactService";
 
 
 // Forms
@@ -33,6 +34,7 @@ container.bind<i.IAllegationService>(nameof<i.IAllegationService>()).to(Allegati
 container.bind<i.IReminderService>(nameof<i.IReminderService>()).to(ReminderService);
 container.bind<i.INotificationService>(nameof<i.INotificationService>()).to(NotificationService);
 container.bind<i.IChecklistService>(nameof<i.IChecklistService>()).to(ChecklistService);
+container.bind<i.IContactService>(nameof<i.IContactService>()).to(ContactService);
 
 // Register Providers
 container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);

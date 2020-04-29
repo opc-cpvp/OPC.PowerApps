@@ -6,6 +6,8 @@ export interface IComplaintService {
 
 export interface IAllegationService {
     getAllegation(id: string): opc_allegation
+    getAllegationDispositionFilter(disposition: opc_allegationdisposition): string
+    getAllegationDispositionActionFilter(dispositionReason: string): string 
 }
 
 export interface IReminderService {
@@ -15,6 +17,11 @@ export interface IReminderService {
 export interface INotificationService {
     getNotification(id: string): opc_notification
     markAsRead(id: string): void
+}
+
+export interface IContactService {
+    getContact(id: string): Promise<Contact_Result>
+    getDuplicateStatus(id: string): Promise<(Contact_Fixed & { opc_duplicatedetectionresult: opc_duplicatedetectionresult })>
 }
 
 export interface IChecklistService {
