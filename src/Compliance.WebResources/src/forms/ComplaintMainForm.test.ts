@@ -11,13 +11,19 @@ chai.should();
 chai.use(sinonChai);
 var sandbox = sinon.createSandbox();
 
-
 describe("Complaint", () => {
 
     let contactService: ContactService;
     let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
     let contextSpy: any;
     let sut: Complaint.Forms.MainForm;
+    const closeReasons: Xrm.Option<any>[] = [
+        { text: "Created in error", value: opc_closereason.Createdinerror },
+        { text: "Duplicate", value: opc_closereason.Duplicate },
+        { text: "Redirection", value: opc_closereason.Redirection },
+        { text: "Resolved", value: opc_closereason.Resolved },
+        { text: "Withdrawn", value: opc_closereason.Withdrawn }
+    ];
 
     function initializeMock() {
         contactService = new ContactService();
@@ -260,19 +266,21 @@ describe("Complaint", () => {
             it("reasons to close should be [Createdinerror, Duplicate, Redirection]", () => {
                 // Arrange
                 const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
-                const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
-                closeReasonAttribute.controls.get("opc_closereason");
+                const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason")
+                const closeReasonControlSpy = sandbox.spy(closeReasonControl);
+                closeReasonAttribute.setOptions(closeReasons);
+
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+                mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
 
                 // Assert
-                closeReasonAttributeSpy.getOptions().length.should.equal(3);
-                closeReasonAttributeSpy.getOptions().should.contain.deep.members([
-                    { value: opc_closereason.Createdinerror },
-                    { value: opc_closereason.Duplicate },
-                    { value: opc_closereason.Redirection }
+                closeReasonControlSpy.getOptions().length.should.equal(3);
+                closeReasonControlSpy.getOptions().should.have.deep.members([
+                    { text: "Redirection", value: opc_closereason.Redirection },
+                    { text: "Resolved", value: opc_closereason.Resolved },
+                    { text: "Withdrawn", value: opc_closereason.Withdrawn }
                 ]);
             });
         });
@@ -316,19 +324,20 @@ describe("Complaint", () => {
         it("reasons to close should be [Redirection, Resolved, Withdrawn]", () => {
             // Arrange
             const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
-            const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
-            closeReasonAttribute.controls.get("opc_closereason");
+            const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason")
+            const closeReasonControlSpy = sandbox.spy(closeReasonControl);
+            closeReasonAttribute.setOptions(closeReasons);
             mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
 
             // Act
             mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
 
             // Assert
-            closeReasonAttributeSpy.getOptions().length.should.equal(3);
-            closeReasonAttributeSpy.getOptions().should.contain.deep.members([
-                { value: opc_closereason.Redirection },
-                { value: opc_closereason.Resolved },
-                { value: opc_closereason.Withdrawn }
+            closeReasonControlSpy.getOptions().length.should.equal(3);
+            closeReasonControlSpy.getOptions().should.have.deep.members([
+                { text: "Created in error", value: opc_closereason.Createdinerror },
+                { text: "Duplicate", value: opc_closereason.Duplicate },
+                { text: "Redirection", value: opc_closereason.Redirection }
             ]);
         });
 

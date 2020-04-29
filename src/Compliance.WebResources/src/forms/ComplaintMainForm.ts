@@ -35,6 +35,7 @@ export namespace Complaint.Forms {
 
             // Sequence matters
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
+            formContext.getAttribute("opc_intakedisposition").fireOnChange();
 
             this.setupDuplicateContactChecking(formContext);
         }
@@ -82,7 +83,6 @@ export namespace Complaint.Forms {
             const isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
             const closeReasons = formContext.getAttribute("opc_closereason").getOptions();
 
-            formContext.getAttribute("opc_intakedisposition").controls.forEach(control => XrmHelper.toggle(control, isRecommending === opc_yesorno.Yes));
             formContext.getAttribute("opc_closereason").controls.forEach(control => {
 
                 // Toggle visibility
@@ -100,8 +100,9 @@ export namespace Complaint.Forms {
                     control.addOption(closeReasons.find(p => p.value == opc_closereason.Redirection));
                 }
             });
-            formContext.getAttribute("opc_intakedisposition").setRequiredLevel(isRecommending === opc_yesorno.Yes ? "required" : "none");
             formContext.getAttribute("opc_closereason").setRequiredLevel(isRecommending === opc_yesorno.No ? "required" : "none");
+            formContext.getAttribute("opc_intakedisposition").controls.forEach(control => XrmHelper.toggle(control, isRecommending === opc_yesorno.Yes));
+            formContext.getAttribute("opc_intakedisposition").setRequiredLevel(isRecommending === opc_yesorno.Yes ? "required" : "none");
         }
 
         /**
@@ -157,10 +158,6 @@ export namespace Complaint.Forms {
             const currentStage = formContext.data.process.getActiveStage().getName().toLowerCase();
             switch (currentStage) {
                 case "acceptance":
-                    const disposition = formContext.getAttribute("opc_intakedisposition").getValue();
-                    if (disposition == opc_intakedisposition.MovetoEarlyResolution || disposition == opc_intakedisposition.MovetoInvestigation) {
-                        formContext.getAttribute("opc_acceptancedate").setRequiredLevel("required");
-                    }
                 case "triage":
                 case "intake":
                     formContext.ui.tabs.get("tab_issues").setVisible(false);

@@ -3,14 +3,16 @@ import { INamedComponent } from "./INamedComponent";
 import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmControlMock } from "./XrmControlMock";
 
-export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
+export class XrmAttributeMock
+    implements Xrm.Attribute<any>, Xrm.OptionSetAttribute<any>, INamedComponent {
 
     private _executionContext: XrmExecutionContextMock<any, any>;
     private _name: string;
     private _value: any;
     private _onChangeHandlers: ((context?: Xrm.ExecutionContext<this, any>) => any)[] = [];
     private _requiredLevel: Xrm.AttributeRequiredLevel;
-
+    private _options: Xrm.Option<any>[] = [];
+    
     controls: XrmCollectionMock<XrmControlMock>;
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
@@ -21,6 +23,11 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     /* NEW MEMBERS TO HELP MOCKING */
     setName(name: string): void {
         this._name = name;
+    }
+    setOptions(options: Xrm.Option<any>[]) {
+        this._options = options;
+        // Clone array into controls
+        this.controls.forEach(a => a.setOptions([...options]));
     }
     /* END OF NEW MEMBERS*/
 
@@ -36,10 +43,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     getFormat(): Xrm.AttributeFormat {
         throw new Error("Method not implemented.");
     }
-    getOptions(): Xrm.Option<any>[] {
-        // TODO: Implement for testing
-        return [];
-    }
+
     getIsDirty(): boolean {
         throw new Error("Method not implemented.");
     }
@@ -84,4 +88,25 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, INamedComponent {
     setIsValid(): void{
         throw new Error("Method not implemented.");
     }
+
+    /* BEGIN OptionSetAttribute Members */
+    getInitialValue() {
+        throw new Error("Method not implemented.");
+    }
+    getText(): string {
+        throw new Error("Method not implemented.");
+    }
+    getOption(value: string): Xrm.Option<any>;
+    getOption(value: any): Xrm.Option<any>;
+    getOption(value: any) {
+        return this._options.find(p => p.value == value);
+    }
+    getOptions(): Xrm.Option<any>[] {
+        // TODO: Implement for testing
+        return this._options;
+    }
+    getSelectedOption(): Xrm.Option<any> {
+        throw new Error("Method not implemented.");
+    }
+    /* END OF OptionSetAttribte Members */
 }

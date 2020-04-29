@@ -1,8 +1,19 @@
 ﻿import { XrmBaseControlMock } from "./XrmBaseControlMock";
 import { XrmAttributeMock } from "./XrmAttributeMock";
+
 export class XrmControlMock extends XrmBaseControlMock
-    implements Xrm.Control<XrmAttributeMock> {
+    implements Xrm.Control<XrmAttributeMock>, Xrm.OptionSetControl<any> {
+
     private _isDisabled: boolean;
+    private _options: Xrm.Option<any>[] = [];
+
+    /* NEW MEMBERS TO HELP MOCKING */
+    setOptions(options: Xrm.Option<any>[]) {
+        this._options = options;
+    }
+    /* END OF NEW MEMBERS*/
+
+
     getAttribute(): XrmAttributeMock {
         return this.context.getFormContext().getAttribute(this.getName());
     }
@@ -15,29 +26,20 @@ export class XrmControlMock extends XrmBaseControlMock
     addNotification(notification: Xrm.AddNotificationObject): void {
         throw new Error("Method not implemented.");
     }
+
+    /* OptionSetControl members */
+    addOption(option: Xrm.Option<any>, index?: number): void {
+        if (index) this._options = this._options.splice(index, 0, option);
+        else this._options.push(option);
+    }
+    clearOptions(): void {
+        this._options.splice(0, this._options.length);
+    }
+    removeOption(number: number): void {
+        this._options = this._options.splice(number, 1);
+    }
+    getOptions(): Xrm.Option<any>[] {
+        return this._options;
+    }
+    /* end of OptionSetControl members */
 }
-
-
-//export class XrmOptionSetControlMock
-//    extends XrmControlMock
-//    implements Xrm.OptionSetControl<any> {
-
-//    getAttribute() : Xrm.OptionSetAttribute<any> {
-//        //return this.context.getFormContext().getAttribute(this.getName());
-//        return null;
-//    }
-
-//    addOption(option: Xrm.Option<any>, index?: number): void {
-//        throw new Error("Method not implemented.");
-//    }
-//    clearOptions(): void {
-//        throw new Error("Method not implemented.");
-//    }
-//    removeOption(number: number): void {
-//        throw new Error("Method not implemented.");
-//    }
-//    getOptions(): Xrm.Option<any>[] {
-//        throw new Error("Method not implemented.");
-//    }
-    
-//}
