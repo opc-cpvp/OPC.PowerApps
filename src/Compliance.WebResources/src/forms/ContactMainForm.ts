@@ -112,8 +112,9 @@ export namespace Contact.Forms {
         private multipleComplaintStrategy_ConfirmDialog(context: Xrm.SaveEventContext<Xrm.PageEntity<Form.contact.Main.ComplianceContact.Attributes>>): void {
             const formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
             const multipleComplaintStrategy = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
+            const mcsFieldIsDirty = formContext.getAttribute("opc_multiplecomplaintstrategy").getIsDirty();
 
-            if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._saveEventConfirmed) {
+            if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._saveEventConfirmed && mcsFieldIsDirty) {
                 const confirmStrings = {
                     text: "You are about to include this contact in the Multiple Complaint Strategy list. Would you like to proceed?",
                     title: "Multiple Complaint Strategy Confirmation"
