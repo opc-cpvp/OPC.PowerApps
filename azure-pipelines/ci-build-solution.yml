@@ -108,12 +108,24 @@ steps:
     target: xml
     unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
-    
+
 - task: PowerShell@2
   displayName: 'Generate Managed Files'
   inputs:
     filePath: 'azure-pipelines/scripts/create_managed_files.ps1'
     workingDirectory: 'src/$(SolutionName).Solution/Solution'
+    
+- task: MagicChunks@2
+  displayName: 'Update Managed State of Solution'
+  inputs:
+    sourcePath: 'src/$(SolutionName).Solution/Solution/Other/Solution.xml'
+    fileType: 'Xml'
+    targetPathType: 'source'
+    transformationType: 'json'
+    transformations: |
+      {
+        "ImportExportXml/SolutionManifest/Managed": "2"
+      }
 
 - task: MagicChunks@2
   displayName: 'Update Managed State of Solution'

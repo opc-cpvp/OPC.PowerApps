@@ -40,6 +40,7 @@
     <Folder Include="js\" />
     <Folder Include="js\lib\" />
     <Folder Include="js\lib\xrmquery\" />
+    <Folder Include="src\utils\" />
     <Folder Include="src\" />
     <Folder Include="src\controls\" />
     <Folder Include="src\controls\Checklist\" />
@@ -48,6 +49,8 @@
     <Folder Include="src\forms\" />
     <Folder Include="src\helpers\" />
     <Folder Include="src\services\" />
+    <Folder Include="src\utils\NotificationIcons\" />
+    <Folder Include="src\utils\NotificationIcons\imgs\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -60,9 +63,13 @@
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
+    <TypeScriptCompile Include="src\enums.ts" />
     <TypeScriptCompile Include="src\factories\ControlFactory.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\ContactMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\ContactMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\AllegationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
@@ -75,15 +82,22 @@
     <TypeScriptCompile Include="src\inversify.config.ts" />
     <TypeScriptCompile Include="src\services\ChecklistService.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />
+    <TypeScriptCompile Include="src\services\ContactService.ts" />
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
     <TypeScriptCompile Include="src\services\NotificationService.ts" />
     <TypeScriptCompile Include="src\services\ReminderService.ts" />
+    <TypeScriptCompile Include="src\services\UserService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
+    <TypeScriptCompile Include="src\utils\NotificationIcons\NotificationIcons.ts" />
     <TypeScriptCompile Include="test\INamedComponent.ts" />
-    <TypeScriptCompile Include="test\XrmContextMock.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="test\XrmContextMock.ts" />
+    <TypeScriptCompile Include="test\XrmLookupAttributeMock.ts" />
+    <TypeScriptCompile Include="test\XrmOptionMock.ts" />
+    <TypeScriptCompile Include="test\XrmOptionSetAttributeMock.ts" />
+    <TypeScriptCompile Include="test\XrmOptionSetControlMock.ts" />
+    <TypeScriptCompile Include="test\XrmRoleMock.ts" />
     <TypeScriptCompile Include="test\XrmUserSettingsMock.ts" />
+    <TypeScriptCompile Include="test\XrmUtilityMock.ts" />
     <TypeScriptCompile Include="test\XrmSaveEventContextMock.ts" />
     <TypeScriptCompile Include="test\XrmNavigationMock.ts" />
     <TypeScriptCompile Include="test\XrmAttributeMock.ts" />
@@ -115,6 +129,8 @@
     <Content Include="src\controls\Checklist\ChecklistControl.html" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
+    <Content Include="src\utils\NotificationIcons\imgs\icon64x64_read_notification.png" />
+    <Content Include="src\utils\NotificationIcons\imgs\icon64x64_unread_notification.png" />
     <Content Include="tsconfig.json" />
     <Content Include="webpack.config.js" />
   </ItemGroup>

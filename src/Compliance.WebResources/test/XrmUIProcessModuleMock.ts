@@ -1,6 +1,7 @@
 ﻿export class XrmUIProcessModuleMock implements Xrm.UiProcessModule {
     private _displayState: Xrm.CollapsableDisplayState;
     private _isVisible: boolean;
+
     getDisplayState(): Xrm.CollapsableDisplayState {
         return this._displayState;
     }
