@@ -30,20 +30,25 @@ export class XrmCollectionMock<T extends INamedComponent> extends XrmCollectionB
     get(chooser: Xrm.CollectionChooser<T>): T[];
     get(param?: any) {
         let obj: T;
+        let objInCollection: T;
         if (param === undefined || param === null)
             return null;
         if (typeof param === "number") {
-            obj = this.collection[param] || new this.type(...this.args);
-            this.collection.push(obj);
+            objInCollection = this.collection[param];
+            obj = objInCollection ? objInCollection : new this.type(...this.args);
+            if (!objInCollection) this.collection.push(obj);
         }
         if (typeof param === "string") {
-            obj = this.collection.find(t => t.getName() == param) || new this.type(...this.args);
-            obj.setName(param);
-            this.collection.push(obj);
+            objInCollection = this.collection.find(t => t.getName() == param);
+            obj = objInCollection ? objInCollection : new this.type(...this.args);
+            if (!objInCollection) {
+                obj.setName(param);
+                this.collection.push(obj);
+            }
             return obj;
         }
         else {
-            // For this method, result will have to be mocked manually.
+            // For this method, results will have to be mocked manually.
             return this.collection.filter(param);
         }
     }

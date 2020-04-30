@@ -10,9 +10,8 @@ namespace Compliance.Plugins.Tests
 {
     public class MultiLanguagePluginTests
     {
-        private const string prefix = "|^|";
-        private const string UserLocaleId = "UserLocaleId";
-        private static readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
+        private const string Prefix = "|^|";
+        private const string LanguageKey = "uilanguageid";
 
         public class when_creating_multilanguageitem
         {
@@ -57,7 +56,7 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 var theme = GetMockedMultiLanguageItem();
-                var expectedName = $"{prefix}{theme.opc_nameenglish}|{theme.opc_namefrench}";
+                var expectedName = $"{Prefix}{theme.opc_nameenglish}|{theme.opc_namefrench}";
 
                 var inputs = new ParameterCollection { { "Target", theme } };
 
@@ -165,7 +164,7 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var expectedName = $"{prefix}{multiLanguageEntity.opc_nameenglish}|{multiLanguageEntity.opc_namefrench}";
+                var expectedName = $"{Prefix}{multiLanguageEntity.opc_nameenglish}|{multiLanguageEntity.opc_namefrench}";
 
                 var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
 
@@ -234,7 +233,7 @@ namespace Compliance.Plugins.Tests
                 {
                     Id = Guid.NewGuid(),
                     opc_islocalizable = true,
-                    opc_name = $"{prefix}Technology|Technologie",
+                    opc_name = $"{Prefix}Technology|Technologie",
                     opc_nameenglish = "Technology",
                     opc_namefrench = "Technologie"
                 };
@@ -254,7 +253,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.Retrieve;
-                pluginContext.SharedVariables.Add(UserLocaleId, languages["french"]);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -277,7 +276,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.Retrieve;
-                pluginContext.SharedVariables.Add(UserLocaleId, languages["english"]);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -293,8 +292,8 @@ namespace Compliance.Plugins.Tests
             {
                 EntityCollection entityCollectionThemes = new EntityCollection();
 
-                entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Technology", opc_namefrench = "Technologie", opc_name = $"{prefix}Technology|Technologie" });
-                entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques", opc_name = $"{prefix}Public Services|Services Publiques" });
+                entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Technology", opc_namefrench = "Technologie", opc_name = $"{Prefix}Technology|Technologie" });
+                entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques", opc_name = $"{Prefix}Public Services|Services Publiques" });
 
                 return entityCollectionThemes;
             }
@@ -311,7 +310,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
-                pluginContext.SharedVariables.Add(UserLocaleId, languages["french"]);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -335,7 +334,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
-                pluginContext.SharedVariables.Add(UserLocaleId, languages["english"]);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -356,10 +355,10 @@ namespace Compliance.Plugins.Tests
                 {
                     Id = Guid.NewGuid(),
                     opc_islocalizable = true,
-                    opc_name = $"{prefix}Artificial Intelligence|Intelligence Artificielle",
+                    opc_name = $"{Prefix}Artificial Intelligence|Intelligence Artificielle",
                     opc_nameenglish = "Artificial Intelligence",
                     opc_namefrench = "Intelligence Artificielle",
-                    opc_themeid = new EntityReference() { Name = $"{prefix}Technology|Technologie" }
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Technology|Technologie" }
                 };
             }
 
@@ -375,7 +374,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.Retrieve;
-                pluginContext.SharedVariables.Add(UserLocaleId, languages["french"]);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -396,7 +395,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.Retrieve;
-                pluginContext.SharedVariables.Add(UserLocaleId, languages["english"]);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -416,10 +415,10 @@ namespace Compliance.Plugins.Tests
                 {
                     Id = Guid.NewGuid(),
                     opc_islocalizable = true,
-                    opc_name = $"{prefix}Artificial Intelligence|Intelligence Artificielle",
+                    opc_name = $"{Prefix}Artificial Intelligence|Intelligence Artificielle",
                     opc_nameenglish = "Artificial Intelligence",
                     opc_namefrench = "Intelligence Artificielle",
-                    opc_themeid = new EntityReference() { Name = $"{prefix}Technology|Technologie" },
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Technology|Technologie" },
                     opc_theme_topics_themeid = new opc_theme { opc_nameenglish = "Technology", opc_namefrench = "Technologie" }
                 });
 
@@ -427,10 +426,10 @@ namespace Compliance.Plugins.Tests
                 {
                     Id = Guid.NewGuid(),
                     opc_islocalizable = true,
-                    opc_name = $"{prefix}The Service|Le Service",
+                    opc_name = $"{Prefix}The Service|Le Service",
                     opc_nameenglish = "The Service",
                     opc_namefrench = "Le Service",
-                    opc_themeid = new EntityReference() { Name = $"{prefix}Public Services|Services Publiques" },
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Public Services|Services Publiques" },
                     opc_theme_topics_themeid = new opc_theme { opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques" }
                 });
 
@@ -448,7 +447,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
-                pluginContext.SharedVariables.Add(UserLocaleId, languages["french"]);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
@@ -471,7 +470,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
-                pluginContext.SharedVariables.Add(UserLocaleId, languages["english"]);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
