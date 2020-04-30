@@ -20,16 +20,8 @@ steps:
   displayName: 'MSCRM Export Configuration Migration Data'
   inputs:
     crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
-    schemaFile: src/$(SolutionName).Solution/lookups-schema.xml
-    dataFile: '$(Agent.TempDirectory)/data.zip'
-
-- task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractCMData.MSCRMExtractCMData@9
-  displayName: 'MSCRM Extract Configuration Migration Data'
-  inputs:
-    dataFile: '$(Agent.TempDirectory)/data.zip'
-    extractFolder: src/$(SolutionName).Solution/Data/Lookups
-    sortExtractedData: true
-    splitExtractedData: false
+    schemaFile: src/$(SolutionName).Solution/sampledata-schema.xml
+    dataFile: src/$(SolutionName).Solution/Data/sample-data.zip
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"

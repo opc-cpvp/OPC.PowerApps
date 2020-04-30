@@ -128,7 +128,7 @@
                               <ChartGridMode>Chart</ChartGridMode>
                               <VisualizationId>{624B3706-7464-EA11-A812-000D3AF46CC5}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
-                              <EnableChartPicker>false</EnableChartPicker>
+                              <EnableChartPicker>true</EnableChartPicker>
                               <RecordsPerPage>12</RecordsPerPage>
                               <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             </parameters>
