@@ -43,8 +43,8 @@ export namespace Allegation.Forms {
         }
 
         private dispositionreason_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_dispositionreason">, undefined>): any {
-            let formContext = <Form.opc_allegation.Main.Information>context.getFormContext();
-            let value = formContext.getAttribute("opc_dispositionreasonid").getValue();
+            const formContext = <Form.opc_allegation.Main.Information>context.getFormContext();
+            const value = formContext.getAttribute("opc_dispositionreasonid").getValue();
 
             // Only try to filter if there is a value
             if (value) {
@@ -61,10 +61,10 @@ export namespace Allegation.Forms {
         }
 
         private disposition_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_allegationdisposition>, undefined>): any {
-            let formContext = <Form.opc_allegation.Main.Information>context.getFormContext();
+            const formContext = <Form.opc_allegation.Main.Information>context.getFormContext();
 
             // Hardcoding dispositions that have reasons to save a query roundtrip
-            let isReasonAvailable = [opc_allegationdisposition.Unacceptable, opc_allegationdisposition.Resolved]
+            const isReasonAvailable = [opc_allegationdisposition.Unacceptable, opc_allegationdisposition.Resolved]
                 .includes(formContext.getAttribute("opc_disposition").getValue());
             formContext.getAttribute("opc_dispositionreasonid").controls.forEach(c => XrmHelper.toggle(c, isReasonAvailable, !this._initializing));
 
@@ -72,7 +72,6 @@ export namespace Allegation.Forms {
         }
 
         private dispositionaction_PreSearch(formContext: Form.opc_allegation.Main.Information) {
-            console.log(formContext.getAttribute("opc_dispositionreasonid").getValue()[0].id);
             formContext.getAttribute('opc_dispositionactionid').controls.forEach(
                 x => x.addCustomFilter(this._allegationService.getAllegationDispositionActionFilter(formContext.getAttribute("opc_dispositionreasonid").getValue()[0].id), 'opc_dispositionaction')
             );

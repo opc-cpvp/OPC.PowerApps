@@ -25,7 +25,7 @@ export namespace Complaint.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
-            let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
+            const formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
             formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
@@ -37,6 +37,7 @@ export namespace Complaint.Forms {
             // Sequence matters
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
             formContext.getAttribute("opc_intakedisposition").fireOnChange();
+            formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
 
             this.setupDuplicateContactChecking(formContext);
         }
@@ -50,7 +51,7 @@ export namespace Complaint.Forms {
         }
 
         private getDuplicateStatus(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, any>, contactType: ContactType): void {
-            let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             const contact = context.getEventSource().getValue();
             const duplicationNotificationId = `duplicateNotificationId - ${contactType}`;
 

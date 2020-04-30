@@ -34,9 +34,6 @@ describe("Complaint", () => {
     // Initialize the form for every test
     beforeEach(() => {
         initializeMock()
-
-        // No contact
-        mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
     });
 
     afterEach(function () {
@@ -48,6 +45,7 @@ describe("Complaint", () => {
         it("it should not have duplicate contact notification if no contact exists", async () => {
             // Arrange
             let getDuplicateDup = sandbox.stub(contactService, nameof(contactService.getDuplicateStatus)).resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
+            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
 
             // Act
             form.initializeComponents(mockContext);
@@ -362,7 +360,6 @@ describe("Complaint", () => {
     describe("when the complainant is part of the Multiple Complaint Strategy", () => {
 
         beforeEach(function () {
-            initializeMock();
             form.initializeComponents(mockContext);
         });
 
@@ -384,7 +381,6 @@ describe("Complaint", () => {
     describe("when the complainant is not part of the Multiple Complaint Strategy", () => {
 
         beforeEach(function () {
-            initializeMock();
             //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockContext);
         });
