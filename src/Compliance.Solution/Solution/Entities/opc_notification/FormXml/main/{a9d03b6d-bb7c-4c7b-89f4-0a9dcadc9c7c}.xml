@@ -90,7 +90,14 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
-            <cell id="{6f327651-93b7-47b3-9e53-7d5ee6aa0568}" showlabel="true" locklevel="0">
+            <cell id="{e170efc0-5675-42c3-b296-bf027d3ab313}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+            <cell id="{6f327651-93b7-47b3-9e53-7d5ee6aa0568}" showlabel="true" locklevel="0" visible="false">
               <labels>
                 <label description="Status" languagecode="1033" />
                 <label description="Statut" languagecode="1036" />
@@ -103,13 +110,6 @@
                 <label description="Raison du statut" languagecode="1036" />
               </labels>
               <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
-            </cell>
-            <cell id="{e170efc0-5675-42c3-b296-bf027d3ab313}">
-              <labels>
-                <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
-              </labels>
-              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>
           </row>
         </rows>

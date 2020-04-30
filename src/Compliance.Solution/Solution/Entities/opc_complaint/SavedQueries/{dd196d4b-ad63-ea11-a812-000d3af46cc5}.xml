@@ -11,7 +11,12 @@
       <grid name="resultset" jump="opc_number" select="1" icon="1" preview="1">
         <row name="result" id="opc_complaintid">
           <cell name="opc_number" width="300" />
-          <cell name="opc_actualriskappetitevalue" width="165" />
+          <cell name="opc_accountid" width="198" />
+          <cell name="opc_complainant" width="173" />
+          <cell name="opc_complaintdisposition" width="192" />
+          <cell name="opc_actualriskappetitevalue" width="183" />
+          <cell name="opc_opcpriorityid" width="157" />
+          <cell name="opc_sectorid" width="188" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -30,6 +35,11 @@
             <condition attribute="statecode" operator="eq" value="0" />
             <condition attribute="createdon" operator="last-x-years" value="1" />
           </filter>
+          <attribute name="opc_accountid" />
+          <attribute name="opc_complainant" />
+          <attribute name="opc_complaintdisposition" />
+          <attribute name="opc_opcpriorityid" />
+          <attribute name="opc_sectorid" />
         </entity>
       </fetch>
     </fetchxml>

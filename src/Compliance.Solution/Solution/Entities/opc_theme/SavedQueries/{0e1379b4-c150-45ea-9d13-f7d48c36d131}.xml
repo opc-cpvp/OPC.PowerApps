@@ -23,6 +23,7 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <order attribute="opc_name" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

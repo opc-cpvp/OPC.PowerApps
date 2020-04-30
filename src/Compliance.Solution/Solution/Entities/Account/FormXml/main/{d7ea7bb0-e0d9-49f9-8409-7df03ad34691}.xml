@@ -78,15 +78,6 @@
                         <control id="parentaccountid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentaccountid" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{5f38af3a-3307-47dc-b36d-d9a5de525e6e}" showlabel="true" labelid="{4399f058-5503-40af-8537-30606b46a5c8}">
-                        <labels>
-                          <label description="Ticker Symbol" languagecode="1033" />
-                          <label description="Symbole de l’action" languagecode="1036" />
-                        </labels>
-                        <control id="tickersymbol" classid="{1E1FC551-F7A8-43af-AC34-A8DC35C7B6D4}" datafieldname="tickersymbol" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
                 <section name="section_address" showlabel="true" locklevel="0" showbar="false" id="{cc0fe06e-4b5f-4648-A62d-84d1514e1fc5}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" labelid="{23458a1c-ca71-40fc-9b9e-e57444f72710}" celllabelalignment="Left">
@@ -340,15 +331,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{930beba3-d531-0808-c403-de95e2ac3e62}" showlabel="true" labelid="{9989e4e8-e08f-4401-96a6-890f792a6173}">
-                        <labels>
-                          <label description="SIC Code" languagecode="1033" />
-                          <label description="Code NACE" languagecode="1036" />
-                        </labels>
-                        <control id="sic" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sic" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{1c33ad89-92a1-8433-2378-306259eb57c0}" showlabel="true" labelid="{8cb54ca1-894f-4392-a99f-f1a1d0fe99ca}">
                         <labels>
                           <label description="Ownership" languagecode="1033" />
@@ -464,76 +446,6 @@
             </column>
             <column width="33%">
               <sections>
-                <section name="section_billing" showlabel="true" showbar="false" id="{910de80a-a17e-092a-255d-44d775cb4207}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" locklevel="0" celllabelalignment="Left" labelid="{32a57a46-cbb5-41f5-b8f0-56f3d49c718b}">
-                  <labels>
-                    <label description="Billing" languagecode="1033" />
-                    <label description="FACTURATION" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{7cd2b88c-b25c-4729-9c27-f59ebb5a1538}" labelid="{a4d152d8-952b-4f2e-a9d2-31a12c182493}">
-                        <labels>
-                          <label description="Currency" languagecode="1033" />
-                          <label description="Devise" languagecode="1036" />
-                        </labels>
-                        <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{0125719c-a5b0-4230-9817-3fba5d6ebfaf}" labelid="{0e0ce611-5584-4278-9675-4aa49ef11a2b}">
-                        <labels>
-                          <label description="Credit Limit" languagecode="1033" />
-                          <label description="Limite de crédit" languagecode="1036" />
-                        </labels>
-                        <control id="creditlimit" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="creditlimit" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{abc2c862-bcd4-4a4b-ac51-c311d4e66d5b}" labelid="{a938faaa-aed1-4602-bd97-d6a2ae587752}">
-                        <labels>
-                          <label description="Credit Hold" languagecode="1033" />
-                          <label description="Suspension de crédit" languagecode="1036" />
-                        </labels>
-                        <control id="creditonhold" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="creditonhold" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{0bab9157-d14e-441f-969d-80460634c15e}" labelid="{5d979021-f89f-468d-8552-d8d79ac20afe}">
-                        <labels>
-                          <label description="Payment Terms" languagecode="1033" />
-                          <label description="Conditions de paiement" languagecode="1036" />
-                        </labels>
-                        <control id="paymenttermscode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="paymenttermscode" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-                <section name="section_shipping" showlabel="true" showbar="false" id="{d61ba33b-9648-d541-459d-ae145a6854db}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" locklevel="0" celllabelalignment="Left" labelid="{e28df721-88f2-42e5-9b02-35c3c951daac}">
-                  <labels>
-                    <label description="Shipping" languagecode="1033" />
-                    <label description="EXPÉDITION" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{4d2e776d-7d85-c51b-3900-1ae7323b0a6b}" showlabel="true" labelid="{bb036325-efe2-4726-841c-3761e033db44}">
-                        <labels>
-                          <label description="Shipping Method" languagecode="1033" />
-                          <label description="Mode de livraison" languagecode="1036" />
-                        </labels>
-                        <control id="address1_shippingmethodcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="address1_shippingmethodcode" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{02719696-a5da-b791-48c3-4e8cb8b110d5}" showlabel="true" labelid="{5dd4d2e6-4b18-40cb-9684-501aead3fc6b}">
-                        <labels>
-                          <label description="Freight Terms" languagecode="1033" />
-                          <label description="Conditions de transport" languagecode="1036" />
-                        </labels>
-                        <control id="address1_freighttermscode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="address1_freighttermscode" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
                 <section name="section_child_accounts" showlabel="true" showbar="false" locklevel="0" id="{1e0e4517-ba6b-1540-53a9-09647d67443a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{fb1be4b8-281d-4caa-a70e-5ec2db4fb91d}">
                   <labels>
                     <label description="Child Accounts" languagecode="1033" />
@@ -582,20 +494,6 @@
       <header id="{d5a03552-1183-4347-a237-1f894ba449eb}" columns="111" celllabelposition="Top" labelwidth="115">
         <rows>
           <row>
-            <cell id="{d3e19d4e-b2ae-409f-9b4e-5976527c6c83}" labelid="{029b4bf8-a5ea-4753-b61d-f622b1646504}">
-              <labels>
-                <label description="Annual Revenue" languagecode="1033" />
-                <label description="Chiffre d’affaires annuel" languagecode="1036" />
-              </labels>
-              <control id="header_revenue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="revenue" uniqueid="{4b6965e9-81eb-5704-2abd-2563ccb9b333}" />
-            </cell>
-            <cell id="{2adb5a52-604d-5aad-ba6a-2bbab6c33594}" showlabel="true" labelid="{0f24c945-98c4-4066-a1d7-c8097824dd88}">
-              <labels>
-                <label description="Number of Employees" languagecode="1033" />
-                <label description="Nombre d'employés" languagecode="1036" />
-              </labels>
-              <control id="header_numberofemployees" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="numberofemployees" />
-            </cell>
             <cell id="{54b2d0a2-eb77-b3cd-b60a-03ea6944e98e}" showlabel="true" locklevel="1" labelid="{ff0f9499-cc4c-4a6c-801b-5f7f36150c37}">
               <labels>
                 <label description="Owner" languagecode="1033" />

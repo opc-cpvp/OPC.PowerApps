@@ -14,6 +14,7 @@
           <cell name="opc_description" width="300" />
           <cell name="opc_disposition" width="153" />
           <cell name="opc_dispositionreasonid" width="300" />
+          <cell name="createdon" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -29,6 +30,7 @@
           <attribute name="opc_disposition" />
           <attribute name="opc_allegationid" />
           <attribute name="opc_dispositionreasonid" />
+          <attribute name="createdon" />
         </entity>
       </fetch>
     </fetchxml>

@@ -11,6 +11,12 @@
       <grid name="resultset" jump="opc_number" select="1" icon="1" preview="1">
         <row name="result" id="opc_complaintid">
           <cell name="opc_number" width="300" />
+          <cell name="opc_accountid" width="206" />
+          <cell name="opc_complainant" width="194" />
+          <cell name="opc_complaintdisposition" width="200" />
+          <cell name="opc_actualriskappetitevalue" width="165" />
+          <cell name="opc_opcpriorityid" width="162" />
+          <cell name="opc_sectorid" width="208" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -26,6 +32,12 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="1" />
           </filter>
+          <attribute name="opc_accountid" />
+          <attribute name="opc_complainant" />
+          <attribute name="opc_complaintdisposition" />
+          <attribute name="opc_actualriskappetitevalue" />
+          <attribute name="opc_opcpriorityid" />
+          <attribute name="opc_sectorid" />
         </entity>
       </fetch>
     </fetchxml>

@@ -52,7 +52,7 @@
             <displayname description="Duplicate Detection Result" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Result from duplicate detection verification" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Telephone1">

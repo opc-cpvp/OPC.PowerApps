@@ -10,7 +10,9 @@
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_riskassessmentcategorytemplateid">
+          <cell name="opc_sequence" width="100" />
           <cell name="opc_name" width="300" />
+          <cell name="opc_riskassessmenttype" width="203" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -22,10 +24,13 @@
           <attribute name="opc_riskassessmentcategorytemplateid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
-          <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="1" />
           </filter>
+          <attribute name="opc_riskassessmenttype" />
+          <attribute name="opc_sequence" />
+          <order attribute="opc_sequence" descending="false" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

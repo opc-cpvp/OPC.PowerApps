@@ -185,6 +185,13 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{759540a2-2de8-478d-83bb-f45ac0bfa911}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
             <cell id="{e86a7fed-3c52-4e99-a132-b9236e689225}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Risk Assessment" languagecode="1033" />
@@ -217,13 +224,6 @@
                   <AllowFilterOff>false</AllowFilterOff>
                 </parameters>
               </control>
-            </cell>
-            <cell id="{759540a2-2de8-478d-83bb-f45ac0bfa911}">
-              <labels>
-                <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
-              </labels>
-              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>
           </row>
         </rows>
@@ -274,7 +274,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

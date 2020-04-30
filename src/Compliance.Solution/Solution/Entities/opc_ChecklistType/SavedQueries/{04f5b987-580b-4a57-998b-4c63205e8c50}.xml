@@ -11,7 +11,7 @@
       <grid name="opc_checklisttypes" jump="opc_name" select="1" icon="1" preview="0">
         <row name="opc_checklisttype" id="opc_checklisttypeid">
           <cell name="opc_name" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="opc_type" width="191" />
         </row>
       </grid>
     </layoutxml>
@@ -21,10 +21,10 @@
         <entity name="opc_checklisttype">
           <attribute name="opc_checklisttypeid" />
           <attribute name="opc_name" />
-          <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="opc_type" />
         </entity>
       </fetch>
     </fetchxml>

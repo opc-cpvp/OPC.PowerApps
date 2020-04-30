@@ -12,7 +12,6 @@
         <row name="result" id="opc_legislationid">
           <cell name="opc_acronym" width="100" />
           <cell name="opc_name" width="300" />
-          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -22,7 +21,6 @@
         <entity name="opc_legislation">
           <attribute name="opc_legislationid" />
           <attribute name="opc_name" />
-          <attribute name="createdon" />
           <attribute name="opc_acronym" />
           <order attribute="opc_acronym" descending="false" />
         </entity>

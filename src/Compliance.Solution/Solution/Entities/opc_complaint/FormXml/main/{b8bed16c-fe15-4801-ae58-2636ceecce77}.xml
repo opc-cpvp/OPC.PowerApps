@@ -79,20 +79,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}" showlabel="true" locklevel="1" colspan="1">
-                        <labels>
-                          <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
-                        </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{9b16320b-5e25-7005-203a-488178664a0a}" disabled="false">
-                          <parameters>
-                            <AutoResolve>true</AutoResolve>
-                            <DisableMru>false</DisableMru>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{b7eaa1ef-a333-4619-8654-f52b0dc2e439}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="Respondent" languagecode="1033" />
@@ -487,6 +473,18 @@
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
+            </cell>
+            <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}" showlabel="true" locklevel="1" colspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{9b16320b-5e25-7005-203a-488178664a0a}" disabled="false">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
             </cell>
             <cell id="{e461ae48-d330-4ab6-909b-840280ea0d1b}" showlabel="true" locklevel="0">
               <labels>

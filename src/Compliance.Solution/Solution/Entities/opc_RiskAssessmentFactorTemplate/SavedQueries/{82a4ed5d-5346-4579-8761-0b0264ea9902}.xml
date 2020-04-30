@@ -11,7 +11,7 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_riskassessmentfactortemplateid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_riskassessmentcategorytemplate" width="257" />
+          <cell name="opc_riskassessmentcategorytemplate" width="293" />
           <cell name="opc_sequence" width="100" />
           <cell name="createdon" width="125" />
         </row>
@@ -28,9 +28,10 @@
           </filter>
           <attribute name="opc_riskassessmentcategorytemplate" />
           <attribute name="opc_sequence" />
+          <attribute name="opc_riskassessmentfactortemplateid" />
           <order attribute="opc_riskassessmentcategorytemplate" descending="false" />
           <order attribute="opc_sequence" descending="false" />
-          <attribute name="opc_riskassessmentfactortemplateid" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

@@ -259,7 +259,10 @@ declare const enum opc_allegationdisposition {
   Acceptable = 924340000,
   Unacceptable = 924340001,
   Withdrawn = 924340002,
-  Resolved = 924340003,
+  Resolved_2 = 924340003,
+  RedirectedtoInstitution = 924340004,
+  Resolved = 924340005,
+  Unresponsiveinquirer = 924340006,
 }
 declare const enum opc_allegation_statuscode {
   Active = 1,
@@ -372,7 +375,14 @@ declare const enum opc_individualcomplaint_bp_statecode {
   Inactive = 1,
 }
 declare const enum processstage_category {
+  Qualify = 0,
+  Develop = 1,
+  Propose = 2,
   Close = 3,
+  Identify = 4,
+  Research = 5,
+  Resolve = 6,
+  Approval = 7,
   Triage = 924340000,
   Intake = 924340001,
   Acceptance = 924340002,
@@ -557,7 +567,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11091,
+  Complaint = 11118,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -719,12 +729,10 @@ declare namespace Form.account.Main {
   namespace ComplianceAccount {
     namespace Tabs {
       interface tab_details extends Xrm.SectionCollectionBase {
-        get(name: "section_billing"): Xrm.PageSection;
         get(name: "section_child_accounts"): Xrm.PageSection;
         get(name: "section_company_profile"): Xrm.PageSection;
         get(name: "section_contact_preferences"): Xrm.PageSection;
         get(name: "section_description"): Xrm.PageSection;
-        get(name: "section_shipping"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -745,15 +753,11 @@ declare namespace Form.account.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "address1_city"): Xrm.Attribute<string>;
       get(name: "address1_country"): Xrm.Attribute<string>;
-      get(name: "address1_freighttermscode"): Xrm.OptionSetAttribute<account_address1_freighttermscode>;
       get(name: "address1_line1"): Xrm.Attribute<string>;
       get(name: "address1_line2"): Xrm.Attribute<string>;
       get(name: "address1_line3"): Xrm.Attribute<string>;
       get(name: "address1_postalcode"): Xrm.Attribute<string>;
-      get(name: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<account_address1_shippingmethodcode>;
       get(name: "address1_stateorprovince"): Xrm.Attribute<string>;
-      get(name: "creditlimit"): Xrm.NumberAttribute;
-      get(name: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
       get(name: "description"): Xrm.Attribute<string>;
       get(name: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
       get(name: "donotemail"): Xrm.OptionSetAttribute<boolean>;
@@ -764,18 +768,12 @@ declare namespace Form.account.Main {
       get(name: "followemail"): Xrm.OptionSetAttribute<boolean>;
       get(name: "industrycode"): Xrm.OptionSetAttribute<account_industrycode>;
       get(name: "name"): Xrm.Attribute<string>;
-      get(name: "numberofemployees"): Xrm.NumberAttribute;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "ownershipcode"): Xrm.OptionSetAttribute<account_ownershipcode>;
       get(name: "parentaccountid"): Xrm.LookupAttribute<"account">;
-      get(name: "paymenttermscode"): Xrm.OptionSetAttribute<account_paymenttermscode>;
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<account_preferredcontactmethodcode>;
       get(name: "primarycontactid"): Xrm.LookupAttribute<"contact">;
-      get(name: "revenue"): Xrm.NumberAttribute;
-      get(name: "sic"): Xrm.Attribute<string>;
       get(name: "telephone1"): Xrm.Attribute<string>;
-      get(name: "tickersymbol"): Xrm.Attribute<any>;
-      get(name: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
       get(name: "websiteurl"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -787,15 +785,11 @@ declare namespace Form.account.Main {
       get(name: "Contacts"): Xrm.SubGridControl<"contact">;
       get(name: "address1_city"): Xrm.StringControl;
       get(name: "address1_country"): Xrm.StringControl;
-      get(name: "address1_freighttermscode"): Xrm.OptionSetControl<account_address1_freighttermscode>;
       get(name: "address1_line1"): Xrm.StringControl;
       get(name: "address1_line2"): Xrm.StringControl;
       get(name: "address1_line3"): Xrm.StringControl;
       get(name: "address1_postalcode"): Xrm.StringControl;
-      get(name: "address1_shippingmethodcode"): Xrm.OptionSetControl<account_address1_shippingmethodcode>;
       get(name: "address1_stateorprovince"): Xrm.StringControl;
-      get(name: "creditlimit"): Xrm.NumberControl;
-      get(name: "creditonhold"): Xrm.OptionSetControl<boolean>;
       get(name: "description"): Xrm.StringControl;
       get(name: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
       get(name: "donotemail"): Xrm.OptionSetControl<boolean>;
@@ -804,22 +798,16 @@ declare namespace Form.account.Main {
       get(name: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
       get(name: "fax"): Xrm.StringControl;
       get(name: "followemail"): Xrm.OptionSetControl<boolean>;
-      get(name: "header_numberofemployees"): Xrm.NumberControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: "header_revenue"): Xrm.NumberControl;
       get(name: "industrycode"): Xrm.OptionSetControl<account_industrycode>;
       get(name: "mapcontrol"): Xrm.BaseControl;
       get(name: "name"): Xrm.StringControl;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "ownershipcode"): Xrm.OptionSetControl<account_ownershipcode>;
       get(name: "parentaccountid"): Xrm.LookupControl<"account">;
-      get(name: "paymenttermscode"): Xrm.OptionSetControl<account_paymenttermscode>;
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
       get(name: "primarycontactid"): Xrm.LookupControl<"contact">;
-      get(name: "sic"): Xrm.StringControl;
       get(name: "telephone1"): Xrm.StringControl;
-      get(name: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
-      get(name: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
       get(name: "websiteurl"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -838,15 +826,11 @@ declare namespace Form.account.Main {
   interface ComplianceAccount extends Xrm.PageBase<ComplianceAccount.Attributes,ComplianceAccount.Tabs,ComplianceAccount.Controls> {
     getAttribute(attributeName: "address1_city"): Xrm.Attribute<string>;
     getAttribute(attributeName: "address1_country"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "address1_freighttermscode"): Xrm.OptionSetAttribute<account_address1_freighttermscode>;
     getAttribute(attributeName: "address1_line1"): Xrm.Attribute<string>;
     getAttribute(attributeName: "address1_line2"): Xrm.Attribute<string>;
     getAttribute(attributeName: "address1_line3"): Xrm.Attribute<string>;
     getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "address1_shippingmethodcode"): Xrm.OptionSetAttribute<account_address1_shippingmethodcode>;
     getAttribute(attributeName: "address1_stateorprovince"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "creditlimit"): Xrm.NumberAttribute;
-    getAttribute(attributeName: "creditonhold"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "description"): Xrm.Attribute<string>;
     getAttribute(attributeName: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "donotemail"): Xrm.OptionSetAttribute<boolean>;
@@ -857,33 +841,23 @@ declare namespace Form.account.Main {
     getAttribute(attributeName: "followemail"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "industrycode"): Xrm.OptionSetAttribute<account_industrycode>;
     getAttribute(attributeName: "name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "numberofemployees"): Xrm.NumberAttribute;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "ownershipcode"): Xrm.OptionSetAttribute<account_ownershipcode>;
     getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account">;
-    getAttribute(attributeName: "paymenttermscode"): Xrm.OptionSetAttribute<account_paymenttermscode>;
     getAttribute(attributeName: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<account_preferredcontactmethodcode>;
     getAttribute(attributeName: "primarycontactid"): Xrm.LookupAttribute<"contact">;
-    getAttribute(attributeName: "revenue"): Xrm.NumberAttribute;
-    getAttribute(attributeName: "sic"): Xrm.Attribute<string>;
     getAttribute(attributeName: "telephone1"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "tickersymbol"): Xrm.Attribute<any>;
-    getAttribute(attributeName: "transactioncurrencyid"): Xrm.LookupAttribute<"transactioncurrency">;
     getAttribute(attributeName: "websiteurl"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "ChildAccounts"): Xrm.SubGridControl<"account">;
     getControl(controlName: "Contacts"): Xrm.SubGridControl<"contact">;
     getControl(controlName: "address1_city"): Xrm.StringControl;
     getControl(controlName: "address1_country"): Xrm.StringControl;
-    getControl(controlName: "address1_freighttermscode"): Xrm.OptionSetControl<account_address1_freighttermscode>;
     getControl(controlName: "address1_line1"): Xrm.StringControl;
     getControl(controlName: "address1_line2"): Xrm.StringControl;
     getControl(controlName: "address1_line3"): Xrm.StringControl;
     getControl(controlName: "address1_postalcode"): Xrm.StringControl;
-    getControl(controlName: "address1_shippingmethodcode"): Xrm.OptionSetControl<account_address1_shippingmethodcode>;
     getControl(controlName: "address1_stateorprovince"): Xrm.StringControl;
-    getControl(controlName: "creditlimit"): Xrm.NumberControl;
-    getControl(controlName: "creditonhold"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "description"): Xrm.StringControl;
     getControl(controlName: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "donotemail"): Xrm.OptionSetControl<boolean>;
@@ -892,22 +866,16 @@ declare namespace Form.account.Main {
     getControl(controlName: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "fax"): Xrm.StringControl;
     getControl(controlName: "followemail"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "header_numberofemployees"): Xrm.NumberControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: "header_revenue"): Xrm.NumberControl;
     getControl(controlName: "industrycode"): Xrm.OptionSetControl<account_industrycode>;
     getControl(controlName: "mapcontrol"): Xrm.BaseControl;
     getControl(controlName: "name"): Xrm.StringControl;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "ownershipcode"): Xrm.OptionSetControl<account_ownershipcode>;
     getControl(controlName: "parentaccountid"): Xrm.LookupControl<"account">;
-    getControl(controlName: "paymenttermscode"): Xrm.OptionSetControl<account_paymenttermscode>;
     getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
     getControl(controlName: "primarycontactid"): Xrm.LookupControl<"contact">;
-    getControl(controlName: "sic"): Xrm.StringControl;
     getControl(controlName: "telephone1"): Xrm.StringControl;
-    getControl(controlName: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
-    getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
     getControl(controlName: "websiteurl"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
@@ -3584,7 +3552,9 @@ declare namespace Form.opc_allegation.Main {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
       get(name: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
+      get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_description"): Xrm.Attribute<string>;
       get(name: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
       get(name: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
@@ -3598,14 +3568,15 @@ declare namespace Form.opc_allegation.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "WebResource_checklist"): Xrm.WebResourceControl;
-      get(name: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+      get(name: "header_opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+      get(name: "header_opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_description"): Xrm.StringControl;
       get(name: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
       get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -3620,7 +3591,9 @@ declare namespace Form.opc_allegation.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
     getAttribute(attributeName: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
+    getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_description"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
     getAttribute(attributeName: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
@@ -3629,14 +3602,15 @@ declare namespace Form.opc_allegation.Main {
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "WebResource_checklist"): Xrm.WebResourceControl;
-    getControl(controlName: "opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+    getControl(controlName: "header_opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
+    getControl(controlName: "header_opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_description"): Xrm.StringControl;
     getControl(controlName: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
     getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -3882,52 +3856,6 @@ declare namespace Form.opc_checklistresponse.Quick {
     getControl(controlName: string): undefined;
   }
 }
-declare namespace Form.opc_checklisttype.QuickCreate {
-  namespace QuickCreate {
-    namespace Tabs {
-      interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_general"): Xrm.PageSection;
-        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
-        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_type"): Xrm.OptionSetAttribute<opc_complaintstage>;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_type"): Xrm.OptionSetControl<opc_complaintstage>;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_type"): Xrm.OptionSetAttribute<opc_complaintstage>;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_type"): Xrm.OptionSetControl<opc_complaintstage>;
-    getControl(controlName: string): undefined;
-  }
-}
 declare namespace Form.opc_checklisttype.Main {
   namespace Information {
     namespace Tabs {
@@ -4113,6 +4041,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
       get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
       get(name: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
       get(name: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
@@ -4141,7 +4070,6 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_number"): Xrm.StringControl;
       get(name: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
       get(name: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
       get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
@@ -4188,6 +4116,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
     getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
     getControl(controlName: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
     getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
@@ -4216,7 +4145,6 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_number"): Xrm.StringControl;
     getControl(controlName: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
     getControl(controlName: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
     getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
@@ -4730,6 +4658,7 @@ declare namespace Form.opc_issue.Main {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -4738,8 +4667,9 @@ declare namespace Form.opc_issue.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -4754,11 +4684,13 @@ declare namespace Form.opc_issue.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -4970,12 +4902,12 @@ declare namespace Form.opc_opcpriority.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_descriptionenglish"): Xrm.StringControl;
       get(name: "opc_frenchdescription"): Xrm.StringControl;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_nameenglish"): Xrm.StringControl;
       get(name: "opc_namefrench"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -4997,12 +4929,12 @@ declare namespace Form.opc_opcpriority.Main {
     getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
     getControl(controlName: "opc_frenchdescription"): Xrm.StringControl;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -5234,56 +5166,6 @@ declare namespace Form.opc_questiontemplate.Quick {
     getControl(controlName: string): undefined;
   }
 }
-declare namespace Form.opc_questiontype.QuickCreate {
-  namespace QuickCreate {
-    namespace Tabs {
-      interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_general"): Xrm.PageSection;
-        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
-        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_nameenglish"): Xrm.Attribute<string>;
-      get(name: "opc_namefrench"): Xrm.Attribute<string>;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_nameenglish"): Xrm.StringControl;
-      get(name: "opc_namefrench"): Xrm.StringControl;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
-    getControl(controlName: "opc_namefrench"): Xrm.StringControl;
-    getControl(controlName: string): undefined;
-  }
-}
 declare namespace Form.opc_questiontype.Quick {
   namespace Information {
     namespace Tabs {
@@ -5379,6 +5261,7 @@ declare namespace Form.opc_recommendation.Main {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -5387,8 +5270,9 @@ declare namespace Form.opc_recommendation.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -5403,11 +5287,13 @@ declare namespace Form.opc_recommendation.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -5512,6 +5398,7 @@ declare namespace Form.opc_reminder.Main {
       get(name: "opc_reminderdate"): Xrm.DateAttribute;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
+      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_reminder_statuscode>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -5521,6 +5408,7 @@ declare namespace Form.opc_reminder.Main {
       get(name: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
+      get(name: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
       get(name: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
@@ -5552,10 +5440,12 @@ declare namespace Form.opc_reminder.Main {
     getAttribute(attributeName: "opc_reminderdate"): Xrm.DateAttribute;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
+    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_reminder_statuscode>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
+    getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
     getControl(controlName: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
@@ -5563,52 +5453,6 @@ declare namespace Form.opc_reminder.Main {
     getControl(controlName: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_reminderdate"): Xrm.DateControl;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_riskappetite.QuickCreate {
-  namespace QuickCreate {
-    namespace Tabs {
-      interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_general"): Xrm.PageSection;
-        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
-        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_value"): Xrm.NumberAttribute;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_value"): Xrm.NumberControl;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_value"): Xrm.NumberAttribute;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_value"): Xrm.NumberControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -5863,56 +5707,6 @@ declare namespace Form.opc_riskassessment.Quick {
     getControl(controlName: string): undefined;
   }
 }
-declare namespace Form.opc_riskassessmentcategory.QuickCreate {
-  namespace QuickCreate {
-    namespace Tabs {
-      interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_general"): Xrm.PageSection;
-        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
-        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
-      get(name: "opc_sequence"): Xrm.NumberAttribute;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
-      get(name: "opc_sequence"): Xrm.NumberControl;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
-    getAttribute(attributeName: "opc_sequence"): Xrm.NumberAttribute;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
-    getControl(controlName: "opc_sequence"): Xrm.NumberControl;
-    getControl(controlName: string): undefined;
-  }
-}
 declare namespace Form.opc_riskassessmentcategory.Quick {
   namespace Information {
     namespace Tabs {
@@ -6029,56 +5823,6 @@ declare namespace Form.opc_riskassessmentcategory.Main {
     getControl(controlName: "opc_sequence"): Xrm.NumberControl;
     getControl(controlName: "opc_suggestedriskappetite"): Xrm.LookupControl<"opc_riskappetite">;
     getControl(controlName: "subgrid_risk_assessment_definitions"): Xrm.SubGridControl<"opc_riskassessmentdefinition">;
-    getControl(controlName: string): undefined;
-  }
-}
-declare namespace Form.opc_riskassessmentcategorytemplate.QuickCreate {
-  namespace QuickCreate {
-    namespace Tabs {
-      interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_general"): Xrm.PageSection;
-        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
-        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
-      get(name: "opc_sequence"): Xrm.NumberAttribute;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
-      get(name: "opc_sequence"): Xrm.NumberControl;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_riskassessmenttype"): Xrm.LookupAttribute<"opc_riskassessmenttype">;
-    getAttribute(attributeName: "opc_sequence"): Xrm.NumberAttribute;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_riskassessmenttype"): Xrm.LookupControl<"opc_riskassessmenttype">;
-    getControl(controlName: "opc_sequence"): Xrm.NumberControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -6614,48 +6358,6 @@ declare namespace Form.opc_riskassessmentfactortemplate.Main {
     getControl(controlName: string): undefined;
   }
 }
-declare namespace Form.opc_riskassessmenttype.QuickCreate {
-  namespace QuickCreate {
-    namespace Tabs {
-      interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_general"): Xrm.PageSection;
-        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
-        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-    }
-    interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: string): undefined;
-      get(): Xrm.Attribute<any>[];
-      get(index: number): Xrm.Attribute<any>;
-      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
-    }
-    interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opc_name"): Xrm.StringControl;
-      get(name: string): undefined;
-      get(): Xrm.BaseControl[];
-      get(index: number): Xrm.BaseControl;
-      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
-    }
-    interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "tab_general"): Xrm.PageTab<Tabs.tab_general>;
-      get(name: string): undefined;
-      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
-      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
-    }
-  }
-  interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
-    getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: string): undefined;
-  }
-}
 declare namespace Form.opc_riskassessmenttype.Main {
   namespace Information {
     namespace Tabs {
@@ -6770,11 +6472,11 @@ declare namespace Form.opc_sector.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "grid_superseded_sectors"): Xrm.SubGridControl<"opc_sector">;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_nameenglish"): Xrm.StringControl;
       get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "opc_parentsectorid"): Xrm.LookupControl<"opc_sector">;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -6797,11 +6499,11 @@ declare namespace Form.opc_sector.Main {
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "grid_superseded_sectors"): Xrm.SubGridControl<"opc_sector">;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_parentsectorid"): Xrm.LookupControl<"opc_sector">;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }
@@ -9217,6 +8919,7 @@ interface opc_allegation_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
+  opc_allegationdisposition?: opc_allegationdisposition | null;
   opc_allegationid?: string | null;
   opc_description?: string | null;
   opc_disposition?: opc_allegationdisposition | null;
@@ -9251,6 +8954,7 @@ interface opc_allegation_Select {
   modifiedby_guid: WebAttribute<opc_allegation_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_allegation_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_allegation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_allegationdisposition: WebAttribute<opc_allegation_Select, { opc_allegationdisposition: opc_allegationdisposition | null }, { opc_allegationdisposition_formatted?: string }>;
   opc_allegationid: WebAttribute<opc_allegation_Select, { opc_allegationid: string | null }, {  }>;
   opc_allegationtypeid_guid: WebAttribute<opc_allegation_Select, { opc_allegationtypeid_guid: string | null }, { opc_allegationtypeid_formatted?: string }>;
   opc_complaintid_guid: WebAttribute<opc_allegation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
@@ -9278,6 +8982,7 @@ interface opc_allegation_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
+  opc_allegationdisposition: opc_allegationdisposition;
   opc_allegationid: XQW.Guid;
   opc_allegationtypeid_guid: XQW.Guid;
   opc_complaintid_guid: XQW.Guid;
@@ -9311,6 +9016,7 @@ interface opc_allegation_FormattedResult {
   modifiedby_formatted?: string;
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
+  opc_allegationdisposition_formatted?: string;
   opc_allegationtypeid_formatted?: string;
   opc_complaintid_formatted?: string;
   opc_disposition_formatted?: string;

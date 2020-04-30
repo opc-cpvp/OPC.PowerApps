@@ -174,6 +174,18 @@
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
             </cell>
+            <cell id="{e9e3c86e-952f-40b7-b7dd-48c7436e38da}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Complaint" languagecode="1033" />
+              </labels>
+              <control id="header_opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="false" />
+            </cell>
+            <cell id="{a2c9fb66-eeaa-47ea-ba97-eaeabdd4f95e}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Disposition Allegation" languagecode="1033" />
+              </labels>
+              <control id="header_opc_allegationdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_allegationdisposition" disabled="false" />
+            </cell>
           </row>
         </rows>
       </header>
@@ -199,7 +211,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

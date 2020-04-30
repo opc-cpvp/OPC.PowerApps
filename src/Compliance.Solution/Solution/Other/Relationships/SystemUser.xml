@@ -1123,7 +1123,7 @@
     <ReferencingAttributeName>opc_BypassInitiatedBy</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="Indicates which user initiated the bypass for the suggested risk appetite" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -1157,7 +1157,7 @@
     <ReferencingAttributeName>opc_BypassInitiatedBy</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="Indicates which user initiated the bypass for the suggested risk appetite" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
