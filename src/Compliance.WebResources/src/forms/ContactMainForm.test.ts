@@ -1,11 +1,10 @@
 ﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
-import { XrmOptionMock } from '../../test/XrmOptionMock';
 import { XrmNavigationMock } from '../../test/XrmNavigationMock';
-import { XrmOptionSetControlMock } from '../../test/XrmOptionSetControlMock';
 import { Contact } from './ContactMainForm';
 import { UserService } from '../services/UserService';
 import { XrmContextMock } from '../../test/XrmContextMock';
 import { XrmSaveEventContextMock } from '../../test/XrmSaveEventContextMock';
+import { XrmControlMock } from '../../test/XrmControlMock';
 
 var chai = require("chai");
 var sinon = require("sinon");
@@ -15,7 +14,7 @@ chai.should();
 chai.use(sinonChai);
 
 describe("Contact", () => {
-    const mcsOptions: XrmOptionMock<any>[] = [
+    const mcsOptions: Xrm.Option<any>[] = [
         { text: "Not Applied", value: opc_multiplecomplaintstrategy.NotApplied },
         { text: "Proposed", value: opc_multiplecomplaintstrategy.Proposed },
         { text: "Applied", value: opc_multiplecomplaintstrategy.Applied },
@@ -27,7 +26,7 @@ describe("Contact", () => {
     let mockExecutionContext: XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>;
     let mockNavigation: XrmNavigationMock;
     let mockContext: XrmContextMock;
-    let mcsControl: XrmOptionSetControlMock;
+    let mcsControl: XrmControlMock;
     let contextSpy: any;
     let controlSpy: any;
     let hasIntakeManagerPermissions: any;
@@ -52,12 +51,7 @@ describe("Contact", () => {
 
         beforeEach(function () {
             initializeMock();
-            mcsControl = new XrmOptionSetControlMock(mockExecutionContext);
-            mcsControl.setOptions(mcsOptions);
-            mcsControl.setName("opc_multiplecomplaintstrategy");
-            mockExecutionContext.getFormContext().addControl(mcsControl);
             mockSaveEventContext = new XrmSaveEventContextMock<Form.contact.Main.ComplianceContact>();
-            contextSpy = sandbox.spy(mockSaveEventContext);
             navigationSpy = sandbox.spy(mockNavigation);
         });
 
@@ -65,13 +59,13 @@ describe("Contact", () => {
             sandbox.restore();
         });
 
-        it.skip("it should display a confirmation dialog if the contact has been applied to the MCS", () => {
+        it("it should display a confirmation dialog if the contact has been applied to the MCS", () => {
             // Arrange
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(true);
 
             //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
-            form.initializeComponents(mockExecutionContext);
+            form.initializeComponents(mockSaveEventContext);
 
             // Act
             mockSaveEventContext.getFormContext().data.entity.save();
@@ -79,13 +73,14 @@ describe("Contact", () => {
             // Assert
             navigationSpy.openConfirmDialog.should.have.been.called;
         });
-        it.skip("it should not display a confirmation dialog if the contact is already in the MCS", () => {
+
+        it("it should not display a confirmation dialog if the contact is already in the MCS", () => {
             // Arrange
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(false);
 
             //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
-            form.initializeComponents(mockExecutionContext);
+            form.initializeComponents(mockSaveEventContext);
 
             // Act
             mockSaveEventContext.getFormContext().data.entity.save();
@@ -93,13 +88,14 @@ describe("Contact", () => {
             // Assert
             navigationSpy.openConfirmDialog.should.not.have.been.called;
         });
-        it.skip("it should not display a confirmation dialog if the contact has not been applied to MCS", () => {
+
+        it("it should not display a confirmation dialog if the contact has not been applied to MCS", () => {
             // Arrange
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(true);
 
             //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
-            form.initializeComponents(mockExecutionContext);
+            form.initializeComponents(mockSaveEventContext);
 
             // Act
             mockSaveEventContext.getFormContext().data.entity.save();
@@ -108,15 +104,16 @@ describe("Contact", () => {
             navigationSpy.openConfirmDialog.should.not.have.been.called;
         });
     });
+
     describe("after MCS field is loaded", () => {
         beforeEach(function () {
             initializeMock();
-            mcsControl = new XrmOptionSetControlMock(mockExecutionContext);
+            mcsControl = new XrmControlMock(mockExecutionContext);
             controlSpy = sandbox.spy(mcsControl);
             mcsControl.setOptions(mcsOptions);
             mcsControl.setName("opc_multiplecomplaintstrategy");
             mockExecutionContext.getFormContext().addControl(mcsControl);
-            mockExecutionContext.getFormContext().ui.formType = Xrm.FormType.Update;
+            mockExecutionContext.getFormContext().ui.setFormType(Xrm.FormType.Update);
         });
 
         afterEach(function () {
@@ -160,7 +157,7 @@ describe("Contact", () => {
     describe("when the contact is part of the Multiple Complaint Strategy", () => {
         beforeEach(function () {
             initializeMock();
-            mockExecutionContext.getFormContext().ui.formType = Xrm.FormType.Update;
+            mockExecutionContext.getFormContext().ui.setFormType(Xrm.FormType.Update);
             mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
         });
 
@@ -209,11 +206,11 @@ describe("Contact", () => {
     describe("when the contact is not part of the Multiple Complaint Strategy", () => {
         beforeEach(function () {
             initializeMock();
-            mcsControl = new XrmOptionSetControlMock(mockExecutionContext);
+            mcsControl = new XrmControlMock(mockExecutionContext);
             mcsControl.setOptions(mcsOptions);
             mcsControl.setName("opc_multiplecomplaintstrategy");
             mockExecutionContext.getFormContext().addControl(mcsControl);
-            mockExecutionContext.getFormContext().ui.formType = Xrm.FormType.Update;
+            mockExecutionContext.getFormContext().ui.setFormType(Xrm.FormType.Update);
         });
 
         afterEach(function () {
