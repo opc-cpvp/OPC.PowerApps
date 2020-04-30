@@ -6,16 +6,25 @@ using System.Linq;
 
 namespace Compliance.Plugins
 {
+    public enum Language
+    {
+        English = 1033,
+        French = 1036
+    }
+
     public partial class MultiLanguagePlugin : PluginBase
     {
-        private const string preImageAlias = "PreImage";
-        private const string isLocalizableAttribute = "opc_islocalizable";
-        private const string prefix = "|^|";
-        private const string userSettingsEntityName = "usersettings";
-        private const string userSettingsUserIdAttribute = "systemuserid";
-        private const string uiLanguageId = "uilanguageid";
-        private const string UserLocaleId = "UserLocaleId";
-        private readonly Dictionary<string, int> languages = new Dictionary<string, int> { { "english", 1033 }, { "french", 1036 } };
+        private const string PreImageAlias = "PreImage";
+        private const string IsLocalizableAttribute = "opc_islocalizable";
+        private const string Prefix = "|^|";
+
+        private const string LanguageKey = "uilanguageid";
+        private const string LanguageAttribute = "uilanguageid";
+
+        private readonly Dictionary<Language, string> LanguageSuffixes = new Dictionary<Language, string> {
+            { Language.English, "english" },
+            { Language.French, "french" }
+        };
 
         public MultiLanguagePlugin()
             : base(typeof(MultiLanguagePlugin), runAsSystem: true)
@@ -52,50 +61,59 @@ namespace Compliance.Plugins
             }
         }
 
+        private Language GetUserLanguage(LocalPluginContext localContext)
+        {
+            // Check the plugin cache to see if the language is set
+            if (localContext.PluginExecutionContext.SharedVariables.ContainsKey(LanguageKey))
+                return (Language)(int)localContext.PluginExecutionContext.SharedVariables[LanguageKey];
+
+            // Check the user settings to see if the language is set
+            var query = new QueryExpression()
+            {
+                EntityName = Entities.UserSettings.EntityLogicalName,
+                ColumnSet = new ColumnSet(LanguageAttribute),
+                Criteria =
+                {
+                    Conditions =
+                    {
+                        new ConditionExpression("systemuserid", ConditionOperator.Equal, localContext.PluginExecutionContext.InitiatingUserId)
+                    }
+                }
+            };
+
+            var userSettings = localContext.OrganizationService.RetrieveMultiple(query);
+            if (userSettings.Entities.Any())
+            {
+                // Check if the language is supported
+                var userLanguage = userSettings.Entities.First().GetAttributeValue<int>(LanguageAttribute);
+                if (Enum.IsDefined(typeof(Language), userLanguage) || userLanguage.ToString().Contains(","))
+                {
+                    localContext.PluginExecutionContext.SharedVariables[LanguageKey] = userLanguage;
+                    return (Language)userLanguage;
+                }
+            }
+
+            // Fallback to English if no other language was detected / supported
+            var defaultLanguage = Language.English;
+            localContext.PluginExecutionContext.SharedVariables[LanguageKey] = (int)defaultLanguage;
+            return defaultLanguage;
+        }
+
         ///
         /// Unpack the product name field
         ///
         protected string UnpackName(LocalPluginContext localContext, string name)
         {
-            // Get the language of the user
-            int userLanguageId;
-            if (localContext.PluginExecutionContext.SharedVariables.ContainsKey(UserLocaleId))
-            {
-                // Get the user language from the pipeline cache
-                userLanguageId = (int)localContext.PluginExecutionContext.SharedVariables[UserLocaleId];
-            }
-            else
-            {
-                QueryExpression queryExpression = new QueryExpression()
-                {
-                    EntityName = userSettingsEntityName,
-                    ColumnSet = new ColumnSet(uiLanguageId),
-                    Criteria =
-                    {
-                        Conditions =
-                        {
-                            new ConditionExpression(userSettingsUserIdAttribute, ConditionOperator.Equal, localContext.PluginExecutionContext.InitiatingUserId)
-                        }
-                    }
-                };
+            var language = GetUserLanguage(localContext);
 
-                EntityCollection userSettingsCollection = localContext.OrganizationService.RetrieveMultiple(queryExpression);
-
-                if (userSettingsCollection.Entities.Any())
-                    userLanguageId = userSettingsCollection.Entities.FirstOrDefault().GetAttributeValue<int>(uiLanguageId);
-                else
-                    userLanguageId = languages["english"];
-
-                localContext.PluginExecutionContext.SharedVariables[UserLocaleId] = userLanguageId;
-            }
             // Remove identifying prefix
-            name = name.Replace(prefix, string.Empty);
+            name = name.Replace(Prefix, string.Empty);
 
             // Split the name
-            string[] labels = name.Split('|');
+            var labels = name.Split('|');
 
-            // Which language is set for the user?
-            int labelIndex = Array.IndexOf(languages.Values.ToArray(), userLanguageId);
+            // Get the index of the language
+            var labelIndex = Array.IndexOf(LanguageSuffixes.Keys.ToArray(), language);
 
             // Return the correct translation
             return labels[labelIndex];
@@ -108,30 +126,33 @@ namespace Compliance.Plugins
         ///
         protected void PackNameTranslations(LocalPluginContext localContext)
         {
-            IPluginExecutionContext context = localContext.PluginExecutionContext;
+            var context = localContext.PluginExecutionContext;
 
             // Pack the translated labels into the name field
             if (!(localContext.PluginExecutionContext.InputParameters["Target"] is Entity target))
                 return;
 
-            Entity preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(preImageAlias)) ? context.PreEntityImages[preImageAlias] : null;
+            var preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(PreImageAlias)) ? context.PreEntityImages[PreImageAlias] : null;
 
-            bool targetLocalizable = target.Attributes.Contains(isLocalizableAttribute);
-            bool preImageLocalizable = preImageEntity is null ? false : preImageEntity.Attributes.Contains(isLocalizableAttribute);
+            var targetLocalizable = target.Attributes.Contains(IsLocalizableAttribute);
+            var preImageLocalizable = preImageEntity is null ? false : preImageEntity.Attributes.Contains(IsLocalizableAttribute);
 
             if (!targetLocalizable && !preImageLocalizable)
                 return;
 
-            string[] names = new string[languages.Count];
-            for (int i = 0; i < languages.Count; i++)
+            var names = new string[LanguageSuffixes.Count];
+            for (var i = 0; i < LanguageSuffixes.Count; i++)
             {
-                names[i] = GetAttributeValue<string>($"opc_name{languages.ElementAt(i).Key}", preImageEntity, target);
+                var suffix = LanguageSuffixes.ElementAt(i).Value;
+                var nameAttribute = $"opc_name{suffix}";
+
+                names[i] = GetAttributeValue<string>(nameAttribute, preImageEntity, target);
                 if (string.IsNullOrWhiteSpace(names[i]))
-                    throw new InvalidPluginExecutionException($"PackNameTranslations: An exception occured when trying to concatenate english and french name. The field 'opc_name{languages.ElementAt(i).Key}' of entity '{localContext.PluginExecutionContext.PrimaryEntityName}' must contain a value.");
+                    throw new InvalidPluginExecutionException($"PackNameTranslations: An exception occured when trying to concatenate english and french name. The field '{nameAttribute}' of entity '{localContext.PluginExecutionContext.PrimaryEntityName}' must contain a value.");
             }
 
             // Store the packed value in the target entity
-            target["opc_name"] = $"{prefix}{string.Join("|", names)}";
+            target["opc_name"] = $"{Prefix}{string.Join("|", names)}";
         }
 
         ///
@@ -170,10 +191,10 @@ namespace Compliance.Plugins
 
         private void SetLocalizableValue(LocalPluginContext localContext, Entity businessEntity)
         {
-            if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(prefix))
+            if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(Prefix))
                 businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
 
-            foreach (var attribute in businessEntity.Attributes.Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(prefix) ?? false)))
+            foreach (var attribute in businessEntity.Attributes.Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(Prefix) ?? false)))
             {
                 var entityReference = (EntityReference)attribute.Value;
                 entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);

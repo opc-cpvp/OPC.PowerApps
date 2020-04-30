@@ -19,7 +19,7 @@ export class AllegationService implements IAllegationService {
     public getAllegationDispositionActionFilter(dispositionReason: string): string {
         return '<filter type="and">' +
             '<condition attribute="statecode" operator="eq" value="0" />' +
-            `<condition attribute="opc_allegationdisposition" operator="eq" value="${dispositionReason}" />` +
+            `<condition attribute="opc_dispositionreasonid" operator="eq" value="${dispositionReason}" />` +
             '</filter>'
     }
 }

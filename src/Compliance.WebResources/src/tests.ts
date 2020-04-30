@@ -7,9 +7,12 @@ import 'jsdom-global/register';
 
 /* Forms */
 import "./forms/ComplaintMainForm.test";
+import "./forms/ContactMainForm.test";
 import "./forms/NotificationMainForm.test";
 import "./forms/ReminderMainForm.test";
-import "./forms/ContactMainForm.test";
+import "./forms/AllegationMainForm.test";
+
 
 /* Controls */
 import "./controls/Checklist/ChecklistControl.test"
+
