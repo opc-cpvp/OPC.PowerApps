@@ -24,7 +24,6 @@ export class XrmPageBaseMock<T, V> implements Xrm.BasicPage {
     addAttribute(attribute: XrmAttributeMock): void {
         this._attr.push(attribute);
     }
-
     addControl(control: XrmControlMock): void {
         this._ctrls.push(control);
     }

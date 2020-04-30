@@ -12,7 +12,8 @@ export class XrmAttributeMock
     private _onChangeHandlers: ((context?: Xrm.ExecutionContext<this, any>) => any)[] = [];
     private _requiredLevel: Xrm.AttributeRequiredLevel;
     private _options: Xrm.Option<any>[] = [];
-    
+    private _isDirty: boolean;
+
     controls: XrmCollectionMock<XrmControlMock>;
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
@@ -29,6 +30,9 @@ export class XrmAttributeMock
         // Clone array into controls
         this.controls.forEach(a => a.setOptions([...options]));
     }
+    setIsDirty(isDirty: boolean) {
+        this._isDirty = isDirty;
+    }
     /* END OF NEW MEMBERS*/
 
     getValue() {
@@ -43,9 +47,8 @@ export class XrmAttributeMock
     getFormat(): Xrm.AttributeFormat {
         throw new Error("Method not implemented.");
     }
-
     getIsDirty(): boolean {
-        throw new Error("Method not implemented.");
+        return this._isDirty;
     }
     getMaxLength(): number {
         throw new Error("Method not implemented.");

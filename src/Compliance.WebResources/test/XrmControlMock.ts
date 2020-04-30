@@ -36,7 +36,7 @@ export class XrmControlMock extends XrmBaseControlMock
         this._options.splice(0, this._options.length);
     }
     removeOption(number: number): void {
-        this._options = this._options.splice(number, 1);
+        this._options = this._options.filter(f => f.value !== number);
     }
     getOptions(): Xrm.Option<any>[] {
         return this._options;

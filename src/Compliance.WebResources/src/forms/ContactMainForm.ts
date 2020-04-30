@@ -35,6 +35,7 @@ export namespace Contact.Forms {
             this.multipleComplaintStrategy_setVisibleValues(formContext);
             formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
         }
+
         /**
         * Handles the form OnSave event.
         *

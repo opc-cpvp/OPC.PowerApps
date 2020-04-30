@@ -2,7 +2,6 @@
 import { Complaint } from './ComplaintMainForm';
 import { ContactService } from '../services/ContactService';
 
-
 var chai = require("chai");
 var sinon = require("sinon");
 var sinonChai = require("sinon-chai");
@@ -10,27 +9,29 @@ var sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-
-describe("Complaint", () => {  
+describe("Complaint", () => {
 
     let contactService: ContactService;
     let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
     let contextSpy: any;
-    let sut: Complaint.Forms.MainForm;
+    let form: Complaint.Forms.MainForm;
+    const closeReasons: Xrm.Option<any>[] = [
+        { text: "Created in error", value: opc_closereason.Createdinerror },
+        { text: "Duplicate", value: opc_closereason.Duplicate },
+        { text: "Redirection", value: opc_closereason.Redirection },
+        { text: "Resolved", value: opc_closereason.Resolved },
+        { text: "Withdrawn", value: opc_closereason.Withdrawn }
+    ];
 
     function initializeMock() {
         contactService = new ContactService();
         mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
         contextSpy = sandbox.spy(mockContext);
-        sut = new Complaint.Forms.MainForm(contactService);
-
-        // Run the Initialize first so that the form doesn't set notifications yet without a contact,
-        // testing will be done when firing the on change
-        sut.initializeComponents(mockContext);
+        form = new Complaint.Forms.MainForm(contactService);
     }
 
 
-        // Initialize the form for every test
+    // Initialize the form for every test
     beforeEach(() => {
         initializeMock()
 
@@ -38,18 +39,37 @@ describe("Complaint", () => {
         mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
     });
 
-        afterEach(function () {
-            sandbox.restore();
+    afterEach(function () {
+        sandbox.restore();
+    });
+
+    describe("when form is initializing", () => {
+
+        it("it should not have duplicate contact notification if no contact exists", async () => {
+            // Arrange
+            let getDuplicateDup = sandbox.stub(contactService, nameof(contactService.getDuplicateStatus)).resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
+
+            // Act
+            form.initializeComponents(mockContext);
+
+            // Assert
+            getDuplicateDup.should.not.have.been.called;
+            await getDuplicateDup;
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
 
-    describe("Contact on change", () => {
+    });
 
-        it("it should have notifications if a duplicate contacts exists", async () => {
-            // Arrange
+    describe("when contact is modified", () => {
+
+        beforeEach(() => {
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);
+        });
 
+        it("it should have notifications if a duplicate contacts exists", async () => {
+            // Arrange
             const getContactDup =
                 sandbox.stub(contactService, nameof(contactService.getDuplicateStatus))
                     .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Duplicatefound });
@@ -75,10 +95,6 @@ describe("Complaint", () => {
 
         it("it should not have a notification if a contact does not have a duplication status", async () => {
             // Arrange
-            // Run the Initialize first so that the form doesn't set notifications yet without a contact,
-            // testing will be done when firing the on change
-            form.initializeComponents(mockContext);
-
             const getContactDup =
                 sandbox.stub(contactService, nameof(contactService.getDuplicateStatus))
                     .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.None });
@@ -102,29 +118,8 @@ describe("Complaint", () => {
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
 
-        it("it should not have notifications if no contacts exist", async () => {
-            // Arrange
-            // Run the Initialize first so that the form doesn't set notifications yet without a contact,
-            // testing will be done when firing the on change
-            form.initializeComponents(mockContext);
-
-            let getDuplicateDup = sandbox.stub(contactService, nameof(contactService.getDuplicateStatus)).resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
-
-            // Act
-            form.initializeComponents(mockContext);
-
-            // Assert
-            getDuplicateDup.should.not.have.been.called;
-            await getDuplicateDup;
-            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-        });
-
         it("it should have multiple notifications if multiple duplicate contacts exist", async () => {
             // Arrange
-            // Run the Initialize first so that the form doesn't set notifications yet without a contact,
-            // testing will be done when firing the on change
-            form.initializeComponents(mockContext);
-
             const getContactDup =
                 sandbox.stub(contactService, nameof(contactService.getDuplicateStatus))
                     .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Duplicatefound });
@@ -153,10 +148,6 @@ describe("Complaint", () => {
 
         it("it should remove exsiting notifications when no duplicate status is found", async () => {
             // Arrange
-            // Run the Initialize first so that the form doesn't set notifications yet without a contact,
-            // testing will be done when firing the on change
-            form.initializeComponents(mockContext);
-
             const getContactDup =
                 sandbox.stub(contactService, nameof(contactService.getDuplicateStatus))
                     .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.None });
@@ -189,10 +180,6 @@ describe("Complaint", () => {
 
         it("it should remove exsiting notifications when no contacts are found", async () => {
             // Arrange
-            // Run the Initialize first so that the form doesn't set notifications yet without a contact,
-            // testing will be done when firing the on change
-            form.initializeComponents(mockContext);
-
             const getContactDup =
                 sandbox.stub(contactService, nameof(contactService.getDuplicateStatus))
                     .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.None });
@@ -210,135 +197,81 @@ describe("Complaint", () => {
             await getContactDup;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
-        describe("when recommending to registrar", () => {
+    });
 
-            beforeEach(() => {
-                mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.Yes);
-            });
+    describe("when recommending to registrar", () => {
 
-            describe("and recommending to ER", () => {
-                it("acceptance date should be required", () => {
-                    // Arrange
-                    const acceptancedateAttributeSpy = sandbox.spy(mockContext.getFormContext().getAttribute("opc_acceptancedate"));
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
-
-                    // Act
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
-
-                    // Assert
-                    acceptancedateAttributeSpy.getRequiredLevel().should.equal("required");
-                });
-            });
-
-            describe("and recommending to investigation", () => {
-
-                it("acceptance date should be required", () => {
-                    // Arrange
-                    const acceptancedateAttributeSpy = sandbox.spy(mockContext.getFormContext().getAttribute("opc_acceptancedate"));
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
-
-                    // Act
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
-
-                    // Assert
-                    acceptancedateAttributeSpy.getRequiredLevel().should.equal("required");
-                });
-            });
-
-            describe("and recommending to close", () => {
-                it("acceptance date should not be required", () => {
-                    // Arrange
-                    const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
-                    const acceptancedateAttributeSpy = sandbox.spy(acceptancedateAttributeMock);
-                    acceptancedateAttributeMock.controls.get("opc_acceptancedate");
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
-
-                    // Act
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
-
-                    // Assert
-                    acceptancedateAttributeSpy.getRequiredLevel().should.equal("none");
-                });
-
-                it("reason to close should be required", () => {
-                    // Arrange
-                    const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
-                    const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
-                    closeReasonAttribute.controls.get("opc_closereason");
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
-
-                    // Act
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
-
-                    // Assert
-                    closeReasonAttributeSpy.getRequiredLevel().should.equal("required");
-                });
-
-                it("reasons to close should be [Createdinerror, Duplicate, Redirection]", () => {
-                    // Arrange
-                    const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
-                    const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason")
-                    const closeReasonControlSpy = sandbox.spy(closeReasonControl);
-                    closeReasonAttribute.setOptions(closeReasons);
-
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
-
-                    // Act
-                    mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
-
-                    // Assert
-                    closeReasonControlSpy.getOptions().length.should.equal(3);
-                    closeReasonControlSpy.getOptions().should.have.deep.members([
-                        { text: "Redirection", value: opc_closereason.Redirection },
-                        { text: "Resolved", value: opc_closereason.Resolved },
-                        { text: "Withdrawn", value: opc_closereason.Withdrawn }
-                    ]);
-                });
-            });
-
-            describe("and recommending to decline", () => {
-                it("acceptance date should not be required", () => {
-                    // Arrange
-                    const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
-                    const acceptancedateAttributeSpy = sandbox.spy(acceptancedateAttributeMock);
-                    acceptancedateAttributeMock.controls.get("opc_acceptancedate");
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Declinetoinvestigate);
-
-                    // Act
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
-
-                    // Assert
-                    acceptancedateAttributeSpy.getRequiredLevel().should.equal("none");
-                });
-            });
-
+        beforeEach(() => {
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.Yes);
+            form.initializeComponents(mockContext);
         });
 
+        describe("and recommending to ER", () => {
+            it("acceptance date should be required", () => {
+                // Arrange
+                const acceptancedateAttributeSpy = sandbox.spy(mockContext.getFormContext().getAttribute("opc_acceptancedate"));
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
 
-        describe("when not recommending to registrar", () => {
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                acceptancedateAttributeSpy.getRequiredLevel().should.equal("required");
+            });
+        });
+
+        describe("and recommending to investigation", () => {
+
+            it("acceptance date should be required", () => {
+                // Arrange
+                const acceptancedateAttributeSpy = sandbox.spy(mockContext.getFormContext().getAttribute("opc_acceptancedate"));
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                acceptancedateAttributeSpy.getRequiredLevel().should.equal("required");
+            });
+        });
+
+        describe("and recommending to close", () => {
+            it("acceptance date should not be required", () => {
+                // Arrange
+                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateAttributeSpy = sandbox.spy(acceptancedateAttributeMock);
+                acceptancedateAttributeMock.controls.get("opc_acceptancedate");
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                // Assert
+                acceptancedateAttributeSpy.getRequiredLevel().should.equal("none");
+            });
 
             it("reason to close should be required", () => {
                 // Arrange
                 const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
                 const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
                 closeReasonAttribute.controls.get("opc_closereason");
-                mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
-
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
                 closeReasonAttributeSpy.getRequiredLevel().should.equal("required");
             });
 
-            it("reasons to close should be [Redirection, Resolved, Withdrawn]", () => {
+            it("reasons to close should be [Createdinerror, Duplicate, Redirection]", () => {
                 // Arrange
                 const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
                 const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason")
                 const closeReasonControlSpy = sandbox.spy(closeReasonControl);
                 closeReasonAttribute.setOptions(closeReasons);
-                mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
+
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
 
                 // Act
                 mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
@@ -346,98 +279,151 @@ describe("Complaint", () => {
                 // Assert
                 closeReasonControlSpy.getOptions().length.should.equal(3);
                 closeReasonControlSpy.getOptions().should.have.deep.members([
-                    { text: "Created in error", value: opc_closereason.Createdinerror },
-                    { text: "Duplicate", value: opc_closereason.Duplicate },
-                    { text: "Redirection", value: opc_closereason.Redirection }
+                    { text: "Redirection", value: opc_closereason.Redirection },
+                    { text: "Resolved", value: opc_closereason.Resolved },
+                    { text: "Withdrawn", value: opc_closereason.Withdrawn }
                 ]);
             });
+        });
 
-            it("intake disposition should not be required", () => {
+        describe("and recommending to decline", () => {
+            it("acceptance date should not be required", () => {
                 // Arrange
-                const intakeDispositionAttribute = mockContext.getFormContext().getAttribute("opc_intakedisposition");
-                const intakeDispositionAttributeSpy = sandbox.spy(intakeDispositionAttribute);
-                mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
+                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateAttributeSpy = sandbox.spy(acceptancedateAttributeMock);
+                acceptancedateAttributeMock.controls.get("opc_acceptancedate");
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Declinetoinvestigate);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
-                intakeDispositionAttributeSpy.getRequiredLevel().should.equal("none");
+                acceptancedateAttributeSpy.getRequiredLevel().should.equal("none");
             });
         });
-        describe("when the complainant is part of the Multiple Complaint Strategy", () => {
 
-            beforeEach(function () {
-                initializeMock();
-            });
+    });
 
-            afterEach(function () {
-                sandbox.restore();
-            });
 
-            it("it should display a form notification", () => {
-                // Arrange
-                mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+    describe("when not recommending to registrar", () => {
 
-                //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
-                form.initializeComponents(mockContext);
-
-                // Act
-                mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
-
-                // Assert
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
-            });
+        beforeEach(() => {
+            form.initializeComponents(mockContext);
         });
-        describe("when the complainant is not part of the Multiple Complaint Strategy", () => {
 
-            beforeEach(function () {
-                initializeMock();
-            });
+        it("reason to close should be required", () => {
+            // Arrange
+            const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+            const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
+            closeReasonAttribute.controls.get("opc_closereason");
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
 
-            afterEach(function () {
-                sandbox.restore();
-            });
+            // Act
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
 
-            it("it should not display a form notification(if not applied)", () => {
-                // Arrange
-                mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
+            // Assert
+            closeReasonAttributeSpy.getRequiredLevel().should.equal("required");
+        });
 
-                //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
-                form.initializeComponents(mockContext);
+        it("reasons to close should be [Redirection, Resolved, Withdrawn]", () => {
+            // Arrange
+            const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+            const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason")
+            const closeReasonControlSpy = sandbox.spy(closeReasonControl);
+            closeReasonAttribute.setOptions(closeReasons);
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
 
-                // Act
-                mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+            // Act
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
 
-                // Assert
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-            });
-            it("it should not display a form notification(if proposed)", () => {
-                // Arrange
-                mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Proposed);
+            // Assert
+            closeReasonControlSpy.getOptions().length.should.equal(3);
+            closeReasonControlSpy.getOptions().should.have.deep.members([
+                { text: "Created in error", value: opc_closereason.Createdinerror },
+                { text: "Duplicate", value: opc_closereason.Duplicate },
+                { text: "Redirection", value: opc_closereason.Redirection }
+            ]);
+        });
 
-                //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
-                form.initializeComponents(mockContext);
+        it("intake disposition should not be required", () => {
+            // Arrange
+            const intakeDispositionAttribute = mockContext.getFormContext().getAttribute("opc_intakedisposition");
+            const intakeDispositionAttributeSpy = sandbox.spy(intakeDispositionAttribute);
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
 
-                // Act
-                mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+            // Act
+            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
 
-                // Assert
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-            });
-            it("it should not display a form notification(if former)", () => {
-                // Arrange
-                mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Former);
+            // Assert
+            intakeDispositionAttributeSpy.getRequiredLevel().should.equal("none");
+        });
+    });
 
-                //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
-                form.initializeComponents(mockContext);
+    describe("when the complainant is part of the Multiple Complaint Strategy", () => {
 
-                // Act
-                mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+        beforeEach(function () {
+            initializeMock();
+            form.initializeComponents(mockContext);
+        });
 
-                // Assert
-                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-            });
+        afterEach(function () {
+            sandbox.restore();
+        });
+
+        it("it should display a form notification", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
+        });
+    });
+
+    describe("when the complainant is not part of the Multiple Complaint Strategy", () => {
+
+        beforeEach(function () {
+            initializeMock();
+            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+        });
+
+        afterEach(function () {
+            sandbox.restore();
+        });
+
+        it("it should not display a form notification(if not applied)", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
+        });
+
+        it("it should not display a form notification(if proposed)", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Proposed);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
+        });
+
+        it("it should not display a form notification(if former)", () => {
+            // Arrange
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Former);
+
+            // Act
+            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
     });
 });

@@ -32,6 +32,7 @@ export namespace Complaint.Forms {
             this.handle_StageStates(formContext);
             formContext.getAttribute("opc_recommendtoregistrar").addOnChange(x => this.recommendtoregistrar_OnChange(x));
             formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
+            formContext.getAttribute("opc_multiplecomplaintstrategy").addOnChange(x => this.multipleComplaintStrategy_OnChange(x));
 
             // Sequence matters
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
@@ -173,6 +174,28 @@ export namespace Complaint.Forms {
                     break;
                 case "closed":
                     break;
+            }
+        }
+
+        /**
+        * Handles changes to Multiple Complaint Strategy attribute.
+        *
+        * @event OnChanged
+        */
+        private multipleComplaintStrategy_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
+            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
+            const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
+            const complainantEntityReference = formContext.getAttribute("opc_complainant").getValue();
+            const complainantFullname = complainantEntityReference ? complainantEntityReference[0].name : "";
+
+            // Clear Notification
+            formContext.ui.clearFormNotification("formNotificationMCS");
+
+            // Check if Complainant is part of the Multiple Complaint Strategy
+            if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
+                // Display Notification
+                formContext.ui.setFormNotification(`The Complainant ${complainantFullname} is part of the Multiple Complaint Strategy.`, "INFO", "formNotificationMCS");
             }
         }
     }
