@@ -5,7 +5,6 @@ import { UserService } from '../services/UserService';
 import { XrmContextMock } from '../../test/XrmContextMock';
 import { XrmSaveEventContextMock } from '../../test/XrmSaveEventContextMock';
 import { XrmControlMock } from '../../test/XrmControlMock';
-import { XrmAttributeMock } from '../../test/XrmAttributeMock';
 
 var chai = require("chai");
 var sinon = require("sinon");
@@ -52,13 +51,7 @@ describe("Contact", () => {
 
         beforeEach(function () {
             initializeMock();
-            mcsControl = new XrmControlMock(mockExecutionContext);
-            mcsControl.setOptions(mcsOptions);
-            mcsControl.setName("opc_multiplecomplaintstrategy");
-            mockExecutionContext.getFormContext().addControl(mcsControl);
-
             mockSaveEventContext = new XrmSaveEventContextMock<Form.contact.Main.ComplianceContact>();
-            contextSpy = sandbox.spy(mockSaveEventContext);
             navigationSpy = sandbox.spy(mockNavigation);
         });
 
@@ -66,13 +59,13 @@ describe("Contact", () => {
             sandbox.restore();
         });
 
-        it.skip("it should display a confirmation dialog if the contact has been applied to the MCS", () => {
+        it("it should display a confirmation dialog if the contact has been applied to the MCS", () => {
             // Arrange
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(true);
 
             //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
-            form.initializeComponents(mockExecutionContext);
+            form.initializeComponents(mockSaveEventContext);
 
             // Act
             mockSaveEventContext.getFormContext().data.entity.save();
@@ -81,13 +74,13 @@ describe("Contact", () => {
             navigationSpy.openConfirmDialog.should.have.been.called;
         });
 
-        it.skip("it should not display a confirmation dialog if the contact is already in the MCS", () => {
+        it("it should not display a confirmation dialog if the contact is already in the MCS", () => {
             // Arrange
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(false);
 
             //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
-            form.initializeComponents(mockExecutionContext);
+            form.initializeComponents(mockSaveEventContext);
 
             // Act
             mockSaveEventContext.getFormContext().data.entity.save();
@@ -96,13 +89,13 @@ describe("Contact", () => {
             navigationSpy.openConfirmDialog.should.not.have.been.called;
         });
 
-        it.skip("it should not display a confirmation dialog if the contact has not been applied to MCS", () => {
+        it("it should not display a confirmation dialog if the contact has not been applied to MCS", () => {
             // Arrange
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(true);
 
             //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
-            form.initializeComponents(mockExecutionContext);
+            form.initializeComponents(mockSaveEventContext);
 
             // Act
             mockSaveEventContext.getFormContext().data.entity.save();
