@@ -29,11 +29,11 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_notifybyemail" />
           <attribute name="ownerid" />
           <attribute name="statuscode" />
-          <order attribute="createdon" descending="true" />
           <attribute name="opc_complaintid" />
+          <attribute name="opc_notifybyemail" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

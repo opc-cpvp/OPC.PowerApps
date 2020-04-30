@@ -2,7 +2,6 @@
 import { XrmProcessMock } from "./XrmProcessMock";
 
 export class XrmProcessModuleMock implements Xrm.ProcessModule {
-
     private _processes: XrmProcessMock[] = [];
     private _activeProcess: XrmProcessMock;
     private _onStageChangeHandlers: ((context?: Xrm.StageChangeContext) => any)[] = [];
@@ -95,6 +94,18 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
         throw new Error("Method not implemented.");
     }
     setStatus(status: Xrm.ProcessStatus, callbackFunction?: (status: Xrm.ProcessStatus) => any): Xrm.ProcessStatus {
+        throw new Error("Method not implemented.");
+    }
+    addOnPreProcessStatusChange(handler: (context?: Xrm.PreProcessStatusChangeContext) => any): void {
+        throw new Error("Method not implemented.");
+    }
+    removeOnPreProcessStatusChange(handler: (context?: Xrm.PreProcessStatusChangeContext) => any): void {
+        throw new Error("Method not implemented.");
+    }
+    addOnPreStageChange(handler: (context?: Xrm.PreStageChangeContext) => any): void {
+        throw new Error("Method not implemented.");
+    }
+    removeOnPreStageChange(handler: (context?: Xrm.PreStageChangeContext) => any): void {
         throw new Error("Method not implemented.");
     }
 }

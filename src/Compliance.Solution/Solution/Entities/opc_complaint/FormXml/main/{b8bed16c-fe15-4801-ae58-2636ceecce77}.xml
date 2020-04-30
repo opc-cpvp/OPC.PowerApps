@@ -20,11 +20,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{db996129-67e2-43c2-8ed8-38fd056aae0f}" locklevel="0">
+                      <cell id="{db996129-67e2-43c2-8ed8-38fd056aae0f}" locklevel="0" showlabel="true" colspan="1">
                         <labels>
                           <label description="Number" languagecode="1033" />
                         </labels>
-                        <control id="opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="true" />
+                        <control id="opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="true" uniqueid="{2cc4e1d6-08e5-de49-8dc2-8d7c69832ae7}" />
                       </cell>
                     </row>
                     <row>
@@ -42,6 +42,14 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{99f0f014-2519-4862-8cbf-e423e8447124}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Multiple Complaint Strategy" languagecode="1033" />
+                        </labels>
+                        <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -96,19 +104,37 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{b07b5cbe-03f8-4aef-968f-24cbb01fc53d}" showlabel="true" locklevel="0">
+                      <cell id="{b07b5cbe-03f8-4aef-968f-24cbb01fc53d}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="OPC Priority" languagecode="1033" />
                         </labels>
-                        <control id="opc_opcpriorityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_opcpriorityid" disabled="false" />
+                        <control id="opc_opcpriorityid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_opcpriorityid" disabled="false" uniqueid="{ebcad137-c073-b8a9-c854-96c4e1609b34}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{13E08D37-EF58-4F08-BC40-E6E3E0F83570}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{5fe9e631-3a7c-49f4-9dd2-32ca192c86e9}" showlabel="true" locklevel="0">
+                      <cell id="{5fe9e631-3a7c-49f4-9dd2-32ca192c86e9}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="Sector" languagecode="1033" />
                         </labels>
-                        <control id="opc_sectorid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_sectorid" disabled="false" />
+                        <control id="opc_sectorid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_sectorid" disabled="false" uniqueid="{d9d25097-b525-52a8-93e1-3a3ec8954286}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{B642F6EE-7011-4785-9B15-51902CEA95B6}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>
@@ -524,7 +550,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -555,12 +581,12 @@
       </Navigation>
       <controlDescriptions />
       <formLibraries>
-        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{9437b3a7-8c38-bac0-ad4d-a7d0217de4d4}" />
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{b6c03c50-74db-aa6e-b442-b00a509d4394}" />
       </formLibraries>
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
-            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{b04c9ede-d355-22d3-5bbe-2e9740a222bb}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{b04c9ede-d355-22d3-5bbe-2e9740a222bb}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

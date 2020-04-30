@@ -41,6 +41,9 @@
     <None Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="XrmDefinitelyTyped\FSharp.Core.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.Crm.Sdk.Proxy.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
@@ -57,9 +60,6 @@
     <Content Include="XrmDefinitelyTyped\System.Runtime.CompilerServices.Unsafe.dll" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Program.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

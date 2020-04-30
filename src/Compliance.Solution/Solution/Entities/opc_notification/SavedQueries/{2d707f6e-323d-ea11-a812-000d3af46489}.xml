@@ -11,7 +11,7 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_notificationid">
           <cell name="statuscode" width="113" />
-          <cell name="opc_name" width="300" />
+          <cell name="opc_name" width="300" imageproviderfunctionname="compliance.Utilities.NotificationIcons.displayNotificationIcons" imageproviderwebresource="$webresource:opc_compliance/js/compliance.min.js" />
           <cell name="opc_notifybyemail" width="151" />
           <cell name="opc_complaintid" width="149" />
           <cell name="createdon" width="121" />

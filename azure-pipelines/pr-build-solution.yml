@@ -101,7 +101,7 @@ steps:
     target: xml
     unpackedFilesFolder: src/$(SolutionName).Solution/Solution
     versionNumber: '$(Version.MajorMinor).$(Version.Patch)'
-    
+
 - task: PowerShell@2
   displayName: 'Generate Managed Files'
   inputs:

@@ -247,12 +247,12 @@
       </Navigation>
       <controlDescriptions />
       <formLibraries>
-        <Library name="opc_/compliance/js/compliance.min.js" libraryUniqueId="{895c08e2-3ddd-e23d-ad1d-628020cac6de}" />
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{895c08e2-3ddd-e23d-ad1d-628020cac6de}" />
       </formLibraries>
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
-            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_/compliance/js/compliance.min.js" handlerUniqueId="{a7d32904-2356-a48a-ee4b-de0bda91135c}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{a7d32904-2356-a48a-ee4b-de0bda91135c}" enabled="true" parameters="" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

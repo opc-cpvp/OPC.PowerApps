@@ -1,21 +1,18 @@
 ﻿import { injectable } from "inversify";
 
 export interface IComplaintService {
-    getComplaint(id: string): opc_complaint
 }
 
 export interface IAllegationService {
     getAllegation(id: string): opc_allegation
     getAllegationDispositionFilter(disposition: opc_allegationdisposition): string
-    getAllegationDispositionActionFilter(dispositionReason: string): string 
+    getAllegationDispositionActionFilter(dispositionReason: string): string
 }
 
 export interface IReminderService {
-    getReminder(id: string): opc_reminder
 }
 
 export interface INotificationService {
-    getNotification(id: string): opc_notification
     markAsRead(id: string): void
 }
 
@@ -28,6 +25,10 @@ export interface IChecklistService {
     getChecklist(id: string): Promise<({ opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result)[]>
     getQuestionTypes(): Promise<{ id: string, type: string }[]>
     updateChecklistResponse(responseid: string, value: string): Promise<undefined>
+}
+
+export interface IUserService {
+    hasIntakeManagerPermissions(userSecurityRoles: Xrm.Collection<Xrm.Role>): boolean
 }
 
 export interface IFormFactory {

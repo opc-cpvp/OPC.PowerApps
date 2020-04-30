@@ -20,6 +20,16 @@ export class XrmPageBaseMock<T, V> implements Xrm.BasicPage {
         this.ui = new XrmUIModuleMock(executionContext, new XrmUIProcessModuleMock());
     }
 
+    /* NEW MEMBERS TO HELP MOCKING */
+    addAttribute(attribute: XrmAttributeMock): void {
+        this._attr.push(attribute);
+    }
+
+    addControl(control: XrmControlMock): void {
+        this._ctrls.push(control);
+    }
+    /* END OF NEW MEMBERS*/
+
     getAttribute(attrName: string): XrmAttributeMock {
         // TODO: Following line should work, but i think because of the <any> it cannot call getFormContext()
         //return this.data.attributes.get(attrName);

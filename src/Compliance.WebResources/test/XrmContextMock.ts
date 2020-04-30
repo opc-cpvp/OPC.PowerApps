@@ -1,4 +1,4 @@
-/// <reference path="../@types/xrmdefinitelytyped/xrm.d.ts" />
+﻿/// <reference path="../@types/xrmdefinitelytyped/xrm.d.ts" />
 /// <reference path="../@types/xrmextensions/xrmextensions.d.ts" />
 import { XrmUserSettingsMock } from "./XrmUserSettingsMock";
 
