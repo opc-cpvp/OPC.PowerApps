@@ -1,5 +1,5 @@
-﻿import { XrmBaseControlMock } from "./XrmBaseControlMock";
-import { XrmAttributeMock } from "./XrmAttributeMock";
+﻿import { XrmCollectionMock } from "./XrmCollectionMock";
+import { XrmRoleMock } from "./XrmRoleMock";
 
 export class XrmUserSettingsMock implements Xrm.userSettings {
 
@@ -15,12 +15,11 @@ export class XrmUserSettingsMock implements Xrm.userSettings {
     isRTL: boolean;
     languageId: number;
     securityRolePrivileges: string[];
-    securityRoles: string[];
+    roles: XrmCollectionMock<XrmRoleMock>;
     userName: string;
+    userId: string;
+
     getTimeZoneOffsetMinutes(): number {
         throw new Error("Method not implemented.");
     }
-    userId: string;
-
-
 }

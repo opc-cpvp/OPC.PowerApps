@@ -6,6 +6,7 @@ import { XrmBaseControlMock } from "./XrmBaseControlMock";
 export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.ControlCollection> {
     private _context: XrmExecutionContextMock<any, any>;
     private _formNotifications: any[] = [];
+    formType: Xrm.FormType;
 
     tabs: XrmCollectionMock<XrmPageTabMock>;
     controls: XrmCollectionMock<XrmBaseControlMock>;
@@ -27,7 +28,7 @@ export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.Cont
     /* END OF NEW MEMBERS*/
 
     getFormType(): Xrm.FormType {
-        throw new Error("Method not implemented.");
+        return this.formType;
     }
     close(): void {
         throw new Error("Method not implemented.");

@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IComplaintService, IContactService } from "../interfaces";
+import { IPowerForm, IContactService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Complaint.Forms {
@@ -13,11 +13,9 @@ export namespace Complaint.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_complaint.Main.Information> {
 
-        private _complaintService: IComplaintService;
         private _contactService: IContactService;
 
-        constructor(@inject(nameof<IComplaintService>()) complaintService: IComplaintService, @inject(nameof<IContactService>()) contactService: IContactService) {
-            this._complaintService = complaintService;
+        constructor(@inject(nameof<IContactService>()) contactService: IContactService) {
             this._contactService = contactService;
         }
 
@@ -27,16 +25,18 @@ export namespace Complaint.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
-            let formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
+            const formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
             formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
             this.handle_StageStates(formContext);
             formContext.getAttribute("opc_recommendtoregistrar").addOnChange(x => this.recommendtoregistrar_OnChange(x));
             formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
+            formContext.getAttribute("opc_multiplecomplaintstrategy").addOnChange(x => this.multipleComplaintStrategy_OnChange(x));
 
             // Sequence matters
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
+            formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
 
             this.setupDuplicateContactChecking(formContext);
         }
@@ -50,7 +50,7 @@ export namespace Complaint.Forms {
         }
 
         private getDuplicateStatus(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, any>, contactType: ContactType): void {
-            let formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             const contact = context.getEventSource().getValue();
             const duplicationNotificationId = `duplicateNotificationId - ${contactType}`;
 
@@ -176,6 +176,27 @@ export namespace Complaint.Forms {
                     break;
                 case "closed":
                     break;
+            }
+        }
+        /**
+        * Handles changes to Multiple Complaint Strategy attribute.
+        *
+        * @event OnChanged
+        */
+        private multipleComplaintStrategy_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
+            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
+            const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
+            const complainantEntityReference = formContext.getAttribute("opc_complainant").getValue();
+            const complainantFullname = complainantEntityReference ? complainantEntityReference[0].name : "";
+
+            // Clear Notification
+            formContext.ui.clearFormNotification("formNotificationMCS");
+
+            // Check if Complainant is part of the Multiple Complaint Strategy
+            if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
+                // Display Notification
+                formContext.ui.setFormNotification(`The Complainant ${complainantFullname} is part of the Multiple Complaint Strategy.`, "INFO", "formNotificationMCS");
             }
         }
     }
