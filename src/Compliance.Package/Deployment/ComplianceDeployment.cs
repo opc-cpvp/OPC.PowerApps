@@ -221,15 +221,68 @@ namespace Compliance.Package.Deployment
                 PackageTemplate.PackageLog.Log($"Creating Team: {name}");
 
                 // Create the Team.
-                var teamId = PackageTemplate.CrmSvc.Create(team);
+                Guid? teamId = null;
+                try
+                {
+                    teamId = PackageTemplate.CrmSvc.Create(team);
+                }
+                catch (Exception)
+                {
+                    PackageTemplate.PackageLog.Log($"Failed to create AD Security Team: {name}");
+                    PackageTemplate.PackageLog.Log($"Attempting to create Owner Team: {name}");
+
+                    try
+                    {
+                        team = new Team
+                        {
+                            Name = name,
+                            TeamType = new OptionSetValue((int)TeamTeamType.Owner),
+                            BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id)
+                        };
+                        teamId = PackageTemplate.CrmSvc.Create(team);
+                        PackageTemplate.PackageLog.Log($"Owner Team {name} created.");
+                    }
+                    catch (Exception ex) when (ex.Message.Contains("An object with the specified name already exists"))
+                    {
+                        PackageTemplate.PackageLog.Log($"Failed to create Owner Team '{name}' because it already exists");
+                        PackageTemplate.PackageLog.Log($"Attempting to fetch Owner Team '{name}'");
+
+                        var ownerTeamQuery = new QueryExpression
+                        {
+                            EntityName = Team.EntityLogicalName,
+                            ColumnSet = new ColumnSet("name", "teamid"),
+                            Criteria = new FilterExpression
+                            {
+                                Conditions = {
+                                    new ConditionExpression("name", ConditionOperator.Equal, name)
+                                }
+                            }
+                        };
+
+                        teamId = PackageTemplate.CrmSvc.RetrieveMultiple(ownerTeamQuery).Entities.FirstOrDefault()?.ToEntity<Team>()?.TeamId;
+                        PackageTemplate.PackageLog.Log($"Owner Team {name} fetched.");
+                    }
+                    catch (Exception ex)
+                    {
+                        PackageTemplate.PackageLog.Log($"Exception: {ex.Message}");
+                    }
+                }
+
+                if (teamId == null)
+                {
+                    PackageTemplate.PackageLog.Log($"Could not create or find team {name}... skipping.");
+                    continue;
+                }
 
                 // Associate the Role to the Team.
                 PackageTemplate.CrmSvc.Associate(
                     Team.EntityLogicalName,
-                    teamId,
+                    (Guid)teamId,
                     new Relationship("teamroles_association"),
                     new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
                 );
+
+
             }
         }
     }
