@@ -245,7 +245,7 @@ namespace Compliance.Package.Deployment
                     catch (Exception ex) when (ex.Message.Contains("An object with the specified name already exists"))
                     {
                         PackageTemplate.PackageLog.Log($"Failed to create Owner Team '{name}' because it already exists");
-                        PackageTemplate.PackageLog.Log($"Attempting to fetch to owner Team '{name}'");
+                        PackageTemplate.PackageLog.Log($"Attempting to fetch Owner Team '{name}'");
 
                         var ownerTeamQuery = new QueryExpression
                         {
