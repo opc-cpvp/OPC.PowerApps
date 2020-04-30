@@ -12,7 +12,7 @@ chai.should();
 chai.use(sinonChai);
 
 function ReplaceFunctions(service: NotificationService, mockContext: XrmExecutionContextMock<Form.opc_notification.Main.Information, any>): void {
-    let markAsRead = sandbox.fake(function () {
+    const markAsRead = sandbox.fake(function () {
         let attrStatusCode = mockContext.getFormContext().getAttribute("statuscode");
         attrStatusCode.setValue(opc_notification_statuscode.Read);
     });

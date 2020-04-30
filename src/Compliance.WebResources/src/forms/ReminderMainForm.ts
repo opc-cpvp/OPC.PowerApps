@@ -1,17 +1,11 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IReminderService } from "../interfaces";
+import { IPowerForm } from "../interfaces";
 
 export namespace Reminder.Forms {
 
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_reminder.Main.Information> {
-
-        private _reminderService: IReminderService;
-
-        constructor(@inject(nameof<IReminderService>()) reminderService: IReminderService) {
-            this._reminderService = reminderService;
-        }
 
         /**
          * Handle the form OnLoad event.
@@ -19,7 +13,7 @@ export namespace Reminder.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_reminder.Main.Information, any>): void {
-            let formContext = <Form.opc_reminder.Main.Information>initializationContext.getFormContext();
+            const formContext = <Form.opc_reminder.Main.Information>initializationContext.getFormContext();
 
             // Register handlers
             formContext.data.entity.addOnSave(x => this.form_OnSave(x));
@@ -37,17 +31,17 @@ export namespace Reminder.Forms {
         * @event OnSave
         */
         private form_OnSave(context?: Xrm.SaveEventContext<Xrm.PageEntity<Form.opc_reminder.Main.Information.Attributes>>): void {
-            let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
+            const formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
 
             //Get the controls and their values
-            let notifyCaseOwnerControl = formContext.getControl("opc_notifycaseowner");
-            let notifyReminderOwnerControl = formContext.getControl("opc_notifyme");
-            let notifyAdditionalUsersControl = formContext.getControl("opc_notifyadditionalusers");
-            let complaintIdControl = formContext.getControl("opc_complaintid");
-            let shouldNotifyCaseOwner = notifyCaseOwnerControl.getAttribute().getValue();
-            let shouldNotifyReminderOwner = notifyReminderOwnerControl.getAttribute().getValue();
-            let shouldNotifyAdditionalUsers = notifyAdditionalUsersControl.getAttribute().getValue();
-            let containsComplaint = complaintIdControl.getAttribute().getValue();
+            const notifyCaseOwnerControl = formContext.getControl("opc_notifycaseowner");
+            const notifyReminderOwnerControl = formContext.getControl("opc_notifyme");
+            const notifyAdditionalUsersControl = formContext.getControl("opc_notifyadditionalusers");
+            const complaintIdControl = formContext.getControl("opc_complaintid");
+            const shouldNotifyCaseOwner = notifyCaseOwnerControl.getAttribute().getValue();
+            const shouldNotifyReminderOwner = notifyReminderOwnerControl.getAttribute().getValue();
+            const shouldNotifyAdditionalUsers = notifyAdditionalUsersControl.getAttribute().getValue();
+            const containsComplaint = complaintIdControl.getAttribute().getValue();
 
             //Check if at least one person is to be notified
             if (!shouldNotifyCaseOwner && !shouldNotifyReminderOwner && !shouldNotifyAdditionalUsers) {
@@ -73,7 +67,7 @@ export namespace Reminder.Forms {
         * @event OnChanged
         */
         private control_OnChange_ClearAllNotifications(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
+            const formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
             formContext.ui.clearFormNotification("formNotificationError");
             formContext.ui.controls.forEach(control => control.clearNotification());
         }
@@ -83,9 +77,9 @@ export namespace Reminder.Forms {
         * @event OnChanged
         */
         private notifyAdditionalUsers_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            let formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
-            let shouldNotifyAdditionalUsers = formContext.getControl("opc_notifyadditionalusers").getAttribute().getValue();
-            let sectionNotifyUsers = formContext.ui.tabs.get("tab_general").sections.get("section_additionalusers");
+            const formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
+            const shouldNotifyAdditionalUsers = formContext.getControl("opc_notifyadditionalusers").getAttribute().getValue();
+            const sectionNotifyUsers = formContext.ui.tabs.get("tab_general").sections.get("section_additionalusers");
             sectionNotifyUsers.setVisible(shouldNotifyAdditionalUsers);
         }
     }

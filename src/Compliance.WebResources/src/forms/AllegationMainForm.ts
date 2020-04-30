@@ -11,9 +11,9 @@ export namespace Allegation.Forms {
         private _allegationService: IAllegationService;
         private _initializing: boolean = false;
 
-        constructor(@inject(nameof<IAllegationService>()) complaintService: IAllegationService) {
+        constructor(@inject(nameof<IAllegationService>()) allegationService: IAllegationService) {
             super();
-            this._allegationService = complaintService;
+            this._allegationService = allegationService;
         }
 
         /**

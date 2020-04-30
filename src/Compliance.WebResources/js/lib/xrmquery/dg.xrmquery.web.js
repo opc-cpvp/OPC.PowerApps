@@ -600,20 +600,14 @@ var XQW;
         };
         RetrieveMultipleRecords.prototype.getQueryString = function () {
             var prefix = this.entitySetName;
-            var entitySingularName = prefix.slice(0, -1);
             if (this.id && this.relatedNav) {
                 prefix += "(" + this.id + ")/" + this.relatedNav;
             }
             if (this.specialQuery)
                 return prefix + this.specialQuery;
             var options = [];
-            if (this.selects.length > 0) {
-                for (var i in this.selects) {
-                    if (this.selects[i] == entitySingularName)
-                        this.selects[i] += "1";
-                }
+            if (this.selects.length > 0)
                 options.push("$select=" + this.selects.join(","));
-            }
             if (this.expands.length > 0) {
                 options.push("$expand=" + this.expands.join(","));
             }
@@ -778,15 +772,9 @@ var XQW;
         };
         RetrieveRecord.prototype.getQueryString = function () {
             var prefix = this.entitySetName + "(" + this.id + ")";
-            var entitySingularName = this.entitySetName.slice(0, -1);
             var options = [];
-            if (this.selects.length > 0) {
-                for (var i in this.selects) {
-                    if (this.selects[i] == entitySingularName)
-                        this.selects[i] += 1;
-                }
+            if (this.selects.length > 0)
                 options.push("$select=" + this.selects.join(","));
-            }
             if (this.expands.length > 0)
                 options.push("$expand=" + this.expands.join(","));
             if (this.relatedNav) {
@@ -1212,7 +1200,7 @@ var Filter;
     function parsePropertyName(name) {
         var idxStart = name.indexOf(GUID_START);
         var idxEnd = name.indexOf(GUID_ENDING);
-        if (idxStart === -1 && idxEnd === -1)
+        if (idxStart === -1 || idxEnd === -1)
             return name;
         return "" + name.substr(idxStart + 1, idxEnd - 1);
     }

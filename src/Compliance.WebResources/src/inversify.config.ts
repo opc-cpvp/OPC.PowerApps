@@ -11,7 +11,7 @@ import { ReminderService } from "./services/ReminderService";
 import { NotificationService } from "./services/NotificationService";
 import { ChecklistService } from "./services/ChecklistService";
 import { ContactService } from "./services/ContactService";
-
+import { UserService } from "./services/UserService";
 
 // Forms
 import ComplaintMainForm = require("./forms/ComplaintMainForm");
@@ -22,6 +22,8 @@ import ReminderMainForm = require("./forms/ReminderMainForm");
 import Reminder = ReminderMainForm.Reminder;
 import NotificationMainForm = require("./forms/NotificationMainForm");
 import Notification = NotificationMainForm.Notification;
+import ContactMainForm = require("./forms/ContactMainForm");
+import Contact = ContactMainForm.Contact;
 
 // Controls
 import { Controls } from "./controls/Checklist/ChecklistControl";
@@ -35,15 +37,18 @@ container.bind<i.IReminderService>(nameof<i.IReminderService>()).to(ReminderServ
 container.bind<i.INotificationService>(nameof<i.INotificationService>()).to(NotificationService);
 container.bind<i.IChecklistService>(nameof<i.IChecklistService>()).to(ChecklistService);
 container.bind<i.IContactService>(nameof<i.IContactService>()).to(ContactService);
+container.bind<i.IUserService>(nameof<i.IUserService>()).to(UserService);
 
 // Register Providers
 container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);
+container.bind<Xrm.Utility>(nameof<Xrm.Utility>()).toConstantValue(Xrm.Utility);
 
 // Register Forms
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegation_information").to(Allegation.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_reminder.Main.Information>>("opc_reminder_information").to(Reminder.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_notification.Main.Information>>("opc_notification_information").to(Notification.Forms.MainForm);
+container.bind<i.IPowerForm<Form.contact.Main.ComplianceContact>>("contact_compliancecontact").to(Contact.Forms.MainForm);
 
 // Register controls
 container.bind<Xrm.context>(nameof<Xrm.context>()).toDynamicValue(() => Xrm.Utility.getGlobalContext());

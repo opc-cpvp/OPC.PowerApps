@@ -23,10 +23,10 @@ export namespace Notification.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_notification.Main.Information, any>): void {
-            let formContext = <Form.opc_notification.Main.Information>initializationContext.getFormContext();
-            let notificationIdValue = formContext.data.entity.getId();
-            let complaintIdValue = formContext.getAttribute("opc_complaintid").getValue();
-            let entityFormOptions = {entityName: "", entityId: ""};
+            const formContext = <Form.opc_notification.Main.Information>initializationContext.getFormContext();
+            const notificationIdValue = formContext.data.entity.getId();
+            const complaintIdValue = formContext.getAttribute("opc_complaintid").getValue();
+            const entityFormOptions = {entityName: "", entityId: ""};
 
             // Change the Status Reason of the notification from UNREAD to READ.
             if (formContext.getAttribute("statecode").getValue() == opc_notification_statecode.Active) {

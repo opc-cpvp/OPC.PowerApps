@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_multiplecomplaintstrategy" localizedName="Multiple Complaint Strategy" description="Defines if a contact is part of a Multiple Complaint Strategy." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.195</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Multiple Complaint Strategy" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="Defines if a contact is part of a Multiple Complaint Strategy." languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="924340000">
+      <labels>
+        <label description="Not Applied" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340001">
+      <labels>
+        <label description="Proposed" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340002">
+      <labels>
+        <label description="Applied" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="924340003">
+      <labels>
+        <label description="Former" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

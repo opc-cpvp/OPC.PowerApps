@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.255</Version>
+    <Version>1.0.263</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -116,6 +116,7 @@
       <RootComponent type="9" schemaName="opc_declinereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_duplicatedetectionresult" behavior="0" />
       <RootComponent type="9" schemaName="opc_intakedisposition" behavior="0" />
+      <RootComponent type="9" schemaName="opc_multiplecomplaintstrategy" behavior="0" />
       <RootComponent type="9" schemaName="opc_nextstep" behavior="0" />
       <RootComponent type="9" schemaName="opc_yesorno" behavior="0" />
       <RootComponent type="9" schemaName="processstage_category" behavior="0" />
@@ -146,6 +147,7 @@
       <RootComponent type="29" id="{66c9ed60-1da2-425e-a7ff-cd0df39467b5}" behavior="0" />
       <RootComponent type="29" id="{66ef3f32-9ddc-4b79-9acd-685cb6dd07fa}" behavior="0" />
       <RootComponent type="29" id="{7eab9db6-db42-ea11-a812-000d3af46757}" behavior="0" />
+      <RootComponent type="29" id="{8f4e4358-7a73-ea11-a811-000d3af45c52}" behavior="0" />
       <RootComponent type="29" id="{b07acb09-5247-ea11-a812-000d3af46b49}" behavior="0" />
       <RootComponent type="29" id="{d927e040-5247-ea11-a812-000d3af46b49}" behavior="0" />
       <RootComponent type="29" id="{da27e040-5247-ea11-a812-000d3af46b49}" behavior="0" />
@@ -187,9 +189,11 @@
       <RootComponent type="60" id="{e890788c-d225-4e9f-9c9d-41781b2f52e3}" behavior="0" />
       <RootComponent type="60" id="{f1a8cde7-1057-ea11-a811-000d3af46cc5}" behavior="0" />
       <RootComponent type="60" id="{f1bd29af-943b-ea11-a812-000d3af46489}" behavior="0" />
-      <RootComponent type="61" schemaName="opc_/compliance/js/compliance.min.js" behavior="0" />
       <RootComponent type="61" schemaName="opc_compliance/checklist_control.html" behavior="0" />
       <RootComponent type="61" schemaName="opc_compliance/css/risk_assessment_control.css" behavior="0" />
+      <RootComponent type="61" schemaName="opc_compliance/imgs/icon64x64_read_notification.png" behavior="0" />
+      <RootComponent type="61" schemaName="opc_compliance/imgs/icon64x64_unread_notification.png" behavior="0" />
+      <RootComponent type="61" schemaName="opc_compliance/js/compliance.min.js" behavior="0" />
       <RootComponent type="61" schemaName="opc_compliance/risk_assessment_control.html" behavior="0" />
       <RootComponent type="62" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="80" schemaName="opc_compliance" behavior="0" />

@@ -1,5 +1,6 @@
 ﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { INamedComponent } from "./INamedComponent";
+
 export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INamedComponent {
     protected context: XrmExecutionContextMock<any, any>;
     private _type: Xrm.ControlType;
