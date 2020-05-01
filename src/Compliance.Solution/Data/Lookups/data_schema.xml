@@ -268,18 +268,4 @@
       <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
     </fields>
   </entity>
-  <entity name="opc_allegation" displayname="Allegation/Concern" etc="11114" primaryidfield="opc_allegationid" primarynamefield="opc_name" disableplugins="false">
-    <fields>
-      <field displayname="Allegation Type" name="opc_allegationtypeid" type="entityreference" lookupType="opc_allegationtype" customfield="true" />
-      <field displayname="Allegation/Concern" name="opc_allegationid" type="guid" primaryKey="true" />
-      <field displayname="Complaint" name="opc_complaintid" type="entityreference" lookupType="opc_complaint" customfield="true" />
-      <field displayname="Disposition" name="opc_disposition" type="optionsetvalue" customfield="true" />
-      <field displayname="Disposition Action" name="opc_dispositionactionid" type="entityreference" lookupType="opc_dispositionaction" customfield="true" />
-      <field displayname="Disposition Allegation" name="opc_allegationdisposition" type="optionsetvalue" customfield="true" />
-      <field displayname="Disposition Reason" name="opc_dispositionreasonid" type="entityreference" lookupType="opc_dispositionreason" customfield="true" />
-      <field displayname="Name" name="opc_name" type="string" customfield="true" />
-      <field displayname="Status" name="statecode" type="state" />
-      <field displayname="Status Reason" name="statuscode" type="status" />
-    </fields>
-  </entity>
 </entities>
