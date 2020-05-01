@@ -11,7 +11,6 @@
       <grid name="opc_issues" jump="opc_name" select="1" icon="1" preview="0">
         <row name="opc_issue" id="opc_issueid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_complaintid" width="300" />
         </row>
       </grid>
     </layoutxml>
@@ -24,8 +23,6 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_complaintid" />
-          <order attribute="opc_complaintid" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

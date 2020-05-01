@@ -20,11 +20,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{d3d9c1f0-42b8-4f0c-92ef-50d9b75b7c74}">
+                      <cell id="{5c2c442e-ab65-4166-85b8-6be14649bcc1}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="name" languagecode="1033" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
                       </cell>
                     </row>
                   </rows>

@@ -41,10 +41,5 @@
         <label description="Withdrawn" languagecode="1033" />
       </labels>
     </option>
-    <option value="924340003">
-      <labels>
-        <label description="Resolved" languagecode="1033" />
-      </labels>
-    </option>
   </options>
 </optionset>

@@ -48,31 +48,6 @@
                             </parameters>
                           </control>
                         </cell>
-                        <cell id="{736270eb-4cd3-c138-d078-e86630ae9784}" showlabel="false" colspan="1" auto="false" rowspan="9">
-                          <labels>
-                            <label description="Queue Item" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
-                          </labels>
-                          <control id="chart_complaint_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{5e16aa3c-ccd6-8e70-9e4d-a66c9ebb5a76}">
-                            <parameters>
-                              <ViewId>{34F4B8B5-A25C-EA11-A811-000D3AF46FFF}</ViewId>
-                              <IsUserView>false</IsUserView>
-                              <RelationshipName />
-                              <TargetEntityType>queueitem</TargetEntityType>
-                              <AutoExpand>Fixed</AutoExpand>
-                              <EnableQuickFind>false</EnableQuickFind>
-                              <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
-                              <EnableJumpBar>false</EnableJumpBar>
-                              <ChartGridMode>Chart</ChartGridMode>
-                              <VisualizationId>{794E51F6-5E5D-EA11-A811-000D3AF464F8}</VisualizationId>
-                              <IsUserChart>false</IsUserChart>
-                              <EnableChartPicker>false</EnableChartPicker>
-                              <RecordsPerPage>9</RecordsPerPage>
-                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            </parameters>
-                          </control>
-                        </cell>
                         <cell colspan="1" rowspan="9" showlabel="true" id="{3f2a7d26-e665-482e-a51e-fe220fa9967b}" auto="false">
                           <labels>
                             <label description="Notifications" languagecode="1033" />
@@ -95,6 +70,31 @@
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
                               <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{736270eb-4cd3-c138-d078-e86630ae9784}" showlabel="false" colspan="1" auto="false" rowspan="9">
+                          <labels>
+                            <label description="Queue Item" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
+                          </labels>
+                          <control id="chart_complaint_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{5e16aa3c-ccd6-8e70-9e4d-a66c9ebb5a76}">
+                            <parameters>
+                              <ViewId>{34F4B8B5-A25C-EA11-A811-000D3AF46FFF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{794E51F6-5E5D-EA11-A811-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
                             </parameters>
                           </control>
                         </cell>

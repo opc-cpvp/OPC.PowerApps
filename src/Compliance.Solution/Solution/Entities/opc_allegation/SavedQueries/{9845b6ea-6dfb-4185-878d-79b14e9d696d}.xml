@@ -11,7 +11,7 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_allegationid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_description" width="300" />
+          <cell name="opc_allegationtypeid" width="206" />
           <cell name="opc_disposition" width="276" />
           <cell name="opc_dispositionreasonid" width="252" />
           <cell name="createdon" width="100" />
@@ -30,8 +30,8 @@
           </filter>
           <attribute name="opc_disposition" />
           <attribute name="opc_dispositionreasonid" />
-          <attribute name="opc_description" />
           <attribute name="createdon" />
+          <attribute name="opc_allegationtypeid" />
         </entity>
       </fetch>
     </fetchxml>

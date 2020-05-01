@@ -850,7 +850,7 @@
             <displayname description="Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Required name field" languagecode="1033" />
+            <Description description="The complaint number" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_opcpriorityid">
