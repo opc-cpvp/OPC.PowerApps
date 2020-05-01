@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Generate Random Data"
   DTS:PackageType="5"
-  DTS:VersionBuild="228"
-  DTS:VersionGUID="{AFF617AC-FC2C-4E48-8BC3-6D7170277D73}">
+  DTS:VersionBuild="235"
+  DTS:VersionGUID="{C52E1B11-8CBF-41A6-B79B-A3C197AE9D62}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4696,13 +4696,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       externalMetadataColumnId="Package\Generate Allegations\CDS Destination.Inputs[Input].ExternalColumns[opc_complaintid]"
                       lineageId="Package\Generate Allegations\Merge Join.Outputs[Merge Join Output].Columns[opc_complaintid]" />
                     <inputColumn
-                      refId="Package\Generate Allegations\CDS Destination.Inputs[Input].Columns[opc_description]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="opc_description"
-                      externalMetadataColumnId="Package\Generate Allegations\CDS Destination.Inputs[Input].ExternalColumns[opc_description]"
-                      lineageId="Package\Generate Allegations\Merge Join.Outputs[Merge Join Output].Columns[opc_description]" />
-                    <inputColumn
                       refId="Package\Generate Allegations\CDS Destination.Inputs[Input].Columns[opc_name]"
                       cachedDataType="wstr"
                       cachedLength="100"
@@ -5094,22 +5087,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       name="opc_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].Columns[opc_description]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].ExternalColumns[opc_description]"
-                      length="4000"
-                      lineageId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].Columns[opc_description]"
-                      name="opc_description"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].Columns[opc_allegationdisposition]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].ExternalColumns[opc_allegationdisposition]"
-                      length="32"
+                      length="25"
                       lineageId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].Columns[opc_allegationdisposition]"
                       name="opc_allegationdisposition"
                       truncationRowDisposition="FailComponent" />
@@ -5134,26 +5117,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].ExternalColumns[opc_description]"
-                      dataType="wstr"
-                      length="4000"
-                      name="opc_description">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="SpawnType"
-                          name="SpawnType"
-                          typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.SpawnType">17</property>
-                        <property
-                          dataType="System.Int32"
-                          description="RandomSeed"
-                          name="RandomSeed">0</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
                       refId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].ExternalColumns[opc_allegationdisposition]"
                       dataType="wstr"
-                      length="32"
+                      length="25"
                       name="opc_allegationdisposition">
                       <properties>
                         <property
@@ -5168,7 +5134,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                         <property
                           dataType="System.String"
                           description="ListOfValues"
-                          name="ListOfValues">Suitable,No action required,No jurisdiction,Redirected to Information Center,Redirected to Institution,Resolved,Unresponsive inquirer</property>
+                          name="ListOfValues">Redirected to Institution,Resolved,Unresponsive inquirer,Acceptable,Unacceptable,Withdrawn</property>
                         <property
                           dataType="System.String"
                           description="Delimiter"
@@ -5254,15 +5220,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       cachedName="opc_allegationtypeid"
                       lineageId="Package\Generate Allegations\Sort Allegations (RowNumber).Outputs[Sort Output].Columns[opc_allegationtypeid]" />
                     <inputColumn
-                      refId="Package\Generate Allegations\Merge Join.Inputs[Merge Join Right Input].Columns[opc_description]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="opc_description"
-                      lineageId="Package\Generate Allegations\Sort Allegations (RowNumber).Outputs[Sort Output].Columns[opc_description]" />
-                    <inputColumn
                       refId="Package\Generate Allegations\Merge Join.Inputs[Merge Join Right Input].Columns[opc_allegationdisposition]"
                       cachedDataType="wstr"
-                      cachedLength="32"
+                      cachedLength="25"
                       cachedName="opc_allegationdisposition"
                       lineageId="Package\Generate Allegations\Sort Allegations (RowNumber).Outputs[Sort Output].Columns[opc_allegationdisposition]" />
                   </inputColumns>
@@ -5313,20 +5273,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Generate Allegations\Merge Join.Inputs[Merge Join Right Input].Columns[opc_allegationtypeid]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Generate Allegations\Merge Join.Outputs[Merge Join Output].Columns[opc_description]"
-                      dataType="wstr"
-                      length="4000"
-                      lineageId="Package\Generate Allegations\Merge Join.Outputs[Merge Join Output].Columns[opc_description]"
-                      name="opc_description">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Generate Allegations\Merge Join.Inputs[Merge Join Right Input].Columns[opc_description]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -8096,26 +8042,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Generate Allegations\Sort Allegations (RowNumber).Inputs[Sort Input].Columns[opc_description]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="opc_description"
-                      lineageId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].Columns[opc_description]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Generate Allegations\Sort Allegations (RowNumber).Inputs[Sort Input].Columns[opc_allegationdisposition]"
                       cachedDataType="wstr"
-                      cachedLength="32"
+                      cachedLength="25"
                       cachedName="opc_allegationdisposition"
                       lineageId="Package\Generate Allegations\Data Spawner.Outputs[Default Output].Columns[opc_allegationdisposition]">
                       <properties>
@@ -8182,23 +8111,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Generate Allegations\Sort Allegations (RowNumber).Outputs[Sort Output].Columns[opc_description]"
-                      dataType="wstr"
-                      length="4000"
-                      lineageId="Package\Generate Allegations\Sort Allegations (RowNumber).Outputs[Sort Output].Columns[opc_description]"
-                      name="opc_description">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Generate Allegations\Data Spawner.Outputs[Default Output].Columns[opc_description]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Generate Allegations\Sort Allegations (RowNumber).Outputs[Sort Output].Columns[opc_allegationdisposition]"
                       dataType="wstr"
-                      length="32"
+                      length="25"
                       lineageId="Package\Generate Allegations\Sort Allegations (RowNumber).Outputs[Sort Output].Columns[opc_allegationdisposition]"
                       name="opc_allegationdisposition">
                       <properties>
@@ -24449,19 +24364,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   dataType="System.String"
                   description="FetchXML statement."
                   expressionType="Notify"
-                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true"&gt;
-  &lt;entity name="systemuser"&gt;
+                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true" &gt;
+  &lt;entity name="systemuser" &gt;
     &lt;attribute name="systemuserid" /&gt;
-    &lt;filter type="and"&gt;
+    &lt;filter type="and" &gt;
       &lt;condition attribute="isdisabled" operator="eq" value="0" /&gt;
       &lt;condition attribute="accessmode" operator="eq" value="0" /&gt;
     &lt;/filter&gt;
-    &lt;link-entity name="systemuserroles" from="systemuserid" to="systemuserid" visible="false" intersect="true"&gt;
-      &lt;link-entity name="role" from="roleid" to="roleid" alias="ac"&gt;
-        &lt;filter type="and"&gt;
-          &lt;condition attribute="roleid" operator="in"&gt;
-            &lt;value uiname="Compliance - Base Role" uitype="role"&gt;{E8D3B19C-362E-EA11-A810-000D3AF46757}&lt;/value&gt;
-            &lt;value uiname="System Administrator" uitype="role"&gt;{68606CC9-0D40-EA11-A813-000D3AF43EDA}&lt;/value&gt;
+    &lt;link-entity name="systemuserroles" from="systemuserid" to="systemuserid" visible="false" intersect="true" &gt;
+      &lt;link-entity name="role" from="roleid" to="roleid" alias="ac" &gt;
+        &lt;filter type="and" &gt;
+          &lt;condition attribute="name" operator="in" &gt;
+            &lt;value&gt;Compliance - Base Role&lt;/value&gt;
+            &lt;value&gt;System Administrator&lt;/value&gt;
           &lt;/condition&gt;
         &lt;/filter&gt;
       &lt;/link-entity&gt;
@@ -24550,19 +24465,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   dataType="System.String"
                   description="FetchXML statement."
                   expressionType="Notify"
-                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true"&gt;
-  &lt;entity name="systemuser"&gt;
+                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true" &gt;
+  &lt;entity name="systemuser" &gt;
     &lt;attribute name="systemuserid" /&gt;
-    &lt;filter type="and"&gt;
+    &lt;filter type="and" &gt;
       &lt;condition attribute="isdisabled" operator="eq" value="0" /&gt;
       &lt;condition attribute="accessmode" operator="eq" value="0" /&gt;
     &lt;/filter&gt;
-    &lt;link-entity name="systemuserroles" from="systemuserid" to="systemuserid" visible="false" intersect="true"&gt;
-      &lt;link-entity name="role" from="roleid" to="roleid" alias="ac"&gt;
-        &lt;filter type="and"&gt;
-          &lt;condition attribute="roleid" operator="in"&gt;
-            &lt;value uiname="Compliance - Base Role" uitype="role"&gt;{E8D3B19C-362E-EA11-A810-000D3AF46757}&lt;/value&gt;
-            &lt;value uiname="System Administrator" uitype="role"&gt;{68606CC9-0D40-EA11-A813-000D3AF43EDA}&lt;/value&gt;
+    &lt;link-entity name="systemuserroles" from="systemuserid" to="systemuserid" visible="false" intersect="true" &gt;
+      &lt;link-entity name="role" from="roleid" to="roleid" alias="ac" &gt;
+        &lt;filter type="and" &gt;
+          &lt;condition attribute="name" operator="in" &gt;
+            &lt;value&gt;Compliance - Base Role&lt;/value&gt;
+            &lt;value&gt;System Administrator&lt;/value&gt;
           &lt;/condition&gt;
         &lt;/filter&gt;
       &lt;/link-entity&gt;
@@ -24651,19 +24566,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   dataType="System.String"
                   description="FetchXML statement."
                   expressionType="Notify"
-                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true"&gt;
-  &lt;entity name="systemuser"&gt;
+                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true" &gt;
+  &lt;entity name="systemuser" &gt;
     &lt;attribute name="systemuserid" /&gt;
-    &lt;filter type="and"&gt;
+    &lt;filter type="and" &gt;
       &lt;condition attribute="isdisabled" operator="eq" value="0" /&gt;
       &lt;condition attribute="accessmode" operator="eq" value="0" /&gt;
     &lt;/filter&gt;
-    &lt;link-entity name="systemuserroles" from="systemuserid" to="systemuserid" visible="false" intersect="true"&gt;
-      &lt;link-entity name="role" from="roleid" to="roleid" alias="ac"&gt;
-        &lt;filter type="and"&gt;
-          &lt;condition attribute="roleid" operator="in"&gt;
-            &lt;value uiname="Compliance - Base Role" uitype="role"&gt;{E8D3B19C-362E-EA11-A810-000D3AF46757}&lt;/value&gt;
-            &lt;value uiname="System Administrator" uitype="role"&gt;{68606CC9-0D40-EA11-A813-000D3AF43EDA}&lt;/value&gt;
+    &lt;link-entity name="systemuserroles" from="systemuserid" to="systemuserid" visible="false" intersect="true" &gt;
+      &lt;link-entity name="role" from="roleid" to="roleid" alias="ac" &gt;
+        &lt;filter type="and" &gt;
+          &lt;condition attribute="name" operator="in" &gt;
+            &lt;value&gt;Compliance - Base Role&lt;/value&gt;
+            &lt;value&gt;System Administrator&lt;/value&gt;
           &lt;/condition&gt;
         &lt;/filter&gt;
       &lt;/link-entity&gt;
@@ -24752,19 +24667,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   dataType="System.String"
                   description="FetchXML statement."
                   expressionType="Notify"
-                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true"&gt;
-  &lt;entity name="systemuser"&gt;
+                  name="FetchXML">&lt;fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true" &gt;
+  &lt;entity name="systemuser" &gt;
     &lt;attribute name="systemuserid" /&gt;
-    &lt;filter type="and"&gt;
+    &lt;filter type="and" &gt;
       &lt;condition attribute="isdisabled" operator="eq" value="0" /&gt;
       &lt;condition attribute="accessmode" operator="eq" value="0" /&gt;
     &lt;/filter&gt;
-    &lt;link-entity name="systemuserroles" from="systemuserid" to="systemuserid" visible="false" intersect="true"&gt;
-      &lt;link-entity name="role" from="roleid" to="roleid" alias="ac"&gt;
-        &lt;filter type="and"&gt;
-          &lt;condition attribute="roleid" operator="in"&gt;
-            &lt;value uiname="Compliance - Base Role" uitype="role"&gt;{E8D3B19C-362E-EA11-A810-000D3AF46757}&lt;/value&gt;
-            &lt;value uiname="System Administrator" uitype="role"&gt;{68606CC9-0D40-EA11-A813-000D3AF43EDA}&lt;/value&gt;
+    &lt;link-entity name="systemuserroles" from="systemuserid" to="systemuserid" visible="false" intersect="true" &gt;
+      &lt;link-entity name="role" from="roleid" to="roleid" alias="ac" &gt;
+        &lt;filter type="and" &gt;
+          &lt;condition attribute="name" operator="in" &gt;
+            &lt;value&gt;Compliance - Base Role&lt;/value&gt;
+            &lt;value&gt;System Administrator&lt;/value&gt;
           &lt;/condition&gt;
         &lt;/filter&gt;
       &lt;/link-entity&gt;
@@ -30971,9 +30886,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31007,9 +30920,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31043,9 +30954,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31079,9 +30988,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31091,7 +30998,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Generate Allegations">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="139,43"
           Id="Package\Generate Allegations\CDS Source"
@@ -31171,9 +31078,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31207,9 +31112,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31243,9 +31146,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31279,9 +31180,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31315,9 +31214,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31351,9 +31248,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31387,9 +31282,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31423,9 +31316,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31459,9 +31350,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31495,9 +31384,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31531,9 +31418,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -32509,6 +32394,40 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\Set variables\Allegation Types"
           TopLeft="419,448" />
         <EdgeLayout
+          Id="Package\Set variables.Paths[Primary Output8]"
+          TopLeft="828,483">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.5,48"
+              Start="0,0"
+              End="52.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="48.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.5,24"
+                    Point2="52.5,24"
+                    Point3="52.5,28" />
+                  <mssgle:LineSegment
+                    End="52.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Set variables.Paths[Primary Output7]"
           TopLeft="192.5,500">
           <EdgeLayout.Curve>
@@ -32780,40 +32699,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Set variables.Paths[Primary Output8]"
-          TopLeft="828,483">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.5,48"
-              Start="0,0"
-              End="52.5,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
-                  <mssgle:LineSegment
-                    End="48.5,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48.5,24"
-                    Point2="52.5,24"
-                    Point3="52.5,28" />
-                  <mssgle:LineSegment
-                    End="52.5,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -32821,7 +32706,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Update Individual Complaint BPF">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="237,43"
           Id="Package\Update Individual Complaint BPF\Update Individual Complaint BPF"
@@ -32881,7 +32766,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -32915,7 +32802,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -32949,7 +32838,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -32983,7 +32874,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -33017,7 +32910,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -33051,7 +32946,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -33061,7 +32958,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Update Queue Items for Complaints">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="159,43"
           Id="Package\Update Queue Items for Complaints\CDS Destination"
@@ -33113,9 +33010,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -33149,9 +33044,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -33185,9 +33078,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -33221,9 +33112,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
