@@ -20,6 +20,7 @@
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>1.0.210</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>opc_individualcomplaint_bp</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Individual Complaint - Create/Update - Set Active Stage Category" />
