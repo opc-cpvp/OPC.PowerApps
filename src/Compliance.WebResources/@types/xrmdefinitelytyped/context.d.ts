@@ -835,7 +835,6 @@ declare namespace Form.account.Main {
         get(name: "section_address"): Xrm.PageSection;
         get(name: "section_child_accounts"): Xrm.PageSection;
         get(name: "section_contacts"): Xrm.PageSection;
-        get(name: "section_map"): Xrm.PageSection;
         get(name: "section_timeline"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
@@ -875,7 +874,6 @@ declare namespace Form.account.Main {
       get(name: "address1_stateorprovince"): Xrm.StringControl;
       get(name: "fax"): Xrm.StringControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: "mapcontrol"): Xrm.BaseControl;
       get(name: "name"): Xrm.StringControl;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "parentaccountid"): Xrm.LookupControl<"account">;
@@ -924,7 +922,6 @@ declare namespace Form.account.Main {
     getControl(controlName: "address1_stateorprovince"): Xrm.StringControl;
     getControl(controlName: "fax"): Xrm.StringControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: "mapcontrol"): Xrm.BaseControl;
     getControl(controlName: "name"): Xrm.StringControl;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "parentaccountid"): Xrm.LookupControl<"account">;
@@ -2224,20 +2221,10 @@ declare namespace Form.contact.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface tab_details extends Xrm.SectionCollectionBase {
-        get(name: "section_contact_preferences"): Xrm.PageSection;
-        get(name: "section_personal"): Xrm.PageSection;
-        get(name: "section_personal_notes"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
       interface tab_summary extends Xrm.SectionCollectionBase {
         get(name: "section_Timeline"): Xrm.PageSection;
         get(name: "section_address"): Xrm.PageSection;
         get(name: "section_contact_information"): Xrm.PageSection;
-        get(name: "section_map"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -2252,20 +2239,12 @@ declare namespace Form.contact.Main {
       get(name: "address1_line3"): Xrm.Attribute<string>;
       get(name: "address1_postalcode"): Xrm.Attribute<string>;
       get(name: "address1_stateorprovince"): Xrm.Attribute<string>;
-      get(name: "birthdate"): Xrm.DateAttribute;
-      get(name: "description"): Xrm.Attribute<string>;
-      get(name: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "donotemail"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "donotfax"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "donotphone"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "birthdate"): Xrm.DateAttribute | null;
       get(name: "emailaddress1"): Xrm.Attribute<string>;
-      get(name: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode>;
+      get(name: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode> | null;
       get(name: "fax"): Xrm.Attribute<string>;
       get(name: "firstname"): Xrm.Attribute<string> | null;
-      get(name: "followemail"): Xrm.OptionSetAttribute<boolean>;
       get(name: "fullname"): Xrm.Attribute<string> | null;
-      get(name: "gendercode"): Xrm.OptionSetAttribute<contact_gendercode>;
       get(name: "industrycode"): Xrm.OptionSetAttribute<number> | null;
       get(name: "jobtitle"): Xrm.Attribute<string>;
       get(name: "lastname"): Xrm.Attribute<string> | null;
@@ -2278,7 +2257,7 @@ declare namespace Form.contact.Main {
       get(name: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
       get(name: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<contact_preferredcontactmethodcode>;
-      get(name: "spousesname"): Xrm.Attribute<string>;
+      get(name: "spousesname"): Xrm.Attribute<string> | null;
       get(name: "telephone1"): Xrm.Attribute<string>;
       get(name: "telephone2"): Xrm.Attribute<string>;
       get(name: "websiteurl"): Xrm.Attribute<string> | null;
@@ -2295,19 +2274,9 @@ declare namespace Form.contact.Main {
       get(name: "address1_line3"): Xrm.StringControl;
       get(name: "address1_postalcode"): Xrm.StringControl;
       get(name: "address1_stateorprovince"): Xrm.StringControl;
-      get(name: "birthdate"): Xrm.DateControl;
-      get(name: "description"): Xrm.StringControl;
-      get(name: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
-      get(name: "donotemail"): Xrm.OptionSetControl<boolean>;
-      get(name: "donotfax"): Xrm.OptionSetControl<boolean>;
-      get(name: "donotphone"): Xrm.OptionSetControl<boolean>;
-      get(name: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
       get(name: "emailaddress1"): Xrm.StringControl;
-      get(name: "familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode>;
       get(name: "fax"): Xrm.StringControl;
-      get(name: "followemail"): Xrm.OptionSetControl<boolean>;
       get(name: "fullname"): Xrm.StringControl | null;
-      get(name: "gendercode"): Xrm.OptionSetControl<contact_gendercode>;
       get(name: "header_opc_duplicatedetectionresult"): Xrm.OptionSetControl<opc_duplicatedetectionresult>;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_process_birthdate"): Xrm.DateControl | null;
@@ -2324,13 +2293,10 @@ declare namespace Form.contact.Main {
       get(name: "header_process_telephone1"): Xrm.StringControl | null;
       get(name: "header_process_websiteurl"): Xrm.StringControl | null;
       get(name: "jobtitle"): Xrm.StringControl;
-      get(name: "mapcontrol"): Xrm.BaseControl;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
       get(name: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
-      get(name: "preferredcontactmethodcode1"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
-      get(name: "spousesname"): Xrm.StringControl;
       get(name: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
       get(name: "telephone1"): Xrm.StringControl;
       get(name: "telephone2"): Xrm.StringControl;
@@ -2341,7 +2307,6 @@ declare namespace Form.contact.Main {
     }
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "tab_complaints"): Xrm.PageTab<Tabs.tab_complaints>;
-      get(name: "tab_details"): Xrm.PageTab<Tabs.tab_details>;
       get(name: "tab_summary"): Xrm.PageTab<Tabs.tab_summary>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
@@ -2357,20 +2322,12 @@ declare namespace Form.contact.Main {
     getAttribute(attributeName: "address1_line3"): Xrm.Attribute<string>;
     getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string>;
     getAttribute(attributeName: "address1_stateorprovince"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "birthdate"): Xrm.DateAttribute;
-    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "donotbulkemail"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "donotemail"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "donotfax"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "donotphone"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "birthdate"): Xrm.DateAttribute | null;
     getAttribute(attributeName: "emailaddress1"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode>;
+    getAttribute(attributeName: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode> | null;
     getAttribute(attributeName: "fax"): Xrm.Attribute<string>;
     getAttribute(attributeName: "firstname"): Xrm.Attribute<string> | null;
-    getAttribute(attributeName: "followemail"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "fullname"): Xrm.Attribute<string> | null;
-    getAttribute(attributeName: "gendercode"): Xrm.OptionSetAttribute<contact_gendercode>;
     getAttribute(attributeName: "industrycode"): Xrm.OptionSetAttribute<number> | null;
     getAttribute(attributeName: "jobtitle"): Xrm.Attribute<string>;
     getAttribute(attributeName: "lastname"): Xrm.Attribute<string> | null;
@@ -2383,7 +2340,7 @@ declare namespace Form.contact.Main {
     getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
     getAttribute(attributeName: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
     getAttribute(attributeName: "preferredcontactmethodcode"): Xrm.OptionSetAttribute<contact_preferredcontactmethodcode>;
-    getAttribute(attributeName: "spousesname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "spousesname"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: "telephone1"): Xrm.Attribute<string>;
     getAttribute(attributeName: "telephone2"): Xrm.Attribute<string>;
     getAttribute(attributeName: "websiteurl"): Xrm.Attribute<string> | null;
@@ -2395,19 +2352,9 @@ declare namespace Form.contact.Main {
     getControl(controlName: "address1_line3"): Xrm.StringControl;
     getControl(controlName: "address1_postalcode"): Xrm.StringControl;
     getControl(controlName: "address1_stateorprovince"): Xrm.StringControl;
-    getControl(controlName: "birthdate"): Xrm.DateControl;
-    getControl(controlName: "description"): Xrm.StringControl;
-    getControl(controlName: "donotbulkemail"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "donotemail"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "donotfax"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "donotphone"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "emailaddress1"): Xrm.StringControl;
-    getControl(controlName: "familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode>;
     getControl(controlName: "fax"): Xrm.StringControl;
-    getControl(controlName: "followemail"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "fullname"): Xrm.StringControl | null;
-    getControl(controlName: "gendercode"): Xrm.OptionSetControl<contact_gendercode>;
     getControl(controlName: "header_opc_duplicatedetectionresult"): Xrm.OptionSetControl<opc_duplicatedetectionresult>;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_process_birthdate"): Xrm.DateControl | null;
@@ -2424,13 +2371,10 @@ declare namespace Form.contact.Main {
     getControl(controlName: "header_process_telephone1"): Xrm.StringControl | null;
     getControl(controlName: "header_process_websiteurl"): Xrm.StringControl | null;
     getControl(controlName: "jobtitle"): Xrm.StringControl;
-    getControl(controlName: "mapcontrol"): Xrm.BaseControl;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
     getControl(controlName: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
     getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
-    getControl(controlName: "preferredcontactmethodcode1"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
-    getControl(controlName: "spousesname"): Xrm.StringControl;
     getControl(controlName: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
     getControl(controlName: "telephone1"): Xrm.StringControl;
     getControl(controlName: "telephone2"): Xrm.StringControl;

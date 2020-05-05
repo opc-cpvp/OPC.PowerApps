@@ -159,46 +159,6 @@
                     <row />
                   </rows>
                 </section>
-                <section name="section_child_accounts" showlabel="true" showbar="false" locklevel="0" id="{1e0e4517-ba6b-1540-53a9-09647d67443a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{fb1be4b8-281d-4caa-a70e-5ec2db4fb91d}">
-                  <labels>
-                    <label description="Child Accounts" languagecode="1033" />
-                    <label description="COMPTES ENFANTS" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{8b1d7a7a-972c-78c1-d287-82ec5b33d167}" showlabel="false" colspan="1" auto="false" rowspan="6" labelid="{e6de06d9-9948-4470-a3ad-c539bce86df8}">
-                        <labels>
-                          <label description="Child Accounts" languagecode="1033" />
-                          <label description="Comptes enfants" languagecode="1036" />
-                        </labels>
-                        <control id="ChildAccounts" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{83c0e2ca-aa42-b441-ca59-07904207317d}">
-                          <parameters>
-                            <ViewId>{00000000-0000-0000-00AA-000010001002}</ViewId>
-                            <IsUserView>false</IsUserView>
-                            <RelationshipName>account_parent_account</RelationshipName>
-                            <TargetEntityType>account</TargetEntityType>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <ViewIds>{00000000-0000-0000-00AA-000010001002},{00000000-0000-0000-00AA-000010001001}</ViewIds>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <ChartGridMode>Grid</ChartGridMode>
-                            <VisualizationId>{74A622C0-5193-DE11-97D4-00155DA3B01E}</VisualizationId>
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>false</EnableChartPicker>
-                            <RecordsPerPage>4</RecordsPerPage>
-                            <HeaderColorCode />
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
               </sections>
             </column>
             <column width="33%">
@@ -274,26 +234,39 @@
                     </row>
                   </rows>
                 </section>
-                <section name="section_map" showlabel="false" showbar="false" id="{e1c565b8-7db7-4a44-b4e7-281614ff849b}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" labelid="{ed54d075-bc21-469c-8e4f-63295ca508f6}" locklevel="0" celllabelalignment="Left">
+                <section name="section_child_accounts" showlabel="true" showbar="false" locklevel="0" id="{1e0e4517-ba6b-1540-53a9-09647d67443a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{fb1be4b8-281d-4caa-a70e-5ec2db4fb91d}">
                   <labels>
-                    <label description="Map" languagecode="1033" />
+                    <label description="Child Accounts" languagecode="1033" />
+                    <label description="COMPTES ENFANTS" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{7c550a71-c8f5-469b-a221-cc4563525b70}" showlabel="false" rowspan="8" colspan="1" auto="false" labelid="{9b742ff3-ec33-4018-bcab-e72b0bac8dbc}">
+                      <cell id="{8b1d7a7a-972c-78c1-d287-82ec5b33d167}" showlabel="false" colspan="1" auto="false" rowspan="6" labelid="{e6de06d9-9948-4470-a3ad-c539bce86df8}">
                         <labels>
-                          <label description="Map View" languagecode="1033" />
-                          <label description="Vue Carte" languagecode="1036" />
+                          <label description="Child Accounts" languagecode="1033" />
+                          <label description="Comptes enfants" languagecode="1036" />
                         </labels>
-                        <control id="mapcontrol" classid="{62B0DF79-0464-470F-8AF7-4483CFEA0C7D}">
+                        <control id="ChildAccounts" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{83c0e2ca-aa42-b441-ca59-07904207317d}">
                           <parameters>
-                            <AddressField>address1_composite</AddressField>
+                            <ViewId>{00000000-0000-0000-00AA-000010001002}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>account_parent_account</RelationshipName>
+                            <TargetEntityType>account</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{00000000-0000-0000-00AA-000010001002},{00000000-0000-0000-00AA-000010001001}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId>{74A622C0-5193-DE11-97D4-00155DA3B01E}</VisualizationId>
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode />
                           </parameters>
                         </control>
                       </cell>
                     </row>
-                    <row />
-                    <row />
                     <row />
                     <row />
                     <row />
@@ -363,6 +336,7 @@
                       <cell showlabel="false" locklevel="0" id="{356ed978-0701-4ae2-9c68-3fccf6540855}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Complaints" languagecode="1033" />
+                          <label description="Contacts" languagecode="1036" />
                         </labels>
                         <control id="subgrid_complaints" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>

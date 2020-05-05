@@ -72,7 +72,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="section_contact" id="6fe830aa-faa9-474a-8a7d-e4829162960e" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_contact" id="6fe830aa-faa9-474a-8a7d-e4829162960e" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="Contact" languagecode="1033" />
                   </labels>
@@ -499,7 +499,7 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
-            <cell id="{db996129-67e2-43c2-8ed8-38fd056aae0f}" locklevel="0" showlabel="true" colspan="1">
+            <cell id="{db996129-67e2-43c2-8ed8-38fd056aae0f}" locklevel="0" showlabel="true" colspan="1" visible="false">
               <labels>
                 <label description="Number" languagecode="1033" />
               </labels>

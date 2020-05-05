@@ -10,13 +10,13 @@
     <layoutxml>
       <grid name="resultset" jump="opc_number" select="1" icon="1" preview="1">
         <row name="result" id="opc_complaintid">
-          <cell name="opc_number" width="300" />
+          <cell name="opc_number" width="106" />
           <cell name="opc_accountid" width="212" />
           <cell name="opc_complainant" width="201" />
           <cell name="opc_complaintdisposition" width="184" />
           <cell name="opc_actualriskappetitevalue" width="165" />
-          <cell name="opc_opcpriorityid" width="181" />
-          <cell name="opc_sectorid" width="210" />
+          <cell name="opc_acceptancedate" width="138" />
+          <cell name="ownerid" width="135" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -38,9 +38,9 @@
           <attribute name="opc_accountid" />
           <attribute name="opc_complainant" />
           <attribute name="opc_complaintdisposition" />
-          <attribute name="opc_opcpriorityid" />
-          <attribute name="opc_sectorid" />
           <attribute name="opc_actualriskappetitevalue" />
+          <attribute name="opc_acceptancedate" />
+          <attribute name="ownerid" />
         </entity>
       </fetch>
     </fetchxml>
