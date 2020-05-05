@@ -1,16 +1,8 @@
-declare const enum account_preferredcontactmethodcode {
-  Any = 1,
-  Email = 2,
-  Phone = 3,
-  Fax = 4,
-  Mail = 5,
-}
-declare const enum account_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum account_accountratingcode {
-  DefaultValue = 1,
+declare const enum account_address1_addresstypecode {
+  BillTo = 1,
+  ShipTo = 2,
+  Primary = 3,
+  Other = 4,
 }
 declare const enum account_address1_shippingmethodcode {
   Airborne = 1,
@@ -21,8 +13,77 @@ declare const enum account_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
+declare const enum account_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum account_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum account_accountratingcode {
+  DefaultValue = 1,
+}
+declare const enum account_preferredappointmenttimecode {
+  Morning = 1,
+  Afternoon = 2,
+  Evening = 3,
+}
+declare const enum account_accountclassificationcode {
+  DefaultValue = 1,
+}
+declare const enum account_customertypecode {
+  Competitor = 1,
+  Consultant = 2,
+  Customer = 3,
+  Investor = 4,
+  Partner = 5,
+  Influencer = 6,
+  Press = 7,
+  Prospect = 8,
+  Reseller = 9,
+  Supplier = 10,
+  Vendor = 11,
+  Other = 12,
+}
+declare const enum account_preferredcontactmethodcode {
+  Any = 1,
+  Email = 2,
+  Phone = 3,
+  Fax = 4,
+  Mail = 5,
+}
+declare const enum account_ownershipcode {
+  Public = 1,
+  Private = 2,
+  Subsidiary = 3,
+  Other = 4,
+}
+declare const enum account_address2_addresstypecode {
+  DefaultValue = 1,
+}
 declare const enum account_businesstypecode {
   DefaultValue = 1,
+}
+declare const enum account_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum account_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
+declare const enum account_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum account_customersizecode {
+  DefaultValue = 1,
+}
+declare const enum account_accountcategorycode {
+  PreferredCustomer = 1,
+  Standard = 2,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -59,52 +120,6 @@ declare const enum account_industrycode {
   VehicleRetail = 32,
   Wholesale = 33,
 }
-declare const enum account_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum account_preferredappointmenttimecode {
-  Morning = 1,
-  Afternoon = 2,
-  Evening = 3,
-}
-declare const enum account_address2_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum account_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
-declare const enum account_accountclassificationcode {
-  DefaultValue = 1,
-}
-declare const enum account_ownershipcode {
-  Public = 1,
-  Private = 2,
-  Subsidiary = 3,
-  Other = 4,
-}
-declare const enum account_territorycode {
-  DefaultValue = 1,
-}
-declare const enum account_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum account_address2_addresstypecode {
-  DefaultValue = 1,
-}
-declare const enum account_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum account_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
-declare const enum account_customersizecode {
-  DefaultValue = 1,
-}
 declare const enum account_preferredappointmentdaycode {
   Sunday = 0,
   Monday = 1,
@@ -114,29 +129,14 @@ declare const enum account_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum account_customertypecode {
-  Competitor = 1,
-  Consultant = 2,
-  Customer = 3,
-  Investor = 4,
-  Partner = 5,
-  Influencer = 6,
-  Press = 7,
-  Prospect = 8,
-  Reseller = 9,
-  Supplier = 10,
-  Vendor = 11,
-  Other = 12,
+declare const enum account_address2_shippingmethodcode {
+  DefaultValue = 1,
 }
-declare const enum account_accountcategorycode {
-  PreferredCustomer = 1,
-  Standard = 2,
+declare const enum account_address2_freighttermscode {
+  DefaultValue = 1,
 }
-declare const enum account_address1_addresstypecode {
-  BillTo = 1,
-  ShipTo = 2,
-  Primary = 3,
-  Other = 4,
+declare const enum account_territorycode {
+  DefaultValue = 1,
 }
 declare const enum contact_address3_addresstypecode {
   DefaultValue = 1,
@@ -146,6 +146,15 @@ declare const enum contact_address1_addresstypecode {
   ShipTo = 2,
   Primary = 3,
   Other = 4,
+}
+declare const enum contact_address1_shippingmethodcode {
+  Airborne = 1,
+  DHL = 2,
+  FedEx = 3,
+  UPS = 4,
+  PostalMail = 5,
+  FullLoad = 6,
+  WillCall = 7,
 }
 declare const enum contact_paymenttermscode {
   Net30 = 1,
@@ -157,33 +166,31 @@ declare const enum contact_gendercode {
   Male = 1,
   Female = 2,
 }
-declare const enum contact_address1_shippingmethodcode {
-  Airborne = 1,
-  DHL = 2,
-  FedEx = 3,
-  UPS = 4,
-  PostalMail = 5,
-  FullLoad = 6,
-  WillCall = 7,
-}
 declare const enum opc_duplicatedetectionresult {
   None = 924340000,
   Potentialduplicate = 924340001,
   Duplicatefound = 924340002,
-}
-declare const enum contact_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
 }
 declare const enum contact_preferredappointmenttimecode {
   Morning = 1,
   Afternoon = 2,
   Evening = 3,
 }
+declare const enum contact_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum contact_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
 declare const enum contact_address3_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_customertypecode {
+  DefaultValue = 1,
+}
+declare const enum contact_educationcode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -193,28 +200,12 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
-declare const enum contact_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum contact_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum contact_educationcode {
-  DefaultValue = 1,
-}
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
 declare const enum contact_accountrolecode {
   DecisionMaker = 1,
   Employee = 2,
   Influencer = 3,
 }
 declare const enum contact_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum contact_address3_freighttermscode {
@@ -257,6 +248,19 @@ declare const enum contact_familystatuscode {
 declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
+declare const enum contact_address2_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_territorycode {
+  DefaultValue = 1,
+}
+declare const enum opc_allegation_statecode {
+  Active = 0,
+  Inactive = 1,
+}
 declare const enum opc_allegationdisposition {
   Acceptable = 924340000,
   Unacceptable = 924340001,
@@ -264,10 +268,6 @@ declare const enum opc_allegationdisposition {
   RedirectedtoInstitution = 924340004,
   Resolved = 924340005,
   Unresponsiveinquirer = 924340006,
-}
-declare const enum opc_allegation_statecode {
-  Active = 0,
-  Inactive = 1,
 }
 declare const enum opc_allegation_statuscode {
   Active = 1,
@@ -293,12 +293,12 @@ declare const enum opc_checklisttype_statecode {
   Active = 0,
   Inactive = 1,
 }
+declare const enum opc_complaintstage {
+  Intake = 924340000,
+}
 declare const enum opc_checklisttype_statuscode {
   Active = 1,
   Inactive = 2,
-}
-declare const enum opc_complaintstage {
-  Intake = 924340000,
 }
 declare const enum opc_nextstep {
   Transfertoinvestigations = 924340000,
@@ -307,9 +307,32 @@ declare const enum opc_nextstep {
   Settled = 924340003,
   Discontinued = 924340004,
 }
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
+}
 declare const enum opc_complaint_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
+}
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
 }
 declare const enum opc_yesorno {
   Yes = 924340000,
@@ -320,12 +343,6 @@ declare const enum opc_intakedisposition {
   MovetoInvestigation = 924340001,
   Declinetoinvestigate = 924340002,
   Close = 924340003,
-}
-declare const enum opc_complaintmilestone {
-  Triage = 924340000,
-  Intake = 924340001,
-  EarlyResolution = 924340002,
-  Investigation = 924340003,
 }
 declare const enum opc_complaint_statuscode {
   Declined = 924340001,
@@ -341,23 +358,6 @@ declare const enum opc_complaint_statuscode {
   Underinvestigation = 924340013,
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
-}
-declare const enum opc_closereason {
-  Redirection = 924340000,
-  Duplicate = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
-  Createdinerror = 924340004,
-}
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
 }
 declare const enum opc_dispositionaction_statecode {
   Active = 0,
@@ -379,11 +379,6 @@ declare const enum opc_individualcomplaint_bp_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_individualcomplaint_bp_statuscode {
-  Active = 1,
-  Finished = 2,
-  Aborted = 3,
-}
 declare const enum processstage_category {
   Qualify = 0,
   Develop = 1,
@@ -398,6 +393,11 @@ declare const enum processstage_category {
   Acceptance = 924340002,
   EarlyResoloution = 924340003,
   Investigation = 924340004,
+}
+declare const enum opc_individualcomplaint_bp_statuscode {
+  Active = 1,
+  Finished = 2,
+  Aborted = 3,
 }
 declare const enum opc_issue_statecode {
   Active = 0,
@@ -440,13 +440,13 @@ declare const enum opc_questiontemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_questiontype_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_questiontype_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_questiontype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_recommendation_statecode {
   Active = 0,
@@ -496,13 +496,13 @@ declare const enum opc_riskassessmentcategorytemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentdefinition_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_riskassessmentdefinition_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_riskassessmentdefinition_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_riskassessmentdefinitiontemplate_statecode {
   Active = 0,
@@ -574,13 +574,6 @@ declare const enum queueitem_objecttypecode {
   KnowledgeArticleTemplate = 10007,
   Complaint = 11118,
 }
-declare const enum activityparty_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
-}
 declare const enum activityparty_participationtypemask {
   Sender = 1,
   ToRecipient = 2,
@@ -594,9 +587,12 @@ declare const enum activityparty_participationtypemask {
   Resource = 10,
   Customer = 11,
 }
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum activityparty_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
 }
 declare const enum connection_statuscode {
   Active = 1,
@@ -647,6 +643,10 @@ declare const enum connection_record2objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
+}
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare namespace Form.account.QuickCreate {
   namespace QuickCreate {
@@ -823,6 +823,13 @@ declare namespace Form.account.Quick {
 declare namespace Form.account.Main {
   namespace ComplianceAccount {
     namespace Tabs {
+      interface tab_complaints extends Xrm.SectionCollectionBase {
+        get(name: "section_complaints"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface tab_summary extends Xrm.SectionCollectionBase {
         get(name: "section_account_information"): Xrm.PageSection;
         get(name: "section_address"): Xrm.PageSection;
@@ -873,6 +880,7 @@ declare namespace Form.account.Main {
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "parentaccountid"): Xrm.LookupControl<"account">;
       get(name: "primarycontactid"): Xrm.LookupControl<"contact">;
+      get(name: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
       get(name: "telephone1"): Xrm.StringControl;
       get(name: "websiteurl"): Xrm.StringControl;
       get(name: string): undefined;
@@ -881,6 +889,7 @@ declare namespace Form.account.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_complaints"): Xrm.PageTab<Tabs.tab_complaints>;
       get(name: "tab_summary"): Xrm.PageTab<Tabs.tab_summary>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
@@ -920,6 +929,7 @@ declare namespace Form.account.Main {
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "parentaccountid"): Xrm.LookupControl<"account">;
     getControl(controlName: "primarycontactid"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
     getControl(controlName: "telephone1"): Xrm.StringControl;
     getControl(controlName: "websiteurl"): Xrm.StringControl;
     getControl(controlName: string): undefined;
@@ -2207,6 +2217,13 @@ declare namespace Form.contact.Quick {
 declare namespace Form.contact.Main {
   namespace ComplianceContact {
     namespace Tabs {
+      interface tab_complaints extends Xrm.SectionCollectionBase {
+        get(name: "section_complaints"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface tab_details extends Xrm.SectionCollectionBase {
         get(name: "section_contact_preferences"): Xrm.PageSection;
         get(name: "section_personal"): Xrm.PageSection;
@@ -2314,6 +2331,7 @@ declare namespace Form.contact.Main {
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
       get(name: "preferredcontactmethodcode1"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
       get(name: "spousesname"): Xrm.StringControl;
+      get(name: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
       get(name: "telephone1"): Xrm.StringControl;
       get(name: "telephone2"): Xrm.StringControl;
       get(name: string): undefined;
@@ -2322,6 +2340,7 @@ declare namespace Form.contact.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_complaints"): Xrm.PageTab<Tabs.tab_complaints>;
       get(name: "tab_details"): Xrm.PageTab<Tabs.tab_details>;
       get(name: "tab_summary"): Xrm.PageTab<Tabs.tab_summary>;
       get(name: string): undefined;
@@ -2412,6 +2431,7 @@ declare namespace Form.contact.Main {
     getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
     getControl(controlName: "preferredcontactmethodcode1"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
     getControl(controlName: "spousesname"): Xrm.StringControl;
+    getControl(controlName: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
     getControl(controlName: "telephone1"): Xrm.StringControl;
     getControl(controlName: "telephone2"): Xrm.StringControl;
     getControl(controlName: string): undefined;

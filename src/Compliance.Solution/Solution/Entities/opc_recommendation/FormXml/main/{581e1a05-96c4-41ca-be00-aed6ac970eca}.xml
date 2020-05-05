@@ -52,18 +52,18 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{31af8d6e-2f1c-4e99-9c77-5cec87b69b74}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Complaint" languagecode="1033" />
+              </labels>
+              <control id="header_opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="false" />
+            </cell>
             <cell id="{a66eb2c9-b0c3-48cc-b531-1dce0f53da3c}">
               <labels>
                 <label description="Owner" languagecode="1033" />
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
-            </cell>
-            <cell id="{31af8d6e-2f1c-4e99-9c77-5cec87b69b74}" showlabel="true" locklevel="0">
-              <labels>
-                <label description="Complaint" languagecode="1033" />
-              </labels>
-              <control id="header_opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="false" />
             </cell>
           </row>
         </rows>
@@ -90,7 +90,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

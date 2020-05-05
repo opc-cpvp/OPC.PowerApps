@@ -347,6 +347,40 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_complaints" id="94830941-eed2-44da-a8ed-996f9613fe62" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Complaints" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="section_complaints" id="011b3de6-fc2e-40be-befa-b7e920e72f26" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Complaints" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{356ed978-0701-4ae2-9c68-3fccf6540855}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Complaints" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_complaints" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_complaint</TargetEntityType>
+                            <ViewId>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewId>
+                            <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_account_complaints_respondent</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{d5a03552-1183-4347-a237-1f894ba449eb}" columns="111" celllabelposition="Top" labelwidth="115">
         <rows>

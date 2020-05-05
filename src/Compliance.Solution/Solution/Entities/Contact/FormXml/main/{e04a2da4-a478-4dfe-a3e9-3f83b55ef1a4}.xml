@@ -433,22 +433,56 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_complaints" id="32ef5a29-759c-4d74-88bd-4b6520f1a1b7" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Complaints" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="section_complaints" id="91444211-2436-48df-96fe-95f70ccfc993" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Complaints" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{430a9855-ed4c-401d-ace3-a3ad9a46b9f1}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="Complaints" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_complaints" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_complaint</TargetEntityType>
+                            <ViewId>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewId>
+                            <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_contact_complaints_complainant</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{3ff9aa06-4e43-41ce-afa9-22a038af5c19}" celllabelposition="Top" columns="1" labelwidth="115">
         <rows>
           <row>
+            <cell id="{e6c1e3e8-e555-461d-8223-e8e6fa589856}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Duplicate Detection Result" languagecode="1033" />
+              </labels>
+              <control id="header_opc_duplicatedetectionresult" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_duplicatedetectionresult" disabled="false" />
+            </cell>
             <cell id="{24be01cc-16a6-8eea-8916-42d20a1097ae}" showlabel="true" locklevel="1" labelid="{58141e3e-cfd6-4e4a-825a-90cbce7ed85b}">
               <labels>
                 <label description="Owner" languagecode="1033" />
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
-            </cell>
-            <cell id="{e6c1e3e8-e555-461d-8223-e8e6fa589856}" showlabel="true" locklevel="0">
-              <labels>
-                <label description="Duplicate Detection Result" languagecode="1033" />
-              </labels>
-              <control id="header_opc_duplicatedetectionresult" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_duplicatedetectionresult" disabled="false" />
             </cell>
           </row>
         </rows>

@@ -505,6 +505,19 @@
               </labels>
               <control id="header_opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="true" uniqueid="{2cc4e1d6-08e5-de49-8dc2-8d7c69832ae7}" />
             </cell>
+            <cell id="{9a1af0ed-0bac-45b9-84ea-dd4285d4ac7d}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Last Milestone" languagecode="1033" />
+              </labels>
+              <control id="header_opc_lastmilestone" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_lastmilestone" disabled="false" />
+            </cell>
+            <cell id="{e461ae48-d330-4ab6-909b-840280ea0d1b}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Status Reason" languagecode="1033" />
+                <label description="Raison du statut" languagecode="1036" />
+              </labels>
+              <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
+            </cell>
             <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}" showlabel="true" locklevel="1" colspan="1">
               <labels>
                 <label description="Owner" languagecode="1033" />
@@ -516,19 +529,6 @@
                   <DisableMru>false</DisableMru>
                 </parameters>
               </control>
-            </cell>
-            <cell id="{e461ae48-d330-4ab6-909b-840280ea0d1b}" showlabel="true" locklevel="0">
-              <labels>
-                <label description="Status Reason" languagecode="1033" />
-                <label description="Raison du statut" languagecode="1036" />
-              </labels>
-              <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
-            </cell>
-            <cell id="{9a1af0ed-0bac-45b9-84ea-dd4285d4ac7d}" showlabel="true" locklevel="0">
-              <labels>
-                <label description="Last Milestone" languagecode="1033" />
-              </labels>
-              <control id="header_opc_lastmilestone" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_lastmilestone" disabled="false" />
             </cell>
           </row>
         </rows>
@@ -555,7 +555,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
