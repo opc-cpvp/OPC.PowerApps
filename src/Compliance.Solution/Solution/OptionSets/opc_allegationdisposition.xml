@@ -11,19 +11,9 @@
     <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
-    <option value="924340004">
-      <labels>
-        <label description="Redirected to Institution" languagecode="1033" />
-      </labels>
-    </option>
     <option value="924340005">
       <labels>
         <label description="Resolved" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340006">
-      <labels>
-        <label description="Unresponsive inquirer" languagecode="1033" />
       </labels>
     </option>
     <option value="924340000">
