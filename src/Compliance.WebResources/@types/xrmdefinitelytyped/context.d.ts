@@ -265,9 +265,7 @@ declare const enum opc_allegationdisposition {
   Acceptable = 924340000,
   Unacceptable = 924340001,
   Withdrawn = 924340002,
-  RedirectedtoInstitution = 924340004,
   Resolved = 924340005,
-  Unresponsiveinquirer = 924340006,
 }
 declare const enum opc_allegation_statuscode {
   Active = 1,
