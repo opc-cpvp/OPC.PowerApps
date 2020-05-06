@@ -28,18 +28,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{a5e06289-bce3-4893-ba11-a18c15e9bc82}" showlabel="true" locklevel="0" rowspan="5" auto="true">
-                        <labels>
-                          <label description="Description" languagecode="1033" />
-                        </labels>
-                        <control id="opc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_description" disabled="false" />
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row height="auto" />
-                    <row>
                       <cell id="{b94b9ba5-3d96-41fd-a68d-e3d82142cce9}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Disposition" languagecode="1033" />

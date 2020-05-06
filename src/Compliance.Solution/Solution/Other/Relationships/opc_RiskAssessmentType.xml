@@ -17,7 +17,7 @@
     <ReferencingAttributeName>opc_RiskAssessmentType</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="The type of risk assessment" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -51,7 +51,7 @@
     <ReferencingAttributeName>opc_RiskAssessmentType</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="The type of risk assessment" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -85,7 +85,7 @@
     <ReferencingAttributeName>opc_RiskAssessmentType</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="The type of risk assessment" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

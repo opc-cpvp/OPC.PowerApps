@@ -11,7 +11,7 @@
       <grid name="opc_sectors" jump="opc_name" select="1" icon="1" preview="0">
         <row name="opc_sector" id="opc_sectorid">
           <cell name="opc_name" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="opc_parentsectorid" width="300" />
         </row>
       </grid>
     </layoutxml>
@@ -21,10 +21,12 @@
         <entity name="opc_sector">
           <attribute name="opc_sectorid" />
           <attribute name="opc_name" />
-          <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="opc_parentsectorid" />
+          <order attribute="opc_parentsectorid" descending="false" />
+          <order attribute="opc_name" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

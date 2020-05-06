@@ -2,7 +2,7 @@
 <optionset Name="opc_allegationdisposition" localizedName="Allegation Disposition" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <OptionSetType>picklist</OptionSetType>
   <IsGlobal>1</IsGlobal>
-  <IntroducedVersion>1.0.191</IntroducedVersion>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <displaynames>
     <displayname description="Allegation Disposition" languagecode="1033" />
@@ -11,6 +11,11 @@
     <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
+    <option value="924340005">
+      <labels>
+        <label description="Resolved" languagecode="1033" />
+      </labels>
+    </option>
     <option value="924340000">
       <labels>
         <label description="Acceptable" languagecode="1033" />
@@ -24,11 +29,6 @@
     <option value="924340002">
       <labels>
         <label description="Withdrawn" languagecode="1033" />
-      </labels>
-    </option>
-    <option value="924340003">
-      <labels>
-        <label description="Resolved" languagecode="1033" />
       </labels>
     </option>
   </options>

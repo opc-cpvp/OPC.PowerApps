@@ -270,17 +270,24 @@ namespace Compliance.Package.Deployment
 
                 if (teamId == null)
                 {
-                    PackageTemplate.PackageLog.Log($"Could not create or find team {name}... skipping.");
+                    PackageTemplate.PackageLog.Log($"Could not create or retrieve team {name}... skipping.");
                     continue;
                 }
 
-                // Associate the Role to the Team.
-                PackageTemplate.CrmSvc.Associate(
-                    Team.EntityLogicalName,
-                    (Guid)teamId,
-                    new Relationship("teamroles_association"),
-                    new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
-                );
+                try
+                {
+                    // Associate the Role to the Team.
+                    PackageTemplate.CrmSvc.Associate(
+                        Team.EntityLogicalName,
+                        (Guid)teamId,
+                        new Relationship("teamroles_association"),
+                        new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
+                    );
+                }
+                catch(Exception ex) when (ex.Message.Contains("Cannot insert duplicate key"))
+                {
+                    PackageTemplate.PackageLog.Log($"Role association to team was already done for {name}... skipping.");
+                }
 
 
             }

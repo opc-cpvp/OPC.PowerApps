@@ -221,7 +221,7 @@
     <ReferencingAttributeName>opc_Complaint</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="The complaint associated with this risk assessment" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

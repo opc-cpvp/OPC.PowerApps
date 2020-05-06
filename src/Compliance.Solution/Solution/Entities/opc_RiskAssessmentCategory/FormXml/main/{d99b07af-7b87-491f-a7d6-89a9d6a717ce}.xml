@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.26</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{82d71cea-07d6-4407-bdca-f2283358645f}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -274,7 +274,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

@@ -479,7 +479,7 @@
             <displayname description="English Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The checklist type in english" languagecode="1033" />
+            <Description description="The checklist type in English" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_namefrench">
@@ -519,7 +519,7 @@
             <displayname description="French Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The checklist type in French" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_type">
@@ -550,7 +550,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
+          <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <AppDefaultValue>-1</AppDefaultValue>
           <OptionSetName>opc_complaintstage</OptionSetName>

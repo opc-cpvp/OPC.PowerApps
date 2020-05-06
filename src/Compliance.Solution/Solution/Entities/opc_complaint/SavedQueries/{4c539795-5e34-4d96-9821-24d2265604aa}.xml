@@ -11,7 +11,8 @@
       <grid name="opc_complaints" jump="opc_number" select="1" icon="1" preview="0">
         <row name="opc_complaint" id="opc_complaintid">
           <cell name="opc_number" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="opc_accountid" width="204" />
+          <cell name="opc_complainant" width="211" />
         </row>
       </grid>
     </layoutxml>
@@ -21,10 +22,11 @@
         <entity name="opc_complaint">
           <attribute name="opc_complaintid" />
           <attribute name="opc_number" />
-          <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="opc_accountid" />
+          <attribute name="opc_complainant" />
         </entity>
       </fetch>
     </fetchxml>

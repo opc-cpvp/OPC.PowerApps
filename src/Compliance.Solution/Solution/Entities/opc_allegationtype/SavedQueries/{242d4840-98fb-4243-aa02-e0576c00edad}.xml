@@ -10,8 +10,8 @@
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_allegationtypeid">
+          <cell name="opc_acronym" width="100" />
           <cell name="opc_name" width="300" />
-          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -21,8 +21,8 @@
         <entity name="opc_allegationtype">
           <attribute name="opc_allegationtypeid" />
           <attribute name="opc_name" />
-          <attribute name="createdon" />
           <order attribute="opc_name" descending="false" />
+          <attribute name="opc_acronym" />
         </entity>
       </fetch>
     </fetchxml>

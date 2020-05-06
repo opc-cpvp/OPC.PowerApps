@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <systemform>
-    <formid>{1affa023-4739-ea11-a813-000d3af46489}</formid>
-    <IntroducedVersion>1.0.26</IntroducedVersion>
+    <formid>{574e402d-ef8b-ea11-a811-000d3af46fff}</formid>
+    <IntroducedVersion>1.0.271</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="Low">
+    <form>
       <tabs>
-        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_general" showlabel="false" labelid="{20218db1-99a9-4929-9774-cc5bc4a529f2}" locklevel="0" expanded="true">
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{e92b4802-bfc4-4c95-b63a-cc5b558efcd6}">
           <labels>
-            <label description="General" languagecode="1033" />
+            <label description="Tab" languagecode="1033" />
           </labels>
           <columns>
             <column width="34%">
               <sections>
-                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="section_general" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{95ed2ee8-08b9-4564-9ce1-12f21dcf311f}" locklevel="0" celllabelalignment="Left" celllabelposition="Left">
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{28fc5767-3f9b-4028-97a2-5aeff8165a6e}">
                   <labels>
-                    <label description="General" languagecode="1033" />
+                    <label description="Section" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{7a3115e1-162b-4ba2-a30f-694052c277a0}" showlabel="true" locklevel="0" labelid="{0067dc05-ac84-4a84-be84-232a0fb29b82}">
+                      <cell id="{6b569d56-ad0e-4baa-a682-f7f8f62114b7}" showlabel="true" locklevel="0" labelid="{d4806bbe-e494-42f2-936e-dc9cca3f314c}">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
@@ -33,13 +33,13 @@
             </column>
             <column width="33%">
               <sections>
-                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{5f2d9bb2-13d3-4cb7-af8e-aab69834292e}">
+                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{f67a07c3-82b0-459a-936e-6f08da066935}">
                   <labels>
                     <label description="Section" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{51228c31-7667-4c64-a828-4cada5962d33}" showlabel="false">
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{44ce4fdc-8323-4502-a165-ecc030bd773e}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -51,13 +51,13 @@
             </column>
             <column width="33%">
               <sections>
-                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{a3b89966-1577-45d5-ad0a-2ee80e075e88}">
+                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{e2ea4e24-2954-46fb-82cf-345e5db45cf9}">
                   <labels>
                     <label description="Section" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{07dc7aef-db4f-459f-a10c-ec9276f19b41}" showlabel="false">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{1a3a23fe-ce7f-4664-86fe-56e96e4c0a67}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -73,12 +73,15 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        <Role Id="{b9e4c233-a86c-4078-8a62-56c79d33450f}" />
+        <Role Id="{4c99f292-cbed-48d9-8550-a867733ad0be}" />
+        <Role Id="{04c05c2f-357f-490b-b587-da55fbe37827}" />
       </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
-      <LocalizedName description="Quick Create" languagecode="1033" />
+      <LocalizedName description="QuickCreate" languagecode="1033" />
     </LocalizedNames>
   </systemform>
 </forms>

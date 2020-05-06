@@ -11,12 +11,13 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>1</StateCode>
-  <StatusCode>2</StatusCode>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>1.0</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="Contact - Create/Update - Send Multiple Complaint Strategy Emails &amp; Notifications" />

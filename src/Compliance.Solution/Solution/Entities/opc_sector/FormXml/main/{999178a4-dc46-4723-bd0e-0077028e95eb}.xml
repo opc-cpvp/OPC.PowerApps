@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.137</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{affaba88-1bea-4e6d-bf26-0a173a50dfd3}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -62,12 +62,10 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{7d408b35-fe58-4121-8a1e-55a4e09b895a}">
+                      <cell showlabel="true" locklevel="0" id="{2e00b641-3774-46fe-8675-557495ef0d53}">
                         <labels>
-                          <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
                       <cell showlabel="true" locklevel="0" id="{84f092c1-82b5-4ba3-8f67-4ccda7206b69}">
                         <labels>
@@ -134,6 +132,13 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{7d408b35-fe58-4121-8a1e-55a4e09b895a}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
           </row>
         </rows>
       </header>
@@ -158,6 +163,36 @@
           </row>
         </rows>
       </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

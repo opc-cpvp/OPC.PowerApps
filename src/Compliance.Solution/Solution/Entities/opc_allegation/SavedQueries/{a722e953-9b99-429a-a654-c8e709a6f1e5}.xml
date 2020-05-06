@@ -11,7 +11,10 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_allegationid">
           <cell name="opc_name" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="opc_allegationtypeid" width="190" />
+          <cell name="opc_disposition" width="276" />
+          <cell name="opc_dispositionreasonid" width="300" />
+          <cell name="createdon" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -21,7 +24,6 @@
         <entity name="opc_allegation">
           <attribute name="opc_allegationid" />
           <attribute name="opc_name" />
-          <attribute name="createdon" />
           <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
@@ -29,6 +31,10 @@
           <filter type="or" isquickfindfields="1">
             <condition attribute="opc_name" operator="like" value="{0}" />
           </filter>
+          <attribute name="opc_disposition" />
+          <attribute name="opc_dispositionreasonid" />
+          <attribute name="createdon" />
+          <attribute name="opc_allegationtypeid" />
         </entity>
       </fetch>
     </fetchxml>

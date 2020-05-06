@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-04-15T20:03:31.7791815Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-05-01T20:26:30.1826611Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -36,7 +36,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Restricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org96765ebd" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org8bbe99da" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="e960220a-3f2e-ea11-a810-000d3af46757">
@@ -52,7 +52,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unclassified" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org96765ebd" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org8bbe99da" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="a6bd0471-3739-ea11-a813-000d3af46757">
@@ -68,7 +68,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unrestricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org96765ebd" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org8bbe99da" />
         <field name="workflowsuspended" value="False" />
       </record>
     </records>
@@ -2514,17 +2514,17 @@
       </record>
       <record id="6cd1ff86-a76e-ea11-a811-000d3af45a96">
         <field name="opc_allegationdisposition" value="924340001" />
-        <field name="opc_name" value="the complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
+        <field name="opc_name" value="The complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
-        <field name="opc_nameenglish" value="the complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
-        <field name="opc_namefrench" value="the complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
+        <field name="opc_nameenglish" value="The complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
+        <field name="opc_namefrench" value="The complainant ought to exhaust other reasonably available grievance or review procedures (12(1) (a))" />
         <field name="opc_dispositionreasonid" value="6cd1ff86-a76e-ea11-a811-000d3af45a96" />
         <field name="opc_islocalizable" value="True" />
       </record>
       <record id="6c76fa8c-a76e-ea11-a811-000d3af45a96">
-        <field name="opc_allegationdisposition" value="924340003" />
+        <field name="opc_allegationdisposition" value="924340001" />
         <field name="opc_name" value="The complaint could be dealt with more appropriately (either initially or completely) by a procedure provided for under other federal or provincial laws; 12(1) (b)" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -2535,7 +2535,7 @@
         <field name="opc_islocalizable" value="True" />
       </record>
       <record id="8a76fa8c-a76e-ea11-a811-000d3af45a96">
-        <field name="opc_allegationdisposition" value="924340002" />
+        <field name="opc_allegationdisposition" value="924340001" />
         <field name="opc_name" value="The complaint was not filed within a reasonable period of time 12(1) (c)" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -2558,12 +2558,12 @@
       </record>
       <record id="dfcc05a9-a76e-ea11-a811-000d3af45a96">
         <field name="opc_allegationdisposition" value="924340003" />
-        <field name="opc_name" value="Clarified with situation with respondent" />
+        <field name="opc_name" value="Clarified situation with respondent" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
-        <field name="opc_nameenglish" value="Clarified with situation with respondent" />
-        <field name="opc_namefrench" value="Clarified with situation with respondent" />
+        <field name="opc_nameenglish" value="Clarified situation with respondent" />
+        <field name="opc_namefrench" value="Clarified situation with respondent" />
         <field name="opc_dispositionreasonid" value="dfcc05a9-a76e-ea11-a811-000d3af45a96" />
         <field name="opc_islocalizable" value="True" />
       </record>

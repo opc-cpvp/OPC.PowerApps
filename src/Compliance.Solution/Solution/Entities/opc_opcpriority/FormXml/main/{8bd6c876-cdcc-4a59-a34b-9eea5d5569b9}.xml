@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.137</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{782e2d1c-d704-4a14-a48f-4b07e2fd9315}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -84,16 +84,7 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
                       </cell>
-                    </row>
-                    <row>
-                      <cell id="{935ab4d7-959d-44ec-8834-f37994232737}">
-                        <labels>
-                          <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
-                        </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
-                      </cell>
-                      <cell showlabel="true" locklevel="0" id="{90ee6d4c-9fc1-4239-968a-93327c3ef5a9}">
+                      <cell id="{29d04262-fe6a-4706-92ff-86f36176d5c4}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -105,7 +96,7 @@
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{944a8c16-0a45-4a07-bb91-7babac0c11bc}">
+                      <cell showlabel="true" locklevel="0" id="{90ee6d4c-9fc1-4239-968a-93327c3ef5a9}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -117,7 +108,7 @@
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{5129ce69-9e9d-4b02-8ef4-b50200c71ac3}">
+                      <cell showlabel="true" locklevel="0" id="{944a8c16-0a45-4a07-bb91-7babac0c11bc}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -129,7 +120,7 @@
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{e5001564-7b3f-4ae8-82cc-62edec7b83f0}">
+                      <cell showlabel="true" locklevel="0" id="{5129ce69-9e9d-4b02-8ef4-b50200c71ac3}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -137,6 +128,18 @@
                     </row>
                     <row>
                       <cell showlabel="true" locklevel="0" id="{638a48f6-7bf5-4acc-accd-c6e774095ab9}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{e5001564-7b3f-4ae8-82cc-62edec7b83f0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{375421cd-a996-4ee6-b0d7-0f7a0cd7859a}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -172,6 +175,13 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{935ab4d7-959d-44ec-8834-f37994232737}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
           </row>
         </rows>
       </header>
@@ -196,6 +206,36 @@
           </row>
         </rows>
       </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

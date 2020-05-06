@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.26</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{8afe9124-ffb1-4cf8-ac5c-d6d9b1911a6c}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>

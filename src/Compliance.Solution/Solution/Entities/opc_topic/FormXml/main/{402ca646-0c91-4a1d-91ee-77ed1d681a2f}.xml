@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.14</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{0365da09-abe8-41df-90e4-19039c64bee4}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -55,6 +55,11 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
                       </cell>
+                      <cell id="{f04a680b-fea3-4863-b246-9c7948605e6d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
                     <row>
                       <cell id="{ecfab39f-f64b-46eb-a05e-db8ecee4ba1f}" showlabel="true" locklevel="0">
@@ -71,6 +76,11 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
+                      </cell>
+                      <cell id="{0c20f091-702e-45c1-8d6a-97a18ef6056e}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -171,7 +181,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

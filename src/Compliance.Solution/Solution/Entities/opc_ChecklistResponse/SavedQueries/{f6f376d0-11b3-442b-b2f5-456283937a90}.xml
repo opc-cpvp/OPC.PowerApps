@@ -11,6 +11,9 @@
       <grid name="opc_checklistresponses" jump="opc_name" select="1" icon="1" preview="1">
         <row name="opc_checklistresponse" id="opc_checklistresponseid">
           <cell name="opc_name" width="300" />
+          <cell name="opc_allegationid" width="300" />
+          <cell name="opc_questiontemplateid" width="280" />
+          <cell name="opc_response" width="300" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -26,6 +29,9 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="opc_allegationid" />
+          <attribute name="opc_questiontemplateid" />
+          <attribute name="opc_response" />
         </entity>
       </fetch>
     </fetchxml>
