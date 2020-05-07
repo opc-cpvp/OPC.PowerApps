@@ -11,16 +11,12 @@ parameters:
     type: boolean
     default: false
 
-
-
 variables:
 - ${{ if eq(parameters.DevTenant, true) }}:
-  - group: prod tenant secret
+  - group: dev-tenant-secret
 - ${{ if ne(parameters.DevTenant, true) }}:
-  - group: dev tenant secret
-  crm.username: 'SVC_OPC_CRM_Admin@priv.gc.ca'
+  - group: prod-tenant-secret
   SolutionName: 'Compliance'
-  
 
 steps:
 - checkout: self
