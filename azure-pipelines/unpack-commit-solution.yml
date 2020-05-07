@@ -11,9 +11,16 @@ parameters:
     type: boolean
     default: false
 
+
+
 variables:
+- ${{ if eq(parameters.DevTenant, true) }}:
+  - group: prod tenant secret
+- ${{ if ne(parameters.DevTenant, true) }}:
+  - group: dev tenant secret
   crm.username: 'SVC_OPC_CRM_Admin@priv.gc.ca'
   SolutionName: 'Compliance'
+  
 
 steps:
 - checkout: self
@@ -24,10 +31,7 @@ steps:
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportSolution.MSCRMExportSolution@10
   displayName: 'MSCRM Export Solution'
   inputs:
-    ${{ if eq(parameters.DevTenant, true) }}:
-      crmConnectionString: 'AuthType=ClientSecret;Url=$(crm.url);ClientId=$(crm.devtenant.appid);ClientSecret=$(crm.devtenant.secret)'
-    ${{ if ne(parameters.DevTenant, true) }}:
-      crmConnectionString: 'AuthType=ClientSecret;Url=$(crm.url);ClientId=$(crm.prodtenant.appid);ClientSecret=$(crm.prodtenant.secret)'
+    crmConnectionString: 'AuthType=ClientSecret;Url=$(crm.url);ClientId=$(enant.appId);ClientSecret=$(tenant.secret)'
     solutionName: '$(SolutionName)'
     exportManaged: false
     outputPath: '$(Agent.TempDirectory)'
@@ -69,10 +73,7 @@ steps:
   displayName: 'Update TypeScript Entities'
   inputs:
     filePath: 'src/XrmDefinitelyTyped/get_XrmDefinitelyTyped.ps1'
-    ${{ if eq(parameters.DevTenant, true) }}:
-      arguments: '-Url $(crm.url) -ClientSecret "$(crm.devtenant.secret)" -AppId "$(crm.devtenant.appid)" -Solution "$(SolutionName)"'
-    ${{ if ne(parameters.DevTenant, true) }}:
-      arguments: '-Url $(crm.url) -ClientSecret "$(crm.prodtenant.secret)" -AppId "$(crm.prodtenant.appid)" -Solution "$(SolutionName)"'
+    arguments: '-Url $(crm.url) -ClientSecret "$(tenant.secret)" -AppId "$(tenant.appId)" -Solution "$(SolutionName)"'
     workingDirectory: 'src/XrmDefinitelyTyped'
 
 - task: NuGetCommand@2
@@ -92,20 +93,14 @@ steps:
   displayName: 'Update C# Early-Bound Entities'
   inputs:
     filePath: 'src/CrmSvcUtil.Filter/generate_earlybound_entities.ps1'
-    ${{ if eq(parameters.DevTenant, true) }}:
-      arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(crm.devtenant.appid);ClientSecret=$(crm.devtenant.secret)"'
-    ${{ if ne(parameters.DevTenant, true) }}:
-      arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(crm.prodtenant.appid);ClientSecret=$(crm.prodtenant.secret)"'
+    arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)"'
     workingDirectory: 'src/CrmSvcUtil.Filter'
 
 - task: PowerShell@2
   displayName: 'Update C# Early-Bound Option Sets'
   inputs:
     filePath: 'src/CrmSvcUtil.Filter/generate_optionset_enums.ps1'
-    ${{ if eq(parameters.DevTenant, true) }}:
-      arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(crm.devtenant.appid);ClientSecret=$(crm.devtenant.secret)"'
-    ${{ if ne(parameters.DevTenant, true) }}:
-      arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(crm.prodtenant.appid);ClientSecret=$(crm.prodtenant.secret)"'
+    arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)"'
     workingDirectory: 'src/CrmSvcUtil.Filter'
 
 - powershell: |
