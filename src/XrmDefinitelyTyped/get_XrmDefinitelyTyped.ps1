@@ -1,9 +1,20 @@
-Param([switch]$NonInteractive = $false, [string]$UserName, [string]$Password, [string]$Solution,[string]$Url)
+Param([switch]$NonInteractive = $false, [string]$UserName, [string]$Password, [string]$Solution,[string]$Url, [string]$ClientSecret, [string]$AppId)
 
 $xdtexe = Get-ChildItem "../packages" -Filter XrmDefinitelyTyped.exe -recurse | select -first 1 -ExpandProperty FullName
 write-host $xdtexe
 
-if($NonInteractive){
+if ($ClientSecret -And $AppId) {
+    # Export XRM TypeScript definitions
+    & $xdtexe /url:"$Url/XRMServices/2011/Organization.svc" `
+	  /method:"ClientSecret" `
+      /out:"../$Solution.WebResources/@types/xrmdefinitelytyped" `
+      /jsLib:"../$Solution.WebResources/js/lib/xrmquery" `
+      /web:"" `
+      /solutions:"$Solution" `
+      /mfaAppId:$AppId `
+	  /mfaClientSecret:$ClientSecret `
+      /oneFile:"true"
+} elseif ($NonInteractive) {
 
     # Export XRM TypeScript definitions
     & $xdtexe /url:"$Url/XRMServices/2011/Organization.svc" `
