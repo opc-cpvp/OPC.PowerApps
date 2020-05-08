@@ -19,7 +19,9 @@ parameters:
     - 'dev-tenant-secret'
 
 variables:
-  - group: $(parameters.Tenant)
+  - group: $[parameters.Tenant]
+  - name: SolutionName
+    value: 'Compliance' 
 
 steps:
 - checkout: self
