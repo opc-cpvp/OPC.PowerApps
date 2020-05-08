@@ -6,12 +6,8 @@ pool:
   vmImage: 'vs2017-win2016'
 
 parameters:
-  - name: DevTenant
-    displayName: Using dev tenant?
-    type: boolean
-    default: false
   - name: Tenant
-    displayName: Tenant to use
+    displayName: Tenant and secret to use
     type: string
     default: 'prod-tenant-secret'
     values:
