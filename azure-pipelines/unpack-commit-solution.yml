@@ -10,13 +10,16 @@ parameters:
     displayName: Using dev tenant?
     type: boolean
     default: false
+  - name: Tenant
+    displayName: Tenant to use
+    type: string
+    default: 'prod-tenant-secret'
+    values:
+    - 'prod-tenant-secret'
+    - 'dev-tenant-secret'
 
 variables:
-- ${{ if eq(parameters.DevTenant, true) }}:
-  - group: dev-tenant-secret
-- ${{ if ne(parameters.DevTenant, true) }}:
-  - group: prod-tenant-secret
-  SolutionName: 'Compliance'
+  - group: $(parameters.Tenant)
 
 steps:
 - checkout: self
