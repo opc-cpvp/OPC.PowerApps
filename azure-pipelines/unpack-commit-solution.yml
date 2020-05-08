@@ -32,7 +32,7 @@ steps:
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportSolution.MSCRMExportSolution@10
   displayName: 'MSCRM Export Solution'
   inputs:
-    crmConnectionString: 'AuthType=ClientSecret;Url=$(crm.url);ClientId=$(enant.appId);ClientSecret=$(tenant.secret)'
+    crmConnectionString: 'AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)'
     solutionName: '$(SolutionName)'
     exportManaged: false
     outputPath: '$(Agent.TempDirectory)'
