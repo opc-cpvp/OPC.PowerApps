@@ -6,16 +6,16 @@ pool:
   vmImage: 'vs2017-win2016'
 
 parameters:
-  - name: Tenant
-    displayName: Tenant and secret to use
+  - name: tenant
+    displayName: Tenant
     type: string
-    default: 'prod-tenant-secret'
+    default: 'prod-tenant'
     values:
-    - 'prod-tenant-secret'
-    - 'dev-tenant-secret'
+    - 'prod-tenant'
+    - 'dev-tenant'
 
 variables:
-  - group: ${{ parameters.Tenant }}
+  - group: ${{ parameters.tenant }}
   - name: SolutionName
     value: 'Compliance' 
 
