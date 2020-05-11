@@ -1,0 +1,50 @@
+{
+    "resources": {
+        "en": {
+            "common": {
+                "hello": "hello in english"
+            },
+            "contact": {
+                "type": {
+                    "complainant": "complainant",
+                    "representative": "representative"
+                },
+                "mcs": {
+                    "confirmation": {
+                        "title": "Multiple Complaint Strategy Confirmation",
+                        "text": "You are about to include this contact in the Multiple Complaint Strategy list. Would you like to proceed?"
+                    },
+                    "warning_main": "{{fullname}} is part of the Multiple Complaint Strategy.",
+                    "warning_complaint": "The Complainant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
+                },
+                "duplicate": {
+                    "warning_potential": "Please review $t(contact:type.{{contactType}}) contact, there's a potential duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view.",
+                    "warning_actual": "Please review $(contact:type.{{contactType}}) contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view."
+                }
+            }
+        },
+        "fr": {
+            "common": {
+                "hello": "allo en francais"
+            },
+            "contact": {
+                "type": {
+                    "complainant": "plaignant",
+                    "representative": "représentant"
+                },
+                "mcs": {
+                    "confirmation": {
+                        "title": "Confirmation d'application de la Stratégie de Plaintes Multiple",
+                        "text": "Vous êtes sur le point d'appliquer la Stratégie de Plaintes Multiple à ce contact. Voulez vous continuer?"
+                    },
+                    "warning_main": "{{fullname}} fait partie de la Stratégie de Plainte Multiple.",
+                    "warning_complaint": "Le plaignant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
+                },
+                "duplicate": {
+                    "warning_potential": "Veuillez réviser les informations de contact du $t(contact:type.{{contactType}}), c'est un doublou potentiel. Vous pouvez fusionner les contacts en allant à la vue 'Doublons' sur la page du contact.",
+                    "warning_actual": "Veuillez réviser les information de contact du $t(contact:type.{{contactType}}), c'est un doublon. Vous pouvez fusionner les contacts en allant à la vue 'Doublons' sur la page du contact."
+                }
+            }
+        }
+    }
+}

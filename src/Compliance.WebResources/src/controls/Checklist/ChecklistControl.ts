@@ -1,5 +1,6 @@
 import { injectable, inject } from "inversify";
 import { PowerIFrameControl, IChecklistService } from "../../interfaces";
+import { i18n } from "i18next";
 
 export namespace Controls {
 
@@ -14,7 +15,8 @@ export namespace Controls {
         private _placeholder: HTMLElement;
         private _isCurrentLanguageEnglish: boolean = true;
 
-        constructor(@inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
+        constructor(
+            @inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
             @inject(nameof<Document>()) documentContext: Document,
             @inject(nameof<IChecklistService>()) checklistService: IChecklistService) {
             super(xrmContext, documentContext);
@@ -94,14 +96,14 @@ export namespace Controls {
 
         private addTextQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
                 `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         private addTextAreaQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
                 `<textarea id="q-${cr.opc_checklistresponseid}" rows="3" class="form-control" data-responseid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</textarea>`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }

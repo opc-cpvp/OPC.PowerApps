@@ -18,3 +18,8 @@ export enum ROLES {
     ComplianceSeniorPrivacyInvestigator = "8ea9d589-362e-ea11-a810-000d3af46757",
     ComplianceStrategicAdvisor = "f1200996-362e-ea11-a810-000d3af46757"
 }
+
+export enum ContactType {
+    Complainant = "complainant",
+    Representative = "representative"
+}
