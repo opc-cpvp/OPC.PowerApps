@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IComplaintService, IContactService } from "../interfaces";
+import { IPowerForm, IContactService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 import { i18n } from "i18next";
 import { ContactType } from "../enums";
