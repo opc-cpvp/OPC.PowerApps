@@ -19,7 +19,7 @@
                 },
                 "duplicate": {
                     "warning_potential": "Please review $t(contact:type.{{contactType}}) contact, there's a potential duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view.",
-                    "warning_actual": "Please review $(contact:type.{{contactType}}) contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view."
+                    "warning_actual": "Please review $t(contact:type.{{contactType}}) contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view."
                 }
             }
         },
