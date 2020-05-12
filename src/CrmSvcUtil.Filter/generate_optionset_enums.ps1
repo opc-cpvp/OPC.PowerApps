@@ -1,12 +1,10 @@
-Param([switch]$NonInteractive = $false, [string]$UserName, [string]$Password, [string]$Url)
+Param([string]$ConnectionString)
 
 $crmSvcUtil = Get-ChildItem . -Filter "CrmSvcUtil.exe" -Recurse -ErrorAction SilentlyContinue -Force | select -first 1 -ExpandProperty FullName
 
-if($NonInteractive){
+if ($ConnectionString) {
 	& $crmSvcUtil `
-		/username:"$username" `
-		/password:"$password" `
-		/url:"$Url/XRMServices/2011/Organization.svc" `
+		/connectionstring:$ConnectionString `
 		/out:"../Compliance.Entities/OptionSets.cs" `
 		/namespace:"Compliance.Entities" `
 		/codewriterfilter:"CrmSvcUtil.Filter.GenerateOptionSetEnums.FilteringService, CrmSvcUtil.Filter" `
