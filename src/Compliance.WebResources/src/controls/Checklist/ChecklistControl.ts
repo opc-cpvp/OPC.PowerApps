@@ -1,6 +1,5 @@
 import { injectable, inject } from "inversify";
 import { PowerIFrameControl, IChecklistService } from "../../interfaces";
-import { i18n } from "i18next";
 
 export namespace Controls {
 
