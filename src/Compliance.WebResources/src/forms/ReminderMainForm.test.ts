@@ -9,21 +9,24 @@ var sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
+var i18next = require("i18next");
+
 describe("Reminder", () => {
     let form: Reminder.Forms.MainForm;
     let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
     let contextSpy: any;
 
-    describe("when form is loading", () => {
-        beforeEach(function () {
-            form = new Reminder.Forms.MainForm();
-            mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
-            contextSpy = sandbox.spy(mockContext);
-        });
+    beforeEach(function () {
+        form = new Reminder.Forms.MainForm(i18next);
+        mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
+        contextSpy = sandbox.spy(mockContext);
+    });
 
-        afterEach(function () {
-            sandbox.restore();
-        });
+    afterEach(function () {
+        sandbox.restore();
+    });
+
+    describe("when form is loading", () => {
 
         it("it should display the section to add additional users if the user chooses to notify additional users", () => {
             // Arrange
@@ -52,14 +55,7 @@ describe("Reminder", () => {
         let eventArgsSpy: any;
 
         beforeEach(function () {
-            form = new Reminder.Forms.MainForm();
-            mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
-            contextSpy = sandbox.spy(mockContext);
             eventArgsSpy = sandbox.spy(mockContext.getEventArgs());
-        });
-
-        afterEach(function () {
-            sandbox.restore();
         });
 
         it("it should display notifications if the user chooses to notify the case owner while no case is related to the reminder", () => {
@@ -157,16 +153,6 @@ describe("Reminder", () => {
     });
 
     describe("when notify additional users is selected", () => {
-        beforeEach(function () {
-            form = new Reminder.Forms.MainForm();
-            mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
-            contextSpy = sandbox.spy(mockContext);
-        });
-
-        afterEach(function () {
-            sandbox.restore();
-        });
-
         it("it should display the section to add additional users if the user chooses to notify additional users", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_notifyadditionalusers").setValue(true);
@@ -183,20 +169,6 @@ describe("Reminder", () => {
     });
 
     describe("when notify additional users is not selected", () => {
-        let form: Reminder.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.opc_reminder.Main.Information, any>;
-        let contextSpy: any;
-
-        beforeEach(function () {
-            form = new Reminder.Forms.MainForm();
-            mockContext = new XrmSaveEventContextMock<Form.opc_reminder.Main.Information>();
-            contextSpy = sandbox.spy(mockContext);
-        });
-
-        afterEach(function () {
-            sandbox.restore();
-        });
-
         it("it should hide the section to add additional users if the user chooses not to notify additional users", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_notifyadditionalusers").setValue(false);
