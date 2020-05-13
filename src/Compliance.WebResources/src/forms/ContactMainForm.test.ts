@@ -13,6 +13,8 @@ var sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
+var i18next = require("i18next");
+
 describe("Contact", () => {
     const mcsOptions: Xrm.Option<any>[] = [
         { text: "Not Applied", value: opc_multiplecomplaintstrategy.NotApplied },
@@ -35,7 +37,7 @@ describe("Contact", () => {
         userService = new UserService();
         mockNavigation = new XrmNavigationMock();
         mockContext = new XrmContextMock();
-        form = new Contact.Forms.MainForm(userService, mockNavigation, mockContext);
+        form = new Contact.Forms.MainForm(i18next, userService, mockNavigation, mockContext);
         mockExecutionContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
         contextSpy = sandbox.spy(mockExecutionContext);
 

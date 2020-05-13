@@ -1,4 +1,4 @@
-export enum ROLES {
+export enum Roles {
     ComplianceBaseRole = "e8d3b19c-362e-ea11-a810-000d3af46757",
     ComplianceBreachResponseManager = "e8feb70e-362e-ea11-a810-000d3af46757",
     ComplianceBreachResponseOfficer = "d6fe931c-362e-ea11-a810-000d3af46757",
@@ -17,4 +17,9 @@ export enum ROLES {
     ComplianceSeniorCaseAnalyst = "03dc1c82-362e-ea11-a810-000d3af46757",
     ComplianceSeniorPrivacyInvestigator = "8ea9d589-362e-ea11-a810-000d3af46757",
     ComplianceStrategicAdvisor = "f1200996-362e-ea11-a810-000d3af46757"
+}
+
+export enum ContactType {
+    Complainant = "complainant",
+    Representative = "representative"
 }

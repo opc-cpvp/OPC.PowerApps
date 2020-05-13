@@ -1,21 +1,22 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IComplaintService, IContactService } from "../interfaces";
+import { IPowerForm, IContactService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
+import { i18n } from "i18next";
+import { ContactType } from "../enums";
 
 export namespace Complaint.Forms {
-
-    enum ContactType {
-        Complainant = "Complainant",
-        Representative = "Representative"
-    }
 
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_complaint.Main.Information> {
 
         private _contactService: IContactService;
+        private _i18n: i18n;
 
-        constructor(@inject(nameof<IContactService>()) contactService: IContactService) {
+        constructor(
+            @inject(nameof<i18n>()) i18n: i18n,
+            @inject(nameof<IContactService>()) contactService: IContactService) {
+            this._i18n = i18n;
             this._contactService = contactService;
         }
 
@@ -69,9 +70,9 @@ export namespace Complaint.Forms {
 
         private showContactDuplicateStatusNotification(formContext: Form.opc_complaint.Main.Information, contactType: ContactType, duplicateResult: opc_duplicatedetectionresult, notificationId: string) {
             if (duplicateResult == opc_duplicatedetectionresult.Potentialduplicate)
-                formContext.ui.setFormNotification(`Please review ${contactType} contact, there's a potential duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view`, "WARNING", notificationId);
+                formContext.ui.setFormNotification(this._i18n.t("contact:duplicate.warning", { context: "potential", contactType: contactType }), "WARNING", notificationId);
             else if (duplicateResult == opc_duplicatedetectionresult.Duplicatefound) {
-                formContext.ui.setFormNotification(`Please review ${contactType} contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view`, "WARNING", notificationId);
+                formContext.ui.setFormNotification(this._i18n.t("contact:duplicate.warning", { context: "actual", contactType: contactType }), "WARNING", notificationId);
             }
         }
 
@@ -188,7 +189,7 @@ export namespace Complaint.Forms {
             const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
             const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
             const complainantEntityReference = formContext.getAttribute("opc_complainant").getValue();
-            const complainantFullname = complainantEntityReference ? complainantEntityReference[0].name : "";
+            const fullname = complainantEntityReference ? complainantEntityReference[0].name : "";
 
             // Clear Notification
             formContext.ui.clearFormNotification("formNotificationMCS");
@@ -196,7 +197,7 @@ export namespace Complaint.Forms {
             // Check if Complainant is part of the Multiple Complaint Strategy
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
                 // Display Notification
-                formContext.ui.setFormNotification(`The Complainant ${complainantFullname} is part of the Multiple Complaint Strategy.`, "INFO", "formNotificationMCS");
+                formContext.ui.setFormNotification(this._i18n.t("contact:mcs.warning", { context: 'complaint', fullname }), "INFO", "formNotificationMCS");
             }
         }
     }
