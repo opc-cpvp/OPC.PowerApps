@@ -569,8 +569,8 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10007,
-  Complaint = 11118,
+  KnowledgeArticleTemplate = 10009,
+  Complaint = 10098,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -4164,13 +4164,6 @@ declare namespace Form.opc_complaint.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface tab_topics extends Xrm.SectionCollectionBase {
-        get(name: "section_topics"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_acceptancedate"): Xrm.DateAttribute | null;
@@ -4233,7 +4226,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
       get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
-      get(name: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
+      get(name: "subgrid_topics"): Xrm.BaseControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -4247,7 +4240,6 @@ declare namespace Form.opc_complaint.Main {
       get(name: "tab_recommendations"): Xrm.PageTab<Tabs.tab_recommendations>;
       get(name: "tab_reminders"): Xrm.PageTab<Tabs.tab_reminders>;
       get(name: "tab_risk_assessments"): Xrm.PageTab<Tabs.tab_risk_assessments>;
-      get(name: "tab_topics"): Xrm.PageTab<Tabs.tab_topics>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -4310,7 +4302,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
     getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
-    getControl(controlName: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
+    getControl(controlName: "subgrid_topics"): Xrm.BaseControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -5681,7 +5673,6 @@ declare namespace Form.opc_reminder.Main {
   namespace Information {
     namespace Tabs {
       interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_additionalusers"): Xrm.PageSection;
         get(name: "section_general"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
@@ -5713,7 +5704,7 @@ declare namespace Form.opc_reminder.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
+      get(name: "grid_additionalusers"): Xrm.BaseControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
@@ -5750,7 +5741,7 @@ declare namespace Form.opc_reminder.Main {
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_reminder_statuscode>;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "grid_additionalusers"): Xrm.BaseControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;

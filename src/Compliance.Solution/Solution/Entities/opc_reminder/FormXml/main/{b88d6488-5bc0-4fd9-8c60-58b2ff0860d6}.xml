@@ -144,20 +144,13 @@
                         </labels>
                       </cell>
                     </row>
-                  </rows>
-                </section>
-                <section name="section_additionalusers" showlabel="true" showbar="true" locklevel="0" id="{79a8316b-7dc5-637a-7375-1be7d234bde2}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
-                  <labels>
-                    <label description="Additional users to notify" languagecode="1033" />
-                  </labels>
-                  <rows>
                     <row>
                       <cell id="{e7d81d90-ddbc-7626-9a6c-cc35b0e7e656}" showlabel="false" colspan="1" auto="false" rowspan="6">
                         <labels>
                           <label description="Additional Users to Notify" languagecode="1033" />
                           <label description="Utilisateurs" languagecode="1036" />
                         </labels>
-                        <control id="grid_additionalusers" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="grid_additionalusers" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{db139d33-e56e-3cde-0131-e606cc01319c}">
                           <parameters>
                             <ViewId>{00000000-0000-0000-00AA-000010001019}</ViewId>
                             <IsUserView>false</IsUserView>
@@ -178,12 +171,107 @@
                           </parameters>
                         </control>
                       </cell>
+                      <cell id="{c98387bb-a323-e55e-6eda-662e602dabb0}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{b7839229-6626-5c63-1547-003b0981e3a7}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{ca0b95dc-cba5-7a14-0ab3-284dbc8c3488}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
+                    <row>
+                      <cell id="{0a7aa63a-1795-e00a-3e64-630ab567ca64}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{80622548-40ed-c4bc-6275-8c32345ad723}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{bd359d56-4126-9515-0481-a506101b07ee}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dae691c9-0aa8-d19a-a90a-c5aabbca8568}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{968a71e3-64a2-6e10-aa3e-4ab387d19715}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{15623a1a-8ec2-8008-ea48-dd2bb7daa073}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{61a73b74-04a8-731b-15cc-82da869a00b4}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{6eb9d719-d74e-71b4-47d7-6615b2574586}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{b0979ce0-181b-486c-ee82-e6389ce51104}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c5e35b54-9c44-ad7c-c2e1-4cd032e8bb11}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{039ae1c0-be90-b398-8762-41768ccd4321}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{8801b5cb-5bdc-d041-eab2-e34dda302a46}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3333b51c-5871-10e3-b842-201a8969015e}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{81aa36c5-b021-388b-20d3-c2322ab1bb54}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{bbbea269-31e6-01b6-ee2c-7c3cc58618a5}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -264,7 +352,7 @@
         </rows>
       </header>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -379,6 +467,76 @@
           <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>opc_notifyadditionalusers</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{db139d33-e56e-3cde-0131-e606cc01319c}">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{00000000-0000-0000-00AA-000010001019}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>opc_reminders_users_additionaluserstonotify</RelationshipName>
+              <TargetEntityType>systemuser</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{00000000-0000-0000-00AA-000010001019}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>Grid</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>false</EnableChartPicker>
+              <RecordsPerPage>4</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{00000000-0000-0000-00AA-000010001019}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_reminders_users_additionaluserstonotify</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>systemuser</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001019}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{00000000-0000-0000-00AA-000010001019}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_reminders_users_additionaluserstonotify</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>systemuser</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001019}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{00000000-0000-0000-00AA-000010001019}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_reminders_users_additionaluserstonotify</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>systemuser</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{00000000-0000-0000-00AA-000010001019}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
             </parameters>
           </customControl>
         </controlDescription>
