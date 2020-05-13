@@ -28,6 +28,11 @@ import Contact = ContactMainForm.Contact;
 // Controls
 import { Controls } from "./controls/Checklist/ChecklistControl";
 
+// Translations
+import i18next from 'i18next';
+import { i18n } from 'i18next';
+import * as resources from './resources.json';
+
 const container = new Container();
 
 // Register Services
@@ -39,10 +44,6 @@ container.bind<i.IChecklistService>(nameof<i.IChecklistService>()).to(ChecklistS
 container.bind<i.IContactService>(nameof<i.IContactService>()).to(ContactService);
 container.bind<i.IUserService>(nameof<i.IUserService>()).to(UserService);
 
-// Register Providers
-container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);
-container.bind<Xrm.Utility>(nameof<Xrm.Utility>()).toConstantValue(Xrm.Utility);
-
 // Register Forms
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegation_information").to(Allegation.Forms.MainForm);
@@ -51,9 +52,22 @@ container.bind<i.IPowerForm<Form.opc_notification.Main.Information>>("opc_notifi
 container.bind<i.IPowerForm<Form.contact.Main.ComplianceContact>>("contact_compliancecontact").to(Contact.Forms.MainForm);
 
 // Register controls
+container.bind<Controls.ChecklistControl>(nameof<Controls.ChecklistControl>()).to(Controls.ChecklistControl);
+
+// Other contexts
+container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);
+container.bind<Xrm.Utility>(nameof<Xrm.Utility>()).toConstantValue(Xrm.Utility);
 container.bind<Xrm.context>(nameof<Xrm.context>()).toDynamicValue(() => Xrm.Utility.getGlobalContext());
 container.bind<Document>(nameof<Document>()).toDynamicValue(() => window.document);
-container.bind<Controls.ChecklistControl>(nameof<Controls.ChecklistControl>()).to(Controls.ChecklistControl);
+
+// Language
+i18next.init({
+    resources: resources.resources,
+    defaultNS: "common",
+    fallbackLng: "en",
+    lng: Xrm.Utility.getGlobalContext().userSettings.languageId == 1033 ? "en" : "fr" // This works because page is reloaded when language is changed.
+});
+container.bind<i18n>(nameof<i18n>()).toConstantValue(i18next);
 
 // Bootstrapper/Composition Root setup
 container.bind<i.IFormFactory>(nameof<i.IFormFactory>()).toConstantValue(new FormFactory(container));

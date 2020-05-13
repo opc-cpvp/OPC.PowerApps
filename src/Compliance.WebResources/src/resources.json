@@ -1,0 +1,66 @@
+{
+    "resources": {
+        "en": {
+            "common": {
+                "hello": "hello in english"
+            },
+            "contact": {
+                "type": {
+                    "complainant": "complainant",
+                    "representative": "representative"
+                },
+                "mcs": {
+                    "confirmation": {
+                        "title": "Multiple Complaint Strategy Confirmation",
+                        "text": "You are about to include this contact in the Multiple Complaint Strategy list. Would you like to proceed?"
+                    },
+                    "warning_main": "{{fullname}} is part of the Multiple Complaint Strategy.",
+                    "warning_complaint": "The Complainant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
+                },
+                "duplicate": {
+                    "warning_potential": "Please review $t(contact:type.{{contactType}}) contact, there's a potential duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view.",
+                    "warning_actual": "Please review $t(contact:type.{{contactType}}) contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view."
+                }
+            },
+            "reminder": {
+                "error": {
+                    "global": "There is an error on the form.",
+                    "global_plural": "There are multiple errors on the form.",
+                    "nobody_selected": "You must select at least one person to notify.",
+                    "case_must_be_linked": "To notify the case owner, you must have at least one case linked to the reminder."
+                }
+            }
+        },
+        "fr": {
+            "common": {
+                "hello": "allo en francais"
+            },
+            "contact": {
+                "type": {
+                    "complainant": "plaignant",
+                    "representative": "représentant"
+                },
+                "mcs": {
+                    "confirmation": {
+                        "title": "Confirmation d'application de la Stratégie de Plaintes Multiple",
+                        "text": "Vous êtes sur le point d'appliquer la Stratégie de Plaintes Multiple à ce contact. Voulez vous continuer?"
+                    },
+                    "warning_main": "{{fullname}} fait partie de la Stratégie de Plainte Multiple.",
+                    "warning_complaint": "Le plaignant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
+                },
+                "duplicate": {
+                    "warning_potential": "Veuillez réviser les informations de contact du $t(contact:type.{{contactType}}), c'est un doublon potentiel. Vous pouvez fusionner les contacts en allant à la vue 'Doublons' sur la page du contact.",
+                    "warning_actual": "Veuillez réviser les information de contact du $t(contact:type.{{contactType}}), c'est un doublon. Vous pouvez fusionner les contacts en allant à la vue 'Doublons' sur la page du contact."
+                }
+            },
+            "reminder": {
+                "error": {
+                    "global": "Il y a une erreur sur le formulaire.",
+                    "global_plural": "Il y a plusieurs erreurs sur le formulaire.",
+                    "nobody_selected": "Vous devez sélectionner au moins une personne à notifier. ",
+                    "case_must_be_linked": "Pour notifier le propriétaire du cas, votre rappel doit être lié à au moins un cas."
+                }
+            }
+        }
+    }
+}

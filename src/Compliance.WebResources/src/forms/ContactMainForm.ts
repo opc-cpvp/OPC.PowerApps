@@ -1,18 +1,22 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IPowerForm, IUserService } from "../interfaces";
+import { i18n } from "i18next";
 
 export namespace Contact.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.contact.Main.ComplianceContact> {
 
-        private _userService: IUserService;
-        private _xrmNavigation: Xrm.Navigation;
-        private _xrmContext: Xrm.context;
+        private readonly _userService: IUserService;
+        private readonly _xrmNavigation: Xrm.Navigation;
+        private readonly _xrmContext: Xrm.context;
+        private readonly _i18n: i18n;
+
         private _saveEventConfirmed: boolean = false;
         private _hasIntakeManagerPermissions: boolean = false;
 
-        constructor(@inject(nameof<IUserService>()) userService: IUserService, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation, @inject(nameof<Xrm.context>()) xrmContext: Xrm.context) {
+        constructor(@inject(nameof<i18n>()) i18n: i18n, @inject(nameof<IUserService>()) userService: IUserService, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation, @inject(nameof<Xrm.context>()) xrmContext: Xrm.context) {
+            this._i18n = i18n;
             this._userService = userService;
             this._xrmNavigation = xrmNavigation;
             this._xrmContext = xrmContext;
@@ -77,17 +81,16 @@ export namespace Contact.Forms {
         * @event OnChange
         */
         private multipleComplaintStrategy_DisplayNotification(formContext: Form.contact.Main.ComplianceContact): void {
-            const multipleComplaintStrategy = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
-            const firstName = formContext.getAttribute("firstname").getValue();
-            const lastName = formContext.getAttribute("lastname").getValue();
-
             // Clear Notification
             formContext.ui.clearFormNotification("formNotificationMCS");
 
             // Check if Contact is part of the Multiple Complaint Strategy
+            const multipleComplaintStrategy = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
                 // Display Notification
-                formContext.ui.setFormNotification(`${firstName ? firstName : ""} ${lastName} is part of the Multiple Complaint Strategy.`, "INFO", "formNotificationMCS");
+                const firstName = formContext.getAttribute("firstname").getValue();
+                const lastName = formContext.getAttribute("lastname").getValue();
+                formContext.ui.setFormNotification(this._i18n.t("contact:mcs.warning", { context: 'main', fullname: (firstName ? firstName + " " : "") + lastName }), "INFO", "formNotificationMCS");
             }
         }
 
@@ -117,8 +120,8 @@ export namespace Contact.Forms {
 
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._saveEventConfirmed && mcsFieldIsDirty) {
                 const confirmStrings = {
-                    text: "You are about to include this contact in the Multiple Complaint Strategy list. Would you like to proceed?",
-                    title: "Multiple Complaint Strategy Confirmation"
+                    title: this._i18n.t("contact:mcs.confirmation.title"),
+                    text: this._i18n.t("contact:mcs.confirmation.text")
                 };
 
                 // We need to prevent the save event before opening the confirmation dialog because

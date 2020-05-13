@@ -23,7 +23,6 @@ describe("ChecklistControl", () => {
 
         beforeEach(function () {
             service = new ChecklistService();
-
             documentContext = document;
             xrmContext = new XrmContextMock();
             xrmContext.setQueryStringParameters({ id: "guid-test" }); // this is the format that is passed to the iframe
