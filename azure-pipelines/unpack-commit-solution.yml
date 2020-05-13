@@ -5,21 +5,30 @@ pr: none
 pool:
   vmImage: 'vs2017-win2016'
 
+parameters:
+  - name: tenant
+    displayName: Tenant
+    type: string
+    default: 'prod-tenant'
+    values:
+    - 'prod-tenant'
+    - 'dev-tenant'
+
 variables:
-  crm.username: 'SVC_OPC_CRM_Admin@priv.gc.ca'
-  SolutionName: 'Compliance'
+  - group: ${{ parameters.tenant }}
+  - name: SolutionName
+    value: 'Compliance' 
 
 steps:
 - checkout: self
   persistCredentials: true
-
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'MSCRM Tool Installer'
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportSolution.MSCRMExportSolution@10
   displayName: 'MSCRM Export Solution'
   inputs:
-    crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
+    crmConnectionString: 'AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)'
     solutionName: '$(SolutionName)'
     exportManaged: false
     outputPath: '$(Agent.TempDirectory)'
@@ -61,7 +70,7 @@ steps:
   displayName: 'Update TypeScript Entities'
   inputs:
     filePath: 'src/XrmDefinitelyTyped/get_XrmDefinitelyTyped.ps1'
-    arguments: '-NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)" -Solution "$(SolutionName)"'
+    arguments: '-Url $(crm.url) -ClientSecret "$(tenant.secret)" -AppId "$(tenant.appId)" -Solution "$(SolutionName)"'
     workingDirectory: 'src/XrmDefinitelyTyped'
 
 - task: NuGetCommand@2
@@ -81,14 +90,14 @@ steps:
   displayName: 'Update C# Early-Bound Entities'
   inputs:
     filePath: 'src/CrmSvcUtil.Filter/generate_earlybound_entities.ps1'
-    arguments: '-NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)"'
+    arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)"'
     workingDirectory: 'src/CrmSvcUtil.Filter'
 
 - task: PowerShell@2
   displayName: 'Update C# Early-Bound Option Sets'
   inputs:
     filePath: 'src/CrmSvcUtil.Filter/generate_optionset_enums.ps1'
-    arguments: '-NonInteractive -Url $(crm.url) -UserName "$(crm.username)" -Password "$(crm.password)"'
+    arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)"'
     workingDirectory: 'src/CrmSvcUtil.Filter'
 
 - powershell: |
