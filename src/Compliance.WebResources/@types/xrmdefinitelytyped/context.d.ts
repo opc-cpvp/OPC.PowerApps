@@ -570,7 +570,17 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11118,
+  Complaint = 11522,
+}
+declare const enum sharepointsite_servicetype {
+  SharePoint = 0,
+  OneDrive = 1,
+  Sharedwithme = 2,
+  MSTeams = 3,
+}
+declare const enum sharepointdocumentlocation_locationtype {
+  General = 0,
+  DedicatedforOneNoteIntegration = 1,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -7115,6 +7125,34 @@ declare namespace Form.queueitem.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.sharepointdocument.Main {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.connection.Main {
   namespace Information {
     namespace Tabs {
@@ -7929,6 +7967,29 @@ interface QueueItem_Create extends QueueItem {
 }
 interface QueueItem_Update extends QueueItem {
 }
+interface SharePointDocument_Base extends WebEntity {
+}
+interface SharePointDocument_Fixed extends WebEntity_Fixed {
+  sharepointdocumentid: string;
+}
+interface SharePointDocument extends SharePointDocument_Base, SharePointDocument_Relationships {
+}
+interface SharePointDocument_Relationships {
+}
+interface SharePointDocument_Result extends SharePointDocument_Base, SharePointDocument_Relationships {
+}
+interface SharePointDocument_FormattedResult {
+}
+interface SharePointDocument_Select {
+}
+interface SharePointDocument_Expand {
+}
+interface SharePointDocument_Filter {
+}
+interface SharePointDocument_Create extends SharePointDocument {
+}
+interface SharePointDocument_Update extends SharePointDocument {
+}
 interface ActivityParty_Base extends WebEntity {
 }
 interface ActivityParty_Fixed extends WebEntity_Fixed {
@@ -8104,6 +8165,7 @@ interface Account_Base extends WebEntity {
   websiteurl?: string | null;
 }
 interface Account_Relationships {
+  Account_SharepointDocument?: SharePointDocument_Result[] | null;
   account_activity_parties?: ActivityParty_Result[] | null;
   account_connections1?: Connection_Result[] | null;
   account_connections2?: Connection_Result[] | null;
@@ -8415,6 +8477,7 @@ interface Account_Filter {
   websiteurl: string;
 }
 interface Account_Expand {
+  Account_SharepointDocument: WebExpand<Account_Expand, SharePointDocument_Select, SharePointDocument_Filter, { Account_SharepointDocument: SharePointDocument_Result[] }>;
   account_activity_parties: WebExpand<Account_Expand, ActivityParty_Select, ActivityParty_Filter, { account_activity_parties: ActivityParty_Result[] }>;
   account_connections1: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections1: Connection_Result[] }>;
   account_connections2: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections2: Connection_Result[] }>;
@@ -8510,6 +8573,7 @@ interface Account_RelatedOne {
   primarycontactid: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
 }
 interface Account_RelatedMany {
+  Account_SharepointDocument: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   account_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   account_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   account_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
@@ -9786,6 +9850,7 @@ interface opc_complaint_Relationships {
   bpf_opc_complaint_opc_individualcomplaint_bp?: opc_individualcomplaint_bp_Result[] | null;
   opc_RiskAssessment_Complaint_opc_complain?: opc_RiskAssessment_Result[] | null;
   opc_complaint_QueueItems?: QueueItem_Result[] | null;
+  opc_complaint_SharePointDocuments?: SharePointDocument_Result[] | null;
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
   opc_complaint_notifications_complaint?: opc_notification_Result[] | null;
@@ -9897,6 +9962,7 @@ interface opc_complaint_Expand {
   opc_complainant: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainant: Contact_Result }>;
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
   opc_complaint_QueueItems: WebExpand<opc_complaint_Expand, QueueItem_Select, QueueItem_Filter, { opc_complaint_QueueItems: QueueItem_Result[] }>;
+  opc_complaint_SharePointDocuments: WebExpand<opc_complaint_Expand, SharePointDocument_Select, SharePointDocument_Filter, { opc_complaint_SharePointDocuments: SharePointDocument_Result[] }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
   opc_complaint_notifications_complaint: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaint: opc_notification_Result[] }>;
@@ -9966,6 +10032,7 @@ interface opc_complaint_RelatedMany {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
   opc_RiskAssessment_Complaint_opc_complain: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
   opc_complaint_QueueItems: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  opc_complaint_SharePointDocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
   opc_complaint_notifications_complaint: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
@@ -12989,6 +13056,216 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   queueitems: WebMappingCUDA<QueueItem_Create,QueueItem_Update,QueueItem_Select>;
+}
+interface SharePointDocument_Base extends WebEntity {
+  absoluteurl?: string | null;
+  appcreatedby?: string | null;
+  appmodifiedby?: string | null;
+  author?: string | null;
+  checkedoutto?: string | null;
+  checkincomment?: string | null;
+  childfoldercount?: number | null;
+  childitemcount?: number | null;
+  contenttype?: string | null;
+  contenttypeid?: number | null;
+  copysource?: string | null;
+  createdon?: Date | null;
+  documentid?: number | null;
+  documentlocationtype?: sharepointdocumentlocation_locationtype | null;
+  edit?: string | null;
+  editurl?: string | null;
+  exchangerate?: number | null;
+  filesize?: number | null;
+  filetype?: string | null;
+  fullname?: string | null;
+  iconclassname?: string | null;
+  ischeckedout?: boolean | null;
+  isfolder?: boolean | null;
+  isrecursivefetch?: boolean | null;
+  locationid?: string | null;
+  locationname?: string | null;
+  modified?: Date | null;
+  modifiedon?: Date | null;
+  readurl?: string | null;
+  relativelocation?: string | null;
+  servicetype?: sharepointsite_servicetype | null;
+  sharepointcreatedon?: Date | null;
+  sharepointdocumentid?: string | null;
+  sharepointmodifiedby?: string | null;
+  title?: string | null;
+  version?: string | null;
+}
+interface SharePointDocument_Relationships {
+  regardingobjectid_account?: Account_Result | null;
+  regardingobjectid_opc_complaint?: opc_complaint_Result | null;
+}
+interface SharePointDocument extends SharePointDocument_Base, SharePointDocument_Relationships {
+  businessunitid_bind$businessunits?: string | null;
+  regardingobjectid_account_bind$accounts?: string | null;
+  regardingobjectid_kbarticle_bind$kbarticles?: string | null;
+  regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
+  regardingobjectid_msdyn_knowledgearticletemplate_bind$msdyn_knowledgearticletemplates?: string | null;
+  regardingobjectid_opc_complaint_bind$opc_complaints?: string | null;
+}
+interface SharePointDocument_Create extends SharePointDocument {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface SharePointDocument_Update extends SharePointDocument {
+}
+interface SharePointDocument_Select {
+  absoluteurl: WebAttribute<SharePointDocument_Select, { absoluteurl: string | null }, {  }>;
+  appcreatedby: WebAttribute<SharePointDocument_Select, { appcreatedby: string | null }, {  }>;
+  appmodifiedby: WebAttribute<SharePointDocument_Select, { appmodifiedby: string | null }, {  }>;
+  author: WebAttribute<SharePointDocument_Select, { author: string | null }, {  }>;
+  businessunitid_guid: WebAttribute<SharePointDocument_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
+  checkedoutto: WebAttribute<SharePointDocument_Select, { checkedoutto: string | null }, {  }>;
+  checkincomment: WebAttribute<SharePointDocument_Select, { checkincomment: string | null }, {  }>;
+  childfoldercount: WebAttribute<SharePointDocument_Select, { childfoldercount: number | null }, {  }>;
+  childitemcount: WebAttribute<SharePointDocument_Select, { childitemcount: number | null }, {  }>;
+  contenttype: WebAttribute<SharePointDocument_Select, { contenttype: string | null }, {  }>;
+  contenttypeid: WebAttribute<SharePointDocument_Select, { contenttypeid: number | null }, {  }>;
+  copysource: WebAttribute<SharePointDocument_Select, { copysource: string | null }, {  }>;
+  createdby_guid: WebAttribute<SharePointDocument_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<SharePointDocument_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<SharePointDocument_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  documentid: WebAttribute<SharePointDocument_Select, { documentid: number | null }, {  }>;
+  documentlocationtype: WebAttribute<SharePointDocument_Select, { documentlocationtype: sharepointdocumentlocation_locationtype | null }, { documentlocationtype_formatted?: string }>;
+  edit: WebAttribute<SharePointDocument_Select, { edit: string | null }, {  }>;
+  editurl: WebAttribute<SharePointDocument_Select, { editurl: string | null }, {  }>;
+  exchangerate: WebAttribute<SharePointDocument_Select, { exchangerate: number | null }, {  }>;
+  filesize: WebAttribute<SharePointDocument_Select, { filesize: number | null }, {  }>;
+  filetype: WebAttribute<SharePointDocument_Select, { filetype: string | null }, {  }>;
+  fullname: WebAttribute<SharePointDocument_Select, { fullname: string | null }, {  }>;
+  iconclassname: WebAttribute<SharePointDocument_Select, { iconclassname: string | null }, {  }>;
+  ischeckedout: WebAttribute<SharePointDocument_Select, { ischeckedout: boolean | null }, {  }>;
+  isfolder: WebAttribute<SharePointDocument_Select, { isfolder: boolean | null }, {  }>;
+  isrecursivefetch: WebAttribute<SharePointDocument_Select, { isrecursivefetch: boolean | null }, {  }>;
+  locationid: WebAttribute<SharePointDocument_Select, { locationid: string | null }, {  }>;
+  locationname: WebAttribute<SharePointDocument_Select, { locationname: string | null }, {  }>;
+  modified: WebAttribute<SharePointDocument_Select, { modified: Date | null }, { modified_formatted?: string }>;
+  modifiedby_guid: WebAttribute<SharePointDocument_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<SharePointDocument_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<SharePointDocument_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  organizationid_guid: WebAttribute<SharePointDocument_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
+  ownerid_guid: WebAttribute<SharePointDocument_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<SharePointDocument_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<SharePointDocument_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<SharePointDocument_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  readurl: WebAttribute<SharePointDocument_Select, { readurl: string | null }, {  }>;
+  regardingobjectid_guid: WebAttribute<SharePointDocument_Select, { regardingobjectid_guid: string | null }, { regardingobjectid_formatted?: string }>;
+  relativelocation: WebAttribute<SharePointDocument_Select, { relativelocation: string | null }, {  }>;
+  servicetype: WebAttribute<SharePointDocument_Select, { servicetype: sharepointsite_servicetype | null }, { servicetype_formatted?: string }>;
+  sharepointcreatedon: WebAttribute<SharePointDocument_Select, { sharepointcreatedon: Date | null }, { sharepointcreatedon_formatted?: string }>;
+  sharepointdocumentid: WebAttribute<SharePointDocument_Select, { sharepointdocumentid: string | null }, {  }>;
+  sharepointmodifiedby: WebAttribute<SharePointDocument_Select, { sharepointmodifiedby: string | null }, {  }>;
+  title: WebAttribute<SharePointDocument_Select, { title: string | null }, {  }>;
+  transactioncurrencyid_guid: WebAttribute<SharePointDocument_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  version: WebAttribute<SharePointDocument_Select, { version: string | null }, {  }>;
+}
+interface SharePointDocument_Filter {
+  absoluteurl: string;
+  appcreatedby: string;
+  appmodifiedby: string;
+  author: string;
+  businessunitid_guid: XQW.Guid;
+  checkedoutto: string;
+  checkincomment: string;
+  childfoldercount: number;
+  childitemcount: number;
+  contenttype: string;
+  contenttypeid: number;
+  copysource: string;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  documentid: number;
+  documentlocationtype: sharepointdocumentlocation_locationtype;
+  edit: string;
+  editurl: string;
+  exchangerate: any;
+  filesize: number;
+  filetype: string;
+  fullname: string;
+  iconclassname: string;
+  ischeckedout: boolean;
+  isfolder: boolean;
+  isrecursivefetch: boolean;
+  locationid: string;
+  locationname: string;
+  modified: Date;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  organizationid_guid: XQW.Guid;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  readurl: string;
+  regardingobjectid_guid: XQW.Guid;
+  relativelocation: string;
+  servicetype: sharepointsite_servicetype;
+  sharepointcreatedon: Date;
+  sharepointdocumentid: XQW.Guid;
+  sharepointmodifiedby: string;
+  title: string;
+  transactioncurrencyid_guid: XQW.Guid;
+  version: string;
+}
+interface SharePointDocument_Expand {
+  regardingobjectid_account: WebExpand<SharePointDocument_Expand, Account_Select, Account_Filter, { regardingobjectid_account: Account_Result }>;
+  regardingobjectid_opc_complaint: WebExpand<SharePointDocument_Expand, opc_complaint_Select, opc_complaint_Filter, { regardingobjectid_opc_complaint: opc_complaint_Result }>;
+}
+interface SharePointDocument_FormattedResult {
+  businessunitid_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  documentlocationtype_formatted?: string;
+  modified_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  organizationid_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  regardingobjectid_formatted?: string;
+  servicetype_formatted?: string;
+  sharepointcreatedon_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+}
+interface SharePointDocument_Result extends SharePointDocument_Base, SharePointDocument_Relationships {
+  "@odata.etag": string;
+  businessunitid_guid: string | null;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  organizationid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+  regardingobjectid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface SharePointDocument_RelatedOne {
+  regardingobjectid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  regardingobjectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface SharePointDocument_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  sharepointdocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  sharepointdocuments: WebMappingRelated<SharePointDocument_RelatedOne,SharePointDocument_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  sharepointdocuments: WebMappingCUDA<SharePointDocument_Create,SharePointDocument_Update,SharePointDocument_Select>;
 }
 interface ActivityParty_Base extends WebEntity {
   activitypartyid?: string | null;
