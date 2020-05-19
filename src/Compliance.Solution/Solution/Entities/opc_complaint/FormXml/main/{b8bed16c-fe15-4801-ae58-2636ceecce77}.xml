@@ -511,6 +511,12 @@
               </labels>
               <control id="header_opc_intakeofficer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_intakeofficer" disabled="true" />
             </cell>
+            <cell id="{d04cc08c-ecef-40e2-be0e-cc53639fe48a}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Acceptance Date" languagecode="1033" />
+              </labels>
+              <control id="header_opc_acceptancedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_acceptancedate" disabled="true" />
+            </cell>
             <cell id="{9a1af0ed-0bac-45b9-84ea-dd4285d4ac7d}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Last Milestone" languagecode="1033" />

@@ -4435,6 +4435,7 @@ declare namespace Form.opc_complaint.Main {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_acceptancedate"): Xrm.DateAttribute;
       get(name: "opc_accountid"): Xrm.LookupAttribute<"account">;
       get(name: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
@@ -4462,6 +4463,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
       get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
       get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+      get(name: "header_opc_acceptancedate"): Xrm.DateControl;
       get(name: "header_opc_intakeofficer"): Xrm.LookupControl<"systemuser">;
       get(name: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
       get(name: "header_opc_number"): Xrm.StringControl;
@@ -4522,6 +4524,7 @@ declare namespace Form.opc_complaint.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account">;
     getAttribute(attributeName: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
@@ -4544,6 +4547,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
     getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
     getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+    getControl(controlName: "header_opc_acceptancedate"): Xrm.DateControl;
     getControl(controlName: "header_opc_intakeofficer"): Xrm.LookupControl<"systemuser">;
     getControl(controlName: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
     getControl(controlName: "header_opc_number"): Xrm.StringControl;
@@ -4903,15 +4907,15 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep3 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep3_section1"): Xrm.PageSection;
+      interface StageStep29 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep29_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep30 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep30_section1"): Xrm.PageSection;
+      interface StageStep3 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep3_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4931,29 +4935,29 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep46 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep46_section1"): Xrm.PageSection;
+      interface StageStep47 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep47_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep50 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep50_section1"): Xrm.PageSection;
+      interface StageStep51 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep51_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep58 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep58_section1"): Xrm.PageSection;
+      interface StageStep59 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep59_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep68 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep68_section1"): Xrm.PageSection;
+      interface StageStep69 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep69_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -5006,14 +5010,14 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "StageStep12"): Xrm.PageTab<Tabs.StageStep12>;
       get(name: "StageStep23"): Xrm.PageTab<Tabs.StageStep23>;
+      get(name: "StageStep29"): Xrm.PageTab<Tabs.StageStep29>;
       get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
-      get(name: "StageStep30"): Xrm.PageTab<Tabs.StageStep30>;
       get(name: "StageStep34"): Xrm.PageTab<Tabs.StageStep34>;
       get(name: "StageStep42"): Xrm.PageTab<Tabs.StageStep42>;
-      get(name: "StageStep46"): Xrm.PageTab<Tabs.StageStep46>;
-      get(name: "StageStep50"): Xrm.PageTab<Tabs.StageStep50>;
-      get(name: "StageStep58"): Xrm.PageTab<Tabs.StageStep58>;
-      get(name: "StageStep68"): Xrm.PageTab<Tabs.StageStep68>;
+      get(name: "StageStep47"): Xrm.PageTab<Tabs.StageStep47>;
+      get(name: "StageStep51"): Xrm.PageTab<Tabs.StageStep51>;
+      get(name: "StageStep59"): Xrm.PageTab<Tabs.StageStep59>;
+      get(name: "StageStep69"): Xrm.PageTab<Tabs.StageStep69>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -10204,6 +10208,7 @@ interface opc_allegation_Base extends WebEntity {
   opc_allegationid?: string | null;
   opc_disposition?: opc_allegationdisposition | null;
   opc_name?: string | null;
+  opc_referencenumber?: string | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_allegation_statecode | null;
   statuscode?: opc_allegation_statuscode | null;
@@ -10241,6 +10246,7 @@ interface opc_allegation_Select {
   opc_dispositionactionid_guid: WebAttribute<opc_allegation_Select, { opc_dispositionactionid_guid: string | null }, { opc_dispositionactionid_formatted?: string }>;
   opc_dispositionreasonid_guid: WebAttribute<opc_allegation_Select, { opc_dispositionreasonid_guid: string | null }, { opc_dispositionreasonid_formatted?: string }>;
   opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
+  opc_referencenumber: WebAttribute<opc_allegation_Select, { opc_referencenumber: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_allegation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_allegation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_allegation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -10267,6 +10273,7 @@ interface opc_allegation_Filter {
   opc_dispositionactionid_guid: XQW.Guid;
   opc_dispositionreasonid_guid: XQW.Guid;
   opc_name: string;
+  opc_referencenumber: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
