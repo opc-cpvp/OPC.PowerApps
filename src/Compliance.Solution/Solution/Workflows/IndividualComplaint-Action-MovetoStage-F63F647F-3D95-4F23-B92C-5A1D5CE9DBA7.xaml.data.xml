@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{f63f647f-3d95-4f23-b92c-5a1d5ce9dba7}" Name="Individual Complaint - Action - Move to Stage" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/IndividualComplaint-Action-MovetoStage-F63F647F-3D95-4F23-B92C-5A1D5CE9DBA7.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>3</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <CreateStage>40</CreateStage>
+  <RunAs>1</RunAs>
+  <SdkMessageId>{4cd56e86-3495-ea11-a812-000d3af43929}</SdkMessageId>
+  <UniqueName>IndividualComplaintActionMovetoStage</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.288</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <FormId>{00000000-0000-0000-0000-000000000000}</FormId>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <PrimaryEntity>opc_individualcomplaint_bp</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Individual Complaint - Action - Move to Stage" />
+  </LocalizedNames>
+</Workflow>

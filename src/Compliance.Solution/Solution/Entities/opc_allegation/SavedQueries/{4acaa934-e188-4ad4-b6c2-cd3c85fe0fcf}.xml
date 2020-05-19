@@ -23,15 +23,15 @@
       <fetch version="1.0" mapping="logical">
         <entity name="opc_allegation">
           <attribute name="opc_name" />
-          <filter type="and">
-            <condition attribute="statecode" operator="eq" value="0" />
-          </filter>
           <attribute name="opc_disposition" />
           <attribute name="opc_allegationid" />
           <attribute name="opc_dispositionreasonid" />
           <attribute name="createdon" />
           <order attribute="opc_name" descending="false" />
           <attribute name="opc_allegationtypeid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
         </entity>
       </fetch>
     </fetchxml>
