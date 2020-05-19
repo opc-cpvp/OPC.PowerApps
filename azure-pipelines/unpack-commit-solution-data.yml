@@ -4,10 +4,19 @@ pr: none
 
 pool:
   vmImage: 'vs2017-win2016'
+parameters:
+  - name: tenant
+    displayName: Tenant
+    type: string
+    default: 'prod-tenant'
+    values:
+    - 'prod-tenant'
+    - 'dev-tenant'
 
 variables:
-  SolutionName: 'Compliance'
-  crm.username: 'SVC_OPC_CRM_Admin@priv.gc.ca'
+  - group: ${{ parameters.tenant }}
+  - name: SolutionName
+    value: 'Compliance' 
 
 steps:
 - checkout: self
@@ -19,7 +28,7 @@ steps:
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExportCMData.MSCRMExportCMData@9
   displayName: 'MSCRM Export Configuration Migration Data'
   inputs:
-    crmConnectionString: 'AuthType=Office365;Username=$(crm.username);Password=$(crm.password);Url=$(crm.url)'
+    crmConnectionString: 'AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)'
     schemaFile: src/$(SolutionName).Solution/lookups-schema.xml
     dataFile: '$(Agent.TempDirectory)/data.zip'
 

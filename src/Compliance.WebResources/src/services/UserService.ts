@@ -1,7 +1,7 @@
 ﻿import { injectable } from "inversify";
 import "reflect-metadata";
 import { IUserService } from "../interfaces";
-import { ROLES } from "../enums";
+import { Roles } from "../enums";
 
 @injectable()
 export class UserService implements IUserService {
@@ -9,7 +9,7 @@ export class UserService implements IUserService {
         const systemRoles: string[] = ["System Administrator", "System Customizer"];
         let hasIntakeManagerPermissions: boolean = false;
         for (const role of userSecurityRoles.get()) {
-            if (role.id === ROLES.ComplianceIntakeManager || systemRoles.includes(role.name)) {
+            if (role.id === Roles.ComplianceIntakeManager || systemRoles.includes(role.name)) {
                 hasIntakeManagerPermissions = true;
                 break;
             }

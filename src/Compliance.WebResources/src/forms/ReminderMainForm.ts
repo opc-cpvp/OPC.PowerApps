@@ -1,11 +1,18 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IPowerForm } from "../interfaces";
+import { i18n } from "i18next";
 
 export namespace Reminder.Forms {
 
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_reminder.Main.Information> {
+
+        private readonly _i18n: i18n;
+
+        constructor(@inject(nameof<i18n>()) i18n: i18n) {
+            this._i18n = i18n;
+        }
 
         /**
          * Handle the form OnLoad event.
@@ -42,21 +49,26 @@ export namespace Reminder.Forms {
             const shouldNotifyReminderOwner = notifyReminderOwnerControl.getAttribute().getValue();
             const shouldNotifyAdditionalUsers = notifyAdditionalUsersControl.getAttribute().getValue();
             const containsComplaint = complaintIdControl.getAttribute().getValue();
+            let notificationCount = 0;
 
             //Check if at least one person is to be notified
             if (!shouldNotifyCaseOwner && !shouldNotifyReminderOwner && !shouldNotifyAdditionalUsers) {
-                formContext.ui.setFormNotification("There is an error on the form.", "ERROR", "formNotificationError");
-                notifyCaseOwnerControl.setNotification("You must select at least one person to notify.", "notifyCaseOwnerControlNotification");
-                notifyReminderOwnerControl.setNotification("You must select at least one person to notify.", "notifyReminderOwnerAlert");
-                notifyAdditionalUsersControl.setNotification("You must select at least one person to notify.", "notifyAdditionalUsersAlert");
+                notifyCaseOwnerControl.setNotification(this._i18n.t("reminder:error.nobody_selected"), "notifyCaseOwnerControlNotification");
+                notifyReminderOwnerControl.setNotification(this._i18n.t("reminder:error.nobody_selected"), "notifyReminderOwnerAlert");
+                notifyAdditionalUsersControl.setNotification(this._i18n.t("reminder:error.nobody_selected"), "notifyAdditionalUsersAlert");
+
+                notificationCount += 3;
+                formContext.ui.setFormNotification(this._i18n.t("reminder:error.global", { count: notificationCount }), "ERROR", "formNotificationError");
 
                 context.getEventArgs().preventDefault();
             }
 
             //Check if there is a case linked to the reminder if Notify Case Owner is checked.
             if (shouldNotifyCaseOwner && containsComplaint == null) {
-                formContext.ui.setFormNotification("There is an error on the form.", "ERROR", "formNotificationError");
-                notifyCaseOwnerControl.setNotification("To notify the case owner, you must have at least one case linked to the reminder.", "notifyCaseOwnerAlert");
+                notifyCaseOwnerControl.setNotification(this._i18n.t("reminder:error.case_must_be_linked"), "notifyCaseOwnerAlert");
+
+                notificationCount += 1;
+                formContext.ui.setFormNotification(this._i18n.t("reminder:error.global", { count: notificationCount }), "ERROR", "formNotificationError");
 
                 context.getEventArgs().preventDefault();
             }
