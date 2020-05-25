@@ -92,6 +92,19 @@
                         </labels>
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{6f193747-2cde-4b88-adf5-6022e4023971}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="opc_referencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_referencenumber" disabled="false" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{78b56a71-9e51-45ff-a68c-a12e8bb6e446}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="section_checklist_responses" id="b98a32cd-c4bf-4c25-b19d-bf871bcd7a85" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
@@ -210,7 +223,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
