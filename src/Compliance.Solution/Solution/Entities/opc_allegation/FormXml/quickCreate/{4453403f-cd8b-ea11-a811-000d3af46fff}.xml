@@ -27,38 +27,6 @@
                         <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{a9d5be90-ab5d-4c46-bc0c-ec3746ff744e}" showlabel="true" locklevel="0" labelid="{320b4569-e02b-42c9-ba27-1e8f64f45a35}">
-                        <labels>
-                          <label description="Disposition" languagecode="1033" />
-                        </labels>
-                        <control id="opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{c0e7e74e-2a3d-4941-ba8a-3d04d6496366}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Disposition Reason" languagecode="1033" />
-                        </labels>
-                        <control id="opc_dispositionreasonid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionreasonid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{ce828e51-cdba-478f-aa66-eca3c20dadd3}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Disposition Action" languagecode="1033" />
-                        </labels>
-                        <control id="opc_dispositionactionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionactionid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{dc7aaeda-87df-4ab7-97b6-0f4efa0e58d5}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Reference Number" languagecode="1033" />
-                        </labels>
-                        <control id="opc_referencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_referencenumber" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>

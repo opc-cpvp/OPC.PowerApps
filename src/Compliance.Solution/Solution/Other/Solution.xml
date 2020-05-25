@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.299</Version>
+    <Version>1.0.300</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -142,13 +142,11 @@
       <RootComponent type="29" id="{0b8ac528-6e5d-ea11-a811-000d3af464f8}" behavior="0" />
       <RootComponent type="29" id="{0e1f06c2-102a-4264-ae27-e8367c257ac4}" behavior="0" />
       <RootComponent type="29" id="{11109486-2e83-453a-9080-b21689eb8a2e}" behavior="0" />
-      <RootComponent type="29" id="{5d69364a-d857-ea11-a811-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{32d219f1-f0bc-40b4-bcb0-daffeb1f1f9e}" behavior="0" />
       <RootComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" behavior="0" />
       <RootComponent type="29" id="{4d3e610e-f448-ea11-a812-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{58495b10-245e-ea11-a811-000d3af464f8}" behavior="0" />
       <RootComponent type="29" id="{663c0e6a-9046-ea11-a812-000d3af46cc5}" behavior="0" />
-      <RootComponent type="29" id="{b07acb09-5247-ea11-a812-000d3af46b49}" behavior="0" />
       <RootComponent type="29" id="{66c9ed60-1da2-425e-a7ff-cd0df39467b5}" behavior="0" />
       <RootComponent type="29" id="{66ef3f32-9ddc-4b79-9acd-685cb6dd07fa}" behavior="0" />
       <RootComponent type="29" id="{7eab9db6-db42-ea11-a812-000d3af46757}" behavior="0" />
