@@ -570,7 +570,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10024,
-  Complaint = 10129,
+  Complaint = 10158,
 }
 declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
