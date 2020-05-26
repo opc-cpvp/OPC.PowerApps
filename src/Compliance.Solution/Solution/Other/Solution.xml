@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.291</Version>
+    <Version>1.0.303</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -108,6 +108,7 @@
       <RootComponent type="1" schemaName="opc_theme" behavior="0" />
       <RootComponent type="1" schemaName="opc_topic" behavior="0" />
       <RootComponent type="1" schemaName="queueitem" behavior="1" />
+      <RootComponent type="1" schemaName="sharepointdocument" behavior="1" />
       <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_closereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintdisposition" behavior="0" />

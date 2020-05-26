@@ -69,6 +69,8 @@
     <AppModuleComponent type="1" schemaName="opc_riskassessmentfactortemplate" />
     <AppModuleComponent type="1" schemaName="opc_riskassessmenttype" />
     <AppModuleComponent type="1" schemaName="opc_sector" />
+    <AppModuleComponent type="1" schemaName="sharepointdocument" />
+    <AppModuleComponent type="26" id="{a5b008ac-07d9-4554-8509-2c05767bff51}" />
     <AppModuleComponent type="1" schemaName="opc_theme" />
     <AppModuleComponent type="1" schemaName="opc_topic" />
   </AppModuleComponents>
