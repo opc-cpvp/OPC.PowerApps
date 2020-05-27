@@ -208,47 +208,49 @@ describe("Complaint", () => {
         });
 
         describe("and recommending to ER", () => {
-            it("acceptance date should be required", () => {
+            it("acceptance date should be visible", () => {
                 // Arrange
-                const acceptancedateAttributeSpy = sandbox.spy(mockContext.getFormContext().getAttribute("opc_acceptancedate"));
+                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateControlSpy = sandbox.spy(acceptancedateAttributeMock.controls.get("opc_acceptancedate"));
+
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
 
                 // Act
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
-                acceptancedateAttributeSpy.getRequiredLevel().should.equal("required");
+                acceptancedateControlSpy.getVisible().should.equal(true);
             });
         });
 
         describe("and recommending to investigation", () => {
 
-            it("acceptance date should be required", () => {
+            it("acceptance date should be visible", () => {
                 // Arrange
-                const acceptancedateAttributeSpy = sandbox.spy(mockContext.getFormContext().getAttribute("opc_acceptancedate"));
+                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateControlSpy = sandbox.spy(acceptancedateAttributeMock.controls.get("opc_acceptancedate"));
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
 
                 // Act
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
-                acceptancedateAttributeSpy.getRequiredLevel().should.equal("required");
+                acceptancedateControlSpy.getVisible().should.equal(true);
             });
         });
 
         describe("and recommending to close", () => {
-            it("acceptance date should not be required", () => {
+            it("acceptance date should not be visible", () => {
                 // Arrange
                 const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
-                const acceptancedateAttributeSpy = sandbox.spy(acceptancedateAttributeMock);
-                acceptancedateAttributeMock.controls.get("opc_acceptancedate");
+                const acceptancedateControlSpy = sandbox.spy(acceptancedateAttributeMock.controls.get("opc_acceptancedate"));
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
 
                 // Act
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
-                acceptancedateAttributeSpy.getRequiredLevel().should.equal("none");
+                acceptancedateControlSpy.getVisible().should.equal(false);
             });
 
             it("reason to close should be required", () => {
@@ -288,18 +290,17 @@ describe("Complaint", () => {
         });
 
         describe("and recommending to decline", () => {
-            it("acceptance date should not be required", () => {
+            it("acceptance date should not be visible", () => {
                 // Arrange
                 const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
-                const acceptancedateAttributeSpy = sandbox.spy(acceptancedateAttributeMock);
-                acceptancedateAttributeMock.controls.get("opc_acceptancedate");
+                const acceptancedateControlSpy = sandbox.spy(acceptancedateAttributeMock.controls.get("opc_acceptancedate"));
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Declinetoinvestigate);
 
                 // Act
                 mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
-                acceptancedateAttributeSpy.getRequiredLevel().should.equal("none");
+                acceptancedateControlSpy.getVisible().should.equal(false);
             });
         });
 
