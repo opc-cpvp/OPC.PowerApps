@@ -1,0 +1,101 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_record_is_created,_updated_or_deleted": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 7,
+              "subscriptionRequest/entityname": "audit",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "List_Distinct_Assigned_Teams'_Queue_Membership": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "queues",
+              "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"true\" >\n  <entity name=\"queue\" >\n    <attribute name=\"name\" />\n    <attribute name=\"queueid\" />\n    <order attribute=\"name\" descending=\"false\" />\n    <link-entity name=\"opc_queues_teams\" from=\"queueid\" to=\"queueid\" visible=\"false\" intersect=\"true\" >\n      <link-entity name=\"team\" from=\"teamid\" to=\"teamid\" alias=\"ag\" >\n        <link-entity name=\"teammembership\" from=\"teamid\" to=\"teamid\" visible=\"false\" intersect=\"true\" >\n          <link-entity name=\"systemuser\" from=\"systemuserid\" to=\"systemuserid\" alias=\"ah\" >\n            <filter type=\"and\" >\n              <condition attribute=\"systemuserid\" operator=\"eq\" value=\"@{triggerOutputs()?['body/_objectid_value']}\" />\n            </filter>\n          </link-entity>\n        </link-entity>\n      </link-entity>\n    </link-entity>\n  </entity>\n</fetch>"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('List_Distinct_Assigned_Teams''_Queue_Membership')?['body/value']",
+          "actions": {
+            "Apply_to_each_3": {
+              "foreach": "@items('Apply_to_each')?['queueid']",
+              "actions": {
+                "Relate_records": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "AssociateEntities",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "systemusers",
+                      "recordId": "@triggerOutputs()?['body/_objectid_value']",
+                      "associationEntityRelationship": "queuemembership_association",
+                      "item/@odata.id": "@triggerOutputs()?['body/@odata.id']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "List_Distinct_Assigned_Teams'_Queue_Membership": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}

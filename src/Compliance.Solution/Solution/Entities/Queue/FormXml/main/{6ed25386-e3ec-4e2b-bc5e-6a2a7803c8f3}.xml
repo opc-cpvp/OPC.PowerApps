@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{6ed25386-e3ec-4e2b-bc5e-6a2a7803c8f3}</formid>
+    <IntroducedVersion>9.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <hiddencontrols>
+        <data id="emailrouteraccessapproval" datafieldname="emailrouteraccessapproval" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+        <data id="outgoingemaildeliverymethod" datafieldname="outgoingemaildeliverymethod" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+        <data id="incomingemaildeliverymethod" datafieldname="incomingemaildeliverymethod" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      </hiddencontrols>
+      <tabs>
+        <tab name="general" verticallayout="true" id="{26ee6844-370e-41e0-97f4-66afd3d838b9}" IsUserDefined="0">
+          <labels>
+            <label description="Summary" languagecode="1033" />
+            <label description="Résumé" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="34%">
+              <sections>
+                <section name="queue information" showlabel="true" showbar="false" id="{6a5f6485-f4fb-4809-a27c-1bec47ea232f}" IsUserDefined="0">
+                  <labels>
+                    <label description="SUMMARY" languagecode="1033" />
+                    <label description="RÉSUMÉ" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell colspan="2" id="{c41a3cfb-87c1-4a3f-ae79-9e4969338ef4}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                          <label description="Nom" languagecode="1036" />
+                        </labels>
+                        <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="2" id="{a5cccf27-97b5-49c6-b1bc-9fdf037804f7}">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                          <label description="Type" languagecode="1036" />
+                        </labels>
+                        <control id="queueviewtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="queueviewtype" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="2" id="{0ae52dec-4a09-4af3-a2da-e0046e088913}">
+                        <labels>
+                          <label description="Incoming Email" languagecode="1033" />
+                          <label description="Courrier électronique entrant" languagecode="1036" />
+                        </labels>
+                        <control id="emailaddress" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="2" id="{dc16fa25-d252-4ed3-b0bc-38054a643069}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell colspan="2" showlabel="true" rowspan="3" id="{d69d808e-6aad-4db5-b772-6693cf7ce512}">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                          <label description="Description" languagecode="1036" />
+                        </labels>
+                        <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="incoming email" showlabel="true" showbar="false" locklevel="0" id="{90b8dd85-867b-4aca-8d30-7c00117e693a}" IsUserDefined="0" labelwidth="200">
+                  <labels>
+                    <label description="EMAIL SETTINGS" languagecode="1033" />
+                    <label description="PARAMÈTRES DE COURRIER ÉLECTRONIQUE" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{46b89973-7949-4e41-83b9-baeba8ccde64}">
+                        <labels>
+                          <label description="Convert Incoming Email To Activities" languagecode="1033" />
+                          <label description="Convertir les messages entrants en activités" languagecode="1036" />
+                        </labels>
+                        <control id="incomingemailfilteringmethod" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="incomingemailfilteringmethod" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a24c5251-56c3-4b8f-824a-fc013d4b4534}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Mailbox" languagecode="1033" />
+                          <label description="Boîte aux lettres" languagecode="1036" />
+                        </labels>
+                        <control id="defaultmailbox" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultmailbox" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="RecordCreationAndUpdateRule" showlabel="true" showbar="false" id="{3d635828-2587-4f94-bfe2-e80e36366e71}" IsUserDefined="0" labelwidth="200">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{658057aa-312e-43c5-9982-83af40fa3dc1}" showlabel="true" colspan="1" auto="false" rowspan="12">
+                        <labels>
+                          <label description="RECORD CREATION AND UPDATE RULES" languagecode="1033" />
+                          <label description="RÈGLES DE MISE À JOUR ET DE CRÉATION D'ENREGISTREMENTS" languagecode="1036" />
+                        </labels>
+                        <control id="RecordCreationAndUpdateRuleGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                          <parameters>
+                            <ViewId>{55B9F4FC-6785-47DF-854D-49DE8E50E387}</ViewId>
+                            <RelationshipName>convertrule_queue</RelationshipName>
+                            <TargetEntityType>convertrule</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableJumpBar>true</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <RelationshipRoleOrdinal>1</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="66%">
+              <sections>
+                <section name="QueueItems" showlabel="false" showbar="false" id="{cd2b3a40-8fc8-4494-9ad3-6f93388bb3bb}" IsUserDefined="0" labelwidth="102">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{50f3cc95-b7ff-4eba-8afd-ad71d56e4182}" showlabel="true" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="QUEUE ITEMS" languagecode="1033" />
+                          <label description="ÉLÉMENTS DE FILE D'ATTENTE" languagecode="1036" />
+                        </labels>
+                        <control id="QueueItemsGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                          <parameters>
+                            <ViewId>{fad31c91-6638-45e7-84db-7257bd940e9c}</ViewId>
+                            <RelationshipName>queue_entries</RelationshipName>
+                            <TargetEntityType>queueitem</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>true</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <EnableContextualActions>true</EnableContextualActions>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="QueueMembers" showlabel="false" showbar="false" id="{609BA71A-A34C-4021-A3A8-950ED6E27C56}" IsUserDefined="0" locklevel="0" layout="varwidth" labelwidth="250" visible="false">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{FAFA5CA5-9147-497D-81D1-BC2EC61D5D3C}" showlabel="true" colspan="1" auto="false" rowspan="12">
+                        <labels>
+                          <label description="MEMBERS" languagecode="1033" />
+                          <label description="MEMBRES" languagecode="1036" />
+                        </labels>
+                        <control id="queuemembersgrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{e6334c83-050a-8103-ed2a-e376aa116259}">
+                          <parameters>
+                            <ViewId>{30CE6879-6B7A-E211-8976-00155D89AC0C}</ViewId>
+                            <RelationshipName>queuemembership_association</RelationshipName>
+                            <TargetEntityType>systemuser</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>true</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableJumpBar>true</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <RelationshipRoleOrdinal>1</RelationshipRoleOrdinal>
+                            <HeaderColorCode />
+                            <IsUserView>false</IsUserView>
+                            <ViewIds>{30CE6879-6B7A-E211-8976-00155D89AC0C}</ViewIds>
+                            <IsUserChart>false</IsUserChart>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="QueueMembersNoRecord" showlabel="true" showbar="false" id="{5D36D820-65C5-4F55-B084-33388D7202A9}" IsUserDefined="0" locklevel="0" labelwidth="250" visible="false">
+                  <labels>
+                    <label description="Members" languagecode="1033" />
+                    <label description="Membres" languagecode="1036" />
+                  </labels>
+                  <rows />
+                </section>
+                <section name="section_teammembership" showlabel="true" showbar="false" locklevel="0" id="{0e1d1b7b-7050-c701-2878-ab27d7d790aa}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                  <labels>
+                    <label description="TEAMS" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a69e6858-5956-36d3-c837-c3cc00b5b09e}" showlabel="true" colspan="1" auto="false" rowspan="7">
+                        <labels>
+                          <label description="Teams" languagecode="1033" />
+                          <label description="Équipes" languagecode="1036" />
+                        </labels>
+                        <control id="subgrid_teams" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{993ac262-b403-e338-5e53-09b013cc5dad}">
+                          <parameters>
+                            <ViewId>{DEA89BA4-EED0-41FE-ADFC-35AA73456462}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>opc_queues_teams_membership</RelationshipName>
+                            <TargetEntityType>team</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{DEA89BA4-EED0-41FE-ADFC-35AA73456462}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <events>
+        <event name="onload" application="true" active="true">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.Form_onload" libraryName="$webresource:AppCommon/Queue/Queue_main_system_library.js" handlerUniqueId="98c24a4e-c03e-458d-80a3-e0c92fd050c6" enabled="true">
+              <dependencies>
+                <dependency id="queueviewtype" />
+                <dependency id="queuemembersgrid" />
+              </dependencies>
+            </Handler>
+          </InternalHandlers>
+        </event>
+        <event name="onsave" application="true" active="true">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.Form_onsave" libraryName="$webresource:AppCommon/Queue/Queue_main_system_library.js" handlerUniqueId="98c24a4e-c03e-458d-80a3-e0c92fd050c6" enabled="true">
+              <dependencies>
+                <dependency id="queueviewtype" />
+                <dependency id="queuemembersgrid" />
+              </dependencies>
+            </Handler>
+          </InternalHandlers>
+        </event>
+        <event name="onchange" application="true" active="true" attribute="queueviewtype">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.queueviewtype_onchange" libraryName="$webresource:AppCommon/Queue/Queue_main_system_library.js" handlerUniqueId="bd1c2a5f-7cc3-44a9-a11d-5c5a1552099c" enabled="true">
+              <dependencies>
+                <dependency id="queueviewtype" />
+                <dependency id="queuemembersgrid" />
+              </dependencies>
+            </Handler>
+          </InternalHandlers>
+        </event>
+      </events>
+      <clientresources>
+        <internalresources>
+          <clientincludes>
+            <internaljscriptfile src="$webresource:AppCommon/Queue/Queue_main_system_library.js" />
+          </clientincludes>
+        </internalresources>
+      </clientresources>
+      <DisplayConditions FallbackForm="true" Order="2">
+        <Everyone />
+      </DisplayConditions>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Queue" languagecode="1033" />
+      <LocalizedName description="File d'attente" languagecode="1036" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Updated default Queue form." languagecode="1033" />
+      <Description description="Formulaire de file d'attente par défaut mis à jour." languagecode="1036" />
+    </Descriptions>
+  </systemform>
+</forms>
