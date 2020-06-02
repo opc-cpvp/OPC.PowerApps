@@ -505,6 +505,7 @@
               <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
               <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
               <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Additional Users|fr=Utilisateurs additionnel</labelText>
             </parameters>
           </customControl>
           <customControl formFactor="1" name="opc_opc.pcf.TagPickerGridComponent">
@@ -521,6 +522,7 @@
               <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
               <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
               <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Additional Users|fr=Utilisateurs additionnel</labelText>
             </parameters>
           </customControl>
           <customControl formFactor="2" name="opc_opc.pcf.TagPickerGridComponent">
@@ -537,6 +539,7 @@
               <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
               <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
               <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Additional Users|fr=Utilisateurs additionnel</labelText>
             </parameters>
           </customControl>
         </controlDescription>

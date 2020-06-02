@@ -71,7 +71,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell showlabel="true" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
+                      <cell showlabel="false" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
                         <labels>
                           <label description="Topics" languagecode="1033" />
                           <label description="Documents" languagecode="1036" />
@@ -549,7 +549,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -614,6 +614,7 @@
               <relatedEntity static="true" type="SingleLine.Text">opc_topic</relatedEntity>
               <relationshipName static="true" type="SingleLine.Text">opc_complaints_topics_relatedtopics</relationshipName>
               <relationshipEntity static="true" type="SingleLine.Text">opc_complaintsrelatedtopics</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Topics|fr=Sujets</labelText>
             </parameters>
           </customControl>
           <customControl formFactor="1" name="opc_opc.pcf.TagPickerGridComponent">
@@ -630,6 +631,7 @@
               <relatedEntity static="true" type="SingleLine.Text">opc_topic</relatedEntity>
               <relationshipName static="true" type="SingleLine.Text">opc_complaints_topics_relatedtopics</relationshipName>
               <relationshipEntity static="true" type="SingleLine.Text">opc_complaintsrelatedtopics</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Topics|fr=Sujets</labelText>
             </parameters>
           </customControl>
           <customControl formFactor="2" name="opc_opc.pcf.TagPickerGridComponent">
@@ -646,6 +648,7 @@
               <relatedEntity static="true" type="SingleLine.Text">opc_topic</relatedEntity>
               <relationshipName static="true" type="SingleLine.Text">opc_complaints_topics_relatedtopics</relationshipName>
               <relationshipEntity static="true" type="SingleLine.Text">opc_complaintsrelatedtopics</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Topics|fr=Sujets</labelText>
             </parameters>
           </customControl>
         </controlDescription>

@@ -570,7 +570,81 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10009,
-  Complaint = 10098,
+  Complaint = 10047,
+}
+declare const enum systemuser_address1_addresstypecode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_address1_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_preferredemailcode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_outgoingemaildeliverymethod {
+  None = 0,
+  MicrosoftDynamics365forOutlook = 1,
+  ServerSideSynchronizationorEmailRouter = 2,
+}
+declare const enum systemuser_preferredphonecode {
+  MainPhone = 1,
+  OtherPhone = 2,
+  HomePhone = 3,
+  MobilePhone = 4,
+}
+declare const enum systemuser_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum systemuser_incomingemaildeliverymethod {
+  None = 0,
+  MicrosoftDynamics365forOutlook = 1,
+  ServerSideSynchronizationorEmailRouter = 2,
+  ForwardMailbox = 3,
+}
+declare const enum systemuser_caltype {
+  Professional = 0,
+  Administrative = 1,
+  Basic = 2,
+  DeviceProfessional = 3,
+  DeviceBasic = 4,
+  Essential = 5,
+  DeviceEssential = 6,
+  Enterprise = 7,
+  DeviceEnterprise = 8,
+  Sales = 9,
+  Service = 10,
+  FieldService = 11,
+  ProjectService = 12,
+}
+declare const enum systemuser_accessmode {
+  ReadWrite = 0,
+  Administrative = 1,
+  Read = 2,
+  SupportUser = 3,
+  Noninteractive = 4,
+  DelegatedAdmin = 5,
+}
+declare const enum systemuser_address2_addresstypecode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_invitestatuscode {
+  InvitationNotSent = 0,
+  Invited = 1,
+  InvitationNearExpired = 2,
+  InvitationExpired = 3,
+  InvitationAccepted = 4,
+  InvitationRejected = 5,
+  InvitationRevoked = 6,
+}
+declare const enum systemuser_address2_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_preferredaddresscode {
+  MailingAddress = 1,
+  OtherAddress = 2,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -7074,7 +7148,6 @@ declare namespace Form.queueitem.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "enteredon"): Xrm.DateAttribute;
       get(name: "modifiedon"): Xrm.DateAttribute;
-      get(name: "objectid"): Xrm.LookupAttribute<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
       get(name: "queueid"): Xrm.LookupAttribute<"queue">;
       get(name: "statecode"): Xrm.OptionSetAttribute<queueitem_statecode>;
       get(name: "workerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -7087,7 +7160,6 @@ declare namespace Form.queueitem.Main {
       get(name: "enteredon"): Xrm.DateControl;
       get(name: "footer_statecode"): Xrm.OptionSetControl<queueitem_statecode>;
       get(name: "modifiedon"): Xrm.DateControl;
-      get(name: "objectid"): Xrm.LookupControl<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
       get(name: "queueid"): Xrm.LookupControl<"queue">;
       get(name: "workerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
@@ -7106,7 +7178,6 @@ declare namespace Form.queueitem.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "enteredon"): Xrm.DateAttribute;
     getAttribute(attributeName: "modifiedon"): Xrm.DateAttribute;
-    getAttribute(attributeName: "objectid"): Xrm.LookupAttribute<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
     getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<queueitem_statecode>;
     getAttribute(attributeName: "workerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -7114,7 +7185,6 @@ declare namespace Form.queueitem.Main {
     getControl(controlName: "enteredon"): Xrm.DateControl;
     getControl(controlName: "footer_statecode"): Xrm.OptionSetControl<queueitem_statecode>;
     getControl(controlName: "modifiedon"): Xrm.DateControl;
-    getControl(controlName: "objectid"): Xrm.LookupControl<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
     getControl(controlName: "queueid"): Xrm.LookupControl<"queue">;
     getControl(controlName: "workerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
