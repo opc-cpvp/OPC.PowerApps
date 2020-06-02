@@ -24,7 +24,13 @@ variables:
   BuildConfiguration: 'release'
   Version.MajorMinor: '1.0'
   Version.Patch: $[counter(variables['Version.MajorMinor'], 0)]
+  ${{ if ne(variables['Build.SourceBranchName'], 'master') }}:
+    Version.PreRelease: $[format('-{0}', variables['Build.SourceBranchName'])]
+  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+    Version.PreRelease: ''
   SolutionName: 'Compliance'
+
+name: $[format('{0}.{1}{2}', variables['Version.MajorMinor'], variables['Version.Patch'], variables['Version.PreRelease'])]
 
 steps:
 - task: NuGetCommand@2
@@ -114,7 +120,7 @@ steps:
   inputs:
     filePath: 'azure-pipelines/scripts/create_managed_files.ps1'
     workingDirectory: 'src/$(SolutionName).Solution/Solution'
-    
+
 - task: MagicChunks@2
   displayName: 'Update Managed State of Solution'
   inputs:

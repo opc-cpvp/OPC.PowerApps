@@ -43,6 +43,7 @@
             <attribute name="opc_complainant" />
             <attribute name="opc_accountid" />
           </link-entity>
+          <order attribute="enteredon" descending="false" />
         </entity>
       </fetch>
     </fetchxml>
