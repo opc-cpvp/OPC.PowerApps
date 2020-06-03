@@ -74,7 +74,7 @@
                       <cell showlabel="false" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
                         <labels>
                           <label description="Topics" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
+                          <label description="Sujets" languagecode="1036" />
                         </labels>
                         <control id="subgrid_topics" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{02d24ec3-7b03-209d-7d59-7e772a904cb3}">
                           <parameters>
