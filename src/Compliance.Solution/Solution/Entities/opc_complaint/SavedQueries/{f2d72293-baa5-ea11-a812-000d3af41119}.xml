@@ -6,7 +6,7 @@
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
     <isdefault>0</isdefault>
-    <savedqueryid>{5e745079-db99-ea11-a812-000d3af46b49}</savedqueryid>
+    <savedqueryid>{f2d72293-baa5-ea11-a812-000d3af41119}</savedqueryid>
     <layoutxml>
       <grid name="resultset" jump="opc_number" select="1" icon="1" preview="1">
         <row name="result" id="opc_complaintid">
@@ -36,24 +36,12 @@
           <attribute name="opc_complaintdisposition" />
           <attribute name="ownerid" />
           <attribute name="opc_acceptancedate" />
-          <filter type="and">
-            <condition attribute="opc_acceptancedate" operator="last-x-weeks" value="5" />
-            <condition attribute="opc_lastmilestone" operator="in">
-              <value>924340002</value>
-              <value>924340003</value>
-            </condition>
-            <condition attribute="opc_intakedisposition" operator="in">
-              <value>924340000</value>
-              <value>924340001</value>
-            </condition>
-            <condition attribute="opc_intakeofficer" operator="eq-userid" />
-          </filter>
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>1.0.288</IntroducedVersion>
+    <IntroducedVersion>1.0.306</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="My Complaints Transferred from Intake (Last 5 weeks)" languagecode="1033" />
+      <LocalizedName description="All Complaints" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
