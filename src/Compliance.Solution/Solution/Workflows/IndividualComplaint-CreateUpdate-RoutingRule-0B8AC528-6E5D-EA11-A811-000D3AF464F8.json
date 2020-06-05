@@ -43,7 +43,7 @@
         }
       },
       "actions": {
-        "Switch": {
+        "Verify_BPF_Active_Stage": {
           "runAfter": {},
           "cases": {
             "Active_Stage_is_Triage": {
@@ -95,20 +95,127 @@
             "Active_Stage_is_Acceptance": {
               "case": "f4dd2c83-cf58-4328-a1c7-515dc7a977a8",
               "actions": {
-                "Route_to_Review_queue": {
+                "Get_at_least_1_related_Time_Limits_Allegation": {
                   "runAfter": {},
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
                       "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "PerformBoundAction",
+                      "operationId": "ListRecords",
                       "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
-                      "entityName": "queues",
-                      "actionName": "Microsoft.Dynamics.CRM.AddToQueue",
-                      "recordId": "4645d1a6-8d5c-ea11-a811-000d3af46fff",
-                      "item/Target": "opc_complaints(@{triggerOutputs()?['body/_bpf_opc_complaintid_value']})"
+                      "entityName": "opc_allegations",
+                      "$filter": "statecode eq 0 and _opc_allegationtypeid_value eq 36fa1baf-d5f3-4316-9130-03c20b8d304d and _opc_complaintid_value eq @{triggerOutputs()?['body/_bpf_opc_complaintid_value']}",
+                      "$top": 1
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Check_if_any_related_Allegations_are_only_Time_Limit": {
+                  "actions": {
+                    "Route_to_TL_Investigations_queue": {
+                      "runAfter": {},
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "PerformBoundAction",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "queues",
+                          "actionName": "Microsoft.Dynamics.CRM.AddToQueue",
+                          "recordId": "5bd1d09d-2e95-ea11-a812-000d3af43929",
+                          "item/Target": "opc_complaints(@{triggerOutputs()?['body/_bpf_opc_complaintid_value']})"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Perform_a_bound_action": {
+                      "runAfter": {
+                        "Route_to_TL_Investigations_queue": [
+                          "Succeeded"
+                        ]
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "PerformBoundAction",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "opc_individualcomplaint_bps",
+                          "actionName": "Microsoft.Dynamics.CRM.opc_IndividualComplaintActionMovetoStage",
+                          "recordId": "@triggerOutputs()?['body/businessprocessflowinstanceid']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Get_at_least_1_related_non-Time_Limits_Allegation": [
+                      "Succeeded"
+                    ]
+                  },
+                  "else": {
+                    "actions": {
+                      "Route_to_Review_queue": {
+                        "runAfter": {},
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "PerformBoundAction",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "queues",
+                            "actionName": "Microsoft.Dynamics.CRM.AddToQueue",
+                            "recordId": "4645d1a6-8d5c-ea11-a811-000d3af46fff",
+                            "item/Target": "opc_complaints(@{triggerOutputs()?['body/_bpf_opc_complaintid_value']})"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "and": [
+                      {
+                        "greaterOrEquals": [
+                          "@length(body('Get_at_least_1_related_Time_Limits_Allegation')?['value'])",
+                          1
+                        ]
+                      },
+                      {
+                        "equals": [
+                          "@length(body('Get_at_least_1_related_non-Time_Limits_Allegation')?['value'])",
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "type": "If"
+                },
+                "Get_at_least_1_related_non-Time_Limits_Allegation": {
+                  "runAfter": {
+                    "Get_at_least_1_related_Time_Limits_Allegation": [
+                      "Succeeded"
+                    ]
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "opc_allegations",
+                      "$filter": "statecode eq 0 and _opc_allegationtypeid_value ne 36fa1baf-d5f3-4316-9130-03c20b8d304d and _opc_complaintid_value eq @{triggerOutputs()?['body/_bpf_opc_complaintid_value']}",
+                      "$top": 1
                     },
                     "authentication": "@parameters('$authentication')"
                   }

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{a3782f06-db99-ea11-a812-000d3af46b49}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_number" select="1" icon="1" preview="1">
+        <row name="result" id="opc_complaintid">
+          <cell name="opc_number" width="136" />
+          <cell name="opc_accountid" width="181" />
+          <cell name="opc_complainant" width="176" />
+          <cell name="opc_complaintdisposition" width="195" />
+          <cell name="opc_actualriskappetitevalue" width="180" />
+          <cell name="opc_acceptancedate" width="143" />
+          <cell name="ownerid" width="140" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_complaint">
+          <attribute name="opc_complaintid" />
+          <attribute name="opc_number" />
+          <attribute name="createdon" />
+          <attribute name="opc_actualriskappetitevalue" />
+          <order attribute="opc_actualriskappetitevalue" descending="true" />
+          <order attribute="createdon" descending="false" />
+          <attribute name="opc_complainant" />
+          <attribute name="opc_accountid" />
+          <attribute name="opc_complaintdisposition" />
+          <attribute name="ownerid" />
+          <attribute name="opc_acceptancedate" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+            <condition attribute="opc_closeddate" operator="last-x-weeks" value="5" />
+            <condition attribute="opc_lastmilestone" operator="eq" value="924340001" />
+            <filter type="or">
+              <condition attribute="opc_intakeofficer" operator="eq-userid" />
+              <condition attribute="ownerid" operator="eq-userid" />
+            </filter>
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.288</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My Complaints Closed at Intake (Last 5 weeks)" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

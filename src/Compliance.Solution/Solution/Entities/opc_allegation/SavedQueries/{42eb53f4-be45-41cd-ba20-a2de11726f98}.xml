@@ -13,6 +13,7 @@
           <cell name="opc_allegationtypeid" width="160" />
           <cell name="opc_disposition" width="232" />
           <cell name="opc_dispositionreasonid" width="300" />
+          <cell name="opc_referencenumber" width="263" />
         </row>
       </grid>
     </layoutxml>
@@ -27,6 +28,7 @@
           <attribute name="opc_disposition" />
           <attribute name="opc_allegationtypeid" />
           <attribute name="opc_dispositionreasonid" />
+          <attribute name="opc_referencenumber" />
         </entity>
       </fetch>
     </fetchxml>

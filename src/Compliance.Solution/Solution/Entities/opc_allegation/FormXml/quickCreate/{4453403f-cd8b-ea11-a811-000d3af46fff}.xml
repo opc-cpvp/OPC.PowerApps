@@ -27,30 +27,6 @@
                         <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{a9d5be90-ab5d-4c46-bc0c-ec3746ff744e}" showlabel="true" locklevel="0" labelid="{320b4569-e02b-42c9-ba27-1e8f64f45a35}">
-                        <labels>
-                          <label description="Disposition" languagecode="1033" />
-                        </labels>
-                        <control id="opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{c0e7e74e-2a3d-4941-ba8a-3d04d6496366}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Disposition Reason" languagecode="1033" />
-                        </labels>
-                        <control id="opc_dispositionreasonid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionreasonid" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{ce828e51-cdba-478f-aa66-eca3c20dadd3}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Disposition Action" languagecode="1033" />
-                        </labels>
-                        <control id="opc_dispositionactionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_dispositionactionid" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>
@@ -97,9 +73,6 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
-        <Role Id="{b9e4c233-a86c-4078-8a62-56c79d33450f}" />
-        <Role Id="{4c99f292-cbed-48d9-8550-a867733ad0be}" />
-        <Role Id="{04c05c2f-357f-490b-b587-da55fbe37827}" />
       </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
