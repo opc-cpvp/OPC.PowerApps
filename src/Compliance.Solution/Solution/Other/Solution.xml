@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.307</Version>
+    <Version>1.0.310</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -119,6 +119,7 @@
       <RootComponent type="9" schemaName="opc_intakedisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_multiplecomplaintstrategy" behavior="0" />
       <RootComponent type="9" schemaName="opc_nextstep" behavior="0" />
+      <RootComponent type="9" schemaName="opc_preferredlanguage" behavior="0" />
       <RootComponent type="9" schemaName="opc_yesorno" behavior="0" />
       <RootComponent type="9" schemaName="processstage_category" behavior="0" />
       <RootComponent type="20" id="{0005b437-362e-ea11-a810-000d3af46757}" behavior="0" />
