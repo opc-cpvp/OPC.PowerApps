@@ -170,6 +170,14 @@
                         <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{78001c90-e5b0-4a3c-b340-4c79f3ec6147}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Member of Parliament Involved" languagecode="1033" />
+                        </labels>
+                        <control id="opc_memberofparliamentinvolved" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_memberofparliamentinvolved" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
