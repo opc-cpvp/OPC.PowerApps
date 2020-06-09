@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QueueMembershipPlugin.cs" />
     <Compile Include="AnnotationAuthorPlugin.cs" />
     <Compile Include="CrmPluginRegistrationAttribute.cs" />
     <Compile Include="ComplaintPrefixPlugin.cs" />
