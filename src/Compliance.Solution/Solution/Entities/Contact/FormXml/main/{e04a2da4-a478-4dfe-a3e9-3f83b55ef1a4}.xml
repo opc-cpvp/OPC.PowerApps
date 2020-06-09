@@ -100,6 +100,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{7284da39-112d-44f2-be81-93c1ae483258}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Preferred Language of Communication" languagecode="1033" />
+                        </labels>
+                        <control id="opc_preferredlanguage" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_preferredlanguage" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{b838b1ab-0f5c-44de-b7ed-e0a994bdb6a0}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Multiple Complaint Strategy" languagecode="1033" />

@@ -346,6 +346,45 @@
             <Description description="This field determines if the contact his part of the Multiple Complaint Strategy." languagecode="1033" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="opc_preferredlanguage">
+          <Type>picklist</Type>
+          <Name>opc_preferredlanguage</Name>
+          <LogicalName>opc_preferredlanguage</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.291</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <AppDefaultValue>-1</AppDefaultValue>
+          <OptionSetName>opc_preferredlanguage</OptionSetName>
+          <displaynames>
+            <displayname description="Preferred Language" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="The preferred language of communication of the contact." languagecode="1033" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="Telephone1">
           <Type>nvarchar</Type>
           <Name>telephone1</Name>

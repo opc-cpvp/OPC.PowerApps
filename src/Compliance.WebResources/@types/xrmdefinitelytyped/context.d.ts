@@ -190,6 +190,10 @@ declare const enum contact_address3_shippingmethodcode {
 declare const enum contact_customertypecode {
   DefaultValue = 1,
 }
+declare const enum opc_preferredlanguage {
+  English = 924340000,
+  French = 924340001,
+}
 declare const enum contact_educationcode {
   DefaultValue = 1,
 }
@@ -569,8 +573,8 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10024,
-  Complaint = 10216,
+  KnowledgeArticleTemplate = 10007,
+  Complaint = 11587,
 }
 declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
@@ -2325,6 +2329,7 @@ declare namespace Form.contact.Main {
       get(name: "name"): Xrm.Attribute<string> | null;
       get(name: "opc_duplicatedetectionresult"): Xrm.OptionSetAttribute<opc_duplicatedetectionresult>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
+      get(name: "opc_preferredlanguage"): Xrm.OptionSetAttribute<opc_preferredlanguage>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
       get(name: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
@@ -2367,6 +2372,7 @@ declare namespace Form.contact.Main {
       get(name: "jobtitle"): Xrm.StringControl;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
+      get(name: "opc_preferredlanguage"): Xrm.OptionSetControl<opc_preferredlanguage>;
       get(name: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
       get(name: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
@@ -2408,6 +2414,7 @@ declare namespace Form.contact.Main {
     getAttribute(attributeName: "name"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: "opc_duplicatedetectionresult"): Xrm.OptionSetAttribute<opc_duplicatedetectionresult>;
     getAttribute(attributeName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
+    getAttribute(attributeName: "opc_preferredlanguage"): Xrm.OptionSetAttribute<opc_preferredlanguage>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
     getAttribute(attributeName: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
@@ -2445,6 +2452,7 @@ declare namespace Form.contact.Main {
     getControl(controlName: "jobtitle"): Xrm.StringControl;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
+    getControl(controlName: "opc_preferredlanguage"): Xrm.OptionSetControl<opc_preferredlanguage>;
     getControl(controlName: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
     getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
     getControl(controlName: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
@@ -4226,13 +4234,6 @@ declare namespace Form.opc_complaint.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface tab_topics extends Xrm.SectionCollectionBase {
-        get(name: "section_topics"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_acceptancedate"): Xrm.DateAttribute;
@@ -4302,7 +4303,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
       get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
-      get(name: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
+      get(name: "subgrid_topics"): Xrm.BaseControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -4316,7 +4317,6 @@ declare namespace Form.opc_complaint.Main {
       get(name: "tab_recommendations"): Xrm.PageTab<Tabs.tab_recommendations>;
       get(name: "tab_reminders"): Xrm.PageTab<Tabs.tab_reminders>;
       get(name: "tab_risk_assessments"): Xrm.PageTab<Tabs.tab_risk_assessments>;
-      get(name: "tab_topics"): Xrm.PageTab<Tabs.tab_topics>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -4386,7 +4386,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
     getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
-    getControl(controlName: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
+    getControl(controlName: "subgrid_topics"): Xrm.BaseControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -5769,7 +5769,6 @@ declare namespace Form.opc_reminder.Main {
   namespace Information {
     namespace Tabs {
       interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_additionalusers"): Xrm.PageSection;
         get(name: "section_general"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
@@ -5801,7 +5800,7 @@ declare namespace Form.opc_reminder.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
+      get(name: "grid_additionalusers"): Xrm.BaseControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
@@ -5838,7 +5837,7 @@ declare namespace Form.opc_reminder.Main {
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_reminder_statuscode>;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "grid_additionalusers"): Xrm.BaseControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
@@ -9427,6 +9426,7 @@ interface Contact_Base extends WebEntity {
   onholdtime?: number | null;
   opc_duplicatedetectionresult?: opc_duplicatedetectionresult | null;
   opc_multiplecomplaintstrategy?: opc_multiplecomplaintstrategy | null;
+  opc_preferredlanguage?: opc_preferredlanguage | null;
   overriddencreatedon?: Date | null;
   pager?: string | null;
   participatesinworkflow?: boolean | null;
@@ -9634,6 +9634,7 @@ interface Contact_Select {
   onholdtime: WebAttribute<Contact_Select, { onholdtime: number | null }, {  }>;
   opc_duplicatedetectionresult: WebAttribute<Contact_Select, { opc_duplicatedetectionresult: opc_duplicatedetectionresult | null }, { opc_duplicatedetectionresult_formatted?: string }>;
   opc_multiplecomplaintstrategy: WebAttribute<Contact_Select, { opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy | null }, { opc_multiplecomplaintstrategy_formatted?: string }>;
+  opc_preferredlanguage: WebAttribute<Contact_Select, { opc_preferredlanguage: opc_preferredlanguage | null }, { opc_preferredlanguage_formatted?: string }>;
   overriddencreatedon: WebAttribute<Contact_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<Contact_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<Contact_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -9824,6 +9825,7 @@ interface Contact_Filter {
   onholdtime: number;
   opc_duplicatedetectionresult: opc_duplicatedetectionresult;
   opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy;
+  opc_preferredlanguage: opc_preferredlanguage;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -9925,6 +9927,7 @@ interface Contact_FormattedResult {
   modifiedonbehalfby_formatted?: string;
   opc_duplicatedetectionresult_formatted?: string;
   opc_multiplecomplaintstrategy_formatted?: string;
+  opc_preferredlanguage_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
