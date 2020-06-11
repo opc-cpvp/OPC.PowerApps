@@ -5764,13 +5764,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Complaints Transfered"
+      DTS:refId="Package\Complaints Transferred"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{4BC04057-F62A-4E8E-AAD1-EDC46BAA7413}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Complaints Transfered"
+      DTS:ObjectName="Complaints Transferred"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -5778,7 +5778,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Complaints Transfered\Get Complaints in Early Resolution"
+              refId="Package\Complaints Transferred\Get Complaints in Early Resolution"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
               description="Extract data from CDS, PowerApps, Microsoft Dynamics 365 CE."
@@ -5836,7 +5836,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Complaints Transfered\Get Complaints in Early Resolution.Connections[DynamicsCRM]"
+                  refId="Package\Complaints Transferred\Get Complaints in Early Resolution.Connections[DynamicsCRM]"
                   connectionManagerID="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   connectionManagerRefId="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   description="Dynamics CRM Connection Manager"
@@ -5844,36 +5844,36 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output]"
+                  refId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output]"
                   name="Primary Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[opc_complaintid]"
+                      refId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[opc_complaintid]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].ExternalColumns[opc_complaintid]"
-                      lineageId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[opc_complaintid]"
+                      externalMetadataColumnId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].ExternalColumns[opc_complaintid]"
+                      lineageId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[opc_complaintid]"
                       name="opc_complaintid"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[createdon]"
+                      refId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[createdon]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].ExternalColumns[createdon]"
-                      lineageId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[createdon]"
+                      externalMetadataColumnId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].ExternalColumns[createdon]"
+                      lineageId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[createdon]"
                       name="createdon"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].ExternalColumns[opc_complaintid]"
+                      refId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].ExternalColumns[opc_complaintid]"
                       dataType="guid"
                       name="opc_complaintid" />
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].ExternalColumns[createdon]"
+                      refId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].ExternalColumns[createdon]"
                       dataType="dbTimeStamp"
                       name="createdon" />
                   </externalMetadataColumns>
@@ -5881,7 +5881,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Complaints Transfered\Get Complaints in Investigations"
+              refId="Package\Complaints Transferred\Get Complaints in Investigations"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
               description="Extract data from CDS, PowerApps, Microsoft Dynamics 365 CE."
@@ -5939,7 +5939,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Complaints Transfered\Get Complaints in Investigations.Connections[DynamicsCRM]"
+                  refId="Package\Complaints Transferred\Get Complaints in Investigations.Connections[DynamicsCRM]"
                   connectionManagerID="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   connectionManagerRefId="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   description="Dynamics CRM Connection Manager"
@@ -5947,36 +5947,36 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output]"
+                  refId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output]"
                   name="Primary Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].Columns[opc_complaintid]"
+                      refId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].Columns[opc_complaintid]"
                       dataType="guid"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].ExternalColumns[opc_complaintid]"
-                      lineageId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].Columns[opc_complaintid]"
+                      externalMetadataColumnId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].ExternalColumns[opc_complaintid]"
+                      lineageId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].Columns[opc_complaintid]"
                       name="opc_complaintid"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].Columns[createdon]"
+                      refId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].Columns[createdon]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].ExternalColumns[createdon]"
-                      lineageId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].Columns[createdon]"
+                      externalMetadataColumnId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].ExternalColumns[createdon]"
+                      lineageId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].Columns[createdon]"
                       name="createdon"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].ExternalColumns[opc_complaintid]"
+                      refId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].ExternalColumns[opc_complaintid]"
                       dataType="guid"
                       name="opc_complaintid" />
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].ExternalColumns[createdon]"
+                      refId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].ExternalColumns[createdon]"
                       dataType="dbTimeStamp"
                       name="createdon" />
                   </externalMetadataColumns>
@@ -5984,7 +5984,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution"
+              refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -5992,33 +5992,33 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input]"
+                  refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input].Columns[createdon]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input].Columns[createdon]"
                       cachedDataType="dbTimeStamp"
                       cachedName="createdon"
-                      lineageId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[createdon]" />
+                      lineageId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[createdon]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output]"
+                  refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_acceptancedate]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_acceptancedate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_acceptancedate]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_acceptancedate]"
                       name="opc_acceptancedate"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -6026,7 +6026,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[createdon]}</property>
+                          name="Expression">#{Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[createdon]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -6036,11 +6036,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]"
                       name="opc_recommendtoregistrar"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -6058,11 +6058,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_intakedisposition]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_intakedisposition]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_intakedisposition]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_intakedisposition]"
                       name="opc_intakedisposition"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -6083,23 +6083,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output]"
+                  refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6108,7 +6108,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations"
+              refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -6116,33 +6116,33 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input]"
+                  refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input].Columns[createdon]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input].Columns[createdon]"
                       cachedDataType="dbTimeStamp"
                       cachedName="createdon"
-                      lineageId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].Columns[createdon]" />
+                      lineageId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].Columns[createdon]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output]"
+                  refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_acceptancedate]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_acceptancedate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_acceptancedate]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_acceptancedate]"
                       name="opc_acceptancedate"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -6150,7 +6150,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].Columns[createdon]}</property>
+                          name="Expression">#{Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].Columns[createdon]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -6160,11 +6160,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]"
                       name="opc_recommendtoregistrar"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -6182,11 +6182,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_intakedisposition]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_intakedisposition]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_intakedisposition]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_intakedisposition]"
                       name="opc_intakedisposition"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -6207,23 +6207,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output]"
+                  refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6232,7 +6232,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Complaints Transfered\Update Complaints in Early Resolution"
+              refId="Package\Complaints Transferred\Update Complaints in Early Resolution"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
               description="Populate data into CDS, PowerApps, Microsoft Dynamics 365 CE."
@@ -6329,7 +6329,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Connections[DynamicsCRM]"
+                  refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Connections[DynamicsCRM]"
                   connectionManagerID="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   connectionManagerRefId="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   description="Dynamics CRM Connection Manager"
@@ -6337,41 +6337,41 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input]"
+                  refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].Columns[opc_acceptancedate]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].Columns[opc_acceptancedate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="opc_acceptancedate"
-                      externalMetadataColumnId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_acceptancedate]"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_acceptancedate]" />
+                      externalMetadataColumnId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_acceptancedate]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_acceptancedate]" />
                     <inputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].Columns[opc_complaintid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].Columns[opc_complaintid]"
                       cachedDataType="guid"
                       cachedName="opc_complaintid"
-                      externalMetadataColumnId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complaintid]"
-                      lineageId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[opc_complaintid]" />
+                      externalMetadataColumnId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complaintid]"
+                      lineageId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output].Columns[opc_complaintid]" />
                     <inputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].Columns[opc_intakedisposition]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].Columns[opc_intakedisposition]"
                       cachedDataType="i4"
                       cachedName="opc_intakedisposition"
-                      externalMetadataColumnId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_intakedisposition]"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_intakedisposition]" />
+                      externalMetadataColumnId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_intakedisposition]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_intakedisposition]" />
                     <inputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].Columns[opc_recommendtoregistrar]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].Columns[opc_recommendtoregistrar]"
                       cachedDataType="i4"
                       cachedName="opc_recommendtoregistrar"
-                      externalMetadataColumnId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_recommendtoregistrar]"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]" />
+                      externalMetadataColumnId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_recommendtoregistrar]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[modifiedby]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[modifiedby]"
                       dataType="guid"
                       name="modifiedby">
                       <properties>
@@ -6384,7 +6384,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_acceptancedate]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_acceptancedate]"
                       dataType="dbTimeStamp"
                       name="opc_acceptancedate">
                       <properties>
@@ -6397,7 +6397,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_accountid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_accountid]"
                       dataType="guid"
                       name="opc_accountid">
                       <properties>
@@ -6410,7 +6410,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_closeddate]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_closeddate]"
                       dataType="dbTimeStamp"
                       name="opc_closeddate">
                       <properties>
@@ -6423,7 +6423,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_closereason]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_closereason]"
                       dataType="i4"
                       name="opc_closereason">
                       <properties>
@@ -6436,7 +6436,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complainant]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complainant]"
                       dataType="guid"
                       name="opc_complainant">
                       <properties>
@@ -6449,7 +6449,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complainantrep]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complainantrep]"
                       dataType="guid"
                       name="opc_complainantrep">
                       <properties>
@@ -6462,7 +6462,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complaintdisposition]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complaintdisposition]"
                       dataType="i4"
                       name="opc_complaintdisposition">
                       <properties>
@@ -6475,7 +6475,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complaintid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_complaintid]"
                       dataType="guid"
                       name="opc_complaintid">
                       <properties>
@@ -6488,7 +6488,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_hasaccessallegation]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_hasaccessallegation]"
                       dataType="bool"
                       name="opc_hasaccessallegation">
                       <properties>
@@ -6501,7 +6501,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_hastlallegation]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_hastlallegation]"
                       dataType="bool"
                       name="opc_hastlallegation">
                       <properties>
@@ -6514,7 +6514,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_intakedisposition]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_intakedisposition]"
                       dataType="i4"
                       name="opc_intakedisposition">
                       <properties>
@@ -6527,7 +6527,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_intakeofficer]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_intakeofficer]"
                       dataType="guid"
                       name="opc_intakeofficer">
                       <properties>
@@ -6540,7 +6540,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_lastmilestone]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_lastmilestone]"
                       dataType="i4"
                       name="opc_lastmilestone">
                       <properties>
@@ -6553,7 +6553,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_legislation]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_legislation]"
                       dataType="guid"
                       name="opc_legislation">
                       <properties>
@@ -6566,7 +6566,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_nextstep]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_nextstep]"
                       dataType="i4"
                       name="opc_nextstep">
                       <properties>
@@ -6579,7 +6579,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_number]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_number]"
                       dataType="wstr"
                       length="100"
                       name="opc_number">
@@ -6593,7 +6593,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_opcpriorityid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_opcpriorityid]"
                       dataType="guid"
                       name="opc_opcpriorityid">
                       <properties>
@@ -6606,7 +6606,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_recommendtoregistrar]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_recommendtoregistrar]"
                       dataType="i4"
                       name="opc_recommendtoregistrar">
                       <properties>
@@ -6619,7 +6619,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_sectorid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_sectorid]"
                       dataType="guid"
                       name="opc_sectorid">
                       <properties>
@@ -6632,7 +6632,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_sendcloseletter]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[opc_sendcloseletter]"
                       dataType="bool"
                       name="opc_sendcloseletter">
                       <properties>
@@ -6645,7 +6645,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[ownerid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[ownerid]"
                       dataType="guid"
                       name="ownerid">
                       <properties>
@@ -6658,7 +6658,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[owneridtype]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[owneridtype]"
                       dataType="wstr"
                       length="64"
                       name="owneridtype">
@@ -6672,7 +6672,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[processid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[processid]"
                       dataType="guid"
                       name="processid">
                       <properties>
@@ -6685,7 +6685,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[stageid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[stageid]"
                       dataType="guid"
                       name="stageid">
                       <properties>
@@ -6698,7 +6698,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[statecode]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[statecode]"
                       dataType="i4"
                       name="statecode">
                       <properties>
@@ -6711,7 +6711,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[statuscode]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[statuscode]"
                       dataType="i4"
                       name="statuscode">
                       <properties>
@@ -6724,7 +6724,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
                       dataType="i4"
                       name="timezoneruleversionnumber">
                       <properties>
@@ -6737,7 +6737,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[traversedpath]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[traversedpath]"
                       dataType="wstr"
                       length="1250"
                       name="traversedpath">
@@ -6751,7 +6751,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
                       dataType="i4"
                       name="utcconversiontimezonecode">
                       <properties>
@@ -6768,48 +6768,48 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Error Output]"
+                  refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Error Output"
-                  synchronousInputId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input]">
+                  synchronousInputId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Error Output].Columns[ErrorCode]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Error Output].Columns[ErrorColumn]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Error Output].Columns[CrmErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Error Output].Columns[CrmErrorMessage]"
                       name="CrmErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Default Output]"
+                  refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Default Output]"
                   exclusionGroup="1"
                   name="Default Output"
-                  synchronousInputId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input]">
+                  synchronousInputId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Default Output].Columns[CrmRecordId]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Default Output].Columns[CrmRecordId]"
                       dataType="guid"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Default Output].Columns[CrmRecordId]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Default Output].Columns[CrmRecordId]"
                       name="CrmRecordId" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Default Output].Columns[IsNew]"
+                      refId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Default Output].Columns[IsNew]"
                       dataType="bool"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Early Resolution.Outputs[Default Output].Columns[IsNew]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Early Resolution.Outputs[Default Output].Columns[IsNew]"
                       name="IsNew" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -6817,7 +6817,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Complaints Transfered\Update Complaints in Investigations"
+              refId="Package\Complaints Transferred\Update Complaints in Investigations"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
               description="Populate data into CDS, PowerApps, Microsoft Dynamics 365 CE."
@@ -6914,7 +6914,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Complaints Transfered\Update Complaints in Investigations.Connections[DynamicsCRM]"
+                  refId="Package\Complaints Transferred\Update Complaints in Investigations.Connections[DynamicsCRM]"
                   connectionManagerID="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   connectionManagerRefId="Package.ConnectionManagers[Common Data Service (CDS) Connection Manager]"
                   description="Dynamics CRM Connection Manager"
@@ -6922,41 +6922,41 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input]"
+                  refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].Columns[opc_acceptancedate]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].Columns[opc_acceptancedate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="opc_acceptancedate"
-                      externalMetadataColumnId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_acceptancedate]"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_acceptancedate]" />
+                      externalMetadataColumnId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_acceptancedate]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_acceptancedate]" />
                     <inputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].Columns[opc_complaintid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].Columns[opc_complaintid]"
                       cachedDataType="guid"
                       cachedName="opc_complaintid"
-                      externalMetadataColumnId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complaintid]"
-                      lineageId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output].Columns[opc_complaintid]" />
+                      externalMetadataColumnId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complaintid]"
+                      lineageId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output].Columns[opc_complaintid]" />
                     <inputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].Columns[opc_intakedisposition]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].Columns[opc_intakedisposition]"
                       cachedDataType="i4"
                       cachedName="opc_intakedisposition"
-                      externalMetadataColumnId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_intakedisposition]"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_intakedisposition]" />
+                      externalMetadataColumnId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_intakedisposition]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_intakedisposition]" />
                     <inputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].Columns[opc_recommendtoregistrar]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].Columns[opc_recommendtoregistrar]"
                       cachedDataType="i4"
                       cachedName="opc_recommendtoregistrar"
-                      externalMetadataColumnId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_recommendtoregistrar]"
-                      lineageId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]" />
+                      externalMetadataColumnId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_recommendtoregistrar]"
+                      lineageId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output].Columns[opc_recommendtoregistrar]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[modifiedby]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[modifiedby]"
                       dataType="guid"
                       name="modifiedby">
                       <properties>
@@ -6969,7 +6969,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_acceptancedate]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_acceptancedate]"
                       dataType="dbTimeStamp"
                       name="opc_acceptancedate">
                       <properties>
@@ -6982,7 +6982,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_accountid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_accountid]"
                       dataType="guid"
                       name="opc_accountid">
                       <properties>
@@ -6995,7 +6995,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_closeddate]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_closeddate]"
                       dataType="dbTimeStamp"
                       name="opc_closeddate">
                       <properties>
@@ -7008,7 +7008,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_closereason]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_closereason]"
                       dataType="i4"
                       name="opc_closereason">
                       <properties>
@@ -7021,7 +7021,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complainant]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complainant]"
                       dataType="guid"
                       name="opc_complainant">
                       <properties>
@@ -7034,7 +7034,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complainantrep]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complainantrep]"
                       dataType="guid"
                       name="opc_complainantrep">
                       <properties>
@@ -7047,7 +7047,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complaintdisposition]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complaintdisposition]"
                       dataType="i4"
                       name="opc_complaintdisposition">
                       <properties>
@@ -7060,7 +7060,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complaintid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_complaintid]"
                       dataType="guid"
                       name="opc_complaintid">
                       <properties>
@@ -7073,7 +7073,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_hasaccessallegation]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_hasaccessallegation]"
                       dataType="bool"
                       name="opc_hasaccessallegation">
                       <properties>
@@ -7086,7 +7086,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_hastlallegation]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_hastlallegation]"
                       dataType="bool"
                       name="opc_hastlallegation">
                       <properties>
@@ -7099,7 +7099,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_intakedisposition]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_intakedisposition]"
                       dataType="i4"
                       name="opc_intakedisposition">
                       <properties>
@@ -7112,7 +7112,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_intakeofficer]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_intakeofficer]"
                       dataType="guid"
                       name="opc_intakeofficer">
                       <properties>
@@ -7125,7 +7125,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_lastmilestone]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_lastmilestone]"
                       dataType="i4"
                       name="opc_lastmilestone">
                       <properties>
@@ -7138,7 +7138,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_legislation]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_legislation]"
                       dataType="guid"
                       name="opc_legislation">
                       <properties>
@@ -7151,7 +7151,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_nextstep]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_nextstep]"
                       dataType="i4"
                       name="opc_nextstep">
                       <properties>
@@ -7164,7 +7164,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_number]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_number]"
                       dataType="wstr"
                       length="100"
                       name="opc_number">
@@ -7178,7 +7178,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_opcpriorityid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_opcpriorityid]"
                       dataType="guid"
                       name="opc_opcpriorityid">
                       <properties>
@@ -7191,7 +7191,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_recommendtoregistrar]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_recommendtoregistrar]"
                       dataType="i4"
                       name="opc_recommendtoregistrar">
                       <properties>
@@ -7204,7 +7204,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_sectorid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_sectorid]"
                       dataType="guid"
                       name="opc_sectorid">
                       <properties>
@@ -7217,7 +7217,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_sendcloseletter]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[opc_sendcloseletter]"
                       dataType="bool"
                       name="opc_sendcloseletter">
                       <properties>
@@ -7230,7 +7230,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[ownerid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[ownerid]"
                       dataType="guid"
                       name="ownerid">
                       <properties>
@@ -7243,7 +7243,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[owneridtype]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[owneridtype]"
                       dataType="wstr"
                       length="64"
                       name="owneridtype">
@@ -7257,7 +7257,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[processid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[processid]"
                       dataType="guid"
                       name="processid">
                       <properties>
@@ -7270,7 +7270,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[stageid]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[stageid]"
                       dataType="guid"
                       name="stageid">
                       <properties>
@@ -7283,7 +7283,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[statecode]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[statecode]"
                       dataType="i4"
                       name="statecode">
                       <properties>
@@ -7296,7 +7296,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[statuscode]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[statuscode]"
                       dataType="i4"
                       name="statuscode">
                       <properties>
@@ -7309,7 +7309,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
                       dataType="i4"
                       name="timezoneruleversionnumber">
                       <properties>
@@ -7322,7 +7322,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[traversedpath]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[traversedpath]"
                       dataType="wstr"
                       length="1250"
                       name="traversedpath">
@@ -7336,7 +7336,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
                       dataType="i4"
                       name="utcconversiontimezonecode">
                       <properties>
@@ -7353,48 +7353,48 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Error Output]"
+                  refId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Error Output"
-                  synchronousInputId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input]">
+                  synchronousInputId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Error Output].Columns[ErrorCode]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Error Output].Columns[ErrorColumn]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Error Output].Columns[CrmErrorMessage]"
                       dataType="wstr"
                       length="2048"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Error Output].Columns[CrmErrorMessage]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Error Output].Columns[CrmErrorMessage]"
                       name="CrmErrorMessage" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Default Output]"
+                  refId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Default Output]"
                   exclusionGroup="1"
                   name="Default Output"
-                  synchronousInputId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input]">
+                  synchronousInputId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Default Output].Columns[CrmRecordId]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Default Output].Columns[CrmRecordId]"
                       dataType="guid"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Default Output].Columns[CrmRecordId]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Default Output].Columns[CrmRecordId]"
                       name="CrmRecordId" />
                     <outputColumn
-                      refId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Default Output].Columns[IsNew]"
+                      refId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Default Output].Columns[IsNew]"
                       dataType="bool"
-                      lineageId="Package\Complaints Transfered\Update Complaints in Investigations.Outputs[Default Output].Columns[IsNew]"
+                      lineageId="Package\Complaints Transferred\Update Complaints in Investigations.Outputs[Default Output].Columns[IsNew]"
                       name="IsNew" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -7404,25 +7404,25 @@
           </components>
           <paths>
             <path
-              refId="Package\Complaints Transfered.Paths[Derived Column Output]"
-              endId="Package\Complaints Transfered\Update Complaints in Early Resolution.Inputs[Input]"
+              refId="Package\Complaints Transferred.Paths[Derived Column Output]"
+              endId="Package\Complaints Transferred\Update Complaints in Early Resolution.Inputs[Input]"
               name="Derived Column Output"
-              startId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output]" />
+              startId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Complaints Transfered.Paths[Derived Column Output1]"
-              endId="Package\Complaints Transfered\Update Complaints in Investigations.Inputs[Input]"
+              refId="Package\Complaints Transferred.Paths[Derived Column Output1]"
+              endId="Package\Complaints Transferred\Update Complaints in Investigations.Inputs[Input]"
               name="Derived Column Output"
-              startId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output]" />
+              startId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Complaints Transfered.Paths[Primary Output]"
-              endId="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input]"
+              refId="Package\Complaints Transferred.Paths[Primary Output]"
+              endId="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution.Inputs[Derived Column Input]"
               name="Primary Output"
-              startId="Package\Complaints Transfered\Get Complaints in Early Resolution.Outputs[Primary Output]" />
+              startId="Package\Complaints Transferred\Get Complaints in Early Resolution.Outputs[Primary Output]" />
             <path
-              refId="Package\Complaints Transfered.Paths[Primary Output1]"
-              endId="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input]"
+              refId="Package\Complaints Transferred.Paths[Primary Output1]"
+              endId="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations.Inputs[Derived Column Input]"
               name="Primary Output"
-              startId="Package\Complaints Transfered\Get Complaints in Investigations.Outputs[Primary Output]" />
+              startId="Package\Complaints Transferred\Get Complaints in Investigations.Outputs[Primary Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -44059,7 +44059,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
       DTS:CreationName=""
       DTS:DTSID="{C6914947-D0CD-4AD8-A129-2C9370122A23}"
-      DTS:From="Package\Complaints Transfered"
+      DTS:From="Package\Complaints Transferred"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 12"
       DTS:To="Package\Close Complaints" />
@@ -44094,7 +44094,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:From="Package\Update Queue Items for Complaints"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
-      DTS:To="Package\Complaints Transfered" />
+      DTS:To="Package\Complaints Transferred" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
@@ -44150,7 +44150,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="393.749994132668,402.210533811115" />
         <NodeLayout
           Size="188,43"
-          Id="Package\Complaints Transfered"
+          Id="Package\Complaints Transferred"
           TopLeft="623.333324044943,375.26316469462" />
         <NodeLayout
           Size="159,43"
@@ -45146,36 +45146,36 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     </LayoutInfo>
   </TaskHost>
   <TaskHost
-    design-time-name="Package\Complaints Transfered">
+    design-time-name="Package\Complaints Transferred">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="380,43"
-          Id="Package\Complaints Transfered\Set recommendation and acceptance fields for Early Resolution"
+          Id="Package\Complaints Transferred\Set recommendation and acceptance fields for Early Resolution"
           TopLeft="435.083330595245,162.07017989458" />
         <NodeLayout
           Size="368,43"
-          Id="Package\Complaints Transfered\Set recommendation and acceptance fields for Investigations"
+          Id="Package\Complaints Transferred\Set recommendation and acceptance fields for Investigations"
           TopLeft="440.499997280538,250.000006198882" />
         <NodeLayout
           Size="263,43"
-          Id="Package\Complaints Transfered\Update Complaints in Early Resolution"
+          Id="Package\Complaints Transferred\Update Complaints in Early Resolution"
           TopLeft="880.583329092711,161.087725806213" />
         <NodeLayout
           Size="249,43"
-          Id="Package\Complaints Transfered\Update Complaints in Investigations"
+          Id="Package\Complaints Transferred\Update Complaints in Investigations"
           TopLeft="883.749995622784,249.649132337155" />
         <NodeLayout
           Size="245,43"
-          Id="Package\Complaints Transfered\Get Complaints in Early Resolution"
+          Id="Package\Complaints Transferred\Get Complaints in Early Resolution"
           TopLeft="95.4166652448476,160.947371237166" />
         <NodeLayout
           Size="232,43"
-          Id="Package\Complaints Transfered\Get Complaints in Investigations"
+          Id="Package\Complaints Transferred\Get Complaints in Investigations"
           TopLeft="107.083331141621,250.421059139547" />
         <EdgeLayout
-          Id="Package\Complaints Transfered.Paths[Derived Column Output1]"
+          Id="Package\Complaints Transferred.Paths[Derived Column Output1]"
           TopLeft="808.499997280538,271.157902601352">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -45197,7 +45197,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Complaints Transfered.Paths[Derived Column Output]"
+          Id="Package\Complaints Transferred.Paths[Derived Column Output]"
           TopLeft="815.083330595245,182.91228618373">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -45219,7 +45219,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Complaints Transfered.Paths[Primary Output1]"
+          Id="Package\Complaints Transferred.Paths[Primary Output1]"
           TopLeft="339.083331141621,271.543866002548">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -45241,7 +45241,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Complaints Transfered.Paths[Primary Output]"
+          Id="Package\Complaints Transferred.Paths[Primary Output]"
           TopLeft="340.749998578181,182.842108899206">
           <EdgeLayout.Curve>
             <mssgle:Curve
