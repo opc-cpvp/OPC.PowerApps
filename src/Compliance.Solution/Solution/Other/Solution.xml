@@ -145,6 +145,7 @@
       <RootComponent type="29" id="{0b8ac528-6e5d-ea11-a811-000d3af464f8}" behavior="0" />
       <RootComponent type="29" id="{0e1f06c2-102a-4264-ae27-e8367c257ac4}" behavior="0" />
       <RootComponent type="29" id="{11109486-2e83-453a-9080-b21689eb8a2e}" behavior="0" />
+      <RootComponent type="29" id="{1556c309-c6a1-ea11-a812-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{32d219f1-f0bc-40b4-bcb0-daffeb1f1f9e}" behavior="0" />
       <RootComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" behavior="0" />
       <RootComponent type="29" id="{4d3e610e-f448-ea11-a812-000d3af46cc5}" behavior="0" />
@@ -182,6 +183,7 @@
       <RootComponent type="60" id="{581e1a05-96c4-41ca-be00-aed6ac970eca}" behavior="0" />
       <RootComponent type="60" id="{5c6e33a5-3afb-42ae-b102-21c0cf47b549}" behavior="0" />
       <RootComponent type="60" id="{5d39077d-dd2b-4b2e-a6b4-a534abf85ef8}" behavior="0" />
+      <RootComponent type="60" id="{6ed25386-e3ec-4e2b-bc5e-6a2a7803c8f3}" />
       <RootComponent type="60" id="{85c64e3e-e23e-ea11-a812-000d3af46489}" behavior="0" />
       <RootComponent type="60" id="{887f9c46-ffa9-4a4c-a5ca-365a5ebe48ff}" behavior="0" />
       <RootComponent type="60" id="{8bd6c876-cdcc-4a59-a34b-9eea5d5569b9}" behavior="0" />
@@ -318,6 +320,10 @@
       <MissingDependency>
         <Required key="25" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.34)" />
         <Dependent key="14" type="60" displayName="Information" parentDisplayName="Complaint" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="25" type="10" schemaName="opc_queues_teams_membership" displayName="opc_queues_teams_membership" parentSchemaName="team" parentDisplayName="Team" solution="Active" />
+        <Dependent key="16" type="60" displayName="Queue" parentDisplayName="Queue" id="{6ed25386-e3ec-4e2b-bc5e-6a2a7803c8f3}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>
