@@ -2,6 +2,7 @@ import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IPowerForm } from "../interfaces";
 import { i18n } from "i18next";
+import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Reminder.Forms {
 
@@ -91,8 +92,8 @@ export namespace Reminder.Forms {
         private notifyAdditionalUsers_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
             const formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
             const shouldNotifyAdditionalUsers = formContext.getControl("opc_notifyadditionalusers").getAttribute().getValue();
-            const sectionNotifyUsers = formContext.ui.tabs.get("tab_general").sections.get("section_additionalusers");
-            sectionNotifyUsers.setVisible(shouldNotifyAdditionalUsers);
+            const gridAdditionalUsers = formContext.getControl("grid_additionalusers");
+            XrmHelper.toggle(gridAdditionalUsers, shouldNotifyAdditionalUsers);
         }
     }
 }
