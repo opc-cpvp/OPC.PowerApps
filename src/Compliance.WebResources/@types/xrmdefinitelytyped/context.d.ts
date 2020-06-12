@@ -214,12 +214,6 @@ declare const enum contact_accountrolecode {
   Employee = 2,
   Influencer = 3,
 }
-declare const enum opc_multiplecomplaintstrategy {
-  NotApplied = 924340000,
-  Proposed = 924340001,
-  Applied = 924340002,
-  Former = 924340003,
-}
 declare const enum contact_statecode {
   Active = 0,
   Inactive = 1,
@@ -235,6 +229,12 @@ declare const enum contact_preferredappointmentdaycode {
   Thursday = 4,
   Friday = 5,
   Saturday = 6,
+}
+declare const enum opc_multiplecomplaintstrategy {
+  NotApplied = 924340000,
+  Proposed = 924340001,
+  Applied = 924340002,
+  Former = 924340003,
 }
 declare const enum opc_preferredlanguage {
   English = 924340000,
@@ -4246,7 +4246,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
       get(name: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
-      get(name: "opc_memberofparliamentinvolved"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_memberofparliamentinvolved"): Xrm.Attribute<any>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_number"): Xrm.Attribute<string>;
@@ -4298,7 +4298,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
-      get(name: "opc_memberofparliamentinvolved"): Xrm.OptionSetControl<boolean>;
+      get(name: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
       get(name: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
       get(name: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
@@ -4336,7 +4336,7 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
     getAttribute(attributeName: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
-    getAttribute(attributeName: "opc_memberofparliamentinvolved"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_memberofparliamentinvolved"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
@@ -4383,7 +4383,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
-    getControl(controlName: "opc_memberofparliamentinvolved"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
     getControl(controlName: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
     getControl(controlName: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;

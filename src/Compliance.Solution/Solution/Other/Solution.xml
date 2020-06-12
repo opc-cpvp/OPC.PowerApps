@@ -287,6 +287,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required key="21" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.18638)" />
+        <Dependent key="14" type="60" displayName="Information" parentDisplayName="Complaint" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="21" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.18638)" />
         <Dependent key="15" type="60" displayName="Information" parentDisplayName="Risk Assessment Category" id="{d99b07af-7b87-491f-a7d6-89a9d6a717ce}" />
       </MissingDependency>
       <MissingDependency>

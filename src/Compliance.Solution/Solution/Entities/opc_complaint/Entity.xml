@@ -974,7 +974,7 @@
               <displayname description="Local Enumeration" languagecode="1033" />
             </displaynames>
             <Descriptions>
-              <Description description="Indicated whether a member of parliament is involved in some way way the complaint" languagecode="1033" />
+              <Description description="Indicates whether a Member of Parliament was involved in the case." languagecode="1033" />
             </Descriptions>
             <options>
               <option value="1">
@@ -993,7 +993,7 @@
             <displayname description="Member of Parliament Involved" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Indicated whether a member of parliament is involved in some way way the complaint" languagecode="1033" />
+            <Description description="Indicates whether a Member of Parliament was involved in the case." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_multiplecomplaintstrategy">
