@@ -27,10 +27,15 @@ export class XrmHelper {
         baseControl.setVisible(false);
 
         const control = (<Xrm.Control<Xrm.Attribute<any>>>baseControl);
+        
         if (!control.setDisabled)
             return;
 
         control.setDisabled(true);
+        
+        if (!control.getAttribute)
+            return;
+        
         const attr = control.getAttribute();
         attr.setValue();
         attr.setRequiredLevel("none");

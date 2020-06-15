@@ -37,7 +37,7 @@
           <attribute name="ownerid" />
           <attribute name="opc_acceptancedate" />
           <filter type="and">
-            <condition attribute="opc_acceptancedate" operator="last-x-months" value="3" />
+            <condition attribute="opc_acceptancedate" operator="last-x-weeks" value="5" />
             <condition attribute="opc_lastmilestone" operator="in">
               <value>924340002</value>
               <value>924340003</value>
