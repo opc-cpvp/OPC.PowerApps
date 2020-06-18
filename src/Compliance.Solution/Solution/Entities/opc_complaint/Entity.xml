@@ -939,7 +939,7 @@
           <Type>bit</Type>
           <Name>opc_memberofparliamentinvolved</Name>
           <LogicalName>opc_memberofparliamentinvolved</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
+          <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
