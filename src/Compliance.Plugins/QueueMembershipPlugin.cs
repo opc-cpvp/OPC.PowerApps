@@ -118,7 +118,8 @@ namespace Compliance.Plugins
 
                 // Only get the delta of queues to be added based on the queues the user is already affected to.
                 var toAdd = teamQueues.Except(userQueues)
-                    .Select(q => new EntityReference("queue", (Guid)q))
+                    .OfType<Guid>()
+                    .Select(q => new EntityReference("queue", q))
                     .ToList();
 
                 foreach (var userid in systemuserIds)
@@ -130,7 +131,7 @@ namespace Compliance.Plugins
             }
             else if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
-                var toRemove = teamQueues.Select(q => new EntityReference("queue", (Guid)q)).ToList();
+                var toRemove = teamQueues.OfType<Guid>().Select(q => new EntityReference("queue", q)).ToList();
                 foreach (var userid in systemuserIds)
                 {
                     localContext.Trace($"Removing {toRemove.Count()} queues from user '{userid}'");
@@ -216,7 +217,7 @@ namespace Compliance.Plugins
                 localContext.Trace($"There is {usersInQueues.Count()} users associated to affected queues: ({string.Join(",", usersInQueues)})");
 
                 // Add queues to users who don't have the queue already.
-                var toAdd = usersInTeams.Except(usersInQueues).Select(u => new EntityReference("systemuser", (Guid)u)).ToList();
+                var toAdd = usersInTeams.Except(usersInQueues).OfType<Guid>().Select(u => new EntityReference("systemuser", (Guid)u)).ToList();
                 foreach (var queueid in queueIds)
                 {
                     localContext.Trace($"Adding {toAdd.Count()} users to queue '{queueid}'");
@@ -225,7 +226,7 @@ namespace Compliance.Plugins
             }
             else if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
-                var toRemove = usersInTeams.Select(u => new EntityReference("systemuser", (Guid)u)).ToList();
+                var toRemove = usersInTeams.OfType<Guid>().Select(u => new EntityReference("systemuser", (Guid)u)).ToList();
                 foreach (var queueid in queueIds)
                 {
                     localContext.Trace($"Removing {toRemove.Count()} users from queue '{queueid}'");
