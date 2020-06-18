@@ -170,6 +170,14 @@
                         <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{b1e4396f-7d9a-48df-8ff1-4dd8267d73fe}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Member of Parliament Involved" languagecode="1033" />
+                        </labels>
+                        <control id="opc_memberofparliamentinvolved" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_memberofparliamentinvolved" disabled="false" uniqueid="{5e7098ee-d4f5-4f5a-930b-e0787e145ed2}" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -649,6 +657,28 @@
               <relationshipName static="true" type="SingleLine.Text">opc_complaints_topics_relatedtopics</relationshipName>
               <relationshipEntity static="true" type="SingleLine.Text">opc_complaintsrelatedtopics</relationshipEntity>
               <labelText static="true" type="SingleLine.Text">en=Topics|fr=Sujets</labelText>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{5e7098ee-d4f5-4f5a-930b-e0787e145ed2}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_memberofparliamentinvolved</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_memberofparliamentinvolved</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_memberofparliamentinvolved</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_memberofparliamentinvolved</value>
             </parameters>
           </customControl>
         </controlDescription>
