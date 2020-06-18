@@ -268,9 +268,4 @@
       <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
     </fields>
   </entity>
-  <entity name="team" displayname="Team" etc="9" primaryidfield="teamid" primarynamefield="name" disableplugins="false">
-    <relationships>
-      <relationship name="opc_queues_teams" manyToMany="true" relatedEntityName="opc_queues_teams" m2mTargetEntity="queue" m2mTargetEntityPrimaryKey="queueid" />
-    </relationships>
-  </entity>
 </entities>
