@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-06-17T13:24:55.0225247Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-06-18T18:36:07.8105429Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -1464,7 +1464,24 @@
         <field name="queueviewtype" value="1" />
       </record>
     </records>
-    <m2mrelationships />
+    <m2mrelationships>
+      <m2mrelationship sourceid="0318d98e-8a5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>a7d81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+      <m2mrelationship sourceid="c1545086-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>
+          <targetid>a2d81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+      <m2mrelationship sourceid="4645d1a6-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+    </m2mrelationships>
   </entity>
   <entity name="opc_checklisttype" displayname="Checklist Type">
     <records>
