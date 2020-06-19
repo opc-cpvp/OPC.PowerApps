@@ -2,6 +2,7 @@ using Compliance.Entities;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Compliance.Plugins
@@ -18,6 +19,8 @@ namespace Compliance.Plugins
         {
             if (localContext == null)
                 throw new InvalidPluginExecutionException("localContext", new ArgumentNullException(nameof(localContext)));
+
+            localContext.Trace($"Following action was regsitered: {localContext.PluginExecutionContext.MessageName}, the params are the following: {string.Join(",",localContext.PluginExecutionContext.InputParameters.Keys)}");
 
             try
             {
@@ -56,69 +59,22 @@ namespace Compliance.Plugins
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
                 // Build and execute fetch query to get all teams of the users which should not be affected by this change
-                unaffectedTeamIds = localContext.OrganizationService.RetrieveMultiple(
-                    new QueryExpression("teammembership") {
-                        Distinct = true,
-                        ColumnSet = new ColumnSet("systemuserid", "teamid"),
-                        Criteria = {
-                            Filters = {
-                                new FilterExpression(LogicalOperator.And) {
-                                    Conditions = {
-                                        new ConditionExpression("systemuserid", ConditionOperator.In, systemuserIds),
-                                        new ConditionExpression("teamid", ConditionOperator.NotIn, affectedTeamIds)
-                                    }
-                                }
-                            }
-                        }
-                    })
-                    .Entities
-                    .Select(q => (Guid)q.ToEntity<TeamMembership>().TeamId)
-                    .ToArray();
-
+                unaffectedTeamIds = fetchUnaffectedTeamsByUsers(localContext, systemuserIds, affectedTeamIds);
                 localContext.Trace($"There is {unaffectedTeamIds.Count()} unaffected teams: {string.Join(",", unaffectedTeamIds)}");
             }
 
-            // Build and execute fetch query to fetch all queues associate to teams but only keep the ones which are not referenced in unaffected teams
-            var teamQueues = localContext.OrganizationService.RetrieveMultiple(
-                new QueryExpression("opc_queues_teams") {
-                    Distinct = true,
-                    ColumnSet = new ColumnSet("queueid", "teamid"),
-                    Criteria = {
-                        Conditions = {
-                            new ConditionExpression("teamid", ConditionOperator.In, unaffectedTeamIds?.Concat(affectedTeamIds).ToArray() ?? affectedTeamIds)
-                        }
-                    }
-                })
-                .Entities
-                .Select(q => q.ToEntity<opc_queues_teams>())
-                .GroupBy(q => q.queueid)
-                .Where(g => unaffectedTeamIds == null || g.All(p => !unaffectedTeamIds.Contains((Guid)p.teamid))) // only keep groups where all elements are in affectedTeams
-                .Select(g => g.Key)
-                .ToList();
-
+            // Build and execute fetch query to fetch all queues associated to teams but only keep the ones which are not referenced in unaffected teams
+            var teamQueues = fetchAffectedQueues(localContext, unaffectedTeamIds, affectedTeamIds);
             localContext.Trace($"There are {teamQueues.Count()} team queues affected: ({string.Join(",", teamQueues)})");
 
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Associate)
             {
                 // Build and execute query to fetch queues associated to users
-                var userQueues = localContext.OrganizationService.RetrieveMultiple(
-                    new QueryExpression("queuemembership") {
-                        Distinct = true,
-                        ColumnSet = new ColumnSet("queueid"),
-                        Criteria = {
-                            Conditions = {
-                                new ConditionExpression("systemuserid", ConditionOperator.In, systemuserIds)
-                            }
-                        }
-                    })
-                    .Entities
-                    .Select(q => q.ToEntity<QueueMembership>().QueueId).ToList();
-
+                var userQueues = fetchQueueMembershipByUsers(localContext, systemuserIds);
                 localContext.Trace($"There are {userQueues.Count()} user associated to affected queues: ({string.Join(",", userQueues)})");
 
                 // Only get the delta of queues to be added based on the queues the user is already affected to.
                 var toAdd = teamQueues.Except(userQueues)
-                    .OfType<Guid>()
                     .Select(q => new EntityReference("queue", q))
                     .ToList();
 
@@ -131,7 +87,7 @@ namespace Compliance.Plugins
             }
             else if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
-                var toRemove = teamQueues.OfType<Guid>().Select(q => new EntityReference("queue", q)).ToList();
+                var toRemove = teamQueues.Select(q => new EntityReference("queue", q)).ToList();
                 foreach (var userid in systemuserIds)
                 {
                     localContext.Trace($"Removing {toRemove.Count()} queues from user '{userid}'");
@@ -158,66 +114,23 @@ namespace Compliance.Plugins
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
                 // Build and execute query to get all queues of the teams that not be affected by this change
-                unaffectedTeamIds = localContext.OrganizationService.RetrieveMultiple(
-                    new QueryExpression("opc_queues_teams") {
-                        Distinct = true,
-                        ColumnSet = new ColumnSet("teamid"),
-                        Criteria = {
-                            Filters = {
-                                new FilterExpression(LogicalOperator.And)
-                                {
-                                    Conditions = {
-                                        new ConditionExpression("queueid", ConditionOperator.In, queueIds),
-                                        new ConditionExpression("teamid", ConditionOperator.NotIn, affectedTeamIds)
-                                    }
-                                }
-                            }
-                        }
-                    })
-                    .Entities
-                    .Select(q => (Guid)q.ToEntity<opc_queues_teams>().teamid).ToArray();
-
-                localContext.Trace($"There is {affectedTeamIds.Count()} unaffected teams ({string.Join(",", unaffectedTeamIds)})");
+                unaffectedTeamIds = fetchUnaffectedTeamsByQueues(localContext, queueIds, affectedTeamIds);
+                localContext.Trace($"There is {unaffectedTeamIds.Count()} unaffected teams ({string.Join(",", unaffectedTeamIds)})");
             }
 
             // Build and execute  fetch query to get all users associated to teams but only keep the ones which are not associated to unaffected teams
-            var usersInTeams = localContext.OrganizationService.RetrieveMultiple(
-                new QueryExpression("teammembership") {
-                    Distinct = true,
-                    ColumnSet = new ColumnSet("systemuserid", "teamid"),
-                    Criteria = {
-                        Conditions = {
-                            new ConditionExpression("teamid", ConditionOperator.In, unaffectedTeamIds?.Concat(affectedTeamIds).ToArray() ?? affectedTeamIds)
-                        }
-                    }
-                })
-                .Entities
-                .Select(q => q.ToEntity<TeamMembership>())
-                .GroupBy(g => g.SystemUserId) // only consider for deletion if teamid is not in the teams that should not be affected
-                .Where(g => unaffectedTeamIds == null || g.All(p => !unaffectedTeamIds.Contains((Guid)p.TeamId)))
-                .Select(g => g.Key).ToList();
+            var usersInTeams = fetchUsersByTeams(localContext, unaffectedTeamIds, affectedTeamIds);
             localContext.Trace($"There is {usersInTeams.Count()} users affected ({string.Join(",", usersInTeams)})");
 
             // Add queues to users who don't have the queue already.
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Associate)
             {
                 // Build and execute query to get all users associated to the queues
-                var usersInQueues = localContext.OrganizationService.RetrieveMultiple(
-                    new QueryExpression("queuemembership") {
-                        Distinct = true,
-                        ColumnSet = new ColumnSet("systemuserid"),
-                        Criteria = {
-                            Conditions = {
-                                new ConditionExpression("queueid", ConditionOperator.In, queueIds)
-                            }
-                        }
-                    })
-                    .Entities
-                    .Select(q => q.ToEntity<QueueMembership>().SystemUserId).ToList();
+                var usersInQueues = fetchQueueMembershipByQueues(localContext, queueIds);
                 localContext.Trace($"There is {usersInQueues.Count()} users associated to affected queues: ({string.Join(",", usersInQueues)})");
 
                 // Add queues to users who don't have the queue already.
-                var toAdd = usersInTeams.Except(usersInQueues).OfType<Guid>().Select(u => new EntityReference("systemuser", (Guid)u)).ToList();
+                var toAdd = usersInTeams.Except(usersInQueues).Select(u => new EntityReference("systemuser", u)).ToList();
                 foreach (var queueid in queueIds)
                 {
                     localContext.Trace($"Adding {toAdd.Count()} users to queue '{queueid}'");
@@ -226,7 +139,7 @@ namespace Compliance.Plugins
             }
             else if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
-                var toRemove = usersInTeams.OfType<Guid>().Select(u => new EntityReference("systemuser", (Guid)u)).ToList();
+                var toRemove = usersInTeams.Select(u => new EntityReference("systemuser", u)).ToList();
                 foreach (var queueid in queueIds)
                 {
                     localContext.Trace($"Removing {toRemove.Count()} users from queue '{queueid}'");
@@ -234,6 +147,127 @@ namespace Compliance.Plugins
                 }
             }
 
+        }
+
+        private Guid[] fetchUnaffectedTeamsByUsers(LocalPluginContext localContext, Guid[] userGuids, Guid[] affectedTeamsFilter)
+        {
+            return localContext.OrganizationService.RetrieveMultiple(
+                    new QueryExpression("teammembership")
+                    {
+                        Distinct = true,
+                        ColumnSet = new ColumnSet("systemuserid", "teamid"),
+                        Criteria = {
+                            Filters = {
+                                new FilterExpression(LogicalOperator.And) {
+                                    Conditions = {
+                                        new ConditionExpression("systemuserid", ConditionOperator.In, userGuids),
+                                        new ConditionExpression("teamid", ConditionOperator.NotIn, affectedTeamsFilter)
+                                    }
+                                }
+                            }
+                        }
+                    })
+                    .Entities
+                    .Select(q => (Guid)q.ToEntity<TeamMembership>().TeamId).ToArray();
+        }
+
+        private Guid[] fetchAffectedQueues(LocalPluginContext localContext, Guid[] unaffectedTeams, Guid[] affectedTeams)
+        {
+            return localContext.OrganizationService.RetrieveMultiple(
+                new QueryExpression("opc_queues_teams")
+                {
+                    Distinct = true,
+                    ColumnSet = new ColumnSet("queueid", "teamid"),
+                    Criteria = {
+                        Conditions = {
+                            new ConditionExpression("teamid", ConditionOperator.In, unaffectedTeams?.Concat(affectedTeams).ToArray() ?? affectedTeams)
+                        }
+                    }
+                })
+                .Entities
+                .Select(q => q.ToEntity<opc_queues_teams>())
+                .GroupBy(q => q.queueid)
+                .Where(g => unaffectedTeams == null || g.All(p => !unaffectedTeams.Contains((Guid)p.teamid))) // only keep groups where all elements are in affectedTeams
+                .Select(g => (Guid)g.Key).ToArray();
+        }
+
+        private Guid[] fetchQueueMembershipByUsers(LocalPluginContext localContext, Guid[] users)
+        {
+            return localContext.OrganizationService.RetrieveMultiple(
+                    new QueryExpression("queuemembership")
+                    {
+                        Distinct = true,
+                        ColumnSet = new ColumnSet("queueid"),
+                        Criteria = {
+                            Conditions = {
+                                new ConditionExpression("systemuserid", ConditionOperator.In, users)
+                            }
+                        }
+                    })
+                    .Entities
+                    .Select(q => (Guid)q.ToEntity<QueueMembership>().QueueId).ToArray();
+        }
+
+        private Guid[] fetchUsersByTeams(LocalPluginContext localContext, Guid[] unaffectedTeams, Guid[] affectedTeams)
+        {
+            return localContext.OrganizationService.RetrieveMultiple(
+                new QueryExpression("teammembership")
+                {
+                    Distinct = true,
+                    ColumnSet = new ColumnSet("systemuserid", "teamid"),
+                    Criteria = {
+                        Conditions = {
+                            new ConditionExpression("teamid", ConditionOperator.In, unaffectedTeams?.Concat(affectedTeams).ToArray() ?? affectedTeams)
+                        }
+                    }
+                })
+                .Entities
+                .Select(q => q.ToEntity<TeamMembership>())
+                .GroupBy(g => g.SystemUserId) // only consider for deletion if teamid is not in the teams that should not be affected
+                .Where(g => unaffectedTeams == null || g.All(p => !unaffectedTeams.Contains((Guid)p.TeamId)))
+                .Select(g => (Guid)g.Key)
+                .ToArray();
+        }
+
+        private Guid[] fetchQueueMembershipByQueues(LocalPluginContext localContext, Guid[] queues)
+        {
+            return localContext.OrganizationService.RetrieveMultiple(
+                    new QueryExpression("queuemembership")
+                    {
+                        Distinct = true,
+                        ColumnSet = new ColumnSet("systemuserid"),
+                        Criteria = {
+                            Conditions = {
+                                new ConditionExpression("queueid", ConditionOperator.In, queues)
+                            }
+                        }
+                    })
+                    .Entities
+                    .Select(q => (Guid)q.ToEntity<QueueMembership>().SystemUserId)
+                    .ToArray();
+        }
+
+        private Guid[] fetchUnaffectedTeamsByQueues(LocalPluginContext localContext, Guid[] queues, Guid[] affectedTeamsFilter)
+        {
+            return localContext.OrganizationService.RetrieveMultiple(
+                    new QueryExpression("opc_queues_teams")
+                    {
+                        Distinct = true,
+                        ColumnSet = new ColumnSet("teamid"),
+                        Criteria = {
+                            Filters = {
+                                new FilterExpression(LogicalOperator.And)
+                                {
+                                    Conditions = {
+                                        new ConditionExpression("queueid", ConditionOperator.In, queues),
+                                        new ConditionExpression("teamid", ConditionOperator.NotIn, affectedTeamsFilter)
+                                    }
+                                }
+                            }
+                        }
+                    })
+                    .Entities
+                    .Select(q => (Guid)q.ToEntity<opc_queues_teams>().teamid).ToArray();
         }
     }
 }
