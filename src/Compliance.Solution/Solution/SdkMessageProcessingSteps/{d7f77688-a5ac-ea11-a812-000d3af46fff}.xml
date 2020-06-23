@@ -3,11 +3,12 @@
   <SdkMessageId>bdfc191d-fc56-493a-a6b1-cb0c47a22ecc</SdkMessageId>
   <PluginTypeName>Compliance.Plugins.QueueMemberShipPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548</PluginTypeName>
   <PluginTypeId>341dc720-bd14-4054-881c-e55d202367c6</PluginTypeId>
-  <AsyncAutoDelete>1</AsyncAutoDelete>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
   <Description>Compliance.Plugins.QueueMemberShipPlugin: Disassociate of any Entity</Description>
   <FilteringAttributes></FilteringAttributes>
+  <ImpersonatingUserIdName># SVC_OPC_CRM_Admin</ImpersonatingUserIdName>
   <InvocationSource>0</InvocationSource>
-  <Mode>1</Mode>
+  <Mode>0</Mode>
   <Rank>1</Rank>
   <EventHandlerTypeCode>4602</EventHandlerTypeCode>
   <Stage>40</Stage>

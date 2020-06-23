@@ -17,6 +17,10 @@ declare const enum account_accountcategorycode {
   PreferredCustomer = 1,
   Standard = 2,
 }
+declare const enum account_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum account_statecode {
   Active = 0,
   Inactive = 1,
@@ -38,10 +42,6 @@ declare const enum account_accountclassificationcode {
 }
 declare const enum account_customersizecode {
   DefaultValue = 1,
-}
-declare const enum account_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum account_ownershipcode {
   Public = 1,
@@ -147,15 +147,6 @@ declare const enum contact_address1_addresstypecode {
   Primary = 3,
   Other = 4,
 }
-declare const enum contact_gendercode {
-  Male = 1,
-  Female = 2,
-}
-declare const enum opc_duplicatedetectionresult {
-  None = 924340000,
-  Potentialduplicate = 924340001,
-  Duplicatefound = 924340002,
-}
 declare const enum contact_address1_shippingmethodcode {
   Airborne = 1,
   DHL = 2,
@@ -164,6 +155,15 @@ declare const enum contact_address1_shippingmethodcode {
   PostalMail = 5,
   FullLoad = 6,
   WillCall = 7,
+}
+declare const enum contact_gendercode {
+  Male = 1,
+  Female = 2,
+}
+declare const enum opc_duplicatedetectionresult {
+  None = 924340000,
+  Potentialduplicate = 924340001,
+  Duplicatefound = 924340002,
 }
 declare const enum contact_preferredappointmenttimecode {
   Morning = 1,
@@ -554,6 +554,43 @@ declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum queue_queuetypecode {
+  DefaultValue = 1,
+}
+declare const enum queue_outgoingemaildeliverymethod {
+  None = 0,
+  ServerSideSynchronizationorEmailRouter = 2,
+}
+declare const enum queue_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum queue_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum queue_queueviewtype {
+  Public = 0,
+  Private = 1,
+}
+declare const enum queue_incomingemaildeliverymethod {
+  None = 0,
+  ServerSideSynchronizationorEmailRouter = 2,
+  ForwardMailbox = 3,
+}
+declare const enum queue_incomingemailfilteringmethod {
+  Allemailmessages = 0,
+  EmailmessagesinresponsetoDynamics365email = 1,
+  EmailmessagesfromDynamics365LeadsContactsandAccounts = 2,
+  EmailmessagesfromDynamics365recordsthatareemailenabled = 3,
+  Noemailmessages = 4,
+}
+declare const enum queue_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum queueitem_statuscode {
   Active = 1,
   Inactive = 2,
@@ -573,8 +610,8 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10009,
-  Complaint = 10048,
+  KnowledgeArticleTemplate = 10007,
+  Complaint = 11707,
 }
 declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
@@ -649,6 +686,12 @@ declare const enum systemuser_address2_addresstypecode {
 }
 declare const enum systemuser_address2_shippingmethodcode {
   DefaultValue = 1,
+}
+declare const enum team_type {
+  Owner = 0,
+  Access = 1,
+  AADSecurityGroup = 2,
+  AADOfficeGroup = 3,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -7146,6 +7189,146 @@ declare namespace Form.opc_topic.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.queue.Main {
+  namespace Information {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "email configuration"): Xrm.PageSection;
+        get(name: "incoming email"): Xrm.PageSection;
+        get(name: "queue information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "emailaddress"): Xrm.Attribute<string>;
+      get(name: "incomingemailfilteringmethod"): Xrm.OptionSetAttribute<queue_incomingemailfilteringmethod>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "emailaddress"): Xrm.StringControl;
+      get(name: "incomingemailfilteringmethod"): Xrm.OptionSetControl<queue_incomingemailfilteringmethod>;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "emailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "incomingemailfilteringmethod"): Xrm.OptionSetAttribute<queue_incomingemailfilteringmethod>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "emailaddress"): Xrm.StringControl;
+    getControl(controlName: "incomingemailfilteringmethod"): Xrm.OptionSetControl<queue_incomingemailfilteringmethod>;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.queue.Main {
+  namespace Queue {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "QueueItems"): Xrm.PageSection;
+        get(name: "QueueMembers"): Xrm.PageSection;
+        get(name: "QueueMembersNoRecord"): Xrm.PageSection;
+        get(name: "RecordCreationAndUpdateRule"): Xrm.PageSection;
+        get(name: "incoming email"): Xrm.PageSection;
+        get(name: "queue information"): Xrm.PageSection;
+        get(name: "section_teammembership"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "emailaddress"): Xrm.Attribute<string>;
+      get(name: "incomingemailfilteringmethod"): Xrm.OptionSetAttribute<queue_incomingemailfilteringmethod>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "queueviewtype"): Xrm.OptionSetAttribute<queue_queueviewtype>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "QueueItemsGrid"): Xrm.SubGridControl<"queueitem">;
+      get(name: "RecordCreationAndUpdateRuleGrid"): Xrm.SubGridControl<"convertrule">;
+      get(name: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "emailaddress"): Xrm.StringControl;
+      get(name: "incomingemailfilteringmethod"): Xrm.OptionSetControl<queue_incomingemailfilteringmethod>;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "queuemembersgrid"): Xrm.SubGridControl<"systemuser">;
+      get(name: "queueviewtype"): Xrm.OptionSetControl<queue_queueviewtype>;
+      get(name: "subgrid_teams"): Xrm.SubGridControl<"team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Queue extends Xrm.PageBase<Queue.Attributes,Queue.Tabs,Queue.Controls> {
+    getAttribute(attributeName: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "emailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "incomingemailfilteringmethod"): Xrm.OptionSetAttribute<queue_incomingemailfilteringmethod>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "queueviewtype"): Xrm.OptionSetAttribute<queue_queueviewtype>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "QueueItemsGrid"): Xrm.SubGridControl<"queueitem">;
+    getControl(controlName: "RecordCreationAndUpdateRuleGrid"): Xrm.SubGridControl<"convertrule">;
+    getControl(controlName: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "emailaddress"): Xrm.StringControl;
+    getControl(controlName: "incomingemailfilteringmethod"): Xrm.OptionSetControl<queue_incomingemailfilteringmethod>;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "queuemembersgrid"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "queueviewtype"): Xrm.OptionSetControl<queue_queueviewtype>;
+    getControl(controlName: "subgrid_teams"): Xrm.SubGridControl<"team">;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.queueitem.Main {
   namespace Information {
     namespace Tabs {
@@ -7813,6 +7996,134 @@ declare namespace Form.systemuser.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.team.Main {
+  namespace TeamformBusiness {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "Description"): Xrm.PageSection;
+        get(name: "General"): Xrm.PageSection;
+        get(name: "TeamMembers"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "administratorid"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "teamtype"): Xrm.OptionSetAttribute<team_type>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "Members"): Xrm.SubGridControl<"systemuser">;
+      get(name: "administratorid"): Xrm.LookupControl<"systemuser">;
+      get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "teamtype"): Xrm.OptionSetControl<team_type>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface TeamformBusiness extends Xrm.PageBase<TeamformBusiness.Attributes,TeamformBusiness.Tabs,TeamformBusiness.Controls> {
+    getAttribute(attributeName: "administratorid"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "teamtype"): Xrm.OptionSetAttribute<team_type>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "Members"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "administratorid"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "teamtype"): Xrm.OptionSetControl<team_type>;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.team.Main {
+  namespace Team {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "Description"): Xrm.PageSection;
+        get(name: "General"): Xrm.PageSection;
+        get(name: "TeamMembers"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "administratorid"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
+      get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "queueid"): Xrm.LookupAttribute<"queue">;
+      get(name: "teamtype"): Xrm.OptionSetAttribute<team_type>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "Members"): Xrm.SubGridControl<"systemuser">;
+      get(name: "administratorid"): Xrm.LookupControl<"systemuser">;
+      get(name: "azureactivedirectoryobjectid"): Xrm.StringControl;
+      get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "header_queueid"): Xrm.LookupControl<"queue">;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "teamtype"): Xrm.OptionSetControl<team_type>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Team extends Xrm.PageBase<Team.Attributes,Team.Tabs,Team.Controls> {
+    getAttribute(attributeName: "administratorid"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
+    getAttribute(attributeName: "teamtype"): Xrm.OptionSetAttribute<team_type>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "Members"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "administratorid"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "azureactivedirectoryobjectid"): Xrm.StringControl;
+    getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "header_queueid"): Xrm.LookupControl<"queue">;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "teamtype"): Xrm.OptionSetControl<team_type>;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.connection.Main {
   namespace Information {
     namespace Tabs {
@@ -8305,6 +8616,29 @@ interface opc_QuestionType_Create extends opc_QuestionType {
 }
 interface opc_QuestionType_Update extends opc_QuestionType {
 }
+interface opc_queues_teams_Base extends WebEntity {
+}
+interface opc_queues_teams_Fixed extends WebEntity_Fixed {
+  opc_queues_teamsid: string;
+}
+interface opc_queues_teams extends opc_queues_teams_Base, opc_queues_teams_Relationships {
+}
+interface opc_queues_teams_Relationships {
+}
+interface opc_queues_teams_Result extends opc_queues_teams_Base, opc_queues_teams_Relationships {
+}
+interface opc_queues_teams_FormattedResult {
+}
+interface opc_queues_teams_Select {
+}
+interface opc_queues_teams_Expand {
+}
+interface opc_queues_teams_Filter {
+}
+interface opc_queues_teams_Create extends opc_queues_teams {
+}
+interface opc_queues_teams_Update extends opc_queues_teams {
+}
 interface opc_recommendation_Base extends WebEntity {
 }
 interface opc_recommendation_Fixed extends WebEntity_Fixed {
@@ -8627,6 +8961,29 @@ interface opc_topic_Create extends opc_topic {
 }
 interface opc_topic_Update extends opc_topic {
 }
+interface Queue_Base extends WebEntity {
+}
+interface Queue_Fixed extends WebEntity_Fixed {
+  queueid: string;
+}
+interface Queue extends Queue_Base, Queue_Relationships {
+}
+interface Queue_Relationships {
+}
+interface Queue_Result extends Queue_Base, Queue_Relationships {
+}
+interface Queue_FormattedResult {
+}
+interface Queue_Select {
+}
+interface Queue_Expand {
+}
+interface Queue_Filter {
+}
+interface Queue_Create extends Queue {
+}
+interface Queue_Update extends Queue {
+}
 interface QueueItem_Base extends WebEntity {
 }
 interface QueueItem_Fixed extends WebEntity_Fixed {
@@ -8650,6 +9007,29 @@ interface QueueItem_Create extends QueueItem {
 }
 interface QueueItem_Update extends QueueItem {
 }
+interface QueueMembership_Base extends WebEntity {
+}
+interface QueueMembership_Fixed extends WebEntity_Fixed {
+  queuemembershipid: string;
+}
+interface QueueMembership extends QueueMembership_Base, QueueMembership_Relationships {
+}
+interface QueueMembership_Relationships {
+}
+interface QueueMembership_Result extends QueueMembership_Base, QueueMembership_Relationships {
+}
+interface QueueMembership_FormattedResult {
+}
+interface QueueMembership_Select {
+}
+interface QueueMembership_Expand {
+}
+interface QueueMembership_Filter {
+}
+interface QueueMembership_Create extends QueueMembership {
+}
+interface QueueMembership_Update extends QueueMembership {
+}
 interface SystemUser_Base extends WebEntity {
 }
 interface SystemUser_Fixed extends WebEntity_Fixed {
@@ -8672,6 +9052,52 @@ interface SystemUser_Filter {
 interface SystemUser_Create extends SystemUser {
 }
 interface SystemUser_Update extends SystemUser {
+}
+interface Team_Base extends WebEntity {
+}
+interface Team_Fixed extends WebEntity_Fixed {
+  teamid: string;
+}
+interface Team extends Team_Base, Team_Relationships {
+}
+interface Team_Relationships {
+}
+interface Team_Result extends Team_Base, Team_Relationships {
+}
+interface Team_FormattedResult {
+}
+interface Team_Select {
+}
+interface Team_Expand {
+}
+interface Team_Filter {
+}
+interface Team_Create extends Team {
+}
+interface Team_Update extends Team {
+}
+interface TeamMembership_Base extends WebEntity {
+}
+interface TeamMembership_Fixed extends WebEntity_Fixed {
+  teammembershipid: string;
+}
+interface TeamMembership extends TeamMembership_Base, TeamMembership_Relationships {
+}
+interface TeamMembership_Relationships {
+}
+interface TeamMembership_Result extends TeamMembership_Base, TeamMembership_Relationships {
+}
+interface TeamMembership_FormattedResult {
+}
+interface TeamMembership_Select {
+}
+interface TeamMembership_Expand {
+}
+interface TeamMembership_Filter {
+}
+interface TeamMembership_Create extends TeamMembership {
+}
+interface TeamMembership_Update extends TeamMembership {
 }
 interface ActivityParty_Base extends WebEntity {
 }
@@ -9171,7 +9597,8 @@ interface Account_Expand {
   modifiedby: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_account_complaints_respondent: WebExpand<Account_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_account_complaints_respondent: opc_complaint_Result[] }>;
-  ownerid: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<Account_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<Account_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   parentaccountid: WebExpand<Account_Expand, Account_Select, Account_Filter, { parentaccountid: Account_Result }>;
   preferredsystemuserid: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { preferredsystemuserid: SystemUser_Result }>;
@@ -9261,7 +9688,8 @@ interface Account_RelatedOne {
   masterid: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   parentaccountid: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   preferredsystemuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
@@ -9881,7 +10309,8 @@ interface Contact_Expand {
   modifiedonbehalfby: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_contact_complaints_complainant: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainant: opc_complaint_Result[] }>;
   opc_contact_complaints_complainantreps: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainantreps: opc_complaint_Result[] }>;
-  ownerid: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<Contact_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<Contact_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   parentcustomerid_account: WebExpand<Contact_Expand, Account_Select, Account_Filter, { parentcustomerid_account: Account_Result }>;
   parentcustomerid_contact: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { parentcustomerid_contact: Contact_Result }>;
@@ -9979,7 +10408,8 @@ interface Contact_RelatedOne {
   masterid: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   parentcustomerid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   parentcustomerid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
@@ -10098,7 +10528,8 @@ interface opc_allegation_Expand {
   opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
   opc_dispositionactionid: WebExpand<opc_allegation_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionactionid: opc_dispositionaction_Result }>;
   opc_dispositionreasonid: WebExpand<opc_allegation_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreasonid: opc_dispositionreason_Result }>;
-  ownerid: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_allegation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_allegation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_allegation_FormattedResult {
@@ -10145,7 +10576,8 @@ interface opc_allegation_RelatedOne {
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   opc_dispositionactionid: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
   opc_dispositionreasonid: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_allegation_RelatedMany {
@@ -10254,7 +10686,8 @@ interface opc_allegationtype_Expand {
   modifiedonbehalfby: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_allegationtype_allegations_allegationtype: WebExpand<opc_allegationtype_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationtype_allegations_allegationtype: opc_allegation_Result[] }>;
   opc_checklisttypeid: WebExpand<opc_allegationtype_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { opc_checklisttypeid: opc_ChecklistType_Result }>;
-  ownerid: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_allegationtype_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_allegationtype_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_allegationtype_FormattedResult {
@@ -10291,7 +10724,8 @@ interface opc_allegationtype_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_checklisttypeid: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_allegationtype_RelatedMany {
@@ -10387,7 +10821,8 @@ interface opc_ChecklistResponse_Expand {
   modifiedonbehalfby: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_allegationid: WebExpand<opc_ChecklistResponse_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationid: opc_allegation_Result }>;
   opc_questiontemplateid: WebExpand<opc_ChecklistResponse_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questiontemplateid: opc_QuestionTemplate_Result }>;
-  ownerid: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_ChecklistResponse_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_ChecklistResponse_FormattedResult {
@@ -10427,7 +10862,8 @@ interface opc_ChecklistResponse_RelatedOne {
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_allegationid: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_questiontemplateid: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_ChecklistResponse_RelatedMany {
@@ -10527,7 +10963,8 @@ interface opc_ChecklistType_Expand {
   modifiedonbehalfby: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_checklisttype_allegationtypes_checklistty: WebExpand<opc_ChecklistType_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_checklisttype_allegationtypes_checklistty: opc_allegationtype_Result[] }>;
   opc_checklisttype_questiontemplates_checklist: WebExpand<opc_ChecklistType_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_checklisttype_questiontemplates_checklist: opc_QuestionTemplate_Result[] }>;
-  ownerid: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_ChecklistType_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_ChecklistType_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_ChecklistType_FormattedResult {
@@ -10562,7 +10999,8 @@ interface opc_ChecklistType_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_ChecklistType_RelatedMany {
@@ -10752,7 +11190,8 @@ interface opc_complaint_Expand {
   opc_legislation: WebExpand<opc_complaint_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
   opc_opcpriorityid: WebExpand<opc_complaint_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { opc_opcpriorityid: opc_opcpriority_Result }>;
   opc_sectorid: WebExpand<opc_complaint_Expand, opc_sector_Select, opc_sector_Filter, { opc_sectorid: opc_sector_Result }>;
-  ownerid: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_complaint_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_complaint_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_complaint_FormattedResult {
@@ -10817,7 +11256,8 @@ interface opc_complaint_RelatedOne {
   opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
   opc_opcpriorityid: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
   opc_sectorid: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_complaint_RelatedMany {
@@ -10974,7 +11414,8 @@ interface opc_dispositionaction_Expand {
   modifiedonbehalfby: WebExpand<opc_dispositionaction_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_dispositionaction_allegations_action: WebExpand<opc_dispositionaction_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_dispositionaction_allegations_action: opc_allegation_Result[] }>;
   opc_dispositionreasonid: WebExpand<opc_dispositionaction_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreasonid: opc_dispositionreason_Result }>;
-  ownerid: WebExpand<opc_dispositionaction_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_dispositionaction_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_dispositionaction_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_dispositionaction_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_dispositionaction_FormattedResult {
@@ -11011,7 +11452,8 @@ interface opc_dispositionaction_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_dispositionreasonid: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_dispositionaction_RelatedMany {
@@ -11112,7 +11554,8 @@ interface opc_dispositionreason_Expand {
   modifiedonbehalfby: WebExpand<opc_dispositionreason_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_dispositionreason_allegations_reason: WebExpand<opc_dispositionreason_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_dispositionreason_allegations_reason: opc_allegation_Result[] }>;
   opc_dispositionreason_dispositionactions_reas: WebExpand<opc_dispositionreason_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionreason_dispositionactions_reas: opc_dispositionaction_Result[] }>;
-  ownerid: WebExpand<opc_dispositionreason_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_dispositionreason_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_dispositionreason_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_dispositionreason_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_dispositionreason_FormattedResult {
@@ -11147,7 +11590,8 @@ interface opc_dispositionreason_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_dispositionreason_RelatedMany {
@@ -11372,7 +11816,8 @@ interface opc_issue_Expand {
   modifiedby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaintid: WebExpand<opc_issue_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
-  ownerid: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_issue_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_issue_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_issue_FormattedResult {
@@ -11409,7 +11854,8 @@ interface opc_issue_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_issue_RelatedMany {
@@ -11498,7 +11944,8 @@ interface opc_legislation_Expand {
   modifiedby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_legislation_complaints_legislation: WebExpand<opc_legislation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_legislation_complaints_legislation: opc_complaint_Result[] }>;
-  ownerid: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_legislation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_legislation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_legislation_FormattedResult {
@@ -11532,7 +11979,8 @@ interface opc_legislation_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_legislation_RelatedMany {
@@ -11624,7 +12072,8 @@ interface opc_notification_Expand {
   modifiedby: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaintid: WebExpand<opc_notification_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
-  ownerid: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_notification_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_notification_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_notification_FormattedResult {
@@ -11661,7 +12110,8 @@ interface opc_notification_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_notification_RelatedMany {
@@ -11762,7 +12212,8 @@ interface opc_opcpriority_Expand {
   modifiedby: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_opcpriority_complaints_opcpriority: WebExpand<opc_opcpriority_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_opcpriority_complaints_opcpriority: opc_complaint_Result[] }>;
-  ownerid: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_opcpriority_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_opcpriority_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_opcpriority_FormattedResult {
@@ -11796,7 +12247,8 @@ interface opc_opcpriority_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_opcpriority_RelatedMany {
@@ -11912,7 +12364,8 @@ interface opc_QuestionTemplate_Expand {
   opc_questiontemplate_checklistresponses_quest: WebExpand<opc_QuestionTemplate_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { opc_questiontemplate_checklistresponses_quest: opc_ChecklistResponse_Result[] }>;
   opc_questiontemplate_questiontemplates_parent: WebExpand<opc_QuestionTemplate_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questiontemplate_questiontemplates_parent: opc_QuestionTemplate_Result[] }>;
   opc_questiontypeid: WebExpand<opc_QuestionTemplate_Expand, opc_QuestionType_Select, opc_QuestionType_Filter, { opc_questiontypeid: opc_QuestionType_Result }>;
-  ownerid: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_QuestionTemplate_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_QuestionTemplate_FormattedResult {
@@ -11955,7 +12408,8 @@ interface opc_QuestionTemplate_RelatedOne {
   opc_checklisttypeid: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
   opc_parentquestiontemplateid: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
   opc_questiontypeid: WebMappingRetrieve<opc_QuestionType_Select,opc_QuestionType_Expand,opc_QuestionType_Filter,opc_QuestionType_Fixed,opc_QuestionType_Result,opc_QuestionType_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_QuestionTemplate_RelatedMany {
@@ -12083,6 +12537,55 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   opc_questiontypes: WebMappingCUDA<opc_QuestionType_Create,opc_QuestionType_Update,opc_QuestionType_Select>;
 }
+interface opc_queues_teams_Base extends WebEntity {
+  opc_queues_teamsid?: string | null;
+  queueid?: string | null;
+  teamid?: string | null;
+  versionnumber?: number | null;
+}
+interface opc_queues_teams_Relationships {
+  opc_queues_teams_membership?: Team_Result[] | null;
+}
+interface opc_queues_teams extends opc_queues_teams_Base, opc_queues_teams_Relationships {
+}
+interface opc_queues_teams_Create extends opc_queues_teams {
+}
+interface opc_queues_teams_Update extends opc_queues_teams {
+}
+interface opc_queues_teams_Select {
+  opc_queues_teamsid: WebAttribute<opc_queues_teams_Select, { opc_queues_teamsid: string | null }, {  }>;
+  queueid: WebAttribute<opc_queues_teams_Select, { queueid: string | null }, {  }>;
+  teamid: WebAttribute<opc_queues_teams_Select, { teamid: string | null }, {  }>;
+  versionnumber: WebAttribute<opc_queues_teams_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_queues_teams_Filter {
+  opc_queues_teamsid: XQW.Guid;
+  queueid: XQW.Guid;
+  teamid: XQW.Guid;
+  versionnumber: number;
+}
+interface opc_queues_teams_Expand {
+  opc_queues_teams_membership: WebExpand<opc_queues_teams_Expand, Team_Select, Team_Filter, { opc_queues_teams_membership: Team_Result[] }>;
+}
+interface opc_queues_teams_FormattedResult {
+}
+interface opc_queues_teams_Result extends opc_queues_teams_Base, opc_queues_teams_Relationships {
+  "@odata.etag": string;
+}
+interface opc_queues_teams_RelatedOne {
+}
+interface opc_queues_teams_RelatedMany {
+  opc_queues_teams_membership: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_queues_teamsset: WebMappingRetrieve<opc_queues_teams_Select,opc_queues_teams_Expand,opc_queues_teams_Filter,opc_queues_teams_Fixed,opc_queues_teams_Result,opc_queues_teams_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_queues_teamsset: WebMappingRelated<opc_queues_teams_RelatedOne,opc_queues_teams_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_queues_teamsset: WebMappingCUDA<opc_queues_teams_Create,opc_queues_teams_Update,opc_queues_teams_Select>;
+}
 interface opc_recommendation_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
@@ -12157,7 +12660,8 @@ interface opc_recommendation_Expand {
   modifiedby: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaintid: WebExpand<opc_recommendation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
-  ownerid: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_recommendation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_recommendation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_recommendation_FormattedResult {
@@ -12194,7 +12698,8 @@ interface opc_recommendation_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_recommendation_RelatedMany {
@@ -12299,7 +12804,8 @@ interface opc_reminder_Expand {
   modifiedonbehalfby: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaintid: WebExpand<opc_reminder_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
   opc_reminders_users_additionaluserstonotify: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { opc_reminders_users_additionaluserstonotify: SystemUser_Result[] }>;
-  ownerid: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_reminder_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_reminder_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_reminder_FormattedResult {
@@ -12337,7 +12843,8 @@ interface opc_reminder_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_reminder_RelatedMany {
@@ -12484,7 +12991,8 @@ interface opc_RiskAppetite_Expand {
   opc_RiskAssessment_ActualRiskAppetite_opc: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_ActualRiskAppetite_opc: opc_RiskAssessment_Result[] }>;
   opc_RiskAssessment_SuggestedRiskAppetite_: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_SuggestedRiskAppetite_: opc_RiskAssessment_Result[] }>;
   opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
-  ownerid: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAppetite_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAppetite_FormattedResult {
@@ -12518,7 +13026,8 @@ interface opc_RiskAppetite_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAppetite_RelatedMany {
@@ -12645,7 +13154,8 @@ interface opc_RiskAssessment_Expand {
   opc_RiskAssessmentType: WebExpand<opc_RiskAssessment_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
   opc_SuggestedRiskAppetite: WebExpand<opc_RiskAssessment_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_SuggestedRiskAppetite: opc_RiskAppetite_Result }>;
   opc_riskassessment_riskassessmentdefinitions_riskassessment: WebExpand<opc_RiskAssessment_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_riskassessment_riskassessmentdefinitions_riskassessment: opc_RiskAssessmentDefinition_Result[] }>;
-  ownerid: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessment_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessment_FormattedResult {
@@ -12694,7 +13204,8 @@ interface opc_RiskAssessment_RelatedOne {
   opc_Complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
   opc_SuggestedRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessment_RelatedMany {
@@ -12821,7 +13332,8 @@ interface opc_RiskAssessmentCategory_Expand {
   opc_RiskAssessmentDefinition_RiskAssessme: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessme: opc_RiskAssessmentDefinition_Result[] }>;
   opc_RiskAssessmentType: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
   opc_SuggestedRiskAppetite: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_SuggestedRiskAppetite: opc_RiskAppetite_Result }>;
-  ownerid: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentCategory_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentCategory_FormattedResult {
@@ -12873,7 +13385,8 @@ interface opc_RiskAssessmentCategory_RelatedOne {
   opc_RiskAssessmentCategoryTemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
   opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
   opc_SuggestedRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentCategory_RelatedMany {
@@ -12970,7 +13483,8 @@ interface opc_RiskAssessmentCategoryTemplate_Expand {
   opc_RiskAssessmentFactorTemplate_RiskAsse: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate_RiskAsse: opc_RiskAssessmentFactorTemplate_Result[] }>;
   opc_RiskAssessmentType: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
   opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate: opc_RiskAssessmentCategory_Result[] }>;
-  ownerid: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentCategoryTemplate_FormattedResult {
@@ -13007,7 +13521,8 @@ interface opc_RiskAssessmentCategoryTemplate_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentCategoryTemplate_RelatedMany {
@@ -13115,7 +13630,8 @@ interface opc_RiskAssessmentDefinition_Expand {
   opc_RiskAssessmentDefinitionTemplate: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result }>;
   opc_RiskAssessmentFactorTemplate: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result }>;
   opc_riskassessmentid: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_riskassessmentid: opc_RiskAssessment_Result }>;
-  ownerid: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentDefinition_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentDefinition_FormattedResult {
@@ -13161,7 +13677,8 @@ interface opc_RiskAssessmentDefinition_RelatedOne {
   opc_RiskAssessmentDefinitionTemplate: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
   opc_RiskAssessmentFactorTemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
   opc_riskassessmentid: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentDefinition_RelatedMany {
@@ -13257,7 +13774,8 @@ interface opc_RiskAssessmentDefinitionTemplate_Expand {
   opc_RiskAppetite: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_RiskAppetite: opc_RiskAppetite_Result }>;
   opc_RiskAssessmentDefinition_RiskAssessmentDe: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessmentDe: opc_RiskAssessmentDefinition_Result[] }>;
   opc_RiskAssessmentFactorTemplate: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result }>;
-  ownerid: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentDefinitionTemplate_FormattedResult {
@@ -13297,7 +13815,8 @@ interface opc_RiskAssessmentDefinitionTemplate_RelatedOne {
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_RiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
   opc_RiskAssessmentFactorTemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentDefinitionTemplate_RelatedMany {
@@ -13394,7 +13913,8 @@ interface opc_RiskAssessmentFactorTemplate_Expand {
   opc_RiskAssessmentCategoryTemplate: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { opc_RiskAssessmentCategoryTemplate: opc_RiskAssessmentCategoryTemplate_Result }>;
   opc_RiskAssessmentDefinitionTemplate_Risk: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_RiskAssessmentDefinitionTemplate_Risk: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
   opc_RiskAssessmentDefinition_RiskAssessmentFa: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessmentFa: opc_RiskAssessmentDefinition_Result[] }>;
-  ownerid: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentFactorTemplate_FormattedResult {
@@ -13431,7 +13951,8 @@ interface opc_RiskAssessmentFactorTemplate_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_RiskAssessmentCategoryTemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentFactorTemplate_RelatedMany {
@@ -13523,7 +14044,8 @@ interface opc_RiskAssessmentType_Expand {
   opc_RiskAssessmentCategoryTemplate_RiskAs: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { opc_RiskAssessmentCategoryTemplate_RiskAs: opc_RiskAssessmentCategoryTemplate_Result[] }>;
   opc_RiskAssessment_RiskAssessmentType_opc: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_RiskAssessmentType_opc: opc_RiskAssessment_Result[] }>;
   opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType: opc_RiskAssessmentCategory_Result[] }>;
-  ownerid: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentType_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentType_FormattedResult {
@@ -13557,7 +14079,8 @@ interface opc_RiskAssessmentType_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentType_RelatedMany {
@@ -13661,7 +14184,8 @@ interface opc_sector_Expand {
   opc_parentsectorid: WebExpand<opc_sector_Expand, opc_sector_Select, opc_sector_Filter, { opc_parentsectorid: opc_sector_Result }>;
   opc_sector_complaints_sector: WebExpand<opc_sector_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_sector_complaints_sector: opc_complaint_Result[] }>;
   opc_sector_parentsectorid_sectors: WebExpand<opc_sector_Expand, opc_sector_Select, opc_sector_Filter, { opc_sector_parentsectorid_sectors: opc_sector_Result[] }>;
-  ownerid: WebExpand<opc_sector_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_sector_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_sector_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_sector_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_sector_FormattedResult {
@@ -13698,7 +14222,8 @@ interface opc_sector_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_parentsectorid: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_sector_RelatedMany {
@@ -13801,7 +14326,8 @@ interface opc_theme_Expand {
   modifiedby: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_theme_topics_themeid: WebExpand<opc_theme_Expand, opc_topic_Select, opc_topic_Filter, { opc_theme_topics_themeid: opc_topic_Result[] }>;
-  ownerid: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_theme_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_theme_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_theme_FormattedResult {
@@ -13835,7 +14361,8 @@ interface opc_theme_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_theme_RelatedMany {
@@ -13941,7 +14468,8 @@ interface opc_topic_Expand {
   modifiedonbehalfby: WebExpand<opc_topic_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaints_topics_relatedtopics: WebExpand<opc_topic_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaints_topics_relatedtopics: opc_complaint_Result[] }>;
   opc_themeid: WebExpand<opc_topic_Expand, opc_theme_Select, opc_theme_Filter, { opc_themeid: opc_theme_Result }>;
-  ownerid: WebExpand<opc_topic_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<opc_topic_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_topic_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_topic_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_topic_FormattedResult {
@@ -13978,7 +14506,8 @@ interface opc_topic_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_themeid: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_topic_RelatedMany {
@@ -13992,6 +14521,221 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_topics: WebMappingCUDA<opc_topic_Create,opc_topic_Update,opc_topic_Select>;
+}
+interface Queue_Base extends WebEntity {
+  allowemailcredentials?: boolean | null;
+  createdon?: Date | null;
+  description?: string | null;
+  emailaddress?: string | null;
+  emailpassword?: string | null;
+  emailrouteraccessapproval?: queue_emailrouteraccessapproval | null;
+  emailusername?: string | null;
+  entityimageid?: string | null;
+  exchangerate?: number | null;
+  ignoreunsolicitedemail?: boolean | null;
+  importsequencenumber?: number | null;
+  incomingemaildeliverymethod?: queue_incomingemaildeliverymethod | null;
+  incomingemailfilteringmethod?: queue_incomingemailfilteringmethod | null;
+  isemailaddressapprovedbyo365admin?: boolean | null;
+  isfaxqueue?: boolean | null;
+  modifiedon?: Date | null;
+  name?: string | null;
+  numberofitems?: number | null;
+  numberofmembers?: number | null;
+  outgoingemaildeliverymethod?: queue_outgoingemaildeliverymethod | null;
+  overriddencreatedon?: Date | null;
+  queueid?: string | null;
+  queuetypecode?: queue_queuetypecode | null;
+  queueviewtype?: queue_queueviewtype | null;
+  statecode?: queue_statecode | null;
+  statuscode?: queue_statuscode | null;
+  versionnumber?: number | null;
+}
+interface Queue_Relationships {
+  opc_queues_teams_membership?: Team_Result[] | null;
+  queue_activity_parties?: ActivityParty_Result[] | null;
+  queue_entries?: QueueItem_Result[] | null;
+  queue_system_user?: SystemUser_Result[] | null;
+  queue_team?: Team_Result[] | null;
+  queuemembership_association?: SystemUser_Result[] | null;
+}
+interface Queue extends Queue_Base, Queue_Relationships {
+  businessunitid_bind$businessunits?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+  primaryuserid_bind$systemusers?: string | null;
+  transactioncurrencyid_bind$transactioncurrencies?: string | null;
+}
+interface Queue_Create extends Queue {
+  queueid_queueitemcount_bind$queueitemcounts?: string | null;
+  queueid_queuemembercount_bind$queuemembercounts?: string | null;
+}
+interface Queue_Update extends Queue {
+}
+interface Queue_Select {
+  allowemailcredentials: WebAttribute<Queue_Select, { allowemailcredentials: boolean | null }, {  }>;
+  businessunitid_guid: WebAttribute<Queue_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
+  createdby_guid: WebAttribute<Queue_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<Queue_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<Queue_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  defaultmailbox_guid: WebAttribute<Queue_Select, { defaultmailbox_guid: string | null }, { defaultmailbox_formatted?: string }>;
+  description: WebAttribute<Queue_Select, { description: string | null }, {  }>;
+  emailaddress: WebAttribute<Queue_Select, { emailaddress: string | null }, {  }>;
+  emailpassword: WebAttribute<Queue_Select, { emailpassword: string | null }, {  }>;
+  emailrouteraccessapproval: WebAttribute<Queue_Select, { emailrouteraccessapproval: queue_emailrouteraccessapproval | null }, { emailrouteraccessapproval_formatted?: string }>;
+  emailusername: WebAttribute<Queue_Select, { emailusername: string | null }, {  }>;
+  entityimageid: WebAttribute<Queue_Select, { entityimageid: string | null }, {  }>;
+  exchangerate: WebAttribute<Queue_Select, { exchangerate: number | null }, {  }>;
+  ignoreunsolicitedemail: WebAttribute<Queue_Select, { ignoreunsolicitedemail: boolean | null }, {  }>;
+  importsequencenumber: WebAttribute<Queue_Select, { importsequencenumber: number | null }, {  }>;
+  incomingemaildeliverymethod: WebAttribute<Queue_Select, { incomingemaildeliverymethod: queue_incomingemaildeliverymethod | null }, { incomingemaildeliverymethod_formatted?: string }>;
+  incomingemailfilteringmethod: WebAttribute<Queue_Select, { incomingemailfilteringmethod: queue_incomingemailfilteringmethod | null }, { incomingemailfilteringmethod_formatted?: string }>;
+  isemailaddressapprovedbyo365admin: WebAttribute<Queue_Select, { isemailaddressapprovedbyo365admin: boolean | null }, {  }>;
+  isfaxqueue: WebAttribute<Queue_Select, { isfaxqueue: boolean | null }, {  }>;
+  modifiedby_guid: WebAttribute<Queue_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<Queue_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<Queue_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  name: WebAttribute<Queue_Select, { name: string | null }, {  }>;
+  numberofitems: WebAttribute<Queue_Select, { numberofitems: number | null }, {  }>;
+  numberofmembers: WebAttribute<Queue_Select, { numberofmembers: number | null }, {  }>;
+  organizationid_guid: WebAttribute<Queue_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
+  outgoingemaildeliverymethod: WebAttribute<Queue_Select, { outgoingemaildeliverymethod: queue_outgoingemaildeliverymethod | null }, { outgoingemaildeliverymethod_formatted?: string }>;
+  overriddencreatedon: WebAttribute<Queue_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<Queue_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<Queue_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<Queue_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<Queue_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  primaryuserid_guid: WebAttribute<Queue_Select, { primaryuserid_guid: string | null }, { primaryuserid_formatted?: string }>;
+  queueid: WebAttribute<Queue_Select, { queueid: string | null }, {  }>;
+  queuetypecode: WebAttribute<Queue_Select, { queuetypecode: queue_queuetypecode | null }, { queuetypecode_formatted?: string }>;
+  queueviewtype: WebAttribute<Queue_Select, { queueviewtype: queue_queueviewtype | null }, { queueviewtype_formatted?: string }>;
+  statecode: WebAttribute<Queue_Select, { statecode: queue_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<Queue_Select, { statuscode: queue_statuscode | null }, { statuscode_formatted?: string }>;
+  transactioncurrencyid_guid: WebAttribute<Queue_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  versionnumber: WebAttribute<Queue_Select, { versionnumber: number | null }, {  }>;
+}
+interface Queue_Filter {
+  allowemailcredentials: boolean;
+  businessunitid_guid: XQW.Guid;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  defaultmailbox_guid: XQW.Guid;
+  description: string;
+  emailaddress: string;
+  emailpassword: string;
+  emailrouteraccessapproval: queue_emailrouteraccessapproval;
+  emailusername: string;
+  entityimageid: XQW.Guid;
+  exchangerate: any;
+  ignoreunsolicitedemail: boolean;
+  importsequencenumber: number;
+  incomingemaildeliverymethod: queue_incomingemaildeliverymethod;
+  incomingemailfilteringmethod: queue_incomingemailfilteringmethod;
+  isemailaddressapprovedbyo365admin: boolean;
+  isfaxqueue: boolean;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  name: string;
+  numberofitems: number;
+  numberofmembers: number;
+  organizationid_guid: XQW.Guid;
+  outgoingemaildeliverymethod: queue_outgoingemaildeliverymethod;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  primaryuserid_guid: XQW.Guid;
+  queueid: XQW.Guid;
+  queuetypecode: queue_queuetypecode;
+  queueviewtype: queue_queueviewtype;
+  statecode: queue_statecode;
+  statuscode: queue_statuscode;
+  transactioncurrencyid_guid: XQW.Guid;
+  versionnumber: number;
+}
+interface Queue_Expand {
+  createdby: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  opc_queues_teams_membership: WebExpand<Queue_Expand, Team_Select, Team_Filter, { opc_queues_teams_membership: Team_Result[] }>;
+  ownerid: WebExpand<Queue_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  primaryuserid: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { primaryuserid: SystemUser_Result }>;
+  queue_activity_parties: WebExpand<Queue_Expand, ActivityParty_Select, ActivityParty_Filter, { queue_activity_parties: ActivityParty_Result[] }>;
+  queue_entries: WebExpand<Queue_Expand, QueueItem_Select, QueueItem_Filter, { queue_entries: QueueItem_Result[] }>;
+  queue_system_user: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { queue_system_user: SystemUser_Result[] }>;
+  queue_team: WebExpand<Queue_Expand, Team_Select, Team_Filter, { queue_team: Team_Result[] }>;
+  queuemembership_association: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { queuemembership_association: SystemUser_Result[] }>;
+}
+interface Queue_FormattedResult {
+  businessunitid_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  defaultmailbox_formatted?: string;
+  emailrouteraccessapproval_formatted?: string;
+  incomingemaildeliverymethod_formatted?: string;
+  incomingemailfilteringmethod_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  organizationid_formatted?: string;
+  outgoingemaildeliverymethod_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  primaryuserid_formatted?: string;
+  queuetypecode_formatted?: string;
+  queueviewtype_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+}
+interface Queue_Result extends Queue_Base, Queue_Relationships {
+  "@odata.etag": string;
+  businessunitid_guid: string | null;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  defaultmailbox_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  organizationid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+  primaryuserid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface Queue_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  primaryuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface Queue_RelatedMany {
+  opc_queues_teams_membership: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  queue_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
+  queue_entries: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  queue_system_user: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  queue_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  queuemembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  queues: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  queues: WebMappingRelated<Queue_RelatedOne,Queue_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  queues: WebMappingCUDA<Queue_Create,Queue_Update,Queue_Select>;
 }
 interface QueueItem_Base extends WebEntity {
   createdon?: Date | null;
@@ -14018,6 +14762,7 @@ interface QueueItem_Base extends WebEntity {
 interface QueueItem_Relationships {
   objectid_opc_complaint?: opc_complaint_Result | null;
   workerid_systemuser?: SystemUser_Result | null;
+  workerid_team?: Team_Result | null;
 }
 interface QueueItem extends QueueItem_Base, QueueItem_Relationships {
   transactioncurrencyid_bind$transactioncurrencies?: string | null;
@@ -14115,7 +14860,9 @@ interface QueueItem_Expand {
   modifiedby: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   objectid_opc_complaint: WebExpand<QueueItem_Expand, opc_complaint_Select, opc_complaint_Filter, { objectid_opc_complaint: opc_complaint_Result }>;
+  queueid: WebExpand<QueueItem_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
   workerid_systemuser: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { workerid_systemuser: SystemUser_Result }>;
+  workerid_team: WebExpand<QueueItem_Expand, Team_Select, Team_Filter, { workerid_team: Team_Result }>;
 }
 interface QueueItem_FormattedResult {
   createdby_formatted?: string;
@@ -14160,7 +14907,9 @@ interface QueueItem_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   objectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   workerid_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  workerid_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
 }
 interface QueueItem_RelatedMany {
 }
@@ -14172,6 +14921,55 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   queueitems: WebMappingCUDA<QueueItem_Create,QueueItem_Update,QueueItem_Select>;
+}
+interface QueueMembership_Base extends WebEntity {
+  queueid?: string | null;
+  queuemembershipid?: string | null;
+  systemuserid?: string | null;
+  versionnumber?: number | null;
+}
+interface QueueMembership_Relationships {
+  queuemembership_association?: SystemUser_Result[] | null;
+}
+interface QueueMembership extends QueueMembership_Base, QueueMembership_Relationships {
+}
+interface QueueMembership_Create extends QueueMembership {
+}
+interface QueueMembership_Update extends QueueMembership {
+}
+interface QueueMembership_Select {
+  queueid: WebAttribute<QueueMembership_Select, { queueid: string | null }, {  }>;
+  queuemembershipid: WebAttribute<QueueMembership_Select, { queuemembershipid: string | null }, {  }>;
+  systemuserid: WebAttribute<QueueMembership_Select, { systemuserid: string | null }, {  }>;
+  versionnumber: WebAttribute<QueueMembership_Select, { versionnumber: number | null }, {  }>;
+}
+interface QueueMembership_Filter {
+  queueid: XQW.Guid;
+  queuemembershipid: XQW.Guid;
+  systemuserid: XQW.Guid;
+  versionnumber: number;
+}
+interface QueueMembership_Expand {
+  queuemembership_association: WebExpand<QueueMembership_Expand, SystemUser_Select, SystemUser_Filter, { queuemembership_association: SystemUser_Result[] }>;
+}
+interface QueueMembership_FormattedResult {
+}
+interface QueueMembership_Result extends QueueMembership_Base, QueueMembership_Relationships {
+  "@odata.etag": string;
+}
+interface QueueMembership_RelatedOne {
+}
+interface QueueMembership_RelatedMany {
+  queuemembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  queuememberships: WebMappingRetrieve<QueueMembership_Select,QueueMembership_Expand,QueueMembership_Filter,QueueMembership_Fixed,QueueMembership_Result,QueueMembership_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  queuememberships: WebMappingRelated<QueueMembership_RelatedOne,QueueMembership_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  queuememberships: WebMappingCUDA<QueueMembership_Create,QueueMembership_Update,QueueMembership_Select>;
 }
 interface SystemUser_Base extends WebEntity {
   accessmode?: systemuser_accessmode | null;
@@ -14406,6 +15204,10 @@ interface SystemUser_Relationships {
   lk_opc_topic_createdonbehalfby?: opc_topic_Result[] | null;
   lk_opc_topic_modifiedby?: opc_topic_Result[] | null;
   lk_opc_topic_modifiedonbehalfby?: opc_topic_Result[] | null;
+  lk_queue_createdonbehalfby?: Queue_Result[] | null;
+  lk_queue_modifiedonbehalfby?: Queue_Result[] | null;
+  lk_queuebase_createdby?: Queue_Result[] | null;
+  lk_queuebase_modifiedby?: Queue_Result[] | null;
   lk_queueitem_createdonbehalfby?: QueueItem_Result[] | null;
   lk_queueitem_modifiedonbehalfby?: QueueItem_Result[] | null;
   lk_queueitembase_createdby?: QueueItem_Result[] | null;
@@ -14415,16 +15217,24 @@ interface SystemUser_Relationships {
   lk_systemuser_modifiedonbehalfby?: SystemUser_Result[] | null;
   lk_systemuserbase_createdby?: SystemUser_Result[] | null;
   lk_systemuserbase_modifiedby?: SystemUser_Result[] | null;
+  lk_team_createdonbehalfby?: Team_Result[] | null;
+  lk_team_modifiedonbehalfby?: Team_Result[] | null;
+  lk_teambase_administratorid?: Team_Result[] | null;
+  lk_teambase_createdby?: Team_Result[] | null;
+  lk_teambase_modifiedby?: Team_Result[] | null;
   modifiedby_connection?: Connection_Result[] | null;
   opc_RiskAssessmentCategory_BypassInitiate?: opc_RiskAssessmentCategory_Result[] | null;
   opc_RiskAssessment_BypassInitiatedBy_Syst?: opc_RiskAssessment_Result[] | null;
   opc_complaint_intakeofficer_SystemUser?: opc_complaint_Result[] | null;
   opc_reminders_users_additionaluserstonotify?: opc_reminder_Result[] | null;
+  queue_primary_user?: Queue_Result[] | null;
+  queuemembership_association?: Queue_Result[] | null;
   system_user_accounts?: Account_Result[] | null;
   system_user_activity_parties?: ActivityParty_Result[] | null;
   system_user_contacts?: Contact_Result[] | null;
   systemuser_connections1?: Connection_Result[] | null;
   systemuser_connections2?: Connection_Result[] | null;
+  teammembership_association?: Team_Result[] | null;
   user_accounts?: Account_Result[] | null;
   user_opc_allegation?: opc_allegation_Result[] | null;
   user_opc_allegationtype?: opc_allegationtype_Result[] | null;
@@ -14841,6 +15651,10 @@ interface SystemUser_Expand {
   lk_opc_topic_createdonbehalfby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_createdonbehalfby: opc_topic_Result[] }>;
   lk_opc_topic_modifiedby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_modifiedby: opc_topic_Result[] }>;
   lk_opc_topic_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_modifiedonbehalfby: opc_topic_Result[] }>;
+  lk_queue_createdonbehalfby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queue_createdonbehalfby: Queue_Result[] }>;
+  lk_queue_modifiedonbehalfby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queue_modifiedonbehalfby: Queue_Result[] }>;
+  lk_queuebase_createdby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queuebase_createdby: Queue_Result[] }>;
+  lk_queuebase_modifiedby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queuebase_modifiedby: Queue_Result[] }>;
   lk_queueitem_createdonbehalfby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitem_createdonbehalfby: QueueItem_Result[] }>;
   lk_queueitem_modifiedonbehalfby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitem_modifiedonbehalfby: QueueItem_Result[] }>;
   lk_queueitembase_createdby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitembase_createdby: QueueItem_Result[] }>;
@@ -14850,6 +15664,11 @@ interface SystemUser_Expand {
   lk_systemuser_modifiedonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_modifiedonbehalfby: SystemUser_Result[] }>;
   lk_systemuserbase_createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_createdby: SystemUser_Result[] }>;
   lk_systemuserbase_modifiedby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_modifiedby: SystemUser_Result[] }>;
+  lk_team_createdonbehalfby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_team_createdonbehalfby: Team_Result[] }>;
+  lk_team_modifiedonbehalfby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_team_modifiedonbehalfby: Team_Result[] }>;
+  lk_teambase_administratorid: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_teambase_administratorid: Team_Result[] }>;
+  lk_teambase_createdby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_teambase_createdby: Team_Result[] }>;
+  lk_teambase_modifiedby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_teambase_modifiedby: Team_Result[] }>;
   modifiedby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedby_connection: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { modifiedby_connection: Connection_Result[] }>;
   modifiedonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
@@ -14858,11 +15677,15 @@ interface SystemUser_Expand {
   opc_complaint_intakeofficer_SystemUser: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaint_intakeofficer_SystemUser: opc_complaint_Result[] }>;
   opc_reminders_users_additionaluserstonotify: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_reminders_users_additionaluserstonotify: opc_reminder_Result[] }>;
   parentsystemuserid: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { parentsystemuserid: SystemUser_Result }>;
+  queue_primary_user: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { queue_primary_user: Queue_Result[] }>;
+  queueid: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
+  queuemembership_association: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { queuemembership_association: Queue_Result[] }>;
   system_user_accounts: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { system_user_accounts: Account_Result[] }>;
   system_user_activity_parties: WebExpand<SystemUser_Expand, ActivityParty_Select, ActivityParty_Filter, { system_user_activity_parties: ActivityParty_Result[] }>;
   system_user_contacts: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { system_user_contacts: Contact_Result[] }>;
   systemuser_connections1: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections1: Connection_Result[] }>;
   systemuser_connections2: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections2: Connection_Result[] }>;
+  teammembership_association: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { teammembership_association: Team_Result[] }>;
   user_accounts: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { user_accounts: Account_Result[] }>;
   user_opc_allegation: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { user_opc_allegation: opc_allegation_Result[] }>;
   user_opc_allegationtype: WebExpand<SystemUser_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { user_opc_allegationtype: opc_allegationtype_Result[] }>;
@@ -14945,6 +15768,7 @@ interface SystemUser_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   parentsystemuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
 }
 interface SystemUser_RelatedMany {
   contact_owning_user: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
@@ -15067,6 +15891,10 @@ interface SystemUser_RelatedMany {
   lk_opc_topic_createdonbehalfby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
   lk_opc_topic_modifiedby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
   lk_opc_topic_modifiedonbehalfby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+  lk_queue_createdonbehalfby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  lk_queue_modifiedonbehalfby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  lk_queuebase_createdby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  lk_queuebase_modifiedby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   lk_queueitem_createdonbehalfby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   lk_queueitem_modifiedonbehalfby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   lk_queueitembase_createdby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
@@ -15076,16 +15904,24 @@ interface SystemUser_RelatedMany {
   lk_systemuser_modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuserbase_createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuserbase_modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  lk_team_createdonbehalfby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  lk_team_modifiedonbehalfby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  lk_teambase_administratorid: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  lk_teambase_createdby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  lk_teambase_modifiedby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   modifiedby_connection: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   opc_RiskAssessmentCategory_BypassInitiate: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
   opc_RiskAssessment_BypassInitiatedBy_Syst: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
   opc_complaint_intakeofficer_SystemUser: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   opc_reminders_users_additionaluserstonotify: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  queue_primary_user: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  queuemembership_association: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   system_user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   system_user_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   system_user_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   systemuser_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   systemuser_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  teammembership_association: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   user_opc_allegation: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   user_opc_allegationtype: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
@@ -15123,6 +15959,302 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   systemusers: WebMappingCUDA<SystemUser_Create,SystemUser_Update,SystemUser_Select>;
 }
+interface Team_Base extends WebEntity {
+  azureactivedirectoryobjectid?: string | null;
+  createdon?: Date | null;
+  description?: string | null;
+  emailaddress?: string | null;
+  exchangerate?: number | null;
+  importsequencenumber?: number | null;
+  isdefault?: boolean | null;
+  modifiedon?: Date | null;
+  name?: string | null;
+  organizationid?: string | null;
+  overriddencreatedon?: Date | null;
+  processid?: string | null;
+  stageid?: string | null;
+  systemmanaged?: boolean | null;
+  teamid?: string | null;
+  teamtype?: team_type | null;
+  traversedpath?: string | null;
+  versionnumber?: number | null;
+}
+interface Team_Relationships {
+  opc_queues_teams_membership?: Queue_Result[] | null;
+  team_accounts?: Account_Result[] | null;
+  team_connections1?: Connection_Result[] | null;
+  team_connections2?: Connection_Result[] | null;
+  team_contacts?: Contact_Result[] | null;
+  team_opc_allegation?: opc_allegation_Result[] | null;
+  team_opc_allegationtype?: opc_allegationtype_Result[] | null;
+  team_opc_checklistresponse?: opc_ChecklistResponse_Result[] | null;
+  team_opc_checklisttype?: opc_ChecklistType_Result[] | null;
+  team_opc_complaint?: opc_complaint_Result[] | null;
+  team_opc_dispositionaction?: opc_dispositionaction_Result[] | null;
+  team_opc_dispositionreason?: opc_dispositionreason_Result[] | null;
+  team_opc_issue?: opc_issue_Result[] | null;
+  team_opc_legislation?: opc_legislation_Result[] | null;
+  team_opc_notification?: opc_notification_Result[] | null;
+  team_opc_opcpriority?: opc_opcpriority_Result[] | null;
+  team_opc_questiontemplate?: opc_QuestionTemplate_Result[] | null;
+  team_opc_recommendation?: opc_recommendation_Result[] | null;
+  team_opc_reminder?: opc_reminder_Result[] | null;
+  team_opc_riskappetite?: opc_RiskAppetite_Result[] | null;
+  team_opc_riskassessment?: opc_RiskAssessment_Result[] | null;
+  team_opc_riskassessmentcategory?: opc_RiskAssessmentCategory_Result[] | null;
+  team_opc_riskassessmentcategorytemplate?: opc_RiskAssessmentCategoryTemplate_Result[] | null;
+  team_opc_riskassessmentdefinition?: opc_RiskAssessmentDefinition_Result[] | null;
+  team_opc_riskassessmentdefinitiontemplate?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+  team_opc_riskassessmentfactortemplate?: opc_RiskAssessmentFactorTemplate_Result[] | null;
+  team_opc_riskassessmenttype?: opc_RiskAssessmentType_Result[] | null;
+  team_opc_sector?: opc_sector_Result[] | null;
+  team_opc_theme?: opc_theme_Result[] | null;
+  team_opc_topic?: opc_topic_Result[] | null;
+  team_queueitembase_workerid?: QueueItem_Result[] | null;
+  teammembership_association?: SystemUser_Result[] | null;
+}
+interface Team extends Team_Base, Team_Relationships {
+  administratorid_bind$systemusers?: string | null;
+  businessunitid_bind$businessunits?: string | null;
+  queueid_bind$queues?: string | null;
+  stageid_processstage_bind$processstages?: string | null;
+  transactioncurrencyid_bind$transactioncurrencies?: string | null;
+}
+interface Team_Create extends Team {
+  associatedteamtemplateid_bind$teamtemplates?: string | null;
+  regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
+}
+interface Team_Update extends Team {
+}
+interface Team_Select {
+  administratorid_guid: WebAttribute<Team_Select, { administratorid_guid: string | null }, { administratorid_formatted?: string }>;
+  azureactivedirectoryobjectid: WebAttribute<Team_Select, { azureactivedirectoryobjectid: string | null }, {  }>;
+  businessunitid_guid: WebAttribute<Team_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
+  createdby_guid: WebAttribute<Team_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<Team_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<Team_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  description: WebAttribute<Team_Select, { description: string | null }, {  }>;
+  emailaddress: WebAttribute<Team_Select, { emailaddress: string | null }, {  }>;
+  exchangerate: WebAttribute<Team_Select, { exchangerate: number | null }, {  }>;
+  importsequencenumber: WebAttribute<Team_Select, { importsequencenumber: number | null }, {  }>;
+  isdefault: WebAttribute<Team_Select, { isdefault: boolean | null }, {  }>;
+  modifiedby_guid: WebAttribute<Team_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<Team_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<Team_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  name: WebAttribute<Team_Select, { name: string | null }, {  }>;
+  organizationid: WebAttribute<Team_Select, { organizationid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<Team_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  processid: WebAttribute<Team_Select, { processid: string | null }, {  }>;
+  queueid_guid: WebAttribute<Team_Select, { queueid_guid: string | null }, { queueid_formatted?: string }>;
+  regardingobjectid_guid: WebAttribute<Team_Select, { regardingobjectid_guid: string | null }, { regardingobjectid_formatted?: string }>;
+  stageid: WebAttribute<Team_Select, { stageid: string | null }, {  }>;
+  systemmanaged: WebAttribute<Team_Select, { systemmanaged: boolean | null }, {  }>;
+  teamid: WebAttribute<Team_Select, { teamid: string | null }, {  }>;
+  teamtemplateid_guid: WebAttribute<Team_Select, { teamtemplateid_guid: string | null }, { teamtemplateid_formatted?: string }>;
+  teamtype: WebAttribute<Team_Select, { teamtype: team_type | null }, { teamtype_formatted?: string }>;
+  transactioncurrencyid_guid: WebAttribute<Team_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  traversedpath: WebAttribute<Team_Select, { traversedpath: string | null }, {  }>;
+  versionnumber: WebAttribute<Team_Select, { versionnumber: number | null }, {  }>;
+}
+interface Team_Filter {
+  administratorid_guid: XQW.Guid;
+  azureactivedirectoryobjectid: XQW.Guid;
+  businessunitid_guid: XQW.Guid;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  description: string;
+  emailaddress: string;
+  exchangerate: any;
+  importsequencenumber: number;
+  isdefault: boolean;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  name: string;
+  organizationid: XQW.Guid;
+  overriddencreatedon: Date;
+  processid: XQW.Guid;
+  queueid_guid: XQW.Guid;
+  regardingobjectid_guid: XQW.Guid;
+  stageid: XQW.Guid;
+  systemmanaged: boolean;
+  teamid: XQW.Guid;
+  teamtemplateid_guid: XQW.Guid;
+  teamtype: team_type;
+  transactioncurrencyid_guid: XQW.Guid;
+  traversedpath: string;
+  versionnumber: number;
+}
+interface Team_Expand {
+  administratorid: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { administratorid: SystemUser_Result }>;
+  createdby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  opc_queues_teams_membership: WebExpand<Team_Expand, Queue_Select, Queue_Filter, { opc_queues_teams_membership: Queue_Result[] }>;
+  queueid: WebExpand<Team_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
+  team_accounts: WebExpand<Team_Expand, Account_Select, Account_Filter, { team_accounts: Account_Result[] }>;
+  team_connections1: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections1: Connection_Result[] }>;
+  team_connections2: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections2: Connection_Result[] }>;
+  team_contacts: WebExpand<Team_Expand, Contact_Select, Contact_Filter, { team_contacts: Contact_Result[] }>;
+  team_opc_allegation: WebExpand<Team_Expand, opc_allegation_Select, opc_allegation_Filter, { team_opc_allegation: opc_allegation_Result[] }>;
+  team_opc_allegationtype: WebExpand<Team_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { team_opc_allegationtype: opc_allegationtype_Result[] }>;
+  team_opc_checklistresponse: WebExpand<Team_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { team_opc_checklistresponse: opc_ChecklistResponse_Result[] }>;
+  team_opc_checklisttype: WebExpand<Team_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { team_opc_checklisttype: opc_ChecklistType_Result[] }>;
+  team_opc_complaint: WebExpand<Team_Expand, opc_complaint_Select, opc_complaint_Filter, { team_opc_complaint: opc_complaint_Result[] }>;
+  team_opc_dispositionaction: WebExpand<Team_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { team_opc_dispositionaction: opc_dispositionaction_Result[] }>;
+  team_opc_dispositionreason: WebExpand<Team_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { team_opc_dispositionreason: opc_dispositionreason_Result[] }>;
+  team_opc_issue: WebExpand<Team_Expand, opc_issue_Select, opc_issue_Filter, { team_opc_issue: opc_issue_Result[] }>;
+  team_opc_legislation: WebExpand<Team_Expand, opc_legislation_Select, opc_legislation_Filter, { team_opc_legislation: opc_legislation_Result[] }>;
+  team_opc_notification: WebExpand<Team_Expand, opc_notification_Select, opc_notification_Filter, { team_opc_notification: opc_notification_Result[] }>;
+  team_opc_opcpriority: WebExpand<Team_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { team_opc_opcpriority: opc_opcpriority_Result[] }>;
+  team_opc_questiontemplate: WebExpand<Team_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { team_opc_questiontemplate: opc_QuestionTemplate_Result[] }>;
+  team_opc_recommendation: WebExpand<Team_Expand, opc_recommendation_Select, opc_recommendation_Filter, { team_opc_recommendation: opc_recommendation_Result[] }>;
+  team_opc_reminder: WebExpand<Team_Expand, opc_reminder_Select, opc_reminder_Filter, { team_opc_reminder: opc_reminder_Result[] }>;
+  team_opc_riskappetite: WebExpand<Team_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { team_opc_riskappetite: opc_RiskAppetite_Result[] }>;
+  team_opc_riskassessment: WebExpand<Team_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { team_opc_riskassessment: opc_RiskAssessment_Result[] }>;
+  team_opc_riskassessmentcategory: WebExpand<Team_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { team_opc_riskassessmentcategory: opc_RiskAssessmentCategory_Result[] }>;
+  team_opc_riskassessmentcategorytemplate: WebExpand<Team_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { team_opc_riskassessmentcategorytemplate: opc_RiskAssessmentCategoryTemplate_Result[] }>;
+  team_opc_riskassessmentdefinition: WebExpand<Team_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { team_opc_riskassessmentdefinition: opc_RiskAssessmentDefinition_Result[] }>;
+  team_opc_riskassessmentdefinitiontemplate: WebExpand<Team_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { team_opc_riskassessmentdefinitiontemplate: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  team_opc_riskassessmentfactortemplate: WebExpand<Team_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { team_opc_riskassessmentfactortemplate: opc_RiskAssessmentFactorTemplate_Result[] }>;
+  team_opc_riskassessmenttype: WebExpand<Team_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { team_opc_riskassessmenttype: opc_RiskAssessmentType_Result[] }>;
+  team_opc_sector: WebExpand<Team_Expand, opc_sector_Select, opc_sector_Filter, { team_opc_sector: opc_sector_Result[] }>;
+  team_opc_theme: WebExpand<Team_Expand, opc_theme_Select, opc_theme_Filter, { team_opc_theme: opc_theme_Result[] }>;
+  team_opc_topic: WebExpand<Team_Expand, opc_topic_Select, opc_topic_Filter, { team_opc_topic: opc_topic_Result[] }>;
+  team_queueitembase_workerid: WebExpand<Team_Expand, QueueItem_Select, QueueItem_Filter, { team_queueitembase_workerid: QueueItem_Result[] }>;
+  teammembership_association: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { teammembership_association: SystemUser_Result[] }>;
+}
+interface Team_FormattedResult {
+  administratorid_formatted?: string;
+  businessunitid_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  queueid_formatted?: string;
+  regardingobjectid_formatted?: string;
+  teamtemplateid_formatted?: string;
+  teamtype_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+}
+interface Team_Result extends Team_Base, Team_Relationships {
+  "@odata.etag": string;
+  administratorid_guid: string | null;
+  businessunitid_guid: string | null;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  queueid_guid: string | null;
+  regardingobjectid_guid: string | null;
+  teamtemplateid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface Team_RelatedOne {
+  administratorid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+}
+interface Team_RelatedMany {
+  opc_queues_teams_membership: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  team_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  team_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  team_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  team_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  team_opc_allegation: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  team_opc_allegationtype: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  team_opc_checklistresponse: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
+  team_opc_checklisttype: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
+  team_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  team_opc_dispositionaction: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  team_opc_dispositionreason: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  team_opc_issue: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  team_opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  team_opc_notification: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+  team_opc_opcpriority: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  team_opc_questiontemplate: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  team_opc_recommendation: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  team_opc_reminder: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  team_opc_riskappetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  team_opc_riskassessment: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  team_opc_riskassessmentcategory: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  team_opc_riskassessmentcategorytemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  team_opc_riskassessmentdefinition: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+  team_opc_riskassessmentdefinitiontemplate: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  team_opc_riskassessmentfactortemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  team_opc_riskassessmenttype: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  team_opc_sector: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  team_opc_theme: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+  team_opc_topic: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+  team_queueitembase_workerid: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  teammembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  teams: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  teams: WebMappingRelated<Team_RelatedOne,Team_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  teams: WebMappingCUDA<Team_Create,Team_Update,Team_Select>;
+}
+interface TeamMembership_Base extends WebEntity {
+  systemuserid?: string | null;
+  teamid?: string | null;
+  teammembershipid?: string | null;
+  versionnumber?: number | null;
+}
+interface TeamMembership_Relationships {
+  teammembership_association?: SystemUser_Result[] | null;
+}
+interface TeamMembership extends TeamMembership_Base, TeamMembership_Relationships {
+}
+interface TeamMembership_Create extends TeamMembership {
+}
+interface TeamMembership_Update extends TeamMembership {
+}
+interface TeamMembership_Select {
+  systemuserid: WebAttribute<TeamMembership_Select, { systemuserid: string | null }, {  }>;
+  teamid: WebAttribute<TeamMembership_Select, { teamid: string | null }, {  }>;
+  teammembershipid: WebAttribute<TeamMembership_Select, { teammembershipid: string | null }, {  }>;
+  versionnumber: WebAttribute<TeamMembership_Select, { versionnumber: number | null }, {  }>;
+}
+interface TeamMembership_Filter {
+  systemuserid: XQW.Guid;
+  teamid: XQW.Guid;
+  teammembershipid: XQW.Guid;
+  versionnumber: number;
+}
+interface TeamMembership_Expand {
+  teammembership_association: WebExpand<TeamMembership_Expand, SystemUser_Select, SystemUser_Filter, { teammembership_association: SystemUser_Result[] }>;
+}
+interface TeamMembership_FormattedResult {
+}
+interface TeamMembership_Result extends TeamMembership_Base, TeamMembership_Relationships {
+  "@odata.etag": string;
+}
+interface TeamMembership_RelatedOne {
+}
+interface TeamMembership_RelatedMany {
+  teammembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  teammemberships: WebMappingRetrieve<TeamMembership_Select,TeamMembership_Expand,TeamMembership_Filter,TeamMembership_Fixed,TeamMembership_Result,TeamMembership_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  teammemberships: WebMappingRelated<TeamMembership_RelatedOne,TeamMembership_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  teammemberships: WebMappingCUDA<TeamMembership_Create,TeamMembership_Update,TeamMembership_Select>;
+}
 interface ActivityParty_Base extends WebEntity {
   activitypartyid?: string | null;
   addressused?: string | null;
@@ -15145,6 +16277,7 @@ interface ActivityParty_Base extends WebEntity {
 interface ActivityParty_Relationships {
   partyid_account?: Account_Result | null;
   partyid_contact?: Contact_Result | null;
+  partyid_queue?: Queue_Result | null;
   partyid_systemuser?: SystemUser_Result | null;
 }
 interface ActivityParty extends ActivityParty_Base, ActivityParty_Relationships {
@@ -15214,6 +16347,7 @@ interface ActivityParty_Filter {
 interface ActivityParty_Expand {
   partyid_account: WebExpand<ActivityParty_Expand, Account_Select, Account_Filter, { partyid_account: Account_Result }>;
   partyid_contact: WebExpand<ActivityParty_Expand, Contact_Select, Contact_Filter, { partyid_contact: Contact_Result }>;
+  partyid_queue: WebExpand<ActivityParty_Expand, Queue_Select, Queue_Filter, { partyid_queue: Queue_Result }>;
   partyid_systemuser: WebExpand<ActivityParty_Expand, SystemUser_Select, SystemUser_Filter, { partyid_systemuser: SystemUser_Result }>;
 }
 interface ActivityParty_FormattedResult {
@@ -15234,6 +16368,7 @@ interface ActivityParty_Result extends ActivityParty_Base, ActivityParty_Relatio
 interface ActivityParty_RelatedOne {
   partyid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   partyid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  partyid_queue: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   partyid_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface ActivityParty_RelatedMany {
@@ -15271,9 +16406,11 @@ interface Connection_Relationships {
   record1id_account?: Account_Result | null;
   record1id_contact?: Contact_Result | null;
   record1id_systemuser?: SystemUser_Result | null;
+  record1id_team?: Team_Result | null;
   record2id_account?: Account_Result | null;
   record2id_contact?: Contact_Result | null;
   record2id_systemuser?: SystemUser_Result | null;
+  record2id_team?: Team_Result | null;
 }
 interface Connection extends Connection_Base, Connection_Relationships {
   channelaccessprofileruleid_bind$channelaccessprofilerules?: string | null;
@@ -15400,13 +16537,15 @@ interface Connection_Expand {
   createdonbehalfby: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
   modifiedby: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-  ownerid: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  ownerid: WebExpand<Connection_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   record1id_account: WebExpand<Connection_Expand, Account_Select, Account_Filter, { record1id_account: Account_Result }>;
   record1id_contact: WebExpand<Connection_Expand, Contact_Select, Contact_Filter, { record1id_contact: Contact_Result }>;
   record1id_systemuser: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { record1id_systemuser: SystemUser_Result }>;
+  record1id_team: WebExpand<Connection_Expand, Team_Select, Team_Filter, { record1id_team: Team_Result }>;
   record2id_account: WebExpand<Connection_Expand, Account_Select, Account_Filter, { record2id_account: Account_Result }>;
   record2id_contact: WebExpand<Connection_Expand, Contact_Select, Contact_Filter, { record2id_contact: Contact_Result }>;
   record2id_systemuser: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { record2id_systemuser: SystemUser_Result }>;
+  record2id_team: WebExpand<Connection_Expand, Team_Select, Team_Filter, { record2id_team: Team_Result }>;
   relatedconnectionid: WebExpand<Connection_Expand, Connection_Select, Connection_Filter, { relatedconnectionid: Connection_Result }>;
 }
 interface Connection_FormattedResult {
@@ -15456,13 +16595,15 @@ interface Connection_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   record1id_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   record1id_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   record1id_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  record1id_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   record2id_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   record2id_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   record2id_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  record2id_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   relatedconnectionid: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
 }
 interface Connection_RelatedMany {
