@@ -1,0 +1,140 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "schedule": {
+              "hours": [
+                "0"
+              ]
+            }
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "List_all_queues_that_have_teams_associations": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "queues",
+              "$select": "name,queueid",
+              "$filter": "opc_queues_teams_membership/any(s:s/teamid ne null)"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Iterate_through_all_queues_that_have_team_membership": {
+          "foreach": "@outputs('List_all_queues_that_have_teams_associations')?['body/value']",
+          "actions": {
+            "List_all_teams_that_are_member_of_current_queue": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "teams",
+                  "$filter": "opc_queues_teams_membership/any(s:s/queueid eq '@{items('Iterate_through_all_queues_that_have_team_membership')?['queueid']}')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Iterate_through_all_teams_that_are_member_of_current_queue": {
+              "foreach": "@outputs('List_all_teams_that_are_member_of_current_queue')?['body/value']",
+              "actions": {
+                "Unrelate_records": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "DisassociateEntities",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "queues",
+                      "recordId": "@items('Iterate_through_all_queues_that_have_team_membership')?['queueid']",
+                      "associationEntityRelationship": "opc_queues_teams_membership",
+                      "$id": "@items('Iterate_through_all_teams_that_are_member_of_current_queue')?['@odata.id']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Relate_records": {
+                  "runAfter": {
+                    "Unrelate_records": [
+                      "Succeeded"
+                    ]
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "AssociateEntities",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "queues",
+                      "recordId": "@items('Iterate_through_all_queues_that_have_team_membership')?['queueid']",
+                      "associationEntityRelationship": "opc_queues_teams_membership",
+                      "item/@odata.id": "@items('Iterate_through_all_teams_that_are_member_of_current_queue')?['@odata.id']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "List_all_teams_that_are_member_of_current_queue": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "List_all_queues_that_have_teams_associations": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}

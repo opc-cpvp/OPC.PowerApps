@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-05-01T20:26:30.1826611Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-06-18T18:36:07.8105429Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -36,7 +36,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Restricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org8bbe99da" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org18de523e" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="e960220a-3f2e-ea11-a810-000d3af46757">
@@ -52,7 +52,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unclassified" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org8bbe99da" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org18de523e" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="a6bd0471-3739-ea11-a813-000d3af46757">
@@ -68,7 +68,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unrestricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org8bbe99da" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org18de523e" />
         <field name="workflowsuspended" value="False" />
       </record>
     </records>
@@ -1464,7 +1464,24 @@
         <field name="queueviewtype" value="1" />
       </record>
     </records>
-    <m2mrelationships />
+    <m2mrelationships>
+      <m2mrelationship sourceid="0318d98e-8a5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>a7d81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+      <m2mrelationship sourceid="c1545086-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>
+          <targetid>a2d81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+      <m2mrelationship sourceid="4645d1a6-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+    </m2mrelationships>
   </entity>
   <entity name="opc_checklisttype" displayname="Checklist Type">
     <records>
@@ -2554,28 +2571,6 @@
         <field name="opc_nameenglish" value="TL outside of limit" />
         <field name="opc_namefrench" value="TL outside of limit" />
         <field name="opc_dispositionreasonid" value="e62f4693-a76e-ea11-a811-000d3af45a96" />
-        <field name="opc_islocalizable" value="True" />
-      </record>
-      <record id="dfcc05a9-a76e-ea11-a811-000d3af45a96">
-        <field name="opc_allegationdisposition" value="924340003" />
-        <field name="opc_name" value="Clarified situation with respondent" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
-        <field name="opc_nameenglish" value="Clarified situation with respondent" />
-        <field name="opc_namefrench" value="Clarified situation with respondent" />
-        <field name="opc_dispositionreasonid" value="dfcc05a9-a76e-ea11-a811-000d3af45a96" />
-        <field name="opc_islocalizable" value="True" />
-      </record>
-      <record id="d745b3af-a76e-ea11-a811-000d3af45a96">
-        <field name="opc_allegationdisposition" value="924340003" />
-        <field name="opc_name" value="Proposed alternative solution" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
-        <field name="opc_nameenglish" value="Proposed alternative solution" />
-        <field name="opc_namefrench" value="Proposed alternative solution" />
-        <field name="opc_dispositionreasonid" value="d745b3af-a76e-ea11-a811-000d3af45a96" />
         <field name="opc_islocalizable" value="True" />
       </record>
     </records>
