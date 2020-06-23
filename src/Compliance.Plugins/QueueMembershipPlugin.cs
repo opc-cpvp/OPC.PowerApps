@@ -59,18 +59,18 @@ namespace Compliance.Plugins
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
                 // Build and execute fetch query to get all teams of the users which should not be affected by this change
-                unaffectedTeamIds = fetchUnaffectedTeamsByUsers(localContext, systemuserIds, affectedTeamIds);
+                unaffectedTeamIds = FetchUnaffectedTeamsByUsers(localContext, systemuserIds, affectedTeamIds);
                 localContext.Trace($"There is {unaffectedTeamIds.Count()} unaffected teams: {string.Join(",", unaffectedTeamIds)}");
             }
 
             // Build and execute fetch query to fetch all queues associated to teams but only keep the ones which are not referenced in unaffected teams
-            var teamQueues = fetchAffectedQueues(localContext, unaffectedTeamIds, affectedTeamIds);
+            var teamQueues = FetchAffectedQueues(localContext, unaffectedTeamIds, affectedTeamIds);
             localContext.Trace($"There are {teamQueues.Count()} team queues affected: ({string.Join(",", teamQueues)})");
 
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Associate)
             {
                 // Build and execute query to fetch queues associated to users
-                var userQueues = fetchQueueMembershipByUsers(localContext, systemuserIds);
+                var userQueues = FetchQueueMembershipByUsers(localContext, systemuserIds);
                 localContext.Trace($"There are {userQueues.Count()} user associated to affected queues: ({string.Join(",", userQueues)})");
 
                 // Only get the delta of queues to be added based on the queues the user is already affected to.
@@ -114,19 +114,19 @@ namespace Compliance.Plugins
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
                 // Build and execute query to get all queues of the teams that not be affected by this change
-                unaffectedTeamIds = fetchUnaffectedTeamsByQueues(localContext, queueIds, affectedTeamIds);
+                unaffectedTeamIds = FetchUnaffectedTeamsByQueues(localContext, queueIds, affectedTeamIds);
                 localContext.Trace($"There is {unaffectedTeamIds.Count()} unaffected teams ({string.Join(",", unaffectedTeamIds)})");
             }
 
             // Build and execute  fetch query to get all users associated to teams but only keep the ones which are not associated to unaffected teams
-            var usersInTeams = fetchUsersByTeams(localContext, unaffectedTeamIds, affectedTeamIds);
+            var usersInTeams = FetchUsersByTeams(localContext, unaffectedTeamIds, affectedTeamIds);
             localContext.Trace($"There is {usersInTeams.Count()} users affected ({string.Join(",", usersInTeams)})");
 
             // Add queues to users who don't have the queue already.
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Associate)
             {
                 // Build and execute query to get all users associated to the queues
-                var usersInQueues = fetchQueueMembershipByQueues(localContext, queueIds);
+                var usersInQueues = FetchQueueMembershipByQueues(localContext, queueIds);
                 localContext.Trace($"There is {usersInQueues.Count()} users associated to affected queues: ({string.Join(",", usersInQueues)})");
 
                 // Add queues to users who don't have the queue already.
@@ -149,7 +149,7 @@ namespace Compliance.Plugins
 
         }
 
-        private Guid[] fetchUnaffectedTeamsByUsers(LocalPluginContext localContext, Guid[] userGuids, Guid[] affectedTeamsFilter)
+        private Guid[] FetchUnaffectedTeamsByUsers(LocalPluginContext localContext, Guid[] userGuids, Guid[] affectedTeamsFilter)
         {
             return localContext.OrganizationService.RetrieveMultiple(
                     new QueryExpression("teammembership")
@@ -171,7 +171,7 @@ namespace Compliance.Plugins
                     .Select(q => (Guid)q.ToEntity<TeamMembership>().TeamId).ToArray();
         }
 
-        private Guid[] fetchAffectedQueues(LocalPluginContext localContext, Guid[] unaffectedTeams, Guid[] affectedTeams)
+        private Guid[] FetchAffectedQueues(LocalPluginContext localContext, Guid[] unaffectedTeams, Guid[] affectedTeams)
         {
             return localContext.OrganizationService.RetrieveMultiple(
                 new QueryExpression("opc_queues_teams")
@@ -191,7 +191,7 @@ namespace Compliance.Plugins
                 .Select(g => (Guid)g.Key).ToArray();
         }
 
-        private Guid[] fetchQueueMembershipByUsers(LocalPluginContext localContext, Guid[] users)
+        private Guid[] FetchQueueMembershipByUsers(LocalPluginContext localContext, Guid[] users)
         {
             return localContext.OrganizationService.RetrieveMultiple(
                     new QueryExpression("queuemembership")
@@ -208,7 +208,7 @@ namespace Compliance.Plugins
                     .Select(q => (Guid)q.ToEntity<QueueMembership>().QueueId).ToArray();
         }
 
-        private Guid[] fetchUsersByTeams(LocalPluginContext localContext, Guid[] unaffectedTeams, Guid[] affectedTeams)
+        private Guid[] FetchUsersByTeams(LocalPluginContext localContext, Guid[] unaffectedTeams, Guid[] affectedTeams)
         {
             return localContext.OrganizationService.RetrieveMultiple(
                 new QueryExpression("teammembership")
@@ -229,7 +229,7 @@ namespace Compliance.Plugins
                 .ToArray();
         }
 
-        private Guid[] fetchQueueMembershipByQueues(LocalPluginContext localContext, Guid[] queues)
+        private Guid[] FetchQueueMembershipByQueues(LocalPluginContext localContext, Guid[] queues)
         {
             return localContext.OrganizationService.RetrieveMultiple(
                     new QueryExpression("queuemembership")
@@ -247,7 +247,7 @@ namespace Compliance.Plugins
                     .ToArray();
         }
 
-        private Guid[] fetchUnaffectedTeamsByQueues(LocalPluginContext localContext, Guid[] queues, Guid[] affectedTeamsFilter)
+        private Guid[] FetchUnaffectedTeamsByQueues(LocalPluginContext localContext, Guid[] queues, Guid[] affectedTeamsFilter)
         {
             return localContext.OrganizationService.RetrieveMultiple(
                     new QueryExpression("opc_queues_teams")
