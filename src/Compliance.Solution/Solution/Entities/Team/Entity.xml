@@ -3,15 +3,6 @@
   <Name LocalizedName="Team" OriginalName="">Team</Name>
   <EntityInfo>
     <entity Name="Team">
-      <LocalizedNames>
-        <LocalizedName description="Team" languagecode="1033" />
-      </LocalizedNames>
-      <LocalizedCollectionNames>
-        <LocalizedCollectionName description="Teams" languagecode="1033" />
-      </LocalizedCollectionNames>
-      <Descriptions>
-        <Description description="Collection of system users that routinely collaborate. Teams can be used to simplify record sharing and provide team members with common access to organization data when team members belong to different Business Units." languagecode="1033" />
-      </Descriptions>
       <attributes />
       <EntitySetName>teams</EntitySetName>
       <IsDuplicateCheckSupported>0</IsDuplicateCheckSupported>

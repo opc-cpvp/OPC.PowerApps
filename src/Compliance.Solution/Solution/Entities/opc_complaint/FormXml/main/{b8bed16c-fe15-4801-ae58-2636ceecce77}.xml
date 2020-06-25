@@ -12,7 +12,7 @@
             <label description="General" languagecode="1033" />
           </labels>
           <columns>
-            <column width="50%">
+            <column width="60%">
               <sections>
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{c6ea7ba6-d402-451b-9ae9-a79575e343c1}" name="section_general" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
@@ -106,9 +106,100 @@
                     <row />
                   </rows>
                 </section>
-                <section name="section_contact" id="6fe830aa-faa9-474a-8a7d-e4829162960e" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_complainant" id="6fe830aa-faa9-474a-8a7d-e4829162960e" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
                   <labels>
-                    <label description="Contact" languagecode="1033" />
+                    <label description="Complainant" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a6d93dc7-e2f2-4896-95de-1a9e56671204}" showlabel="true" locklevel="0" colspan="1">
+                        <labels>
+                          <label description="Complainant" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" uniqueid="{387734eb-27c6-2ca9-b04b-05d2c3095a2b}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{4c7ab1c0-ea6d-438d-818d-6b6cf50ba6be}" showlabel="true" locklevel="0" colspan="1">
+                        <labels>
+                          <label description="Complainant Representative" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" uniqueid="{2a7ea693-d85a-6739-757d-dab67d51ec4b}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b7069f32-7d08-4785-91c5-f90a7ee7f708}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Complainant Legal Representative Firm" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complainantlegalrepresentativefirm" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantlegalrepresentativefirm" disabled="false" />
+                      </cell>
+                      <cell id="{1ba9e251-56ce-42ce-bfda-4c45291f6aa4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Complainant Legal Representative" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complainantlegalrepresentative" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantlegalrepresentative" disabled="false" uniqueid="{59a1d509-ed35-ecc7-bec7-8a108a16839b}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>true</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <FilterRelationshipName>contact_customer_accounts</FilterRelationshipName>
+                            <DependentAttributeName>opc_complaint.opc_complainantlegalrepresentativefirm</DependentAttributeName>
+                            <DependentAttributeType>account</DependentAttributeType>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{99f0f014-2519-4862-8cbf-e423e8447124}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Multiple Complaint Strategy" languagecode="1033" />
+                        </labels>
+                        <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
+                      </cell>
+                      <cell showlabel="false" locklevel="0" id="{10a4c0d3-0550-4521-84d8-7ed65e943035}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b1e4396f-7d9a-48df-8ff1-4dd8267d73fe}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Member of Parliament Involved" languagecode="1033" />
+                        </labels>
+                        <control id="opc_memberofparliamentinvolved" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_memberofparliamentinvolved" disabled="false" uniqueid="{5e7098ee-d4f5-4f5a-930b-e0787e145ed2}" />
+                      </cell>
+                      <cell showlabel="false" locklevel="0" id="{25d3ddff-df65-4a02-b521-25e33dc10a4d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="section_respondent" id="b4d981e0-3465-46d1-b99e-c7974cb7a292" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Respondent" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -127,62 +218,56 @@
                           </parameters>
                         </control>
                       </cell>
-                    </row>
-                    <row>
-                      <cell id="{a6d93dc7-e2f2-4896-95de-1a9e56671204}" showlabel="true" locklevel="0" colspan="1">
+                      <cell id="{9064952d-7d67-4fc8-94cd-d381f14f2e51}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Complainant" languagecode="1033" />
+                          <label description="Respondent Representative" languagecode="1033" />
                         </labels>
-                        <control id="opc_complainant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainant" disabled="false" uniqueid="{387734eb-27c6-2ca9-b04b-05d2c3095a2b}">
+                        <control id="opc_respondentrepresentative" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_respondentrepresentative" disabled="false" uniqueid="{a7de2954-9634-2158-28dc-d8b966632b30}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
-                            <DisableMru>false</DisableMru>
+                            <DisableMru>true</DisableMru>
                             <DisableQuickFind>false</DisableQuickFind>
                             <DisableViewPicker>false</DisableViewPicker>
                             <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <FilterRelationshipName>contact_customer_accounts</FilterRelationshipName>
+                            <DependentAttributeName>opc_complaint.opc_accountid</DependentAttributeName>
+                            <DependentAttributeType>account</DependentAttributeType>
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{4c7ab1c0-ea6d-438d-818d-6b6cf50ba6be}" showlabel="true" locklevel="0" colspan="1">
+                      <cell id="{10ec0656-4bb1-4ed9-8860-3d890c1634df}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Complainant Representative" languagecode="1033" />
+                          <label description="Respondent Legal Representative Firm" languagecode="1033" />
                         </labels>
-                        <control id="opc_complainantrep" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complainantrep" disabled="false" uniqueid="{2a7ea693-d85a-6739-757d-dab67d51ec4b}">
+                        <control id="opc_respondentlegalrepresentativefirm" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_respondentlegalrepresentativefirm" disabled="false" />
+                      </cell>
+                      <cell id="{321290f8-9bb3-4226-bc5b-c2d193d4a5e4}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Respondent Legal Representative" languagecode="1033" />
+                        </labels>
+                        <control id="opc_respondentlegalrepresentative" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_respondentlegalrepresentative" disabled="false" uniqueid="{6c125445-a1d4-e984-4d83-8a41e7dddc0d}">
                           <parameters>
                             <AutoResolve>true</AutoResolve>
-                            <DisableMru>false</DisableMru>
+                            <DisableMru>true</DisableMru>
                             <DisableQuickFind>false</DisableQuickFind>
                             <DisableViewPicker>false</DisableViewPicker>
                             <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <FilterRelationshipName>contact_customer_accounts</FilterRelationshipName>
+                            <DependentAttributeName>opc_complaint.opc_respondentlegalrepresentativefirm</DependentAttributeName>
+                            <DependentAttributeType>account</DependentAttributeType>
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{99f0f014-2519-4862-8cbf-e423e8447124}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Multiple Complaint Strategy" languagecode="1033" />
-                        </labels>
-                        <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{b1e4396f-7d9a-48df-8ff1-4dd8267d73fe}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Member of Parliament Involved" languagecode="1033" />
-                        </labels>
-                        <control id="opc_memberofparliamentinvolved" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_memberofparliamentinvolved" disabled="false" uniqueid="{5e7098ee-d4f5-4f5a-930b-e0787e145ed2}" />
                       </cell>
                     </row>
                   </rows>
                 </section>
               </sections>
             </column>
-            <column width="50%">
+            <column width="40%">
               <sections>
                 <section name="section_notes_activities" showlabel="false" showbar="false" locklevel="0" id="{514ceab0-a4d7-4a3e-ad92-79ab50160162}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
@@ -557,7 +642,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
