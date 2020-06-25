@@ -46,6 +46,10 @@
           <attribute name="ischeckedout" />
           <attribute name="locationid" />
           <attribute name="iconclassname" />
+          <filter>
+            <condition attribute="isrecursivefetch" operator="eq" value="0" />
+          </filter>
+          <order attribute="relativelocation" descending="false" />
         </entity>
       </fetch>
     </fetchxml>
