@@ -259,7 +259,7 @@
                           <parameters>
                             <TargetEntityType>sharepointdocument</TargetEntityType>
                             <ViewId>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewId>
-                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51},{83F8B999-F3B6-EA11-A812-000D3AF43929}</ViewIds>
+                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_complaint_SharePointDocuments</RelationshipName>
                             <RecordsPerPage>20</RecordsPerPage>
