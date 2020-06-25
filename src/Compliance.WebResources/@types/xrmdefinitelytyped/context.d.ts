@@ -13,9 +13,17 @@ declare const enum account_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
+declare const enum account_accountcategorycode {
+  PreferredCustomer = 1,
+  Standard = 2,
+}
 declare const enum account_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum account_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum account_address1_freighttermscode {
   FOB = 1,
@@ -32,26 +40,8 @@ declare const enum account_preferredappointmenttimecode {
 declare const enum account_accountclassificationcode {
   DefaultValue = 1,
 }
-declare const enum account_customertypecode {
-  Competitor = 1,
-  Consultant = 2,
-  Customer = 3,
-  Investor = 4,
-  Partner = 5,
-  Influencer = 6,
-  Press = 7,
-  Prospect = 8,
-  Reseller = 9,
-  Supplier = 10,
-  Vendor = 11,
-  Other = 12,
-}
-declare const enum account_preferredcontactmethodcode {
-  Any = 1,
-  Email = 2,
-  Phone = 3,
-  Fax = 4,
-  Mail = 5,
+declare const enum account_customersizecode {
+  DefaultValue = 1,
 }
 declare const enum account_ownershipcode {
   Public = 1,
@@ -59,31 +49,15 @@ declare const enum account_ownershipcode {
   Subsidiary = 3,
   Other = 4,
 }
-declare const enum account_address2_addresstypecode {
+declare const enum account_address2_freighttermscode {
   DefaultValue = 1,
 }
-declare const enum account_businesstypecode {
-  DefaultValue = 1,
-}
-declare const enum account_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum account_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
-declare const enum account_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum account_customersizecode {
-  DefaultValue = 1,
-}
-declare const enum account_accountcategorycode {
-  PreferredCustomer = 1,
-  Standard = 2,
+declare const enum account_preferredcontactmethodcode {
+  Any = 1,
+  Email = 2,
+  Phone = 3,
+  Fax = 4,
+  Mail = 5,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -120,6 +94,38 @@ declare const enum account_industrycode {
   VehicleRetail = 32,
   Wholesale = 33,
 }
+declare const enum account_businesstypecode {
+  DefaultValue = 1,
+}
+declare const enum account_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum account_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
+declare const enum account_address2_addresstypecode {
+  DefaultValue = 1,
+}
+declare const enum account_customertypecode {
+  Competitor = 1,
+  Consultant = 2,
+  Customer = 3,
+  Investor = 4,
+  Partner = 5,
+  Influencer = 6,
+  Press = 7,
+  Prospect = 8,
+  Reseller = 9,
+  Supplier = 10,
+  Vendor = 11,
+  Other = 12,
+}
+declare const enum account_address2_shippingmethodcode {
+  DefaultValue = 1,
+}
 declare const enum account_preferredappointmentdaycode {
   Sunday = 0,
   Monday = 1,
@@ -128,12 +134,6 @@ declare const enum account_preferredappointmentdaycode {
   Thursday = 4,
   Friday = 5,
   Saturday = 6,
-}
-declare const enum account_address2_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum account_address2_freighttermscode {
-  DefaultValue = 1,
 }
 declare const enum account_territorycode {
   DefaultValue = 1,
@@ -156,12 +156,6 @@ declare const enum contact_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
-declare const enum contact_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
 declare const enum contact_gendercode {
   Male = 1,
   Female = 2,
@@ -176,21 +170,31 @@ declare const enum contact_preferredappointmenttimecode {
   Afternoon = 2,
   Evening = 3,
 }
+declare const enum contact_customersizecode {
+  DefaultValue = 1,
+}
 declare const enum contact_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum contact_address2_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_educationcode {
+  DefaultValue = 1,
+}
+declare const enum contact_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
 }
 declare const enum contact_address1_freighttermscode {
   FOB = 1,
   NoCharge = 2,
 }
-declare const enum contact_address3_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_customertypecode {
-  DefaultValue = 1,
-}
-declare const enum contact_educationcode {
+declare const enum contact_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -200,15 +204,24 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
+declare const enum contact_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
+declare const enum contact_territorycode {
+  DefaultValue = 1,
+}
+declare const enum contact_address3_freighttermscode {
+  DefaultValue = 1,
+}
 declare const enum contact_accountrolecode {
   DecisionMaker = 1,
   Employee = 2,
   Influencer = 3,
 }
-declare const enum contact_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_address3_freighttermscode {
+declare const enum contact_address2_addresstypecode {
   DefaultValue = 1,
 }
 declare const enum opc_multiplecomplaintstrategy {
@@ -216,16 +229,6 @@ declare const enum opc_multiplecomplaintstrategy {
   Proposed = 924340001,
   Applied = 924340002,
   Former = 924340003,
-}
-declare const enum contact_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum contact_address2_addresstypecode {
-  DefaultValue = 1,
-}
-declare const enum contact_customersizecode {
-  DefaultValue = 1,
 }
 declare const enum contact_preferredappointmentdaycode {
   Sunday = 0,
@@ -236,6 +239,9 @@ declare const enum contact_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
+declare const enum contact_customertypecode {
+  DefaultValue = 1,
+}
 declare const enum contact_haschildrencode {
   DefaultValue = 1,
 }
@@ -245,16 +251,10 @@ declare const enum contact_familystatuscode {
   Divorced = 3,
   Widowed = 4,
 }
+declare const enum contact_address3_shippingmethodcode {
+  DefaultValue = 1,
+}
 declare const enum contact_address2_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
-declare const enum contact_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum opc_allegation_statecode {
@@ -550,13 +550,13 @@ declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum queueitem_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum queueitem_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum queueitem_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queueitem_objecttypecode {
   Activity = 4200,
@@ -570,7 +570,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11554,
+  Complaint = 11612,
 }
 declare const enum sharepointsite_servicetype {
   SharePoint = 0,
@@ -601,10 +601,6 @@ declare const enum activityparty_instancetypecode {
   RecurringInstance = 2,
   RecurringException = 3,
   RecurringFutureException = 4,
-}
-declare const enum connection_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum connection_record1objecttypecode {
   Account = 1,
@@ -651,6 +647,10 @@ declare const enum connection_record2objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
+}
+declare const enum connection_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum connection_statecode {
   Active = 0,
@@ -838,6 +838,13 @@ declare namespace Form.account.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
+      interface tab_documents extends Xrm.SectionCollectionBase {
+        get(name: "tab_3_section_1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface tab_summary extends Xrm.SectionCollectionBase {
         get(name: "section_account_information"): Xrm.PageSection;
         get(name: "section_address"): Xrm.PageSection;
@@ -873,6 +880,7 @@ declare namespace Form.account.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "ChildAccounts"): Xrm.SubGridControl<"account">;
       get(name: "Contacts"): Xrm.SubGridControl<"contact">;
+      get(name: "Subgrid_1"): Xrm.SubGridControl<"sharepointdocument">;
       get(name: "address1_city"): Xrm.StringControl;
       get(name: "address1_country"): Xrm.StringControl;
       get(name: "address1_line1"): Xrm.StringControl;
@@ -896,6 +904,7 @@ declare namespace Form.account.Main {
     }
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "tab_complaints"): Xrm.PageTab<Tabs.tab_complaints>;
+      get(name: "tab_documents"): Xrm.PageTab<Tabs.tab_documents>;
       get(name: "tab_summary"): Xrm.PageTab<Tabs.tab_summary>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
@@ -921,6 +930,7 @@ declare namespace Form.account.Main {
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "ChildAccounts"): Xrm.SubGridControl<"account">;
     getControl(controlName: "Contacts"): Xrm.SubGridControl<"contact">;
+    getControl(controlName: "Subgrid_1"): Xrm.SubGridControl<"sharepointdocument">;
     getControl(controlName: "address1_city"): Xrm.StringControl;
     getControl(controlName: "address1_country"): Xrm.StringControl;
     getControl(controlName: "address1_line1"): Xrm.StringControl;
@@ -4208,7 +4218,6 @@ declare namespace Form.opc_complaint.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
       get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
-      get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
       get(name: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
       get(name: "header_opc_number"): Xrm.StringControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
@@ -4241,6 +4250,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
       get(name: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
       get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
+      get(name: "subgrid_documents"): Xrm.SubGridControl<"sharepointdocument">;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
       get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
       get(name: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
@@ -4285,7 +4295,6 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
     getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
-    getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
     getControl(controlName: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
     getControl(controlName: "header_opc_number"): Xrm.StringControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
@@ -4318,6 +4327,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
     getControl(controlName: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
     getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
+    getControl(controlName: "subgrid_documents"): Xrm.SubGridControl<"sharepointdocument">;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
     getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
     getControl(controlName: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
@@ -7079,7 +7089,6 @@ declare namespace Form.queueitem.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "enteredon"): Xrm.DateAttribute;
       get(name: "modifiedon"): Xrm.DateAttribute;
-      get(name: "objectid"): Xrm.LookupAttribute<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
       get(name: "queueid"): Xrm.LookupAttribute<"queue">;
       get(name: "statecode"): Xrm.OptionSetAttribute<queueitem_statecode>;
       get(name: "workerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -7092,7 +7101,6 @@ declare namespace Form.queueitem.Main {
       get(name: "enteredon"): Xrm.DateControl;
       get(name: "footer_statecode"): Xrm.OptionSetControl<queueitem_statecode>;
       get(name: "modifiedon"): Xrm.DateControl;
-      get(name: "objectid"): Xrm.LookupControl<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
       get(name: "queueid"): Xrm.LookupControl<"queue">;
       get(name: "workerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
@@ -7111,7 +7119,6 @@ declare namespace Form.queueitem.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "enteredon"): Xrm.DateAttribute;
     getAttribute(attributeName: "modifiedon"): Xrm.DateAttribute;
-    getAttribute(attributeName: "objectid"): Xrm.LookupAttribute<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
     getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<queueitem_statecode>;
     getAttribute(attributeName: "workerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -7119,7 +7126,6 @@ declare namespace Form.queueitem.Main {
     getControl(controlName: "enteredon"): Xrm.DateControl;
     getControl(controlName: "footer_statecode"): Xrm.OptionSetControl<queueitem_statecode>;
     getControl(controlName: "modifiedon"): Xrm.DateControl;
-    getControl(controlName: "objectid"): Xrm.LookupControl<"activitypointer" | "appointment" | "email" | "fax" | "knowledgearticle" | "letter" | "msdyn_knowledgearticletemplate" | "opc_complaint" | "phonecall" | "recurringappointmentmaster" | "socialactivity" | "task">;
     getControl(controlName: "queueid"): Xrm.LookupControl<"queue">;
     getControl(controlName: "workerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;

@@ -202,28 +202,41 @@
           <columns>
             <column width="100%">
               <sections>
-                <section name="section_documents" id="87dc9e22-7809-41f7-89b9-eb3c963f5e96" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="section_documents" id="87dc9e22-7809-41f7-89b9-eb3c963f5e96" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" height="auto">
                   <labels>
                     <label description="Documents" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell showlabel="false" locklevel="0" id="{95d4334c-142a-47b3-b668-d8bf53172c29}" rowspan="1" colspan="1">
+                      <cell showlabel="false" locklevel="0" id="{95d4334c-142a-47b3-b668-d8bf53172c29}" rowspan="4" colspan="1" auto="true">
                         <labels>
                           <label description="Documents" languagecode="1033" />
                           <label description="Documents" languagecode="1036" />
                         </labels>
-                        <control id="SubgridControl1570557025307" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="subgrid_documents" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{14960db2-976e-c880-9e8a-8498695bb70c}">
                           <parameters>
                             <TargetEntityType>sharepointdocument</TargetEntityType>
                             <ViewId>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewId>
-                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewIds>
+                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51},{83F8B999-F3B6-EA11-A812-000D3AF43929}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_complaint_SharePointDocuments</RelationshipName>
+                            <RecordsPerPage>20</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Auto</AutoExpand>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
                           </parameters>
                         </control>
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row height="auto" />
                   </rows>
                 </section>
               </sections>
@@ -555,7 +568,48 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar>
+          <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navAudit" Sequence="61" Area="Info" Id="navAudit">
+            <Titles>
+              <Title LCID="1033" Text="Audit History" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="opc_complaint_allegations_complaint" Sequence="10001" Area="Info" Id="nav_opc_complaint_allegations_complaint">
+            <Titles>
+              <Title LCID="1033" Text="Allegations/Concerns" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="opc_complaint_issues_complaint" Sequence="10002" Area="Info" Id="nav_opc_complaint_issues_complaint">
+            <Titles>
+              <Title LCID="1033" Text="Issues" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="opc_complaint_notifications_complaint" Sequence="10003" Area="Info" Id="nav_opc_complaint_notifications_complaint">
+            <Titles>
+              <Title LCID="1033" Text="Notifications" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="opc_complaint_recommendations_complaint" Sequence="10004" Area="Info" Id="nav_opc_complaint_recommendations_complaint">
+            <Titles>
+              <Title LCID="1033" Text="Recommendations" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="opc_complaint_reminders_complaint" Sequence="10005" Area="Info" Id="nav_opc_complaint_reminders_complaint">
+            <Titles>
+              <Title LCID="1033" Text="Reminders" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="opc_RiskAssessment_Complaint_opc_complain" Sequence="10006" Area="Info" Id="nav_opc_RiskAssessment_Complaint_opc_complain">
+            <Titles>
+              <Title LCID="1033" Text="Risk Assessments" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="opc_complaints_topics_relatedtopics" Sequence="10007" Area="Info" Id="nav_opc_complaints_topics_relatedtopics">
+            <Titles>
+              <Title LCID="1033" Text="Topics" />
+            </Titles>
+          </NavBarByRelationshipItem>
+        </NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

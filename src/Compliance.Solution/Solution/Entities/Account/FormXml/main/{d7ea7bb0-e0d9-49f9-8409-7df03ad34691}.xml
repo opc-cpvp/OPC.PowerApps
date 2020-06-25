@@ -355,6 +355,41 @@
             </column>
           </columns>
         </tab>
+        <tab name="tab_documents" id="232a4834-093b-4ed4-8ab5-780f6eabf023" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Documents" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_1" id="d09be39f-bf98-485e-b480-452da93445fc" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{ea85b45a-91c6-4e90-a895-281483c31fed}" rowspan="1" colspan="1">
+                        <labels>
+                          <label description="New SG control 1591966401173" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
+                        </labels>
+                        <control id="Subgrid_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>sharepointdocument</TargetEntityType>
+                            <ViewId>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewId>
+                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>Account_SharepointDocument</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{d5a03552-1183-4347-a237-1f894ba449eb}" columns="111" celllabelposition="Top" labelwidth="115">
         <rows>
