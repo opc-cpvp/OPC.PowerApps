@@ -13,17 +13,15 @@ declare const enum account_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
+declare const enum account_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
 declare const enum account_accountcategorycode {
   PreferredCustomer = 1,
   Standard = 2,
-}
-declare const enum account_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum account_statecode {
-  Active = 0,
-  Inactive = 1,
 }
 declare const enum account_address1_freighttermscode {
   FOB = 1,
@@ -40,8 +38,23 @@ declare const enum account_preferredappointmenttimecode {
 declare const enum account_accountclassificationcode {
   DefaultValue = 1,
 }
-declare const enum account_customersizecode {
-  DefaultValue = 1,
+declare const enum account_customertypecode {
+  Competitor = 1,
+  Consultant = 2,
+  Customer = 3,
+  Investor = 4,
+  Partner = 5,
+  Influencer = 6,
+  Press = 7,
+  Prospect = 8,
+  Reseller = 9,
+  Supplier = 10,
+  Vendor = 11,
+  Other = 12,
+}
+declare const enum account_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum account_ownershipcode {
   Public = 1,
@@ -49,15 +62,15 @@ declare const enum account_ownershipcode {
   Subsidiary = 3,
   Other = 4,
 }
-declare const enum account_address2_freighttermscode {
-  DefaultValue = 1,
-}
 declare const enum account_preferredcontactmethodcode {
   Any = 1,
   Email = 2,
   Phone = 3,
   Fax = 4,
   Mail = 5,
+}
+declare const enum account_territorycode {
+  DefaultValue = 1,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -100,28 +113,11 @@ declare const enum account_businesstypecode {
 declare const enum account_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum account_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
 declare const enum account_address2_addresstypecode {
   DefaultValue = 1,
 }
-declare const enum account_customertypecode {
-  Competitor = 1,
-  Consultant = 2,
-  Customer = 3,
-  Investor = 4,
-  Partner = 5,
-  Influencer = 6,
-  Press = 7,
-  Prospect = 8,
-  Reseller = 9,
-  Supplier = 10,
-  Vendor = 11,
-  Other = 12,
+declare const enum account_customersizecode {
+  DefaultValue = 1,
 }
 declare const enum account_address2_shippingmethodcode {
   DefaultValue = 1,
@@ -135,8 +131,12 @@ declare const enum account_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum account_territorycode {
+declare const enum account_address2_freighttermscode {
   DefaultValue = 1,
+}
+declare const enum account_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum contact_address3_addresstypecode {
   DefaultValue = 1,
@@ -147,6 +147,10 @@ declare const enum contact_address1_addresstypecode {
   Primary = 3,
   Other = 4,
 }
+declare const enum contact_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
 declare const enum contact_address1_shippingmethodcode {
   Airborne = 1,
   DHL = 2,
@@ -155,6 +159,12 @@ declare const enum contact_address1_shippingmethodcode {
   PostalMail = 5,
   FullLoad = 6,
   WillCall = 7,
+}
+declare const enum contact_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
 }
 declare const enum contact_gendercode {
   Male = 1,
@@ -170,31 +180,14 @@ declare const enum contact_preferredappointmenttimecode {
   Afternoon = 2,
   Evening = 3,
 }
-declare const enum contact_customersizecode {
-  DefaultValue = 1,
-}
 declare const enum contact_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum contact_address2_freighttermscode {
+declare const enum contact_customertypecode {
   DefaultValue = 1,
 }
-declare const enum contact_educationcode {
-  DefaultValue = 1,
-}
-declare const enum contact_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
-declare const enum contact_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
-declare const enum contact_shippingmethodcode {
+declare const enum contact_customersizecode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -204,16 +197,16 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
-declare const enum contact_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
+declare const enum contact_address2_freighttermscode {
+  DefaultValue = 1,
 }
-declare const enum contact_territorycode {
+declare const enum contact_educationcode {
   DefaultValue = 1,
 }
 declare const enum contact_address3_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_address3_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_accountrolecode {
@@ -221,14 +214,18 @@ declare const enum contact_accountrolecode {
   Employee = 2,
   Influencer = 3,
 }
-declare const enum contact_address2_addresstypecode {
-  DefaultValue = 1,
-}
 declare const enum opc_multiplecomplaintstrategy {
   NotApplied = 924340000,
   Proposed = 924340001,
   Applied = 924340002,
   Former = 924340003,
+}
+declare const enum contact_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum contact_address2_addresstypecode {
+  DefaultValue = 1,
 }
 declare const enum contact_preferredappointmentdaycode {
   Sunday = 0,
@@ -238,9 +235,6 @@ declare const enum contact_preferredappointmentdaycode {
   Thursday = 4,
   Friday = 5,
   Saturday = 6,
-}
-declare const enum contact_customertypecode {
-  DefaultValue = 1,
 }
 declare const enum opc_preferredlanguage {
   English = 924340000,
@@ -255,10 +249,16 @@ declare const enum contact_familystatuscode {
   Divorced = 3,
   Widowed = 4,
 }
-declare const enum contact_address3_shippingmethodcode {
+declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum contact_address2_shippingmethodcode {
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
+declare const enum contact_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum opc_allegation_statecode {
@@ -275,13 +275,13 @@ declare const enum opc_allegation_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_allegationtype_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_allegationtype_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_allegationtype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_checklistresponse_statecode {
   Active = 0,
@@ -291,23 +291,20 @@ declare const enum opc_checklistresponse_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_checklisttype_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_complaintstage {
-  Intake = 924340000,
-}
 declare const enum opc_checklisttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_nextstep {
-  Transfertoinvestigations = 924340000,
-  Resolved = 924340001,
-  Withdrawn = 924340002,
-  Settled = 924340003,
-  Discontinued = 924340004,
+declare const enum opc_complaintstage {
+  Intake = 924340000,
+}
+declare const enum opc_checklisttype_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_yesorno {
+  Yes = 924340000,
+  No = 924340001,
 }
 declare const enum opc_complaintmilestone {
   Triage = 924340000,
@@ -336,10 +333,6 @@ declare const enum opc_closereason {
   Resolved = 924340003,
   Createdinerror = 924340004,
 }
-declare const enum opc_yesorno {
-  Yes = 924340000,
-  No = 924340001,
-}
 declare const enum opc_intakedisposition {
   MovetoEarlyResolution = 924340000,
   MovetoInvestigation = 924340001,
@@ -361,21 +354,28 @@ declare const enum opc_complaint_statuscode {
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
 }
-declare const enum opc_dispositionaction_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_nextstep {
+  Transfertoinvestigations = 924340000,
+  Resolved = 924340001,
+  Withdrawn = 924340002,
+  Settled = 924340003,
+  Discontinued = 924340004,
 }
 declare const enum opc_dispositionaction_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionreason_statecode {
+declare const enum opc_dispositionaction_statecode {
   Active = 0,
   Inactive = 1,
 }
 declare const enum opc_dispositionreason_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_dispositionreason_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_individualcomplaint_bp_statecode {
   Active = 0,
@@ -426,13 +426,13 @@ declare const enum opc_notification_statuscode {
   Inactive = 2,
   Read = 924340000,
 }
-declare const enum opc_opcpriority_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_opcpriority_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_opcpriority_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_questiontemplate_statecode {
   Active = 0,
@@ -442,13 +442,13 @@ declare const enum opc_questiontemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_questiontype_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_questiontype_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_questiontype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_recommendation_statecode {
   Active = 0,
@@ -482,13 +482,13 @@ declare const enum opc_riskassessment_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentcategory_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_riskassessmentcategory_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_riskassessmentcategory_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_riskassessmentcategorytemplate_statecode {
   Active = 0,
@@ -530,15 +530,11 @@ declare const enum opc_riskassessmenttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_sector_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_sector_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_theme_statecode {
+declare const enum opc_sector_statecode {
   Active = 0,
   Inactive = 1,
 }
@@ -546,7 +542,7 @@ declare const enum opc_theme_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_topic_statecode {
+declare const enum opc_theme_statecode {
   Active = 0,
   Inactive = 1,
 }
@@ -554,22 +550,26 @@ declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum queue_queuetypecode {
-  DefaultValue = 1,
+declare const enum opc_topic_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queue_outgoingemaildeliverymethod {
   None = 0,
   ServerSideSynchronizationorEmailRouter = 2,
-}
-declare const enum queue_statecode {
-  Active = 0,
-  Inactive = 1,
 }
 declare const enum queue_emailrouteraccessapproval {
   Empty = 0,
   Approved = 1,
   PendingApproval = 2,
   Rejected = 3,
+}
+declare const enum queue_queuetypecode {
+  DefaultValue = 1,
+}
+declare const enum queue_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queue_queueviewtype {
   Public = 0,
@@ -610,8 +610,8 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10007,
-  Complaint = 11772,
+  KnowledgeArticleTemplate = 10024,
+  Complaint = 10381,
 }
 declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
@@ -619,27 +619,8 @@ declare const enum systemuser_address1_addresstypecode {
 declare const enum systemuser_address1_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum systemuser_invitestatuscode {
-  InvitationNotSent = 0,
-  Invited = 1,
-  InvitationNearExpired = 2,
-  InvitationExpired = 3,
-  InvitationAccepted = 4,
-  InvitationRejected = 5,
-  InvitationRevoked = 6,
-}
-declare const enum systemuser_preferredaddresscode {
-  MailingAddress = 1,
-  OtherAddress = 2,
-}
 declare const enum systemuser_preferredemailcode {
   DefaultValue = 1,
-}
-declare const enum systemuser_emailrouteraccessapproval {
-  Empty = 0,
-  Approved = 1,
-  PendingApproval = 2,
-  Rejected = 3,
 }
 declare const enum systemuser_outgoingemaildeliverymethod {
   None = 0,
@@ -651,6 +632,16 @@ declare const enum systemuser_preferredphonecode {
   OtherPhone = 2,
   HomePhone = 3,
   MobilePhone = 4,
+}
+declare const enum systemuser_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum systemuser_preferredaddresscode {
+  MailingAddress = 1,
+  OtherAddress = 2,
 }
 declare const enum systemuser_incomingemaildeliverymethod {
   None = 0,
@@ -684,6 +675,15 @@ declare const enum systemuser_caltype {
 declare const enum systemuser_address2_addresstypecode {
   DefaultValue = 1,
 }
+declare const enum systemuser_invitestatuscode {
+  InvitationNotSent = 0,
+  Invited = 1,
+  InvitationNearExpired = 2,
+  InvitationExpired = 3,
+  InvitationAccepted = 4,
+  InvitationRejected = 5,
+  InvitationRevoked = 6,
+}
 declare const enum systemuser_address2_shippingmethodcode {
   DefaultValue = 1,
 }
@@ -713,29 +713,6 @@ declare const enum activityparty_instancetypecode {
   RecurringException = 3,
   RecurringFutureException = 4,
 }
-declare const enum connection_record1objecttypecode {
-  Account = 1,
-  Contact = 2,
-  User = 8,
-  Team = 9,
-  Position = 50,
-  SocialProfile = 99,
-  Territory = 2013,
-  Activity = 4200,
-  Appointment = 4201,
-  Email = 4202,
-  Fax = 4204,
-  Letter = 4207,
-  PhoneCall = 4210,
-  Task = 4212,
-  SocialActivity = 4216,
-  RecurringAppointment = 4251,
-  ProcessSession = 4710,
-  ChannelAccessProfileRule = 9400,
-  Goal = 9600,
-  KnowledgeBaseRecord = 9930,
-  KnowledgeArticle = 9953,
-}
 declare const enum connection_record2objecttypecode {
   Account = 1,
   Contact = 2,
@@ -759,13 +736,36 @@ declare const enum connection_record2objecttypecode {
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
 }
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
+}
 declare const enum connection_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum connection_record1objecttypecode {
+  Account = 1,
+  Contact = 2,
+  User = 8,
+  Team = 9,
+  Position = 50,
+  SocialProfile = 99,
+  Territory = 2013,
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  RecurringAppointment = 4251,
+  ProcessSession = 4710,
+  ChannelAccessProfileRule = 9400,
+  Goal = 9600,
+  KnowledgeBaseRecord = 9930,
+  KnowledgeArticle = 9953,
 }
 declare namespace Form.account.QuickCreate {
   namespace QuickCreate {
@@ -4241,9 +4241,10 @@ declare namespace Form.opc_complaint.Main {
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
       interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_contact"): Xrm.PageSection;
+        get(name: "section_complainant"): Xrm.PageSection;
         get(name: "section_general"): Xrm.PageSection;
         get(name: "section_notes_activities"): Xrm.PageSection;
+        get(name: "section_respondent"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4284,6 +4285,8 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_complainantlegalrepresentative"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_complainantlegalrepresentativefirm"): Xrm.LookupAttribute<"account">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
@@ -4295,6 +4298,9 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_number"): Xrm.Attribute<string>;
       get(name: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
+      get(name: "opc_respondentlegalrepresentative"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_respondentlegalrepresentativefirm"): Xrm.LookupAttribute<"account">;
+      get(name: "opc_respondentrepresentative"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector">;
       get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -4339,11 +4345,16 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_accountid"): Xrm.LookupControl<"account">;
       get(name: "opc_actualriskappetitevalue"): Xrm.NumberControl;
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
+      get(name: "opc_complainantlegalrepresentative"): Xrm.LookupControl<"contact">;
+      get(name: "opc_complainantlegalrepresentativefirm"): Xrm.LookupControl<"account">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
       get(name: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
+      get(name: "opc_respondentlegalrepresentative"): Xrm.LookupControl<"contact">;
+      get(name: "opc_respondentlegalrepresentativefirm"): Xrm.LookupControl<"account">;
+      get(name: "opc_respondentrepresentative"): Xrm.LookupControl<"contact">;
       get(name: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
       get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
@@ -4374,6 +4385,8 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_complainantlegalrepresentative"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_complainantlegalrepresentativefirm"): Xrm.LookupAttribute<"account">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
@@ -4385,6 +4398,9 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
+    getAttribute(attributeName: "opc_respondentlegalrepresentative"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_respondentlegalrepresentativefirm"): Xrm.LookupAttribute<"account">;
+    getAttribute(attributeName: "opc_respondentrepresentative"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector">;
     getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
@@ -4424,11 +4440,16 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
     getControl(controlName: "opc_actualriskappetitevalue"): Xrm.NumberControl;
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "opc_complainantlegalrepresentative"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "opc_complainantlegalrepresentativefirm"): Xrm.LookupControl<"account">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
     getControl(controlName: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
+    getControl(controlName: "opc_respondentlegalrepresentative"): Xrm.LookupControl<"contact">;
+    getControl(controlName: "opc_respondentlegalrepresentativefirm"): Xrm.LookupControl<"account">;
+    getControl(controlName: "opc_respondentrepresentative"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
     getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
@@ -9280,7 +9301,9 @@ interface Account_Relationships {
   account_master_account?: Account_Result[] | null;
   account_parent_account?: Account_Result[] | null;
   contact_customer_accounts?: Contact_Result[] | null;
+  opc_account_complaints_complainantlegalfirm?: opc_complaint_Result[] | null;
   opc_account_complaints_respondent?: opc_complaint_Result[] | null;
+  opc_account_complaints_respondentlegalfirm?: opc_complaint_Result[] | null;
 }
 interface Account extends Account_Base, Account_Relationships {
   ownerid_bind$systemusers?: string | null;
@@ -9596,7 +9619,9 @@ interface Account_Expand {
   masterid: WebExpand<Account_Expand, Account_Select, Account_Filter, { masterid: Account_Result }>;
   modifiedby: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  opc_account_complaints_complainantlegalfirm: WebExpand<Account_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_account_complaints_complainantlegalfirm: opc_complaint_Result[] }>;
   opc_account_complaints_respondent: WebExpand<Account_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_account_complaints_respondent: opc_complaint_Result[] }>;
+  opc_account_complaints_respondentlegalfirm: WebExpand<Account_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_account_complaints_respondentlegalfirm: opc_complaint_Result[] }>;
   ownerid: WebExpand<Account_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<Account_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
@@ -9702,7 +9727,9 @@ interface Account_RelatedMany {
   account_master_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   account_parent_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   contact_customer_accounts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  opc_account_complaints_complainantlegalfirm: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   opc_account_complaints_respondent: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_account_complaints_respondentlegalfirm: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
@@ -9895,7 +9922,10 @@ interface Contact_Relationships {
   contact_customer_contacts?: Contact_Result[] | null;
   contact_master_contact?: Contact_Result[] | null;
   opc_contact_complaints_complainant?: opc_complaint_Result[] | null;
+  opc_contact_complaints_complainantlegalrep?: opc_complaint_Result[] | null;
   opc_contact_complaints_complainantreps?: opc_complaint_Result[] | null;
+  opc_contact_complaints_repondentrep?: opc_complaint_Result[] | null;
+  opc_contact_complaints_respondentlegalrep?: opc_complaint_Result[] | null;
   parentcustomerid_account?: Account_Result | null;
   parentcustomerid_contact?: Contact_Result | null;
 }
@@ -10308,7 +10338,10 @@ interface Contact_Expand {
   modifiedby: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_contact_complaints_complainant: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainant: opc_complaint_Result[] }>;
+  opc_contact_complaints_complainantlegalrep: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainantlegalrep: opc_complaint_Result[] }>;
   opc_contact_complaints_complainantreps: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainantreps: opc_complaint_Result[] }>;
+  opc_contact_complaints_repondentrep: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_repondentrep: opc_complaint_Result[] }>;
+  opc_contact_complaints_respondentlegalrep: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_respondentlegalrep: opc_complaint_Result[] }>;
   ownerid: WebExpand<Contact_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<Contact_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
@@ -10423,7 +10456,10 @@ interface Contact_RelatedMany {
   contact_customer_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   contact_master_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   opc_contact_complaints_complainant: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_contact_complaints_complainantlegalrep: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   opc_contact_complaints_complainantreps: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_contact_complaints_repondentrep: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_contact_complaints_respondentlegalrep: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
@@ -11062,10 +11098,15 @@ interface opc_complaint_Relationships {
 interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships {
   opc_accountid_bind$accounts?: string | null;
   opc_complainant_bind$contacts?: string | null;
+  opc_complainantlegalrepresentative_bind$contacts?: string | null;
+  opc_complainantlegalrepresentativefirm_bind$accounts?: string | null;
   opc_complainantrep_bind$contacts?: string | null;
   opc_intakeofficer_bind$systemusers?: string | null;
   opc_legislation_bind$opc_legislations?: string | null;
   opc_opcpriorityid_bind$opc_opcpriorities?: string | null;
+  opc_respondentlegalrepresentative_bind$contacts?: string | null;
+  opc_respondentlegalrepresentativefirm_bind$accounts?: string | null;
+  opc_respondentrepresentative_bind$contacts?: string | null;
   opc_sectorid_bind$opc_sectors?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
@@ -11091,6 +11132,8 @@ interface opc_complaint_Select {
   opc_closeddate: WebAttribute<opc_complaint_Select, { opc_closeddate: Date | null }, { opc_closeddate_formatted?: string }>;
   opc_closereason: WebAttribute<opc_complaint_Select, { opc_closereason: opc_closereason | null }, { opc_closereason_formatted?: string }>;
   opc_complainant_guid: WebAttribute<opc_complaint_Select, { opc_complainant_guid: string | null }, { opc_complainant_formatted?: string }>;
+  opc_complainantlegalrepresentative_guid: WebAttribute<opc_complaint_Select, { opc_complainantlegalrepresentative_guid: string | null }, { opc_complainantlegalrepresentative_formatted?: string }>;
+  opc_complainantlegalrepresentativefirm_guid: WebAttribute<opc_complaint_Select, { opc_complainantlegalrepresentativefirm_guid: string | null }, { opc_complainantlegalrepresentativefirm_formatted?: string }>;
   opc_complainantrep_guid: WebAttribute<opc_complaint_Select, { opc_complainantrep_guid: string | null }, { opc_complainantrep_formatted?: string }>;
   opc_complaintdisposition: WebAttribute<opc_complaint_Select, { opc_complaintdisposition: opc_complaintdisposition | null }, { opc_complaintdisposition_formatted?: string }>;
   opc_complaintid: WebAttribute<opc_complaint_Select, { opc_complaintid: string | null }, {  }>;
@@ -11106,6 +11149,9 @@ interface opc_complaint_Select {
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
   opc_opcpriorityid_guid: WebAttribute<opc_complaint_Select, { opc_opcpriorityid_guid: string | null }, { opc_opcpriorityid_formatted?: string }>;
   opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: opc_yesorno | null }, { opc_recommendtoregistrar_formatted?: string }>;
+  opc_respondentlegalrepresentative_guid: WebAttribute<opc_complaint_Select, { opc_respondentlegalrepresentative_guid: string | null }, { opc_respondentlegalrepresentative_formatted?: string }>;
+  opc_respondentlegalrepresentativefirm_guid: WebAttribute<opc_complaint_Select, { opc_respondentlegalrepresentativefirm_guid: string | null }, { opc_respondentlegalrepresentativefirm_formatted?: string }>;
+  opc_respondentrepresentative_guid: WebAttribute<opc_complaint_Select, { opc_respondentrepresentative_guid: string | null }, { opc_respondentrepresentative_formatted?: string }>;
   opc_sectorid_guid: WebAttribute<opc_complaint_Select, { opc_sectorid_guid: string | null }, { opc_sectorid_formatted?: string }>;
   opc_sendcloseletter: WebAttribute<opc_complaint_Select, { opc_sendcloseletter: boolean | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_complaint_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
@@ -11138,6 +11184,8 @@ interface opc_complaint_Filter {
   opc_closeddate: Date;
   opc_closereason: opc_closereason;
   opc_complainant_guid: XQW.Guid;
+  opc_complainantlegalrepresentative_guid: XQW.Guid;
+  opc_complainantlegalrepresentativefirm_guid: XQW.Guid;
   opc_complainantrep_guid: XQW.Guid;
   opc_complaintdisposition: opc_complaintdisposition;
   opc_complaintid: XQW.Guid;
@@ -11153,6 +11201,9 @@ interface opc_complaint_Filter {
   opc_number: string;
   opc_opcpriorityid_guid: XQW.Guid;
   opc_recommendtoregistrar: opc_yesorno;
+  opc_respondentlegalrepresentative_guid: XQW.Guid;
+  opc_respondentlegalrepresentativefirm_guid: XQW.Guid;
+  opc_respondentrepresentative_guid: XQW.Guid;
   opc_sectorid_guid: XQW.Guid;
   opc_sendcloseletter: boolean;
   overriddencreatedon: Date;
@@ -11178,6 +11229,8 @@ interface opc_complaint_Expand {
   opc_RiskAssessment_Complaint_opc_complain: WebExpand<opc_complaint_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_Complaint_opc_complain: opc_RiskAssessment_Result[] }>;
   opc_accountid: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_accountid: Account_Result }>;
   opc_complainant: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainant: Contact_Result }>;
+  opc_complainantlegalrepresentative: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantlegalrepresentative: Contact_Result }>;
+  opc_complainantlegalrepresentativefirm: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_complainantlegalrepresentativefirm: Account_Result }>;
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
   opc_complaint_QueueItems: WebExpand<opc_complaint_Expand, QueueItem_Select, QueueItem_Filter, { opc_complaint_QueueItems: QueueItem_Result[] }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
@@ -11189,6 +11242,9 @@ interface opc_complaint_Expand {
   opc_intakeofficer: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { opc_intakeofficer: SystemUser_Result }>;
   opc_legislation: WebExpand<opc_complaint_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
   opc_opcpriorityid: WebExpand<opc_complaint_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { opc_opcpriorityid: opc_opcpriority_Result }>;
+  opc_respondentlegalrepresentative: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_respondentlegalrepresentative: Contact_Result }>;
+  opc_respondentlegalrepresentativefirm: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_respondentlegalrepresentativefirm: Account_Result }>;
+  opc_respondentrepresentative: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_respondentrepresentative: Contact_Result }>;
   opc_sectorid: WebExpand<opc_complaint_Expand, opc_sector_Select, opc_sector_Filter, { opc_sectorid: opc_sector_Result }>;
   ownerid: WebExpand<opc_complaint_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_complaint_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
@@ -11207,6 +11263,8 @@ interface opc_complaint_FormattedResult {
   opc_closeddate_formatted?: string;
   opc_closereason_formatted?: string;
   opc_complainant_formatted?: string;
+  opc_complainantlegalrepresentative_formatted?: string;
+  opc_complainantlegalrepresentativefirm_formatted?: string;
   opc_complainantrep_formatted?: string;
   opc_complaintdisposition_formatted?: string;
   opc_intakedisposition_formatted?: string;
@@ -11217,6 +11275,9 @@ interface opc_complaint_FormattedResult {
   opc_nextstep_formatted?: string;
   opc_opcpriorityid_formatted?: string;
   opc_recommendtoregistrar_formatted?: string;
+  opc_respondentlegalrepresentative_formatted?: string;
+  opc_respondentlegalrepresentativefirm_formatted?: string;
+  opc_respondentrepresentative_formatted?: string;
   opc_sectorid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
@@ -11234,10 +11295,15 @@ interface opc_complaint_Result extends opc_complaint_Base, opc_complaint_Relatio
   modifiedonbehalfby_guid: string | null;
   opc_accountid_guid: string | null;
   opc_complainant_guid: string | null;
+  opc_complainantlegalrepresentative_guid: string | null;
+  opc_complainantlegalrepresentativefirm_guid: string | null;
   opc_complainantrep_guid: string | null;
   opc_intakeofficer_guid: string | null;
   opc_legislation_guid: string | null;
   opc_opcpriorityid_guid: string | null;
+  opc_respondentlegalrepresentative_guid: string | null;
+  opc_respondentlegalrepresentativefirm_guid: string | null;
+  opc_respondentrepresentative_guid: string | null;
   opc_sectorid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
@@ -11251,10 +11317,15 @@ interface opc_complaint_RelatedOne {
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_accountid: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   opc_complainant: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  opc_complainantlegalrepresentative: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  opc_complainantlegalrepresentativefirm: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   opc_complainantrep: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   opc_intakeofficer: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
   opc_opcpriorityid: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  opc_respondentlegalrepresentative: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  opc_respondentlegalrepresentativefirm: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  opc_respondentrepresentative: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   opc_sectorid: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
   ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
