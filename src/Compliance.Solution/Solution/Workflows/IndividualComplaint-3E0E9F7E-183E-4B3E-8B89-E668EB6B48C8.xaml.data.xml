@@ -64,9 +64,6 @@
     <steplabels id="{4b567f7a-208f-4ff8-be5b-cc32a9fd7dce}">
       <label languagecode="1033" description="Decision" />
     </steplabels>
-    <steplabels id="{1fe6d57a-4240-4a38-9cb2-1b5243141ad9}">
-      <label languagecode="1033" description="Acceptance Date" />
-    </steplabels>
     <steplabels id="{22f58c27-c247-4bf2-be56-5d89b7111754}">
       <label languagecode="1033" description="Reason to close" />
     </steplabels>
@@ -78,6 +75,9 @@
     </steplabels>
     <steplabels id="{a52e31c9-0cad-4800-b80c-ef45c28726e5}">
       <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{b694aea4-0e91-4179-af03-0ca3c5723b49}">
+      <label languagecode="1033" description="Close letter sent" />
     </steplabels>
     <steplabels id="{bc5f8395-9640-4569-a004-629d48be9180}">
       <label languagecode="1033" description="Status Reason" />
@@ -97,11 +97,17 @@
     <steplabels id="{da76887d-434e-4b18-9f18-4c82ae5daadd}">
       <label languagecode="1033" description="Close" />
     </steplabels>
+    <steplabels id="{15ddae97-3393-42d3-a49e-ccd446835fb7}">
+      <label languagecode="1033" description="Close letter sent" />
+    </steplabels>
     <steplabels id="{d57ba287-ce23-4c1a-a005-3777450cf3b0}">
       <label languagecode="1033" description="Status Reason" />
     </steplabels>
     <steplabels id="{57863eb5-5caf-47c0-aabf-8b50814a4190}">
       <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{d5a9c796-d229-419f-b330-d113ef79a508}">
+      <label languagecode="1033" description="Close letter sent" />
     </steplabels>
     <steplabels id="{bd2b4fc8-1ef2-4e8e-84d1-eb780f47f41f}">
       <label languagecode="1033" description="Status Reason" />
@@ -111,6 +117,9 @@
     </steplabels>
     <steplabels id="{dd5bbf69-bc1b-4db8-a075-9e6cc6c263ef}">
       <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{ebffc585-94d3-4e83-ab42-010b12548ed7}">
+      <label languagecode="1033" description="Close letter sent" />
     </steplabels>
     <steplabels id="{643f9c47-d5f5-4201-91de-31470ced9c0c}">
       <label languagecode="1033" description="Reason to close" />

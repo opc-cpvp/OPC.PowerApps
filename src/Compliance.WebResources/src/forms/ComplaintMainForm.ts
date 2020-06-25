@@ -123,19 +123,19 @@ export namespace Complaint.Forms {
                         // when closereason off filter reason based on stage.
                     });
                     formContext.getAttribute("opc_closereason").setRequiredLevel("required");
-                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOff(control));
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(false));
                     break;
                 case opc_intakedisposition.Declinetoinvestigate:
-                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOff(control));
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(false));
                     formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
                     break;
                 case opc_intakedisposition.MovetoEarlyResolution:
                 case opc_intakedisposition.MovetoInvestigation:
-                    formContext.getAttribute("opc_acceptancedate").controls.forEach(control => XrmHelper.toggleOn(control));
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(true));
                     formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
-                    formContext.getAttribute("opc_acceptancedate").setRequiredLevel("required");
                     break;
                 default:
+                    formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(false));
                     break;
             }
         }
@@ -202,3 +202,4 @@ export namespace Complaint.Forms {
         }
     }
 }
+

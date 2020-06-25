@@ -70,6 +70,40 @@
                         </control>
                       </cell>
                     </row>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
+                        <labels>
+                          <label description="Topics" languagecode="1033" />
+                          <label description="Sujets" languagecode="1036" />
+                        </labels>
+                        <control id="subgrid_topics" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{02d24ec3-7b03-209d-7d59-7e772a904cb3}">
+                          <parameters>
+                            <TargetEntityType>opc_topic</TargetEntityType>
+                            <ViewId>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewId>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_complaints_topics_relatedtopics</RelationshipName>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <ViewIds>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewIds>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
                 <section name="section_contact" id="6fe830aa-faa9-474a-8a7d-e4829162960e" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
@@ -134,6 +168,14 @@
                           <label description="Multiple Complaint Strategy" languagecode="1033" />
                         </labels>
                         <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b1e4396f-7d9a-48df-8ff1-4dd8267d73fe}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Member of Parliament Involved" languagecode="1033" />
+                        </labels>
+                        <control id="opc_memberofparliamentinvolved" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_memberofparliamentinvolved" disabled="false" uniqueid="{5e7098ee-d4f5-4f5a-930b-e0787e145ed2}" />
                       </cell>
                     </row>
                   </rows>
@@ -348,58 +390,6 @@
             </column>
           </columns>
         </tab>
-        <tab name="tab_topics" id="8531b157-b59e-44e3-a107-f3409f07f3ee" IsUserDefined="0" locklevel="0" showlabel="true">
-          <labels>
-            <label description="Topics" languagecode="1033" />
-          </labels>
-          <columns>
-            <column width="100%">
-              <sections>
-                <section name="section_topics" id="f77a090d-20e8-47f4-b0c5-b8e0ff24b159" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
-                  <labels>
-                    <label description="Topics" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell showlabel="true" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
-                        <labels>
-                          <label description="Topics" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
-                        </labels>
-                        <control id="subgrid_topics" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{02d24ec3-7b03-209d-7d59-7e772a904cb3}">
-                          <parameters>
-                            <TargetEntityType>opc_topic</TargetEntityType>
-                            <ViewId>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewId>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <RelationshipName>opc_complaints_topics_relatedtopics</RelationshipName>
-                            <RecordsPerPage>4</RecordsPerPage>
-                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            <IsUserView>false</IsUserView>
-                            <ViewIds>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewIds>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableJumpBar>false</EnableJumpBar>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <ChartGridMode>Grid</ChartGridMode>
-                            <VisualizationId />
-                            <IsUserChart>false</IsUserChart>
-                            <EnableChartPicker>false</EnableChartPicker>
-                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
-              </sections>
-            </column>
-          </columns>
-        </tab>
         <tab name="tab_risk_assessments" id="af80b443-cf64-4b73-a32d-36dab9ba1f60" IsUserDefined="0" locklevel="0" showlabel="true">
           <labels>
             <label description="Risk Assessments" languagecode="1033" />
@@ -518,6 +508,12 @@
               </labels>
               <control id="header_opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="true" uniqueid="{2cc4e1d6-08e5-de49-8dc2-8d7c69832ae7}" />
             </cell>
+            <cell id="{ac6b3448-0919-4aea-97f2-df155cf74881}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Intake Officer" languagecode="1033" />
+              </labels>
+              <control id="header_opc_intakeofficer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_intakeofficer" disabled="true" />
+            </cell>
             <cell id="{9a1af0ed-0bac-45b9-84ea-dd4285d4ac7d}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Last Milestone" languagecode="1033" />
@@ -542,6 +538,12 @@
                   <DisableMru>false</DisableMru>
                 </parameters>
               </control>
+            </cell>
+            <cell id="{d04cc08c-ecef-40e2-be0e-cc53639fe48a}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Acceptance Date" languagecode="1033" />
+              </labels>
+              <control id="header_opc_acceptancedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_acceptancedate" disabled="true" />
             </cell>
           </row>
         </rows>
@@ -638,7 +640,103 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
-      <controlDescriptions />
+      <controlDescriptions>
+        <controlDescription forControl="{02d24ec3-7b03-209d-7d59-7e772a904cb3}">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <TargetEntityType>opc_topic</TargetEntityType>
+              <ViewId>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewId>
+              <EnableViewPicker>false</EnableViewPicker>
+              <RelationshipName>opc_complaints_topics_relatedtopics</RelationshipName>
+              <RecordsPerPage>4</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              <IsUserView>false</IsUserView>
+              <ViewIds>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewIds>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableJumpBar>false</EnableJumpBar>
+              <AutoExpand>Fixed</AutoExpand>
+              <ChartGridMode>Grid</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>false</EnableChartPicker>
+              <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_complaints_topics_relatedtopics</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_topic</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_topic</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_complaints_topics_relatedtopics</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_complaintsrelatedtopics</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Topics|fr=Sujets</labelText>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_complaints_topics_relatedtopics</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_topic</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_topic</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_complaints_topics_relatedtopics</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_complaintsrelatedtopics</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Topics|fr=Sujets</labelText>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_complaints_topics_relatedtopics</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_topic</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{1BBBDE92-3C3F-419B-A355-1449FDA8AD3A}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_topic</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_complaints_topics_relatedtopics</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_complaintsrelatedtopics</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Topics|fr=Sujets</labelText>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{5e7098ee-d4f5-4f5a-930b-e0787e145ed2}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_memberofparliamentinvolved</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_memberofparliamentinvolved</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_memberofparliamentinvolved</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_memberofparliamentinvolved</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
       <formLibraries>
         <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{b6c03c50-74db-aa6e-b442-b00a509d4394}" />
       </formLibraries>

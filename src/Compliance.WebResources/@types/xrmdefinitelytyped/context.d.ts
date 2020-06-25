@@ -242,6 +242,10 @@ declare const enum contact_preferredappointmentdaycode {
 declare const enum contact_customertypecode {
   DefaultValue = 1,
 }
+declare const enum opc_preferredlanguage {
+  English = 924340000,
+  French = 924340001,
+}
 declare const enum contact_haschildrencode {
   DefaultValue = 1,
 }
@@ -550,6 +554,43 @@ declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum queue_queuetypecode {
+  DefaultValue = 1,
+}
+declare const enum queue_outgoingemaildeliverymethod {
+  None = 0,
+  ServerSideSynchronizationorEmailRouter = 2,
+}
+declare const enum queue_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum queue_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum queue_queueviewtype {
+  Public = 0,
+  Private = 1,
+}
+declare const enum queue_incomingemaildeliverymethod {
+  None = 0,
+  ServerSideSynchronizationorEmailRouter = 2,
+  ForwardMailbox = 3,
+}
+declare const enum queue_incomingemailfilteringmethod {
+  Allemailmessages = 0,
+  EmailmessagesinresponsetoDynamics365email = 1,
+  EmailmessagesfromDynamics365LeadsContactsandAccounts = 2,
+  EmailmessagesfromDynamics365recordsthatareemailenabled = 3,
+  Noemailmessages = 4,
+}
+declare const enum queue_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum queueitem_statuscode {
   Active = 1,
   Inactive = 2,
@@ -570,17 +611,87 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11612,
+  Complaint = 11772,
 }
-declare const enum sharepointsite_servicetype {
-  SharePoint = 0,
-  OneDrive = 1,
-  Sharedwithme = 2,
-  MSTeams = 3,
+declare const enum systemuser_address1_addresstypecode {
+  DefaultValue = 1,
 }
-declare const enum sharepointdocumentlocation_locationtype {
-  General = 0,
-  DedicatedforOneNoteIntegration = 1,
+declare const enum systemuser_address1_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_invitestatuscode {
+  InvitationNotSent = 0,
+  Invited = 1,
+  InvitationNearExpired = 2,
+  InvitationExpired = 3,
+  InvitationAccepted = 4,
+  InvitationRejected = 5,
+  InvitationRevoked = 6,
+}
+declare const enum systemuser_preferredaddresscode {
+  MailingAddress = 1,
+  OtherAddress = 2,
+}
+declare const enum systemuser_preferredemailcode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum systemuser_outgoingemaildeliverymethod {
+  None = 0,
+  MicrosoftDynamics365forOutlook = 1,
+  ServerSideSynchronizationorEmailRouter = 2,
+}
+declare const enum systemuser_preferredphonecode {
+  MainPhone = 1,
+  OtherPhone = 2,
+  HomePhone = 3,
+  MobilePhone = 4,
+}
+declare const enum systemuser_incomingemaildeliverymethod {
+  None = 0,
+  MicrosoftDynamics365forOutlook = 1,
+  ServerSideSynchronizationorEmailRouter = 2,
+  ForwardMailbox = 3,
+}
+declare const enum systemuser_accessmode {
+  ReadWrite = 0,
+  Administrative = 1,
+  Read = 2,
+  SupportUser = 3,
+  Noninteractive = 4,
+  DelegatedAdmin = 5,
+}
+declare const enum systemuser_caltype {
+  Professional = 0,
+  Administrative = 1,
+  Basic = 2,
+  DeviceProfessional = 3,
+  DeviceBasic = 4,
+  Essential = 5,
+  DeviceEssential = 6,
+  Enterprise = 7,
+  DeviceEnterprise = 8,
+  Sales = 9,
+  Service = 10,
+  FieldService = 11,
+  ProjectService = 12,
+}
+declare const enum systemuser_address2_addresstypecode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_address2_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum team_type {
+  Owner = 0,
+  Access = 1,
+  AADSecurityGroup = 2,
+  AADOfficeGroup = 3,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -838,13 +949,6 @@ declare namespace Form.account.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface tab_documents extends Xrm.SectionCollectionBase {
-        get(name: "tab_3_section_1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
       interface tab_summary extends Xrm.SectionCollectionBase {
         get(name: "section_account_information"): Xrm.PageSection;
         get(name: "section_address"): Xrm.PageSection;
@@ -880,7 +984,6 @@ declare namespace Form.account.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "ChildAccounts"): Xrm.SubGridControl<"account">;
       get(name: "Contacts"): Xrm.SubGridControl<"contact">;
-      get(name: "Subgrid_1"): Xrm.SubGridControl<"sharepointdocument">;
       get(name: "address1_city"): Xrm.StringControl;
       get(name: "address1_country"): Xrm.StringControl;
       get(name: "address1_line1"): Xrm.StringControl;
@@ -904,7 +1007,6 @@ declare namespace Form.account.Main {
     }
     interface Tabs extends Xrm.TabCollectionBase {
       get(name: "tab_complaints"): Xrm.PageTab<Tabs.tab_complaints>;
-      get(name: "tab_documents"): Xrm.PageTab<Tabs.tab_documents>;
       get(name: "tab_summary"): Xrm.PageTab<Tabs.tab_summary>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
@@ -930,7 +1032,6 @@ declare namespace Form.account.Main {
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "ChildAccounts"): Xrm.SubGridControl<"account">;
     getControl(controlName: "Contacts"): Xrm.SubGridControl<"contact">;
-    getControl(controlName: "Subgrid_1"): Xrm.SubGridControl<"sharepointdocument">;
     getControl(controlName: "address1_city"): Xrm.StringControl;
     getControl(controlName: "address1_country"): Xrm.StringControl;
     getControl(controlName: "address1_line1"): Xrm.StringControl;
@@ -2271,6 +2372,7 @@ declare namespace Form.contact.Main {
       get(name: "name"): Xrm.Attribute<string> | null;
       get(name: "opc_duplicatedetectionresult"): Xrm.OptionSetAttribute<opc_duplicatedetectionresult>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
+      get(name: "opc_preferredlanguage"): Xrm.OptionSetAttribute<opc_preferredlanguage>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
       get(name: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
@@ -2313,6 +2415,7 @@ declare namespace Form.contact.Main {
       get(name: "jobtitle"): Xrm.StringControl;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
+      get(name: "opc_preferredlanguage"): Xrm.OptionSetControl<opc_preferredlanguage>;
       get(name: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
       get(name: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
@@ -2354,6 +2457,7 @@ declare namespace Form.contact.Main {
     getAttribute(attributeName: "name"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: "opc_duplicatedetectionresult"): Xrm.OptionSetAttribute<opc_duplicatedetectionresult>;
     getAttribute(attributeName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
+    getAttribute(attributeName: "opc_preferredlanguage"): Xrm.OptionSetAttribute<opc_preferredlanguage>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account"> | null;
     getAttribute(attributeName: "parentcustomerid"): Xrm.LookupAttribute<"account" | "contact">;
@@ -2391,6 +2495,7 @@ declare namespace Form.contact.Main {
     getControl(controlName: "jobtitle"): Xrm.StringControl;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
+    getControl(controlName: "opc_preferredlanguage"): Xrm.OptionSetControl<opc_preferredlanguage>;
     getControl(controlName: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
     getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<contact_preferredcontactmethodcode>;
     getControl(controlName: "subgrid_complaints"): Xrm.SubGridControl<"opc_complaint">;
@@ -3645,9 +3750,6 @@ declare namespace Form.opc_allegation.QuickCreate {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
-      get(name: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
-      get(name: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
-      get(name: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -3655,9 +3757,6 @@ declare namespace Form.opc_allegation.QuickCreate {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
-      get(name: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
-      get(name: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
-      get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -3673,14 +3772,8 @@ declare namespace Form.opc_allegation.QuickCreate {
   }
   interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
     getAttribute(attributeName: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
-    getAttribute(attributeName: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
-    getAttribute(attributeName: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
-    getAttribute(attributeName: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
-    getControl(controlName: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
-    getControl(controlName: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
-    getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
     getControl(controlName: string): undefined;
   }
 }
@@ -3737,12 +3830,12 @@ declare namespace Form.opc_allegation.Main {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
       get(name: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
       get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
       get(name: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
       get(name: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
+      get(name: "opc_referencenumber"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -3751,13 +3844,13 @@ declare namespace Form.opc_allegation.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "WebResource_checklist"): Xrm.WebResourceControl;
-      get(name: "header_opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "header_opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
       get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
+      get(name: "opc_referencenumber"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -3772,22 +3865,22 @@ declare namespace Form.opc_allegation.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_allegationdisposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
     getAttribute(attributeName: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
     getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
     getAttribute(attributeName: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
     getAttribute(attributeName: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
+    getAttribute(attributeName: "opc_referencenumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "WebResource_checklist"): Xrm.WebResourceControl;
-    getControl(controlName: "header_opc_allegationdisposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "header_opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
     getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
+    getControl(controlName: "opc_referencenumber"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -4184,30 +4277,26 @@ declare namespace Form.opc_complaint.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface tab_topics extends Xrm.SectionCollectionBase {
-        get(name: "section_topics"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_acceptancedate"): Xrm.DateAttribute | null;
+      get(name: "opc_acceptancedate"): Xrm.DateAttribute;
       get(name: "opc_accountid"): Xrm.LookupAttribute<"account">;
       get(name: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+      get(name: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
       get(name: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
+      get(name: "opc_memberofparliamentinvolved"): Xrm.Attribute<any>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_number"): Xrm.Attribute<string>;
       get(name: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
       get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector">;
+      get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode>;
       get(name: string): undefined;
@@ -4218,10 +4307,12 @@ declare namespace Form.opc_complaint.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
       get(name: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
+      get(name: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+      get(name: "header_opc_acceptancedate"): Xrm.DateControl;
+      get(name: "header_opc_intakeofficer"): Xrm.LookupControl<"systemuser">;
       get(name: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
       get(name: "header_opc_number"): Xrm.StringControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
       get(name: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason_1"): Xrm.OptionSetControl<opc_closereason> | null;
@@ -4236,6 +4327,10 @@ declare namespace Form.opc_complaint.Main {
       get(name: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
       get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
       get(name: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
+      get(name: "header_process_opc_sendcloseletter"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
@@ -4246,14 +4341,14 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
+      get(name: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
       get(name: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
       get(name: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
       get(name: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
-      get(name: "subgrid_documents"): Xrm.SubGridControl<"sharepointdocument">;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
       get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
-      get(name: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
+      get(name: "subgrid_topics"): Xrm.BaseControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -4267,7 +4362,6 @@ declare namespace Form.opc_complaint.Main {
       get(name: "tab_recommendations"): Xrm.PageTab<Tabs.tab_recommendations>;
       get(name: "tab_reminders"): Xrm.PageTab<Tabs.tab_reminders>;
       get(name: "tab_risk_assessments"): Xrm.PageTab<Tabs.tab_risk_assessments>;
-      get(name: "tab_topics"): Xrm.PageTab<Tabs.tab_topics>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -4275,30 +4369,35 @@ declare namespace Form.opc_complaint.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute | null;
+    getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account">;
     getAttribute(attributeName: "opc_actualriskappetitevalue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
+    getAttribute(attributeName: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
     getAttribute(attributeName: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
+    getAttribute(attributeName: "opc_memberofparliamentinvolved"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
     getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector">;
+    getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "SubgridControl1570455352989"): Xrm.SubGridControl<"opc_issue">;
     getControl(controlName: "SubgridControl1570455487438"): Xrm.SubGridControl<"opc_recommendation">;
+    getControl(controlName: "SubgridControl1570557025307"): Xrm.SubGridControl<"sharepointdocument">;
+    getControl(controlName: "header_opc_acceptancedate"): Xrm.DateControl;
+    getControl(controlName: "header_opc_intakeofficer"): Xrm.LookupControl<"systemuser">;
     getControl(controlName: "header_opc_lastmilestone"): Xrm.OptionSetControl<opc_complaintmilestone>;
     getControl(controlName: "header_opc_number"): Xrm.StringControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
     getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason_1"): Xrm.OptionSetControl<opc_closereason> | null;
@@ -4313,6 +4412,10 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
     getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
     getControl(controlName: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
@@ -4323,14 +4426,14 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
+    getControl(controlName: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
     getControl(controlName: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
     getControl(controlName: "opc_sectorid"): Xrm.LookupControl<"opc_sector">;
     getControl(controlName: "subgrid_allegations"): Xrm.SubGridControl<"opc_allegation">;
-    getControl(controlName: "subgrid_documents"): Xrm.SubGridControl<"sharepointdocument">;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
     getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
-    getControl(controlName: "subgrid_topics"): Xrm.SubGridControl<"opc_topic">;
+    getControl(controlName: "subgrid_topics"): Xrm.BaseControl;
     getControl(controlName: string): undefined;
   }
 }
@@ -4339,7 +4442,6 @@ declare namespace Form.opc_complaint.Quick {
     namespace Tabs {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_acceptancedate"): Xrm.DateAttribute | null;
       get(name: "opc_accountid"): Xrm.LookupAttribute<"account"> | null;
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
@@ -4350,6 +4452,7 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "opc_number"): Xrm.Attribute<string>;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
       get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector"> | null;
+      get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
       get(name: string): undefined;
@@ -4358,7 +4461,6 @@ declare namespace Form.opc_complaint.Quick {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
       get(name: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
       get(name: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason_1"): Xrm.OptionSetControl<opc_closereason> | null;
@@ -4373,6 +4475,10 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
       get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
       get(name: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
+      get(name: "header_process_opc_sendcloseletter"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
@@ -4394,7 +4500,6 @@ declare namespace Form.opc_complaint.Quick {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute | null;
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account"> | null;
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
@@ -4405,10 +4510,10 @@ declare namespace Form.opc_complaint.Quick {
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
     getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector"> | null;
+    getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "header_process_opc_acceptancedate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
     getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason_1"): Xrm.OptionSetControl<opc_closereason> | null;
@@ -4423,6 +4528,10 @@ declare namespace Form.opc_complaint.Quick {
     getControl(controlName: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
     getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
     getControl(controlName: "header_process_opc_sectorid"): Xrm.LookupControl<"opc_sector"> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
@@ -4631,15 +4740,15 @@ declare namespace Form.opc_dispositionreason.Main {
 declare namespace Form.opc_individualcomplaint_bp.Main {
   namespace Information {
     namespace Tabs {
-      interface StageStep11 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep11_section1"): Xrm.PageSection;
+      interface StageStep12 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep12_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep21 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep21_section1"): Xrm.PageSection;
+      interface StageStep23 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep23_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4659,43 +4768,43 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep33 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep33_section1"): Xrm.PageSection;
+      interface StageStep34 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep34_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep37 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep37_section1"): Xrm.PageSection;
+      interface StageStep42 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep42_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep41 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep41_section1"): Xrm.PageSection;
+      interface StageStep47 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep47_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep45 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep45_section1"): Xrm.PageSection;
+      interface StageStep51 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep51_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep49 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep49_section1"): Xrm.PageSection;
+      interface StageStep59 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep59_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep55 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep55_section1"): Xrm.PageSection;
+      interface StageStep69 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep69_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -4703,7 +4812,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opc_acceptancedate"): Xrm.DateAttribute;
       get(name: "opc_accountid"): Xrm.LookupAttribute<"opc_complaints">;
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"opc_complaints">;
@@ -4712,6 +4820,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_complaints">;
+      get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean>;
       get(name: "statuscode"): Xrm.OptionSetAttribute<opc_individualcomplaint_bp_statuscode>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -4719,7 +4828,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_acceptancedate"): Xrm.DateControl;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_accountid"): Xrm.LookupControl<"opc_complaints">;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason1"): Xrm.OptionSetControl<number>;
@@ -4734,6 +4842,10 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep2"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_recommendtoregistrar"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sectorid"): Xrm.LookupControl<"opc_complaints">;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter1"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter2"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter3"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode1"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode2"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
@@ -4743,16 +4855,16 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "StageStep11"): Xrm.PageTab<Tabs.StageStep11>;
-      get(name: "StageStep21"): Xrm.PageTab<Tabs.StageStep21>;
+      get(name: "StageStep12"): Xrm.PageTab<Tabs.StageStep12>;
+      get(name: "StageStep23"): Xrm.PageTab<Tabs.StageStep23>;
       get(name: "StageStep29"): Xrm.PageTab<Tabs.StageStep29>;
       get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
-      get(name: "StageStep33"): Xrm.PageTab<Tabs.StageStep33>;
-      get(name: "StageStep37"): Xrm.PageTab<Tabs.StageStep37>;
-      get(name: "StageStep41"): Xrm.PageTab<Tabs.StageStep41>;
-      get(name: "StageStep45"): Xrm.PageTab<Tabs.StageStep45>;
-      get(name: "StageStep49"): Xrm.PageTab<Tabs.StageStep49>;
-      get(name: "StageStep55"): Xrm.PageTab<Tabs.StageStep55>;
+      get(name: "StageStep34"): Xrm.PageTab<Tabs.StageStep34>;
+      get(name: "StageStep42"): Xrm.PageTab<Tabs.StageStep42>;
+      get(name: "StageStep47"): Xrm.PageTab<Tabs.StageStep47>;
+      get(name: "StageStep51"): Xrm.PageTab<Tabs.StageStep51>;
+      get(name: "StageStep59"): Xrm.PageTab<Tabs.StageStep59>;
+      get(name: "StageStep69"): Xrm.PageTab<Tabs.StageStep69>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -4760,7 +4872,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
-    getAttribute(attributeName: "opc_acceptancedate"): Xrm.DateAttribute;
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"opc_complaints">;
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"opc_complaints">;
@@ -4769,9 +4880,9 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_complaints">;
+    getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_individualcomplaint_bp_statuscode>;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_acceptancedate"): Xrm.DateControl;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_accountid"): Xrm.LookupControl<"opc_complaints">;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason1"): Xrm.OptionSetControl<number>;
@@ -4786,6 +4897,10 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep2"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_recommendtoregistrar"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sectorid"): Xrm.LookupControl<"opc_complaints">;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter1"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter2"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter3"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode1"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode2"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
@@ -5701,7 +5816,6 @@ declare namespace Form.opc_reminder.Main {
   namespace Information {
     namespace Tabs {
       interface tab_general extends Xrm.SectionCollectionBase {
-        get(name: "section_additionalusers"): Xrm.PageSection;
         get(name: "section_general"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
@@ -5733,7 +5847,7 @@ declare namespace Form.opc_reminder.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
+      get(name: "grid_additionalusers"): Xrm.BaseControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
@@ -5770,7 +5884,7 @@ declare namespace Form.opc_reminder.Main {
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_reminder_statecode>;
     getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_reminder_statuscode>;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "grid_additionalusers"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "grid_additionalusers"): Xrm.BaseControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_statecode"): Xrm.OptionSetControl<opc_reminder_statecode>;
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
@@ -7075,6 +7189,146 @@ declare namespace Form.opc_topic.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.queue.Main {
+  namespace Information {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "email configuration"): Xrm.PageSection;
+        get(name: "incoming email"): Xrm.PageSection;
+        get(name: "queue information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "emailaddress"): Xrm.Attribute<string>;
+      get(name: "incomingemailfilteringmethod"): Xrm.OptionSetAttribute<queue_incomingemailfilteringmethod>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "emailaddress"): Xrm.StringControl;
+      get(name: "incomingemailfilteringmethod"): Xrm.OptionSetControl<queue_incomingemailfilteringmethod>;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "emailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "incomingemailfilteringmethod"): Xrm.OptionSetAttribute<queue_incomingemailfilteringmethod>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "emailaddress"): Xrm.StringControl;
+    getControl(controlName: "incomingemailfilteringmethod"): Xrm.OptionSetControl<queue_incomingemailfilteringmethod>;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.queue.Main {
+  namespace Queue {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "QueueItems"): Xrm.PageSection;
+        get(name: "QueueMembers"): Xrm.PageSection;
+        get(name: "QueueMembersNoRecord"): Xrm.PageSection;
+        get(name: "RecordCreationAndUpdateRule"): Xrm.PageSection;
+        get(name: "incoming email"): Xrm.PageSection;
+        get(name: "queue information"): Xrm.PageSection;
+        get(name: "section_teammembership"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "emailaddress"): Xrm.Attribute<string>;
+      get(name: "incomingemailfilteringmethod"): Xrm.OptionSetAttribute<queue_incomingemailfilteringmethod>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "queueviewtype"): Xrm.OptionSetAttribute<queue_queueviewtype>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "QueueItemsGrid"): Xrm.SubGridControl<"queueitem">;
+      get(name: "RecordCreationAndUpdateRuleGrid"): Xrm.SubGridControl<"convertrule">;
+      get(name: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "emailaddress"): Xrm.StringControl;
+      get(name: "incomingemailfilteringmethod"): Xrm.OptionSetControl<queue_incomingemailfilteringmethod>;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "queuemembersgrid"): Xrm.SubGridControl<"systemuser">;
+      get(name: "queueviewtype"): Xrm.OptionSetControl<queue_queueviewtype>;
+      get(name: "subgrid_teams"): Xrm.SubGridControl<"team">;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Queue extends Xrm.PageBase<Queue.Attributes,Queue.Tabs,Queue.Controls> {
+    getAttribute(attributeName: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "emailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "incomingemailfilteringmethod"): Xrm.OptionSetAttribute<queue_incomingemailfilteringmethod>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "queueviewtype"): Xrm.OptionSetAttribute<queue_queueviewtype>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "QueueItemsGrid"): Xrm.SubGridControl<"queueitem">;
+    getControl(controlName: "RecordCreationAndUpdateRuleGrid"): Xrm.SubGridControl<"convertrule">;
+    getControl(controlName: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "emailaddress"): Xrm.StringControl;
+    getControl(controlName: "incomingemailfilteringmethod"): Xrm.OptionSetControl<queue_incomingemailfilteringmethod>;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "queuemembersgrid"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "queueviewtype"): Xrm.OptionSetControl<queue_queueviewtype>;
+    getControl(controlName: "subgrid_teams"): Xrm.SubGridControl<"team">;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.queueitem.Main {
   namespace Information {
     namespace Tabs {
@@ -7131,23 +7385,362 @@ declare namespace Form.queueitem.Main {
     getControl(controlName: string): undefined;
   }
 }
-declare namespace Form.sharepointdocument.Main {
-  namespace Information {
+declare namespace Form.systemuser.Main {
+  namespace User {
     namespace Tabs {
+      interface ADMINISTRATION_TAB extends Xrm.SectionCollectionBase {
+        get(name: "administration"): Xrm.PageSection;
+        get(name: "e-mail configuration"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface DETAILS_TAB extends Xrm.SectionCollectionBase {
+        get(name: "DirectReports"): Xrm.PageSection;
+        get(name: "mailing address"): Xrm.PageSection;
+        get(name: "user information_2"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface MobileOfflineProfile_TAB extends Xrm.SectionCollectionBase {
+        get(name: "mobileofflineaccessinfo"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface SUMMARY_TAB extends Xrm.SectionCollectionBase {
+        get(name: "SOCIAL_PANE_TAB"): Xrm.PageSection;
+        get(name: "online account information"): Xrm.PageSection;
+        get(name: "onpremise account information"): Xrm.PageSection;
+        get(name: "organization information"): Xrm.PageSection;
+        get(name: "queue information"): Xrm.PageSection;
+        get(name: "queue selection"): Xrm.PageSection;
+        get(name: "teams information"): Xrm.PageSection;
+        get(name: "user information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "accessmode"): Xrm.OptionSetAttribute<systemuser_accessmode>;
+      get(name: "address1_city"): Xrm.Attribute<string> | null;
+      get(name: "address1_composite"): Xrm.Attribute<string> | null;
+      get(name: "address1_country"): Xrm.Attribute<string> | null;
+      get(name: "address1_fax"): Xrm.Attribute<string>;
+      get(name: "address1_line1"): Xrm.Attribute<string> | null;
+      get(name: "address1_line2"): Xrm.Attribute<string> | null;
+      get(name: "address1_line3"): Xrm.Attribute<string> | null;
+      get(name: "address1_postalcode"): Xrm.Attribute<string> | null;
+      get(name: "address1_stateorprovince"): Xrm.Attribute<string> | null;
+      get(name: "address1_telephone1"): Xrm.Attribute<string>;
+      get(name: "address1_telephone2"): Xrm.Attribute<string>;
+      get(name: "address1_telephone3"): Xrm.Attribute<string>;
+      get(name: "address2_city"): Xrm.Attribute<string> | null;
+      get(name: "address2_composite"): Xrm.Attribute<string> | null;
+      get(name: "address2_country"): Xrm.Attribute<string> | null;
+      get(name: "address2_line1"): Xrm.Attribute<string> | null;
+      get(name: "address2_line2"): Xrm.Attribute<string> | null;
+      get(name: "address2_line3"): Xrm.Attribute<string> | null;
+      get(name: "address2_postalcode"): Xrm.Attribute<string> | null;
+      get(name: "address2_stateorprovince"): Xrm.Attribute<string> | null;
+      get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+      get(name: "caltype"): Xrm.OptionSetAttribute<systemuser_caltype>;
+      get(name: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+      get(name: "domainname"): Xrm.Attribute<string>;
+      get(name: "fullname"): Xrm.Attribute<string> | null;
+      get(name: "homephone"): Xrm.Attribute<string>;
+      get(name: "internalemailaddress"): Xrm.Attribute<string>;
+      get(name: "invitestatuscode"): Xrm.OptionSetAttribute<systemuser_invitestatuscode>;
+      get(name: "isdisabled"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "mobilealertemail"): Xrm.Attribute<string>;
+      get(name: "mobileofflineprofileid"): Xrm.LookupAttribute<"mobileofflineprofile">;
+      get(name: "mobilephone"): Xrm.Attribute<string>;
+      get(name: "parentsystemuserid"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "personalemailaddress"): Xrm.Attribute<string>;
+      get(name: "positionid"): Xrm.LookupAttribute<"position">;
+      get(name: "preferredaddresscode"): Xrm.OptionSetAttribute<systemuser_preferredaddresscode>;
+      get(name: "preferredphonecode"): Xrm.OptionSetAttribute<systemuser_preferredphonecode>;
+      get(name: "queueid"): Xrm.LookupAttribute<"queue">;
+      get(name: "title"): Xrm.Attribute<string>;
+      get(name: "windowsliveid"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "DirectReports"): Xrm.SubGridControl<"systemuser">;
+      get(name: "PrivateQueuesSubGrid"): Xrm.SubGridControl<"queue">;
+      get(name: "TeamsSubGrid"): Xrm.SubGridControl<"team">;
+      get(name: "accessmode"): Xrm.OptionSetControl<systemuser_accessmode>;
+      get(name: "address1_composite"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_city"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_country"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_line1"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_line2"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_line3"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_postalcode"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_stateorprovince"): Xrm.StringControl | null;
+      get(name: "address1_fax"): Xrm.StringControl;
+      get(name: "address1_telephone1"): Xrm.StringControl;
+      get(name: "address1_telephone2"): Xrm.StringControl;
+      get(name: "address1_telephone3"): Xrm.StringControl;
+      get(name: "address2_composite"): Xrm.StringControl | null;
+      get(name: "address2_composite_compositionLinkControl_address2_city"): Xrm.StringControl | null;
+      get(name: "address2_composite_compositionLinkControl_address2_country"): Xrm.StringControl | null;
+      get(name: "address2_composite_compositionLinkControl_address2_line1"): Xrm.StringControl | null;
+      get(name: "address2_composite_compositionLinkControl_address2_line2"): Xrm.StringControl | null;
+      get(name: "address2_composite_compositionLinkControl_address2_line3"): Xrm.StringControl | null;
+      get(name: "address2_composite_compositionLinkControl_address2_postalcode"): Xrm.StringControl | null;
+      get(name: "address2_composite_compositionLinkControl_address2_stateorprovince"): Xrm.StringControl | null;
+      get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
+      get(name: "caltype"): Xrm.OptionSetControl<systemuser_caltype>;
+      get(name: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+      get(name: "domainname"): Xrm.StringControl;
+      get(name: "footer_isdisabled"): Xrm.OptionSetControl<boolean>;
+      get(name: "fullname"): Xrm.StringControl | null;
+      get(name: "homephone"): Xrm.StringControl;
+      get(name: "internalemailaddress"): Xrm.StringControl;
+      get(name: "invitestatuscode"): Xrm.OptionSetControl<systemuser_invitestatuscode>;
+      get(name: "mobilealertemail"): Xrm.StringControl;
+      get(name: "mobileofflineprofileid"): Xrm.LookupControl<"mobileofflineprofile">;
+      get(name: "mobilephone"): Xrm.StringControl;
+      get(name: "notescontrol"): Xrm.BaseControl;
+      get(name: "parentsystemuserid"): Xrm.LookupControl<"systemuser">;
+      get(name: "personalemailaddress"): Xrm.StringControl;
+      get(name: "positionid"): Xrm.LookupControl<"position">;
+      get(name: "preferredaddresscode"): Xrm.OptionSetControl<systemuser_preferredaddresscode>;
+      get(name: "preferredphonecode"): Xrm.OptionSetControl<systemuser_preferredphonecode>;
+      get(name: "queueid"): Xrm.LookupControl<"queue">;
+      get(name: "title"): Xrm.StringControl;
+      get(name: "windowsliveid"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "ADMINISTRATION_TAB"): Xrm.PageTab<Tabs.ADMINISTRATION_TAB>;
+      get(name: "DETAILS_TAB"): Xrm.PageTab<Tabs.DETAILS_TAB>;
+      get(name: "MobileOfflineProfile_TAB"): Xrm.PageTab<Tabs.MobileOfflineProfile_TAB>;
+      get(name: "SUMMARY_TAB"): Xrm.PageTab<Tabs.SUMMARY_TAB>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface User extends Xrm.PageBase<User.Attributes,User.Tabs,User.Controls> {
+    getAttribute(attributeName: "accessmode"): Xrm.OptionSetAttribute<systemuser_accessmode>;
+    getAttribute(attributeName: "address1_city"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_composite"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_country"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_fax"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_line1"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_line2"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_line3"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_stateorprovince"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_telephone2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_telephone3"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address2_city"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address2_composite"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address2_country"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address2_line1"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address2_line2"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address2_line3"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address2_postalcode"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address2_stateorprovince"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+    getAttribute(attributeName: "caltype"): Xrm.OptionSetAttribute<systemuser_caltype>;
+    getAttribute(attributeName: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+    getAttribute(attributeName: "domainname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "fullname"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "homephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "internalemailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "invitestatuscode"): Xrm.OptionSetAttribute<systemuser_invitestatuscode>;
+    getAttribute(attributeName: "isdisabled"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "mobilealertemail"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "mobileofflineprofileid"): Xrm.LookupAttribute<"mobileofflineprofile">;
+    getAttribute(attributeName: "mobilephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "parentsystemuserid"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "personalemailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "positionid"): Xrm.LookupAttribute<"position">;
+    getAttribute(attributeName: "preferredaddresscode"): Xrm.OptionSetAttribute<systemuser_preferredaddresscode>;
+    getAttribute(attributeName: "preferredphonecode"): Xrm.OptionSetAttribute<systemuser_preferredphonecode>;
+    getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
+    getAttribute(attributeName: "title"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "windowsliveid"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "DirectReports"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "PrivateQueuesSubGrid"): Xrm.SubGridControl<"queue">;
+    getControl(controlName: "TeamsSubGrid"): Xrm.SubGridControl<"team">;
+    getControl(controlName: "accessmode"): Xrm.OptionSetControl<systemuser_accessmode>;
+    getControl(controlName: "address1_composite"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_city"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_country"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_line1"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_line2"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_line3"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_postalcode"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_stateorprovince"): Xrm.StringControl | null;
+    getControl(controlName: "address1_fax"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone1"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone2"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone3"): Xrm.StringControl;
+    getControl(controlName: "address2_composite"): Xrm.StringControl | null;
+    getControl(controlName: "address2_composite_compositionLinkControl_address2_city"): Xrm.StringControl | null;
+    getControl(controlName: "address2_composite_compositionLinkControl_address2_country"): Xrm.StringControl | null;
+    getControl(controlName: "address2_composite_compositionLinkControl_address2_line1"): Xrm.StringControl | null;
+    getControl(controlName: "address2_composite_compositionLinkControl_address2_line2"): Xrm.StringControl | null;
+    getControl(controlName: "address2_composite_compositionLinkControl_address2_line3"): Xrm.StringControl | null;
+    getControl(controlName: "address2_composite_compositionLinkControl_address2_postalcode"): Xrm.StringControl | null;
+    getControl(controlName: "address2_composite_compositionLinkControl_address2_stateorprovince"): Xrm.StringControl | null;
+    getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
+    getControl(controlName: "caltype"): Xrm.OptionSetControl<systemuser_caltype>;
+    getControl(controlName: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+    getControl(controlName: "domainname"): Xrm.StringControl;
+    getControl(controlName: "footer_isdisabled"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "fullname"): Xrm.StringControl | null;
+    getControl(controlName: "homephone"): Xrm.StringControl;
+    getControl(controlName: "internalemailaddress"): Xrm.StringControl;
+    getControl(controlName: "invitestatuscode"): Xrm.OptionSetControl<systemuser_invitestatuscode>;
+    getControl(controlName: "mobilealertemail"): Xrm.StringControl;
+    getControl(controlName: "mobileofflineprofileid"): Xrm.LookupControl<"mobileofflineprofile">;
+    getControl(controlName: "mobilephone"): Xrm.StringControl;
+    getControl(controlName: "notescontrol"): Xrm.BaseControl;
+    getControl(controlName: "parentsystemuserid"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "personalemailaddress"): Xrm.StringControl;
+    getControl(controlName: "positionid"): Xrm.LookupControl<"position">;
+    getControl(controlName: "preferredaddresscode"): Xrm.OptionSetControl<systemuser_preferredaddresscode>;
+    getControl(controlName: "preferredphonecode"): Xrm.OptionSetControl<systemuser_preferredphonecode>;
+    getControl(controlName: "queueid"): Xrm.LookupControl<"queue">;
+    getControl(controlName: "title"): Xrm.StringControl;
+    getControl(controlName: "windowsliveid"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.systemuser.Quick {
+  namespace UserHierarchyTileForm {
+    namespace Tabs {
+      interface hierarchy extends Xrm.SectionCollectionBase {
+        get(name: "user tile"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+      get(name: "fullname"): Xrm.Attribute<string> | null;
+      get(name: "internalemailaddress"): Xrm.Attribute<string>;
+      get(name: "mobilephone"): Xrm.Attribute<string>;
+      get(name: "title"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
+      get(name: "fullname"): Xrm.StringControl | null;
+      get(name: "internalemailaddress"): Xrm.StringControl;
+      get(name: "mobilephone"): Xrm.StringControl;
+      get(name: "title"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "hierarchy"): Xrm.PageTab<Tabs.hierarchy>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface UserHierarchyTileForm extends Xrm.PageBase<UserHierarchyTileForm.Attributes,UserHierarchyTileForm.Tabs,UserHierarchyTileForm.Controls> {
+    getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+    getAttribute(attributeName: "fullname"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "internalemailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "mobilephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "title"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
+    getControl(controlName: "fullname"): Xrm.StringControl | null;
+    getControl(controlName: "internalemailaddress"): Xrm.StringControl;
+    getControl(controlName: "mobilephone"): Xrm.StringControl;
+    getControl(controlName: "title"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.systemuser.AppointmentBook {
+  namespace Information {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "organization info"): Xrm.PageSection;
+        get(name: "section 1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "address1_telephone1"): Xrm.Attribute<string>;
+      get(name: "address1_telephone2"): Xrm.Attribute<string>;
+      get(name: "address1_telephone3"): Xrm.Attribute<string>;
+      get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+      get(name: "domainname"): Xrm.Attribute<string>;
+      get(name: "firstname"): Xrm.Attribute<string>;
+      get(name: "homephone"): Xrm.Attribute<string>;
+      get(name: "internalemailaddress"): Xrm.Attribute<string>;
+      get(name: "lastname"): Xrm.Attribute<string>;
+      get(name: "mobilealertemail"): Xrm.Attribute<string>;
+      get(name: "mobilephone"): Xrm.Attribute<string>;
+      get(name: "parentsystemuserid"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "personalemailaddress"): Xrm.Attribute<string>;
+      get(name: "positionid"): Xrm.LookupAttribute<"position">;
+      get(name: "preferredphonecode"): Xrm.OptionSetAttribute<systemuser_preferredphonecode>;
+      get(name: "title"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "address1_telephone1"): Xrm.StringControl;
+      get(name: "address1_telephone2"): Xrm.StringControl;
+      get(name: "address1_telephone3"): Xrm.StringControl;
+      get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
+      get(name: "domainname"): Xrm.StringControl;
+      get(name: "firstname"): Xrm.StringControl;
+      get(name: "homephone"): Xrm.StringControl;
+      get(name: "internalemailaddress"): Xrm.StringControl;
+      get(name: "lastname"): Xrm.StringControl;
+      get(name: "mobilealertemail"): Xrm.StringControl;
+      get(name: "mobilephone"): Xrm.StringControl;
+      get(name: "parentsystemuserid"): Xrm.LookupControl<"systemuser">;
+      get(name: "personalemailaddress"): Xrm.StringControl;
+      get(name: "positionid"): Xrm.LookupControl<"position">;
+      get(name: "preferredphonecode"): Xrm.OptionSetControl<systemuser_preferredphonecode>;
+      get(name: "title"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -7155,7 +7748,379 @@ declare namespace Form.sharepointdocument.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "address1_telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_telephone2"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "address1_telephone3"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+    getAttribute(attributeName: "domainname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "firstname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "homephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "internalemailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "lastname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "mobilealertemail"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "mobilephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "parentsystemuserid"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "personalemailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "positionid"): Xrm.LookupAttribute<"position">;
+    getAttribute(attributeName: "preferredphonecode"): Xrm.OptionSetAttribute<systemuser_preferredphonecode>;
+    getAttribute(attributeName: "title"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "address1_telephone1"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone2"): Xrm.StringControl;
+    getControl(controlName: "address1_telephone3"): Xrm.StringControl;
+    getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
+    getControl(controlName: "domainname"): Xrm.StringControl;
+    getControl(controlName: "firstname"): Xrm.StringControl;
+    getControl(controlName: "homephone"): Xrm.StringControl;
+    getControl(controlName: "internalemailaddress"): Xrm.StringControl;
+    getControl(controlName: "lastname"): Xrm.StringControl;
+    getControl(controlName: "mobilealertemail"): Xrm.StringControl;
+    getControl(controlName: "mobilephone"): Xrm.StringControl;
+    getControl(controlName: "parentsystemuserid"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "personalemailaddress"): Xrm.StringControl;
+    getControl(controlName: "positionid"): Xrm.LookupControl<"position">;
+    getControl(controlName: "preferredphonecode"): Xrm.OptionSetControl<systemuser_preferredphonecode>;
+    getControl(controlName: "title"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.systemuser.Main {
+  namespace UserformBusiness {
+    namespace Tabs {
+      interface ADMINISTRATION_TAB extends Xrm.SectionCollectionBase {
+        get(name: "administration"): Xrm.PageSection;
+        get(name: "e-mail configuration"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface SUMMARY_TAB extends Xrm.SectionCollectionBase {
+        get(name: "DirectReports"): Xrm.PageSection;
+        get(name: "TEAMS_TAB"): Xrm.PageSection;
+        get(name: "mailing address"): Xrm.PageSection;
+        get(name: "online account information"): Xrm.PageSection;
+        get(name: "onpremise account information"): Xrm.PageSection;
+        get(name: "organization information"): Xrm.PageSection;
+        get(name: "user information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "accessmode"): Xrm.OptionSetAttribute<systemuser_accessmode>;
+      get(name: "address1_city"): Xrm.Attribute<string> | null;
+      get(name: "address1_composite"): Xrm.Attribute<string> | null;
+      get(name: "address1_country"): Xrm.Attribute<string> | null;
+      get(name: "address1_line1"): Xrm.Attribute<string> | null;
+      get(name: "address1_line2"): Xrm.Attribute<string> | null;
+      get(name: "address1_line3"): Xrm.Attribute<string> | null;
+      get(name: "address1_postalcode"): Xrm.Attribute<string> | null;
+      get(name: "address1_stateorprovince"): Xrm.Attribute<string> | null;
+      get(name: "address1_telephone1"): Xrm.Attribute<string>;
+      get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+      get(name: "caltype"): Xrm.OptionSetAttribute<systemuser_caltype>;
+      get(name: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+      get(name: "domainname"): Xrm.Attribute<string>;
+      get(name: "fullname"): Xrm.Attribute<string> | null;
+      get(name: "internalemailaddress"): Xrm.Attribute<string>;
+      get(name: "invitestatuscode"): Xrm.OptionSetAttribute<systemuser_invitestatuscode>;
+      get(name: "isdisabled"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "mobilephone"): Xrm.Attribute<string>;
+      get(name: "parentsystemuserid"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "preferredaddresscode"): Xrm.OptionSetAttribute<systemuser_preferredaddresscode>;
+      get(name: "title"): Xrm.Attribute<string>;
+      get(name: "windowsliveid"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "DirectReports"): Xrm.SubGridControl<"systemuser">;
+      get(name: "TeamsSubGrid"): Xrm.SubGridControl<"team">;
+      get(name: "accessmode"): Xrm.OptionSetControl<systemuser_accessmode>;
+      get(name: "address1_composite"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_city"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_country"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_line1"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_line2"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_line3"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_postalcode"): Xrm.StringControl | null;
+      get(name: "address1_composite_compositionLinkControl_address1_stateorprovince"): Xrm.StringControl | null;
+      get(name: "address1_telephone1"): Xrm.StringControl;
+      get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
+      get(name: "caltype"): Xrm.OptionSetControl<systemuser_caltype>;
+      get(name: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+      get(name: "domainname"): Xrm.StringControl;
+      get(name: "footer_isdisabled"): Xrm.OptionSetControl<boolean>;
+      get(name: "fullname"): Xrm.StringControl | null;
+      get(name: "internalemailaddress"): Xrm.StringControl;
+      get(name: "invitestatuscode"): Xrm.OptionSetControl<systemuser_invitestatuscode>;
+      get(name: "mobilephone"): Xrm.StringControl;
+      get(name: "parentsystemuserid"): Xrm.LookupControl<"systemuser">;
+      get(name: "preferredaddresscode"): Xrm.OptionSetControl<systemuser_preferredaddresscode>;
+      get(name: "title"): Xrm.StringControl;
+      get(name: "windowsliveid"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "ADMINISTRATION_TAB"): Xrm.PageTab<Tabs.ADMINISTRATION_TAB>;
+      get(name: "SUMMARY_TAB"): Xrm.PageTab<Tabs.SUMMARY_TAB>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface UserformBusiness extends Xrm.PageBase<UserformBusiness.Attributes,UserformBusiness.Tabs,UserformBusiness.Controls> {
+    getAttribute(attributeName: "accessmode"): Xrm.OptionSetAttribute<systemuser_accessmode>;
+    getAttribute(attributeName: "address1_city"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_composite"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_country"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_line1"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_line2"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_line3"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_stateorprovince"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "address1_telephone1"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+    getAttribute(attributeName: "caltype"): Xrm.OptionSetAttribute<systemuser_caltype>;
+    getAttribute(attributeName: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
+    getAttribute(attributeName: "domainname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "fullname"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "internalemailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "invitestatuscode"): Xrm.OptionSetAttribute<systemuser_invitestatuscode>;
+    getAttribute(attributeName: "isdisabled"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "mobilephone"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "parentsystemuserid"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "preferredaddresscode"): Xrm.OptionSetAttribute<systemuser_preferredaddresscode>;
+    getAttribute(attributeName: "title"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "windowsliveid"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "DirectReports"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "TeamsSubGrid"): Xrm.SubGridControl<"team">;
+    getControl(controlName: "accessmode"): Xrm.OptionSetControl<systemuser_accessmode>;
+    getControl(controlName: "address1_composite"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_city"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_country"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_line1"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_line2"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_line3"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_postalcode"): Xrm.StringControl | null;
+    getControl(controlName: "address1_composite_compositionLinkControl_address1_stateorprovince"): Xrm.StringControl | null;
+    getControl(controlName: "address1_telephone1"): Xrm.StringControl;
+    getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
+    getControl(controlName: "caltype"): Xrm.OptionSetControl<systemuser_caltype>;
+    getControl(controlName: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
+    getControl(controlName: "domainname"): Xrm.StringControl;
+    getControl(controlName: "footer_isdisabled"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "fullname"): Xrm.StringControl | null;
+    getControl(controlName: "internalemailaddress"): Xrm.StringControl;
+    getControl(controlName: "invitestatuscode"): Xrm.OptionSetControl<systemuser_invitestatuscode>;
+    getControl(controlName: "mobilephone"): Xrm.StringControl;
+    getControl(controlName: "parentsystemuserid"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "preferredaddresscode"): Xrm.OptionSetControl<systemuser_preferredaddresscode>;
+    getControl(controlName: "title"): Xrm.StringControl;
+    getControl(controlName: "windowsliveid"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.systemuser.Main {
+  namespace ApplicationUser {
+    namespace Tabs {
+      interface SUMMARY_TAB extends Xrm.SectionCollectionBase {
+        get(name: "onpremise account information"): Xrm.PageSection;
+        get(name: "user information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "applicationid"): Xrm.Attribute<string>;
+      get(name: "applicationiduri"): Xrm.Attribute<string>;
+      get(name: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
+      get(name: "domainname"): Xrm.Attribute<string>;
+      get(name: "fullname"): Xrm.Attribute<string> | null;
+      get(name: "internalemailaddress"): Xrm.Attribute<string>;
+      get(name: "isdisabled"): Xrm.OptionSetAttribute<boolean>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "applicationid"): Xrm.StringControl;
+      get(name: "applicationiduri"): Xrm.StringControl;
+      get(name: "azureactivedirectoryobjectid"): Xrm.StringControl;
+      get(name: "domainname"): Xrm.StringControl;
+      get(name: "footer_isdisabled"): Xrm.OptionSetControl<boolean>;
+      get(name: "fullname"): Xrm.StringControl | null;
+      get(name: "internalemailaddress"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "SUMMARY_TAB"): Xrm.PageTab<Tabs.SUMMARY_TAB>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface ApplicationUser extends Xrm.PageBase<ApplicationUser.Attributes,ApplicationUser.Tabs,ApplicationUser.Controls> {
+    getAttribute(attributeName: "applicationid"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "applicationiduri"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "domainname"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "fullname"): Xrm.Attribute<string> | null;
+    getAttribute(attributeName: "internalemailaddress"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "isdisabled"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "applicationid"): Xrm.StringControl;
+    getControl(controlName: "applicationiduri"): Xrm.StringControl;
+    getControl(controlName: "azureactivedirectoryobjectid"): Xrm.StringControl;
+    getControl(controlName: "domainname"): Xrm.StringControl;
+    getControl(controlName: "footer_isdisabled"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "fullname"): Xrm.StringControl | null;
+    getControl(controlName: "internalemailaddress"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.team.Main {
+  namespace TeamformBusiness {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "Description"): Xrm.PageSection;
+        get(name: "General"): Xrm.PageSection;
+        get(name: "TeamMembers"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "administratorid"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "teamtype"): Xrm.OptionSetAttribute<team_type>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "Members"): Xrm.SubGridControl<"systemuser">;
+      get(name: "administratorid"): Xrm.LookupControl<"systemuser">;
+      get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "teamtype"): Xrm.OptionSetControl<team_type>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface TeamformBusiness extends Xrm.PageBase<TeamformBusiness.Attributes,TeamformBusiness.Tabs,TeamformBusiness.Controls> {
+    getAttribute(attributeName: "administratorid"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "teamtype"): Xrm.OptionSetAttribute<team_type>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "Members"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "administratorid"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "teamtype"): Xrm.OptionSetControl<team_type>;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.team.Main {
+  namespace Team {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "Description"): Xrm.PageSection;
+        get(name: "General"): Xrm.PageSection;
+        get(name: "TeamMembers"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "administratorid"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
+      get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "queueid"): Xrm.LookupAttribute<"queue">;
+      get(name: "teamtype"): Xrm.OptionSetAttribute<team_type>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "Members"): Xrm.SubGridControl<"systemuser">;
+      get(name: "administratorid"): Xrm.LookupControl<"systemuser">;
+      get(name: "azureactivedirectoryobjectid"): Xrm.StringControl;
+      get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "header_queueid"): Xrm.LookupControl<"queue">;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "teamtype"): Xrm.OptionSetControl<team_type>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Team extends Xrm.PageBase<Team.Attributes,Team.Tabs,Team.Controls> {
+    getAttribute(attributeName: "administratorid"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
+    getAttribute(attributeName: "teamtype"): Xrm.OptionSetAttribute<team_type>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "Members"): Xrm.SubGridControl<"systemuser">;
+    getControl(controlName: "administratorid"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "azureactivedirectoryobjectid"): Xrm.StringControl;
+    getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "header_queueid"): Xrm.LookupControl<"queue">;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "teamtype"): Xrm.OptionSetControl<team_type>;
     getControl(controlName: string): undefined;
   }
 }
@@ -7651,6 +8616,29 @@ interface opc_QuestionType_Create extends opc_QuestionType {
 }
 interface opc_QuestionType_Update extends opc_QuestionType {
 }
+interface opc_queues_teams_Base extends WebEntity {
+}
+interface opc_queues_teams_Fixed extends WebEntity_Fixed {
+  opc_queues_teamsid: string;
+}
+interface opc_queues_teams extends opc_queues_teams_Base, opc_queues_teams_Relationships {
+}
+interface opc_queues_teams_Relationships {
+}
+interface opc_queues_teams_Result extends opc_queues_teams_Base, opc_queues_teams_Relationships {
+}
+interface opc_queues_teams_FormattedResult {
+}
+interface opc_queues_teams_Select {
+}
+interface opc_queues_teams_Expand {
+}
+interface opc_queues_teams_Filter {
+}
+interface opc_queues_teams_Create extends opc_queues_teams {
+}
+interface opc_queues_teams_Update extends opc_queues_teams {
+}
 interface opc_recommendation_Base extends WebEntity {
 }
 interface opc_recommendation_Fixed extends WebEntity_Fixed {
@@ -7696,6 +8684,29 @@ interface opc_reminder_Filter {
 interface opc_reminder_Create extends opc_reminder {
 }
 interface opc_reminder_Update extends opc_reminder {
+}
+interface opc_reminder_user_Base extends WebEntity {
+}
+interface opc_reminder_user_Fixed extends WebEntity_Fixed {
+  opc_reminder_userid: string;
+}
+interface opc_reminder_user extends opc_reminder_user_Base, opc_reminder_user_Relationships {
+}
+interface opc_reminder_user_Relationships {
+}
+interface opc_reminder_user_Result extends opc_reminder_user_Base, opc_reminder_user_Relationships {
+}
+interface opc_reminder_user_FormattedResult {
+}
+interface opc_reminder_user_Select {
+}
+interface opc_reminder_user_Expand {
+}
+interface opc_reminder_user_Filter {
+}
+interface opc_reminder_user_Create extends opc_reminder_user {
+}
+interface opc_reminder_user_Update extends opc_reminder_user {
 }
 interface opc_RiskAppetite_Base extends WebEntity {
 }
@@ -7950,6 +8961,29 @@ interface opc_topic_Create extends opc_topic {
 }
 interface opc_topic_Update extends opc_topic {
 }
+interface Queue_Base extends WebEntity {
+}
+interface Queue_Fixed extends WebEntity_Fixed {
+  queueid: string;
+}
+interface Queue extends Queue_Base, Queue_Relationships {
+}
+interface Queue_Relationships {
+}
+interface Queue_Result extends Queue_Base, Queue_Relationships {
+}
+interface Queue_FormattedResult {
+}
+interface Queue_Select {
+}
+interface Queue_Expand {
+}
+interface Queue_Filter {
+}
+interface Queue_Create extends Queue {
+}
+interface Queue_Update extends Queue {
+}
 interface QueueItem_Base extends WebEntity {
 }
 interface QueueItem_Fixed extends WebEntity_Fixed {
@@ -7973,28 +9007,97 @@ interface QueueItem_Create extends QueueItem {
 }
 interface QueueItem_Update extends QueueItem {
 }
-interface SharePointDocument_Base extends WebEntity {
+interface QueueMembership_Base extends WebEntity {
 }
-interface SharePointDocument_Fixed extends WebEntity_Fixed {
-  sharepointdocumentid: string;
+interface QueueMembership_Fixed extends WebEntity_Fixed {
+  queuemembershipid: string;
 }
-interface SharePointDocument extends SharePointDocument_Base, SharePointDocument_Relationships {
+interface QueueMembership extends QueueMembership_Base, QueueMembership_Relationships {
 }
-interface SharePointDocument_Relationships {
+interface QueueMembership_Relationships {
 }
-interface SharePointDocument_Result extends SharePointDocument_Base, SharePointDocument_Relationships {
+interface QueueMembership_Result extends QueueMembership_Base, QueueMembership_Relationships {
 }
-interface SharePointDocument_FormattedResult {
+interface QueueMembership_FormattedResult {
 }
-interface SharePointDocument_Select {
+interface QueueMembership_Select {
 }
-interface SharePointDocument_Expand {
+interface QueueMembership_Expand {
 }
-interface SharePointDocument_Filter {
+interface QueueMembership_Filter {
 }
-interface SharePointDocument_Create extends SharePointDocument {
+interface QueueMembership_Create extends QueueMembership {
 }
-interface SharePointDocument_Update extends SharePointDocument {
+interface QueueMembership_Update extends QueueMembership {
+}
+interface SystemUser_Base extends WebEntity {
+}
+interface SystemUser_Fixed extends WebEntity_Fixed {
+  systemuserid: string;
+}
+interface SystemUser extends SystemUser_Base, SystemUser_Relationships {
+}
+interface SystemUser_Relationships {
+}
+interface SystemUser_Result extends SystemUser_Base, SystemUser_Relationships {
+}
+interface SystemUser_FormattedResult {
+}
+interface SystemUser_Select {
+}
+interface SystemUser_Expand {
+}
+interface SystemUser_Filter {
+}
+interface SystemUser_Create extends SystemUser {
+}
+interface SystemUser_Update extends SystemUser {
+}
+interface Team_Base extends WebEntity {
+}
+interface Team_Fixed extends WebEntity_Fixed {
+  teamid: string;
+}
+interface Team extends Team_Base, Team_Relationships {
+}
+interface Team_Relationships {
+}
+interface Team_Result extends Team_Base, Team_Relationships {
+}
+interface Team_FormattedResult {
+}
+interface Team_Select {
+}
+interface Team_Expand {
+}
+interface Team_Filter {
+}
+interface Team_Create extends Team {
+}
+interface Team_Update extends Team {
+}
+interface TeamMembership_Base extends WebEntity {
+}
+interface TeamMembership_Fixed extends WebEntity_Fixed {
+  teammembershipid: string;
+}
+interface TeamMembership extends TeamMembership_Base, TeamMembership_Relationships {
+}
+interface TeamMembership_Relationships {
+}
+interface TeamMembership_Result extends TeamMembership_Base, TeamMembership_Relationships {
+}
+interface TeamMembership_FormattedResult {
+}
+interface TeamMembership_Select {
+}
+interface TeamMembership_Expand {
+}
+interface TeamMembership_Filter {
+}
+interface TeamMembership_Create extends TeamMembership {
+}
+interface TeamMembership_Update extends TeamMembership {
 }
 interface ActivityParty_Base extends WebEntity {
 }
@@ -8171,7 +9274,6 @@ interface Account_Base extends WebEntity {
   websiteurl?: string | null;
 }
 interface Account_Relationships {
-  Account_SharepointDocument?: SharePointDocument_Result[] | null;
   account_activity_parties?: ActivityParty_Result[] | null;
   account_connections1?: Connection_Result[] | null;
   account_connections2?: Connection_Result[] | null;
@@ -8483,16 +9585,23 @@ interface Account_Filter {
   websiteurl: string;
 }
 interface Account_Expand {
-  Account_SharepointDocument: WebExpand<Account_Expand, SharePointDocument_Select, SharePointDocument_Filter, { Account_SharepointDocument: SharePointDocument_Result[] }>;
   account_activity_parties: WebExpand<Account_Expand, ActivityParty_Select, ActivityParty_Filter, { account_activity_parties: ActivityParty_Result[] }>;
   account_connections1: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections1: Connection_Result[] }>;
   account_connections2: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections2: Connection_Result[] }>;
   account_master_account: WebExpand<Account_Expand, Account_Select, Account_Filter, { account_master_account: Account_Result[] }>;
   account_parent_account: WebExpand<Account_Expand, Account_Select, Account_Filter, { account_parent_account: Account_Result[] }>;
   contact_customer_accounts: WebExpand<Account_Expand, Contact_Select, Contact_Filter, { contact_customer_accounts: Contact_Result[] }>;
+  createdby: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
   masterid: WebExpand<Account_Expand, Account_Select, Account_Filter, { masterid: Account_Result }>;
+  modifiedby: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_account_complaints_respondent: WebExpand<Account_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_account_complaints_respondent: opc_complaint_Result[] }>;
+  ownerid: WebExpand<Account_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<Account_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   parentaccountid: WebExpand<Account_Expand, Account_Select, Account_Filter, { parentaccountid: Account_Result }>;
+  preferredsystemuserid: WebExpand<Account_Expand, SystemUser_Select, SystemUser_Filter, { preferredsystemuserid: SystemUser_Result }>;
   primarycontactid: WebExpand<Account_Expand, Contact_Select, Contact_Filter, { primarycontactid: Contact_Result }>;
 }
 interface Account_FormattedResult {
@@ -8574,12 +9683,19 @@ interface Account_Result extends Account_Base, Account_Relationships {
   transactioncurrencyid_guid: string | null;
 }
 interface Account_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   masterid: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   parentaccountid: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  preferredsystemuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   primarycontactid: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
 }
 interface Account_RelatedMany {
-  Account_SharepointDocument: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   account_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   account_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   account_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
@@ -8742,6 +9858,7 @@ interface Contact_Base extends WebEntity {
   onholdtime?: number | null;
   opc_duplicatedetectionresult?: opc_duplicatedetectionresult | null;
   opc_multiplecomplaintstrategy?: opc_multiplecomplaintstrategy | null;
+  opc_preferredlanguage?: opc_preferredlanguage | null;
   overriddencreatedon?: Date | null;
   pager?: string | null;
   participatesinworkflow?: boolean | null;
@@ -8949,6 +10066,7 @@ interface Contact_Select {
   onholdtime: WebAttribute<Contact_Select, { onholdtime: number | null }, {  }>;
   opc_duplicatedetectionresult: WebAttribute<Contact_Select, { opc_duplicatedetectionresult: opc_duplicatedetectionresult | null }, { opc_duplicatedetectionresult_formatted?: string }>;
   opc_multiplecomplaintstrategy: WebAttribute<Contact_Select, { opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy | null }, { opc_multiplecomplaintstrategy_formatted?: string }>;
+  opc_preferredlanguage: WebAttribute<Contact_Select, { opc_preferredlanguage: opc_preferredlanguage | null }, { opc_preferredlanguage_formatted?: string }>;
   overriddencreatedon: WebAttribute<Contact_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<Contact_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<Contact_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -9139,6 +10257,7 @@ interface Contact_Filter {
   onholdtime: number;
   opc_duplicatedetectionresult: opc_duplicatedetectionresult;
   opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy;
+  opc_preferredlanguage: opc_preferredlanguage;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -9183,11 +10302,19 @@ interface Contact_Expand {
   contact_connections2: WebExpand<Contact_Expand, Connection_Select, Connection_Filter, { contact_connections2: Connection_Result[] }>;
   contact_customer_contacts: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { contact_customer_contacts: Contact_Result[] }>;
   contact_master_contact: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { contact_master_contact: Contact_Result[] }>;
+  createdby: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
   masterid: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { masterid: Contact_Result }>;
+  modifiedby: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_contact_complaints_complainant: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainant: opc_complaint_Result[] }>;
   opc_contact_complaints_complainantreps: WebExpand<Contact_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_contact_complaints_complainantreps: opc_complaint_Result[] }>;
+  ownerid: WebExpand<Contact_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<Contact_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   parentcustomerid_account: WebExpand<Contact_Expand, Account_Select, Account_Filter, { parentcustomerid_account: Account_Result }>;
   parentcustomerid_contact: WebExpand<Contact_Expand, Contact_Select, Contact_Filter, { parentcustomerid_contact: Contact_Result }>;
+  preferredsystemuserid: WebExpand<Contact_Expand, SystemUser_Select, SystemUser_Filter, { preferredsystemuserid: SystemUser_Result }>;
 }
 interface Contact_FormattedResult {
   accountid_formatted?: string;
@@ -9233,6 +10360,7 @@ interface Contact_FormattedResult {
   modifiedonbehalfby_formatted?: string;
   opc_duplicatedetectionresult_formatted?: string;
   opc_multiplecomplaintstrategy_formatted?: string;
+  opc_preferredlanguage_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -9275,9 +10403,17 @@ interface Contact_Result extends Contact_Base, Contact_Relationships {
   transactioncurrencyid_guid: string | null;
 }
 interface Contact_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   masterid: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   parentcustomerid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   parentcustomerid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  preferredsystemuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface Contact_RelatedMany {
   account_primary_contact: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
@@ -9302,10 +10438,10 @@ interface opc_allegation_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
-  opc_allegationdisposition?: opc_allegationdisposition | null;
   opc_allegationid?: string | null;
   opc_disposition?: opc_allegationdisposition | null;
   opc_name?: string | null;
+  opc_referencenumber?: string | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_allegation_statecode | null;
   statuscode?: opc_allegation_statuscode | null;
@@ -9336,7 +10472,6 @@ interface opc_allegation_Select {
   modifiedby_guid: WebAttribute<opc_allegation_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_allegation_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_allegation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_allegationdisposition: WebAttribute<opc_allegation_Select, { opc_allegationdisposition: opc_allegationdisposition | null }, { opc_allegationdisposition_formatted?: string }>;
   opc_allegationid: WebAttribute<opc_allegation_Select, { opc_allegationid: string | null }, {  }>;
   opc_allegationtypeid_guid: WebAttribute<opc_allegation_Select, { opc_allegationtypeid_guid: string | null }, { opc_allegationtypeid_formatted?: string }>;
   opc_complaintid_guid: WebAttribute<opc_allegation_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
@@ -9344,6 +10479,7 @@ interface opc_allegation_Select {
   opc_dispositionactionid_guid: WebAttribute<opc_allegation_Select, { opc_dispositionactionid_guid: string | null }, { opc_dispositionactionid_formatted?: string }>;
   opc_dispositionreasonid_guid: WebAttribute<opc_allegation_Select, { opc_dispositionreasonid_guid: string | null }, { opc_dispositionreasonid_formatted?: string }>;
   opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
+  opc_referencenumber: WebAttribute<opc_allegation_Select, { opc_referencenumber: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_allegation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_allegation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_allegation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -9363,7 +10499,6 @@ interface opc_allegation_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
-  opc_allegationdisposition: opc_allegationdisposition;
   opc_allegationid: XQW.Guid;
   opc_allegationtypeid_guid: XQW.Guid;
   opc_complaintid_guid: XQW.Guid;
@@ -9371,6 +10506,7 @@ interface opc_allegation_Filter {
   opc_dispositionactionid_guid: XQW.Guid;
   opc_dispositionreasonid_guid: XQW.Guid;
   opc_name: string;
+  opc_referencenumber: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -9383,11 +10519,18 @@ interface opc_allegation_Filter {
   versionnumber: number;
 }
 interface opc_allegation_Expand {
+  createdby: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_allegation_checklistresponses_allegation: WebExpand<opc_allegation_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { opc_allegation_checklistresponses_allegation: opc_ChecklistResponse_Result[] }>;
   opc_allegationtypeid: WebExpand<opc_allegation_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_allegationtypeid: opc_allegationtype_Result }>;
   opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
   opc_dispositionactionid: WebExpand<opc_allegation_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionactionid: opc_dispositionaction_Result }>;
   opc_dispositionreasonid: WebExpand<opc_allegation_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreasonid: opc_dispositionreason_Result }>;
+  ownerid: WebExpand<opc_allegation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_allegation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_allegation_FormattedResult {
   createdby_formatted?: string;
@@ -9396,7 +10539,6 @@ interface opc_allegation_FormattedResult {
   modifiedby_formatted?: string;
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
-  opc_allegationdisposition_formatted?: string;
   opc_allegationtypeid_formatted?: string;
   opc_complaintid_formatted?: string;
   opc_disposition_formatted?: string;
@@ -9426,10 +10568,17 @@ interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Rela
   owninguser_guid: string | null;
 }
 interface opc_allegation_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_allegationtypeid: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   opc_dispositionactionid: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
   opc_dispositionreasonid: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_allegation_RelatedMany {
   opc_allegation_checklistresponses_allegation: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
@@ -9531,8 +10680,15 @@ interface opc_allegationtype_Filter {
   versionnumber: number;
 }
 interface opc_allegationtype_Expand {
+  createdby: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_allegationtype_allegations_allegationtype: WebExpand<opc_allegationtype_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationtype_allegations_allegationtype: opc_allegation_Result[] }>;
   opc_checklisttypeid: WebExpand<opc_allegationtype_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { opc_checklisttypeid: opc_ChecklistType_Result }>;
+  ownerid: WebExpand<opc_allegationtype_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_allegationtype_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_allegationtype_FormattedResult {
   createdby_formatted?: string;
@@ -9563,7 +10719,14 @@ interface opc_allegationtype_Result extends opc_allegationtype_Base, opc_allegat
   owninguser_guid: string | null;
 }
 interface opc_allegationtype_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_checklisttypeid: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_allegationtype_RelatedMany {
   opc_allegationtype_allegations_allegationtype: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
@@ -9652,8 +10815,15 @@ interface opc_ChecklistResponse_Filter {
   versionnumber: number;
 }
 interface opc_ChecklistResponse_Expand {
+  createdby: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_allegationid: WebExpand<opc_ChecklistResponse_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationid: opc_allegation_Result }>;
   opc_questiontemplateid: WebExpand<opc_ChecklistResponse_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questiontemplateid: opc_QuestionTemplate_Result }>;
+  ownerid: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_ChecklistResponse_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_ChecklistResponse_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_ChecklistResponse_FormattedResult {
   createdby_formatted?: string;
@@ -9686,8 +10856,15 @@ interface opc_ChecklistResponse_Result extends opc_ChecklistResponse_Base, opc_C
   owninguser_guid: string | null;
 }
 interface opc_ChecklistResponse_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_allegationid: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_questiontemplateid: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_ChecklistResponse_RelatedMany {
 }
@@ -9780,8 +10957,15 @@ interface opc_ChecklistType_Filter {
   versionnumber: number;
 }
 interface opc_ChecklistType_Expand {
+  createdby: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_checklisttype_allegationtypes_checklistty: WebExpand<opc_ChecklistType_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_checklisttype_allegationtypes_checklistty: opc_allegationtype_Result[] }>;
   opc_checklisttype_questiontemplates_checklist: WebExpand<opc_ChecklistType_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_checklisttype_questiontemplates_checklist: opc_QuestionTemplate_Result[] }>;
+  ownerid: WebExpand<opc_ChecklistType_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_ChecklistType_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_ChecklistType_FormattedResult {
   createdby_formatted?: string;
@@ -9811,6 +10995,13 @@ interface opc_ChecklistType_Result extends opc_ChecklistType_Base, opc_Checklist
   owninguser_guid: string | null;
 }
 interface opc_ChecklistType_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_ChecklistType_RelatedMany {
   opc_checklisttype_allegationtypes_checklistty: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
@@ -9833,15 +11024,20 @@ interface opc_complaint_Base extends WebEntity {
   opc_actualriskappetitevalue?: number | null;
   opc_actualriskappetitevalue_date?: Date | null;
   opc_actualriskappetitevalue_state?: number | null;
+  opc_closeddate?: Date | null;
   opc_closereason?: opc_closereason | null;
   opc_complaintdisposition?: opc_complaintdisposition | null;
   opc_complaintid?: string | null;
+  opc_hasaccessallegation?: boolean | null;
+  opc_hastlallegation?: boolean | null;
   opc_intakedisposition?: opc_intakedisposition | null;
   opc_lastmilestone?: opc_complaintmilestone | null;
+  opc_memberofparliamentinvolved?: boolean | null;
   opc_multiplecomplaintstrategy?: opc_multiplecomplaintstrategy | null;
   opc_nextstep?: opc_nextstep | null;
   opc_number?: string | null;
   opc_recommendtoregistrar?: opc_yesorno | null;
+  opc_sendcloseletter?: boolean | null;
   overriddencreatedon?: Date | null;
   processid?: string | null;
   stageid?: string | null;
@@ -9856,7 +11052,6 @@ interface opc_complaint_Relationships {
   bpf_opc_complaint_opc_individualcomplaint_bp?: opc_individualcomplaint_bp_Result[] | null;
   opc_RiskAssessment_Complaint_opc_complain?: opc_RiskAssessment_Result[] | null;
   opc_complaint_QueueItems?: QueueItem_Result[] | null;
-  opc_complaint_SharePointDocuments?: SharePointDocument_Result[] | null;
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
   opc_complaint_notifications_complaint?: opc_notification_Result[] | null;
@@ -9868,6 +11063,7 @@ interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships 
   opc_accountid_bind$accounts?: string | null;
   opc_complainant_bind$contacts?: string | null;
   opc_complainantrep_bind$contacts?: string | null;
+  opc_intakeofficer_bind$systemusers?: string | null;
   opc_legislation_bind$opc_legislations?: string | null;
   opc_opcpriorityid_bind$opc_opcpriorities?: string | null;
   opc_sectorid_bind$opc_sectors?: string | null;
@@ -9892,20 +11088,26 @@ interface opc_complaint_Select {
   opc_actualriskappetitevalue: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue: number | null }, {  }>;
   opc_actualriskappetitevalue_date: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue_date: Date | null }, { opc_actualriskappetitevalue_date_formatted?: string }>;
   opc_actualriskappetitevalue_state: WebAttribute<opc_complaint_Select, { opc_actualriskappetitevalue_state: number | null }, {  }>;
+  opc_closeddate: WebAttribute<opc_complaint_Select, { opc_closeddate: Date | null }, { opc_closeddate_formatted?: string }>;
   opc_closereason: WebAttribute<opc_complaint_Select, { opc_closereason: opc_closereason | null }, { opc_closereason_formatted?: string }>;
   opc_complainant_guid: WebAttribute<opc_complaint_Select, { opc_complainant_guid: string | null }, { opc_complainant_formatted?: string }>;
   opc_complainantrep_guid: WebAttribute<opc_complaint_Select, { opc_complainantrep_guid: string | null }, { opc_complainantrep_formatted?: string }>;
   opc_complaintdisposition: WebAttribute<opc_complaint_Select, { opc_complaintdisposition: opc_complaintdisposition | null }, { opc_complaintdisposition_formatted?: string }>;
   opc_complaintid: WebAttribute<opc_complaint_Select, { opc_complaintid: string | null }, {  }>;
+  opc_hasaccessallegation: WebAttribute<opc_complaint_Select, { opc_hasaccessallegation: boolean | null }, {  }>;
+  opc_hastlallegation: WebAttribute<opc_complaint_Select, { opc_hastlallegation: boolean | null }, {  }>;
   opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
+  opc_intakeofficer_guid: WebAttribute<opc_complaint_Select, { opc_intakeofficer_guid: string | null }, { opc_intakeofficer_formatted?: string }>;
   opc_lastmilestone: WebAttribute<opc_complaint_Select, { opc_lastmilestone: opc_complaintmilestone | null }, { opc_lastmilestone_formatted?: string }>;
   opc_legislation_guid: WebAttribute<opc_complaint_Select, { opc_legislation_guid: string | null }, { opc_legislation_formatted?: string }>;
+  opc_memberofparliamentinvolved: WebAttribute<opc_complaint_Select, { opc_memberofparliamentinvolved: boolean | null }, {  }>;
   opc_multiplecomplaintstrategy: WebAttribute<opc_complaint_Select, { opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy | null }, { opc_multiplecomplaintstrategy_formatted?: string }>;
   opc_nextstep: WebAttribute<opc_complaint_Select, { opc_nextstep: opc_nextstep | null }, { opc_nextstep_formatted?: string }>;
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
   opc_opcpriorityid_guid: WebAttribute<opc_complaint_Select, { opc_opcpriorityid_guid: string | null }, { opc_opcpriorityid_formatted?: string }>;
   opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: opc_yesorno | null }, { opc_recommendtoregistrar_formatted?: string }>;
   opc_sectorid_guid: WebAttribute<opc_complaint_Select, { opc_sectorid_guid: string | null }, { opc_sectorid_formatted?: string }>;
+  opc_sendcloseletter: WebAttribute<opc_complaint_Select, { opc_sendcloseletter: boolean | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_complaint_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_complaint_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_complaint_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -9933,20 +11135,26 @@ interface opc_complaint_Filter {
   opc_actualriskappetitevalue: number;
   opc_actualriskappetitevalue_date: Date;
   opc_actualriskappetitevalue_state: number;
+  opc_closeddate: Date;
   opc_closereason: opc_closereason;
   opc_complainant_guid: XQW.Guid;
   opc_complainantrep_guid: XQW.Guid;
   opc_complaintdisposition: opc_complaintdisposition;
   opc_complaintid: XQW.Guid;
+  opc_hasaccessallegation: boolean;
+  opc_hastlallegation: boolean;
   opc_intakedisposition: opc_intakedisposition;
+  opc_intakeofficer_guid: XQW.Guid;
   opc_lastmilestone: opc_complaintmilestone;
   opc_legislation_guid: XQW.Guid;
+  opc_memberofparliamentinvolved: boolean;
   opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy;
   opc_nextstep: opc_nextstep;
   opc_number: string;
   opc_opcpriorityid_guid: XQW.Guid;
   opc_recommendtoregistrar: opc_yesorno;
   opc_sectorid_guid: XQW.Guid;
+  opc_sendcloseletter: boolean;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -9963,21 +11171,28 @@ interface opc_complaint_Filter {
 }
 interface opc_complaint_Expand {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebExpand<opc_complaint_Expand, opc_individualcomplaint_bp_Select, opc_individualcomplaint_bp_Filter, { bpf_opc_complaint_opc_individualcomplaint_bp: opc_individualcomplaint_bp_Result[] }>;
+  createdby: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_RiskAssessment_Complaint_opc_complain: WebExpand<opc_complaint_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_Complaint_opc_complain: opc_RiskAssessment_Result[] }>;
   opc_accountid: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_accountid: Account_Result }>;
   opc_complainant: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainant: Contact_Result }>;
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
   opc_complaint_QueueItems: WebExpand<opc_complaint_Expand, QueueItem_Select, QueueItem_Filter, { opc_complaint_QueueItems: QueueItem_Result[] }>;
-  opc_complaint_SharePointDocuments: WebExpand<opc_complaint_Expand, SharePointDocument_Select, SharePointDocument_Filter, { opc_complaint_SharePointDocuments: SharePointDocument_Result[] }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
   opc_complaint_notifications_complaint: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaint: opc_notification_Result[] }>;
   opc_complaint_recommendations_complaint: WebExpand<opc_complaint_Expand, opc_recommendation_Select, opc_recommendation_Filter, { opc_complaint_recommendations_complaint: opc_recommendation_Result[] }>;
   opc_complaint_reminders_complaint: WebExpand<opc_complaint_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_complaint_reminders_complaint: opc_reminder_Result[] }>;
   opc_complaints_topics_relatedtopics: WebExpand<opc_complaint_Expand, opc_topic_Select, opc_topic_Filter, { opc_complaints_topics_relatedtopics: opc_topic_Result[] }>;
+  opc_intakeofficer: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { opc_intakeofficer: SystemUser_Result }>;
   opc_legislation: WebExpand<opc_complaint_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
   opc_opcpriorityid: WebExpand<opc_complaint_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { opc_opcpriorityid: opc_opcpriority_Result }>;
   opc_sectorid: WebExpand<opc_complaint_Expand, opc_sector_Select, opc_sector_Filter, { opc_sectorid: opc_sector_Result }>;
+  ownerid: WebExpand<opc_complaint_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_complaint_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_complaint_FormattedResult {
   createdby_formatted?: string;
@@ -9989,11 +11204,13 @@ interface opc_complaint_FormattedResult {
   opc_acceptancedate_formatted?: string;
   opc_accountid_formatted?: string;
   opc_actualriskappetitevalue_date_formatted?: string;
+  opc_closeddate_formatted?: string;
   opc_closereason_formatted?: string;
   opc_complainant_formatted?: string;
   opc_complainantrep_formatted?: string;
   opc_complaintdisposition_formatted?: string;
   opc_intakedisposition_formatted?: string;
+  opc_intakeofficer_formatted?: string;
   opc_lastmilestone_formatted?: string;
   opc_legislation_formatted?: string;
   opc_multiplecomplaintstrategy_formatted?: string;
@@ -10018,6 +11235,7 @@ interface opc_complaint_Result extends opc_complaint_Base, opc_complaint_Relatio
   opc_accountid_guid: string | null;
   opc_complainant_guid: string | null;
   opc_complainantrep_guid: string | null;
+  opc_intakeofficer_guid: string | null;
   opc_legislation_guid: string | null;
   opc_opcpriorityid_guid: string | null;
   opc_sectorid_guid: string | null;
@@ -10027,18 +11245,25 @@ interface opc_complaint_Result extends opc_complaint_Base, opc_complaint_Relatio
   owninguser_guid: string | null;
 }
 interface opc_complaint_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_accountid: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   opc_complainant: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   opc_complainantrep: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  opc_intakeofficer: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
   opc_opcpriorityid: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
   opc_sectorid: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_complaint_RelatedMany {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
   opc_RiskAssessment_Complaint_opc_complain: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
   opc_complaint_QueueItems: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
-  opc_complaint_SharePointDocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
   opc_complaint_notifications_complaint: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
@@ -10183,8 +11408,15 @@ interface opc_dispositionaction_Filter {
   versionnumber: number;
 }
 interface opc_dispositionaction_Expand {
+  createdby: WebExpand<opc_dispositionaction_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_dispositionaction_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_dispositionaction_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_dispositionaction_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_dispositionaction_allegations_action: WebExpand<opc_dispositionaction_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_dispositionaction_allegations_action: opc_allegation_Result[] }>;
   opc_dispositionreasonid: WebExpand<opc_dispositionaction_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreasonid: opc_dispositionreason_Result }>;
+  ownerid: WebExpand<opc_dispositionaction_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_dispositionaction_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_dispositionaction_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_dispositionaction_FormattedResult {
   createdby_formatted?: string;
@@ -10215,7 +11447,14 @@ interface opc_dispositionaction_Result extends opc_dispositionaction_Base, opc_d
   owninguser_guid: string | null;
 }
 interface opc_dispositionaction_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_dispositionreasonid: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_dispositionaction_RelatedMany {
   opc_dispositionaction_allegations_action: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
@@ -10309,8 +11548,15 @@ interface opc_dispositionreason_Filter {
   versionnumber: number;
 }
 interface opc_dispositionreason_Expand {
+  createdby: WebExpand<opc_dispositionreason_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_dispositionreason_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_dispositionreason_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_dispositionreason_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_dispositionreason_allegations_reason: WebExpand<opc_dispositionreason_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_dispositionreason_allegations_reason: opc_allegation_Result[] }>;
   opc_dispositionreason_dispositionactions_reas: WebExpand<opc_dispositionreason_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionreason_dispositionactions_reas: opc_dispositionaction_Result[] }>;
+  ownerid: WebExpand<opc_dispositionreason_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_dispositionreason_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_dispositionreason_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_dispositionreason_FormattedResult {
   createdby_formatted?: string;
@@ -10340,6 +11586,13 @@ interface opc_dispositionreason_Result extends opc_dispositionreason_Base, opc_d
   owninguser_guid: string | null;
 }
 interface opc_dispositionreason_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_dispositionreason_RelatedMany {
   opc_dispositionreason_allegations_reason: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
@@ -10437,6 +11690,10 @@ interface opc_individualcomplaint_bp_Filter {
 }
 interface opc_individualcomplaint_bp_Expand {
   bpf_opc_complaintid: WebExpand<opc_individualcomplaint_bp_Expand, opc_complaint_Select, opc_complaint_Filter, { bpf_opc_complaintid: opc_complaint_Result }>;
+  createdby: WebExpand<opc_individualcomplaint_bp_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_individualcomplaint_bp_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_individualcomplaint_bp_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_individualcomplaint_bp_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
 }
 interface opc_individualcomplaint_bp_FormattedResult {
   activestageid_formatted?: string;
@@ -10469,6 +11726,10 @@ interface opc_individualcomplaint_bp_Result extends opc_individualcomplaint_bp_B
 }
 interface opc_individualcomplaint_bp_RelatedOne {
   bpf_opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_individualcomplaint_bp_RelatedMany {
 }
@@ -10550,7 +11811,14 @@ interface opc_issue_Filter {
   versionnumber: number;
 }
 interface opc_issue_Expand {
+  createdby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaintid: WebExpand<opc_issue_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+  ownerid: WebExpand<opc_issue_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_issue_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_issue_FormattedResult {
   createdby_formatted?: string;
@@ -10581,7 +11849,14 @@ interface opc_issue_Result extends opc_issue_Base, opc_issue_Relationships {
   owninguser_guid: string | null;
 }
 interface opc_issue_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_issue_RelatedMany {
 }
@@ -10664,7 +11939,14 @@ interface opc_legislation_Filter {
   versionnumber: number;
 }
 interface opc_legislation_Expand {
+  createdby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_legislation_complaints_legislation: WebExpand<opc_legislation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_legislation_complaints_legislation: opc_complaint_Result[] }>;
+  ownerid: WebExpand<opc_legislation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_legislation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_legislation_FormattedResult {
   createdby_formatted?: string;
@@ -10693,6 +11975,13 @@ interface opc_legislation_Result extends opc_legislation_Base, opc_legislation_R
   owninguser_guid: string | null;
 }
 interface opc_legislation_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_legislation_RelatedMany {
   opc_legislation_complaints_legislation: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
@@ -10778,7 +12067,14 @@ interface opc_notification_Filter {
   versionnumber: number;
 }
 interface opc_notification_Expand {
+  createdby: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaintid: WebExpand<opc_notification_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+  ownerid: WebExpand<opc_notification_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_notification_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_notification_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_notification_FormattedResult {
   createdby_formatted?: string;
@@ -10809,7 +12105,14 @@ interface opc_notification_Result extends opc_notification_Base, opc_notificatio
   owninguser_guid: string | null;
 }
 interface opc_notification_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_notification_RelatedMany {
 }
@@ -10904,7 +12207,14 @@ interface opc_opcpriority_Filter {
   versionnumber: number;
 }
 interface opc_opcpriority_Expand {
+  createdby: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_opcpriority_complaints_opcpriority: WebExpand<opc_opcpriority_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_opcpriority_complaints_opcpriority: opc_complaint_Result[] }>;
+  ownerid: WebExpand<opc_opcpriority_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_opcpriority_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_opcpriority_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_opcpriority_FormattedResult {
   createdby_formatted?: string;
@@ -10933,6 +12243,13 @@ interface opc_opcpriority_Result extends opc_opcpriority_Base, opc_opcpriority_R
   owninguser_guid: string | null;
 }
 interface opc_opcpriority_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_opcpriority_RelatedMany {
   opc_opcpriority_complaints_opcpriority: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
@@ -11038,11 +12355,18 @@ interface opc_QuestionTemplate_Filter {
   versionnumber: number;
 }
 interface opc_QuestionTemplate_Expand {
+  createdby: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_checklisttypeid: WebExpand<opc_QuestionTemplate_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { opc_checklisttypeid: opc_ChecklistType_Result }>;
   opc_parentquestiontemplateid: WebExpand<opc_QuestionTemplate_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_parentquestiontemplateid: opc_QuestionTemplate_Result }>;
   opc_questiontemplate_checklistresponses_quest: WebExpand<opc_QuestionTemplate_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { opc_questiontemplate_checklistresponses_quest: opc_ChecklistResponse_Result[] }>;
   opc_questiontemplate_questiontemplates_parent: WebExpand<opc_QuestionTemplate_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questiontemplate_questiontemplates_parent: opc_QuestionTemplate_Result[] }>;
   opc_questiontypeid: WebExpand<opc_QuestionTemplate_Expand, opc_QuestionType_Select, opc_QuestionType_Filter, { opc_questiontypeid: opc_QuestionType_Result }>;
+  ownerid: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_QuestionTemplate_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_QuestionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_QuestionTemplate_FormattedResult {
   createdby_formatted?: string;
@@ -11077,9 +12401,16 @@ interface opc_QuestionTemplate_Result extends opc_QuestionTemplate_Base, opc_Que
   owninguser_guid: string | null;
 }
 interface opc_QuestionTemplate_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_checklisttypeid: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
   opc_parentquestiontemplateid: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
   opc_questiontypeid: WebMappingRetrieve<opc_QuestionType_Select,opc_QuestionType_Expand,opc_QuestionType_Filter,opc_QuestionType_Fixed,opc_QuestionType_Result,opc_QuestionType_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_QuestionTemplate_RelatedMany {
   opc_questiontemplate_checklistresponses_quest: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
@@ -11162,6 +12493,10 @@ interface opc_QuestionType_Filter {
   versionnumber: number;
 }
 interface opc_QuestionType_Expand {
+  createdby: WebExpand<opc_QuestionType_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_QuestionType_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_QuestionType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_QuestionType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_questiontype_questiontemplates_questionty: WebExpand<opc_QuestionType_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_questiontype_questiontemplates_questionty: opc_QuestionTemplate_Result[] }>;
 }
 interface opc_QuestionType_FormattedResult {
@@ -11185,6 +12520,10 @@ interface opc_QuestionType_Result extends opc_QuestionType_Base, opc_QuestionTyp
   organizationid_guid: string | null;
 }
 interface opc_QuestionType_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_QuestionType_RelatedMany {
   opc_questiontype_questiontemplates_questionty: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
@@ -11197,6 +12536,55 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_questiontypes: WebMappingCUDA<opc_QuestionType_Create,opc_QuestionType_Update,opc_QuestionType_Select>;
+}
+interface opc_queues_teams_Base extends WebEntity {
+  opc_queues_teamsid?: string | null;
+  queueid?: string | null;
+  teamid?: string | null;
+  versionnumber?: number | null;
+}
+interface opc_queues_teams_Relationships {
+  opc_queues_teams_membership?: Team_Result[] | null;
+}
+interface opc_queues_teams extends opc_queues_teams_Base, opc_queues_teams_Relationships {
+}
+interface opc_queues_teams_Create extends opc_queues_teams {
+}
+interface opc_queues_teams_Update extends opc_queues_teams {
+}
+interface opc_queues_teams_Select {
+  opc_queues_teamsid: WebAttribute<opc_queues_teams_Select, { opc_queues_teamsid: string | null }, {  }>;
+  queueid: WebAttribute<opc_queues_teams_Select, { queueid: string | null }, {  }>;
+  teamid: WebAttribute<opc_queues_teams_Select, { teamid: string | null }, {  }>;
+  versionnumber: WebAttribute<opc_queues_teams_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_queues_teams_Filter {
+  opc_queues_teamsid: XQW.Guid;
+  queueid: XQW.Guid;
+  teamid: XQW.Guid;
+  versionnumber: number;
+}
+interface opc_queues_teams_Expand {
+  opc_queues_teams_membership: WebExpand<opc_queues_teams_Expand, Team_Select, Team_Filter, { opc_queues_teams_membership: Team_Result[] }>;
+}
+interface opc_queues_teams_FormattedResult {
+}
+interface opc_queues_teams_Result extends opc_queues_teams_Base, opc_queues_teams_Relationships {
+  "@odata.etag": string;
+}
+interface opc_queues_teams_RelatedOne {
+}
+interface opc_queues_teams_RelatedMany {
+  opc_queues_teams_membership: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_queues_teamsset: WebMappingRetrieve<opc_queues_teams_Select,opc_queues_teams_Expand,opc_queues_teams_Filter,opc_queues_teams_Fixed,opc_queues_teams_Result,opc_queues_teams_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_queues_teamsset: WebMappingRelated<opc_queues_teams_RelatedOne,opc_queues_teams_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_queues_teamsset: WebMappingCUDA<opc_queues_teams_Create,opc_queues_teams_Update,opc_queues_teams_Select>;
 }
 interface opc_recommendation_Base extends WebEntity {
   createdon?: Date | null;
@@ -11267,7 +12655,14 @@ interface opc_recommendation_Filter {
   versionnumber: number;
 }
 interface opc_recommendation_Expand {
+  createdby: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaintid: WebExpand<opc_recommendation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+  ownerid: WebExpand<opc_recommendation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_recommendation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_recommendation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_recommendation_FormattedResult {
   createdby_formatted?: string;
@@ -11298,7 +12693,14 @@ interface opc_recommendation_Result extends opc_recommendation_Base, opc_recomme
   owninguser_guid: string | null;
 }
 interface opc_recommendation_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_recommendation_RelatedMany {
 }
@@ -11330,6 +12732,7 @@ interface opc_reminder_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface opc_reminder_Relationships {
+  opc_reminders_users_additionaluserstonotify?: SystemUser_Result[] | null;
 }
 interface opc_reminder extends opc_reminder_Base, opc_reminder_Relationships {
   opc_complaintid_bind$opc_complaints?: string | null;
@@ -11395,7 +12798,15 @@ interface opc_reminder_Filter {
   versionnumber: number;
 }
 interface opc_reminder_Expand {
+  createdby: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaintid: WebExpand<opc_reminder_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
+  opc_reminders_users_additionaluserstonotify: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { opc_reminders_users_additionaluserstonotify: SystemUser_Result[] }>;
+  ownerid: WebExpand<opc_reminder_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_reminder_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_reminder_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_reminder_FormattedResult {
   createdby_formatted?: string;
@@ -11427,9 +12838,17 @@ interface opc_reminder_Result extends opc_reminder_Base, opc_reminder_Relationsh
   owninguser_guid: string | null;
 }
 interface opc_reminder_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_reminder_RelatedMany {
+  opc_reminders_users_additionaluserstonotify: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_reminders: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
@@ -11439,6 +12858,55 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_reminders: WebMappingCUDA<opc_reminder_Create,opc_reminder_Update,opc_reminder_Select>;
+}
+interface opc_reminder_user_Base extends WebEntity {
+  opc_reminder_userid?: string | null;
+  opc_reminderid?: string | null;
+  systemuserid?: string | null;
+  versionnumber?: number | null;
+}
+interface opc_reminder_user_Relationships {
+  opc_reminders_users_additionaluserstonotify?: opc_reminder_Result[] | null;
+}
+interface opc_reminder_user extends opc_reminder_user_Base, opc_reminder_user_Relationships {
+}
+interface opc_reminder_user_Create extends opc_reminder_user {
+}
+interface opc_reminder_user_Update extends opc_reminder_user {
+}
+interface opc_reminder_user_Select {
+  opc_reminder_userid: WebAttribute<opc_reminder_user_Select, { opc_reminder_userid: string | null }, {  }>;
+  opc_reminderid: WebAttribute<opc_reminder_user_Select, { opc_reminderid: string | null }, {  }>;
+  systemuserid: WebAttribute<opc_reminder_user_Select, { systemuserid: string | null }, {  }>;
+  versionnumber: WebAttribute<opc_reminder_user_Select, { versionnumber: number | null }, {  }>;
+}
+interface opc_reminder_user_Filter {
+  opc_reminder_userid: XQW.Guid;
+  opc_reminderid: XQW.Guid;
+  systemuserid: XQW.Guid;
+  versionnumber: number;
+}
+interface opc_reminder_user_Expand {
+  opc_reminders_users_additionaluserstonotify: WebExpand<opc_reminder_user_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_reminders_users_additionaluserstonotify: opc_reminder_Result[] }>;
+}
+interface opc_reminder_user_FormattedResult {
+}
+interface opc_reminder_user_Result extends opc_reminder_user_Base, opc_reminder_user_Relationships {
+  "@odata.etag": string;
+}
+interface opc_reminder_user_RelatedOne {
+}
+interface opc_reminder_user_RelatedMany {
+  opc_reminders_users_additionaluserstonotify: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  opc_reminder_userset: WebMappingRetrieve<opc_reminder_user_Select,opc_reminder_user_Expand,opc_reminder_user_Filter,opc_reminder_user_Fixed,opc_reminder_user_Result,opc_reminder_user_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  opc_reminder_userset: WebMappingRelated<opc_reminder_user_RelatedOne,opc_reminder_user_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  opc_reminder_userset: WebMappingCUDA<opc_reminder_user_Create,opc_reminder_user_Update,opc_reminder_user_Select>;
 }
 interface opc_RiskAppetite_Base extends WebEntity {
   createdon?: Date | null;
@@ -11514,11 +12982,18 @@ interface opc_RiskAppetite_Filter {
   versionnumber: number;
 }
 interface opc_RiskAppetite_Expand {
+  createdby: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_RiskAssessmentCategory_ActualRiskAppe: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory_ActualRiskAppe: opc_RiskAssessmentCategory_Result[] }>;
   opc_RiskAssessmentCategory_SuggestedRiskA: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory_SuggestedRiskA: opc_RiskAssessmentCategory_Result[] }>;
   opc_RiskAssessment_ActualRiskAppetite_opc: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_ActualRiskAppetite_opc: opc_RiskAssessment_Result[] }>;
   opc_RiskAssessment_SuggestedRiskAppetite_: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_SuggestedRiskAppetite_: opc_RiskAssessment_Result[] }>;
   opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite: WebExpand<opc_RiskAppetite_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  ownerid: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAppetite_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_RiskAppetite_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAppetite_FormattedResult {
   createdby_formatted?: string;
@@ -11547,6 +13022,13 @@ interface opc_RiskAppetite_Result extends opc_RiskAppetite_Base, opc_RiskAppetit
   owninguser_guid: string | null;
 }
 interface opc_RiskAppetite_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAppetite_RelatedMany {
   opc_RiskAssessmentCategory_ActualRiskAppe: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
@@ -11582,6 +13064,7 @@ interface opc_RiskAssessment_Base extends WebEntity {
 }
 interface opc_RiskAssessment_Relationships {
   opc_ActualRiskAppetite?: opc_RiskAppetite_Result | null;
+  opc_BypassInitiatedBy?: SystemUser_Result | null;
   opc_Complaint?: opc_complaint_Result | null;
   opc_RiskAssessmentCategory_RiskAssessment?: opc_RiskAssessmentCategory_Result[] | null;
   opc_RiskAssessmentType?: opc_RiskAssessmentType_Result | null;
@@ -11660,12 +13143,20 @@ interface opc_RiskAssessment_Filter {
   versionnumber: number;
 }
 interface opc_RiskAssessment_Expand {
+  createdby: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_ActualRiskAppetite: WebExpand<opc_RiskAssessment_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_ActualRiskAppetite: opc_RiskAppetite_Result }>;
+  opc_BypassInitiatedBy: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select, SystemUser_Filter, { opc_BypassInitiatedBy: SystemUser_Result }>;
   opc_Complaint: WebExpand<opc_RiskAssessment_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_Complaint: opc_complaint_Result }>;
   opc_RiskAssessmentCategory_RiskAssessment: WebExpand<opc_RiskAssessment_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory_RiskAssessment: opc_RiskAssessmentCategory_Result[] }>;
   opc_RiskAssessmentType: WebExpand<opc_RiskAssessment_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
   opc_SuggestedRiskAppetite: WebExpand<opc_RiskAssessment_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_SuggestedRiskAppetite: opc_RiskAppetite_Result }>;
   opc_riskassessment_riskassessmentdefinitions_riskassessment: WebExpand<opc_RiskAssessment_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_riskassessment_riskassessmentdefinitions_riskassessment: opc_RiskAssessmentDefinition_Result[] }>;
+  ownerid: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessment_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_RiskAssessment_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessment_FormattedResult {
   createdby_formatted?: string;
@@ -11704,10 +13195,18 @@ interface opc_RiskAssessment_Result extends opc_RiskAssessment_Base, opc_RiskAss
   owninguser_guid: string | null;
 }
 interface opc_RiskAssessment_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_ActualRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  opc_BypassInitiatedBy: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_Complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
   opc_SuggestedRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessment_RelatedMany {
   opc_RiskAssessmentCategory_RiskAssessment: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
@@ -11740,6 +13239,7 @@ interface opc_RiskAssessmentCategory_Base extends WebEntity {
 }
 interface opc_RiskAssessmentCategory_Relationships {
   opc_ActualRiskAppetite?: opc_RiskAppetite_Result | null;
+  opc_BypassInitiatedBy?: SystemUser_Result | null;
   opc_RiskAssessment?: opc_RiskAssessment_Result | null;
   opc_RiskAssessmentCategoryTemplate?: opc_RiskAssessmentCategoryTemplate_Result | null;
   opc_RiskAssessmentDefinition_RiskAssessme?: opc_RiskAssessmentDefinition_Result[] | null;
@@ -11821,12 +13321,20 @@ interface opc_RiskAssessmentCategory_Filter {
   versionnumber: number;
 }
 interface opc_RiskAssessmentCategory_Expand {
+  createdby: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_ActualRiskAppetite: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_ActualRiskAppetite: opc_RiskAppetite_Result }>;
+  opc_BypassInitiatedBy: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select, SystemUser_Filter, { opc_BypassInitiatedBy: SystemUser_Result }>;
   opc_RiskAssessment: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment: opc_RiskAssessment_Result }>;
   opc_RiskAssessmentCategoryTemplate: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { opc_RiskAssessmentCategoryTemplate: opc_RiskAssessmentCategoryTemplate_Result }>;
   opc_RiskAssessmentDefinition_RiskAssessme: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessme: opc_RiskAssessmentDefinition_Result[] }>;
   opc_RiskAssessmentType: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
   opc_SuggestedRiskAppetite: WebExpand<opc_RiskAssessmentCategory_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_SuggestedRiskAppetite: opc_RiskAppetite_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentCategory_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_RiskAssessmentCategory_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentCategory_FormattedResult {
   createdby_formatted?: string;
@@ -11867,11 +13375,19 @@ interface opc_RiskAssessmentCategory_Result extends opc_RiskAssessmentCategory_B
   owninguser_guid: string | null;
 }
 interface opc_RiskAssessmentCategory_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_ActualRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  opc_BypassInitiatedBy: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_RiskAssessment: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
   opc_RiskAssessmentCategoryTemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
   opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
   opc_SuggestedRiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentCategory_RelatedMany {
   opc_RiskAssessmentDefinition_RiskAssessme: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
@@ -11960,9 +13476,16 @@ interface opc_RiskAssessmentCategoryTemplate_Filter {
   versionnumber: number;
 }
 interface opc_RiskAssessmentCategoryTemplate_Expand {
+  createdby: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_RiskAssessmentFactorTemplate_RiskAsse: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate_RiskAsse: opc_RiskAssessmentFactorTemplate_Result[] }>;
   opc_RiskAssessmentType: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { opc_RiskAssessmentType: opc_RiskAssessmentType_Result }>;
   opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate: opc_RiskAssessmentCategory_Result[] }>;
+  ownerid: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_RiskAssessmentCategoryTemplate_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentCategoryTemplate_FormattedResult {
   createdby_formatted?: string;
@@ -11993,7 +13516,14 @@ interface opc_RiskAssessmentCategoryTemplate_Result extends opc_RiskAssessmentCa
   owninguser_guid: string | null;
 }
 interface opc_RiskAssessmentCategoryTemplate_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_RiskAssessmentType: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentCategoryTemplate_RelatedMany {
   opc_RiskAssessmentFactorTemplate_RiskAsse: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
@@ -12092,10 +13622,17 @@ interface opc_RiskAssessmentDefinition_Filter {
   versionnumber: number;
 }
 interface opc_RiskAssessmentDefinition_Expand {
+  createdby: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_RiskAssessmentCategory: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result }>;
   opc_RiskAssessmentDefinitionTemplate: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result }>;
   opc_RiskAssessmentFactorTemplate: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result }>;
   opc_riskassessmentid: WebExpand<opc_RiskAssessmentDefinition_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_riskassessmentid: opc_RiskAssessment_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentDefinition_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_RiskAssessmentDefinition_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentDefinition_FormattedResult {
   createdby_formatted?: string;
@@ -12132,10 +13669,17 @@ interface opc_RiskAssessmentDefinition_Result extends opc_RiskAssessmentDefiniti
   owninguser_guid: string | null;
 }
 interface opc_RiskAssessmentDefinition_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_RiskAssessmentCategory: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
   opc_RiskAssessmentDefinitionTemplate: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
   opc_RiskAssessmentFactorTemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
   opc_riskassessmentid: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentDefinition_RelatedMany {
 }
@@ -12223,9 +13767,16 @@ interface opc_RiskAssessmentDefinitionTemplate_Filter {
   versionnumber: number;
 }
 interface opc_RiskAssessmentDefinitionTemplate_Expand {
+  createdby: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_RiskAppetite: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { opc_RiskAppetite: opc_RiskAppetite_Result }>;
   opc_RiskAssessmentDefinition_RiskAssessmentDe: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessmentDe: opc_RiskAssessmentDefinition_Result[] }>;
   opc_RiskAssessmentFactorTemplate: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result }>;
+  ownerid: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_RiskAssessmentDefinitionTemplate_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentDefinitionTemplate_FormattedResult {
   createdby_formatted?: string;
@@ -12258,8 +13809,15 @@ interface opc_RiskAssessmentDefinitionTemplate_Result extends opc_RiskAssessment
   owninguser_guid: string | null;
 }
 interface opc_RiskAssessmentDefinitionTemplate_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_RiskAppetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
   opc_RiskAssessmentFactorTemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentDefinitionTemplate_RelatedMany {
   opc_RiskAssessmentDefinition_RiskAssessmentDe: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
@@ -12348,9 +13906,16 @@ interface opc_RiskAssessmentFactorTemplate_Filter {
   versionnumber: number;
 }
 interface opc_RiskAssessmentFactorTemplate_Expand {
+  createdby: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_RiskAssessmentCategoryTemplate: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { opc_RiskAssessmentCategoryTemplate: opc_RiskAssessmentCategoryTemplate_Result }>;
   opc_RiskAssessmentDefinitionTemplate_Risk: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { opc_RiskAssessmentDefinitionTemplate_Risk: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
   opc_RiskAssessmentDefinition_RiskAssessmentFa: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { opc_RiskAssessmentDefinition_RiskAssessmentFa: opc_RiskAssessmentDefinition_Result[] }>;
+  ownerid: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_RiskAssessmentFactorTemplate_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentFactorTemplate_FormattedResult {
   createdby_formatted?: string;
@@ -12381,7 +13946,14 @@ interface opc_RiskAssessmentFactorTemplate_Result extends opc_RiskAssessmentFact
   owninguser_guid: string | null;
 }
 interface opc_RiskAssessmentFactorTemplate_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_RiskAssessmentCategoryTemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentFactorTemplate_RelatedMany {
   opc_RiskAssessmentDefinitionTemplate_Risk: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
@@ -12465,9 +14037,16 @@ interface opc_RiskAssessmentType_Filter {
   versionnumber: number;
 }
 interface opc_RiskAssessmentType_Expand {
+  createdby: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_RiskAssessmentCategoryTemplate_RiskAs: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { opc_RiskAssessmentCategoryTemplate_RiskAs: opc_RiskAssessmentCategoryTemplate_Result[] }>;
   opc_RiskAssessment_RiskAssessmentType_opc: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_RiskAssessmentType_opc: opc_RiskAssessment_Result[] }>;
   opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType: WebExpand<opc_RiskAssessmentType_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType: opc_RiskAssessmentCategory_Result[] }>;
+  ownerid: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_RiskAssessmentType_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_RiskAssessmentType_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_RiskAssessmentType_FormattedResult {
   createdby_formatted?: string;
@@ -12496,6 +14075,13 @@ interface opc_RiskAssessmentType_Result extends opc_RiskAssessmentType_Base, opc
   owninguser_guid: string | null;
 }
 interface opc_RiskAssessmentType_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_RiskAssessmentType_RelatedMany {
   opc_RiskAssessmentCategoryTemplate_RiskAs: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
@@ -12591,9 +14177,16 @@ interface opc_sector_Filter {
   versionnumber: number;
 }
 interface opc_sector_Expand {
+  createdby: WebExpand<opc_sector_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_sector_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_sector_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_sector_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_parentsectorid: WebExpand<opc_sector_Expand, opc_sector_Select, opc_sector_Filter, { opc_parentsectorid: opc_sector_Result }>;
   opc_sector_complaints_sector: WebExpand<opc_sector_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_sector_complaints_sector: opc_complaint_Result[] }>;
   opc_sector_parentsectorid_sectors: WebExpand<opc_sector_Expand, opc_sector_Select, opc_sector_Filter, { opc_sector_parentsectorid_sectors: opc_sector_Result[] }>;
+  ownerid: WebExpand<opc_sector_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_sector_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_sector_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_sector_FormattedResult {
   createdby_formatted?: string;
@@ -12624,7 +14217,14 @@ interface opc_sector_Result extends opc_sector_Base, opc_sector_Relationships {
   owninguser_guid: string | null;
 }
 interface opc_sector_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_parentsectorid: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_sector_RelatedMany {
   opc_sector_complaints_sector: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
@@ -12721,7 +14321,14 @@ interface opc_theme_Filter {
   versionnumber: number;
 }
 interface opc_theme_Expand {
+  createdby: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_theme_topics_themeid: WebExpand<opc_theme_Expand, opc_topic_Select, opc_topic_Filter, { opc_theme_topics_themeid: opc_topic_Result[] }>;
+  ownerid: WebExpand<opc_theme_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_theme_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_theme_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_theme_FormattedResult {
   createdby_formatted?: string;
@@ -12750,6 +14357,13 @@ interface opc_theme_Result extends opc_theme_Base, opc_theme_Relationships {
   owninguser_guid: string | null;
 }
 interface opc_theme_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_theme_RelatedMany {
   opc_theme_topics_themeid: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
@@ -12848,8 +14462,15 @@ interface opc_topic_Filter {
   versionnumber: number;
 }
 interface opc_topic_Expand {
+  createdby: WebExpand<opc_topic_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<opc_topic_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<opc_topic_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<opc_topic_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_complaints_topics_relatedtopics: WebExpand<opc_topic_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaints_topics_relatedtopics: opc_complaint_Result[] }>;
   opc_themeid: WebExpand<opc_topic_Expand, opc_theme_Select, opc_theme_Filter, { opc_themeid: opc_theme_Result }>;
+  ownerid: WebExpand<opc_topic_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<opc_topic_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<opc_topic_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
 }
 interface opc_topic_FormattedResult {
   createdby_formatted?: string;
@@ -12880,7 +14501,14 @@ interface opc_topic_Result extends opc_topic_Base, opc_topic_Relationships {
   owninguser_guid: string | null;
 }
 interface opc_topic_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_themeid: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_topic_RelatedMany {
   opc_complaints_topics_relatedtopics: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
@@ -12893,6 +14521,221 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   opc_topics: WebMappingCUDA<opc_topic_Create,opc_topic_Update,opc_topic_Select>;
+}
+interface Queue_Base extends WebEntity {
+  allowemailcredentials?: boolean | null;
+  createdon?: Date | null;
+  description?: string | null;
+  emailaddress?: string | null;
+  emailpassword?: string | null;
+  emailrouteraccessapproval?: queue_emailrouteraccessapproval | null;
+  emailusername?: string | null;
+  entityimageid?: string | null;
+  exchangerate?: number | null;
+  ignoreunsolicitedemail?: boolean | null;
+  importsequencenumber?: number | null;
+  incomingemaildeliverymethod?: queue_incomingemaildeliverymethod | null;
+  incomingemailfilteringmethod?: queue_incomingemailfilteringmethod | null;
+  isemailaddressapprovedbyo365admin?: boolean | null;
+  isfaxqueue?: boolean | null;
+  modifiedon?: Date | null;
+  name?: string | null;
+  numberofitems?: number | null;
+  numberofmembers?: number | null;
+  outgoingemaildeliverymethod?: queue_outgoingemaildeliverymethod | null;
+  overriddencreatedon?: Date | null;
+  queueid?: string | null;
+  queuetypecode?: queue_queuetypecode | null;
+  queueviewtype?: queue_queueviewtype | null;
+  statecode?: queue_statecode | null;
+  statuscode?: queue_statuscode | null;
+  versionnumber?: number | null;
+}
+interface Queue_Relationships {
+  opc_queues_teams_membership?: Team_Result[] | null;
+  queue_activity_parties?: ActivityParty_Result[] | null;
+  queue_entries?: QueueItem_Result[] | null;
+  queue_system_user?: SystemUser_Result[] | null;
+  queue_team?: Team_Result[] | null;
+  queuemembership_association?: SystemUser_Result[] | null;
+}
+interface Queue extends Queue_Base, Queue_Relationships {
+  businessunitid_bind$businessunits?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+  primaryuserid_bind$systemusers?: string | null;
+  transactioncurrencyid_bind$transactioncurrencies?: string | null;
+}
+interface Queue_Create extends Queue {
+  queueid_queueitemcount_bind$queueitemcounts?: string | null;
+  queueid_queuemembercount_bind$queuemembercounts?: string | null;
+}
+interface Queue_Update extends Queue {
+}
+interface Queue_Select {
+  allowemailcredentials: WebAttribute<Queue_Select, { allowemailcredentials: boolean | null }, {  }>;
+  businessunitid_guid: WebAttribute<Queue_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
+  createdby_guid: WebAttribute<Queue_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<Queue_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<Queue_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  defaultmailbox_guid: WebAttribute<Queue_Select, { defaultmailbox_guid: string | null }, { defaultmailbox_formatted?: string }>;
+  description: WebAttribute<Queue_Select, { description: string | null }, {  }>;
+  emailaddress: WebAttribute<Queue_Select, { emailaddress: string | null }, {  }>;
+  emailpassword: WebAttribute<Queue_Select, { emailpassword: string | null }, {  }>;
+  emailrouteraccessapproval: WebAttribute<Queue_Select, { emailrouteraccessapproval: queue_emailrouteraccessapproval | null }, { emailrouteraccessapproval_formatted?: string }>;
+  emailusername: WebAttribute<Queue_Select, { emailusername: string | null }, {  }>;
+  entityimageid: WebAttribute<Queue_Select, { entityimageid: string | null }, {  }>;
+  exchangerate: WebAttribute<Queue_Select, { exchangerate: number | null }, {  }>;
+  ignoreunsolicitedemail: WebAttribute<Queue_Select, { ignoreunsolicitedemail: boolean | null }, {  }>;
+  importsequencenumber: WebAttribute<Queue_Select, { importsequencenumber: number | null }, {  }>;
+  incomingemaildeliverymethod: WebAttribute<Queue_Select, { incomingemaildeliverymethod: queue_incomingemaildeliverymethod | null }, { incomingemaildeliverymethod_formatted?: string }>;
+  incomingemailfilteringmethod: WebAttribute<Queue_Select, { incomingemailfilteringmethod: queue_incomingemailfilteringmethod | null }, { incomingemailfilteringmethod_formatted?: string }>;
+  isemailaddressapprovedbyo365admin: WebAttribute<Queue_Select, { isemailaddressapprovedbyo365admin: boolean | null }, {  }>;
+  isfaxqueue: WebAttribute<Queue_Select, { isfaxqueue: boolean | null }, {  }>;
+  modifiedby_guid: WebAttribute<Queue_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<Queue_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<Queue_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  name: WebAttribute<Queue_Select, { name: string | null }, {  }>;
+  numberofitems: WebAttribute<Queue_Select, { numberofitems: number | null }, {  }>;
+  numberofmembers: WebAttribute<Queue_Select, { numberofmembers: number | null }, {  }>;
+  organizationid_guid: WebAttribute<Queue_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
+  outgoingemaildeliverymethod: WebAttribute<Queue_Select, { outgoingemaildeliverymethod: queue_outgoingemaildeliverymethod | null }, { outgoingemaildeliverymethod_formatted?: string }>;
+  overriddencreatedon: WebAttribute<Queue_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<Queue_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<Queue_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<Queue_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<Queue_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  primaryuserid_guid: WebAttribute<Queue_Select, { primaryuserid_guid: string | null }, { primaryuserid_formatted?: string }>;
+  queueid: WebAttribute<Queue_Select, { queueid: string | null }, {  }>;
+  queuetypecode: WebAttribute<Queue_Select, { queuetypecode: queue_queuetypecode | null }, { queuetypecode_formatted?: string }>;
+  queueviewtype: WebAttribute<Queue_Select, { queueviewtype: queue_queueviewtype | null }, { queueviewtype_formatted?: string }>;
+  statecode: WebAttribute<Queue_Select, { statecode: queue_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<Queue_Select, { statuscode: queue_statuscode | null }, { statuscode_formatted?: string }>;
+  transactioncurrencyid_guid: WebAttribute<Queue_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  versionnumber: WebAttribute<Queue_Select, { versionnumber: number | null }, {  }>;
+}
+interface Queue_Filter {
+  allowemailcredentials: boolean;
+  businessunitid_guid: XQW.Guid;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  defaultmailbox_guid: XQW.Guid;
+  description: string;
+  emailaddress: string;
+  emailpassword: string;
+  emailrouteraccessapproval: queue_emailrouteraccessapproval;
+  emailusername: string;
+  entityimageid: XQW.Guid;
+  exchangerate: any;
+  ignoreunsolicitedemail: boolean;
+  importsequencenumber: number;
+  incomingemaildeliverymethod: queue_incomingemaildeliverymethod;
+  incomingemailfilteringmethod: queue_incomingemailfilteringmethod;
+  isemailaddressapprovedbyo365admin: boolean;
+  isfaxqueue: boolean;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  name: string;
+  numberofitems: number;
+  numberofmembers: number;
+  organizationid_guid: XQW.Guid;
+  outgoingemaildeliverymethod: queue_outgoingemaildeliverymethod;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  primaryuserid_guid: XQW.Guid;
+  queueid: XQW.Guid;
+  queuetypecode: queue_queuetypecode;
+  queueviewtype: queue_queueviewtype;
+  statecode: queue_statecode;
+  statuscode: queue_statuscode;
+  transactioncurrencyid_guid: XQW.Guid;
+  versionnumber: number;
+}
+interface Queue_Expand {
+  createdby: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  opc_queues_teams_membership: WebExpand<Queue_Expand, Team_Select, Team_Filter, { opc_queues_teams_membership: Team_Result[] }>;
+  ownerid: WebExpand<Queue_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  primaryuserid: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { primaryuserid: SystemUser_Result }>;
+  queue_activity_parties: WebExpand<Queue_Expand, ActivityParty_Select, ActivityParty_Filter, { queue_activity_parties: ActivityParty_Result[] }>;
+  queue_entries: WebExpand<Queue_Expand, QueueItem_Select, QueueItem_Filter, { queue_entries: QueueItem_Result[] }>;
+  queue_system_user: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { queue_system_user: SystemUser_Result[] }>;
+  queue_team: WebExpand<Queue_Expand, Team_Select, Team_Filter, { queue_team: Team_Result[] }>;
+  queuemembership_association: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { queuemembership_association: SystemUser_Result[] }>;
+}
+interface Queue_FormattedResult {
+  businessunitid_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  defaultmailbox_formatted?: string;
+  emailrouteraccessapproval_formatted?: string;
+  incomingemaildeliverymethod_formatted?: string;
+  incomingemailfilteringmethod_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  organizationid_formatted?: string;
+  outgoingemaildeliverymethod_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  primaryuserid_formatted?: string;
+  queuetypecode_formatted?: string;
+  queueviewtype_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+}
+interface Queue_Result extends Queue_Base, Queue_Relationships {
+  "@odata.etag": string;
+  businessunitid_guid: string | null;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  defaultmailbox_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  organizationid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+  primaryuserid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface Queue_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  primaryuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface Queue_RelatedMany {
+  opc_queues_teams_membership: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  queue_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
+  queue_entries: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  queue_system_user: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  queue_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  queuemembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  queues: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  queues: WebMappingRelated<Queue_RelatedOne,Queue_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  queues: WebMappingCUDA<Queue_Create,Queue_Update,Queue_Select>;
 }
 interface QueueItem_Base extends WebEntity {
   createdon?: Date | null;
@@ -12918,6 +14761,8 @@ interface QueueItem_Base extends WebEntity {
 }
 interface QueueItem_Relationships {
   objectid_opc_complaint?: opc_complaint_Result | null;
+  workerid_systemuser?: SystemUser_Result | null;
+  workerid_team?: Team_Result | null;
 }
 interface QueueItem extends QueueItem_Base, QueueItem_Relationships {
   transactioncurrencyid_bind$transactioncurrencies?: string | null;
@@ -13010,7 +14855,14 @@ interface QueueItem_Filter {
   workeridmodifiedon: Date;
 }
 interface QueueItem_Expand {
+  createdby: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   objectid_opc_complaint: WebExpand<QueueItem_Expand, opc_complaint_Select, opc_complaint_Filter, { objectid_opc_complaint: opc_complaint_Result }>;
+  queueid: WebExpand<QueueItem_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
+  workerid_systemuser: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { workerid_systemuser: SystemUser_Result }>;
+  workerid_team: WebExpand<QueueItem_Expand, Team_Select, Team_Filter, { workerid_team: Team_Result }>;
 }
 interface QueueItem_FormattedResult {
   createdby_formatted?: string;
@@ -13050,7 +14902,14 @@ interface QueueItem_Result extends QueueItem_Base, QueueItem_Relationships {
   workerid_guid: string | null;
 }
 interface QueueItem_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   objectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  workerid_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  workerid_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
 }
 interface QueueItem_RelatedMany {
 }
@@ -13063,215 +14922,1338 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   queueitems: WebMappingCUDA<QueueItem_Create,QueueItem_Update,QueueItem_Select>;
 }
-interface SharePointDocument_Base extends WebEntity {
-  absoluteurl?: string | null;
-  appcreatedby?: string | null;
-  appmodifiedby?: string | null;
-  author?: string | null;
-  checkedoutto?: string | null;
-  checkincomment?: string | null;
-  childfoldercount?: number | null;
-  childitemcount?: number | null;
-  contenttype?: string | null;
-  contenttypeid?: number | null;
-  copysource?: string | null;
+interface QueueMembership_Base extends WebEntity {
+  queueid?: string | null;
+  queuemembershipid?: string | null;
+  systemuserid?: string | null;
+  versionnumber?: number | null;
+}
+interface QueueMembership_Relationships {
+  queuemembership_association?: SystemUser_Result[] | null;
+}
+interface QueueMembership extends QueueMembership_Base, QueueMembership_Relationships {
+}
+interface QueueMembership_Create extends QueueMembership {
+}
+interface QueueMembership_Update extends QueueMembership {
+}
+interface QueueMembership_Select {
+  queueid: WebAttribute<QueueMembership_Select, { queueid: string | null }, {  }>;
+  queuemembershipid: WebAttribute<QueueMembership_Select, { queuemembershipid: string | null }, {  }>;
+  systemuserid: WebAttribute<QueueMembership_Select, { systemuserid: string | null }, {  }>;
+  versionnumber: WebAttribute<QueueMembership_Select, { versionnumber: number | null }, {  }>;
+}
+interface QueueMembership_Filter {
+  queueid: XQW.Guid;
+  queuemembershipid: XQW.Guid;
+  systemuserid: XQW.Guid;
+  versionnumber: number;
+}
+interface QueueMembership_Expand {
+  queuemembership_association: WebExpand<QueueMembership_Expand, SystemUser_Select, SystemUser_Filter, { queuemembership_association: SystemUser_Result[] }>;
+}
+interface QueueMembership_FormattedResult {
+}
+interface QueueMembership_Result extends QueueMembership_Base, QueueMembership_Relationships {
+  "@odata.etag": string;
+}
+interface QueueMembership_RelatedOne {
+}
+interface QueueMembership_RelatedMany {
+  queuemembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  queuememberships: WebMappingRetrieve<QueueMembership_Select,QueueMembership_Expand,QueueMembership_Filter,QueueMembership_Fixed,QueueMembership_Result,QueueMembership_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  queuememberships: WebMappingRelated<QueueMembership_RelatedOne,QueueMembership_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  queuememberships: WebMappingCUDA<QueueMembership_Create,QueueMembership_Update,QueueMembership_Select>;
+}
+interface SystemUser_Base extends WebEntity {
+  accessmode?: systemuser_accessmode | null;
+  activedirectoryguid?: string | null;
+  address1_addressid?: string | null;
+  address1_addresstypecode?: systemuser_address1_addresstypecode | null;
+  address1_city?: string | null;
+  address1_composite?: string | null;
+  address1_country?: string | null;
+  address1_county?: string | null;
+  address1_fax?: string | null;
+  address1_latitude?: number | null;
+  address1_line1?: string | null;
+  address1_line2?: string | null;
+  address1_line3?: string | null;
+  address1_longitude?: number | null;
+  address1_name?: string | null;
+  address1_postalcode?: string | null;
+  address1_postofficebox?: string | null;
+  address1_shippingmethodcode?: systemuser_address1_shippingmethodcode | null;
+  address1_stateorprovince?: string | null;
+  address1_telephone1?: string | null;
+  address1_telephone2?: string | null;
+  address1_telephone3?: string | null;
+  address1_upszone?: string | null;
+  address1_utcoffset?: number | null;
+  address2_addressid?: string | null;
+  address2_addresstypecode?: systemuser_address2_addresstypecode | null;
+  address2_city?: string | null;
+  address2_composite?: string | null;
+  address2_country?: string | null;
+  address2_county?: string | null;
+  address2_fax?: string | null;
+  address2_latitude?: number | null;
+  address2_line1?: string | null;
+  address2_line2?: string | null;
+  address2_line3?: string | null;
+  address2_longitude?: number | null;
+  address2_name?: string | null;
+  address2_postalcode?: string | null;
+  address2_postofficebox?: string | null;
+  address2_shippingmethodcode?: systemuser_address2_shippingmethodcode | null;
+  address2_stateorprovince?: string | null;
+  address2_telephone1?: string | null;
+  address2_telephone2?: string | null;
+  address2_telephone3?: string | null;
+  address2_upszone?: string | null;
+  address2_utcoffset?: number | null;
+  applicationid?: string | null;
+  applicationiduri?: string | null;
+  azureactivedirectoryobjectid?: string | null;
+  caltype?: systemuser_caltype | null;
   createdon?: Date | null;
-  documentid?: number | null;
-  documentlocationtype?: sharepointdocumentlocation_locationtype | null;
-  edit?: string | null;
-  editurl?: string | null;
+  defaultfilterspopulated?: boolean | null;
+  defaultodbfoldername?: string | null;
+  disabledreason?: string | null;
+  displayinserviceviews?: boolean | null;
+  domainname?: string | null;
+  emailrouteraccessapproval?: systemuser_emailrouteraccessapproval | null;
+  employeeid?: string | null;
+  entityimageid?: string | null;
   exchangerate?: number | null;
-  filesize?: number | null;
-  filetype?: string | null;
+  firstname?: string | null;
   fullname?: string | null;
-  iconclassname?: string | null;
-  ischeckedout?: boolean | null;
-  isfolder?: boolean | null;
-  isrecursivefetch?: boolean | null;
-  locationid?: string | null;
-  locationname?: string | null;
-  modified?: Date | null;
+  governmentid?: string | null;
+  homephone?: string | null;
+  identityid?: number | null;
+  importsequencenumber?: number | null;
+  incomingemaildeliverymethod?: systemuser_incomingemaildeliverymethod | null;
+  internalemailaddress?: string | null;
+  invitestatuscode?: systemuser_invitestatuscode | null;
+  isactivedirectoryuser?: boolean | null;
+  isdisabled?: boolean | null;
+  isemailaddressapprovedbyo365admin?: boolean | null;
+  isintegrationuser?: boolean | null;
+  islicensed?: boolean | null;
+  issyncwithdirectory?: boolean | null;
+  jobtitle?: string | null;
+  lastname?: string | null;
+  latestupdatetime?: Date | null;
+  middlename?: string | null;
+  mobilealertemail?: string | null;
+  mobilephone?: string | null;
   modifiedon?: Date | null;
-  readurl?: string | null;
-  relativelocation?: string | null;
-  servicetype?: sharepointsite_servicetype | null;
-  sharepointcreatedon?: Date | null;
-  sharepointdocumentid?: string | null;
-  sharepointmodifiedby?: string | null;
+  nickname?: string | null;
+  organizationid?: string | null;
+  outgoingemaildeliverymethod?: systemuser_outgoingemaildeliverymethod | null;
+  overriddencreatedon?: Date | null;
+  passporthi?: number | null;
+  passportlo?: number | null;
+  personalemailaddress?: string | null;
+  photourl?: string | null;
+  preferredaddresscode?: systemuser_preferredaddresscode | null;
+  preferredemailcode?: systemuser_preferredemailcode | null;
+  preferredphonecode?: systemuser_preferredphonecode | null;
+  processid?: string | null;
+  salutation?: string | null;
+  setupuser?: boolean | null;
+  sharepointemailaddress?: string | null;
+  skills?: string | null;
+  stageid?: string | null;
+  systemuserid?: string | null;
+  timezoneruleversionnumber?: number | null;
   title?: string | null;
-  version?: string | null;
+  traversedpath?: string | null;
+  userlicensetype?: number | null;
+  userpuid?: string | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+  windowsliveid?: string | null;
+  yammeremailaddress?: string | null;
+  yammeruserid?: string | null;
 }
-interface SharePointDocument_Relationships {
-  regardingobjectid_account?: Account_Result | null;
-  regardingobjectid_opc_complaint?: opc_complaint_Result | null;
+interface SystemUser_Relationships {
+  contact_owning_user?: Contact_Result[] | null;
+  createdby_connection?: Connection_Result[] | null;
+  lk_accountbase_createdby?: Account_Result[] | null;
+  lk_accountbase_createdonbehalfby?: Account_Result[] | null;
+  lk_accountbase_modifiedby?: Account_Result[] | null;
+  lk_accountbase_modifiedonbehalfby?: Account_Result[] | null;
+  lk_connectionbase_createdonbehalfby?: Connection_Result[] | null;
+  lk_connectionbase_modifiedonbehalfby?: Connection_Result[] | null;
+  lk_contact_createdonbehalfby?: Contact_Result[] | null;
+  lk_contact_modifiedonbehalfby?: Contact_Result[] | null;
+  lk_contactbase_createdby?: Contact_Result[] | null;
+  lk_contactbase_modifiedby?: Contact_Result[] | null;
+  lk_opc_allegation_createdby?: opc_allegation_Result[] | null;
+  lk_opc_allegation_createdonbehalfby?: opc_allegation_Result[] | null;
+  lk_opc_allegation_modifiedby?: opc_allegation_Result[] | null;
+  lk_opc_allegation_modifiedonbehalfby?: opc_allegation_Result[] | null;
+  lk_opc_allegationtype_createdby?: opc_allegationtype_Result[] | null;
+  lk_opc_allegationtype_createdonbehalfby?: opc_allegationtype_Result[] | null;
+  lk_opc_allegationtype_modifiedby?: opc_allegationtype_Result[] | null;
+  lk_opc_allegationtype_modifiedonbehalfby?: opc_allegationtype_Result[] | null;
+  lk_opc_checklistresponse_createdby?: opc_ChecklistResponse_Result[] | null;
+  lk_opc_checklistresponse_createdonbehalfby?: opc_ChecklistResponse_Result[] | null;
+  lk_opc_checklistresponse_modifiedby?: opc_ChecklistResponse_Result[] | null;
+  lk_opc_checklistresponse_modifiedonbehalfby?: opc_ChecklistResponse_Result[] | null;
+  lk_opc_checklisttype_createdby?: opc_ChecklistType_Result[] | null;
+  lk_opc_checklisttype_createdonbehalfby?: opc_ChecklistType_Result[] | null;
+  lk_opc_checklisttype_modifiedby?: opc_ChecklistType_Result[] | null;
+  lk_opc_checklisttype_modifiedonbehalfby?: opc_ChecklistType_Result[] | null;
+  lk_opc_complaint_createdby?: opc_complaint_Result[] | null;
+  lk_opc_complaint_createdonbehalfby?: opc_complaint_Result[] | null;
+  lk_opc_complaint_modifiedby?: opc_complaint_Result[] | null;
+  lk_opc_complaint_modifiedonbehalfby?: opc_complaint_Result[] | null;
+  lk_opc_dispositionaction_createdby?: opc_dispositionaction_Result[] | null;
+  lk_opc_dispositionaction_createdonbehalfby?: opc_dispositionaction_Result[] | null;
+  lk_opc_dispositionaction_modifiedby?: opc_dispositionaction_Result[] | null;
+  lk_opc_dispositionaction_modifiedonbehalfby?: opc_dispositionaction_Result[] | null;
+  lk_opc_dispositionreason_createdby?: opc_dispositionreason_Result[] | null;
+  lk_opc_dispositionreason_createdonbehalfby?: opc_dispositionreason_Result[] | null;
+  lk_opc_dispositionreason_modifiedby?: opc_dispositionreason_Result[] | null;
+  lk_opc_dispositionreason_modifiedonbehalfby?: opc_dispositionreason_Result[] | null;
+  lk_opc_individualcomplaint_bp_createdby?: opc_individualcomplaint_bp_Result[] | null;
+  lk_opc_individualcomplaint_bp_createdonbehalfby?: opc_individualcomplaint_bp_Result[] | null;
+  lk_opc_individualcomplaint_bp_modifiedby?: opc_individualcomplaint_bp_Result[] | null;
+  lk_opc_individualcomplaint_bp_modifiedonbehalfby?: opc_individualcomplaint_bp_Result[] | null;
+  lk_opc_issue_createdby?: opc_issue_Result[] | null;
+  lk_opc_issue_createdonbehalfby?: opc_issue_Result[] | null;
+  lk_opc_issue_modifiedby?: opc_issue_Result[] | null;
+  lk_opc_issue_modifiedonbehalfby?: opc_issue_Result[] | null;
+  lk_opc_legislation_createdby?: opc_legislation_Result[] | null;
+  lk_opc_legislation_createdonbehalfby?: opc_legislation_Result[] | null;
+  lk_opc_legislation_modifiedby?: opc_legislation_Result[] | null;
+  lk_opc_legislation_modifiedonbehalfby?: opc_legislation_Result[] | null;
+  lk_opc_notification_createdby?: opc_notification_Result[] | null;
+  lk_opc_notification_createdonbehalfby?: opc_notification_Result[] | null;
+  lk_opc_notification_modifiedby?: opc_notification_Result[] | null;
+  lk_opc_notification_modifiedonbehalfby?: opc_notification_Result[] | null;
+  lk_opc_opcpriority_createdby?: opc_opcpriority_Result[] | null;
+  lk_opc_opcpriority_createdonbehalfby?: opc_opcpriority_Result[] | null;
+  lk_opc_opcpriority_modifiedby?: opc_opcpriority_Result[] | null;
+  lk_opc_opcpriority_modifiedonbehalfby?: opc_opcpriority_Result[] | null;
+  lk_opc_questiontemplate_createdby?: opc_QuestionTemplate_Result[] | null;
+  lk_opc_questiontemplate_createdonbehalfby?: opc_QuestionTemplate_Result[] | null;
+  lk_opc_questiontemplate_modifiedby?: opc_QuestionTemplate_Result[] | null;
+  lk_opc_questiontemplate_modifiedonbehalfby?: opc_QuestionTemplate_Result[] | null;
+  lk_opc_questiontype_createdby?: opc_QuestionType_Result[] | null;
+  lk_opc_questiontype_createdonbehalfby?: opc_QuestionType_Result[] | null;
+  lk_opc_questiontype_modifiedby?: opc_QuestionType_Result[] | null;
+  lk_opc_questiontype_modifiedonbehalfby?: opc_QuestionType_Result[] | null;
+  lk_opc_recommendation_createdby?: opc_recommendation_Result[] | null;
+  lk_opc_recommendation_createdonbehalfby?: opc_recommendation_Result[] | null;
+  lk_opc_recommendation_modifiedby?: opc_recommendation_Result[] | null;
+  lk_opc_recommendation_modifiedonbehalfby?: opc_recommendation_Result[] | null;
+  lk_opc_reminder_createdby?: opc_reminder_Result[] | null;
+  lk_opc_reminder_createdonbehalfby?: opc_reminder_Result[] | null;
+  lk_opc_reminder_modifiedby?: opc_reminder_Result[] | null;
+  lk_opc_reminder_modifiedonbehalfby?: opc_reminder_Result[] | null;
+  lk_opc_riskappetite_createdby?: opc_RiskAppetite_Result[] | null;
+  lk_opc_riskappetite_createdonbehalfby?: opc_RiskAppetite_Result[] | null;
+  lk_opc_riskappetite_modifiedby?: opc_RiskAppetite_Result[] | null;
+  lk_opc_riskappetite_modifiedonbehalfby?: opc_RiskAppetite_Result[] | null;
+  lk_opc_riskassessment_createdby?: opc_RiskAssessment_Result[] | null;
+  lk_opc_riskassessment_createdonbehalfby?: opc_RiskAssessment_Result[] | null;
+  lk_opc_riskassessment_modifiedby?: opc_RiskAssessment_Result[] | null;
+  lk_opc_riskassessment_modifiedonbehalfby?: opc_RiskAssessment_Result[] | null;
+  lk_opc_riskassessmentcategory_createdby?: opc_RiskAssessmentCategory_Result[] | null;
+  lk_opc_riskassessmentcategory_createdonbehalfby?: opc_RiskAssessmentCategory_Result[] | null;
+  lk_opc_riskassessmentcategory_modifiedby?: opc_RiskAssessmentCategory_Result[] | null;
+  lk_opc_riskassessmentcategory_modifiedonbehalfby?: opc_RiskAssessmentCategory_Result[] | null;
+  lk_opc_riskassessmentcategorytemplate_createdby?: opc_RiskAssessmentCategoryTemplate_Result[] | null;
+  lk_opc_riskassessmentcategorytemplate_createdonbehalfby?: opc_RiskAssessmentCategoryTemplate_Result[] | null;
+  lk_opc_riskassessmentcategorytemplate_modifiedby?: opc_RiskAssessmentCategoryTemplate_Result[] | null;
+  lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby?: opc_RiskAssessmentCategoryTemplate_Result[] | null;
+  lk_opc_riskassessmentdefinition_createdby?: opc_RiskAssessmentDefinition_Result[] | null;
+  lk_opc_riskassessmentdefinition_createdonbehalfby?: opc_RiskAssessmentDefinition_Result[] | null;
+  lk_opc_riskassessmentdefinition_modifiedby?: opc_RiskAssessmentDefinition_Result[] | null;
+  lk_opc_riskassessmentdefinition_modifiedonbehalfby?: opc_RiskAssessmentDefinition_Result[] | null;
+  lk_opc_riskassessmentdefinitiontemplate_createdby?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+  lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+  lk_opc_riskassessmentdefinitiontemplate_modifiedby?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+  lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+  lk_opc_riskassessmentfactortemplate_createdby?: opc_RiskAssessmentFactorTemplate_Result[] | null;
+  lk_opc_riskassessmentfactortemplate_createdonbehalfby?: opc_RiskAssessmentFactorTemplate_Result[] | null;
+  lk_opc_riskassessmentfactortemplate_modifiedby?: opc_RiskAssessmentFactorTemplate_Result[] | null;
+  lk_opc_riskassessmentfactortemplate_modifiedonbehalfby?: opc_RiskAssessmentFactorTemplate_Result[] | null;
+  lk_opc_riskassessmenttype_createdby?: opc_RiskAssessmentType_Result[] | null;
+  lk_opc_riskassessmenttype_createdonbehalfby?: opc_RiskAssessmentType_Result[] | null;
+  lk_opc_riskassessmenttype_modifiedby?: opc_RiskAssessmentType_Result[] | null;
+  lk_opc_riskassessmenttype_modifiedonbehalfby?: opc_RiskAssessmentType_Result[] | null;
+  lk_opc_sector_createdby?: opc_sector_Result[] | null;
+  lk_opc_sector_createdonbehalfby?: opc_sector_Result[] | null;
+  lk_opc_sector_modifiedby?: opc_sector_Result[] | null;
+  lk_opc_sector_modifiedonbehalfby?: opc_sector_Result[] | null;
+  lk_opc_theme_createdby?: opc_theme_Result[] | null;
+  lk_opc_theme_createdonbehalfby?: opc_theme_Result[] | null;
+  lk_opc_theme_modifiedby?: opc_theme_Result[] | null;
+  lk_opc_theme_modifiedonbehalfby?: opc_theme_Result[] | null;
+  lk_opc_topic_createdby?: opc_topic_Result[] | null;
+  lk_opc_topic_createdonbehalfby?: opc_topic_Result[] | null;
+  lk_opc_topic_modifiedby?: opc_topic_Result[] | null;
+  lk_opc_topic_modifiedonbehalfby?: opc_topic_Result[] | null;
+  lk_queue_createdonbehalfby?: Queue_Result[] | null;
+  lk_queue_modifiedonbehalfby?: Queue_Result[] | null;
+  lk_queuebase_createdby?: Queue_Result[] | null;
+  lk_queuebase_modifiedby?: Queue_Result[] | null;
+  lk_queueitem_createdonbehalfby?: QueueItem_Result[] | null;
+  lk_queueitem_modifiedonbehalfby?: QueueItem_Result[] | null;
+  lk_queueitembase_createdby?: QueueItem_Result[] | null;
+  lk_queueitembase_modifiedby?: QueueItem_Result[] | null;
+  lk_queueitembase_workerid?: QueueItem_Result[] | null;
+  lk_systemuser_createdonbehalfby?: SystemUser_Result[] | null;
+  lk_systemuser_modifiedonbehalfby?: SystemUser_Result[] | null;
+  lk_systemuserbase_createdby?: SystemUser_Result[] | null;
+  lk_systemuserbase_modifiedby?: SystemUser_Result[] | null;
+  lk_team_createdonbehalfby?: Team_Result[] | null;
+  lk_team_modifiedonbehalfby?: Team_Result[] | null;
+  lk_teambase_administratorid?: Team_Result[] | null;
+  lk_teambase_createdby?: Team_Result[] | null;
+  lk_teambase_modifiedby?: Team_Result[] | null;
+  modifiedby_connection?: Connection_Result[] | null;
+  opc_RiskAssessmentCategory_BypassInitiate?: opc_RiskAssessmentCategory_Result[] | null;
+  opc_RiskAssessment_BypassInitiatedBy_Syst?: opc_RiskAssessment_Result[] | null;
+  opc_complaint_intakeofficer_SystemUser?: opc_complaint_Result[] | null;
+  opc_reminders_users_additionaluserstonotify?: opc_reminder_Result[] | null;
+  queue_primary_user?: Queue_Result[] | null;
+  queuemembership_association?: Queue_Result[] | null;
+  system_user_accounts?: Account_Result[] | null;
+  system_user_activity_parties?: ActivityParty_Result[] | null;
+  system_user_contacts?: Contact_Result[] | null;
+  systemuser_connections1?: Connection_Result[] | null;
+  systemuser_connections2?: Connection_Result[] | null;
+  teammembership_association?: Team_Result[] | null;
+  user_accounts?: Account_Result[] | null;
+  user_opc_allegation?: opc_allegation_Result[] | null;
+  user_opc_allegationtype?: opc_allegationtype_Result[] | null;
+  user_opc_checklistresponse?: opc_ChecklistResponse_Result[] | null;
+  user_opc_checklisttype?: opc_ChecklistType_Result[] | null;
+  user_opc_complaint?: opc_complaint_Result[] | null;
+  user_opc_dispositionaction?: opc_dispositionaction_Result[] | null;
+  user_opc_dispositionreason?: opc_dispositionreason_Result[] | null;
+  user_opc_issue?: opc_issue_Result[] | null;
+  user_opc_legislation?: opc_legislation_Result[] | null;
+  user_opc_notification?: opc_notification_Result[] | null;
+  user_opc_opcpriority?: opc_opcpriority_Result[] | null;
+  user_opc_questiontemplate?: opc_QuestionTemplate_Result[] | null;
+  user_opc_recommendation?: opc_recommendation_Result[] | null;
+  user_opc_reminder?: opc_reminder_Result[] | null;
+  user_opc_riskappetite?: opc_RiskAppetite_Result[] | null;
+  user_opc_riskassessment?: opc_RiskAssessment_Result[] | null;
+  user_opc_riskassessmentcategory?: opc_RiskAssessmentCategory_Result[] | null;
+  user_opc_riskassessmentcategorytemplate?: opc_RiskAssessmentCategoryTemplate_Result[] | null;
+  user_opc_riskassessmentdefinition?: opc_RiskAssessmentDefinition_Result[] | null;
+  user_opc_riskassessmentdefinitiontemplate?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+  user_opc_riskassessmentfactortemplate?: opc_RiskAssessmentFactorTemplate_Result[] | null;
+  user_opc_riskassessmenttype?: opc_RiskAssessmentType_Result[] | null;
+  user_opc_sector?: opc_sector_Result[] | null;
+  user_opc_theme?: opc_theme_Result[] | null;
+  user_opc_topic?: opc_topic_Result[] | null;
+  user_parent_user?: SystemUser_Result[] | null;
 }
-interface SharePointDocument extends SharePointDocument_Base, SharePointDocument_Relationships {
+interface SystemUser extends SystemUser_Base, SystemUser_Relationships {
   businessunitid_bind$businessunits?: string | null;
-  regardingobjectid_account_bind$accounts?: string | null;
-  regardingobjectid_kbarticle_bind$kbarticles?: string | null;
-  regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
-  regardingobjectid_msdyn_knowledgearticletemplate_bind$msdyn_knowledgearticletemplates?: string | null;
-  regardingobjectid_opc_complaint_bind$opc_complaints?: string | null;
+  calendarid_bind$calendars?: string | null;
+  mobileofflineprofileid_bind$mobileofflineprofiles?: string | null;
+  parentsystemuserid_bind$systemusers?: string | null;
+  positionid_bind$positions?: string | null;
+  queueid_bind$queues?: string | null;
+  stageid_processstage_bind$processstages?: string | null;
+  territoryid_bind$territories?: string | null;
+  transactioncurrencyid_bind$transactioncurrencies?: string | null;
 }
-interface SharePointDocument_Create extends SharePointDocument {
-  ownerid_bind$systemusers?: string | null;
-  ownerid_bind$teams?: string | null;
+interface SystemUser_Create extends SystemUser {
 }
-interface SharePointDocument_Update extends SharePointDocument {
+interface SystemUser_Update extends SystemUser {
 }
-interface SharePointDocument_Select {
-  absoluteurl: WebAttribute<SharePointDocument_Select, { absoluteurl: string | null }, {  }>;
-  appcreatedby: WebAttribute<SharePointDocument_Select, { appcreatedby: string | null }, {  }>;
-  appmodifiedby: WebAttribute<SharePointDocument_Select, { appmodifiedby: string | null }, {  }>;
-  author: WebAttribute<SharePointDocument_Select, { author: string | null }, {  }>;
-  businessunitid_guid: WebAttribute<SharePointDocument_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
-  checkedoutto: WebAttribute<SharePointDocument_Select, { checkedoutto: string | null }, {  }>;
-  checkincomment: WebAttribute<SharePointDocument_Select, { checkincomment: string | null }, {  }>;
-  childfoldercount: WebAttribute<SharePointDocument_Select, { childfoldercount: number | null }, {  }>;
-  childitemcount: WebAttribute<SharePointDocument_Select, { childitemcount: number | null }, {  }>;
-  contenttype: WebAttribute<SharePointDocument_Select, { contenttype: string | null }, {  }>;
-  contenttypeid: WebAttribute<SharePointDocument_Select, { contenttypeid: number | null }, {  }>;
-  copysource: WebAttribute<SharePointDocument_Select, { copysource: string | null }, {  }>;
-  createdby_guid: WebAttribute<SharePointDocument_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
-  createdon: WebAttribute<SharePointDocument_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
-  createdonbehalfby_guid: WebAttribute<SharePointDocument_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
-  documentid: WebAttribute<SharePointDocument_Select, { documentid: number | null }, {  }>;
-  documentlocationtype: WebAttribute<SharePointDocument_Select, { documentlocationtype: sharepointdocumentlocation_locationtype | null }, { documentlocationtype_formatted?: string }>;
-  edit: WebAttribute<SharePointDocument_Select, { edit: string | null }, {  }>;
-  editurl: WebAttribute<SharePointDocument_Select, { editurl: string | null }, {  }>;
-  exchangerate: WebAttribute<SharePointDocument_Select, { exchangerate: number | null }, {  }>;
-  filesize: WebAttribute<SharePointDocument_Select, { filesize: number | null }, {  }>;
-  filetype: WebAttribute<SharePointDocument_Select, { filetype: string | null }, {  }>;
-  fullname: WebAttribute<SharePointDocument_Select, { fullname: string | null }, {  }>;
-  iconclassname: WebAttribute<SharePointDocument_Select, { iconclassname: string | null }, {  }>;
-  ischeckedout: WebAttribute<SharePointDocument_Select, { ischeckedout: boolean | null }, {  }>;
-  isfolder: WebAttribute<SharePointDocument_Select, { isfolder: boolean | null }, {  }>;
-  isrecursivefetch: WebAttribute<SharePointDocument_Select, { isrecursivefetch: boolean | null }, {  }>;
-  locationid: WebAttribute<SharePointDocument_Select, { locationid: string | null }, {  }>;
-  locationname: WebAttribute<SharePointDocument_Select, { locationname: string | null }, {  }>;
-  modified: WebAttribute<SharePointDocument_Select, { modified: Date | null }, { modified_formatted?: string }>;
-  modifiedby_guid: WebAttribute<SharePointDocument_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
-  modifiedon: WebAttribute<SharePointDocument_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
-  modifiedonbehalfby_guid: WebAttribute<SharePointDocument_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  organizationid_guid: WebAttribute<SharePointDocument_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
-  ownerid_guid: WebAttribute<SharePointDocument_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
-  owningbusinessunit_guid: WebAttribute<SharePointDocument_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
-  owningteam_guid: WebAttribute<SharePointDocument_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
-  owninguser_guid: WebAttribute<SharePointDocument_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
-  readurl: WebAttribute<SharePointDocument_Select, { readurl: string | null }, {  }>;
-  regardingobjectid_guid: WebAttribute<SharePointDocument_Select, { regardingobjectid_guid: string | null }, { regardingobjectid_formatted?: string }>;
-  relativelocation: WebAttribute<SharePointDocument_Select, { relativelocation: string | null }, {  }>;
-  servicetype: WebAttribute<SharePointDocument_Select, { servicetype: sharepointsite_servicetype | null }, { servicetype_formatted?: string }>;
-  sharepointcreatedon: WebAttribute<SharePointDocument_Select, { sharepointcreatedon: Date | null }, { sharepointcreatedon_formatted?: string }>;
-  sharepointdocumentid: WebAttribute<SharePointDocument_Select, { sharepointdocumentid: string | null }, {  }>;
-  sharepointmodifiedby: WebAttribute<SharePointDocument_Select, { sharepointmodifiedby: string | null }, {  }>;
-  title: WebAttribute<SharePointDocument_Select, { title: string | null }, {  }>;
-  transactioncurrencyid_guid: WebAttribute<SharePointDocument_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
-  version: WebAttribute<SharePointDocument_Select, { version: string | null }, {  }>;
+interface SystemUser_Select {
+  accessmode: WebAttribute<SystemUser_Select, { accessmode: systemuser_accessmode | null }, { accessmode_formatted?: string }>;
+  activedirectoryguid: WebAttribute<SystemUser_Select, { activedirectoryguid: string | null }, {  }>;
+  address1_addressid: WebAttribute<SystemUser_Select, { address1_addressid: string | null }, {  }>;
+  address1_addresstypecode: WebAttribute<SystemUser_Select, { address1_addresstypecode: systemuser_address1_addresstypecode | null }, { address1_addresstypecode_formatted?: string }>;
+  address1_city: WebAttribute<SystemUser_Select, { address1_city: string | null }, {  }>;
+  address1_composite: WebAttribute<SystemUser_Select, { address1_composite: string | null }, {  }>;
+  address1_country: WebAttribute<SystemUser_Select, { address1_country: string | null }, {  }>;
+  address1_county: WebAttribute<SystemUser_Select, { address1_county: string | null }, {  }>;
+  address1_fax: WebAttribute<SystemUser_Select, { address1_fax: string | null }, {  }>;
+  address1_latitude: WebAttribute<SystemUser_Select, { address1_latitude: number | null }, {  }>;
+  address1_line1: WebAttribute<SystemUser_Select, { address1_line1: string | null }, {  }>;
+  address1_line2: WebAttribute<SystemUser_Select, { address1_line2: string | null }, {  }>;
+  address1_line3: WebAttribute<SystemUser_Select, { address1_line3: string | null }, {  }>;
+  address1_longitude: WebAttribute<SystemUser_Select, { address1_longitude: number | null }, {  }>;
+  address1_name: WebAttribute<SystemUser_Select, { address1_name: string | null }, {  }>;
+  address1_postalcode: WebAttribute<SystemUser_Select, { address1_postalcode: string | null }, {  }>;
+  address1_postofficebox: WebAttribute<SystemUser_Select, { address1_postofficebox: string | null }, {  }>;
+  address1_shippingmethodcode: WebAttribute<SystemUser_Select, { address1_shippingmethodcode: systemuser_address1_shippingmethodcode | null }, { address1_shippingmethodcode_formatted?: string }>;
+  address1_stateorprovince: WebAttribute<SystemUser_Select, { address1_stateorprovince: string | null }, {  }>;
+  address1_telephone1: WebAttribute<SystemUser_Select, { address1_telephone1: string | null }, {  }>;
+  address1_telephone2: WebAttribute<SystemUser_Select, { address1_telephone2: string | null }, {  }>;
+  address1_telephone3: WebAttribute<SystemUser_Select, { address1_telephone3: string | null }, {  }>;
+  address1_upszone: WebAttribute<SystemUser_Select, { address1_upszone: string | null }, {  }>;
+  address1_utcoffset: WebAttribute<SystemUser_Select, { address1_utcoffset: number | null }, {  }>;
+  address2_addressid: WebAttribute<SystemUser_Select, { address2_addressid: string | null }, {  }>;
+  address2_addresstypecode: WebAttribute<SystemUser_Select, { address2_addresstypecode: systemuser_address2_addresstypecode | null }, { address2_addresstypecode_formatted?: string }>;
+  address2_city: WebAttribute<SystemUser_Select, { address2_city: string | null }, {  }>;
+  address2_composite: WebAttribute<SystemUser_Select, { address2_composite: string | null }, {  }>;
+  address2_country: WebAttribute<SystemUser_Select, { address2_country: string | null }, {  }>;
+  address2_county: WebAttribute<SystemUser_Select, { address2_county: string | null }, {  }>;
+  address2_fax: WebAttribute<SystemUser_Select, { address2_fax: string | null }, {  }>;
+  address2_latitude: WebAttribute<SystemUser_Select, { address2_latitude: number | null }, {  }>;
+  address2_line1: WebAttribute<SystemUser_Select, { address2_line1: string | null }, {  }>;
+  address2_line2: WebAttribute<SystemUser_Select, { address2_line2: string | null }, {  }>;
+  address2_line3: WebAttribute<SystemUser_Select, { address2_line3: string | null }, {  }>;
+  address2_longitude: WebAttribute<SystemUser_Select, { address2_longitude: number | null }, {  }>;
+  address2_name: WebAttribute<SystemUser_Select, { address2_name: string | null }, {  }>;
+  address2_postalcode: WebAttribute<SystemUser_Select, { address2_postalcode: string | null }, {  }>;
+  address2_postofficebox: WebAttribute<SystemUser_Select, { address2_postofficebox: string | null }, {  }>;
+  address2_shippingmethodcode: WebAttribute<SystemUser_Select, { address2_shippingmethodcode: systemuser_address2_shippingmethodcode | null }, { address2_shippingmethodcode_formatted?: string }>;
+  address2_stateorprovince: WebAttribute<SystemUser_Select, { address2_stateorprovince: string | null }, {  }>;
+  address2_telephone1: WebAttribute<SystemUser_Select, { address2_telephone1: string | null }, {  }>;
+  address2_telephone2: WebAttribute<SystemUser_Select, { address2_telephone2: string | null }, {  }>;
+  address2_telephone3: WebAttribute<SystemUser_Select, { address2_telephone3: string | null }, {  }>;
+  address2_upszone: WebAttribute<SystemUser_Select, { address2_upszone: string | null }, {  }>;
+  address2_utcoffset: WebAttribute<SystemUser_Select, { address2_utcoffset: number | null }, {  }>;
+  applicationid: WebAttribute<SystemUser_Select, { applicationid: string | null }, {  }>;
+  applicationiduri: WebAttribute<SystemUser_Select, { applicationiduri: string | null }, {  }>;
+  azureactivedirectoryobjectid: WebAttribute<SystemUser_Select, { azureactivedirectoryobjectid: string | null }, {  }>;
+  businessunitid_guid: WebAttribute<SystemUser_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
+  calendarid_guid: WebAttribute<SystemUser_Select, { calendarid_guid: string | null }, { calendarid_formatted?: string }>;
+  caltype: WebAttribute<SystemUser_Select, { caltype: systemuser_caltype | null }, { caltype_formatted?: string }>;
+  createdby_guid: WebAttribute<SystemUser_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<SystemUser_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<SystemUser_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  defaultfilterspopulated: WebAttribute<SystemUser_Select, { defaultfilterspopulated: boolean | null }, {  }>;
+  defaultmailbox_guid: WebAttribute<SystemUser_Select, { defaultmailbox_guid: string | null }, { defaultmailbox_formatted?: string }>;
+  defaultodbfoldername: WebAttribute<SystemUser_Select, { defaultodbfoldername: string | null }, {  }>;
+  disabledreason: WebAttribute<SystemUser_Select, { disabledreason: string | null }, {  }>;
+  displayinserviceviews: WebAttribute<SystemUser_Select, { displayinserviceviews: boolean | null }, {  }>;
+  domainname: WebAttribute<SystemUser_Select, { domainname: string | null }, {  }>;
+  emailrouteraccessapproval: WebAttribute<SystemUser_Select, { emailrouteraccessapproval: systemuser_emailrouteraccessapproval | null }, { emailrouteraccessapproval_formatted?: string }>;
+  employeeid: WebAttribute<SystemUser_Select, { employeeid: string | null }, {  }>;
+  entityimageid: WebAttribute<SystemUser_Select, { entityimageid: string | null }, {  }>;
+  exchangerate: WebAttribute<SystemUser_Select, { exchangerate: number | null }, {  }>;
+  firstname: WebAttribute<SystemUser_Select, { firstname: string | null }, {  }>;
+  fullname: WebAttribute<SystemUser_Select, { fullname: string | null }, {  }>;
+  governmentid: WebAttribute<SystemUser_Select, { governmentid: string | null }, {  }>;
+  homephone: WebAttribute<SystemUser_Select, { homephone: string | null }, {  }>;
+  identityid: WebAttribute<SystemUser_Select, { identityid: number | null }, {  }>;
+  importsequencenumber: WebAttribute<SystemUser_Select, { importsequencenumber: number | null }, {  }>;
+  incomingemaildeliverymethod: WebAttribute<SystemUser_Select, { incomingemaildeliverymethod: systemuser_incomingemaildeliverymethod | null }, { incomingemaildeliverymethod_formatted?: string }>;
+  internalemailaddress: WebAttribute<SystemUser_Select, { internalemailaddress: string | null }, {  }>;
+  invitestatuscode: WebAttribute<SystemUser_Select, { invitestatuscode: systemuser_invitestatuscode | null }, { invitestatuscode_formatted?: string }>;
+  isactivedirectoryuser: WebAttribute<SystemUser_Select, { isactivedirectoryuser: boolean | null }, {  }>;
+  isdisabled: WebAttribute<SystemUser_Select, { isdisabled: boolean | null }, {  }>;
+  isemailaddressapprovedbyo365admin: WebAttribute<SystemUser_Select, { isemailaddressapprovedbyo365admin: boolean | null }, {  }>;
+  isintegrationuser: WebAttribute<SystemUser_Select, { isintegrationuser: boolean | null }, {  }>;
+  islicensed: WebAttribute<SystemUser_Select, { islicensed: boolean | null }, {  }>;
+  issyncwithdirectory: WebAttribute<SystemUser_Select, { issyncwithdirectory: boolean | null }, {  }>;
+  jobtitle: WebAttribute<SystemUser_Select, { jobtitle: string | null }, {  }>;
+  lastname: WebAttribute<SystemUser_Select, { lastname: string | null }, {  }>;
+  latestupdatetime: WebAttribute<SystemUser_Select, { latestupdatetime: Date | null }, { latestupdatetime_formatted?: string }>;
+  middlename: WebAttribute<SystemUser_Select, { middlename: string | null }, {  }>;
+  mobilealertemail: WebAttribute<SystemUser_Select, { mobilealertemail: string | null }, {  }>;
+  mobileofflineprofileid_guid: WebAttribute<SystemUser_Select, { mobileofflineprofileid_guid: string | null }, { mobileofflineprofileid_formatted?: string }>;
+  mobilephone: WebAttribute<SystemUser_Select, { mobilephone: string | null }, {  }>;
+  modifiedby_guid: WebAttribute<SystemUser_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<SystemUser_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<SystemUser_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  nickname: WebAttribute<SystemUser_Select, { nickname: string | null }, {  }>;
+  organizationid: WebAttribute<SystemUser_Select, { organizationid: string | null }, {  }>;
+  outgoingemaildeliverymethod: WebAttribute<SystemUser_Select, { outgoingemaildeliverymethod: systemuser_outgoingemaildeliverymethod | null }, { outgoingemaildeliverymethod_formatted?: string }>;
+  overriddencreatedon: WebAttribute<SystemUser_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  parentsystemuserid_guid: WebAttribute<SystemUser_Select, { parentsystemuserid_guid: string | null }, { parentsystemuserid_formatted?: string }>;
+  passporthi: WebAttribute<SystemUser_Select, { passporthi: number | null }, {  }>;
+  passportlo: WebAttribute<SystemUser_Select, { passportlo: number | null }, {  }>;
+  personalemailaddress: WebAttribute<SystemUser_Select, { personalemailaddress: string | null }, {  }>;
+  photourl: WebAttribute<SystemUser_Select, { photourl: string | null }, {  }>;
+  positionid_guid: WebAttribute<SystemUser_Select, { positionid_guid: string | null }, { positionid_formatted?: string }>;
+  preferredaddresscode: WebAttribute<SystemUser_Select, { preferredaddresscode: systemuser_preferredaddresscode | null }, { preferredaddresscode_formatted?: string }>;
+  preferredemailcode: WebAttribute<SystemUser_Select, { preferredemailcode: systemuser_preferredemailcode | null }, { preferredemailcode_formatted?: string }>;
+  preferredphonecode: WebAttribute<SystemUser_Select, { preferredphonecode: systemuser_preferredphonecode | null }, { preferredphonecode_formatted?: string }>;
+  processid: WebAttribute<SystemUser_Select, { processid: string | null }, {  }>;
+  queueid_guid: WebAttribute<SystemUser_Select, { queueid_guid: string | null }, { queueid_formatted?: string }>;
+  salutation: WebAttribute<SystemUser_Select, { salutation: string | null }, {  }>;
+  setupuser: WebAttribute<SystemUser_Select, { setupuser: boolean | null }, {  }>;
+  sharepointemailaddress: WebAttribute<SystemUser_Select, { sharepointemailaddress: string | null }, {  }>;
+  skills: WebAttribute<SystemUser_Select, { skills: string | null }, {  }>;
+  stageid: WebAttribute<SystemUser_Select, { stageid: string | null }, {  }>;
+  systemuserid: WebAttribute<SystemUser_Select, { systemuserid: string | null }, {  }>;
+  territoryid_guid: WebAttribute<SystemUser_Select, { territoryid_guid: string | null }, { territoryid_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<SystemUser_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  title: WebAttribute<SystemUser_Select, { title: string | null }, {  }>;
+  transactioncurrencyid_guid: WebAttribute<SystemUser_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  traversedpath: WebAttribute<SystemUser_Select, { traversedpath: string | null }, {  }>;
+  userlicensetype: WebAttribute<SystemUser_Select, { userlicensetype: number | null }, {  }>;
+  userpuid: WebAttribute<SystemUser_Select, { userpuid: string | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<SystemUser_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<SystemUser_Select, { versionnumber: number | null }, {  }>;
+  windowsliveid: WebAttribute<SystemUser_Select, { windowsliveid: string | null }, {  }>;
+  yammeremailaddress: WebAttribute<SystemUser_Select, { yammeremailaddress: string | null }, {  }>;
+  yammeruserid: WebAttribute<SystemUser_Select, { yammeruserid: string | null }, {  }>;
 }
-interface SharePointDocument_Filter {
-  absoluteurl: string;
-  appcreatedby: string;
-  appmodifiedby: string;
-  author: string;
+interface SystemUser_Filter {
+  accessmode: systemuser_accessmode;
+  activedirectoryguid: XQW.Guid;
+  address1_addressid: XQW.Guid;
+  address1_addresstypecode: systemuser_address1_addresstypecode;
+  address1_city: string;
+  address1_composite: string;
+  address1_country: string;
+  address1_county: string;
+  address1_fax: string;
+  address1_latitude: number;
+  address1_line1: string;
+  address1_line2: string;
+  address1_line3: string;
+  address1_longitude: number;
+  address1_name: string;
+  address1_postalcode: string;
+  address1_postofficebox: string;
+  address1_shippingmethodcode: systemuser_address1_shippingmethodcode;
+  address1_stateorprovince: string;
+  address1_telephone1: string;
+  address1_telephone2: string;
+  address1_telephone3: string;
+  address1_upszone: string;
+  address1_utcoffset: number;
+  address2_addressid: XQW.Guid;
+  address2_addresstypecode: systemuser_address2_addresstypecode;
+  address2_city: string;
+  address2_composite: string;
+  address2_country: string;
+  address2_county: string;
+  address2_fax: string;
+  address2_latitude: number;
+  address2_line1: string;
+  address2_line2: string;
+  address2_line3: string;
+  address2_longitude: number;
+  address2_name: string;
+  address2_postalcode: string;
+  address2_postofficebox: string;
+  address2_shippingmethodcode: systemuser_address2_shippingmethodcode;
+  address2_stateorprovince: string;
+  address2_telephone1: string;
+  address2_telephone2: string;
+  address2_telephone3: string;
+  address2_upszone: string;
+  address2_utcoffset: number;
+  applicationid: XQW.Guid;
+  applicationiduri: string;
+  azureactivedirectoryobjectid: XQW.Guid;
   businessunitid_guid: XQW.Guid;
-  checkedoutto: string;
-  checkincomment: string;
-  childfoldercount: number;
-  childitemcount: number;
-  contenttype: string;
-  contenttypeid: number;
-  copysource: string;
+  calendarid_guid: XQW.Guid;
+  caltype: systemuser_caltype;
   createdby_guid: XQW.Guid;
   createdon: Date;
   createdonbehalfby_guid: XQW.Guid;
-  documentid: number;
-  documentlocationtype: sharepointdocumentlocation_locationtype;
-  edit: string;
-  editurl: string;
+  defaultfilterspopulated: boolean;
+  defaultmailbox_guid: XQW.Guid;
+  defaultodbfoldername: string;
+  disabledreason: string;
+  displayinserviceviews: boolean;
+  domainname: string;
+  emailrouteraccessapproval: systemuser_emailrouteraccessapproval;
+  employeeid: string;
+  entityimageid: XQW.Guid;
   exchangerate: any;
-  filesize: number;
-  filetype: string;
+  firstname: string;
   fullname: string;
-  iconclassname: string;
-  ischeckedout: boolean;
-  isfolder: boolean;
-  isrecursivefetch: boolean;
-  locationid: string;
-  locationname: string;
-  modified: Date;
+  governmentid: string;
+  homephone: string;
+  identityid: number;
+  importsequencenumber: number;
+  incomingemaildeliverymethod: systemuser_incomingemaildeliverymethod;
+  internalemailaddress: string;
+  invitestatuscode: systemuser_invitestatuscode;
+  isactivedirectoryuser: boolean;
+  isdisabled: boolean;
+  isemailaddressapprovedbyo365admin: boolean;
+  isintegrationuser: boolean;
+  islicensed: boolean;
+  issyncwithdirectory: boolean;
+  jobtitle: string;
+  lastname: string;
+  latestupdatetime: Date;
+  middlename: string;
+  mobilealertemail: string;
+  mobileofflineprofileid_guid: XQW.Guid;
+  mobilephone: string;
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
-  organizationid_guid: XQW.Guid;
-  ownerid_guid: XQW.Guid;
-  owningbusinessunit_guid: XQW.Guid;
-  owningteam_guid: XQW.Guid;
-  owninguser_guid: XQW.Guid;
-  readurl: string;
-  regardingobjectid_guid: XQW.Guid;
-  relativelocation: string;
-  servicetype: sharepointsite_servicetype;
-  sharepointcreatedon: Date;
-  sharepointdocumentid: XQW.Guid;
-  sharepointmodifiedby: string;
+  nickname: string;
+  organizationid: XQW.Guid;
+  outgoingemaildeliverymethod: systemuser_outgoingemaildeliverymethod;
+  overriddencreatedon: Date;
+  parentsystemuserid_guid: XQW.Guid;
+  passporthi: number;
+  passportlo: number;
+  personalemailaddress: string;
+  photourl: string;
+  positionid_guid: XQW.Guid;
+  preferredaddresscode: systemuser_preferredaddresscode;
+  preferredemailcode: systemuser_preferredemailcode;
+  preferredphonecode: systemuser_preferredphonecode;
+  processid: XQW.Guid;
+  queueid_guid: XQW.Guid;
+  salutation: string;
+  setupuser: boolean;
+  sharepointemailaddress: string;
+  skills: string;
+  stageid: XQW.Guid;
+  systemuserid: XQW.Guid;
+  territoryid_guid: XQW.Guid;
+  timezoneruleversionnumber: number;
   title: string;
   transactioncurrencyid_guid: XQW.Guid;
-  version: string;
+  traversedpath: string;
+  userlicensetype: number;
+  userpuid: string;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+  windowsliveid: string;
+  yammeremailaddress: string;
+  yammeruserid: string;
 }
-interface SharePointDocument_Expand {
-  regardingobjectid_account: WebExpand<SharePointDocument_Expand, Account_Select, Account_Filter, { regardingobjectid_account: Account_Result }>;
-  regardingobjectid_opc_complaint: WebExpand<SharePointDocument_Expand, opc_complaint_Select, opc_complaint_Filter, { regardingobjectid_opc_complaint: opc_complaint_Result }>;
+interface SystemUser_Expand {
+  contact_owning_user: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { contact_owning_user: Contact_Result[] }>;
+  createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdby_connection: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { createdby_connection: Connection_Result[] }>;
+  createdonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  lk_accountbase_createdby: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { lk_accountbase_createdby: Account_Result[] }>;
+  lk_accountbase_createdonbehalfby: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { lk_accountbase_createdonbehalfby: Account_Result[] }>;
+  lk_accountbase_modifiedby: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { lk_accountbase_modifiedby: Account_Result[] }>;
+  lk_accountbase_modifiedonbehalfby: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { lk_accountbase_modifiedonbehalfby: Account_Result[] }>;
+  lk_connectionbase_createdonbehalfby: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { lk_connectionbase_createdonbehalfby: Connection_Result[] }>;
+  lk_connectionbase_modifiedonbehalfby: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { lk_connectionbase_modifiedonbehalfby: Connection_Result[] }>;
+  lk_contact_createdonbehalfby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contact_createdonbehalfby: Contact_Result[] }>;
+  lk_contact_modifiedonbehalfby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contact_modifiedonbehalfby: Contact_Result[] }>;
+  lk_contactbase_createdby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contactbase_createdby: Contact_Result[] }>;
+  lk_contactbase_modifiedby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contactbase_modifiedby: Contact_Result[] }>;
+  lk_opc_allegation_createdby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_createdby: opc_allegation_Result[] }>;
+  lk_opc_allegation_createdonbehalfby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_createdonbehalfby: opc_allegation_Result[] }>;
+  lk_opc_allegation_modifiedby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_modifiedby: opc_allegation_Result[] }>;
+  lk_opc_allegation_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_modifiedonbehalfby: opc_allegation_Result[] }>;
+  lk_opc_allegationtype_createdby: WebExpand<SystemUser_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { lk_opc_allegationtype_createdby: opc_allegationtype_Result[] }>;
+  lk_opc_allegationtype_createdonbehalfby: WebExpand<SystemUser_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { lk_opc_allegationtype_createdonbehalfby: opc_allegationtype_Result[] }>;
+  lk_opc_allegationtype_modifiedby: WebExpand<SystemUser_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { lk_opc_allegationtype_modifiedby: opc_allegationtype_Result[] }>;
+  lk_opc_allegationtype_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { lk_opc_allegationtype_modifiedonbehalfby: opc_allegationtype_Result[] }>;
+  lk_opc_checklistresponse_createdby: WebExpand<SystemUser_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { lk_opc_checklistresponse_createdby: opc_ChecklistResponse_Result[] }>;
+  lk_opc_checklistresponse_createdonbehalfby: WebExpand<SystemUser_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { lk_opc_checklistresponse_createdonbehalfby: opc_ChecklistResponse_Result[] }>;
+  lk_opc_checklistresponse_modifiedby: WebExpand<SystemUser_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { lk_opc_checklistresponse_modifiedby: opc_ChecklistResponse_Result[] }>;
+  lk_opc_checklistresponse_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { lk_opc_checklistresponse_modifiedonbehalfby: opc_ChecklistResponse_Result[] }>;
+  lk_opc_checklisttype_createdby: WebExpand<SystemUser_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { lk_opc_checklisttype_createdby: opc_ChecklistType_Result[] }>;
+  lk_opc_checklisttype_createdonbehalfby: WebExpand<SystemUser_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { lk_opc_checklisttype_createdonbehalfby: opc_ChecklistType_Result[] }>;
+  lk_opc_checklisttype_modifiedby: WebExpand<SystemUser_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { lk_opc_checklisttype_modifiedby: opc_ChecklistType_Result[] }>;
+  lk_opc_checklisttype_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { lk_opc_checklisttype_modifiedonbehalfby: opc_ChecklistType_Result[] }>;
+  lk_opc_complaint_createdby: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { lk_opc_complaint_createdby: opc_complaint_Result[] }>;
+  lk_opc_complaint_createdonbehalfby: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { lk_opc_complaint_createdonbehalfby: opc_complaint_Result[] }>;
+  lk_opc_complaint_modifiedby: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { lk_opc_complaint_modifiedby: opc_complaint_Result[] }>;
+  lk_opc_complaint_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { lk_opc_complaint_modifiedonbehalfby: opc_complaint_Result[] }>;
+  lk_opc_dispositionaction_createdby: WebExpand<SystemUser_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { lk_opc_dispositionaction_createdby: opc_dispositionaction_Result[] }>;
+  lk_opc_dispositionaction_createdonbehalfby: WebExpand<SystemUser_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { lk_opc_dispositionaction_createdonbehalfby: opc_dispositionaction_Result[] }>;
+  lk_opc_dispositionaction_modifiedby: WebExpand<SystemUser_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { lk_opc_dispositionaction_modifiedby: opc_dispositionaction_Result[] }>;
+  lk_opc_dispositionaction_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { lk_opc_dispositionaction_modifiedonbehalfby: opc_dispositionaction_Result[] }>;
+  lk_opc_dispositionreason_createdby: WebExpand<SystemUser_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { lk_opc_dispositionreason_createdby: opc_dispositionreason_Result[] }>;
+  lk_opc_dispositionreason_createdonbehalfby: WebExpand<SystemUser_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { lk_opc_dispositionreason_createdonbehalfby: opc_dispositionreason_Result[] }>;
+  lk_opc_dispositionreason_modifiedby: WebExpand<SystemUser_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { lk_opc_dispositionreason_modifiedby: opc_dispositionreason_Result[] }>;
+  lk_opc_dispositionreason_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { lk_opc_dispositionreason_modifiedonbehalfby: opc_dispositionreason_Result[] }>;
+  lk_opc_individualcomplaint_bp_createdby: WebExpand<SystemUser_Expand, opc_individualcomplaint_bp_Select, opc_individualcomplaint_bp_Filter, { lk_opc_individualcomplaint_bp_createdby: opc_individualcomplaint_bp_Result[] }>;
+  lk_opc_individualcomplaint_bp_createdonbehalfby: WebExpand<SystemUser_Expand, opc_individualcomplaint_bp_Select, opc_individualcomplaint_bp_Filter, { lk_opc_individualcomplaint_bp_createdonbehalfby: opc_individualcomplaint_bp_Result[] }>;
+  lk_opc_individualcomplaint_bp_modifiedby: WebExpand<SystemUser_Expand, opc_individualcomplaint_bp_Select, opc_individualcomplaint_bp_Filter, { lk_opc_individualcomplaint_bp_modifiedby: opc_individualcomplaint_bp_Result[] }>;
+  lk_opc_individualcomplaint_bp_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_individualcomplaint_bp_Select, opc_individualcomplaint_bp_Filter, { lk_opc_individualcomplaint_bp_modifiedonbehalfby: opc_individualcomplaint_bp_Result[] }>;
+  lk_opc_issue_createdby: WebExpand<SystemUser_Expand, opc_issue_Select, opc_issue_Filter, { lk_opc_issue_createdby: opc_issue_Result[] }>;
+  lk_opc_issue_createdonbehalfby: WebExpand<SystemUser_Expand, opc_issue_Select, opc_issue_Filter, { lk_opc_issue_createdonbehalfby: opc_issue_Result[] }>;
+  lk_opc_issue_modifiedby: WebExpand<SystemUser_Expand, opc_issue_Select, opc_issue_Filter, { lk_opc_issue_modifiedby: opc_issue_Result[] }>;
+  lk_opc_issue_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_issue_Select, opc_issue_Filter, { lk_opc_issue_modifiedonbehalfby: opc_issue_Result[] }>;
+  lk_opc_legislation_createdby: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { lk_opc_legislation_createdby: opc_legislation_Result[] }>;
+  lk_opc_legislation_createdonbehalfby: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { lk_opc_legislation_createdonbehalfby: opc_legislation_Result[] }>;
+  lk_opc_legislation_modifiedby: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { lk_opc_legislation_modifiedby: opc_legislation_Result[] }>;
+  lk_opc_legislation_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { lk_opc_legislation_modifiedonbehalfby: opc_legislation_Result[] }>;
+  lk_opc_notification_createdby: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { lk_opc_notification_createdby: opc_notification_Result[] }>;
+  lk_opc_notification_createdonbehalfby: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { lk_opc_notification_createdonbehalfby: opc_notification_Result[] }>;
+  lk_opc_notification_modifiedby: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { lk_opc_notification_modifiedby: opc_notification_Result[] }>;
+  lk_opc_notification_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { lk_opc_notification_modifiedonbehalfby: opc_notification_Result[] }>;
+  lk_opc_opcpriority_createdby: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { lk_opc_opcpriority_createdby: opc_opcpriority_Result[] }>;
+  lk_opc_opcpriority_createdonbehalfby: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { lk_opc_opcpriority_createdonbehalfby: opc_opcpriority_Result[] }>;
+  lk_opc_opcpriority_modifiedby: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { lk_opc_opcpriority_modifiedby: opc_opcpriority_Result[] }>;
+  lk_opc_opcpriority_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { lk_opc_opcpriority_modifiedonbehalfby: opc_opcpriority_Result[] }>;
+  lk_opc_questiontemplate_createdby: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { lk_opc_questiontemplate_createdby: opc_QuestionTemplate_Result[] }>;
+  lk_opc_questiontemplate_createdonbehalfby: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { lk_opc_questiontemplate_createdonbehalfby: opc_QuestionTemplate_Result[] }>;
+  lk_opc_questiontemplate_modifiedby: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { lk_opc_questiontemplate_modifiedby: opc_QuestionTemplate_Result[] }>;
+  lk_opc_questiontemplate_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { lk_opc_questiontemplate_modifiedonbehalfby: opc_QuestionTemplate_Result[] }>;
+  lk_opc_questiontype_createdby: WebExpand<SystemUser_Expand, opc_QuestionType_Select, opc_QuestionType_Filter, { lk_opc_questiontype_createdby: opc_QuestionType_Result[] }>;
+  lk_opc_questiontype_createdonbehalfby: WebExpand<SystemUser_Expand, opc_QuestionType_Select, opc_QuestionType_Filter, { lk_opc_questiontype_createdonbehalfby: opc_QuestionType_Result[] }>;
+  lk_opc_questiontype_modifiedby: WebExpand<SystemUser_Expand, opc_QuestionType_Select, opc_QuestionType_Filter, { lk_opc_questiontype_modifiedby: opc_QuestionType_Result[] }>;
+  lk_opc_questiontype_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_QuestionType_Select, opc_QuestionType_Filter, { lk_opc_questiontype_modifiedonbehalfby: opc_QuestionType_Result[] }>;
+  lk_opc_recommendation_createdby: WebExpand<SystemUser_Expand, opc_recommendation_Select, opc_recommendation_Filter, { lk_opc_recommendation_createdby: opc_recommendation_Result[] }>;
+  lk_opc_recommendation_createdonbehalfby: WebExpand<SystemUser_Expand, opc_recommendation_Select, opc_recommendation_Filter, { lk_opc_recommendation_createdonbehalfby: opc_recommendation_Result[] }>;
+  lk_opc_recommendation_modifiedby: WebExpand<SystemUser_Expand, opc_recommendation_Select, opc_recommendation_Filter, { lk_opc_recommendation_modifiedby: opc_recommendation_Result[] }>;
+  lk_opc_recommendation_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_recommendation_Select, opc_recommendation_Filter, { lk_opc_recommendation_modifiedonbehalfby: opc_recommendation_Result[] }>;
+  lk_opc_reminder_createdby: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { lk_opc_reminder_createdby: opc_reminder_Result[] }>;
+  lk_opc_reminder_createdonbehalfby: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { lk_opc_reminder_createdonbehalfby: opc_reminder_Result[] }>;
+  lk_opc_reminder_modifiedby: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { lk_opc_reminder_modifiedby: opc_reminder_Result[] }>;
+  lk_opc_reminder_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { lk_opc_reminder_modifiedonbehalfby: opc_reminder_Result[] }>;
+  lk_opc_riskappetite_createdby: WebExpand<SystemUser_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { lk_opc_riskappetite_createdby: opc_RiskAppetite_Result[] }>;
+  lk_opc_riskappetite_createdonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { lk_opc_riskappetite_createdonbehalfby: opc_RiskAppetite_Result[] }>;
+  lk_opc_riskappetite_modifiedby: WebExpand<SystemUser_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { lk_opc_riskappetite_modifiedby: opc_RiskAppetite_Result[] }>;
+  lk_opc_riskappetite_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { lk_opc_riskappetite_modifiedonbehalfby: opc_RiskAppetite_Result[] }>;
+  lk_opc_riskassessment_createdby: WebExpand<SystemUser_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { lk_opc_riskassessment_createdby: opc_RiskAssessment_Result[] }>;
+  lk_opc_riskassessment_createdonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { lk_opc_riskassessment_createdonbehalfby: opc_RiskAssessment_Result[] }>;
+  lk_opc_riskassessment_modifiedby: WebExpand<SystemUser_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { lk_opc_riskassessment_modifiedby: opc_RiskAssessment_Result[] }>;
+  lk_opc_riskassessment_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { lk_opc_riskassessment_modifiedonbehalfby: opc_RiskAssessment_Result[] }>;
+  lk_opc_riskassessmentcategory_createdby: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { lk_opc_riskassessmentcategory_createdby: opc_RiskAssessmentCategory_Result[] }>;
+  lk_opc_riskassessmentcategory_createdonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { lk_opc_riskassessmentcategory_createdonbehalfby: opc_RiskAssessmentCategory_Result[] }>;
+  lk_opc_riskassessmentcategory_modifiedby: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { lk_opc_riskassessmentcategory_modifiedby: opc_RiskAssessmentCategory_Result[] }>;
+  lk_opc_riskassessmentcategory_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { lk_opc_riskassessmentcategory_modifiedonbehalfby: opc_RiskAssessmentCategory_Result[] }>;
+  lk_opc_riskassessmentcategorytemplate_createdby: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { lk_opc_riskassessmentcategorytemplate_createdby: opc_RiskAssessmentCategoryTemplate_Result[] }>;
+  lk_opc_riskassessmentcategorytemplate_createdonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { lk_opc_riskassessmentcategorytemplate_createdonbehalfby: opc_RiskAssessmentCategoryTemplate_Result[] }>;
+  lk_opc_riskassessmentcategorytemplate_modifiedby: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { lk_opc_riskassessmentcategorytemplate_modifiedby: opc_RiskAssessmentCategoryTemplate_Result[] }>;
+  lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby: opc_RiskAssessmentCategoryTemplate_Result[] }>;
+  lk_opc_riskassessmentdefinition_createdby: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { lk_opc_riskassessmentdefinition_createdby: opc_RiskAssessmentDefinition_Result[] }>;
+  lk_opc_riskassessmentdefinition_createdonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { lk_opc_riskassessmentdefinition_createdonbehalfby: opc_RiskAssessmentDefinition_Result[] }>;
+  lk_opc_riskassessmentdefinition_modifiedby: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { lk_opc_riskassessmentdefinition_modifiedby: opc_RiskAssessmentDefinition_Result[] }>;
+  lk_opc_riskassessmentdefinition_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { lk_opc_riskassessmentdefinition_modifiedonbehalfby: opc_RiskAssessmentDefinition_Result[] }>;
+  lk_opc_riskassessmentdefinitiontemplate_createdby: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { lk_opc_riskassessmentdefinitiontemplate_createdby: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  lk_opc_riskassessmentdefinitiontemplate_modifiedby: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { lk_opc_riskassessmentdefinitiontemplate_modifiedby: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  lk_opc_riskassessmentfactortemplate_createdby: WebExpand<SystemUser_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { lk_opc_riskassessmentfactortemplate_createdby: opc_RiskAssessmentFactorTemplate_Result[] }>;
+  lk_opc_riskassessmentfactortemplate_createdonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { lk_opc_riskassessmentfactortemplate_createdonbehalfby: opc_RiskAssessmentFactorTemplate_Result[] }>;
+  lk_opc_riskassessmentfactortemplate_modifiedby: WebExpand<SystemUser_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { lk_opc_riskassessmentfactortemplate_modifiedby: opc_RiskAssessmentFactorTemplate_Result[] }>;
+  lk_opc_riskassessmentfactortemplate_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { lk_opc_riskassessmentfactortemplate_modifiedonbehalfby: opc_RiskAssessmentFactorTemplate_Result[] }>;
+  lk_opc_riskassessmenttype_createdby: WebExpand<SystemUser_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { lk_opc_riskassessmenttype_createdby: opc_RiskAssessmentType_Result[] }>;
+  lk_opc_riskassessmenttype_createdonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { lk_opc_riskassessmenttype_createdonbehalfby: opc_RiskAssessmentType_Result[] }>;
+  lk_opc_riskassessmenttype_modifiedby: WebExpand<SystemUser_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { lk_opc_riskassessmenttype_modifiedby: opc_RiskAssessmentType_Result[] }>;
+  lk_opc_riskassessmenttype_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { lk_opc_riskassessmenttype_modifiedonbehalfby: opc_RiskAssessmentType_Result[] }>;
+  lk_opc_sector_createdby: WebExpand<SystemUser_Expand, opc_sector_Select, opc_sector_Filter, { lk_opc_sector_createdby: opc_sector_Result[] }>;
+  lk_opc_sector_createdonbehalfby: WebExpand<SystemUser_Expand, opc_sector_Select, opc_sector_Filter, { lk_opc_sector_createdonbehalfby: opc_sector_Result[] }>;
+  lk_opc_sector_modifiedby: WebExpand<SystemUser_Expand, opc_sector_Select, opc_sector_Filter, { lk_opc_sector_modifiedby: opc_sector_Result[] }>;
+  lk_opc_sector_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_sector_Select, opc_sector_Filter, { lk_opc_sector_modifiedonbehalfby: opc_sector_Result[] }>;
+  lk_opc_theme_createdby: WebExpand<SystemUser_Expand, opc_theme_Select, opc_theme_Filter, { lk_opc_theme_createdby: opc_theme_Result[] }>;
+  lk_opc_theme_createdonbehalfby: WebExpand<SystemUser_Expand, opc_theme_Select, opc_theme_Filter, { lk_opc_theme_createdonbehalfby: opc_theme_Result[] }>;
+  lk_opc_theme_modifiedby: WebExpand<SystemUser_Expand, opc_theme_Select, opc_theme_Filter, { lk_opc_theme_modifiedby: opc_theme_Result[] }>;
+  lk_opc_theme_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_theme_Select, opc_theme_Filter, { lk_opc_theme_modifiedonbehalfby: opc_theme_Result[] }>;
+  lk_opc_topic_createdby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_createdby: opc_topic_Result[] }>;
+  lk_opc_topic_createdonbehalfby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_createdonbehalfby: opc_topic_Result[] }>;
+  lk_opc_topic_modifiedby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_modifiedby: opc_topic_Result[] }>;
+  lk_opc_topic_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_modifiedonbehalfby: opc_topic_Result[] }>;
+  lk_queue_createdonbehalfby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queue_createdonbehalfby: Queue_Result[] }>;
+  lk_queue_modifiedonbehalfby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queue_modifiedonbehalfby: Queue_Result[] }>;
+  lk_queuebase_createdby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queuebase_createdby: Queue_Result[] }>;
+  lk_queuebase_modifiedby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queuebase_modifiedby: Queue_Result[] }>;
+  lk_queueitem_createdonbehalfby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitem_createdonbehalfby: QueueItem_Result[] }>;
+  lk_queueitem_modifiedonbehalfby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitem_modifiedonbehalfby: QueueItem_Result[] }>;
+  lk_queueitembase_createdby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitembase_createdby: QueueItem_Result[] }>;
+  lk_queueitembase_modifiedby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitembase_modifiedby: QueueItem_Result[] }>;
+  lk_queueitembase_workerid: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitembase_workerid: QueueItem_Result[] }>;
+  lk_systemuser_createdonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_createdonbehalfby: SystemUser_Result[] }>;
+  lk_systemuser_modifiedonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_modifiedonbehalfby: SystemUser_Result[] }>;
+  lk_systemuserbase_createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_createdby: SystemUser_Result[] }>;
+  lk_systemuserbase_modifiedby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_modifiedby: SystemUser_Result[] }>;
+  lk_team_createdonbehalfby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_team_createdonbehalfby: Team_Result[] }>;
+  lk_team_modifiedonbehalfby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_team_modifiedonbehalfby: Team_Result[] }>;
+  lk_teambase_administratorid: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_teambase_administratorid: Team_Result[] }>;
+  lk_teambase_createdby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_teambase_createdby: Team_Result[] }>;
+  lk_teambase_modifiedby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_teambase_modifiedby: Team_Result[] }>;
+  modifiedby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedby_connection: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { modifiedby_connection: Connection_Result[] }>;
+  modifiedonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  opc_RiskAssessmentCategory_BypassInitiate: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { opc_RiskAssessmentCategory_BypassInitiate: opc_RiskAssessmentCategory_Result[] }>;
+  opc_RiskAssessment_BypassInitiatedBy_Syst: WebExpand<SystemUser_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { opc_RiskAssessment_BypassInitiatedBy_Syst: opc_RiskAssessment_Result[] }>;
+  opc_complaint_intakeofficer_SystemUser: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaint_intakeofficer_SystemUser: opc_complaint_Result[] }>;
+  opc_reminders_users_additionaluserstonotify: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_reminders_users_additionaluserstonotify: opc_reminder_Result[] }>;
+  parentsystemuserid: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { parentsystemuserid: SystemUser_Result }>;
+  queue_primary_user: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { queue_primary_user: Queue_Result[] }>;
+  queueid: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
+  queuemembership_association: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { queuemembership_association: Queue_Result[] }>;
+  system_user_accounts: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { system_user_accounts: Account_Result[] }>;
+  system_user_activity_parties: WebExpand<SystemUser_Expand, ActivityParty_Select, ActivityParty_Filter, { system_user_activity_parties: ActivityParty_Result[] }>;
+  system_user_contacts: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { system_user_contacts: Contact_Result[] }>;
+  systemuser_connections1: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections1: Connection_Result[] }>;
+  systemuser_connections2: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections2: Connection_Result[] }>;
+  teammembership_association: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { teammembership_association: Team_Result[] }>;
+  user_accounts: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { user_accounts: Account_Result[] }>;
+  user_opc_allegation: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { user_opc_allegation: opc_allegation_Result[] }>;
+  user_opc_allegationtype: WebExpand<SystemUser_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { user_opc_allegationtype: opc_allegationtype_Result[] }>;
+  user_opc_checklistresponse: WebExpand<SystemUser_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { user_opc_checklistresponse: opc_ChecklistResponse_Result[] }>;
+  user_opc_checklisttype: WebExpand<SystemUser_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { user_opc_checklisttype: opc_ChecklistType_Result[] }>;
+  user_opc_complaint: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { user_opc_complaint: opc_complaint_Result[] }>;
+  user_opc_dispositionaction: WebExpand<SystemUser_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { user_opc_dispositionaction: opc_dispositionaction_Result[] }>;
+  user_opc_dispositionreason: WebExpand<SystemUser_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { user_opc_dispositionreason: opc_dispositionreason_Result[] }>;
+  user_opc_issue: WebExpand<SystemUser_Expand, opc_issue_Select, opc_issue_Filter, { user_opc_issue: opc_issue_Result[] }>;
+  user_opc_legislation: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { user_opc_legislation: opc_legislation_Result[] }>;
+  user_opc_notification: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { user_opc_notification: opc_notification_Result[] }>;
+  user_opc_opcpriority: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { user_opc_opcpriority: opc_opcpriority_Result[] }>;
+  user_opc_questiontemplate: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { user_opc_questiontemplate: opc_QuestionTemplate_Result[] }>;
+  user_opc_recommendation: WebExpand<SystemUser_Expand, opc_recommendation_Select, opc_recommendation_Filter, { user_opc_recommendation: opc_recommendation_Result[] }>;
+  user_opc_reminder: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { user_opc_reminder: opc_reminder_Result[] }>;
+  user_opc_riskappetite: WebExpand<SystemUser_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { user_opc_riskappetite: opc_RiskAppetite_Result[] }>;
+  user_opc_riskassessment: WebExpand<SystemUser_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { user_opc_riskassessment: opc_RiskAssessment_Result[] }>;
+  user_opc_riskassessmentcategory: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { user_opc_riskassessmentcategory: opc_RiskAssessmentCategory_Result[] }>;
+  user_opc_riskassessmentcategorytemplate: WebExpand<SystemUser_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { user_opc_riskassessmentcategorytemplate: opc_RiskAssessmentCategoryTemplate_Result[] }>;
+  user_opc_riskassessmentdefinition: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { user_opc_riskassessmentdefinition: opc_RiskAssessmentDefinition_Result[] }>;
+  user_opc_riskassessmentdefinitiontemplate: WebExpand<SystemUser_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { user_opc_riskassessmentdefinitiontemplate: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  user_opc_riskassessmentfactortemplate: WebExpand<SystemUser_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { user_opc_riskassessmentfactortemplate: opc_RiskAssessmentFactorTemplate_Result[] }>;
+  user_opc_riskassessmenttype: WebExpand<SystemUser_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { user_opc_riskassessmenttype: opc_RiskAssessmentType_Result[] }>;
+  user_opc_sector: WebExpand<SystemUser_Expand, opc_sector_Select, opc_sector_Filter, { user_opc_sector: opc_sector_Result[] }>;
+  user_opc_theme: WebExpand<SystemUser_Expand, opc_theme_Select, opc_theme_Filter, { user_opc_theme: opc_theme_Result[] }>;
+  user_opc_topic: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { user_opc_topic: opc_topic_Result[] }>;
+  user_parent_user: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { user_parent_user: SystemUser_Result[] }>;
 }
-interface SharePointDocument_FormattedResult {
+interface SystemUser_FormattedResult {
+  accessmode_formatted?: string;
+  address1_addresstypecode_formatted?: string;
+  address1_shippingmethodcode_formatted?: string;
+  address2_addresstypecode_formatted?: string;
+  address2_shippingmethodcode_formatted?: string;
+  businessunitid_formatted?: string;
+  calendarid_formatted?: string;
+  caltype_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  defaultmailbox_formatted?: string;
+  emailrouteraccessapproval_formatted?: string;
+  incomingemaildeliverymethod_formatted?: string;
+  invitestatuscode_formatted?: string;
+  latestupdatetime_formatted?: string;
+  mobileofflineprofileid_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  outgoingemaildeliverymethod_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  parentsystemuserid_formatted?: string;
+  positionid_formatted?: string;
+  preferredaddresscode_formatted?: string;
+  preferredemailcode_formatted?: string;
+  preferredphonecode_formatted?: string;
+  queueid_formatted?: string;
+  territoryid_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+}
+interface SystemUser_Result extends SystemUser_Base, SystemUser_Relationships {
+  "@odata.etag": string;
+  businessunitid_guid: string | null;
+  calendarid_guid: string | null;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  defaultmailbox_guid: string | null;
+  mobileofflineprofileid_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  parentsystemuserid_guid: string | null;
+  positionid_guid: string | null;
+  queueid_guid: string | null;
+  territoryid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface SystemUser_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  parentsystemuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+}
+interface SystemUser_RelatedMany {
+  contact_owning_user: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  createdby_connection: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  lk_accountbase_createdby: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  lk_accountbase_createdonbehalfby: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  lk_accountbase_modifiedby: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  lk_accountbase_modifiedonbehalfby: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  lk_connectionbase_createdonbehalfby: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  lk_connectionbase_modifiedonbehalfby: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  lk_contact_createdonbehalfby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  lk_contact_modifiedonbehalfby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  lk_contactbase_createdby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  lk_contactbase_modifiedby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  lk_opc_allegation_createdby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  lk_opc_allegation_createdonbehalfby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  lk_opc_allegation_modifiedby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  lk_opc_allegation_modifiedonbehalfby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  lk_opc_allegationtype_createdby: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  lk_opc_allegationtype_createdonbehalfby: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  lk_opc_allegationtype_modifiedby: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  lk_opc_allegationtype_modifiedonbehalfby: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  lk_opc_checklistresponse_createdby: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
+  lk_opc_checklistresponse_createdonbehalfby: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
+  lk_opc_checklistresponse_modifiedby: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
+  lk_opc_checklistresponse_modifiedonbehalfby: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
+  lk_opc_checklisttype_createdby: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
+  lk_opc_checklisttype_createdonbehalfby: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
+  lk_opc_checklisttype_modifiedby: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
+  lk_opc_checklisttype_modifiedonbehalfby: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
+  lk_opc_complaint_createdby: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  lk_opc_complaint_createdonbehalfby: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  lk_opc_complaint_modifiedby: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  lk_opc_complaint_modifiedonbehalfby: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  lk_opc_dispositionaction_createdby: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  lk_opc_dispositionaction_createdonbehalfby: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  lk_opc_dispositionaction_modifiedby: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  lk_opc_dispositionaction_modifiedonbehalfby: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  lk_opc_dispositionreason_createdby: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  lk_opc_dispositionreason_createdonbehalfby: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  lk_opc_dispositionreason_modifiedby: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  lk_opc_dispositionreason_modifiedonbehalfby: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  lk_opc_individualcomplaint_bp_createdby: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
+  lk_opc_individualcomplaint_bp_createdonbehalfby: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
+  lk_opc_individualcomplaint_bp_modifiedby: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
+  lk_opc_individualcomplaint_bp_modifiedonbehalfby: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
+  lk_opc_issue_createdby: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  lk_opc_issue_createdonbehalfby: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  lk_opc_issue_modifiedby: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  lk_opc_issue_modifiedonbehalfby: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  lk_opc_legislation_createdby: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  lk_opc_legislation_createdonbehalfby: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  lk_opc_legislation_modifiedby: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  lk_opc_legislation_modifiedonbehalfby: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  lk_opc_notification_createdby: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+  lk_opc_notification_createdonbehalfby: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+  lk_opc_notification_modifiedby: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+  lk_opc_notification_modifiedonbehalfby: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+  lk_opc_opcpriority_createdby: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  lk_opc_opcpriority_createdonbehalfby: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  lk_opc_opcpriority_modifiedby: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  lk_opc_opcpriority_modifiedonbehalfby: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  lk_opc_questiontemplate_createdby: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  lk_opc_questiontemplate_createdonbehalfby: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  lk_opc_questiontemplate_modifiedby: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  lk_opc_questiontemplate_modifiedonbehalfby: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  lk_opc_questiontype_createdby: WebMappingRetrieve<opc_QuestionType_Select,opc_QuestionType_Expand,opc_QuestionType_Filter,opc_QuestionType_Fixed,opc_QuestionType_Result,opc_QuestionType_FormattedResult>;
+  lk_opc_questiontype_createdonbehalfby: WebMappingRetrieve<opc_QuestionType_Select,opc_QuestionType_Expand,opc_QuestionType_Filter,opc_QuestionType_Fixed,opc_QuestionType_Result,opc_QuestionType_FormattedResult>;
+  lk_opc_questiontype_modifiedby: WebMappingRetrieve<opc_QuestionType_Select,opc_QuestionType_Expand,opc_QuestionType_Filter,opc_QuestionType_Fixed,opc_QuestionType_Result,opc_QuestionType_FormattedResult>;
+  lk_opc_questiontype_modifiedonbehalfby: WebMappingRetrieve<opc_QuestionType_Select,opc_QuestionType_Expand,opc_QuestionType_Filter,opc_QuestionType_Fixed,opc_QuestionType_Result,opc_QuestionType_FormattedResult>;
+  lk_opc_recommendation_createdby: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  lk_opc_recommendation_createdonbehalfby: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  lk_opc_recommendation_modifiedby: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  lk_opc_recommendation_modifiedonbehalfby: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  lk_opc_reminder_createdby: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  lk_opc_reminder_createdonbehalfby: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  lk_opc_reminder_modifiedby: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  lk_opc_reminder_modifiedonbehalfby: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  lk_opc_riskappetite_createdby: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  lk_opc_riskappetite_createdonbehalfby: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  lk_opc_riskappetite_modifiedby: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  lk_opc_riskappetite_modifiedonbehalfby: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  lk_opc_riskassessment_createdby: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  lk_opc_riskassessment_createdonbehalfby: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  lk_opc_riskassessment_modifiedby: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  lk_opc_riskassessment_modifiedonbehalfby: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  lk_opc_riskassessmentcategory_createdby: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  lk_opc_riskassessmentcategory_createdonbehalfby: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  lk_opc_riskassessmentcategory_modifiedby: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  lk_opc_riskassessmentcategory_modifiedonbehalfby: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  lk_opc_riskassessmentcategorytemplate_createdby: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  lk_opc_riskassessmentcategorytemplate_createdonbehalfby: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  lk_opc_riskassessmentcategorytemplate_modifiedby: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  lk_opc_riskassessmentdefinition_createdby: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+  lk_opc_riskassessmentdefinition_createdonbehalfby: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+  lk_opc_riskassessmentdefinition_modifiedby: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+  lk_opc_riskassessmentdefinition_modifiedonbehalfby: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+  lk_opc_riskassessmentdefinitiontemplate_createdby: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  lk_opc_riskassessmentdefinitiontemplate_modifiedby: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  lk_opc_riskassessmentfactortemplate_createdby: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  lk_opc_riskassessmentfactortemplate_createdonbehalfby: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  lk_opc_riskassessmentfactortemplate_modifiedby: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  lk_opc_riskassessmentfactortemplate_modifiedonbehalfby: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  lk_opc_riskassessmenttype_createdby: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  lk_opc_riskassessmenttype_createdonbehalfby: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  lk_opc_riskassessmenttype_modifiedby: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  lk_opc_riskassessmenttype_modifiedonbehalfby: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  lk_opc_sector_createdby: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  lk_opc_sector_createdonbehalfby: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  lk_opc_sector_modifiedby: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  lk_opc_sector_modifiedonbehalfby: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  lk_opc_theme_createdby: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+  lk_opc_theme_createdonbehalfby: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+  lk_opc_theme_modifiedby: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+  lk_opc_theme_modifiedonbehalfby: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+  lk_opc_topic_createdby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+  lk_opc_topic_createdonbehalfby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+  lk_opc_topic_modifiedby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+  lk_opc_topic_modifiedonbehalfby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+  lk_queue_createdonbehalfby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  lk_queue_modifiedonbehalfby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  lk_queuebase_createdby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  lk_queuebase_modifiedby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  lk_queueitem_createdonbehalfby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  lk_queueitem_modifiedonbehalfby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  lk_queueitembase_createdby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  lk_queueitembase_modifiedby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  lk_queueitembase_workerid: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  lk_systemuser_createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  lk_systemuser_modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  lk_systemuserbase_createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  lk_systemuserbase_modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  lk_team_createdonbehalfby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  lk_team_modifiedonbehalfby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  lk_teambase_administratorid: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  lk_teambase_createdby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  lk_teambase_modifiedby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  modifiedby_connection: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  opc_RiskAssessmentCategory_BypassInitiate: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  opc_RiskAssessment_BypassInitiatedBy_Syst: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  opc_complaint_intakeofficer_SystemUser: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_reminders_users_additionaluserstonotify: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  queue_primary_user: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  queuemembership_association: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  system_user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  system_user_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
+  system_user_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  systemuser_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  systemuser_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  teammembership_association: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  user_opc_allegation: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  user_opc_allegationtype: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  user_opc_checklistresponse: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
+  user_opc_checklisttype: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
+  user_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  user_opc_dispositionaction: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  user_opc_dispositionreason: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  user_opc_issue: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  user_opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  user_opc_notification: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+  user_opc_opcpriority: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  user_opc_questiontemplate: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  user_opc_recommendation: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  user_opc_reminder: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  user_opc_riskappetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  user_opc_riskassessment: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  user_opc_riskassessmentcategory: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  user_opc_riskassessmentcategorytemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  user_opc_riskassessmentdefinition: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+  user_opc_riskassessmentdefinitiontemplate: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  user_opc_riskassessmentfactortemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  user_opc_riskassessmenttype: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  user_opc_sector: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  user_opc_theme: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+  user_opc_topic: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+  user_parent_user: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  systemusers: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  systemusers: WebMappingRelated<SystemUser_RelatedOne,SystemUser_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  systemusers: WebMappingCUDA<SystemUser_Create,SystemUser_Update,SystemUser_Select>;
+}
+interface Team_Base extends WebEntity {
+  azureactivedirectoryobjectid?: string | null;
+  createdon?: Date | null;
+  description?: string | null;
+  emailaddress?: string | null;
+  exchangerate?: number | null;
+  importsequencenumber?: number | null;
+  isdefault?: boolean | null;
+  modifiedon?: Date | null;
+  name?: string | null;
+  organizationid?: string | null;
+  overriddencreatedon?: Date | null;
+  processid?: string | null;
+  stageid?: string | null;
+  systemmanaged?: boolean | null;
+  teamid?: string | null;
+  teamtype?: team_type | null;
+  traversedpath?: string | null;
+  versionnumber?: number | null;
+}
+interface Team_Relationships {
+  opc_queues_teams_membership?: Queue_Result[] | null;
+  team_accounts?: Account_Result[] | null;
+  team_connections1?: Connection_Result[] | null;
+  team_connections2?: Connection_Result[] | null;
+  team_contacts?: Contact_Result[] | null;
+  team_opc_allegation?: opc_allegation_Result[] | null;
+  team_opc_allegationtype?: opc_allegationtype_Result[] | null;
+  team_opc_checklistresponse?: opc_ChecklistResponse_Result[] | null;
+  team_opc_checklisttype?: opc_ChecklistType_Result[] | null;
+  team_opc_complaint?: opc_complaint_Result[] | null;
+  team_opc_dispositionaction?: opc_dispositionaction_Result[] | null;
+  team_opc_dispositionreason?: opc_dispositionreason_Result[] | null;
+  team_opc_issue?: opc_issue_Result[] | null;
+  team_opc_legislation?: opc_legislation_Result[] | null;
+  team_opc_notification?: opc_notification_Result[] | null;
+  team_opc_opcpriority?: opc_opcpriority_Result[] | null;
+  team_opc_questiontemplate?: opc_QuestionTemplate_Result[] | null;
+  team_opc_recommendation?: opc_recommendation_Result[] | null;
+  team_opc_reminder?: opc_reminder_Result[] | null;
+  team_opc_riskappetite?: opc_RiskAppetite_Result[] | null;
+  team_opc_riskassessment?: opc_RiskAssessment_Result[] | null;
+  team_opc_riskassessmentcategory?: opc_RiskAssessmentCategory_Result[] | null;
+  team_opc_riskassessmentcategorytemplate?: opc_RiskAssessmentCategoryTemplate_Result[] | null;
+  team_opc_riskassessmentdefinition?: opc_RiskAssessmentDefinition_Result[] | null;
+  team_opc_riskassessmentdefinitiontemplate?: opc_RiskAssessmentDefinitionTemplate_Result[] | null;
+  team_opc_riskassessmentfactortemplate?: opc_RiskAssessmentFactorTemplate_Result[] | null;
+  team_opc_riskassessmenttype?: opc_RiskAssessmentType_Result[] | null;
+  team_opc_sector?: opc_sector_Result[] | null;
+  team_opc_theme?: opc_theme_Result[] | null;
+  team_opc_topic?: opc_topic_Result[] | null;
+  team_queueitembase_workerid?: QueueItem_Result[] | null;
+  teammembership_association?: SystemUser_Result[] | null;
+}
+interface Team extends Team_Base, Team_Relationships {
+  administratorid_bind$systemusers?: string | null;
+  businessunitid_bind$businessunits?: string | null;
+  queueid_bind$queues?: string | null;
+  stageid_processstage_bind$processstages?: string | null;
+  transactioncurrencyid_bind$transactioncurrencies?: string | null;
+}
+interface Team_Create extends Team {
+  associatedteamtemplateid_bind$teamtemplates?: string | null;
+  regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
+}
+interface Team_Update extends Team {
+}
+interface Team_Select {
+  administratorid_guid: WebAttribute<Team_Select, { administratorid_guid: string | null }, { administratorid_formatted?: string }>;
+  azureactivedirectoryobjectid: WebAttribute<Team_Select, { azureactivedirectoryobjectid: string | null }, {  }>;
+  businessunitid_guid: WebAttribute<Team_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
+  createdby_guid: WebAttribute<Team_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<Team_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<Team_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  description: WebAttribute<Team_Select, { description: string | null }, {  }>;
+  emailaddress: WebAttribute<Team_Select, { emailaddress: string | null }, {  }>;
+  exchangerate: WebAttribute<Team_Select, { exchangerate: number | null }, {  }>;
+  importsequencenumber: WebAttribute<Team_Select, { importsequencenumber: number | null }, {  }>;
+  isdefault: WebAttribute<Team_Select, { isdefault: boolean | null }, {  }>;
+  modifiedby_guid: WebAttribute<Team_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<Team_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<Team_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  name: WebAttribute<Team_Select, { name: string | null }, {  }>;
+  organizationid: WebAttribute<Team_Select, { organizationid: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<Team_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  processid: WebAttribute<Team_Select, { processid: string | null }, {  }>;
+  queueid_guid: WebAttribute<Team_Select, { queueid_guid: string | null }, { queueid_formatted?: string }>;
+  regardingobjectid_guid: WebAttribute<Team_Select, { regardingobjectid_guid: string | null }, { regardingobjectid_formatted?: string }>;
+  stageid: WebAttribute<Team_Select, { stageid: string | null }, {  }>;
+  systemmanaged: WebAttribute<Team_Select, { systemmanaged: boolean | null }, {  }>;
+  teamid: WebAttribute<Team_Select, { teamid: string | null }, {  }>;
+  teamtemplateid_guid: WebAttribute<Team_Select, { teamtemplateid_guid: string | null }, { teamtemplateid_formatted?: string }>;
+  teamtype: WebAttribute<Team_Select, { teamtype: team_type | null }, { teamtype_formatted?: string }>;
+  transactioncurrencyid_guid: WebAttribute<Team_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  traversedpath: WebAttribute<Team_Select, { traversedpath: string | null }, {  }>;
+  versionnumber: WebAttribute<Team_Select, { versionnumber: number | null }, {  }>;
+}
+interface Team_Filter {
+  administratorid_guid: XQW.Guid;
+  azureactivedirectoryobjectid: XQW.Guid;
+  businessunitid_guid: XQW.Guid;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  description: string;
+  emailaddress: string;
+  exchangerate: any;
+  importsequencenumber: number;
+  isdefault: boolean;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  name: string;
+  organizationid: XQW.Guid;
+  overriddencreatedon: Date;
+  processid: XQW.Guid;
+  queueid_guid: XQW.Guid;
+  regardingobjectid_guid: XQW.Guid;
+  stageid: XQW.Guid;
+  systemmanaged: boolean;
+  teamid: XQW.Guid;
+  teamtemplateid_guid: XQW.Guid;
+  teamtype: team_type;
+  transactioncurrencyid_guid: XQW.Guid;
+  traversedpath: string;
+  versionnumber: number;
+}
+interface Team_Expand {
+  administratorid: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { administratorid: SystemUser_Result }>;
+  createdby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  opc_queues_teams_membership: WebExpand<Team_Expand, Queue_Select, Queue_Filter, { opc_queues_teams_membership: Queue_Result[] }>;
+  queueid: WebExpand<Team_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
+  team_accounts: WebExpand<Team_Expand, Account_Select, Account_Filter, { team_accounts: Account_Result[] }>;
+  team_connections1: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections1: Connection_Result[] }>;
+  team_connections2: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections2: Connection_Result[] }>;
+  team_contacts: WebExpand<Team_Expand, Contact_Select, Contact_Filter, { team_contacts: Contact_Result[] }>;
+  team_opc_allegation: WebExpand<Team_Expand, opc_allegation_Select, opc_allegation_Filter, { team_opc_allegation: opc_allegation_Result[] }>;
+  team_opc_allegationtype: WebExpand<Team_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { team_opc_allegationtype: opc_allegationtype_Result[] }>;
+  team_opc_checklistresponse: WebExpand<Team_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { team_opc_checklistresponse: opc_ChecklistResponse_Result[] }>;
+  team_opc_checklisttype: WebExpand<Team_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { team_opc_checklisttype: opc_ChecklistType_Result[] }>;
+  team_opc_complaint: WebExpand<Team_Expand, opc_complaint_Select, opc_complaint_Filter, { team_opc_complaint: opc_complaint_Result[] }>;
+  team_opc_dispositionaction: WebExpand<Team_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { team_opc_dispositionaction: opc_dispositionaction_Result[] }>;
+  team_opc_dispositionreason: WebExpand<Team_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { team_opc_dispositionreason: opc_dispositionreason_Result[] }>;
+  team_opc_issue: WebExpand<Team_Expand, opc_issue_Select, opc_issue_Filter, { team_opc_issue: opc_issue_Result[] }>;
+  team_opc_legislation: WebExpand<Team_Expand, opc_legislation_Select, opc_legislation_Filter, { team_opc_legislation: opc_legislation_Result[] }>;
+  team_opc_notification: WebExpand<Team_Expand, opc_notification_Select, opc_notification_Filter, { team_opc_notification: opc_notification_Result[] }>;
+  team_opc_opcpriority: WebExpand<Team_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { team_opc_opcpriority: opc_opcpriority_Result[] }>;
+  team_opc_questiontemplate: WebExpand<Team_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { team_opc_questiontemplate: opc_QuestionTemplate_Result[] }>;
+  team_opc_recommendation: WebExpand<Team_Expand, opc_recommendation_Select, opc_recommendation_Filter, { team_opc_recommendation: opc_recommendation_Result[] }>;
+  team_opc_reminder: WebExpand<Team_Expand, opc_reminder_Select, opc_reminder_Filter, { team_opc_reminder: opc_reminder_Result[] }>;
+  team_opc_riskappetite: WebExpand<Team_Expand, opc_RiskAppetite_Select, opc_RiskAppetite_Filter, { team_opc_riskappetite: opc_RiskAppetite_Result[] }>;
+  team_opc_riskassessment: WebExpand<Team_Expand, opc_RiskAssessment_Select, opc_RiskAssessment_Filter, { team_opc_riskassessment: opc_RiskAssessment_Result[] }>;
+  team_opc_riskassessmentcategory: WebExpand<Team_Expand, opc_RiskAssessmentCategory_Select, opc_RiskAssessmentCategory_Filter, { team_opc_riskassessmentcategory: opc_RiskAssessmentCategory_Result[] }>;
+  team_opc_riskassessmentcategorytemplate: WebExpand<Team_Expand, opc_RiskAssessmentCategoryTemplate_Select, opc_RiskAssessmentCategoryTemplate_Filter, { team_opc_riskassessmentcategorytemplate: opc_RiskAssessmentCategoryTemplate_Result[] }>;
+  team_opc_riskassessmentdefinition: WebExpand<Team_Expand, opc_RiskAssessmentDefinition_Select, opc_RiskAssessmentDefinition_Filter, { team_opc_riskassessmentdefinition: opc_RiskAssessmentDefinition_Result[] }>;
+  team_opc_riskassessmentdefinitiontemplate: WebExpand<Team_Expand, opc_RiskAssessmentDefinitionTemplate_Select, opc_RiskAssessmentDefinitionTemplate_Filter, { team_opc_riskassessmentdefinitiontemplate: opc_RiskAssessmentDefinitionTemplate_Result[] }>;
+  team_opc_riskassessmentfactortemplate: WebExpand<Team_Expand, opc_RiskAssessmentFactorTemplate_Select, opc_RiskAssessmentFactorTemplate_Filter, { team_opc_riskassessmentfactortemplate: opc_RiskAssessmentFactorTemplate_Result[] }>;
+  team_opc_riskassessmenttype: WebExpand<Team_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { team_opc_riskassessmenttype: opc_RiskAssessmentType_Result[] }>;
+  team_opc_sector: WebExpand<Team_Expand, opc_sector_Select, opc_sector_Filter, { team_opc_sector: opc_sector_Result[] }>;
+  team_opc_theme: WebExpand<Team_Expand, opc_theme_Select, opc_theme_Filter, { team_opc_theme: opc_theme_Result[] }>;
+  team_opc_topic: WebExpand<Team_Expand, opc_topic_Select, opc_topic_Filter, { team_opc_topic: opc_topic_Result[] }>;
+  team_queueitembase_workerid: WebExpand<Team_Expand, QueueItem_Select, QueueItem_Filter, { team_queueitembase_workerid: QueueItem_Result[] }>;
+  teammembership_association: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { teammembership_association: SystemUser_Result[] }>;
+}
+interface Team_FormattedResult {
+  administratorid_formatted?: string;
   businessunitid_formatted?: string;
   createdby_formatted?: string;
   createdon_formatted?: string;
   createdonbehalfby_formatted?: string;
-  documentlocationtype_formatted?: string;
-  modified_formatted?: string;
   modifiedby_formatted?: string;
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
-  organizationid_formatted?: string;
-  ownerid_formatted?: string;
-  owningbusinessunit_formatted?: string;
-  owningteam_formatted?: string;
-  owninguser_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  queueid_formatted?: string;
   regardingobjectid_formatted?: string;
-  servicetype_formatted?: string;
-  sharepointcreatedon_formatted?: string;
+  teamtemplateid_formatted?: string;
+  teamtype_formatted?: string;
   transactioncurrencyid_formatted?: string;
 }
-interface SharePointDocument_Result extends SharePointDocument_Base, SharePointDocument_Relationships {
+interface Team_Result extends Team_Base, Team_Relationships {
   "@odata.etag": string;
+  administratorid_guid: string | null;
   businessunitid_guid: string | null;
   createdby_guid: string | null;
   createdonbehalfby_guid: string | null;
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
-  organizationid_guid: string | null;
-  ownerid_guid: string | null;
-  owningbusinessunit_guid: string | null;
-  owningteam_guid: string | null;
-  owninguser_guid: string | null;
+  queueid_guid: string | null;
   regardingobjectid_guid: string | null;
+  teamtemplateid_guid: string | null;
   transactioncurrencyid_guid: string | null;
 }
-interface SharePointDocument_RelatedOne {
-  regardingobjectid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
-  regardingobjectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+interface Team_RelatedOne {
+  administratorid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
 }
-interface SharePointDocument_RelatedMany {
+interface Team_RelatedMany {
+  opc_queues_teams_membership: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  team_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  team_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  team_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  team_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  team_opc_allegation: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  team_opc_allegationtype: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  team_opc_checklistresponse: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
+  team_opc_checklisttype: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
+  team_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  team_opc_dispositionaction: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
+  team_opc_dispositionreason: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  team_opc_issue: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  team_opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  team_opc_notification: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
+  team_opc_opcpriority: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  team_opc_questiontemplate: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
+  team_opc_recommendation: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
+  team_opc_reminder: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
+  team_opc_riskappetite: WebMappingRetrieve<opc_RiskAppetite_Select,opc_RiskAppetite_Expand,opc_RiskAppetite_Filter,opc_RiskAppetite_Fixed,opc_RiskAppetite_Result,opc_RiskAppetite_FormattedResult>;
+  team_opc_riskassessment: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
+  team_opc_riskassessmentcategory: WebMappingRetrieve<opc_RiskAssessmentCategory_Select,opc_RiskAssessmentCategory_Expand,opc_RiskAssessmentCategory_Filter,opc_RiskAssessmentCategory_Fixed,opc_RiskAssessmentCategory_Result,opc_RiskAssessmentCategory_FormattedResult>;
+  team_opc_riskassessmentcategorytemplate: WebMappingRetrieve<opc_RiskAssessmentCategoryTemplate_Select,opc_RiskAssessmentCategoryTemplate_Expand,opc_RiskAssessmentCategoryTemplate_Filter,opc_RiskAssessmentCategoryTemplate_Fixed,opc_RiskAssessmentCategoryTemplate_Result,opc_RiskAssessmentCategoryTemplate_FormattedResult>;
+  team_opc_riskassessmentdefinition: WebMappingRetrieve<opc_RiskAssessmentDefinition_Select,opc_RiskAssessmentDefinition_Expand,opc_RiskAssessmentDefinition_Filter,opc_RiskAssessmentDefinition_Fixed,opc_RiskAssessmentDefinition_Result,opc_RiskAssessmentDefinition_FormattedResult>;
+  team_opc_riskassessmentdefinitiontemplate: WebMappingRetrieve<opc_RiskAssessmentDefinitionTemplate_Select,opc_RiskAssessmentDefinitionTemplate_Expand,opc_RiskAssessmentDefinitionTemplate_Filter,opc_RiskAssessmentDefinitionTemplate_Fixed,opc_RiskAssessmentDefinitionTemplate_Result,opc_RiskAssessmentDefinitionTemplate_FormattedResult>;
+  team_opc_riskassessmentfactortemplate: WebMappingRetrieve<opc_RiskAssessmentFactorTemplate_Select,opc_RiskAssessmentFactorTemplate_Expand,opc_RiskAssessmentFactorTemplate_Filter,opc_RiskAssessmentFactorTemplate_Fixed,opc_RiskAssessmentFactorTemplate_Result,opc_RiskAssessmentFactorTemplate_FormattedResult>;
+  team_opc_riskassessmenttype: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
+  team_opc_sector: WebMappingRetrieve<opc_sector_Select,opc_sector_Expand,opc_sector_Filter,opc_sector_Fixed,opc_sector_Result,opc_sector_FormattedResult>;
+  team_opc_theme: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
+  team_opc_topic: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
+  team_queueitembase_workerid: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  teammembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
-  sharepointdocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+  teams: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
 }
 interface WebEntitiesRelated {
-  sharepointdocuments: WebMappingRelated<SharePointDocument_RelatedOne,SharePointDocument_RelatedMany>;
+  teams: WebMappingRelated<Team_RelatedOne,Team_RelatedMany>;
 }
 interface WebEntitiesCUDA {
-  sharepointdocuments: WebMappingCUDA<SharePointDocument_Create,SharePointDocument_Update,SharePointDocument_Select>;
+  teams: WebMappingCUDA<Team_Create,Team_Update,Team_Select>;
+}
+interface TeamMembership_Base extends WebEntity {
+  systemuserid?: string | null;
+  teamid?: string | null;
+  teammembershipid?: string | null;
+  versionnumber?: number | null;
+}
+interface TeamMembership_Relationships {
+  teammembership_association?: SystemUser_Result[] | null;
+}
+interface TeamMembership extends TeamMembership_Base, TeamMembership_Relationships {
+}
+interface TeamMembership_Create extends TeamMembership {
+}
+interface TeamMembership_Update extends TeamMembership {
+}
+interface TeamMembership_Select {
+  systemuserid: WebAttribute<TeamMembership_Select, { systemuserid: string | null }, {  }>;
+  teamid: WebAttribute<TeamMembership_Select, { teamid: string | null }, {  }>;
+  teammembershipid: WebAttribute<TeamMembership_Select, { teammembershipid: string | null }, {  }>;
+  versionnumber: WebAttribute<TeamMembership_Select, { versionnumber: number | null }, {  }>;
+}
+interface TeamMembership_Filter {
+  systemuserid: XQW.Guid;
+  teamid: XQW.Guid;
+  teammembershipid: XQW.Guid;
+  versionnumber: number;
+}
+interface TeamMembership_Expand {
+  teammembership_association: WebExpand<TeamMembership_Expand, SystemUser_Select, SystemUser_Filter, { teammembership_association: SystemUser_Result[] }>;
+}
+interface TeamMembership_FormattedResult {
+}
+interface TeamMembership_Result extends TeamMembership_Base, TeamMembership_Relationships {
+  "@odata.etag": string;
+}
+interface TeamMembership_RelatedOne {
+}
+interface TeamMembership_RelatedMany {
+  teammembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  teammemberships: WebMappingRetrieve<TeamMembership_Select,TeamMembership_Expand,TeamMembership_Filter,TeamMembership_Fixed,TeamMembership_Result,TeamMembership_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  teammemberships: WebMappingRelated<TeamMembership_RelatedOne,TeamMembership_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  teammemberships: WebMappingCUDA<TeamMembership_Create,TeamMembership_Update,TeamMembership_Select>;
 }
 interface ActivityParty_Base extends WebEntity {
   activitypartyid?: string | null;
@@ -13295,6 +16277,8 @@ interface ActivityParty_Base extends WebEntity {
 interface ActivityParty_Relationships {
   partyid_account?: Account_Result | null;
   partyid_contact?: Contact_Result | null;
+  partyid_queue?: Queue_Result | null;
+  partyid_systemuser?: SystemUser_Result | null;
 }
 interface ActivityParty extends ActivityParty_Base, ActivityParty_Relationships {
   activityid_activitypointer_bind$activitypointers?: string | null;
@@ -13363,6 +16347,8 @@ interface ActivityParty_Filter {
 interface ActivityParty_Expand {
   partyid_account: WebExpand<ActivityParty_Expand, Account_Select, Account_Filter, { partyid_account: Account_Result }>;
   partyid_contact: WebExpand<ActivityParty_Expand, Contact_Select, Contact_Filter, { partyid_contact: Contact_Result }>;
+  partyid_queue: WebExpand<ActivityParty_Expand, Queue_Select, Queue_Filter, { partyid_queue: Queue_Result }>;
+  partyid_systemuser: WebExpand<ActivityParty_Expand, SystemUser_Select, SystemUser_Filter, { partyid_systemuser: SystemUser_Result }>;
 }
 interface ActivityParty_FormattedResult {
   activityid_formatted?: string;
@@ -13382,6 +16368,8 @@ interface ActivityParty_Result extends ActivityParty_Base, ActivityParty_Relatio
 interface ActivityParty_RelatedOne {
   partyid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   partyid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  partyid_queue: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  partyid_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface ActivityParty_RelatedMany {
 }
@@ -13417,8 +16405,12 @@ interface Connection_Relationships {
   connection_related_connection?: Connection_Result[] | null;
   record1id_account?: Account_Result | null;
   record1id_contact?: Contact_Result | null;
+  record1id_systemuser?: SystemUser_Result | null;
+  record1id_team?: Team_Result | null;
   record2id_account?: Account_Result | null;
   record2id_contact?: Contact_Result | null;
+  record2id_systemuser?: SystemUser_Result | null;
+  record2id_team?: Team_Result | null;
 }
 interface Connection extends Connection_Base, Connection_Relationships {
   channelaccessprofileruleid_bind$channelaccessprofilerules?: string | null;
@@ -13541,10 +16533,19 @@ interface Connection_Filter {
 }
 interface Connection_Expand {
   connection_related_connection: WebExpand<Connection_Expand, Connection_Select, Connection_Filter, { connection_related_connection: Connection_Result[] }>;
+  createdby: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  ownerid: WebExpand<Connection_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   record1id_account: WebExpand<Connection_Expand, Account_Select, Account_Filter, { record1id_account: Account_Result }>;
   record1id_contact: WebExpand<Connection_Expand, Contact_Select, Contact_Filter, { record1id_contact: Contact_Result }>;
+  record1id_systemuser: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { record1id_systemuser: SystemUser_Result }>;
+  record1id_team: WebExpand<Connection_Expand, Team_Select, Team_Filter, { record1id_team: Team_Result }>;
   record2id_account: WebExpand<Connection_Expand, Account_Select, Account_Filter, { record2id_account: Account_Result }>;
   record2id_contact: WebExpand<Connection_Expand, Contact_Select, Contact_Filter, { record2id_contact: Contact_Result }>;
+  record2id_systemuser: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { record2id_systemuser: SystemUser_Result }>;
+  record2id_team: WebExpand<Connection_Expand, Team_Select, Team_Filter, { record2id_team: Team_Result }>;
   relatedconnectionid: WebExpand<Connection_Expand, Connection_Select, Connection_Filter, { relatedconnectionid: Connection_Result }>;
 }
 interface Connection_FormattedResult {
@@ -13590,10 +16591,19 @@ interface Connection_Result extends Connection_Base, Connection_Relationships {
   transactioncurrencyid_guid: string | null;
 }
 interface Connection_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   record1id_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   record1id_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  record1id_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  record1id_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   record2id_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   record2id_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  record2id_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  record2id_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   relatedconnectionid: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
 }
 interface Connection_RelatedMany {

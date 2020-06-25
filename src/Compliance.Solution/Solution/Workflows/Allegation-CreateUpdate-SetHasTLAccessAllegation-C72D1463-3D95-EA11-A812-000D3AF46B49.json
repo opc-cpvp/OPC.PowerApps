@@ -1,0 +1,182 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Allegation_is_Created_or_Updated": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "opc_allegation",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "statecode,opc_complaintid,opc_allegationtypeid,opc_disposition"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Apply_to_each_Time_Limits_Allegation": {
+          "foreach": "@outputs('Get_1_TL_Allegation_with_Acceptable_Disposition')?['body/value']",
+          "actions": {
+            "Set_HasTLAllegation_to_True": {
+              "runAfter": {},
+              "type": "SetVariable",
+              "inputs": {
+                "name": "HasTLAllegation",
+                "value": true
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_HasAccessAllegation_variable": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "Update_Complaint_with_flags": {
+          "runAfter": {
+            "Apply_to_each_Access_Allegation": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "opc_complaints",
+              "recordId": "@triggerOutputs()?['body/_opc_complaintid_value']",
+              "item/opc_hasaccessallegation": "@variables('HasAccessAllegation')",
+              "item/opc_hastlallegation": "@variables('HasTLAllegation')"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_1_TL_Allegation_with_Acceptable_Disposition": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "opc_allegations",
+              "$filter": "_opc_complaintid_value eq @{triggerOutputs()?['body/_opc_complaintid_value']} and statecode eq 0 and _opc_allegationtypeid_value eq 36fa1baf-d5f3-4316-9130-03c20b8d304d and opc_disposition eq 924340000",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_HasTLAllegation_variable": {
+          "runAfter": {
+            "Get_1_Access_Allegation_with_Acceptable_Disposition": [
+              "Succeeded"
+            ]
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "HasTLAllegation",
+                "type": "boolean",
+                "value": false
+              }
+            ]
+          }
+        },
+        "Get_1_Access_Allegation_with_Acceptable_Disposition": {
+          "runAfter": {
+            "Get_1_TL_Allegation_with_Acceptable_Disposition": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "opc_allegations",
+              "$filter": "_opc_complaintid_value eq @{triggerOutputs()?['body/_opc_complaintid_value']} and statecode eq 0 and _opc_allegationtypeid_value eq 9929ba43-3ac7-4869-955f-fa42bcb78c0b and opc_disposition eq 924340000",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_HasAccessAllegation_variable": {
+          "runAfter": {
+            "Initialize_HasTLAllegation_variable": [
+              "Succeeded"
+            ]
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "HasAccessAllegation",
+                "type": "boolean",
+                "value": false
+              }
+            ]
+          }
+        },
+        "Apply_to_each_Access_Allegation": {
+          "foreach": "@outputs('Get_1_Access_Allegation_with_Acceptable_Disposition')?['body/value']",
+          "actions": {
+            "Set_HasAccessAllegation_to_True": {
+              "runAfter": {},
+              "type": "SetVariable",
+              "inputs": {
+                "name": "HasAccessAllegation",
+                "value": true
+              }
+            }
+          },
+          "runAfter": {
+            "Apply_to_each_Time_Limits_Allegation": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}

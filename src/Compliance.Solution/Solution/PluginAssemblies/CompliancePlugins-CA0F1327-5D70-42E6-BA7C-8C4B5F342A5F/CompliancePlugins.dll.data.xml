@@ -14,5 +14,8 @@
     <PluginType AssemblyQualifiedName="Compliance.Plugins.MultiLanguagePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="dd55a870-8ad7-4927-8871-14d3a0dc6cd2" Name="Compliance.Plugins.MultiLanguagePlugin">
       <FriendlyName>ac0a9f6c-1291-44c3-a3ae-284df30974b2</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Compliance.Plugins.QueueMemberShipPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="341dc720-bd14-4054-881c-e55d202367c6" Name="Compliance.Plugins.QueueMemberShipPlugin">
+      <FriendlyName>33536b52-449a-4b57-b2be-4d86cf0d1c1b</FriendlyName>
+    </PluginType>
   </PluginTypes>
 </PluginAssembly>
