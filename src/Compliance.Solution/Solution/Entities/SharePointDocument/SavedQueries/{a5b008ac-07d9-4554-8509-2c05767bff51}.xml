@@ -47,7 +47,7 @@
           <attribute name="locationid" />
           <attribute name="iconclassname" />
           <filter>
-            <condition attribute="isrecursivefetch" operator="eq" value="0" />
+            <condition attribute="isrecursivefetch" operator="eq" value="1" />
           </filter>
           <order attribute="relativelocation" descending="false" />
         </entity>
