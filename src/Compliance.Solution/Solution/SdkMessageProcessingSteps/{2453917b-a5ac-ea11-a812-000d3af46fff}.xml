@@ -6,7 +6,6 @@
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <Description>Compliance.Plugins.QueueMemberShipPlugin: Associate of any Entity</Description>
   <FilteringAttributes></FilteringAttributes>
-  <ImpersonatingUserIdName># SVC_OPC_CRM_Admin</ImpersonatingUserIdName>
   <InvocationSource>0</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>
