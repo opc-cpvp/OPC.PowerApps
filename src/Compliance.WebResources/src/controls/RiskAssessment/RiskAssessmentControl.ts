@@ -53,7 +53,7 @@ export namespace Controls {
                 .then(async riskDefinitions => {
 
                     // Both requests can run at the same time, but before processing results
-                    // we want to make sure to have the question types.
+                    // we want to make sure to have the risk appetites.
                     await qRiskAppetitesPromise;
                     this._riskDefinitions = riskDefinitions;
 
