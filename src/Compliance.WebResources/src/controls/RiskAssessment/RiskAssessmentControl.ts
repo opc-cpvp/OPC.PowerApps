@@ -163,8 +163,6 @@ export namespace Controls {
                     definitionCell.setAttribute("data-guid", definition.opc_riskassessmentdefinitionid);
                     definitionCell.onclick = (ev: MouseEvent) => {
                         const cell = <HTMLTableCellElement>ev.target;
-
-                        const isSelected = !cell.classList.contains("is-selected");
                         const definitionId = cell.getAttribute("data-guid");
 
                         const currentRow = cell.closest("tr");
@@ -172,20 +170,14 @@ export namespace Controls {
 
                         if (selectedCell) {
                             const selectedDefinitionId = selectedCell.getAttribute("data-guid");
-                            this._riskAssessmentService.updateRiskAssessmentDefinition(selectedDefinitionId, false).then(() => {
-                                selectedCell.classList.toggle("is-selected");
-                            })
-                            .catch(e => console.error(`error updating definition: ${e}`));
+                            selectedCell.classList.toggle("is-selected");
 
                             // Exit if we clicked on the selected cell.
                             if (selectedDefinitionId === definitionId)
                                 return;
                         }
 
-                        this._riskAssessmentService.updateRiskAssessmentDefinition(definitionId, isSelected).then(() => {
-                            cell.classList.toggle("is-selected");
-                        })
-                        .catch(e => console.error(`error updating definition: ${e}`));
+                        cell.classList.toggle("is-selected");
                     };
 
                     // Advance the index by the amount of matching definitions.
@@ -195,7 +187,25 @@ export namespace Controls {
         }
 
         public save(): void {
-            console.log("save");
+            const cells = this.documentContext.querySelectorAll("td[data-guid]");
+            cells.forEach((value, key, parent) => {
+                const id = value.getAttribute("data-guid");
+                const isSelected = value.classList.contains("is-selected");
+
+                const definition = this._riskDefinitions.find(d => d.opc_riskassessmentdefinitionid == id);
+
+                if (!definition)
+                    return;
+
+                // Compare the value with the cached definition.
+                if (definition.opc_isselected != isSelected) {
+                    this._riskAssessmentService.updateRiskAssessmentDefinition(id, isSelected).then(() => {
+                        // Update the cached definition.
+                        definition.opc_isselected = isSelected;
+                    })
+                    .catch(e => console.error(`error updating definition: ${e}`));
+                }
+            });
         }
     }
 }
