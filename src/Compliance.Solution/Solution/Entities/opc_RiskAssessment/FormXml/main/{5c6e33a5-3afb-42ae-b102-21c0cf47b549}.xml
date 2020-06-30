@@ -358,6 +358,16 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{91a7ac42-c106-2004-0b11-c9c8b369e711}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{a56ba0cc-aaa6-98bd-aa08-399e28a7bb82}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>
