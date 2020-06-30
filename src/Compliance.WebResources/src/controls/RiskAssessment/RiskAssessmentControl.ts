@@ -183,6 +183,7 @@ export namespace Controls {
                 this._riskAssessmentService.updateRiskAssessmentDefinition(selectedDefinitionId, false).then(() => {
                     selectedCell.classList.toggle("is-selected");
                 })
+                .catch(e => console.error(`error updating definition: ${e}`));
 
                 // Exit if we clicked on the selected cell.
                 if (selectedDefinitionId === definitionId)
@@ -191,7 +192,8 @@ export namespace Controls {
 
             this._riskAssessmentService.updateRiskAssessmentDefinition(definitionId, isSelected).then(() => {
                 cell.classList.toggle("is-selected");
-            });
+            })
+            .catch(e => console.error(`error updating definition: ${e}`));
         }
 
         public save(): void {
