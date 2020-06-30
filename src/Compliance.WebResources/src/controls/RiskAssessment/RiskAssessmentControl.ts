@@ -1,8 +1,13 @@
-export namespace Controls {
+import { injectable, inject } from "inversify";
+import { PowerIFrameControl, IRiskAssessmentService } from "../../interfaces";
 
-    export class RiskAssessmentControl {
-        private readonly _placeholder: HTMLDivElement;
+export namespace Controls {
+    @injectable()
+    export class RiskAssessmentControl extends PowerIFrameControl {
         private readonly _riskAssessmentId: string;
+        private readonly _riskAssessmentService: IRiskAssessmentService;
+
+        private readonly _placeholder: HTMLElement;
         private readonly _riskTable: HTMLTableElement;
         private readonly _riskTableBody: HTMLTableSectionElement;
 
@@ -19,41 +24,41 @@ export namespace Controls {
             { opc_isselected: boolean }
         )[];
 
-        constructor(placeholder: HTMLDivElement, riskAssessmentId: string) {
-            this._placeholder = placeholder;
-            this._riskAssessmentId = riskAssessmentId;
+        constructor(
+            @inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
+            @inject(nameof<Document>()) documentContext: Document,
+            @inject(nameof<IRiskAssessmentService>()) riskAssessmentService: IRiskAssessmentService) {
+            super(xrmContext, documentContext);
+
+            this._riskAssessmentId = this.xrmContext.getQueryStringParameters().id;
+            this._placeholder = this.documentContext.getElementById("risks");
             this._riskTable = document.createElement("table");
             this._riskTableBody = this._riskTable.createTBody();
+            this._riskAssessmentService = riskAssessmentService;
 
             this._riskTable.classList.add("zui-table", "zui-table-highlight-all");
         }
 
         public async initializeControl() {
-            const appetitePromise = this.loadRiskAppetites();
-            const definitionPromise = this.loadRiskDefinitions();
+            // This registers an handler for the save-entity event dispatched from parent form
+            super.initializeControl();
 
-            this._riskAppetites = await appetitePromise;
-            this._riskDefinitions = await definitionPromise;
+            // Fetch risk appetites to cross reference later
+            const qRiskAppetitesPromise = this._riskAssessmentService.getRiskAppetites()
+                .then(x => { this._riskAppetites = x; })
+                .catch(() => console.error("error loading risk appetites"));
 
-            this.render();
-        }
+            // Fetch checklist and create controls
+            this._riskAssessmentService.getRiskDefinitions(this._riskAssessmentId)
+                .then(async riskDefinitions => {
 
-        private async loadRiskAppetites() {
-            return XrmQuery.retrieveMultiple(x => x.opc_riskappetites)
-                .select(x => [x.opc_riskappetiteid, x.opc_name])
-                .filter(x => Filter.equals(x.statuscode, opc_riskappetite_statuscode.Active))
-                .orderDesc(x => x.opc_name)
-                .promise();
-        }
+                    // Both requests can run at the same time, but before processing results
+                    // we want to make sure to have the question types.
+                    await qRiskAppetitesPromise;
+                    this._riskDefinitions = riskDefinitions;
 
-        private async loadRiskDefinitions() {
-            return XrmQuery.retrieveRelatedMultiple(x => x.opc_riskassessments, this._riskAssessmentId, x => x.opc_riskassessment_riskassessmentdefinitions_riskassessment)
-                .select(x => [x.opc_riskassessmentdefinitionid, x.opc_riskassessmentcategory_guid, x.opc_riskassessmentfactortemplate_guid, x.opc_riskassessmentdefinitiontemplate_guid, x.opc_isselected])
-                .expand(x => x.opc_RiskAssessmentCategory, x => [x.opc_name, x.opc_sequence])
-                .expand(x => x.opc_RiskAssessmentFactorTemplate, x => [x.opc_name, x.opc_sequence])
-                .expand(x => x.opc_RiskAssessmentDefinitionTemplate, x => [x.opc_name, x.opc_riskappetite_guid])
-                .filter(x => Filter.equals(x.statuscode, opc_riskassessmentdefinition_statuscode.Active))
-                .promise();
+                    this.render();
+                }, reason => console.error(reason)).catch(() => console.error("error loading risk definitions"));
         }
 
         private getCategories() {
@@ -164,7 +169,7 @@ export namespace Controls {
             }
         }
 
-        private onDefinitionClick(this: GlobalEventHandlers, ev: MouseEvent) {
+        private onDefinitionClick(ev: MouseEvent) {
             const cell = <HTMLTableCellElement>ev.target;
 
             const isSelected = !cell.classList.contains("is-selected");
@@ -175,28 +180,21 @@ export namespace Controls {
 
             if (selectedCell) {
                 const selectedDefinitionId = selectedCell.getAttribute("data-guid");
-                XrmQuery.update(x => x.opc_riskassessmentdefinitions, selectedDefinitionId, { opc_isselected: false }).execute(id => {
+                this._riskAssessmentService.updateRiskAssessmentDefinition(selectedDefinitionId, false).then(() => {
                     selectedCell.classList.toggle("is-selected");
-                });
+                })
 
                 // Exit if we clicked on the selected cell.
                 if (selectedDefinitionId === definitionId)
                     return;
             }
 
-            XrmQuery.update(x => x.opc_riskassessmentdefinitions, definitionId, { opc_isselected: isSelected }).execute(id => {
+            this._riskAssessmentService.updateRiskAssessmentDefinition(definitionId, isSelected).then(() => {
                 cell.classList.toggle("is-selected");
             });
         }
-        
-        public static control_OnLoad(): void {
-            let parameters = Xrm.Utility.getGlobalContext().getQueryStringParameters();
 
-            let riskAssessmentId: string = parameters.id;            
-            let placeholder = <HTMLDivElement>document.getElementById("risks");
-
-            let control = new RiskAssessmentControl(placeholder, riskAssessmentId);
-            control.initializeControl();
+        public save(): void {
         }
     }
 }

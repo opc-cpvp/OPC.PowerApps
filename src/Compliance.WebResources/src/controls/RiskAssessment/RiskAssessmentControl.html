@@ -8,7 +8,7 @@
         <script type="text/javascript" src="/WebResources/clientGlobalcontext.js.aspx"></script>
         <script type="text/javascript" src="/WebResources/opc_compliance/js/compliance.min.js"></script>
     </head>
-    <body onload="compliance.RiskAssessmentCtrl.RiskAssessmentControl.control_OnLoad()">
+    <body onload="compliance.Bootstrapper.ControlFactory.createControl('RiskAssessmentControl')">
         <div id="risks"></div>
     </body>
 </html>
