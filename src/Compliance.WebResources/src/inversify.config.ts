@@ -25,6 +25,8 @@ import NotificationMainForm = require("./forms/NotificationMainForm");
 import Notification = NotificationMainForm.Notification;
 import ContactMainForm = require("./forms/ContactMainForm");
 import Contact = ContactMainForm.Contact;
+import RiskAssessmentMainForm = require("./forms/RiskAssessmentMainForm");
+import RiskAssessment = RiskAssessmentMainForm.RiskAssessment;
 
 // Controls
 import { Controls as ChecklistCtrl } from "./controls/Checklist/ChecklistControl";
@@ -53,6 +55,7 @@ container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegati
 container.bind<i.IPowerForm<Form.opc_reminder.Main.Information>>("opc_reminder_information").to(Reminder.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_notification.Main.Information>>("opc_notification_information").to(Notification.Forms.MainForm);
 container.bind<i.IPowerForm<Form.contact.Main.ComplianceContact>>("contact_compliancecontact").to(Contact.Forms.MainForm);
+container.bind<i.IPowerForm<Form.opc_riskassessment.Main.Information>>("opc_riskassessment_information").to(RiskAssessment.Forms.MainForm);
 
 // Register controls
 container.bind<ChecklistCtrl.ChecklistControl>(nameof<ChecklistCtrl.ChecklistControl>()).to(ChecklistCtrl.ChecklistControl);

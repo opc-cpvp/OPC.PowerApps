@@ -161,7 +161,32 @@ export namespace Controls {
                         definitionCell.className = "is-selected";
 
                     definitionCell.setAttribute("data-guid", definition.opc_riskassessmentdefinitionid);
-                    definitionCell.onclick = this.onDefinitionClick;
+                    definitionCell.onclick = (ev: MouseEvent) => {
+                        const cell = <HTMLTableCellElement>ev.target;
+
+                        const isSelected = !cell.classList.contains("is-selected");
+                        const definitionId = cell.getAttribute("data-guid");
+
+                        const currentRow = cell.closest("tr");
+                        const selectedCell = currentRow.querySelector("td[data-guid].is-selected");
+
+                        if (selectedCell) {
+                            const selectedDefinitionId = selectedCell.getAttribute("data-guid");
+                            this._riskAssessmentService.updateRiskAssessmentDefinition(selectedDefinitionId, false).then(() => {
+                                selectedCell.classList.toggle("is-selected");
+                            })
+                            .catch(e => console.error(`error updating definition: ${e}`));
+
+                            // Exit if we clicked on the selected cell.
+                            if (selectedDefinitionId === definitionId)
+                                return;
+                        }
+
+                        this._riskAssessmentService.updateRiskAssessmentDefinition(definitionId, isSelected).then(() => {
+                            cell.classList.toggle("is-selected");
+                        })
+                        .catch(e => console.error(`error updating definition: ${e}`));
+                    };
 
                     // Advance the index by the amount of matching definitions.
                     j += matchingDefinitions - 1;
@@ -169,34 +194,8 @@ export namespace Controls {
             }
         }
 
-        private onDefinitionClick(ev: MouseEvent) {
-            const cell = <HTMLTableCellElement>ev.target;
-
-            const isSelected = !cell.classList.contains("is-selected");
-            const definitionId = cell.getAttribute("data-guid");
-
-            const currentRow = cell.closest("tr");
-            const selectedCell = currentRow.querySelector("td[data-guid].is-selected");
-
-            if (selectedCell) {
-                const selectedDefinitionId = selectedCell.getAttribute("data-guid");
-                this._riskAssessmentService.updateRiskAssessmentDefinition(selectedDefinitionId, false).then(() => {
-                    selectedCell.classList.toggle("is-selected");
-                })
-                .catch(e => console.error(`error updating definition: ${e}`));
-
-                // Exit if we clicked on the selected cell.
-                if (selectedDefinitionId === definitionId)
-                    return;
-            }
-
-            this._riskAssessmentService.updateRiskAssessmentDefinition(definitionId, isSelected).then(() => {
-                cell.classList.toggle("is-selected");
-            })
-            .catch(e => console.error(`error updating definition: ${e}`));
-        }
-
         public save(): void {
+            console.log("save");
         }
     }
 }
