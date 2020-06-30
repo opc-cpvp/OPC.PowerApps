@@ -28,7 +28,7 @@ export interface IChecklistService {
 }
 
 export interface IRiskAssessmentService {
-    getRiskAppetites(): Promise<(opc_RiskAppetite_Fixed & { opc_riskappetiteid: string; } & { opc_name: string; })[]>
+    getRiskAppetites(): Promise<(opc_RiskAppetite_Fixed & { opc_riskappetiteid: string; } & { opc_name: string; } & { opc_value: number; })[]>
     getRiskDefinitions(id: string): Promise<(
         { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result; } &
         { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result; } &

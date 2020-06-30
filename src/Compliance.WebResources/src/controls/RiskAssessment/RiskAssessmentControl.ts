@@ -11,7 +11,7 @@ export namespace Controls {
         private readonly _riskTable: HTMLTableElement;
         private readonly _riskTableBody: HTMLTableSectionElement;
 
-        private _riskAppetites: (opc_RiskAppetite_Fixed & { opc_riskappetiteid: string; } & { opc_name: string; })[];
+        private _riskAppetites: (opc_RiskAppetite_Fixed & { opc_riskappetiteid: string; } & { opc_name: string; } & { opc_value: number; })[];
         private _riskDefinitions: (
             { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result; } &
             { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result; } &
@@ -186,25 +186,53 @@ export namespace Controls {
             }
         }
 
+        private updateSuggestedRisk(): void {
+            // TODO: check if a selection was made for each factor
+
+            const definitions = this._riskDefinitions.filter(d => d.opc_isselected);
+            const appetiteIds = definitions.map(d => d.opc_RiskAssessmentDefinitionTemplate.opc_riskappetite_guid);
+            const appetites = this._riskAppetites
+                .filter(ra => !!appetiteIds.find(a => ra.opc_riskappetiteid === a))
+                .sort((a, b) => {
+                    if (a.opc_value > b.opc_value) return 1;
+                    if (a.opc_value < b.opc_value) return -1;
+                    return 0;
+                });
+
+            if (appetites.length < 1)
+                return;
+
+            // TODO: associate the highest appetite (opc_value) to the risk assessment
+        }
+
         public save(): void {
             const cells = this.documentContext.querySelectorAll("td[data-guid]");
+            const promises: Promise<void>[] = [];
+
             cells.forEach((value, key, parent) => {
                 const id = value.getAttribute("data-guid");
                 const isSelected = value.classList.contains("is-selected");
 
-                const definition = this._riskDefinitions.find(d => d.opc_riskassessmentdefinitionid == id);
+                const definition = this._riskDefinitions.find(d => d.opc_riskassessmentdefinitionid === id);
 
                 if (!definition)
                     return;
 
                 // Compare the value with the cached definition.
                 if (definition.opc_isselected != isSelected) {
-                    this._riskAssessmentService.updateRiskAssessmentDefinition(id, isSelected).then(() => {
-                        // Update the cached definition.
-                        definition.opc_isselected = isSelected;
-                    })
-                    .catch(e => console.error(`error updating definition: ${e}`));
+                    promises.push(
+                        this._riskAssessmentService.updateRiskAssessmentDefinition(id, isSelected).then(() => {
+                            // Update the cached definition.
+                            definition.opc_isselected = isSelected;
+                        })
+                        .catch(e => console.error(`error updating definition: ${e}`))
+                    );
                 }
+            });
+
+            // Once all the definitions have been saved, update the suggested risk.
+            Promise.all(promises).then(() => {
+                this.updateSuggestedRisk();
             });
         }
     }

@@ -4,9 +4,9 @@ import { IRiskAssessmentService } from ".././interfaces";
 
 @injectable()
 export class RiskAssessmentService implements IRiskAssessmentService {
-    getRiskAppetites(): Promise<(opc_RiskAppetite_Fixed & { opc_riskappetiteid: string; } & { opc_name: string; })[]> {
+    getRiskAppetites(): Promise<(opc_RiskAppetite_Fixed & { opc_riskappetiteid: string; } & { opc_name: string; } & { opc_value: number; })[]> {
         return XrmQuery.retrieveMultiple(x => x.opc_riskappetites)
-            .select(x => [x.opc_riskappetiteid, x.opc_name])
+            .select(x => [x.opc_riskappetiteid, x.opc_name, x.opc_value])
             .filter(x => Filter.equals(x.statuscode, opc_riskappetite_statuscode.Active))
             .orderDesc(x => x.opc_name)
             .promise();
