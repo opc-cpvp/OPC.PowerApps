@@ -257,7 +257,7 @@ declare const enum contact_address3_shippingmethodcode {
 declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum environmentvariablevalue_statecode {
+declare const enum environmentvariabledefinition_statecode {
   Active = 0,
   Inactive = 1,
 }
@@ -266,6 +266,21 @@ declare const enum componentstate {
   Unpublished = 1,
   Deleted = 2,
   DeletedUnpublished = 3,
+}
+declare const enum environmentvariabledefinition_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum environmentvariabledefinition_type {
+  String = 100000000,
+  Number = 100000001,
+  Boolean = 100000002,
+  JSON = 100000003,
+  Connectionreference = 100000004,
+}
+declare const enum environmentvariablevalue_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum environmentvariablevalue_statuscode {
   Active = 1,
@@ -8088,6 +8103,29 @@ interface Contact_Create extends Contact {
 }
 interface Contact_Update extends Contact {
 }
+interface EnvironmentVariableDefinition_Base extends WebEntity {
+}
+interface EnvironmentVariableDefinition_Fixed extends WebEntity_Fixed {
+  environmentvariabledefinitionid: string;
+}
+interface EnvironmentVariableDefinition extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
+}
+interface EnvironmentVariableDefinition_Relationships {
+}
+interface EnvironmentVariableDefinition_Result extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
+}
+interface EnvironmentVariableDefinition_FormattedResult {
+}
+interface EnvironmentVariableDefinition_Select {
+}
+interface EnvironmentVariableDefinition_Expand {
+}
+interface EnvironmentVariableDefinition_Filter {
+}
+interface EnvironmentVariableDefinition_Create extends EnvironmentVariableDefinition {
+}
+interface EnvironmentVariableDefinition_Update extends EnvironmentVariableDefinition {
+}
 interface EnvironmentVariableValue_Base extends WebEntity {
 }
 interface EnvironmentVariableValue_Fixed extends WebEntity_Fixed {
@@ -10203,6 +10241,175 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   contacts: WebMappingCUDA<Contact_Create,Contact_Update,Contact_Select>;
 }
+interface EnvironmentVariableDefinition_Base extends WebEntity {
+  componentstate?: componentstate | null;
+  createdon?: Date | null;
+  defaultvalue?: string | null;
+  description?: string | null;
+  displayname?: string | null;
+  environmentvariabledefinitionid?: string | null;
+  environmentvariabledefinitionidunique?: string | null;
+  hint?: string | null;
+  importsequencenumber?: number | null;
+  introducedversion?: string | null;
+  iscustomizable?: any | null;
+  ismanaged?: boolean | null;
+  isrequired?: boolean | null;
+  modifiedon?: Date | null;
+  overriddencreatedon?: Date | null;
+  overwritetime?: Date | null;
+  schemaname?: string | null;
+  solutionid?: string | null;
+  statecode?: environmentvariabledefinition_statecode | null;
+  statuscode?: environmentvariabledefinition_statuscode | null;
+  supportingsolutionid?: string | null;
+  timezoneruleversionnumber?: number | null;
+  type?: environmentvariabledefinition_type | null;
+  utcconversiontimezonecode?: number | null;
+  valueschema?: string | null;
+  versionnumber?: number | null;
+}
+interface EnvironmentVariableDefinition_Relationships {
+  environmentvariabledefinition_environmentvariablevalue?: EnvironmentVariableValue_Result[] | null;
+}
+interface EnvironmentVariableDefinition extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface EnvironmentVariableDefinition_Create extends EnvironmentVariableDefinition {
+}
+interface EnvironmentVariableDefinition_Update extends EnvironmentVariableDefinition {
+}
+interface EnvironmentVariableDefinition_Select {
+  componentstate: WebAttribute<EnvironmentVariableDefinition_Select, { componentstate: componentstate | null }, { componentstate_formatted?: string }>;
+  createdby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<EnvironmentVariableDefinition_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  defaultvalue: WebAttribute<EnvironmentVariableDefinition_Select, { defaultvalue: string | null }, {  }>;
+  description: WebAttribute<EnvironmentVariableDefinition_Select, { description: string | null }, {  }>;
+  displayname: WebAttribute<EnvironmentVariableDefinition_Select, { displayname: string | null }, {  }>;
+  environmentvariabledefinitionid: WebAttribute<EnvironmentVariableDefinition_Select, { environmentvariabledefinitionid: string | null }, {  }>;
+  environmentvariabledefinitionidunique: WebAttribute<EnvironmentVariableDefinition_Select, { environmentvariabledefinitionidunique: string | null }, {  }>;
+  hint: WebAttribute<EnvironmentVariableDefinition_Select, { hint: string | null }, {  }>;
+  importsequencenumber: WebAttribute<EnvironmentVariableDefinition_Select, { importsequencenumber: number | null }, {  }>;
+  introducedversion: WebAttribute<EnvironmentVariableDefinition_Select, { introducedversion: string | null }, {  }>;
+  iscustomizable: WebAttribute<EnvironmentVariableDefinition_Select, { iscustomizable: any | null }, {  }>;
+  ismanaged: WebAttribute<EnvironmentVariableDefinition_Select, { ismanaged: boolean | null }, {  }>;
+  isrequired: WebAttribute<EnvironmentVariableDefinition_Select, { isrequired: boolean | null }, {  }>;
+  modifiedby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<EnvironmentVariableDefinition_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  overriddencreatedon: WebAttribute<EnvironmentVariableDefinition_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  overwritetime: WebAttribute<EnvironmentVariableDefinition_Select, { overwritetime: Date | null }, { overwritetime_formatted?: string }>;
+  ownerid_guid: WebAttribute<EnvironmentVariableDefinition_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  schemaname: WebAttribute<EnvironmentVariableDefinition_Select, { schemaname: string | null }, {  }>;
+  solutionid: WebAttribute<EnvironmentVariableDefinition_Select, { solutionid: string | null }, {  }>;
+  statecode: WebAttribute<EnvironmentVariableDefinition_Select, { statecode: environmentvariabledefinition_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<EnvironmentVariableDefinition_Select, { statuscode: environmentvariabledefinition_statuscode | null }, { statuscode_formatted?: string }>;
+  supportingsolutionid: WebAttribute<EnvironmentVariableDefinition_Select, { supportingsolutionid: string | null }, {  }>;
+  timezoneruleversionnumber: WebAttribute<EnvironmentVariableDefinition_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  type: WebAttribute<EnvironmentVariableDefinition_Select, { type: environmentvariabledefinition_type | null }, { type_formatted?: string }>;
+  utcconversiontimezonecode: WebAttribute<EnvironmentVariableDefinition_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  valueschema: WebAttribute<EnvironmentVariableDefinition_Select, { valueschema: string | null }, {  }>;
+  versionnumber: WebAttribute<EnvironmentVariableDefinition_Select, { versionnumber: number | null }, {  }>;
+}
+interface EnvironmentVariableDefinition_Filter {
+  componentstate: componentstate;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  defaultvalue: string;
+  description: string;
+  displayname: string;
+  environmentvariabledefinitionid: XQW.Guid;
+  environmentvariabledefinitionidunique: XQW.Guid;
+  hint: string;
+  importsequencenumber: number;
+  introducedversion: string;
+  iscustomizable: any;
+  ismanaged: boolean;
+  isrequired: boolean;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  overwritetime: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  schemaname: string;
+  solutionid: XQW.Guid;
+  statecode: environmentvariabledefinition_statecode;
+  statuscode: environmentvariabledefinition_statuscode;
+  supportingsolutionid: XQW.Guid;
+  timezoneruleversionnumber: number;
+  type: environmentvariabledefinition_type;
+  utcconversiontimezonecode: number;
+  valueschema: string;
+  versionnumber: number;
+}
+interface EnvironmentVariableDefinition_Expand {
+  createdby: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  environmentvariabledefinition_environmentvariablevalue: WebExpand<EnvironmentVariableDefinition_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { environmentvariabledefinition_environmentvariablevalue: EnvironmentVariableValue_Result[] }>;
+  modifiedby: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  ownerid: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { ownerid: SystemUser_Result }>;
+  owninguser: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
+}
+interface EnvironmentVariableDefinition_FormattedResult {
+  componentstate_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  overwritetime_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+  type_formatted?: string;
+}
+interface EnvironmentVariableDefinition_Result extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface EnvironmentVariableDefinition_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface EnvironmentVariableDefinition_RelatedMany {
+  environmentvariabledefinition_environmentvariablevalue: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  environmentvariabledefinitions: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  environmentvariabledefinitions: WebMappingRelated<EnvironmentVariableDefinition_RelatedOne,EnvironmentVariableDefinition_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  environmentvariabledefinitions: WebMappingCUDA<EnvironmentVariableDefinition_Create,EnvironmentVariableDefinition_Update,EnvironmentVariableDefinition_Select>;
+}
 interface EnvironmentVariableValue_Base extends WebEntity {
   componentstate?: componentstate | null;
   createdon?: Date | null;
@@ -10226,6 +10433,7 @@ interface EnvironmentVariableValue_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface EnvironmentVariableValue_Relationships {
+  EnvironmentVariableDefinitionId?: EnvironmentVariableDefinition_Result | null;
 }
 interface EnvironmentVariableValue extends EnvironmentVariableValue_Base, EnvironmentVariableValue_Relationships {
   EnvironmentVariableDefinitionId_bind$environmentvariabledefinitions?: string | null;
@@ -10299,6 +10507,7 @@ interface EnvironmentVariableValue_Filter {
   versionnumber: number;
 }
 interface EnvironmentVariableValue_Expand {
+  EnvironmentVariableDefinitionId: WebExpand<EnvironmentVariableValue_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { EnvironmentVariableDefinitionId: EnvironmentVariableDefinition_Result }>;
   createdby: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
   createdonbehalfby: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
   modifiedby: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
@@ -10337,6 +10546,7 @@ interface EnvironmentVariableValue_Result extends EnvironmentVariableValue_Base,
   owninguser_guid: string | null;
 }
 interface EnvironmentVariableValue_RelatedOne {
+  EnvironmentVariableDefinitionId: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
   createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
@@ -15027,6 +15237,10 @@ interface SystemUser_Relationships {
   lk_contact_modifiedonbehalfby?: Contact_Result[] | null;
   lk_contactbase_createdby?: Contact_Result[] | null;
   lk_contactbase_modifiedby?: Contact_Result[] | null;
+  lk_environmentvariabledefinition_createdby?: EnvironmentVariableDefinition_Result[] | null;
+  lk_environmentvariabledefinition_createdonbehalfby?: EnvironmentVariableDefinition_Result[] | null;
+  lk_environmentvariabledefinition_modifiedby?: EnvironmentVariableDefinition_Result[] | null;
+  lk_environmentvariabledefinition_modifiedonbehalfby?: EnvironmentVariableDefinition_Result[] | null;
   lk_environmentvariablevalue_createdby?: EnvironmentVariableValue_Result[] | null;
   lk_environmentvariablevalue_createdonbehalfby?: EnvironmentVariableValue_Result[] | null;
   lk_environmentvariablevalue_modifiedby?: EnvironmentVariableValue_Result[] | null;
@@ -15166,6 +15380,7 @@ interface SystemUser_Relationships {
   systemuser_connections1?: Connection_Result[] | null;
   systemuser_connections2?: Connection_Result[] | null;
   user_accounts?: Account_Result[] | null;
+  user_environmentvariabledefinition?: EnvironmentVariableDefinition_Result[] | null;
   user_environmentvariablevalue?: EnvironmentVariableValue_Result[] | null;
   user_opc_allegation?: opc_allegation_Result[] | null;
   user_opc_allegationtype?: opc_allegationtype_Result[] | null;
@@ -15475,6 +15690,10 @@ interface SystemUser_Expand {
   lk_contact_modifiedonbehalfby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contact_modifiedonbehalfby: Contact_Result[] }>;
   lk_contactbase_createdby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contactbase_createdby: Contact_Result[] }>;
   lk_contactbase_modifiedby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contactbase_modifiedby: Contact_Result[] }>;
+  lk_environmentvariabledefinition_createdby: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { lk_environmentvariabledefinition_createdby: EnvironmentVariableDefinition_Result[] }>;
+  lk_environmentvariabledefinition_createdonbehalfby: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { lk_environmentvariabledefinition_createdonbehalfby: EnvironmentVariableDefinition_Result[] }>;
+  lk_environmentvariabledefinition_modifiedby: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { lk_environmentvariabledefinition_modifiedby: EnvironmentVariableDefinition_Result[] }>;
+  lk_environmentvariabledefinition_modifiedonbehalfby: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { lk_environmentvariabledefinition_modifiedonbehalfby: EnvironmentVariableDefinition_Result[] }>;
   lk_environmentvariablevalue_createdby: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { lk_environmentvariablevalue_createdby: EnvironmentVariableValue_Result[] }>;
   lk_environmentvariablevalue_createdonbehalfby: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { lk_environmentvariablevalue_createdonbehalfby: EnvironmentVariableValue_Result[] }>;
   lk_environmentvariablevalue_modifiedby: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { lk_environmentvariablevalue_modifiedby: EnvironmentVariableValue_Result[] }>;
@@ -15617,6 +15836,7 @@ interface SystemUser_Expand {
   systemuser_connections1: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections1: Connection_Result[] }>;
   systemuser_connections2: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections2: Connection_Result[] }>;
   user_accounts: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { user_accounts: Account_Result[] }>;
+  user_environmentvariabledefinition: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { user_environmentvariabledefinition: EnvironmentVariableDefinition_Result[] }>;
   user_environmentvariablevalue: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { user_environmentvariablevalue: EnvironmentVariableValue_Result[] }>;
   user_opc_allegation: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { user_opc_allegation: opc_allegation_Result[] }>;
   user_opc_allegationtype: WebExpand<SystemUser_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { user_opc_allegationtype: opc_allegationtype_Result[] }>;
@@ -15714,6 +15934,10 @@ interface SystemUser_RelatedMany {
   lk_contact_modifiedonbehalfby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   lk_contactbase_createdby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   lk_contactbase_modifiedby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  lk_environmentvariabledefinition_createdby: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  lk_environmentvariabledefinition_createdonbehalfby: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  lk_environmentvariabledefinition_modifiedby: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  lk_environmentvariabledefinition_modifiedonbehalfby: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
   lk_environmentvariablevalue_createdby: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
   lk_environmentvariablevalue_createdonbehalfby: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
   lk_environmentvariablevalue_modifiedby: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
@@ -15853,6 +16077,7 @@ interface SystemUser_RelatedMany {
   systemuser_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   systemuser_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  user_environmentvariabledefinition: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
   user_environmentvariablevalue: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
   user_opc_allegation: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   user_opc_allegationtype: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
