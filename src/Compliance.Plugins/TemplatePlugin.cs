@@ -29,7 +29,7 @@ namespace Compliance.Plugins
 
             try
             {
-                GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, token, localContext);
+                GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, token);
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace Compliance.Plugins
             pluginExecutionContext.OutputParameters["Result"] = resultMessage;
         }
 
-        private void GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string token, LocalPluginContext localContext)
+        private void GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string token)
         {
             var templateName = templatePath.Substring(templatePath.LastIndexOf("/")+1);
 
