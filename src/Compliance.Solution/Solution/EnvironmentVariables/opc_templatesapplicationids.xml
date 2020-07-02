@@ -3,7 +3,7 @@
   <SchemaName>opc_templatesapplicationids</SchemaName>
   <IsRequired>0</IsRequired>
   <Type>100000003</Type>
-  <DefaultValue>{"applicationId": "00000000-0000-0000-000000000000",   "tenantId": "00000000-0000-0000-000000000000"}</DefaultValue>
+  <DefaultValue>{"applicationId": "00000000-0000-0000-000000000000", "tenantId": "00000000-0000-0000-000000000000"}</DefaultValue>
   <DisplayName>
     <LocalizedNames>
       <LocalizedName description="Templates Application Ids" languagecode="1033" />
