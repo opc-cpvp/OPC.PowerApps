@@ -41,6 +41,7 @@ export interface IRiskAssessmentService {
         { opc_isselected: boolean }
     )[]>
     updateRiskAssessmentDefinition(definitionid: string, value: boolean): Promise<undefined>
+    updateSuggestedRisk(riskassessmentid: string, riskappetiteid: string | null): Promise<undefined>
 }
 
 export interface IUserService {

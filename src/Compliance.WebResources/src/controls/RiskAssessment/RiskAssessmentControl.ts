@@ -187,22 +187,22 @@ export namespace Controls {
         }
 
         private updateSuggestedRisk(): void {
-            // TODO: check if a selection was made for each factor
-
             const definitions = this._riskDefinitions.filter(d => d.opc_isselected);
-            const appetiteIds = definitions.map(d => d.opc_RiskAssessmentDefinitionTemplate.opc_riskappetite_guid);
+
+            // Get a list of appetites representing the definitions that were selected and order them based on their value (high to low)
             const appetites = this._riskAppetites
-                .filter(ra => !!appetiteIds.find(a => ra.opc_riskappetiteid === a))
+                .filter(ra => definitions.find(d => d.opc_RiskAssessmentDefinitionTemplate.opc_riskappetite_guid == ra.opc_riskappetiteid))
                 .sort((a, b) => {
-                    if (a.opc_value > b.opc_value) return 1;
-                    if (a.opc_value < b.opc_value) return -1;
+                    if (a.opc_value < b.opc_value) return 1;
+                    if (a.opc_value > b.opc_value) return -1;
                     return 0;
                 });
 
-            if (appetites.length < 1)
-                return;
+            let riskAppetiteId = null;
+            if (appetites.length > 0)
+                riskAppetiteId = appetites[0].opc_riskappetiteid;
 
-            // TODO: associate the highest appetite (opc_value) to the risk assessment
+            this._riskAssessmentService.updateSuggestedRisk(this._riskAssessmentId, riskAppetiteId).catch(e => console.error(`error updating suggested risk: ${e}`))
         }
 
         public save(): void {

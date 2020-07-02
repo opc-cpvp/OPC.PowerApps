@@ -25,4 +25,11 @@ export class RiskAssessmentService implements IRiskAssessmentService {
     updateRiskAssessmentDefinition(definitionid: string, value: boolean): Promise<undefined> {
         return XrmQuery.update(x => x.opc_riskassessmentdefinitions, definitionid, { opc_isselected: value }).promise();
     }
+
+    updateSuggestedRisk(riskassessmentid: string, riskappetiteid: string | null): Promise<undefined> {
+        if (!riskappetiteid)
+            return XrmQuery.disassociateSingle(x => x.opc_riskassessments, riskassessmentid, x => x.opc_SuggestedRiskAppetite).promise();
+        else
+            return XrmQuery.associateSingle(x => x.opc_riskassessments, riskassessmentid, x => x.opc_riskappetites, riskappetiteid, x => x.opc_SuggestedRiskAppetite).promise();
+    }
 }
