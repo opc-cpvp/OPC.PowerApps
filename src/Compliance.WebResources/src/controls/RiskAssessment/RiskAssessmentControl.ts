@@ -32,7 +32,7 @@ export namespace Controls {
 
             this._riskAssessmentId = this.xrmContext.getQueryStringParameters().id;
             this._placeholder = this.documentContext.getElementById("risks");
-            this._riskTable = document.createElement("table");
+            this._riskTable = this.documentContext.createElement("table");
             this._riskTableBody = this._riskTable.createTBody();
             this._riskAssessmentService = riskAssessmentService;
 
@@ -105,7 +105,7 @@ export namespace Controls {
             const headers = ["Risk Measurement Categories", "Factors"].concat(appetites);
 
             for (let header of headers) {
-                const tableHeader = document.createElement("th");
+                const tableHeader = this.documentContext.createElement("th");
                 tableHeader.textContent = header
                 tableRow.appendChild(tableHeader);
             }
@@ -128,14 +128,14 @@ export namespace Controls {
 
                 // Add the category header for the first factor.
                 if (i == 0) {
-                    const categoryHeader = document.createElement("th");
+                    const categoryHeader = this.documentContext.createElement("th");
                     categoryHeader.textContent = category.opc_name;
                     categoryHeader.rowSpan = factors.length;
                     categoryHeader.scope = "row";
                     tableRow.appendChild(categoryHeader);
                 }
 
-                const factorHeader = document.createElement("th");
+                const factorHeader = this.documentContext.createElement("th");
                 factorHeader.textContent = factor.opc_name;
                 factorHeader.scope = "row";
                 tableRow.appendChild(factorHeader);
@@ -202,7 +202,7 @@ export namespace Controls {
             if (appetites.length > 0)
                 riskAppetiteId = appetites[0].opc_riskappetiteid;
 
-            this._riskAssessmentService.updateSuggestedRisk(this._riskAssessmentId, riskAppetiteId).catch(e => console.error(`error updating suggested risk: ${e}`))
+            this._riskAssessmentService.updateSuggestedRisk(this._riskAssessmentId, riskAppetiteId).catch(e => console.error(`error updating suggested risk: ${e}`));
         }
 
         public save(): void {
