@@ -10,8 +10,8 @@
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_dispositionreasonid">
-          <cell name="opc_allegationdisposition" width="200" />
           <cell name="opc_name" width="300" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -21,8 +21,7 @@
         <entity name="opc_dispositionreason">
           <attribute name="opc_dispositionreasonid" />
           <attribute name="opc_name" />
-          <attribute name="opc_allegationdisposition" />
-          <order attribute="opc_allegationdisposition" descending="false" />
+          <attribute name="createdon" />
           <order attribute="opc_name" descending="false" />
         </entity>
       </fetch>

@@ -441,7 +441,7 @@
             <displayname description="English Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The question type in English" languagecode="1033" />
+            <Description description="The question type in english" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_namefrench">
@@ -481,7 +481,7 @@
             <displayname description="French Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The question type in French" languagecode="1033" />
+            <Description description="The question type in french" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_QuestionTypeId">

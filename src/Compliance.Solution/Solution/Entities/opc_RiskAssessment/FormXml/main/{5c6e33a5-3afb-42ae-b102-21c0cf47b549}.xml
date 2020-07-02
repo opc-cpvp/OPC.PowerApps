@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.26</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{1aa0cac0-6345-449c-abb0-a1913bdaef47}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -15,7 +15,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c1ef0162-0595-4900-ad71-42e6ecb705a8}" height="auto" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c1ef0162-0595-4900-ad71-42e6ecb705a8}" height="auto" name="section_general">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
@@ -27,11 +27,6 @@
                           <label description="Name" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
-                      </cell>
-                      <cell id="{604063be-baed-18d9-42ac-587810065a39}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -50,11 +45,6 @@
                           </parameters>
                         </control>
                       </cell>
-                      <cell id="{6cb420d8-ec41-d185-74e0-0959c58332ca}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{44e18d01-8771-43a1-b3da-5cfd7ba65a21}" showlabel="true" locklevel="0">
@@ -62,11 +52,6 @@
                           <label description="Suggested Risk Appetite" languagecode="1033" />
                         </labels>
                         <control id="opc_suggestedriskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_suggestedriskappetite" disabled="false" />
-                      </cell>
-                      <cell id="{d3de5e0d-d34a-3b3a-426d-3b26475826eb}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -76,11 +61,6 @@
                         </labels>
                         <control id="opc_bypasssuggestedriskappetite" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_bypasssuggestedriskappetite" disabled="false" uniqueid="{da041da3-3c54-4874-829c-2851437fabda}" />
                       </cell>
-                      <cell id="{c21ea367-3131-5ec9-7cb4-253744894bb4}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{9f0cb096-16b3-444d-a093-1dd39072de3e}" showlabel="true" locklevel="0">
@@ -89,50 +69,23 @@
                         </labels>
                         <control id="opc_bypassinitiatedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_bypassinitiatedby" disabled="false" />
                       </cell>
-                      <cell id="{c72800b5-12c3-e5bb-adb3-29d6c1ddddda}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
-                      <cell id="{c193f6cd-1656-4ecf-875a-9e981d280a37}" showlabel="true" locklevel="0" rowspan="3" colspan="1">
+                      <cell id="{c193f6cd-1656-4ecf-875a-9e981d280a37}" showlabel="true" locklevel="0" rowspan="3">
                         <labels>
                           <label description="Bypass Rationale" languagecode="1033" />
                         </labels>
-                        <control id="opc_bypassrationale" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_bypassrationale" disabled="false" uniqueid="{6eedb619-c7a9-b370-dc97-dc74607436cc}" />
-                      </cell>
-                      <cell id="{11c48a29-4a82-b419-d8ca-dd372a1205eb}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
+                        <control id="opc_bypassrationale" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_bypassrationale" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{a2bc5446-be32-1915-509c-4bcc2a140e58}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{76047137-4564-358d-c69e-3bb82a27079c}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
+                    <row />
+                    <row />
                     <row>
                       <cell id="{7356bd8f-253e-49d7-a89f-164d4283ccca}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Actual Risk Appetite" languagecode="1033" />
                         </labels>
                         <control id="opc_actualriskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_actualriskappetite" disabled="false" />
-                      </cell>
-                      <cell id="{761574b5-a339-7138-8b06-081a5d065994}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -267,18 +220,18 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
-            <cell id="{10980fd1-6e41-4a13-b51e-08506c01b283}" showlabel="true" locklevel="0">
-              <labels>
-                <label description="Complaint" languagecode="1033" />
-              </labels>
-              <control id="header_opc_complaint" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaint" disabled="false" />
-            </cell>
             <cell id="{05cca663-cc0c-4c41-8bfb-f61a8ed0b9a9}">
               <labels>
                 <label description="Owner" languagecode="1033" />
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+            <cell id="{10980fd1-6e41-4a13-b51e-08506c01b283}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Complaint" languagecode="1033" />
+              </labels>
+              <control id="header_opc_complaint" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaint" disabled="false" />
             </cell>
           </row>
         </rows>

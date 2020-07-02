@@ -10,11 +10,9 @@
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_notificationid">
-          <cell name="statuscode" width="114" />
+          <cell name="statuscode" width="89" />
           <cell name="opc_name" width="300" />
-          <cell name="opc_notifybyemail" width="152" />
-          <cell name="opc_complaintid" width="134" />
-          <cell name="ownerid" width="135" />
+          <cell name="opc_notifybyemail" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -35,8 +33,6 @@
           <attribute name="opc_notifybyemail" />
           <order attribute="createdon" descending="true" />
           <attribute name="opc_notificationid" />
-          <attribute name="opc_complaintid" />
-          <attribute name="ownerid" />
         </entity>
       </fetch>
     </fetchxml>

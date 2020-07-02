@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.26</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{8afe9124-ffb1-4cf8-ac5c-d6d9b1911a6c}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
@@ -15,18 +15,18 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{15964ec2-7e44-4610-9ded-3b7e431bc244}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{15964ec2-7e44-4610-9ded-3b7e431bc244}" name="section_general" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{822aafd1-f59f-47b2-b7c2-231b043d65c3}" showlabel="true" locklevel="0" colspan="2">
+                      <cell id="{822aafd1-f59f-47b2-b7c2-231b043d65c3}">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" uniqueid="{915ca501-5323-4671-7767-d5ea33144c53}" disabled="false" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" uniqueid="{915ca501-5323-4671-7767-d5ea33144c53}" />
                       </cell>
                     </row>
                     <row>
@@ -44,11 +44,6 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
-                      </cell>
-                      <cell id="{3b8b9aec-c4a9-202c-87a1-02c97b06ed90}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -70,11 +65,6 @@
                           </parameters>
                         </control>
                       </cell>
-                      <cell id="{28c2bac9-61b1-1812-e9c0-8a22636c8474}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{9bb6faed-feb3-42ce-ae4a-48ea495a1308}" showlabel="true" locklevel="0">
@@ -94,11 +84,6 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
-                      </cell>
-                      <cell id="{d40a1ae5-7bbb-d3ca-9c50-808be0b2b705}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -120,11 +105,6 @@
                           </parameters>
                         </control>
                       </cell>
-                      <cell id="{606a235e-b88b-e9a4-7726-03b824c246de}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{83c6b34b-f952-48ab-9b99-f29eb0f33639}" showlabel="true" locklevel="0">
@@ -132,11 +112,6 @@
                           <label description="Is Selected?" languagecode="1033" />
                         </labels>
                         <control id="opc_isselected" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_isselected" disabled="false" uniqueid="{d5289de8-79c4-479a-8c94-5793e5bc3a53}" />
-                      </cell>
-                      <cell id="{a32436c6-5a61-dd55-a236-e20dd4765879}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                   </rows>

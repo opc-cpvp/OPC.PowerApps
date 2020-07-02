@@ -1,14 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <CustomActions />
+  <CustomActions>
+    <CustomAction Id="opc.opc_complaint.TemplateDialog.Button.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Actions.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:opc.opc_complaint.TemplateDialog.Button.Alt" Command="opc.opc_complaint.TemplateDialog.Command" Id="opc.opc_complaint.TemplateDialog.Button" LabelText="$LocLabels:opc.opc_complaint.TemplateDialog.Button.LabelText" Sequence="15" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.TemplateDialog.Button.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.TemplateDialog.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
   <Templates>
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
-  <CommandDefinitions />
+  <CommandDefinitions>
+    <CommandDefinition Id="opc.opc_complaint.TemplateDialog.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.TemplateDialog.ribbonButton_OnClick" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
   <RuleDefinitions>
     <TabDisplayRules />
     <DisplayRules />
     <EnableRules />
   </RuleDefinitions>
-  <LocLabels />
+  <LocLabels>
+    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.Alt">
+      <Titles>
+        <Title description="Button to open template menu to select which document to generate." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.LabelText">
+      <Titles>
+        <Title description="Templates" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Open template menu to select which document to generate." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Open template menu" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
 </RibbonDiffXml>

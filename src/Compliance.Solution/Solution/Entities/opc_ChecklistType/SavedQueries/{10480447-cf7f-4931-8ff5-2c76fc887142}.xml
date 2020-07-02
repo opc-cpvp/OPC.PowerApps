@@ -11,7 +11,7 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_checklisttypeid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_type" width="235" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -21,8 +21,8 @@
         <entity name="opc_checklisttype">
           <attribute name="opc_checklisttypeid" />
           <attribute name="opc_name" />
+          <attribute name="createdon" />
           <order attribute="opc_name" descending="false" />
-          <attribute name="opc_type" />
         </entity>
       </fetch>
     </fetchxml>

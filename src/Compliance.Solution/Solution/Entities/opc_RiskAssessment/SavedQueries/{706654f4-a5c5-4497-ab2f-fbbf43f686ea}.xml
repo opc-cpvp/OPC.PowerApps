@@ -11,8 +11,7 @@
       <grid name="opc_riskassessments" jump="opc_name" select="1" icon="1" preview="0">
         <row name="opc_riskassessment" id="opc_riskassessmentid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_riskassessmenttype" width="170" />
-          <cell name="opc_actualriskappetite" width="158" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -22,12 +21,10 @@
         <entity name="opc_riskassessment">
           <attribute name="opc_riskassessmentid" />
           <attribute name="opc_name" />
+          <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_riskassessmenttype" />
-          <order attribute="opc_name" descending="false" />
-          <attribute name="opc_actualriskappetite" />
         </entity>
       </fetch>
     </fetchxml>

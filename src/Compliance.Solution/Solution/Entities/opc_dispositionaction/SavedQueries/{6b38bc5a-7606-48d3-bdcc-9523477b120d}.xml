@@ -11,7 +11,7 @@
       <grid name="opc_dispositionactions" jump="opc_name" select="1" icon="1" preview="1">
         <row name="opc_dispositionaction" id="opc_dispositionactionid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_dispositionreasonid" width="300" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -21,12 +21,11 @@
         <entity name="opc_dispositionaction">
           <attribute name="opc_dispositionactionid" />
           <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_dispositionreasonid" />
-          <order attribute="opc_dispositionreasonid" descending="false" />
-          <order attribute="opc_name" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

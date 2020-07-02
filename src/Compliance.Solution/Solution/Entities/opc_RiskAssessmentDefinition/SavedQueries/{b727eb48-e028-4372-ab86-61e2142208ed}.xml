@@ -10,11 +10,8 @@
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_riskassessmentdefinitionid">
-          <cell name="opc_riskassessmentcategory" width="215" />
-          <cell name="opc_riskassessmentfactortemplate" width="285" />
-          <cell name="opc_riskassessmentdefinitiontemplate" width="291" />
-          <cell name="a_af785b8234704c61a1308724b9cc7749.opc_riskappetite" width="127" />
-          <cell name="opc_isselected" width="129" />
+          <cell name="opc_name" width="300" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -23,17 +20,9 @@
       <fetch version="1.0" mapping="logical">
         <entity name="opc_riskassessmentdefinition">
           <attribute name="opc_riskassessmentdefinitionid" />
-          <attribute name="opc_riskassessmentdefinitiontemplate" />
-          <attribute name="opc_isselected" />
-          <attribute name="opc_riskassessmentfactortemplate" />
-          <attribute name="opc_riskassessmentcategory" />
-          <link-entity alias="a_af785b8234704c61a1308724b9cc7749" name="opc_riskassessmentdefinitiontemplate" to="opc_riskassessmentdefinitiontemplate" from="opc_riskassessmentdefinitiontemplateid" link-type="outer" visible="false">
-            <attribute name="opc_riskappetite" />
-          </link-entity>
-          <order attribute="opc_riskassessmentcategory" descending="false" />
-          <order attribute="opc_riskassessmentfactortemplate" descending="false" />
-          <order attribute="opc_riskassessmentdefinitiontemplate" descending="false" />
-          <order attribute="opc_isselected" descending="false" />
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <order attribute="opc_name" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

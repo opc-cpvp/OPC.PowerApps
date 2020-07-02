@@ -11,8 +11,7 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_issueid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_complaintid" width="300" />
-          <cell name="createdon" width="134" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -22,16 +21,14 @@
         <entity name="opc_issue">
           <attribute name="opc_issueid" />
           <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
           <filter type="or" isquickfindfields="1">
             <condition attribute="opc_name" operator="like" value="{0}" />
           </filter>
-          <attribute name="opc_complaintid" />
-          <attribute name="createdon" />
-          <order attribute="opc_complaintid" descending="false" />
-          <order attribute="createdon" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

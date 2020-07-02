@@ -331,7 +331,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
+          <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
@@ -339,7 +339,7 @@
             <displayname description="Actual Risk Appetite" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The actual risk appetite" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_actualriskappetitevalue">
@@ -368,7 +368,7 @@
           <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
           <IsDataSourceSecret>0</IsDataSourceSecret>
           <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
+          <IsSearchable>1</IsSearchable>
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
@@ -418,7 +418,7 @@
             <displayname description="Bypass Initiated By" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Indicates which user initiated the bypass for the suggested risk appetite" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_BypassRationale">
@@ -458,7 +458,7 @@
             <displayname description="Bypass Rationale" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The rationale explaining why the suggested risk appetite was bypassed" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_BypassSuggestedRiskAppetite">
@@ -519,7 +519,7 @@
             <displayname description="Bypass Suggested Risk Appetite" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Indicates if the suggested risk appetite is bypassed" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_Complaint">
@@ -558,7 +558,7 @@
             <displayname description="Complaint" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The complaint associated with this risk assessment" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_Name">
@@ -667,7 +667,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
+          <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
@@ -675,7 +675,7 @@
             <displayname description="Risk Assessment Type" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The type of risk assessment" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_SuggestedRiskAppetite">
@@ -706,7 +706,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
+          <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
@@ -714,7 +714,7 @@
             <displayname description="Suggested Risk Appetite" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The suggested risk appetite" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OverriddenCreatedOn">

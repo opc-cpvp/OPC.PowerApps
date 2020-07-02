@@ -12,6 +12,7 @@
         <row name="opc_allegationtype" id="opc_allegationtypeid">
           <cell name="opc_acronym" width="100" />
           <cell name="opc_name" width="300" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -21,6 +22,7 @@
         <entity name="opc_allegationtype">
           <attribute name="opc_allegationtypeid" />
           <attribute name="opc_name" />
+          <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>

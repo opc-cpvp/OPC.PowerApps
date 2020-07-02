@@ -331,7 +331,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
+          <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_opc_riskassessmentdefinition_isselected">
@@ -361,7 +361,7 @@
             <displayname description="Is Selected?" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Determines if this risk assessment definition is selected in the matrix" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_Name">
@@ -392,7 +392,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>1</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
+          <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
           <MaxLength>155</MaxLength>
@@ -432,7 +432,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
+          <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
@@ -440,7 +440,7 @@
             <displayname description="Risk Assessment Category" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The risk assessment category" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_RiskAssessmentDefinitionId">
@@ -509,7 +509,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
+          <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
@@ -517,7 +517,7 @@
             <displayname description="Risk Assessment Definition Template" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The risk assessment definition template" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_RiskAssessmentFactorTemplate">
@@ -548,7 +548,7 @@
           <AutoNumberFormat></AutoNumberFormat>
           <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
-          <IsRetrievable>1</IsRetrievable>
+          <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
@@ -556,7 +556,7 @@
             <displayname description="Risk Assessment Factor Template" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The risk assessment factor template" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_riskassessmentid">

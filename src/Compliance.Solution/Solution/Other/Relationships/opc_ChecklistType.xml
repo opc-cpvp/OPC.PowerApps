@@ -51,7 +51,7 @@
     <ReferencingAttributeName>opc_checklisttypeid</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="The type of checklist" languagecode="1033" />
+        <Description description="" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

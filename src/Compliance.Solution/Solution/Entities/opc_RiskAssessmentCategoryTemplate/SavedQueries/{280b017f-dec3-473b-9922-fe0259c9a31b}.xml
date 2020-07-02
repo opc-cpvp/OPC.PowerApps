@@ -30,7 +30,6 @@
           <attribute name="opc_riskassessmenttype" />
           <attribute name="opc_sequence" />
           <order attribute="opc_sequence" descending="false" />
-          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

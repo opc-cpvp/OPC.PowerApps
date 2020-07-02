@@ -5,9 +5,9 @@
     <IntroducedVersion>1.0.14</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
+    <form headerdensity="HighWithControls">
       <tabs>
-        <tab verticallayout="true" id="{0365da09-abe8-41df-90e4-19039c64bee4}" IsUserDefined="1" name="tab_general" expanded="true" locklevel="0" showlabel="true">
+        <tab verticallayout="true" id="{0365da09-abe8-41df-90e4-19039c64bee4}" IsUserDefined="1" name="tab_general">
           <labels>
             <label description="General" languagecode="1033" />
             <label description="Général" languagecode="1036" />
@@ -15,7 +15,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{af6529b4-6ed3-400a-9319-ddaa63a91a78}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{af6529b4-6ed3-400a-9319-ddaa63a91a78}" name="section_general" columns="11">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
@@ -55,11 +55,6 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
                       </cell>
-                      <cell id="{f04a680b-fea3-4863-b246-9c7948605e6d}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{ecfab39f-f64b-46eb-a05e-db8ecee4ba1f}" showlabel="true" locklevel="0">
@@ -77,11 +72,6 @@
                           </parameters>
                         </control>
                       </cell>
-                      <cell id="{0c20f091-702e-45c1-8d6a-97a18ef6056e}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{d47a0aaf-bc31-4f65-927e-426bfb89e2fb}" showlabel="true" locklevel="0" colspan="2" rowspan="4">
@@ -91,8 +81,20 @@
                         <control id="opc_descriptionenglish" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_descriptionenglish" disabled="false" uniqueid="{4c6cc603-e2a9-5676-17ca-ecea556144b7}" />
                       </cell>
                     </row>
-                    <row></row>
-                    <row></row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{60acf17b-9313-4827-a7dd-de963d10a620}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell showlabel="true" locklevel="0" id="{085f1062-7605-4279-a533-a5e7f1973a6a}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                     <row />
                     <row>
                       <cell id="{1f3e9e1a-6e19-426c-895c-1d6d1cac49df}" showlabel="true" locklevel="0" colspan="2" rowspan="4">
@@ -169,7 +171,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

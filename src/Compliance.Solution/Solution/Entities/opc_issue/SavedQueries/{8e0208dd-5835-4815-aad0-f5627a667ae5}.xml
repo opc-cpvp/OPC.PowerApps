@@ -22,10 +22,10 @@
           <attribute name="opc_issueid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
+          <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <order attribute="createdon" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

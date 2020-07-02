@@ -48,6 +48,31 @@
                             </parameters>
                           </control>
                         </cell>
+                        <cell id="{736270eb-4cd3-c138-d078-e86630ae9784}" showlabel="false" colspan="1" auto="false" rowspan="9">
+                          <labels>
+                            <label description="Queue Item" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
+                          </labels>
+                          <control id="chart_complaint_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{5e16aa3c-ccd6-8e70-9e4d-a66c9ebb5a76}">
+                            <parameters>
+                              <ViewId>{34F4B8B5-A25C-EA11-A811-000D3AF46FFF}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>queueitem</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{794E51F6-5E5D-EA11-A811-000D3AF464F8}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
                         <cell colspan="1" rowspan="9" showlabel="true" id="{3f2a7d26-e665-482e-a51e-fe220fa9967b}" auto="false">
                           <labels>
                             <label description="Notifications" languagecode="1033" />
@@ -73,31 +98,6 @@
                             </parameters>
                           </control>
                         </cell>
-                        <cell id="{736270eb-4cd3-c138-d078-e86630ae9784}" showlabel="false" colspan="1" auto="false" rowspan="9">
-                          <labels>
-                            <label description="Queue Item" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
-                          </labels>
-                          <control id="chart_complaints_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{5e16aa3c-ccd6-8e70-9e4d-a66c9ebb5a76}">
-                            <parameters>
-                              <ViewId>{EB05E052-0096-EA11-A812-000D3AF46B49}</ViewId>
-                              <IsUserView>false</IsUserView>
-                              <RelationshipName />
-                              <TargetEntityType>queueitem</TargetEntityType>
-                              <AutoExpand>Fixed</AutoExpand>
-                              <EnableQuickFind>false</EnableQuickFind>
-                              <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds>{EB05E052-0096-EA11-A812-000D3AF46B49},{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
-                              <EnableJumpBar>false</EnableJumpBar>
-                              <ChartGridMode>Chart</ChartGridMode>
-                              <VisualizationId>{794E51F6-5E5D-EA11-A811-000D3AF464F8}</VisualizationId>
-                              <IsUserChart>false</IsUserChart>
-                              <EnableChartPicker>false</EnableChartPicker>
-                              <RecordsPerPage>9</RecordsPerPage>
-                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            </parameters>
-                          </control>
-                        </cell>
                       </row>
                       <row />
                       <row />
@@ -115,14 +115,14 @@
                           </labels>
                           <control id="grid_available_complaints" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{7ae07285-ada8-e00d-9cc8-1eca9a624ea0}">
                             <parameters>
-                              <ViewId>{02708FBA-FF95-EA11-A812-000D3AF46B49}</ViewId>
+                              <ViewId>{C581A9C1-A25C-EA11-A811-000D3AF46FFF}</ViewId>
                               <IsUserView>false</IsUserView>
                               <RelationshipName />
                               <TargetEntityType>queueitem</TargetEntityType>
                               <AutoExpand>Fixed</AutoExpand>
                               <EnableQuickFind>true</EnableQuickFind>
                               <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds>{02708FBA-FF95-EA11-A812-000D3AF46B49},{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
+                              <ViewIds>{8EF40D37-0868-440C-AF6B-CAC0C62E78E3}</ViewIds>
                               <EnableJumpBar>true</EnableJumpBar>
                               <ChartGridMode>Grid</ChartGridMode>
                               <VisualizationId>{475E6F02-32AE-4081-8CB8-E3E24A9FBC0F}</VisualizationId>
@@ -133,14 +133,14 @@
                             </parameters>
                           </control>
                         </cell>
-                        <cell id="{93d07d65-3eed-ec50-d187-748487cedc93}" showlabel="false" colspan="1" auto="false" rowspan="9">
+                        <cell id="{b9ad530c-aed7-d815-7dc8-95a5784d1d1e}" showlabel="false" colspan="1" auto="false" rowspan="9">
                           <labels>
                             <label description="Complaint" languagecode="1033" />
                             <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
-                          <control id="chart_complaints_transferred" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{015ba329-7851-cb76-012a-104c14de81db}">
+                          <control id="chart_complaint_by_created_on" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{9b1b0349-0876-388b-0c8d-0321a064bb66}">
                             <parameters>
-                              <ViewId>{5E745079-DB99-EA11-A812-000D3AF46B49}</ViewId>
+                              <ViewId>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewId>
                               <IsUserView>false</IsUserView>
                               <RelationshipName />
                               <TargetEntityType>opc_complaint</TargetEntityType>
@@ -150,7 +150,7 @@
                               <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewIds>
                               <EnableJumpBar>false</EnableJumpBar>
                               <ChartGridMode>Chart</ChartGridMode>
-                              <VisualizationId>{210DF5F1-9993-EA11-A812-000D3AF46B49}</VisualizationId>
+                              <VisualizationId>{39B07AE9-585D-EA11-A811-000D3AF464F8}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
                               <RecordsPerPage>9</RecordsPerPage>
@@ -158,49 +158,14 @@
                             </parameters>
                           </control>
                         </cell>
-                        <cell id="{d919c825-172b-5963-dd76-e3a4699dd6ea}" showlabel="false" colspan="1" auto="false" rowspan="9">
-                          <labels>
-                            <label description="Complaint" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
-                          </labels>
-                          <control id="chart_complaints_closed_intake" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{d4b6a7be-e596-b83a-d524-08344a56adb7}">
-                            <parameters>
-                              <ViewId>{A3782F06-DB99-EA11-A812-000D3AF46B49}</ViewId>
-                              <IsUserView>false</IsUserView>
-                              <RelationshipName />
-                              <TargetEntityType>opc_complaint</TargetEntityType>
-                              <AutoExpand>Fixed</AutoExpand>
-                              <EnableQuickFind>false</EnableQuickFind>
-                              <EnableViewPicker>false</EnableViewPicker>
-                              <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0},{A3782F06-DB99-EA11-A812-000D3AF46B49}</ViewIds>
-                              <EnableJumpBar>false</EnableJumpBar>
-                              <ChartGridMode>Chart</ChartGridMode>
-                              <VisualizationId>{A3DB399D-0196-EA11-A812-000D3AF46B49}</VisualizationId>
-                              <IsUserChart>false</IsUserChart>
-                              <EnableChartPicker>false</EnableChartPicker>
-                              <RecordsPerPage>9</RecordsPerPage>
-                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
-                            </parameters>
-                          </control>
-                        </cell>
-                      </row>
-                      <row />
-                      <row />
-                      <row />
-                      <row />
-                      <row />
-                      <row />
-                      <row />
-                      <row />
-                      <row>
-                        <cell id="{787da257-a67b-6088-1223-3319dbdb2e97}" showlabel="false" colspan="2" auto="false" rowspan="9">
+                        <cell id="{7b872a75-ebcb-eca2-d1a4-a24eaad9d421}" showlabel="false" colspan="1" auto="false" rowspan="9">
                           <labels>
                             <label description="Individual Complaint" languagecode="1033" />
                             <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
-                          <control id="chart_complaints_by_duration_in_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{e3c11c5d-c902-6680-4bbb-9a4d7615690b}">
+                          <control id="chart_complaint_by_active_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{c945abcb-9b9c-3349-3e5a-23ac20235514}">
                             <parameters>
-                              <ViewId>{97D63ABC-A693-EA11-A812-000D3AF43929}</ViewId>
+                              <ViewId>{892E58DC-0535-4ABD-A7F0-D68630051C20}</ViewId>
                               <IsUserView>false</IsUserView>
                               <RelationshipName />
                               <TargetEntityType>opc_individualcomplaint_bp</TargetEntityType>
@@ -210,7 +175,7 @@
                               <ViewIds>{892E58DC-0535-4ABD-A7F0-D68630051C20}</ViewIds>
                               <EnableJumpBar>false</EnableJumpBar>
                               <ChartGridMode>Chart</ChartGridMode>
-                              <VisualizationId>{624B3706-7464-EA11-A812-000D3AF46CC5}</VisualizationId>
+                              <VisualizationId>{2EFB3A64-595D-EA11-A811-000D3AF464F8}</VisualizationId>
                               <IsUserChart>false</IsUserChart>
                               <EnableChartPicker>false</EnableChartPicker>
                               <RecordsPerPage>9</RecordsPerPage>
@@ -218,113 +183,15 @@
                             </parameters>
                           </control>
                         </cell>
-                        <cell id="{b6bb6901-473a-7d57-200e-87aec03424b1}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{a8524aac-9292-c632-6c3d-0533cc2c982d}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
                       </row>
-                      <row>
-                        <cell id="{442e8d87-51c9-8ab5-1e2e-0b2158bc3968}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{6b390837-825a-42ae-b2e8-a2ae479d75d9}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{8828947e-ab02-7899-ce66-7c7bb876e90a}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{d2ed4a30-513a-b31d-860c-3815dce0e148}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{0a3d8179-22d6-068e-91a2-899ebe27b26b}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{7ac7538e-8e7e-87c0-a807-42c0bce411e5}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{dd514d56-4dd9-a9d7-7793-79c068969cb8}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{c8a624ee-983a-be1b-a68e-94a0bdc81103}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{61d3cb94-3b68-cd6d-287e-206132662636}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{3669c73c-aab8-3582-b420-65eb399ea019}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{436039e9-1a83-e6ac-a4a6-a98d732c5103}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{edc03a60-dce5-5832-3d47-334e5cd20e88}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{d0044661-8bcc-e22c-aa0d-a91085a6e721}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{6651047d-c370-ede5-c193-25e0aba3ed21}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{854344b5-ad31-9721-97d4-63cbb6b5c63c}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                        <cell id="{44b8c170-141e-8641-0c7b-444e73880c07}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
                     </rows>
                   </section>
                 </sections>

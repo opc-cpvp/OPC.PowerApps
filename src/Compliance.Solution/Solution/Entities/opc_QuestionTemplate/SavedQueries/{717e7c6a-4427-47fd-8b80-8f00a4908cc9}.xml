@@ -10,9 +10,8 @@
     <layoutxml>
       <grid name="opc_questiontemplates" jump="opc_name" select="1" icon="1" preview="0">
         <row name="opc_questiontemplate" id="opc_questiontemplateid">
-          <cell name="opc_sequence" width="100" />
           <cell name="opc_name" width="300" />
-          <cell name="opc_questiontypeid" width="137" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -22,12 +21,10 @@
         <entity name="opc_questiontemplate">
           <attribute name="opc_questiontemplateid" />
           <attribute name="opc_name" />
+          <attribute name="createdon" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_sequence" />
-          <attribute name="opc_questiontypeid" />
-          <order attribute="opc_sequence" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

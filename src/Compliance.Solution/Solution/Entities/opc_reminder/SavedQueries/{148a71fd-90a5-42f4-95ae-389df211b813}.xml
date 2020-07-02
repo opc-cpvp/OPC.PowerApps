@@ -11,11 +11,11 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_reminderid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_reminderdate" width="145" />
-          <cell name="opc_notifycaseowner" width="144" />
+          <cell name="opc_reminderdate" width="100" />
+          <cell name="opc_notifycaseowner" width="100" />
           <cell name="opc_notifyme" width="100" />
-          <cell name="opc_notifyadditionalusers" width="178" />
-          <cell name="opc_notifybyemail" width="185" />
+          <cell name="opc_notifyadditionalusers" width="100" />
+          <cell name="opc_notifybyemail" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>

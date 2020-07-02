@@ -94,7 +94,7 @@
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
-      <LocalizedName description="QuickCreate" languagecode="1033" />
+      <LocalizedName description="Quick Create" languagecode="1033" />
     </LocalizedNames>
   </systemform>
 </forms>

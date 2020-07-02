@@ -17,7 +17,7 @@
     <ReferencingAttributeName>opc_RiskAssessmentFactorTemplate</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="The risk assessment factor template" languagecode="1033" />
+        <Description description="" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -51,7 +51,7 @@
     <ReferencingAttributeName>opc_RiskAssessmentFactorTemplate</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="The risk assessment factor template" languagecode="1033" />
+        <Description description="" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
