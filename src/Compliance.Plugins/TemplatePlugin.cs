@@ -9,7 +9,8 @@ namespace Compliance.Plugins
 {
     public partial class TemplatePlugin : PluginBase
     {
-        string resultMessage = "";
+        private const string SharePointWebAPIUrl = "https://096gc.sharepoint.com/sites/PowerAppsSandbox/_api/web";
+        private string resultMessage = "";
 
         public TemplatePlugin()
             : base(typeof(TemplatePlugin), runAsSystem: true)
@@ -28,17 +29,7 @@ namespace Compliance.Plugins
 
             try
             {
-                // I don't verify if these values exist because they are mandatory parameters to trigger the action.
-                //if (pluginExecutionContext.InputParameters.Contains("TemplatePath") &&
-                //    pluginExecutionContext.InputParameters.Contains("XMLData") &&
-                //    pluginExecutionContext.InputParameters.Contains("CaseFolderPath"))
-                //{
-                    GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, token);
-                //}
-                //else
-                //{
-                //    resultMessage = "Failed. Missing input parameters.";
-                //}
+                GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, token, localContext);
             }
             catch (Exception ex)
             {
@@ -50,10 +41,12 @@ namespace Compliance.Plugins
             pluginExecutionContext.OutputParameters["Result"] = resultMessage;
         }
 
-        private void GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string token)
+        private void GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string token, LocalPluginContext localContext)
         {
-            var getUrl = $"https://opcdev1.sharepoint.com/sites/opcdev1/_api/web/getfilebyserverrelativeurl('{templatePath}')/$value";
-            var postUrl = $"https://opcdev1.sharepoint.com/sites/opcdev1/_api/web/GetFolderByServerRelativeUrl('{caseFolderPath}')/Files/add(url='result.docx',overwrite=true)";
+            var templateName = templatePath.Substring(templatePath.LastIndexOf("/")+1);
+
+            var getUrl = $"{SharePointWebAPIUrl}/getfilebyserverrelativeurl('{templatePath}')/$value";
+            var postUrl = $"{SharePointWebAPIUrl}/GetFolderByServerRelativeUrl('{caseFolderPath}')/Files/add(url='{templateName}',overwrite=true)";
 
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(getUrl);
             httpWebRequest.Method = "GET";
@@ -85,7 +78,7 @@ namespace Compliance.Plugins
 
                     using (Stream stream = httpWebRequest.GetRequestStream()) stream.Write(byteArray, 0, byteArray.Length);
 
-                    // It is not necessary to get the response when creating the file, but I will use it to return a success or not to the action.
+                    // It is not necessary to get the response when creating the file, but I would like to use it to return a success or not to the action.
                     resultMessage = ((HttpWebResponse)httpWebRequest.GetResponse()).StatusCode.ToString();
                 }
             }
