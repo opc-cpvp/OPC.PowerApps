@@ -210,7 +210,7 @@ export namespace Controls {
                 .catch(e => console.error(`error updating suggested risk: ${e}`));
         }
 
-        public save(event: Event): void {
+        public save(): void {
             const cells = this.documentContext.querySelectorAll("td[data-guid]");
             const promises: Promise<void>[] = [];
 
@@ -238,7 +238,8 @@ export namespace Controls {
             // Once all the definitions have been saved, update the suggested risk.
             Promise.all(promises).then(() => {
                 this.updateSuggestedRisk();
-            });
+            })
+            .catch(e => console.error(`error updating suggested risk: ${e}`));
         }
     }
 }

@@ -127,11 +127,11 @@ export abstract class PowerIFrameControl implements IPowerControl {
     public initializeControl() {
         // Add listener for parent form trigerred save event
         this.documentContext.addEventListener("entity-save", (e) => {
-            this.save(e)
+            this.save()
         });
     }
 
-    public abstract save(event: Event): void;
+    public abstract save(): void;
 }
 
 export interface IPowerControl {
