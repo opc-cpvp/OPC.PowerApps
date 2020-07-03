@@ -16,3 +16,4 @@ import "./forms/AllegationMainForm.test";
 
 /* Controls */
 import "./controls/Checklist/ChecklistControl.test"
+import "./controls/RiskAssessment/RiskAssessmentControl.test"
