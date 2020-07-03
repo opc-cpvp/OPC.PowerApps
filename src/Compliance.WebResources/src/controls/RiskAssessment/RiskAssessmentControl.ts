@@ -202,10 +202,15 @@ export namespace Controls {
             if (appetites.length > 0)
                 riskAppetiteId = appetites[0].opc_riskappetiteid;
 
-            this._riskAssessmentService.updateSuggestedRisk(this._riskAssessmentId, riskAppetiteId).catch(e => console.error(`error updating suggested risk: ${e}`));
+            this._riskAssessmentService.updateSuggestedRisk(this._riskAssessmentId, riskAppetiteId)
+                .then(() => {
+                    let event = new Event("entity-save-completed");
+                    this.documentContext.dispatchEvent(event);
+                })
+                .catch(e => console.error(`error updating suggested risk: ${e}`));
         }
 
-        public save(): void {
+        public save(event: Event): void {
             const cells = this.documentContext.querySelectorAll("td[data-guid]");
             const promises: Promise<void>[] = [];
 

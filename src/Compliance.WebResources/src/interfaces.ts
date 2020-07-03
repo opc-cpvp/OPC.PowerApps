@@ -68,10 +68,23 @@ export abstract class PowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollecti
 
         // Automatically wire-up save event dispatching to iframes
         context.getFormContext().data.entity.addOnSave(ctx => this.handleIFrameSaves(ctx));
+
+        context.getFormContext().ui.controls.forEach(ctrl => {
+            if (!["webresource", "iframe"].find(c => c === ctrl.getControlType()))
+                return;
+
+            this.waitForWebResourceReady(ctrl, () => {
+                let iframe = <HTMLIFrameElement>ctrl.getObject();
+                if (iframe) {
+                    (iframe.contentDocument || iframe.contentWindow.document).addEventListener("entity-save-completed", (e) => {
+                        context.getFormContext().data.refresh();
+                    });
+                }
+            });
+        });
     }
 
     private handleIFrameSaves(ctx: Xrm.SaveEventContext<Xrm.PageEntity<Xrm.AttributeCollectionBase>>): any {
-
         // Find all iframes and dispatch save events
         ctx.getFormContext().ui.controls.forEach(ctrl => {
             // If control is a web resource or an iframe (basically same thing?)
@@ -88,6 +101,17 @@ export abstract class PowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollecti
         });
     }
 
+    private waitForWebResourceReady(ctrl: Xrm.AnyControl, functionRef: () => any): void {
+        if (ctrl.getObject()?.contentDocument?.readyState !== "complete" ||
+            ctrl.getObject()?.contentWindow?.location?.href?.indexOf("about:blank") > -1) {
+            setTimeout(() => {
+                this.waitForWebResourceReady(ctrl, functionRef)
+            }, 20);
+            return;
+        }
+
+        functionRef();
+    }
 }
 
 @injectable()
@@ -103,11 +127,11 @@ export abstract class PowerIFrameControl implements IPowerControl {
     public initializeControl() {
         // Add listener for parent form trigerred save event
         this.documentContext.addEventListener("entity-save", (e) => {
-            this.save()
+            this.save(e)
         });
     }
 
-    public abstract save(): void;
+    public abstract save(event: Event): void;
 }
 
 export interface IPowerControl {
