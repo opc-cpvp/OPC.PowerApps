@@ -62,6 +62,7 @@
     <TypeScriptCompile Include="src\bootstrapper.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
+    <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
     <TypeScriptCompile Include="src\enums.ts" />
     <TypeScriptCompile Include="src\factories\ControlFactory.ts" />
@@ -76,6 +77,8 @@
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\RiskAssessmentMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\RiskAssessmentsMainForm.test.ts" />
     <TypeScriptCompile Include="src\helpers\XrmHelper.ts" />
     <TypeScriptCompile Include="src\resources.json" />
     <TypeScriptCompile Include="src\index.ts" />
@@ -87,6 +90,7 @@
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
     <TypeScriptCompile Include="src\services\NotificationService.ts" />
     <TypeScriptCompile Include="src\services\ReminderService.ts" />
+    <TypeScriptCompile Include="src\services\RiskAssessmentService.ts" />
     <TypeScriptCompile Include="src\services\UserService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
     <TypeScriptCompile Include="src\utils\NotificationIcons\NotificationIcons.ts" />
