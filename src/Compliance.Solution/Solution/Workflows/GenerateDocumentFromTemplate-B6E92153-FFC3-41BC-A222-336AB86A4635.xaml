@@ -2,11 +2,20 @@
   <x:Members>
     <x:Property Name="InputEntities" Type="InArgument(scg:IDictionary(x:String, mxs:Entity))" />
     <x:Property Name="CreatedEntities" Type="InArgument(scg:IDictionary(x:String, mxs:Entity))" />
+    <x:Property Name="DocumentName" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <mxsw:ArgumentRequiredAttribute Value="True" />
+        <mxsw:ArgumentTargetAttribute Value="False" />
+        <mxsw:ArgumentDescriptionAttribute Value="The file name for the new document." />
+        <mxsw:ArgumentDirectionAttribute Value="Input" />
+        <mxsw:ArgumentEntityAttribute Value="" />
+      </x:Property.Attributes>
+    </x:Property>
     <x:Property Name="Token" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <mxsw:ArgumentRequiredAttribute Value="True" />
         <mxsw:ArgumentTargetAttribute Value="False" />
-        <mxsw:ArgumentDescriptionAttribute Value="" />
+        <mxsw:ArgumentDescriptionAttribute Value="The access token used to connect to SharePoint Online." />
         <mxsw:ArgumentDirectionAttribute Value="Input" />
         <mxsw:ArgumentEntityAttribute Value="" />
       </x:Property.Attributes>
@@ -15,7 +24,7 @@
       <x:Property.Attributes>
         <mxsw:ArgumentRequiredAttribute Value="True" />
         <mxsw:ArgumentTargetAttribute Value="False" />
-        <mxsw:ArgumentDescriptionAttribute Value="" />
+        <mxsw:ArgumentDescriptionAttribute Value="The file path to the case's folder in sharepoint online. " />
         <mxsw:ArgumentDirectionAttribute Value="Input" />
         <mxsw:ArgumentEntityAttribute Value="" />
       </x:Property.Attributes>
