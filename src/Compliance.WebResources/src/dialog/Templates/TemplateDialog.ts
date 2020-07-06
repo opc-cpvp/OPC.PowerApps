@@ -2,8 +2,9 @@ import 'whatwg-fetch';
 import 'core-js/features/url-search-params';
 import * as Msal from 'msal';
 
-
 // TODO: Better handle errors/exceptions
+// TODO: Change the display oof the template choices. Either have categories in the dropdown or have some sort of tree view of the available templates.
+// TODO: Add something that will show that the app is loading.
 
 export class TemplateDialogPage {
     private static _templateDialog: TemplateDialog;
@@ -13,14 +14,20 @@ export class TemplateDialogPage {
         this._templateDialog = new TemplateDialog(placeholder);
 
         this._templateDialog.initializeDialog().then(() => {
-            const confirmButton = document.getElementById("template-comfirm");
+            //const confirmButton = document.getElementById("template-comfirm");
             const cancelButton = document.getElementById("template-cancel");
 
-            confirmButton.addEventListener("click", () => this._templateDialog.generateTemplate_onClick());
+            //confirmButton.addEventListener("submit", () => this._templateDialog.generateTemplate_onClick());
             cancelButton.addEventListener("click", () => this.closePage());
+            document.addEventListener("submit", x => {
+                x.preventDefault();
+                this._templateDialog.generateTemplate_onClick()
+            })
+
         });
     }
 
+    // TODO: Find a prettier way to do this.
     public static closePage(): void {
         const button = <HTMLButtonElement>parent.document.getElementById("defaultDialogChromeCloseIconButton");
         button.click();
@@ -52,21 +59,25 @@ export class TemplateDialog {
         this._placeholder = placeholder;
     }
 
-    public static ribbonButton_OnClick(PrimaryControl: Form.opc_complaint.Main.Information): void {
-        const complaintId = PrimaryControl.data.entity.getId();
-        PrimaryControl.ui.tabs.get("tab_documents").setFocus();
+    // TODO: Move this to ComplaintMainForm.ts after changes from duplicate-contact gets merged into master.
+    public static ribbonButton_OnClick(formContext: Form.opc_complaint.Main.Information): void {
+        const complaintId = formContext.data.entity.getId();
+        formContext.ui.tabs.get("tab_documents").setFocus();
 
-        Xrm.Navigation.navigateTo({ pageType: "webresource", webresourceName: "opc_compliance/template_dialog.html", data: complaintId }, { target: 2, position: 1, width: { value: 420, unit: "px" }, height: { value: 260, unit: "px" } });
+        Xrm.Navigation.navigateTo({ pageType: "webresource", webresourceName: "opc_compliance/template_dialog.html", data: complaintId }, { target: 2, position: 1, width: { value: 420, unit: "px" }, height: { value: 355, unit: "px" } })
+            .then(() => {
+                formContext.getControl("SubgridControl1570557025307").refresh();
+            });
     }
 
+    // TODO: Refactor to make this faster.
+    // It should probably call as much async methods as possible and before getting the token and rendering the page, it should wait for all of them to finish.
     public async initializeDialog() {
         this._complaintId = this.getDataParameter();
         this._complaint = await this.getComplaint();
         this._loginHint = await this.getUserEmail();
         this._templatesEnvironmentVariable = JSON.parse(await this.getEnvironmentVariable("opc_templatesapplicationids"));
         this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
-
-        console.log(this._complaint);
 
         await this.getToken()
             .then(async response => {
@@ -80,31 +91,38 @@ export class TemplateDialog {
     private render() {
         const modalHtml =
             `<div class="modal show" id="templateDialogModal" role="dialog" aria-labelledby="templateDialogModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                <div class="modal-dialog">
+                    <form>
                         <div class="modal-content">
-                              <div class="modal-body">
-                                  <div class="form-group">
+                            <div class="modal-body">
+                                <div class="form-group">
                                     <label for="select-template" class="col-form-label">Select Template:</label>
                                     ${this._dialogSelect.outerHTML}
-                                  </div>
-                              </div>
-                              <div class="modal-footer">
+                                </div>
+                                <div class="form-group">
+                                    <label for="file-name" class="col-form-label">File name:</label>
+                                    <input type="text" class="form-control" id="file-name" required='required'>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
                                 <button type="button" id="template-cancel" class="btn btn-secondary">Cancel</button>
-                                <button type="button" id="template-comfirm" class="btn btn-primary">Generate Document</button>
-                              </div>
+                                <button type="submit" id="template-comfirm" class="btn btn-primary">Generate Document</button>
+                            </div>
                         </div>
-                      </div>
-                    </div>`;
+                    </form>
+                </div>
+            </div>`;
         this._placeholder.outerHTML = modalHtml;
     }
 
     public async generateTemplate_onClick() {
         const selectElement: HTMLSelectElement = <HTMLSelectElement>document.getElementById("select-template");
+        const inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById("file-name");
         const xmlSerializer: XMLSerializer = new XMLSerializer();
         const serializedXML = xmlSerializer.serializeToString(this.generateComplaintXml());
 
         this._caseDocumentsLocationRelativeUrl = `/sites/PowerAppsSandbox/opc_complaint/${this._complaint.opc_complaint_SharePointDocumentLocations[0].relativeurl}`;
-        this.triggerActionToGenerateDocument(serializedXML, this._caseDocumentsLocationRelativeUrl, selectElement.value);
+        this.triggerActionToGenerateDocument(serializedXML, this._caseDocumentsLocationRelativeUrl, selectElement.value, inputElement.value);
     }
 
     private getDataParameter(): string {
@@ -210,12 +228,13 @@ export class TemplateDialog {
         }
     }
 
-    private triggerActionToGenerateDocument(xmlString: string, caseFolderPath: string, templateRelativeUrl: string) {
+    private triggerActionToGenerateDocument(xmlString: string, caseFolderPath: string, templateRelativeUrl: string, documentName: string) {
         const request = {
             Token: this._token,
             CaseFolderPath: caseFolderPath,
             TemplatePath: templateRelativeUrl,
             XMLData: xmlString,
+            DocumentName: documentName,
             getMetadata: () => {
                 return {
                     operationType: 0,
@@ -236,12 +255,16 @@ export class TemplateDialog {
                         XMLData: {
                             typeName: "Edm.String",
                             structuralProperty: 1
+                        },
+                        DocumentName: {
+                            typeName: "Edm.String",
+                            structuralProperty: 1
                         }
                     },
                 };
             }
         }
-        console.log(request);
+
         Xrm.WebApi.online.execute(request).then(
             result => {
                 if (result.ok) {

@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Compliance.Plugins
 {
@@ -11,6 +12,7 @@ namespace Compliance.Plugins
     {
         private const string SharePointWebAPIUrl = "https://096gc.sharepoint.com/sites/PowerAppsSandbox/_api/web";
         private string resultMessage = "";
+        private int sharepointFileMaxCharacters = 128;
 
         public TemplatePlugin()
             : base(typeof(TemplatePlugin), runAsSystem: true)
@@ -26,10 +28,11 @@ namespace Compliance.Plugins
             string xmlData = (string)pluginExecutionContext.InputParameters["XMLData"];
             string caseFolderPath = (string)pluginExecutionContext.InputParameters["CaseFolderPath"];
             string token = (string)pluginExecutionContext.InputParameters["Token"];
+            string documentName = (string)pluginExecutionContext.InputParameters["DocumentName"];
 
             try
             {
-                GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, token);
+                GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, token, documentName, localContext);
             }
             catch (Exception ex)
             {
@@ -41,12 +44,12 @@ namespace Compliance.Plugins
             pluginExecutionContext.OutputParameters["Result"] = resultMessage;
         }
 
-        private void GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string token)
+        private void GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string token, string documentName, LocalPluginContext context)
         {
-            var templateName = templatePath.Substring(templatePath.LastIndexOf("/")+1);
+            documentName = GetValidDocumentName(documentName, sharepointFileMaxCharacters, context);
 
             var getUrl = $"{SharePointWebAPIUrl}/getfilebyserverrelativeurl('{templatePath}')/$value";
-            var postUrl = $"{SharePointWebAPIUrl}/GetFolderByServerRelativeUrl('{caseFolderPath}')/Files/add(url='{templateName}',overwrite=true)";
+            var postUrl = $"{SharePointWebAPIUrl}/GetFolderByServerRelativeUrl('{caseFolderPath}')/Files/add(url='{documentName}.docx',overwrite=true)";
 
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(getUrl);
             httpWebRequest.Method = "GET";
@@ -82,6 +85,20 @@ namespace Compliance.Plugins
                     resultMessage = ((HttpWebResponse)httpWebRequest.GetResponse()).StatusCode.ToString();
                 }
             }
+        }
+        private string GetValidDocumentName(string name, int maxLength, LocalPluginContext localContext)
+        {
+            // Shorten the name of the file if it's too long (the SharePoint max is 128 characters)
+            if (name.Length > maxLength)
+            {
+                // Truncate the filename
+                name = name.Substring(0, maxLength).TrimEnd('.');
+            }
+
+            // Remove SharePoint illegal characters
+            name = Regex.Replace(name, "[~#%&*{}\\\\:<>?/|“”\"+']", "");
+
+            return name;
         }
     }
 }
