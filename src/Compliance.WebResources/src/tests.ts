@@ -16,3 +16,7 @@ import "./forms/AllegationMainForm.test";
 
 /* Controls */
 import "./controls/Checklist/ChecklistControl.test"
+
+/* Dialogs */
+import "./dialogs/Templates/TemplateDialog.test"
+import "./dialogs/Templates/TemplateDialogPage.test"
