@@ -14,4 +14,5 @@ export { Utilities } from "./utils/NotificationIcons/NotificationIcons";
 
 // TODO: Temporary, move to factory with IoC container
 export { Controls as RiskAssessmentCtrl } from "./controls/RiskAssessment/RiskAssessmentControl";
-export { TemplateDialog, TemplateDialogPage } from "./dialog/Templates/TemplateDialog";
+export { TemplateDialogPage } from "./dialogs/Templates/TemplateDialogPage";
+export { TemplateDialog } from "./dialogs/Templates/TemplateDialog";

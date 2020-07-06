@@ -1,38 +1,11 @@
 import 'whatwg-fetch';
 import 'core-js/features/url-search-params';
 import * as Msal from 'msal';
+import { TemplateDialogPage } from './TemplateDialogPage';
 
 // TODO: Better handle errors/exceptions
-// TODO: Change the display oof the template choices. Either have categories in the dropdown or have some sort of tree view of the available templates.
+// TODO: Change the display of the template choices. Either have categories in the dropdown or have some sort of tree view of the available templates.
 // TODO: Add something that will show that the app is loading.
-
-export class TemplateDialogPage {
-    private static _templateDialog: TemplateDialog;
-
-    public static page_OnLoad(): void {
-        const placeholder = <HTMLDivElement>document.getElementById("dialog");
-        this._templateDialog = new TemplateDialog(placeholder);
-
-        this._templateDialog.initializeDialog().then(() => {
-            //const confirmButton = document.getElementById("template-comfirm");
-            const cancelButton = document.getElementById("template-cancel");
-
-            //confirmButton.addEventListener("submit", () => this._templateDialog.generateTemplate_onClick());
-            cancelButton.addEventListener("click", () => this.closePage());
-            document.addEventListener("submit", x => {
-                x.preventDefault();
-                this._templateDialog.generateTemplate_onClick()
-            })
-
-        });
-    }
-
-    // TODO: Find a prettier way to do this.
-    public static closePage(): void {
-        const button = <HTMLButtonElement>parent.document.getElementById("defaultDialogChromeCloseIconButton");
-        button.click();
-    }
-}
 
 export class TemplateDialog {
     private readonly _placeholder: HTMLDivElement;

@@ -40,8 +40,8 @@
     <Folder Include="js\" />
     <Folder Include="js\lib\" />
     <Folder Include="js\lib\xrmquery\" />
-    <Folder Include="src\dialog\" />
-    <Folder Include="src\dialog\Templates\" />
+    <Folder Include="src\dialogs\" />
+    <Folder Include="src\dialogs\Templates\" />
     <Folder Include="src\utils\" />
     <Folder Include="src\" />
     <Folder Include="src\controls\" />
@@ -65,7 +65,10 @@
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
-    <TypeScriptCompile Include="src\dialog\Templates\TemplateDialog.ts" />
+    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialogPage.test.ts" />
+    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialog.test.ts" />
+    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialog.ts" />
+    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialogPage.ts" />
     <TypeScriptCompile Include="src\enums.ts" />
     <TypeScriptCompile Include="src\factories\ControlFactory.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
@@ -130,8 +133,8 @@
     <Content Include="src\controls\Checklist\ChecklistControl.html" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
-    <Content Include="src\dialog\Templates\TemplateDialog.css" />
-    <Content Include="src\dialog\Templates\TemplateDialog.html" />
+    <Content Include="src\dialogs\Templates\TemplateDialog.css" />
+    <Content Include="src\dialogs\Templates\TemplateDialog.html" />
     <Content Include="src\utils\NotificationIcons\imgs\icon64x64_read_notification.png" />
     <Content Include="src\utils\NotificationIcons\imgs\icon64x64_unread_notification.png" />
     <Content Include="tsconfig.json" />
