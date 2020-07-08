@@ -87,11 +87,13 @@
     <AppModuleComponent type="1" schemaName="account" />
     <AppModuleComponent type="26" id="{73bc2d9b-4e0e-424c-8839-ed59d6817e3a}" />
     <AppModuleComponent type="60" id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}" />
+    <AppModuleComponent type="1" schemaName="sharepointdocument" />
+    <AppModuleComponent type="26" id="{a5b008ac-07d9-4554-8509-2c05767bff51}" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
-    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
-    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
     <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
   </AppModuleRoleMaps>
   <LocalizedNames>
     <LocalizedName description="Compliance" languagecode="1033" />
