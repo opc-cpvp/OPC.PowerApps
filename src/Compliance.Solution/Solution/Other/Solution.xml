@@ -80,6 +80,8 @@
     <RootComponents>
       <RootComponent type="1" schemaName="account" behavior="1" />
       <RootComponent type="1" schemaName="contact" behavior="1" />
+      <RootComponent type="1" schemaName="duplicaterule" behavior="1" />
+      <RootComponent type="1" schemaName="duplicaterulecondition" behavior="1" />
       <RootComponent type="1" schemaName="opc_allegation" behavior="0" />
       <RootComponent type="1" schemaName="opc_allegationtype" behavior="0" />
       <RootComponent type="1" schemaName="opc_checklistresponse" behavior="0" />
@@ -109,6 +111,7 @@
       <RootComponent type="1" schemaName="opc_topic" behavior="0" />
       <RootComponent type="1" schemaName="queue" behavior="1" />
       <RootComponent type="1" schemaName="queueitem" behavior="1" />
+      <RootComponent type="1" schemaName="sharepointdocument" behavior="1" />
       <RootComponent type="1" schemaName="systemuser" behavior="2" />
       <RootComponent type="1" schemaName="team" behavior="1" />
       <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
@@ -215,6 +218,7 @@
       <RootComponent type="61" schemaName="opc_compliance/css/risk_assessment_control.css" behavior="0" />
       <RootComponent type="61" schemaName="opc_compliance/imgs/icon64x64_read_notification.png" behavior="0" />
       <RootComponent type="61" schemaName="opc_compliance/imgs/icon64x64_unread_notification.png" behavior="0" />
+      <RootComponent type="61" schemaName="opc_compliance/imgs/MergeRecords.svg" behavior="0" />
       <RootComponent type="61" schemaName="opc_compliance/js/compliance.min.js" behavior="0" />
       <RootComponent type="61" schemaName="opc_compliance/risk_assessment_control.html" behavior="0" />
       <RootComponent type="62" schemaName="opc_compliance" behavior="0" />

@@ -7,7 +7,10 @@
             "contact": {
                 "type": {
                     "complainant": "complainant",
-                    "representative": "representative"
+                    "complainantrepresentative": "representative",
+                    "complainantlegalrepresentative": "complainant legal representative",
+                    "respondentrepresentative": "respondent representative",
+                    "respondentlegalrepresentative": "respondent legal representative"
                 },
                 "mcs": {
                     "confirmation": {
@@ -17,10 +20,15 @@
                     "warning_main": "{{fullname}} is part of the Multiple Complaint Strategy.",
                     "warning_complaint": "The Complainant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
                 },
-                "duplicate": {
-                    "warning_potential": "Please review $t(contact:type.{{contactType}}) contact, there's a potential duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view.",
-                    "warning_actual": "Please review $t(contact:type.{{contactType}}) contact, there's a duplicate contact. You can merge contacts by going to the 'Duplicate Contacts' view."
+              "duplicate": {
+                "warning_potential": "Please review $t(contact:type.{{contactType}}) contact, there's a potential duplicate contact. You can merge contacts by using the button on this form or by going to the 'Duplicate Contacts' view for more control.",
+                "warning_actual": "Please review $t(contact:type.{{contactType}}) contact, there's a duplicate contact. You can merge contacts by using the button on this form or by going to the 'Duplicate Contacts' view for more control.",
+                "error": {
+                  "no_potential_duplicate": "No potential duplicate found, no merging will happen.",
+                  "error_fetching": "Error fetching $t(contact:type.{{contactType}}).",
+                  "error_fetching_duplicates": "Error fetching duplicate contacts."
                 }
+              }
             },
             "reminder": {
                 "error": {
@@ -38,7 +46,10 @@
             "contact": {
                 "type": {
                     "complainant": "plaignant",
-                    "representative": "représentant"
+                    "representative": "représentant",
+                    "complainantlegalrepresentative": "représentant légal du plaignant",
+                    "respondentrepresentative": "représentant du répondent",
+                    "respondentlegalrepresentative": "représentant légal du répondent"
                 },
                 "mcs": {
                     "confirmation": {
@@ -48,10 +59,15 @@
                     "warning_main": "{{fullname}} fait partie de la Stratégie de Plainte Multiple.",
                     "warning_complaint": "Le plaignant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
                 },
-                "duplicate": {
-                    "warning_potential": "Veuillez réviser les informations de contact du $t(contact:type.{{contactType}}), c'est un doublon potentiel. Vous pouvez fusionner les contacts en allant à la vue 'Doublons' sur la page du contact.",
-                    "warning_actual": "Veuillez réviser les information de contact du $t(contact:type.{{contactType}}), c'est un doublon. Vous pouvez fusionner les contacts en allant à la vue 'Doublons' sur la page du contact."
+              "duplicate": {
+                "warning_potential": "Veuillez réviser les informations de contact du $t(contact:type.{{contactType}}), c'est un doublon potentiel. Vous pouvez fusionner les contacts en utilisant le bouton sur le formualire ou en allant à la vue 'Doublons' sur la page du contact pour avoir plus de contrôle.",
+                "warning_actual": "Veuillez réviser les information de contact du $t(contact:type.{{contactType}}), c'est un doublon. Vous pouvez fusionner les contacts en utilisant le bouton sur le formualire ou en allant à la vue 'Doublons' sur la page du contact pour avoir plus de contrôle.",
+                "error": {
+                  "no_potential_duplicate": "Aucun doubon n'a été trouvé, aucune fusion n'aura lieu.",
+                  "error_fetching": "Erreur en allant chercher le contact $t(contact:type.{{contactType}})",
+                  "error_fetching_duplicates": "Erreur en allant chercher les contacts doublons"
                 }
+              }
             },
             "reminder": {
                 "error": {

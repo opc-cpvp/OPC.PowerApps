@@ -1,22 +1,63 @@
+declare const enum account_address1_addresstypecode {
+  BillTo = 1,
+  ShipTo = 2,
+  Primary = 3,
+  Other = 4,
+}
+declare const enum account_address1_shippingmethodcode {
+  Airborne = 1,
+  DHL = 2,
+  FedEx = 3,
+  UPS = 4,
+  PostalMail = 5,
+  FullLoad = 6,
+  WillCall = 7,
+}
+declare const enum account_accountcategorycode {
+  PreferredCustomer = 1,
+  Standard = 2,
+}
+declare const enum account_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum account_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum account_accountratingcode {
+  DefaultValue = 1,
+}
+declare const enum account_preferredappointmenttimecode {
+  Morning = 1,
+  Afternoon = 2,
+  Evening = 3,
+}
+declare const enum account_accountclassificationcode {
+  DefaultValue = 1,
+}
+declare const enum account_customersizecode {
+  DefaultValue = 1,
+}
+declare const enum account_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum account_ownershipcode {
+  Public = 1,
+  Private = 2,
+  Subsidiary = 3,
+  Other = 4,
+}
+declare const enum account_address2_freighttermscode {
+  DefaultValue = 1,
+}
 declare const enum account_preferredcontactmethodcode {
   Any = 1,
   Email = 2,
   Phone = 3,
   Fax = 4,
   Mail = 5,
-}
-declare const enum account_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum account_customersizecode {
-  DefaultValue = 1,
-}
-declare const enum account_accountratingcode {
-  DefaultValue = 1,
-}
-declare const enum account_businesstypecode {
-  DefaultValue = 1,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -53,22 +94,11 @@ declare const enum account_industrycode {
   VehicleRetail = 32,
   Wholesale = 33,
 }
+declare const enum account_businesstypecode {
+  DefaultValue = 1,
+}
 declare const enum account_shippingmethodcode {
   DefaultValue = 1,
-}
-declare const enum account_preferredappointmenttimecode {
-  Morning = 1,
-  Afternoon = 2,
-  Evening = 3,
-}
-declare const enum account_address2_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum account_ownershipcode {
-  Public = 1,
-  Private = 2,
-  Subsidiary = 3,
-  Other = 4,
 }
 declare const enum account_paymenttermscode {
   Net30 = 1,
@@ -76,43 +106,8 @@ declare const enum account_paymenttermscode {
   Net45 = 3,
   Net60 = 4,
 }
-declare const enum account_accountclassificationcode {
-  DefaultValue = 1,
-}
-declare const enum account_territorycode {
-  DefaultValue = 1,
-}
-declare const enum account_address1_shippingmethodcode {
-  Airborne = 1,
-  DHL = 2,
-  FedEx = 3,
-  UPS = 4,
-  PostalMail = 5,
-  FullLoad = 6,
-  WillCall = 7,
-}
-declare const enum account_preferredappointmentdaycode {
-  Sunday = 0,
-  Monday = 1,
-  Tuesday = 2,
-  Wednesday = 3,
-  Thursday = 4,
-  Friday = 5,
-  Saturday = 6,
-}
-declare const enum account_address2_freighttermscode {
-  DefaultValue = 1,
-}
 declare const enum account_address2_addresstypecode {
   DefaultValue = 1,
-}
-declare const enum account_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum account_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
 }
 declare const enum account_customertypecode {
   Competitor = 1,
@@ -128,15 +123,20 @@ declare const enum account_customertypecode {
   Vendor = 11,
   Other = 12,
 }
-declare const enum account_accountcategorycode {
-  PreferredCustomer = 1,
-  Standard = 2,
+declare const enum account_address2_shippingmethodcode {
+  DefaultValue = 1,
 }
-declare const enum account_address1_addresstypecode {
-  BillTo = 1,
-  ShipTo = 2,
-  Primary = 3,
-  Other = 4,
+declare const enum account_preferredappointmentdaycode {
+  Sunday = 0,
+  Monday = 1,
+  Tuesday = 2,
+  Wednesday = 3,
+  Thursday = 4,
+  Friday = 5,
+  Saturday = 6,
+}
+declare const enum account_territorycode {
+  DefaultValue = 1,
 }
 declare const enum contact_address3_addresstypecode {
   DefaultValue = 1,
@@ -147,9 +147,9 @@ declare const enum contact_address1_addresstypecode {
   Primary = 3,
   Other = 4,
 }
-declare const enum contact_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
+declare const enum contact_gendercode {
+  Male = 1,
+  Female = 2,
 }
 declare const enum contact_address1_shippingmethodcode {
   Airborne = 1,
@@ -160,31 +160,41 @@ declare const enum contact_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
-declare const enum contact_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
-declare const enum contact_gendercode {
-  Male = 1,
-  Female = 2,
-}
 declare const enum opc_duplicatedetectionresult {
   None = 924340000,
   Potentialduplicate = 924340001,
   Duplicatefound = 924340002,
-}
-declare const enum contact_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum contact_preferredappointmenttimecode {
   Morning = 1,
   Afternoon = 2,
   Evening = 3,
 }
-declare const enum contact_customertypecode {
+declare const enum contact_customersizecode {
+  DefaultValue = 1,
+}
+declare const enum contact_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum contact_address2_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_educationcode {
+  DefaultValue = 1,
+}
+declare const enum contact_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
+declare const enum contact_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum contact_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -194,10 +204,13 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
-declare const enum contact_educationcode {
-  DefaultValue = 1,
+declare const enum contact_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
 }
-declare const enum contact_leadsourcecode {
+declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum contact_address3_freighttermscode {
@@ -208,17 +221,7 @@ declare const enum contact_accountrolecode {
   Employee = 2,
   Influencer = 3,
 }
-declare const enum contact_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum contact_address2_addresstypecode {
-  DefaultValue = 1,
-}
-declare const enum contact_territorycode {
-  DefaultValue = 1,
-}
-declare const enum contact_customersizecode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredappointmentdaycode {
@@ -236,6 +239,13 @@ declare const enum opc_multiplecomplaintstrategy {
   Applied = 924340002,
   Former = 924340003,
 }
+declare const enum contact_customertypecode {
+  DefaultValue = 1,
+}
+declare const enum opc_preferredlanguage {
+  English = 924340000,
+  French = 924340001,
+}
 declare const enum contact_haschildrencode {
   DefaultValue = 1,
 }
@@ -251,15 +261,9 @@ declare const enum contact_address3_shippingmethodcode {
 declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum contact_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum contact_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum opc_preferredlanguage {
-  English = 924340000,
-  French = 924340001,
+declare const enum opc_allegation_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_allegationdisposition {
   Acceptable = 924340000,
@@ -267,21 +271,17 @@ declare const enum opc_allegationdisposition {
   Withdrawn = 924340002,
   Resolved = 924340005,
 }
-declare const enum opc_allegation_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_allegation_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum opc_allegationtype_statuscode {
   Active = 1,
   Inactive = 2,
 }
 declare const enum opc_allegationtype_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_allegationtype_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum opc_checklistresponse_statecode {
   Active = 0,
@@ -291,10 +291,6 @@ declare const enum opc_checklistresponse_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_checklisttype_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_checklisttype_statuscode {
   Active = 1,
   Inactive = 2,
@@ -302,9 +298,46 @@ declare const enum opc_checklisttype_statuscode {
 declare const enum opc_complaintstage {
   Intake = 924340000,
 }
+declare const enum opc_checklisttype_statecode {
+  Active = 0,
+  Inactive = 1,
+}
 declare const enum opc_yesorno {
   Yes = 924340000,
   No = 924340001,
+}
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
+}
+declare const enum opc_intakedisposition {
+  MovetoEarlyResolution = 924340000,
+  MovetoInvestigation = 924340001,
+  Declinetoinvestigate = 924340002,
+  Close = 924340003,
+}
+declare const enum opc_complaint_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
 }
 declare const enum opc_complaint_statuscode {
   Declined = 924340001,
@@ -321,28 +354,6 @@ declare const enum opc_complaint_statuscode {
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
 }
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
-}
-declare const enum opc_complaintmilestone {
-  Triage = 924340000,
-  Intake = 924340001,
-  EarlyResolution = 924340002,
-  Investigation = 924340003,
-}
-declare const enum opc_intakedisposition {
-  MovetoEarlyResolution = 924340000,
-  MovetoInvestigation = 924340001,
-  Declinetoinvestigate = 924340002,
-  Close = 924340003,
-}
 declare const enum opc_nextstep {
   Transfertoinvestigations = 924340000,
   Resolved = 924340001,
@@ -350,32 +361,21 @@ declare const enum opc_nextstep {
   Settled = 924340003,
   Discontinued = 924340004,
 }
-declare const enum opc_complaint_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_closereason {
-  Redirection = 924340000,
-  Duplicate = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
-  Createdinerror = 924340004,
-}
-declare const enum opc_dispositionaction_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_dispositionaction_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionreason_statecode {
+declare const enum opc_dispositionaction_statecode {
   Active = 0,
   Inactive = 1,
 }
 declare const enum opc_dispositionreason_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_dispositionreason_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_individualcomplaint_bp_statecode {
   Active = 0,
@@ -426,13 +426,13 @@ declare const enum opc_notification_statuscode {
   Inactive = 2,
   Read = 924340000,
 }
-declare const enum opc_opcpriority_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_opcpriority_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_opcpriority_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_questiontemplate_statecode {
   Active = 0,
@@ -482,13 +482,13 @@ declare const enum opc_riskassessment_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentcategory_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_riskassessmentcategory_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_riskassessmentcategory_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_riskassessmentcategorytemplate_statecode {
   Active = 0,
@@ -498,13 +498,13 @@ declare const enum opc_riskassessmentcategorytemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentdefinition_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_riskassessmentdefinition_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_riskassessmentdefinition_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_riskassessmentdefinitiontemplate_statecode {
   Active = 0,
@@ -522,23 +522,19 @@ declare const enum opc_riskassessmentfactortemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmenttype_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_riskassessmenttype_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_sector_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_riskassessmenttype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_sector_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_theme_statecode {
+declare const enum opc_sector_statecode {
   Active = 0,
   Inactive = 1,
 }
@@ -546,7 +542,7 @@ declare const enum opc_theme_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_topic_statecode {
+declare const enum opc_theme_statecode {
   Active = 0,
   Inactive = 1,
 }
@@ -554,21 +550,9 @@ declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum queue_incomingemailfilteringmethod {
-  Allemailmessages = 0,
-  EmailmessagesinresponsetoDynamics365email = 1,
-  EmailmessagesfromDynamics365LeadsContactsandAccounts = 2,
-  EmailmessagesfromDynamics365recordsthatareemailenabled = 3,
-  Noemailmessages = 4,
-}
-declare const enum queue_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
-declare const enum queue_incomingemaildeliverymethod {
-  None = 0,
-  ServerSideSynchronizationorEmailRouter = 2,
-  ForwardMailbox = 3,
+declare const enum opc_topic_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queue_queuetypecode {
   DefaultValue = 1,
@@ -581,23 +565,39 @@ declare const enum queue_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum queue_queueviewtype {
-  Public = 0,
-  Private = 1,
-}
 declare const enum queue_emailrouteraccessapproval {
   Empty = 0,
   Approved = 1,
   PendingApproval = 2,
   Rejected = 3,
 }
-declare const enum queueitem_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum queue_queueviewtype {
+  Public = 0,
+  Private = 1,
+}
+declare const enum queue_incomingemaildeliverymethod {
+  None = 0,
+  ServerSideSynchronizationorEmailRouter = 2,
+  ForwardMailbox = 3,
+}
+declare const enum queue_incomingemailfilteringmethod {
+  Allemailmessages = 0,
+  EmailmessagesinresponsetoDynamics365email = 1,
+  EmailmessagesfromDynamics365LeadsContactsandAccounts = 2,
+  EmailmessagesfromDynamics365recordsthatareemailenabled = 3,
+  Noemailmessages = 4,
+}
+declare const enum queue_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum queueitem_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum queueitem_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queueitem_objecttypecode {
   Activity = 4200,
@@ -610,30 +610,71 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10034,
-  Complaint = 10054,
+  KnowledgeArticleTemplate = 10007,
+  Complaint = 11682,
 }
-declare const enum systemuser_address2_shippingmethodcode {
+declare const enum sharepointsite_servicetype {
+  SharePoint = 0,
+  OneDrive = 1,
+  Sharedwithme = 2,
+  MSTeams = 3,
+}
+declare const enum sharepointdocumentlocation_locationtype {
+  General = 0,
+  DedicatedforOneNoteIntegration = 1,
+}
+declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
 }
 declare const enum systemuser_address1_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum systemuser_preferredemailcode {
-  DefaultValue = 1,
-}
-declare const enum systemuser_address1_addresstypecode {
-  DefaultValue = 1,
+declare const enum systemuser_invitestatuscode {
+  InvitationNotSent = 0,
+  Invited = 1,
+  InvitationNearExpired = 2,
+  InvitationExpired = 3,
+  InvitationAccepted = 4,
+  InvitationRejected = 5,
+  InvitationRevoked = 6,
 }
 declare const enum systemuser_preferredaddresscode {
   MailingAddress = 1,
   OtherAddress = 2,
+}
+declare const enum systemuser_preferredemailcode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum systemuser_outgoingemaildeliverymethod {
+  None = 0,
+  MicrosoftDynamics365forOutlook = 1,
+  ServerSideSynchronizationorEmailRouter = 2,
+}
+declare const enum systemuser_preferredphonecode {
+  MainPhone = 1,
+  OtherPhone = 2,
+  HomePhone = 3,
+  MobilePhone = 4,
 }
 declare const enum systemuser_incomingemaildeliverymethod {
   None = 0,
   MicrosoftDynamics365forOutlook = 1,
   ServerSideSynchronizationorEmailRouter = 2,
   ForwardMailbox = 3,
+}
+declare const enum systemuser_accessmode {
+  ReadWrite = 0,
+  Administrative = 1,
+  Read = 2,
+  SupportUser = 3,
+  Noninteractive = 4,
+  DelegatedAdmin = 5,
 }
 declare const enum systemuser_caltype {
   Professional = 0,
@@ -650,55 +691,17 @@ declare const enum systemuser_caltype {
   FieldService = 11,
   ProjectService = 12,
 }
-declare const enum systemuser_preferredphonecode {
-  MainPhone = 1,
-  OtherPhone = 2,
-  HomePhone = 3,
-  MobilePhone = 4,
-}
-declare const enum systemuser_outgoingemaildeliverymethod {
-  None = 0,
-  MicrosoftDynamics365forOutlook = 1,
-  ServerSideSynchronizationorEmailRouter = 2,
-}
-declare const enum systemuser_invitestatuscode {
-  InvitationNotSent = 0,
-  Invited = 1,
-  InvitationNearExpired = 2,
-  InvitationExpired = 3,
-  InvitationAccepted = 4,
-  InvitationRejected = 5,
-  InvitationRevoked = 6,
-}
-declare const enum systemuser_emailrouteraccessapproval {
-  Empty = 0,
-  Approved = 1,
-  PendingApproval = 2,
-  Rejected = 3,
-}
 declare const enum systemuser_address2_addresstypecode {
   DefaultValue = 1,
 }
-declare const enum systemuser_accessmode {
-  ReadWrite = 0,
-  Administrative = 1,
-  Read = 2,
-  SupportUser = 3,
-  Noninteractive = 4,
-  DelegatedAdmin = 5,
+declare const enum systemuser_address2_shippingmethodcode {
+  DefaultValue = 1,
 }
 declare const enum team_type {
   Owner = 0,
   Access = 1,
   AADSecurityGroup = 2,
   AADOfficeGroup = 3,
-}
-declare const enum activityparty_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -713,13 +716,35 @@ declare const enum activityparty_participationtypemask {
   Resource = 10,
   Customer = 11,
 }
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum activityparty_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
 }
-declare const enum connection_statuscode {
-  Active = 1,
-  Inactive = 2,
+declare const enum connection_record1objecttypecode {
+  Account = 1,
+  Contact = 2,
+  User = 8,
+  Team = 9,
+  Position = 50,
+  SocialProfile = 99,
+  Territory = 2013,
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  RecurringAppointment = 4251,
+  ProcessSession = 4710,
+  ChannelAccessProfileRule = 9400,
+  Goal = 9600,
+  KnowledgeBaseRecord = 9930,
+  KnowledgeArticle = 9953,
 }
 declare const enum connection_record2objecttypecode {
   Account = 1,
@@ -744,28 +769,13 @@ declare const enum connection_record2objecttypecode {
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
 }
-declare const enum connection_record1objecttypecode {
-  Account = 1,
-  Contact = 2,
-  User = 8,
-  Team = 9,
-  Position = 50,
-  SocialProfile = 99,
-  Territory = 2013,
-  Activity = 4200,
-  Appointment = 4201,
-  Email = 4202,
-  Fax = 4204,
-  Letter = 4207,
-  PhoneCall = 4210,
-  Task = 4212,
-  SocialActivity = 4216,
-  RecurringAppointment = 4251,
-  ProcessSession = 4710,
-  ChannelAccessProfileRule = 9400,
-  Goal = 9600,
-  KnowledgeBaseRecord = 9930,
-  KnowledgeArticle = 9953,
+declare const enum connection_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare namespace Form.account.QuickCreate {
   namespace QuickCreate {
@@ -7406,6 +7416,34 @@ declare namespace Form.queueitem.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.sharepointdocument.Main {
+  namespace Information {
+    namespace Tabs {
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.systemuser.Main {
   namespace User {
     namespace Tabs {
@@ -9051,6 +9089,29 @@ interface QueueMembership_Create extends QueueMembership {
 }
 interface QueueMembership_Update extends QueueMembership {
 }
+interface SharePointDocument_Base extends WebEntity {
+}
+interface SharePointDocument_Fixed extends WebEntity_Fixed {
+  sharepointdocumentid: string;
+}
+interface SharePointDocument extends SharePointDocument_Base, SharePointDocument_Relationships {
+}
+interface SharePointDocument_Relationships {
+}
+interface SharePointDocument_Result extends SharePointDocument_Base, SharePointDocument_Relationships {
+}
+interface SharePointDocument_FormattedResult {
+}
+interface SharePointDocument_Select {
+}
+interface SharePointDocument_Expand {
+}
+interface SharePointDocument_Filter {
+}
+interface SharePointDocument_Create extends SharePointDocument {
+}
+interface SharePointDocument_Update extends SharePointDocument {
+}
 interface SystemUser_Base extends WebEntity {
 }
 interface SystemUser_Fixed extends WebEntity_Fixed {
@@ -9295,6 +9356,7 @@ interface Account_Base extends WebEntity {
   websiteurl?: string | null;
 }
 interface Account_Relationships {
+  Account_SharepointDocument?: SharePointDocument_Result[] | null;
   account_activity_parties?: ActivityParty_Result[] | null;
   account_connections1?: Connection_Result[] | null;
   account_connections2?: Connection_Result[] | null;
@@ -9608,6 +9670,7 @@ interface Account_Filter {
   websiteurl: string;
 }
 interface Account_Expand {
+  Account_SharepointDocument: WebExpand<Account_Expand, SharePointDocument_Select, SharePointDocument_Filter, { Account_SharepointDocument: SharePointDocument_Result[] }>;
   account_activity_parties: WebExpand<Account_Expand, ActivityParty_Select, ActivityParty_Filter, { account_activity_parties: ActivityParty_Result[] }>;
   account_connections1: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections1: Connection_Result[] }>;
   account_connections2: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections2: Connection_Result[] }>;
@@ -9721,6 +9784,7 @@ interface Account_RelatedOne {
   primarycontactid: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
 }
 interface Account_RelatedMany {
+  Account_SharepointDocument: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   account_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   account_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   account_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
@@ -11088,6 +11152,7 @@ interface opc_complaint_Relationships {
   bpf_opc_complaint_opc_individualcomplaint_bp?: opc_individualcomplaint_bp_Result[] | null;
   opc_RiskAssessment_Complaint_opc_complain?: opc_RiskAssessment_Result[] | null;
   opc_complaint_QueueItems?: QueueItem_Result[] | null;
+  opc_complaint_SharePointDocuments?: SharePointDocument_Result[] | null;
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
   opc_complaint_notifications_complaint?: opc_notification_Result[] | null;
@@ -11233,6 +11298,7 @@ interface opc_complaint_Expand {
   opc_complainantlegalrepresentativefirm: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_complainantlegalrepresentativefirm: Account_Result }>;
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
   opc_complaint_QueueItems: WebExpand<opc_complaint_Expand, QueueItem_Select, QueueItem_Filter, { opc_complaint_QueueItems: QueueItem_Result[] }>;
+  opc_complaint_SharePointDocuments: WebExpand<opc_complaint_Expand, SharePointDocument_Select, SharePointDocument_Filter, { opc_complaint_SharePointDocuments: SharePointDocument_Result[] }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
   opc_complaint_notifications_complaint: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaint: opc_notification_Result[] }>;
@@ -11335,6 +11401,7 @@ interface opc_complaint_RelatedMany {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
   opc_RiskAssessment_Complaint_opc_complain: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
   opc_complaint_QueueItems: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  opc_complaint_SharePointDocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
   opc_complaint_notifications_complaint: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
@@ -15042,6 +15109,226 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   queuememberships: WebMappingCUDA<QueueMembership_Create,QueueMembership_Update,QueueMembership_Select>;
 }
+interface SharePointDocument_Base extends WebEntity {
+  absoluteurl?: string | null;
+  appcreatedby?: string | null;
+  appmodifiedby?: string | null;
+  author?: string | null;
+  checkedoutto?: string | null;
+  checkincomment?: string | null;
+  childfoldercount?: number | null;
+  childitemcount?: number | null;
+  contenttype?: string | null;
+  contenttypeid?: number | null;
+  copysource?: string | null;
+  createdon?: Date | null;
+  documentid?: number | null;
+  documentlocationtype?: sharepointdocumentlocation_locationtype | null;
+  edit?: string | null;
+  editurl?: string | null;
+  exchangerate?: number | null;
+  filesize?: number | null;
+  filetype?: string | null;
+  fullname?: string | null;
+  iconclassname?: string | null;
+  ischeckedout?: boolean | null;
+  isfolder?: boolean | null;
+  isrecursivefetch?: boolean | null;
+  locationid?: string | null;
+  locationname?: string | null;
+  modified?: Date | null;
+  modifiedon?: Date | null;
+  readurl?: string | null;
+  relativelocation?: string | null;
+  servicetype?: sharepointsite_servicetype | null;
+  sharepointcreatedon?: Date | null;
+  sharepointdocumentid?: string | null;
+  sharepointmodifiedby?: string | null;
+  title?: string | null;
+  version?: string | null;
+}
+interface SharePointDocument_Relationships {
+  regardingobjectid_account?: Account_Result | null;
+  regardingobjectid_opc_complaint?: opc_complaint_Result | null;
+}
+interface SharePointDocument extends SharePointDocument_Base, SharePointDocument_Relationships {
+  businessunitid_bind$businessunits?: string | null;
+  regardingobjectid_account_bind$accounts?: string | null;
+  regardingobjectid_kbarticle_bind$kbarticles?: string | null;
+  regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
+  regardingobjectid_msdyn_knowledgearticletemplate_bind$msdyn_knowledgearticletemplates?: string | null;
+  regardingobjectid_opc_complaint_bind$opc_complaints?: string | null;
+}
+interface SharePointDocument_Create extends SharePointDocument {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface SharePointDocument_Update extends SharePointDocument {
+}
+interface SharePointDocument_Select {
+  absoluteurl: WebAttribute<SharePointDocument_Select, { absoluteurl: string | null }, {  }>;
+  appcreatedby: WebAttribute<SharePointDocument_Select, { appcreatedby: string | null }, {  }>;
+  appmodifiedby: WebAttribute<SharePointDocument_Select, { appmodifiedby: string | null }, {  }>;
+  author: WebAttribute<SharePointDocument_Select, { author: string | null }, {  }>;
+  businessunitid_guid: WebAttribute<SharePointDocument_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
+  checkedoutto: WebAttribute<SharePointDocument_Select, { checkedoutto: string | null }, {  }>;
+  checkincomment: WebAttribute<SharePointDocument_Select, { checkincomment: string | null }, {  }>;
+  childfoldercount: WebAttribute<SharePointDocument_Select, { childfoldercount: number | null }, {  }>;
+  childitemcount: WebAttribute<SharePointDocument_Select, { childitemcount: number | null }, {  }>;
+  contenttype: WebAttribute<SharePointDocument_Select, { contenttype: string | null }, {  }>;
+  contenttypeid: WebAttribute<SharePointDocument_Select, { contenttypeid: number | null }, {  }>;
+  copysource: WebAttribute<SharePointDocument_Select, { copysource: string | null }, {  }>;
+  createdby_guid: WebAttribute<SharePointDocument_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<SharePointDocument_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<SharePointDocument_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  documentid: WebAttribute<SharePointDocument_Select, { documentid: number | null }, {  }>;
+  documentlocationtype: WebAttribute<SharePointDocument_Select, { documentlocationtype: sharepointdocumentlocation_locationtype | null }, { documentlocationtype_formatted?: string }>;
+  edit: WebAttribute<SharePointDocument_Select, { edit: string | null }, {  }>;
+  editurl: WebAttribute<SharePointDocument_Select, { editurl: string | null }, {  }>;
+  exchangerate: WebAttribute<SharePointDocument_Select, { exchangerate: number | null }, {  }>;
+  filesize: WebAttribute<SharePointDocument_Select, { filesize: number | null }, {  }>;
+  filetype: WebAttribute<SharePointDocument_Select, { filetype: string | null }, {  }>;
+  fullname: WebAttribute<SharePointDocument_Select, { fullname: string | null }, {  }>;
+  iconclassname: WebAttribute<SharePointDocument_Select, { iconclassname: string | null }, {  }>;
+  ischeckedout: WebAttribute<SharePointDocument_Select, { ischeckedout: boolean | null }, {  }>;
+  isfolder: WebAttribute<SharePointDocument_Select, { isfolder: boolean | null }, {  }>;
+  isrecursivefetch: WebAttribute<SharePointDocument_Select, { isrecursivefetch: boolean | null }, {  }>;
+  locationid: WebAttribute<SharePointDocument_Select, { locationid: string | null }, {  }>;
+  locationname: WebAttribute<SharePointDocument_Select, { locationname: string | null }, {  }>;
+  modified: WebAttribute<SharePointDocument_Select, { modified: Date | null }, { modified_formatted?: string }>;
+  modifiedby_guid: WebAttribute<SharePointDocument_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<SharePointDocument_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<SharePointDocument_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  organizationid_guid: WebAttribute<SharePointDocument_Select, { organizationid_guid: string | null }, { organizationid_formatted?: string }>;
+  ownerid_guid: WebAttribute<SharePointDocument_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<SharePointDocument_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<SharePointDocument_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<SharePointDocument_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  readurl: WebAttribute<SharePointDocument_Select, { readurl: string | null }, {  }>;
+  regardingobjectid_guid: WebAttribute<SharePointDocument_Select, { regardingobjectid_guid: string | null }, { regardingobjectid_formatted?: string }>;
+  relativelocation: WebAttribute<SharePointDocument_Select, { relativelocation: string | null }, {  }>;
+  servicetype: WebAttribute<SharePointDocument_Select, { servicetype: sharepointsite_servicetype | null }, { servicetype_formatted?: string }>;
+  sharepointcreatedon: WebAttribute<SharePointDocument_Select, { sharepointcreatedon: Date | null }, { sharepointcreatedon_formatted?: string }>;
+  sharepointdocumentid: WebAttribute<SharePointDocument_Select, { sharepointdocumentid: string | null }, {  }>;
+  sharepointmodifiedby: WebAttribute<SharePointDocument_Select, { sharepointmodifiedby: string | null }, {  }>;
+  title: WebAttribute<SharePointDocument_Select, { title: string | null }, {  }>;
+  transactioncurrencyid_guid: WebAttribute<SharePointDocument_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  version: WebAttribute<SharePointDocument_Select, { version: string | null }, {  }>;
+}
+interface SharePointDocument_Filter {
+  absoluteurl: string;
+  appcreatedby: string;
+  appmodifiedby: string;
+  author: string;
+  businessunitid_guid: XQW.Guid;
+  checkedoutto: string;
+  checkincomment: string;
+  childfoldercount: number;
+  childitemcount: number;
+  contenttype: string;
+  contenttypeid: number;
+  copysource: string;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  documentid: number;
+  documentlocationtype: sharepointdocumentlocation_locationtype;
+  edit: string;
+  editurl: string;
+  exchangerate: any;
+  filesize: number;
+  filetype: string;
+  fullname: string;
+  iconclassname: string;
+  ischeckedout: boolean;
+  isfolder: boolean;
+  isrecursivefetch: boolean;
+  locationid: string;
+  locationname: string;
+  modified: Date;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  organizationid_guid: XQW.Guid;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  readurl: string;
+  regardingobjectid_guid: XQW.Guid;
+  relativelocation: string;
+  servicetype: sharepointsite_servicetype;
+  sharepointcreatedon: Date;
+  sharepointdocumentid: XQW.Guid;
+  sharepointmodifiedby: string;
+  title: string;
+  transactioncurrencyid_guid: XQW.Guid;
+  version: string;
+}
+interface SharePointDocument_Expand {
+  createdby: WebExpand<SharePointDocument_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<SharePointDocument_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<SharePointDocument_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<SharePointDocument_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  ownerid: WebExpand<SharePointDocument_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  regardingobjectid_account: WebExpand<SharePointDocument_Expand, Account_Select, Account_Filter, { regardingobjectid_account: Account_Result }>;
+  regardingobjectid_opc_complaint: WebExpand<SharePointDocument_Expand, opc_complaint_Select, opc_complaint_Filter, { regardingobjectid_opc_complaint: opc_complaint_Result }>;
+}
+interface SharePointDocument_FormattedResult {
+  businessunitid_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  documentlocationtype_formatted?: string;
+  modified_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  organizationid_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  regardingobjectid_formatted?: string;
+  servicetype_formatted?: string;
+  sharepointcreatedon_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+}
+interface SharePointDocument_Result extends SharePointDocument_Base, SharePointDocument_Relationships {
+  "@odata.etag": string;
+  businessunitid_guid: string | null;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  organizationid_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+  regardingobjectid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface SharePointDocument_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  regardingobjectid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  regardingobjectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface SharePointDocument_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  sharepointdocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  sharepointdocuments: WebMappingRelated<SharePointDocument_RelatedOne,SharePointDocument_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  sharepointdocuments: WebMappingCUDA<SharePointDocument_Create,SharePointDocument_Update,SharePointDocument_Select>;
+}
 interface SystemUser_Base extends WebEntity {
   accessmode?: systemuser_accessmode | null;
   activedirectoryguid?: string | null;
@@ -15284,6 +15571,10 @@ interface SystemUser_Relationships {
   lk_queueitembase_createdby?: QueueItem_Result[] | null;
   lk_queueitembase_modifiedby?: QueueItem_Result[] | null;
   lk_queueitembase_workerid?: QueueItem_Result[] | null;
+  lk_sharepointdocumentbase_createdby?: SharePointDocument_Result[] | null;
+  lk_sharepointdocumentbase_createdonbehalfby?: SharePointDocument_Result[] | null;
+  lk_sharepointdocumentbase_modifiedby?: SharePointDocument_Result[] | null;
+  lk_sharepointdocumentbase_modifiedonbehalfby?: SharePointDocument_Result[] | null;
   lk_systemuser_createdonbehalfby?: SystemUser_Result[] | null;
   lk_systemuser_modifiedonbehalfby?: SystemUser_Result[] | null;
   lk_systemuserbase_createdby?: SystemUser_Result[] | null;
@@ -15731,6 +16022,10 @@ interface SystemUser_Expand {
   lk_queueitembase_createdby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitembase_createdby: QueueItem_Result[] }>;
   lk_queueitembase_modifiedby: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitembase_modifiedby: QueueItem_Result[] }>;
   lk_queueitembase_workerid: WebExpand<SystemUser_Expand, QueueItem_Select, QueueItem_Filter, { lk_queueitembase_workerid: QueueItem_Result[] }>;
+  lk_sharepointdocumentbase_createdby: WebExpand<SystemUser_Expand, SharePointDocument_Select, SharePointDocument_Filter, { lk_sharepointdocumentbase_createdby: SharePointDocument_Result[] }>;
+  lk_sharepointdocumentbase_createdonbehalfby: WebExpand<SystemUser_Expand, SharePointDocument_Select, SharePointDocument_Filter, { lk_sharepointdocumentbase_createdonbehalfby: SharePointDocument_Result[] }>;
+  lk_sharepointdocumentbase_modifiedby: WebExpand<SystemUser_Expand, SharePointDocument_Select, SharePointDocument_Filter, { lk_sharepointdocumentbase_modifiedby: SharePointDocument_Result[] }>;
+  lk_sharepointdocumentbase_modifiedonbehalfby: WebExpand<SystemUser_Expand, SharePointDocument_Select, SharePointDocument_Filter, { lk_sharepointdocumentbase_modifiedonbehalfby: SharePointDocument_Result[] }>;
   lk_systemuser_createdonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_createdonbehalfby: SystemUser_Result[] }>;
   lk_systemuser_modifiedonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_modifiedonbehalfby: SystemUser_Result[] }>;
   lk_systemuserbase_createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_createdby: SystemUser_Result[] }>;
@@ -15971,6 +16266,10 @@ interface SystemUser_RelatedMany {
   lk_queueitembase_createdby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   lk_queueitembase_modifiedby: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   lk_queueitembase_workerid: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  lk_sharepointdocumentbase_createdby: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+  lk_sharepointdocumentbase_createdonbehalfby: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+  lk_sharepointdocumentbase_modifiedby: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+  lk_sharepointdocumentbase_modifiedonbehalfby: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   lk_systemuser_createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuser_modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuserbase_createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
