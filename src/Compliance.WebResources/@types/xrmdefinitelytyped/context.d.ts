@@ -261,6 +261,818 @@ declare const enum contact_address3_shippingmethodcode {
 declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum duplicaterule_statecode {
+  Inactive = 0,
+  Active = 1,
+}
+declare const enum duplicaterule_statuscode {
+  Unpublished = 0,
+  Publishing = 1,
+  Published = 2,
+}
+declare const enum duplicaterule_baseentitytypecode {
+  Account = 1,
+  Contact = 2,
+  Note = 5,
+  BusinessUnitMap = 6,
+  Owner = 7,
+  User = 8,
+  Team = 9,
+  BusinessUnit = 10,
+  SystemUserPrincipal = 14,
+  Subscription = 29,
+  FilterTemplate = 30,
+  PrivilegeObjectTypeCode = 31,
+  SubscriptionSynchronizationInformation = 33,
+  Trackinginformationfordeletedentities = 35,
+  Clientupdate = 36,
+  SubscriptionManuallyTrackedObject = 37,
+  SystemUserBusinessUnitEntityMap = 42,
+  FieldSharing = 44,
+  SubscriptionStatisticOffline = 45,
+  SubscriptionStatisticOutlook = 46,
+  SubscriptionSyncEntryOffline = 47,
+  SubscriptionSyncEntryOutlook = 48,
+  Position = 50,
+  SystemUserManagerMap = 51,
+  UserSearchFacet = 52,
+  GlobalSearchConfiguration = 54,
+  FileAttachment = 55,
+  VirtualEntityDataProvider = 78,
+  VirtualEntityDataSource = 85,
+  Teamtemplate = 92,
+  SocialProfile = 99,
+  ServicePlan = 101,
+  IndexedArticle = 126,
+  Article = 127,
+  Subject = 129,
+  Announcement = 132,
+  ActivityParty = 135,
+  UserSettings = 150,
+  CanvasApp = 300,
+  CallbackRegistration = 301,
+  Connector = 372,
+  EnvironmentVariableDefinition = 380,
+  EnvironmentVariableValue = 381,
+  AITemplate = 400,
+  AIModel = 401,
+  AIConfiguration = 402,
+  Dataflow = 418,
+  EntityAnalyticsConfig = 430,
+  ImageAttributeConfiguration = 431,
+  EntityImageConfiguration = 432,
+  NewProcess = 950,
+  TranslationProcess = 951,
+  ExpiredProcess = 955,
+  Attachment = 1001,
+  Attachment_2 = 1002,
+  InternalAddress = 1003,
+  ImageDescriptor = 1007,
+  ArticleTemplate = 1016,
+  Organization = 1019,
+  OrganizationUI = 1021,
+  Privilege = 1023,
+  SystemForm = 1030,
+  UserDashboard = 1031,
+  SecurityRole = 1036,
+  RoleTemplate = 1037,
+  View = 1039,
+  StringMap = 1043,
+  Address = 1071,
+  SubscriptionClients = 1072,
+  StatusMap = 1075,
+  ArticleComment = 1082,
+  UserFiscalCalendar = 1086,
+  AuthorizationServer = 1094,
+  PartnerApplication = 1095,
+  SystemChart = 1111,
+  UserChart = 1112,
+  RibbonTabToCommandMapping = 1113,
+  RibbonContextGroup = 1115,
+  RibbonCommand = 1116,
+  RibbonRule = 1117,
+  ApplicationRibbons = 1120,
+  RibbonDifference = 1130,
+  ReplicationBacklog = 1140,
+  DocumentSuggestions = 1189,
+  SuggestionCardTemplate = 1190,
+  FieldSecurityProfile = 1200,
+  FieldPermission = 1201,
+  TeamProfiles = 1203,
+  ChannelPropertyGroup = 1234,
+  ChannelProperty = 1236,
+  SocialInsightsConfiguration = 1300,
+  SavedOrganizationInsightsConfiguration = 1309,
+  SyncAttributeMappingProfile = 1400,
+  SyncAttributeMapping = 1401,
+  TeamSyncAttributeMappingProfiles = 1403,
+  PrincipalSyncAttributeMap = 1404,
+  AnnualFiscalCalendar = 2000,
+  SemiannualFiscalCalendar = 2001,
+  QuarterlyFiscalCalendar = 2002,
+  MonthlyFiscalCalendar = 2003,
+  FixedMonthlyFiscalCalendar = 2004,
+  EmailTemplate = 2010,
+  UnresolvedAddress = 2012,
+  Territory = 2013,
+  Theme_2 = 2015,
+  UserMapping = 2016,
+  Queue = 2020,
+  QueueItemCount = 2023,
+  QueueMemberCount = 2024,
+  License = 2027,
+  QueueItem = 2029,
+  UserEntityUISettings = 2500,
+  UserEntityInstanceData = 2501,
+  IntegrationStatus = 3000,
+  ChannelAccessProfile = 3005,
+  ExternalParty = 3008,
+  ConnectionRole = 3231,
+  ConnectionRoleObjectTypeCode = 3233,
+  Connection = 3234,
+  Calendar = 4003,
+  CalendarRule = 4004,
+  InterProcessLock = 4011,
+  EmailHash = 4023,
+  DisplayStringMap = 4101,
+  DisplayString = 4102,
+  Notification_2 = 4110,
+  ExchangeSyncIdMapping = 4120,
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  UntrackedEmail = 4220,
+  SavedView = 4230,
+  MetadataDifference = 4231,
+  BusinessDataLocalizedLabel = 4232,
+  RecurrenceRule = 4250,
+  RecurringAppointment = 4251,
+  EmailSearch = 4299,
+  DataImport = 4410,
+  DataMap = 4411,
+  ImportSourceFile = 4412,
+  ImportData = 4413,
+  DuplicateDetectionRule = 4414,
+  DuplicateRecord = 4415,
+  DuplicateRuleCondition = 4416,
+  ColumnMapping = 4417,
+  ListValueMapping = 4418,
+  LookupMapping = 4419,
+  OwnerMapping = 4420,
+  ImportLog = 4423,
+  BulkDeleteOperation = 4424,
+  BulkDeleteFailure = 4425,
+  TransformationMapping = 4426,
+  TransformationParameterMapping = 4427,
+  ImportEntityMapping = 4428,
+  DataPerformanceDashboard = 4450,
+  OfficeDocument = 4490,
+  RelationshipRole = 4500,
+  RelationshipRoleMap = 4501,
+  CustomerRelationship = 4502,
+  Auditing = 4567,
+  RibbonClientMetadata = 4579,
+  EntityMap = 4600,
+  AttributeMap = 4601,
+  PluginType = 4602,
+  PluginTypeStatistic = 4603,
+  PluginAssembly = 4605,
+  SdkMessage = 4606,
+  SdkMessageFilter = 4607,
+  SdkMessageProcessingStep = 4608,
+  SdkMessageRequest = 4609,
+  SdkMessageResponse = 4610,
+  SdkMessageResponseField = 4611,
+  SdkMessagePair = 4613,
+  SdkMessageRequestField = 4614,
+  SdkMessageProcessingStepImage = 4615,
+  SdkMessageProcessingStepSecureConfiguration = 4616,
+  ServiceEndpoint = 4618,
+  PluginTraceLog = 4619,
+  SystemJob = 4700,
+  WorkflowWaitSubscription = 4702,
+  Process = 4703,
+  ProcessDependency = 4704,
+  ISVConfig = 4705,
+  ProcessLog = 4706,
+  ApplicationFile = 4707,
+  OrganizationStatistic = 4708,
+  SiteMap = 4709,
+  ProcessSession = 4710,
+  ExpanderEvent = 4711,
+  ProcessTrigger = 4712,
+  FlowSession = 4720,
+  ProcessStage = 4724,
+  BusinessProcessFlowInstance = 4725,
+  WebWizard = 4800,
+  WizardPage = 4802,
+  WebWizardAccessPrivilege = 4803,
+  TimeZoneDefinition = 4810,
+  TimeZoneRule = 4811,
+  TimeZoneLocalizedName = 4812,
+  SystemApplicationMetadata = 7000,
+  UserApplicationMetadata = 7001,
+  Solution = 7100,
+  Publisher = 7101,
+  PublisherAddress = 7102,
+  SolutionComponent = 7103,
+  SolutionComponentDefinition = 7104,
+  Dependency = 7105,
+  DependencyNode = 7106,
+  InvalidDependency = 7107,
+  DependencyFeature = 7108,
+  RuntimeDependency = 7200,
+  Post = 8000,
+  PostRole = 8001,
+  PostRegarding = 8002,
+  Follow = 8003,
+  Comment = 8005,
+  Like = 8006,
+  ACIViewMapper = 8040,
+  Trace = 8050,
+  TraceAssociation = 8051,
+  TraceRegarding = 8052,
+  RoutingRuleSet = 8181,
+  RuleItem = 8199,
+  AppModuleMetadata = 8700,
+  AppModuleMetadataDependency = 8701,
+  AppModuleMetadataAsyncOperation = 8702,
+  HierarchyRule = 8840,
+  ModeldrivenApp = 9006,
+  AppModuleComponent = 9007,
+  AppModuleRoles = 9009,
+  AppConfigMaster = 9011,
+  AppConfiguration = 9012,
+  AppConfigurationInstance = 9013,
+  Report = 9100,
+  ReportRelatedEntity = 9101,
+  ReportRelatedCategory = 9102,
+  ReportVisibility = 9103,
+  ReportLink = 9104,
+  Currency = 9105,
+  MailMergeTemplate = 9106,
+  ImportJob = 9107,
+  LocalConfigStore = 9201,
+  RecordCreationandUpdateRule = 9300,
+  RecordCreationandUpdateRuleItem = 9301,
+  WebResource = 9333,
+  ChannelAccessProfileRule = 9400,
+  ChannelAccessProfileRuleItem = 9401,
+  SharePointSite = 9502,
+  SharepointDocument = 9507,
+  DocumentLocation = 9508,
+  SharePointData = 9509,
+  RollupProperties = 9510,
+  RollupJob = 9511,
+  Goal = 9600,
+  RollupQuery = 9602,
+  GoalMetric = 9603,
+  RollupField = 9604,
+  EmailServerProfile = 9605,
+  Mailbox = 9606,
+  MailboxStatistics = 9607,
+  MailboxAutoTrackingFolder = 9608,
+  MailboxTrackingCategory = 9609,
+  ProcessConfiguration = 9650,
+  OrganizationInsightsNotification = 9690,
+  OrganizationInsightsMetric = 9699,
+  SLA = 9750,
+  SLAItem = 9751,
+  SLAKPIInstance = 9752,
+  CustomControl = 9753,
+  CustomControlResource = 9754,
+  CustomControlDefaultConfig = 9755,
+  Entity = 9800,
+  Attribute = 9808,
+  OptionSet = 9809,
+  EntityKey = 9810,
+  EntityRelationship = 9811,
+  ManagedProperty = 9812,
+  RelationshipEntity = 9813,
+  RelationshipAttribute = 9814,
+  MobileOfflineProfile = 9866,
+  MobileOfflineProfileItem = 9867,
+  MobileOfflineProfileItemAssociation = 9868,
+  SyncError = 9869,
+  OfflineCommandDefinition = 9870,
+  LanguageProvisioningState = 9875,
+  RibbonMetadataToProcess = 9880,
+  SolutionHistoryData = 9890,
+  NavigationSetting = 9900,
+  MultiEntitySearch = 9910,
+  MultiSelectOptionValue = 9912,
+  HierarchySecurityConfiguration = 9919,
+  KnowledgeBaseRecord = 9930,
+  TimeStampDateMapping = 9932,
+  AzureServiceConnection = 9936,
+  DocumentTemplate = 9940,
+  PersonalDocumentTemplate = 9941,
+  TextAnalyticsEntityMapping = 9945,
+  KnowledgeSearchModel = 9947,
+  AdvancedSimilarityRule = 9949,
+  OfficeGraphDocument = 9950,
+  SimilarityRule = 9951,
+  KnowledgeArticle = 9953,
+  KnowledgeArticleViews = 9955,
+  Language = 9957,
+  Feedback = 9958,
+  Category = 9959,
+  KnowledgeArticleCategory = 9960,
+  DelveActionHub = 9961,
+  ActionCard = 9962,
+  ActionCardUserState = 9968,
+  ActionCardUserSettings = 9973,
+  ActionCardType = 9983,
+  InteractionforEmail = 9986,
+  ExternalPartyItem = 9987,
+  HolidayWrapper = 9996,
+  EmailSignature = 9997,
+  SolutionHistory = 10000,
+  SolutionHistoryDataSource = 10001,
+  SolutionComponentAttributeConfiguration = 10002,
+  SolutionComponentConfiguration = 10003,
+  SolutionComponentRelationshipConfiguration = 10004,
+  ComponentLayer = 10005,
+  ComponentLayerDataSource = 10006,
+  StageSolutionUpload = 10007,
+  SolutionComponentSummary = 10008,
+  SolutionComponentDataSource = 10009,
+  DataLakeWorkspace = 10010,
+  DataLakeWorkspacePermission = 10011,
+  ModelDrivenAppElement = 10013,
+  ModelDrivenAppComponentNodesEdge = 10014,
+  ModelDrivenAppComponentNode = 10015,
+  ModelDrivenAppSetting = 10016,
+  SettingDefinition = 10017,
+  CanvasAppExtendedMetadata = 10018,
+  ODatav4DataSource = 10019,
+  ProcessStageParameter = 10020,
+  WorkflowBinary = 10021,
+  ConnectionReference = 10022,
+  HelpPage = 10023,
+  AnalysisComponent = 10024,
+  AnalysisJob = 10025,
+  AnalysisResult = 10026,
+  AnalysisResultDetail = 10027,
+  SolutionHealthRule = 10028,
+  SolutionHealthRuleArgument = 10029,
+  SolutionHealthRuleSet = 10030,
+  ServiceConfiguration = 10031,
+  SLAKPI = 10032,
+  KnowledgeArticleImage = 10033,
+  KnowledgeArticleTemplate = 10034,
+  ApplicationUser = 10035,
+  NonRelationalDataSource = 10037,
+  AIBuilderDataset = 10038,
+  AIBuilderDatasetFile = 10039,
+  AIBuilderDatasetRecord = 10040,
+  AIBuilderDatasetsContainer = 10041,
+  AIBuilderFile = 10042,
+  AIBuilderFileAttachedData = 10043,
+  AIFormProcessingDocument = 10044,
+  AIObjectDetectionImage = 10045,
+  AIObjectDetectionLabel = 10046,
+  AIObjectDetectionBoundingBox = 10047,
+  AIObjectDetectionImageMapping = 10048,
+  AllegationConcern = 10050,
+  AllegationType = 10051,
+  ChecklistResponse = 10052,
+  ChecklistType = 10053,
+  Complaint = 10054,
+  DispositionAction = 10055,
+  DispositionReason = 10056,
+  IndividualComplaint = 10057,
+  Issue = 10058,
+  Legislation = 10059,
+  Notification = 10060,
+  OPCPriority = 10061,
+  QuestionTemplate = 10062,
+  QuestionType = 10063,
+  Recommendation = 10064,
+  Reminder = 10065,
+  RiskAppetite = 10066,
+  RiskAssessment = 10067,
+  RiskAssessmentCategory = 10068,
+  RiskAssessmentCategoryTemplate = 10069,
+  RiskAssessmentDefinition = 10070,
+  RiskAssessmentDefinitionTemplate = 10071,
+  RiskAssessmentFactorTemplate = 10072,
+  RiskAssessmentType = 10073,
+  Sector = 10074,
+  Theme = 10075,
+  Topic = 10076,
+}
+declare const enum duplicaterule_matchingentitytypecode {
+  Account = 1,
+  Contact = 2,
+  Note = 5,
+  BusinessUnitMap = 6,
+  Owner = 7,
+  User = 8,
+  Team = 9,
+  BusinessUnit = 10,
+  SystemUserPrincipal = 14,
+  Subscription = 29,
+  FilterTemplate = 30,
+  PrivilegeObjectTypeCode = 31,
+  SubscriptionSynchronizationInformation = 33,
+  Trackinginformationfordeletedentities = 35,
+  Clientupdate = 36,
+  SubscriptionManuallyTrackedObject = 37,
+  SystemUserBusinessUnitEntityMap = 42,
+  FieldSharing = 44,
+  SubscriptionStatisticOffline = 45,
+  SubscriptionStatisticOutlook = 46,
+  SubscriptionSyncEntryOffline = 47,
+  SubscriptionSyncEntryOutlook = 48,
+  Position = 50,
+  SystemUserManagerMap = 51,
+  UserSearchFacet = 52,
+  GlobalSearchConfiguration = 54,
+  FileAttachment = 55,
+  VirtualEntityDataProvider = 78,
+  VirtualEntityDataSource = 85,
+  Teamtemplate = 92,
+  SocialProfile = 99,
+  ServicePlan = 101,
+  IndexedArticle = 126,
+  Article = 127,
+  Subject = 129,
+  Announcement = 132,
+  ActivityParty = 135,
+  UserSettings = 150,
+  CanvasApp = 300,
+  CallbackRegistration = 301,
+  Connector = 372,
+  EnvironmentVariableDefinition = 380,
+  EnvironmentVariableValue = 381,
+  AITemplate = 400,
+  AIModel = 401,
+  AIConfiguration = 402,
+  Dataflow = 418,
+  EntityAnalyticsConfig = 430,
+  ImageAttributeConfiguration = 431,
+  EntityImageConfiguration = 432,
+  NewProcess = 950,
+  TranslationProcess = 951,
+  ExpiredProcess = 955,
+  Attachment = 1001,
+  Attachment_2 = 1002,
+  InternalAddress = 1003,
+  ImageDescriptor = 1007,
+  ArticleTemplate = 1016,
+  Organization = 1019,
+  OrganizationUI = 1021,
+  Privilege = 1023,
+  SystemForm = 1030,
+  UserDashboard = 1031,
+  SecurityRole = 1036,
+  RoleTemplate = 1037,
+  View = 1039,
+  StringMap = 1043,
+  Address = 1071,
+  SubscriptionClients = 1072,
+  StatusMap = 1075,
+  ArticleComment = 1082,
+  UserFiscalCalendar = 1086,
+  AuthorizationServer = 1094,
+  PartnerApplication = 1095,
+  SystemChart = 1111,
+  UserChart = 1112,
+  RibbonTabToCommandMapping = 1113,
+  RibbonContextGroup = 1115,
+  RibbonCommand = 1116,
+  RibbonRule = 1117,
+  ApplicationRibbons = 1120,
+  RibbonDifference = 1130,
+  ReplicationBacklog = 1140,
+  DocumentSuggestions = 1189,
+  SuggestionCardTemplate = 1190,
+  FieldSecurityProfile = 1200,
+  FieldPermission = 1201,
+  TeamProfiles = 1203,
+  ChannelPropertyGroup = 1234,
+  ChannelProperty = 1236,
+  SocialInsightsConfiguration = 1300,
+  SavedOrganizationInsightsConfiguration = 1309,
+  SyncAttributeMappingProfile = 1400,
+  SyncAttributeMapping = 1401,
+  TeamSyncAttributeMappingProfiles = 1403,
+  PrincipalSyncAttributeMap = 1404,
+  AnnualFiscalCalendar = 2000,
+  SemiannualFiscalCalendar = 2001,
+  QuarterlyFiscalCalendar = 2002,
+  MonthlyFiscalCalendar = 2003,
+  FixedMonthlyFiscalCalendar = 2004,
+  EmailTemplate = 2010,
+  UnresolvedAddress = 2012,
+  Territory = 2013,
+  Theme_2 = 2015,
+  UserMapping = 2016,
+  Queue = 2020,
+  QueueItemCount = 2023,
+  QueueMemberCount = 2024,
+  License = 2027,
+  QueueItem = 2029,
+  UserEntityUISettings = 2500,
+  UserEntityInstanceData = 2501,
+  IntegrationStatus = 3000,
+  ChannelAccessProfile = 3005,
+  ExternalParty = 3008,
+  ConnectionRole = 3231,
+  ConnectionRoleObjectTypeCode = 3233,
+  Connection = 3234,
+  Calendar = 4003,
+  CalendarRule = 4004,
+  InterProcessLock = 4011,
+  EmailHash = 4023,
+  DisplayStringMap = 4101,
+  DisplayString = 4102,
+  Notification_2 = 4110,
+  ExchangeSyncIdMapping = 4120,
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  UntrackedEmail = 4220,
+  SavedView = 4230,
+  MetadataDifference = 4231,
+  BusinessDataLocalizedLabel = 4232,
+  RecurrenceRule = 4250,
+  RecurringAppointment = 4251,
+  EmailSearch = 4299,
+  DataImport = 4410,
+  DataMap = 4411,
+  ImportSourceFile = 4412,
+  ImportData = 4413,
+  DuplicateDetectionRule = 4414,
+  DuplicateRecord = 4415,
+  DuplicateRuleCondition = 4416,
+  ColumnMapping = 4417,
+  ListValueMapping = 4418,
+  LookupMapping = 4419,
+  OwnerMapping = 4420,
+  ImportLog = 4423,
+  BulkDeleteOperation = 4424,
+  BulkDeleteFailure = 4425,
+  TransformationMapping = 4426,
+  TransformationParameterMapping = 4427,
+  ImportEntityMapping = 4428,
+  DataPerformanceDashboard = 4450,
+  OfficeDocument = 4490,
+  RelationshipRole = 4500,
+  RelationshipRoleMap = 4501,
+  CustomerRelationship = 4502,
+  Auditing = 4567,
+  RibbonClientMetadata = 4579,
+  EntityMap = 4600,
+  AttributeMap = 4601,
+  PluginType = 4602,
+  PluginTypeStatistic = 4603,
+  PluginAssembly = 4605,
+  SdkMessage = 4606,
+  SdkMessageFilter = 4607,
+  SdkMessageProcessingStep = 4608,
+  SdkMessageRequest = 4609,
+  SdkMessageResponse = 4610,
+  SdkMessageResponseField = 4611,
+  SdkMessagePair = 4613,
+  SdkMessageRequestField = 4614,
+  SdkMessageProcessingStepImage = 4615,
+  SdkMessageProcessingStepSecureConfiguration = 4616,
+  ServiceEndpoint = 4618,
+  PluginTraceLog = 4619,
+  SystemJob = 4700,
+  WorkflowWaitSubscription = 4702,
+  Process = 4703,
+  ProcessDependency = 4704,
+  ISVConfig = 4705,
+  ProcessLog = 4706,
+  ApplicationFile = 4707,
+  OrganizationStatistic = 4708,
+  SiteMap = 4709,
+  ProcessSession = 4710,
+  ExpanderEvent = 4711,
+  ProcessTrigger = 4712,
+  FlowSession = 4720,
+  ProcessStage = 4724,
+  BusinessProcessFlowInstance = 4725,
+  WebWizard = 4800,
+  WizardPage = 4802,
+  WebWizardAccessPrivilege = 4803,
+  TimeZoneDefinition = 4810,
+  TimeZoneRule = 4811,
+  TimeZoneLocalizedName = 4812,
+  SystemApplicationMetadata = 7000,
+  UserApplicationMetadata = 7001,
+  Solution = 7100,
+  Publisher = 7101,
+  PublisherAddress = 7102,
+  SolutionComponent = 7103,
+  SolutionComponentDefinition = 7104,
+  Dependency = 7105,
+  DependencyNode = 7106,
+  InvalidDependency = 7107,
+  DependencyFeature = 7108,
+  RuntimeDependency = 7200,
+  Post = 8000,
+  PostRole = 8001,
+  PostRegarding = 8002,
+  Follow = 8003,
+  Comment = 8005,
+  Like = 8006,
+  ACIViewMapper = 8040,
+  Trace = 8050,
+  TraceAssociation = 8051,
+  TraceRegarding = 8052,
+  RoutingRuleSet = 8181,
+  RuleItem = 8199,
+  AppModuleMetadata = 8700,
+  AppModuleMetadataDependency = 8701,
+  AppModuleMetadataAsyncOperation = 8702,
+  HierarchyRule = 8840,
+  ModeldrivenApp = 9006,
+  AppModuleComponent = 9007,
+  AppModuleRoles = 9009,
+  AppConfigMaster = 9011,
+  AppConfiguration = 9012,
+  AppConfigurationInstance = 9013,
+  Report = 9100,
+  ReportRelatedEntity = 9101,
+  ReportRelatedCategory = 9102,
+  ReportVisibility = 9103,
+  ReportLink = 9104,
+  Currency = 9105,
+  MailMergeTemplate = 9106,
+  ImportJob = 9107,
+  LocalConfigStore = 9201,
+  RecordCreationandUpdateRule = 9300,
+  RecordCreationandUpdateRuleItem = 9301,
+  WebResource = 9333,
+  ChannelAccessProfileRule = 9400,
+  ChannelAccessProfileRuleItem = 9401,
+  SharePointSite = 9502,
+  SharepointDocument = 9507,
+  DocumentLocation = 9508,
+  SharePointData = 9509,
+  RollupProperties = 9510,
+  RollupJob = 9511,
+  Goal = 9600,
+  RollupQuery = 9602,
+  GoalMetric = 9603,
+  RollupField = 9604,
+  EmailServerProfile = 9605,
+  Mailbox = 9606,
+  MailboxStatistics = 9607,
+  MailboxAutoTrackingFolder = 9608,
+  MailboxTrackingCategory = 9609,
+  ProcessConfiguration = 9650,
+  OrganizationInsightsNotification = 9690,
+  OrganizationInsightsMetric = 9699,
+  SLA = 9750,
+  SLAItem = 9751,
+  SLAKPIInstance = 9752,
+  CustomControl = 9753,
+  CustomControlResource = 9754,
+  CustomControlDefaultConfig = 9755,
+  Entity = 9800,
+  Attribute = 9808,
+  OptionSet = 9809,
+  EntityKey = 9810,
+  EntityRelationship = 9811,
+  ManagedProperty = 9812,
+  RelationshipEntity = 9813,
+  RelationshipAttribute = 9814,
+  MobileOfflineProfile = 9866,
+  MobileOfflineProfileItem = 9867,
+  MobileOfflineProfileItemAssociation = 9868,
+  SyncError = 9869,
+  OfflineCommandDefinition = 9870,
+  LanguageProvisioningState = 9875,
+  RibbonMetadataToProcess = 9880,
+  SolutionHistoryData = 9890,
+  NavigationSetting = 9900,
+  MultiEntitySearch = 9910,
+  MultiSelectOptionValue = 9912,
+  HierarchySecurityConfiguration = 9919,
+  KnowledgeBaseRecord = 9930,
+  TimeStampDateMapping = 9932,
+  AzureServiceConnection = 9936,
+  DocumentTemplate = 9940,
+  PersonalDocumentTemplate = 9941,
+  TextAnalyticsEntityMapping = 9945,
+  KnowledgeSearchModel = 9947,
+  AdvancedSimilarityRule = 9949,
+  OfficeGraphDocument = 9950,
+  SimilarityRule = 9951,
+  KnowledgeArticle = 9953,
+  KnowledgeArticleViews = 9955,
+  Language = 9957,
+  Feedback = 9958,
+  Category = 9959,
+  KnowledgeArticleCategory = 9960,
+  DelveActionHub = 9961,
+  ActionCard = 9962,
+  ActionCardUserState = 9968,
+  ActionCardUserSettings = 9973,
+  ActionCardType = 9983,
+  InteractionforEmail = 9986,
+  ExternalPartyItem = 9987,
+  HolidayWrapper = 9996,
+  EmailSignature = 9997,
+  SolutionHistory = 10000,
+  SolutionHistoryDataSource = 10001,
+  SolutionComponentAttributeConfiguration = 10002,
+  SolutionComponentConfiguration = 10003,
+  SolutionComponentRelationshipConfiguration = 10004,
+  ComponentLayer = 10005,
+  ComponentLayerDataSource = 10006,
+  StageSolutionUpload = 10007,
+  SolutionComponentSummary = 10008,
+  SolutionComponentDataSource = 10009,
+  DataLakeWorkspace = 10010,
+  DataLakeWorkspacePermission = 10011,
+  ModelDrivenAppElement = 10013,
+  ModelDrivenAppComponentNodesEdge = 10014,
+  ModelDrivenAppComponentNode = 10015,
+  ModelDrivenAppSetting = 10016,
+  SettingDefinition = 10017,
+  CanvasAppExtendedMetadata = 10018,
+  ODatav4DataSource = 10019,
+  ProcessStageParameter = 10020,
+  WorkflowBinary = 10021,
+  ConnectionReference = 10022,
+  HelpPage = 10023,
+  AnalysisComponent = 10024,
+  AnalysisJob = 10025,
+  AnalysisResult = 10026,
+  AnalysisResultDetail = 10027,
+  SolutionHealthRule = 10028,
+  SolutionHealthRuleArgument = 10029,
+  SolutionHealthRuleSet = 10030,
+  ServiceConfiguration = 10031,
+  SLAKPI = 10032,
+  KnowledgeArticleImage = 10033,
+  KnowledgeArticleTemplate = 10034,
+  ApplicationUser = 10035,
+  NonRelationalDataSource = 10037,
+  AIBuilderDataset = 10038,
+  AIBuilderDatasetFile = 10039,
+  AIBuilderDatasetRecord = 10040,
+  AIBuilderDatasetsContainer = 10041,
+  AIBuilderFile = 10042,
+  AIBuilderFileAttachedData = 10043,
+  AIFormProcessingDocument = 10044,
+  AIObjectDetectionImage = 10045,
+  AIObjectDetectionLabel = 10046,
+  AIObjectDetectionBoundingBox = 10047,
+  AIObjectDetectionImageMapping = 10048,
+  AllegationConcern = 10050,
+  AllegationType = 10051,
+  ChecklistResponse = 10052,
+  ChecklistType = 10053,
+  Complaint = 10054,
+  DispositionAction = 10055,
+  DispositionReason = 10056,
+  IndividualComplaint = 10057,
+  Issue = 10058,
+  Legislation = 10059,
+  Notification = 10060,
+  OPCPriority = 10061,
+  QuestionTemplate = 10062,
+  QuestionType = 10063,
+  Recommendation = 10064,
+  Reminder = 10065,
+  RiskAppetite = 10066,
+  RiskAssessment = 10067,
+  RiskAssessmentCategory = 10068,
+  RiskAssessmentCategoryTemplate = 10069,
+  RiskAssessmentDefinition = 10070,
+  RiskAssessmentDefinitionTemplate = 10071,
+  RiskAssessmentFactorTemplate = 10072,
+  RiskAssessmentType = 10073,
+  Sector = 10074,
+  Theme = 10075,
+  Topic = 10076,
+}
+declare const enum duplicaterulecondition_operatorcode {
+  ExactMatch = 0,
+  SameFirstCharacters = 1,
+  SameLastCharacters = 2,
+  SameDate = 3,
+  SameDateandTime = 4,
+  ExactMatchPickListLabel = 5,
+  ExactMatchPickListValue = 6,
+}
 declare const enum opc_allegation_statecode {
   Active = 0,
   Inactive = 1,
@@ -610,8 +1422,8 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10007,
-  Complaint = 11682,
+  KnowledgeArticleTemplate = 10034,
+  Complaint = 10054,
 }
 declare const enum sharepointsite_servicetype {
   SharePoint = 0,
@@ -628,6 +1440,21 @@ declare const enum systemuser_address1_addresstypecode {
 }
 declare const enum systemuser_address1_shippingmethodcode {
   DefaultValue = 1,
+}
+declare const enum systemuser_caltype {
+  Professional = 0,
+  Administrative = 1,
+  Basic = 2,
+  DeviceProfessional = 3,
+  DeviceBasic = 4,
+  Essential = 5,
+  DeviceEssential = 6,
+  Enterprise = 7,
+  DeviceEnterprise = 8,
+  Sales = 9,
+  Service = 10,
+  FieldService = 11,
+  ProjectService = 12,
 }
 declare const enum systemuser_invitestatuscode {
   InvitationNotSent = 0,
@@ -675,21 +1502,6 @@ declare const enum systemuser_accessmode {
   SupportUser = 3,
   Noninteractive = 4,
   DelegatedAdmin = 5,
-}
-declare const enum systemuser_caltype {
-  Professional = 0,
-  Administrative = 1,
-  Basic = 2,
-  DeviceProfessional = 3,
-  DeviceBasic = 4,
-  Essential = 5,
-  DeviceEssential = 6,
-  Enterprise = 7,
-  DeviceEnterprise = 8,
-  Sales = 9,
-  Service = 10,
-  FieldService = 11,
-  ProjectService = 12,
 }
 declare const enum systemuser_address2_addresstypecode {
   DefaultValue = 1,
@@ -3742,6 +4554,113 @@ declare namespace Form.contact.Main {
     getControl(controlName: "spousesname"): Xrm.StringControl;
     getControl(controlName: "telephone1"): Xrm.StringControl;
     getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.duplicaterule.Main {
+  namespace Information {
+    namespace Tabs {
+      interface administration extends Xrm.SectionCollectionBase {
+        get(name: "section 1_2"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface notes extends Xrm.SectionCollectionBase {
+        get(name: "notes"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface rule extends Xrm.SectionCollectionBase {
+        get(name: "Rule Conditions"): Xrm.PageSection;
+        get(name: "criteria"): Xrm.PageSection;
+        get(name: "description"): Xrm.PageSection;
+        get(name: "section 1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "baseentitytypecode"): Xrm.OptionSetAttribute<duplicaterule_baseentitytypecode>;
+      get(name: "createdby"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "createdon"): Xrm.DateAttribute;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "excludeinactiverecords"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "iscasesensitive"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "matchingentitytypecode"): Xrm.OptionSetAttribute<duplicaterule_matchingentitytypecode>;
+      get(name: "modifiedby"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "modifiedon"): Xrm.DateAttribute;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "statuscode"): Xrm.OptionSetAttribute<duplicaterule_statuscode>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "baseentitytypecode"): Xrm.OptionSetControl<duplicaterule_baseentitytypecode>;
+      get(name: "createdby"): Xrm.LookupControl<"systemuser">;
+      get(name: "createdon"): Xrm.DateControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "excludeinactiverecords"): Xrm.OptionSetControl<boolean>;
+      get(name: "iscasesensitive"): Xrm.OptionSetControl<boolean>;
+      get(name: "matchingentitytypecode"): Xrm.OptionSetControl<duplicaterule_matchingentitytypecode>;
+      get(name: "modifiedby"): Xrm.LookupControl<"systemuser">;
+      get(name: "modifiedon"): Xrm.DateControl;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "notescontrol"): Xrm.BaseControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "ruleconditioncontrol"): Xrm.IFrameControl;
+      get(name: "statuscode"): Xrm.OptionSetControl<duplicaterule_statuscode>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "administration"): Xrm.PageTab<Tabs.administration>;
+      get(name: "notes"): Xrm.PageTab<Tabs.notes>;
+      get(name: "rule"): Xrm.PageTab<Tabs.rule>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "baseentitytypecode"): Xrm.OptionSetAttribute<duplicaterule_baseentitytypecode>;
+    getAttribute(attributeName: "createdby"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "createdon"): Xrm.DateAttribute;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "excludeinactiverecords"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "iscasesensitive"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "matchingentitytypecode"): Xrm.OptionSetAttribute<duplicaterule_matchingentitytypecode>;
+    getAttribute(attributeName: "modifiedby"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "modifiedon"): Xrm.DateAttribute;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<duplicaterule_statuscode>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "baseentitytypecode"): Xrm.OptionSetControl<duplicaterule_baseentitytypecode>;
+    getControl(controlName: "createdby"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "createdon"): Xrm.DateControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "excludeinactiverecords"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "iscasesensitive"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "matchingentitytypecode"): Xrm.OptionSetControl<duplicaterule_matchingentitytypecode>;
+    getControl(controlName: "modifiedby"): Xrm.LookupControl<"systemuser">;
+    getControl(controlName: "modifiedon"): Xrm.DateControl;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "notescontrol"): Xrm.BaseControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "ruleconditioncontrol"): Xrm.IFrameControl;
+    getControl(controlName: "statuscode"): Xrm.OptionSetControl<duplicaterule_statuscode>;
     getControl(controlName: string): undefined;
   }
 }
@@ -8330,6 +9249,52 @@ interface Contact_Create extends Contact {
 }
 interface Contact_Update extends Contact {
 }
+interface DuplicateRule_Base extends WebEntity {
+}
+interface DuplicateRule_Fixed extends WebEntity_Fixed {
+  duplicateruleid: string;
+}
+interface DuplicateRule extends DuplicateRule_Base, DuplicateRule_Relationships {
+}
+interface DuplicateRule_Relationships {
+}
+interface DuplicateRule_Result extends DuplicateRule_Base, DuplicateRule_Relationships {
+}
+interface DuplicateRule_FormattedResult {
+}
+interface DuplicateRule_Select {
+}
+interface DuplicateRule_Expand {
+}
+interface DuplicateRule_Filter {
+}
+interface DuplicateRule_Create extends DuplicateRule {
+}
+interface DuplicateRule_Update extends DuplicateRule {
+}
+interface DuplicateRuleCondition_Base extends WebEntity {
+}
+interface DuplicateRuleCondition_Fixed extends WebEntity_Fixed {
+  duplicateruleconditionid: string;
+}
+interface DuplicateRuleCondition extends DuplicateRuleCondition_Base, DuplicateRuleCondition_Relationships {
+}
+interface DuplicateRuleCondition_Relationships {
+}
+interface DuplicateRuleCondition_Result extends DuplicateRuleCondition_Base, DuplicateRuleCondition_Relationships {
+}
+interface DuplicateRuleCondition_FormattedResult {
+}
+interface DuplicateRuleCondition_Select {
+}
+interface DuplicateRuleCondition_Expand {
+}
+interface DuplicateRuleCondition_Filter {
+}
+interface DuplicateRuleCondition_Create extends DuplicateRuleCondition {
+}
+interface DuplicateRuleCondition_Update extends DuplicateRuleCondition {
+}
 interface opc_allegation_Base extends WebEntity {
 }
 interface opc_allegation_Fixed extends WebEntity_Fixed {
@@ -10533,6 +11498,250 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   contacts: WebMappingCUDA<Contact_Create,Contact_Update,Contact_Select>;
+}
+interface DuplicateRule_Base extends WebEntity {
+  baseentitymatchcodetable?: string | null;
+  baseentityname?: string | null;
+  baseentitytypecode?: duplicaterule_baseentitytypecode | null;
+  createdon?: Date | null;
+  description?: string | null;
+  duplicateruleid?: string | null;
+  excludeinactiverecords?: boolean | null;
+  iscasesensitive?: boolean | null;
+  matchingentitymatchcodetable?: string | null;
+  matchingentityname?: string | null;
+  matchingentitytypecode?: duplicaterule_matchingentitytypecode | null;
+  modifiedon?: Date | null;
+  name?: string | null;
+  statecode?: duplicaterule_statecode | null;
+  statuscode?: duplicaterule_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+}
+interface DuplicateRule_Relationships {
+  DuplicateRule_DuplicateRuleConditions?: DuplicateRuleCondition_Result[] | null;
+}
+interface DuplicateRule extends DuplicateRule_Base, DuplicateRule_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface DuplicateRule_Create extends DuplicateRule {
+}
+interface DuplicateRule_Update extends DuplicateRule {
+}
+interface DuplicateRule_Select {
+  baseentitymatchcodetable: WebAttribute<DuplicateRule_Select, { baseentitymatchcodetable: string | null }, {  }>;
+  baseentityname: WebAttribute<DuplicateRule_Select, { baseentityname: string | null }, {  }>;
+  baseentitytypecode: WebAttribute<DuplicateRule_Select, { baseentitytypecode: duplicaterule_baseentitytypecode | null }, { baseentitytypecode_formatted?: string }>;
+  createdby_guid: WebAttribute<DuplicateRule_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<DuplicateRule_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<DuplicateRule_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  description: WebAttribute<DuplicateRule_Select, { description: string | null }, {  }>;
+  duplicateruleid: WebAttribute<DuplicateRule_Select, { duplicateruleid: string | null }, {  }>;
+  excludeinactiverecords: WebAttribute<DuplicateRule_Select, { excludeinactiverecords: boolean | null }, {  }>;
+  iscasesensitive: WebAttribute<DuplicateRule_Select, { iscasesensitive: boolean | null }, {  }>;
+  matchingentitymatchcodetable: WebAttribute<DuplicateRule_Select, { matchingentitymatchcodetable: string | null }, {  }>;
+  matchingentityname: WebAttribute<DuplicateRule_Select, { matchingentityname: string | null }, {  }>;
+  matchingentitytypecode: WebAttribute<DuplicateRule_Select, { matchingentitytypecode: duplicaterule_matchingentitytypecode | null }, { matchingentitytypecode_formatted?: string }>;
+  modifiedby_guid: WebAttribute<DuplicateRule_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<DuplicateRule_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<DuplicateRule_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  name: WebAttribute<DuplicateRule_Select, { name: string | null }, {  }>;
+  ownerid_guid: WebAttribute<DuplicateRule_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<DuplicateRule_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<DuplicateRule_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<DuplicateRule_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  statecode: WebAttribute<DuplicateRule_Select, { statecode: duplicaterule_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<DuplicateRule_Select, { statuscode: duplicaterule_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<DuplicateRule_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<DuplicateRule_Select, { utcconversiontimezonecode: number | null }, {  }>;
+}
+interface DuplicateRule_Filter {
+  baseentitymatchcodetable: string;
+  baseentityname: string;
+  baseentitytypecode: duplicaterule_baseentitytypecode;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  description: string;
+  duplicateruleid: XQW.Guid;
+  excludeinactiverecords: boolean;
+  iscasesensitive: boolean;
+  matchingentitymatchcodetable: string;
+  matchingentityname: string;
+  matchingentitytypecode: duplicaterule_matchingentitytypecode;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  name: string;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  statecode: duplicaterule_statecode;
+  statuscode: duplicaterule_statuscode;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+}
+interface DuplicateRule_Expand {
+  DuplicateRule_DuplicateRuleConditions: WebExpand<DuplicateRule_Expand, DuplicateRuleCondition_Select, DuplicateRuleCondition_Filter, { DuplicateRule_DuplicateRuleConditions: DuplicateRuleCondition_Result[] }>;
+  createdby: WebExpand<DuplicateRule_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<DuplicateRule_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<DuplicateRule_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<DuplicateRule_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  ownerid: WebExpand<DuplicateRule_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<DuplicateRule_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<DuplicateRule_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
+}
+interface DuplicateRule_FormattedResult {
+  baseentitytypecode_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  matchingentitytypecode_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface DuplicateRule_Result extends DuplicateRule_Base, DuplicateRule_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface DuplicateRule_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface DuplicateRule_RelatedMany {
+  DuplicateRule_DuplicateRuleConditions: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  duplicaterules: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  duplicaterules: WebMappingRelated<DuplicateRule_RelatedOne,DuplicateRule_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  duplicaterules: WebMappingCUDA<DuplicateRule_Create,DuplicateRule_Update,DuplicateRule_Select>;
+}
+interface DuplicateRuleCondition_Base extends WebEntity {
+  baseattributename?: string | null;
+  createdon?: Date | null;
+  duplicateruleconditionid?: string | null;
+  ignoreblankvalues?: boolean | null;
+  matchingattributename?: string | null;
+  modifiedon?: Date | null;
+  operatorcode?: duplicaterulecondition_operatorcode | null;
+  operatorparam?: number | null;
+  owningbusinessunit?: string | null;
+  owninguser?: string | null;
+}
+interface DuplicateRuleCondition_Relationships {
+}
+interface DuplicateRuleCondition extends DuplicateRuleCondition_Base, DuplicateRuleCondition_Relationships {
+}
+interface DuplicateRuleCondition_Create extends DuplicateRuleCondition {
+  regardingobjectid_bind$duplicaterules?: string | null;
+}
+interface DuplicateRuleCondition_Update extends DuplicateRuleCondition {
+}
+interface DuplicateRuleCondition_Select {
+  baseattributename: WebAttribute<DuplicateRuleCondition_Select, { baseattributename: string | null }, {  }>;
+  createdby_guid: WebAttribute<DuplicateRuleCondition_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<DuplicateRuleCondition_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<DuplicateRuleCondition_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  duplicateruleconditionid: WebAttribute<DuplicateRuleCondition_Select, { duplicateruleconditionid: string | null }, {  }>;
+  ignoreblankvalues: WebAttribute<DuplicateRuleCondition_Select, { ignoreblankvalues: boolean | null }, {  }>;
+  matchingattributename: WebAttribute<DuplicateRuleCondition_Select, { matchingattributename: string | null }, {  }>;
+  modifiedby_guid: WebAttribute<DuplicateRuleCondition_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<DuplicateRuleCondition_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<DuplicateRuleCondition_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  operatorcode: WebAttribute<DuplicateRuleCondition_Select, { operatorcode: duplicaterulecondition_operatorcode | null }, { operatorcode_formatted?: string }>;
+  operatorparam: WebAttribute<DuplicateRuleCondition_Select, { operatorparam: number | null }, {  }>;
+  ownerid_guid: WebAttribute<DuplicateRuleCondition_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit: WebAttribute<DuplicateRuleCondition_Select, { owningbusinessunit: string | null }, {  }>;
+  owninguser: WebAttribute<DuplicateRuleCondition_Select, { owninguser: string | null }, {  }>;
+  regardingobjectid_guid: WebAttribute<DuplicateRuleCondition_Select, { regardingobjectid_guid: string | null }, { regardingobjectid_formatted?: string }>;
+}
+interface DuplicateRuleCondition_Filter {
+  baseattributename: string;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  duplicateruleconditionid: XQW.Guid;
+  ignoreblankvalues: boolean;
+  matchingattributename: string;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  operatorcode: duplicaterulecondition_operatorcode;
+  operatorparam: number;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit: XQW.Guid;
+  owninguser: XQW.Guid;
+  regardingobjectid_guid: XQW.Guid;
+}
+interface DuplicateRuleCondition_Expand {
+  createdby: WebExpand<DuplicateRuleCondition_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<DuplicateRuleCondition_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<DuplicateRuleCondition_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<DuplicateRuleCondition_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  regardingobjectid: WebExpand<DuplicateRuleCondition_Expand, DuplicateRule_Select, DuplicateRule_Filter, { regardingobjectid: DuplicateRule_Result }>;
+}
+interface DuplicateRuleCondition_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  operatorcode_formatted?: string;
+  ownerid_formatted?: string;
+  regardingobjectid_formatted?: string;
+}
+interface DuplicateRuleCondition_Result extends DuplicateRuleCondition_Base, DuplicateRuleCondition_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  regardingobjectid_guid: string | null;
+}
+interface DuplicateRuleCondition_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  regardingobjectid: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
+}
+interface DuplicateRuleCondition_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  duplicateruleconditions: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  duplicateruleconditions: WebMappingRelated<DuplicateRuleCondition_RelatedOne,DuplicateRuleCondition_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  duplicateruleconditions: WebMappingCUDA<DuplicateRuleCondition_Create,DuplicateRuleCondition_Update,DuplicateRuleCondition_Select>;
 }
 interface opc_allegation_Base extends WebEntity {
   createdon?: Date | null;
@@ -15442,6 +16651,7 @@ interface SystemUser_Base extends WebEntity {
   yammeruserid?: string | null;
 }
 interface SystemUser_Relationships {
+  SystemUser_DuplicateRules?: DuplicateRule_Result[] | null;
   contact_owning_user?: Contact_Result[] | null;
   createdby_connection?: Connection_Result[] | null;
   lk_accountbase_createdby?: Account_Result[] | null;
@@ -15454,6 +16664,14 @@ interface SystemUser_Relationships {
   lk_contact_modifiedonbehalfby?: Contact_Result[] | null;
   lk_contactbase_createdby?: Contact_Result[] | null;
   lk_contactbase_modifiedby?: Contact_Result[] | null;
+  lk_duplicaterule_createdonbehalfby?: DuplicateRule_Result[] | null;
+  lk_duplicaterule_modifiedonbehalfby?: DuplicateRule_Result[] | null;
+  lk_duplicaterulebase_createdby?: DuplicateRule_Result[] | null;
+  lk_duplicaterulebase_modifiedby?: DuplicateRule_Result[] | null;
+  lk_duplicaterulecondition_createdonbehalfby?: DuplicateRuleCondition_Result[] | null;
+  lk_duplicaterulecondition_modifiedonbehalfby?: DuplicateRuleCondition_Result[] | null;
+  lk_duplicateruleconditionbase_createdby?: DuplicateRuleCondition_Result[] | null;
+  lk_duplicateruleconditionbase_modifiedby?: DuplicateRuleCondition_Result[] | null;
   lk_opc_allegation_createdby?: opc_allegation_Result[] | null;
   lk_opc_allegation_createdonbehalfby?: opc_allegation_Result[] | null;
   lk_opc_allegation_modifiedby?: opc_allegation_Result[] | null;
@@ -15891,6 +17109,7 @@ interface SystemUser_Filter {
   yammeruserid: string;
 }
 interface SystemUser_Expand {
+  SystemUser_DuplicateRules: WebExpand<SystemUser_Expand, DuplicateRule_Select, DuplicateRule_Filter, { SystemUser_DuplicateRules: DuplicateRule_Result[] }>;
   contact_owning_user: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { contact_owning_user: Contact_Result[] }>;
   createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
   createdby_connection: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { createdby_connection: Connection_Result[] }>;
@@ -15905,6 +17124,14 @@ interface SystemUser_Expand {
   lk_contact_modifiedonbehalfby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contact_modifiedonbehalfby: Contact_Result[] }>;
   lk_contactbase_createdby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contactbase_createdby: Contact_Result[] }>;
   lk_contactbase_modifiedby: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { lk_contactbase_modifiedby: Contact_Result[] }>;
+  lk_duplicaterule_createdonbehalfby: WebExpand<SystemUser_Expand, DuplicateRule_Select, DuplicateRule_Filter, { lk_duplicaterule_createdonbehalfby: DuplicateRule_Result[] }>;
+  lk_duplicaterule_modifiedonbehalfby: WebExpand<SystemUser_Expand, DuplicateRule_Select, DuplicateRule_Filter, { lk_duplicaterule_modifiedonbehalfby: DuplicateRule_Result[] }>;
+  lk_duplicaterulebase_createdby: WebExpand<SystemUser_Expand, DuplicateRule_Select, DuplicateRule_Filter, { lk_duplicaterulebase_createdby: DuplicateRule_Result[] }>;
+  lk_duplicaterulebase_modifiedby: WebExpand<SystemUser_Expand, DuplicateRule_Select, DuplicateRule_Filter, { lk_duplicaterulebase_modifiedby: DuplicateRule_Result[] }>;
+  lk_duplicaterulecondition_createdonbehalfby: WebExpand<SystemUser_Expand, DuplicateRuleCondition_Select, DuplicateRuleCondition_Filter, { lk_duplicaterulecondition_createdonbehalfby: DuplicateRuleCondition_Result[] }>;
+  lk_duplicaterulecondition_modifiedonbehalfby: WebExpand<SystemUser_Expand, DuplicateRuleCondition_Select, DuplicateRuleCondition_Filter, { lk_duplicaterulecondition_modifiedonbehalfby: DuplicateRuleCondition_Result[] }>;
+  lk_duplicateruleconditionbase_createdby: WebExpand<SystemUser_Expand, DuplicateRuleCondition_Select, DuplicateRuleCondition_Filter, { lk_duplicateruleconditionbase_createdby: DuplicateRuleCondition_Result[] }>;
+  lk_duplicateruleconditionbase_modifiedby: WebExpand<SystemUser_Expand, DuplicateRuleCondition_Select, DuplicateRuleCondition_Filter, { lk_duplicateruleconditionbase_modifiedby: DuplicateRuleCondition_Result[] }>;
   lk_opc_allegation_createdby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_createdby: opc_allegation_Result[] }>;
   lk_opc_allegation_createdonbehalfby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_createdonbehalfby: opc_allegation_Result[] }>;
   lk_opc_allegation_modifiedby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_modifiedby: opc_allegation_Result[] }>;
@@ -16137,6 +17364,7 @@ interface SystemUser_RelatedOne {
   queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
 }
 interface SystemUser_RelatedMany {
+  SystemUser_DuplicateRules: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
   contact_owning_user: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   createdby_connection: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   lk_accountbase_createdby: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
@@ -16149,6 +17377,14 @@ interface SystemUser_RelatedMany {
   lk_contact_modifiedonbehalfby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   lk_contactbase_createdby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   lk_contactbase_modifiedby: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  lk_duplicaterule_createdonbehalfby: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
+  lk_duplicaterule_modifiedonbehalfby: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
+  lk_duplicaterulebase_createdby: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
+  lk_duplicaterulebase_modifiedby: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
+  lk_duplicaterulecondition_createdonbehalfby: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
+  lk_duplicaterulecondition_modifiedonbehalfby: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
+  lk_duplicateruleconditionbase_createdby: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
+  lk_duplicateruleconditionbase_modifiedby: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
   lk_opc_allegation_createdby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   lk_opc_allegation_createdonbehalfby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   lk_opc_allegation_modifiedby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
@@ -16351,6 +17587,7 @@ interface Team_Base extends WebEntity {
 }
 interface Team_Relationships {
   opc_queues_teams_membership?: Queue_Result[] | null;
+  team_DuplicateRules?: DuplicateRule_Result[] | null;
   team_accounts?: Account_Result[] | null;
   team_connections1?: Connection_Result[] | null;
   team_connections2?: Connection_Result[] | null;
@@ -16464,6 +17701,7 @@ interface Team_Expand {
   modifiedonbehalfby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_queues_teams_membership: WebExpand<Team_Expand, Queue_Select, Queue_Filter, { opc_queues_teams_membership: Queue_Result[] }>;
   queueid: WebExpand<Team_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
+  team_DuplicateRules: WebExpand<Team_Expand, DuplicateRule_Select, DuplicateRule_Filter, { team_DuplicateRules: DuplicateRule_Result[] }>;
   team_accounts: WebExpand<Team_Expand, Account_Select, Account_Filter, { team_accounts: Account_Result[] }>;
   team_connections1: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections1: Connection_Result[] }>;
   team_connections2: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections2: Connection_Result[] }>;
@@ -16535,6 +17773,7 @@ interface Team_RelatedOne {
 }
 interface Team_RelatedMany {
   opc_queues_teams_membership: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  team_DuplicateRules: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
   team_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   team_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   team_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
