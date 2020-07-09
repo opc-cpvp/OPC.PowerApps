@@ -10,6 +10,83 @@ var sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
+function generateRiskAppetite(guid: string, value: number): (
+    opc_RiskAppetite_Fixed &
+    { opc_riskappetiteid: string; } &
+    { opc_name: string; } &
+    { opc_value: number; }
+) {
+    return {
+        "@odata.etag": "",
+        opc_riskappetiteid: guid,
+        opc_name: "",
+        opc_value: value
+    };
+}
+
+function generateRiskAssessmentDefinition(guid: string, riskAssessmentGuid: string, riskAppetiteGuid: string, isSelected: boolean): (
+    { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result; } &
+    { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result; } &
+    { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result; } &
+    opc_RiskAssessmentDefinition_Fixed &
+    { opc_riskassessmentdefinitionid: string } &
+    { opc_riskassessmentcategory_guid: string } &
+    { opc_riskassessmentfactortemplate_guid: string } &
+    { opc_riskassessmentdefinitiontemplate_guid: string } &
+    { opc_isselected: boolean }
+) {
+    return {
+        "@odata.etag": "",
+        opc_RiskAssessmentDefinitionTemplate: {
+            "@odata.etag": "",
+            createdby_guid: "",
+            createdonbehalfby_guid: "",
+            modifiedby_guid: "",
+            modifiedonbehalfby_guid: "",
+            opc_riskappetite_guid: riskAppetiteGuid,
+            opc_riskassessmentfactortemplate_guid: "",
+            ownerid_guid: "",
+            owningbusinessunit_guid: "",
+            owningteam_guid: "",
+            owninguser_guid: ""
+        },
+        opc_RiskAssessmentFactorTemplate: {
+            "@odata.etag": "",
+            createdby_guid: "",
+            createdonbehalfby_guid: "",
+            modifiedby_guid: "",
+            modifiedonbehalfby_guid: "",
+            opc_riskassessmentcategorytemplate_guid: "",
+            ownerid_guid: "",
+            owningbusinessunit_guid: "",
+            owningteam_guid: "",
+            owninguser_guid: ""
+        },
+        opc_RiskAssessmentCategory: {
+            "@odata.etag": "",
+            createdby_guid: "",
+            createdonbehalfby_guid: "",
+            modifiedby_guid: "",
+            modifiedonbehalfby_guid: "",
+            opc_actualriskappetite_guid: "",
+            opc_bypassinitiatedby_guid: "",
+            opc_riskassessment_guid: riskAssessmentGuid,
+            opc_riskassessmentcategorytemplate_guid: "",
+            opc_riskassessmenttype_guid: "",
+            opc_suggestedriskappetite_guid: "",
+            ownerid_guid: "",
+            owningbusinessunit_guid: "",
+            owningteam_guid: "",
+            owninguser_guid: ""
+        },
+        opc_riskassessmentdefinitionid: guid,
+        opc_riskassessmentcategory_guid: "",
+        opc_riskassessmentfactortemplate_guid: "",
+        opc_riskassessmentdefinitiontemplate_guid: "",
+        opc_isselected: isSelected
+    };
+}
+
 describe("RiskAssessmentControl", () => {
     describe("when control is initialized", () => {
         let service: IRiskAssessmentService;
@@ -92,36 +169,11 @@ describe("RiskAssessmentControl", () => {
             { opc_name: string; } &
             { opc_value: number; }
         )[] = [
-            {
-                "@odata.etag": "",
-                opc_riskappetiteid: "guid-marginal",
-                opc_name: "Marginal",
-                opc_value: 1
-            },
-            {
-                "@odata.etag": "",
-                opc_riskappetiteid: "guid-lower",
-                opc_name: "Lower",
-                opc_value: 2
-            },
-            {
-                "@odata.etag": "",
-                opc_riskappetiteid: "guid-moderate",
-                opc_name: "Moderate",
-                opc_value: 3
-            },
-            {
-                "@odata.etag": "",
-                opc_riskappetiteid: "guid-higher",
-                opc_name: "Higher",
-                opc_value: 4
-            },
-            {
-                "@odata.etag": "",
-                opc_riskappetiteid: "guid-extreme",
-                opc_name: "Extreme",
-                opc_value: 5
-            }
+            generateRiskAppetite("guid-marginal", 1),
+            generateRiskAppetite("guid-lower", 2),
+            generateRiskAppetite("guid-moderate", 3),
+            generateRiskAppetite("guid-higher", 4),
+            generateRiskAppetite("guid-extreme", 5)
         ];
 
         beforeEach(function () {
@@ -171,106 +223,8 @@ describe("RiskAssessmentControl", () => {
                 { opc_riskassessmentdefinitiontemplate_guid: string } &
                 { opc_isselected: boolean }
             )[] = [
-                {
-                    "@odata.etag": "",
-                    opc_RiskAssessmentDefinitionTemplate: {
-                        "@odata.etag": "",
-                        createdby_guid: "",
-                        createdonbehalfby_guid: "",
-                        modifiedby_guid: "",
-                        modifiedonbehalfby_guid: "",
-                        opc_riskappetite_guid: "guid-marginal",
-                        opc_riskassessmentfactortemplate_guid: "",
-                        ownerid_guid: "",
-                        owningbusinessunit_guid: "",
-                        owningteam_guid: "",
-                        owninguser_guid: ""
-                    },
-                    opc_RiskAssessmentFactorTemplate: {
-                        "@odata.etag": "",
-                        createdby_guid: "",
-                        createdonbehalfby_guid: "",
-                        modifiedby_guid: "",
-                        modifiedonbehalfby_guid: "",
-                        opc_riskassessmentcategorytemplate_guid: "",
-                        ownerid_guid: "",
-                        owningbusinessunit_guid: "",
-                        owningteam_guid: "",
-                        owninguser_guid: ""
-                    },
-                    opc_RiskAssessmentCategory: {
-                        "@odata.etag": "",
-                        createdby_guid: "",
-                        createdonbehalfby_guid: "",
-                        modifiedby_guid: "",
-                        modifiedonbehalfby_guid: "",
-                        opc_actualriskappetite_guid: "",
-                        opc_bypassinitiatedby_guid: "",
-                        opc_riskassessment_guid: "guid-test",
-                        opc_riskassessmentcategorytemplate_guid: "",
-                        opc_riskassessmenttype_guid: "",
-                        opc_suggestedriskappetite_guid: "",
-                        ownerid_guid: "",
-                        owningbusinessunit_guid: "",
-                        owningteam_guid: "",
-                        owninguser_guid: ""
-                    },
-                    opc_riskassessmentdefinitionid: "guid-assessment-marginal",
-                    opc_riskassessmentcategory_guid: "",
-                    opc_riskassessmentfactortemplate_guid: "",
-                    opc_riskassessmentdefinitiontemplate_guid: "",
-                    opc_isselected: true
-                },
-                {
-                    "@odata.etag": "",
-                    opc_RiskAssessmentDefinitionTemplate: {
-                        "@odata.etag": "",
-                        createdby_guid: "",
-                        createdonbehalfby_guid: "",
-                        modifiedby_guid: "",
-                        modifiedonbehalfby_guid: "",
-                        opc_riskappetite_guid: "guid-lower",
-                        opc_riskassessmentfactortemplate_guid: "",
-                        ownerid_guid: "",
-                        owningbusinessunit_guid: "",
-                        owningteam_guid: "",
-                        owninguser_guid: ""
-                    },
-                    opc_RiskAssessmentFactorTemplate: {
-                        "@odata.etag": "",
-                        createdby_guid: "",
-                        createdonbehalfby_guid: "",
-                        modifiedby_guid: "",
-                        modifiedonbehalfby_guid: "",
-                        opc_riskassessmentcategorytemplate_guid: "",
-                        ownerid_guid: "",
-                        owningbusinessunit_guid: "",
-                        owningteam_guid: "",
-                        owninguser_guid: ""
-                    },
-                    opc_RiskAssessmentCategory: {
-                        "@odata.etag": "",
-                        createdby_guid: "",
-                        createdonbehalfby_guid: "",
-                        modifiedby_guid: "",
-                        modifiedonbehalfby_guid: "",
-                        opc_actualriskappetite_guid: "",
-                        opc_bypassinitiatedby_guid: "",
-                        opc_riskassessment_guid: "guid-test",
-                        opc_riskassessmentcategorytemplate_guid: "",
-                        opc_riskassessmenttype_guid: "",
-                        opc_suggestedriskappetite_guid: "",
-                        ownerid_guid: "",
-                        owningbusinessunit_guid: "",
-                        owningteam_guid: "",
-                        owninguser_guid: ""
-                    },
-                    opc_riskassessmentdefinitionid: "guid-assessment-lower",
-                    opc_riskassessmentcategory_guid: "",
-                    opc_riskassessmentfactortemplate_guid: "",
-                    opc_riskassessmentdefinitiontemplate_guid: "",
-                    opc_isselected: false
-                }
+                generateRiskAssessmentDefinition("guid-assessment-marginal", "guid-test", "guid-marginal", true),
+                generateRiskAssessmentDefinition("guid-assessment-lower", "guid-test", "guid-lower", false)
             ];
 
             // Arrange
