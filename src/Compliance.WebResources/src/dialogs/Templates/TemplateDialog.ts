@@ -260,13 +260,16 @@ export class TemplateDialog {
         };
 
         const msalInstance = new Msal.UserAgentApplication(msalConfig);
-
         const tokenRequest: Msal.AuthenticationParameters = {
             scopes: this._tokenScope,
             loginHint: this._loginHint,
             authority: `${this._authorityBaseUrl}${this._templatesEnvironmentVariable.tenantId}`
         };
 
-        return msalInstance.acquireTokenSilent(tokenRequest);
+        return msalInstance.acquireTokenSilent(tokenRequest)
+            .catch(error => {
+                console.log(error);
+                return msalInstance.acquireTokenPopup(tokenRequest);
+            });
     }
 }
