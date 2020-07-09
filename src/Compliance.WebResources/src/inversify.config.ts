@@ -33,6 +33,14 @@ import i18next from 'i18next';
 import { i18n } from 'i18next';
 import * as resources from './resources.json';
 
+// Command handlers
+import { MergeContactCommandHandler } from "./handlers/Commands/MergeContactCommandHandler";
+import { CheckDuplicatesQueryHandler } from "./handlers/Queries/CheckDuplicatesQueryHandler";
+
+// Command dispatchers
+import { CommandDispatcher } from "./factories/CommandDispatcher";
+import { QueryDispatcher } from "./factories/QueryDispatcher";
+
 const container = new Container();
 
 // Register Services
@@ -60,6 +68,10 @@ container.bind<Xrm.Utility>(nameof<Xrm.Utility>()).toConstantValue(Xrm.Utility);
 container.bind<Xrm.context>(nameof<Xrm.context>()).toDynamicValue(() => Xrm.Utility.getGlobalContext());
 container.bind<Document>(nameof<Document>()).toDynamicValue(() => window.document);
 
+// Commands and queries
+container.bind<i.ICommandHandler>(nameof<MergeContactCommandHandler>()).to(MergeContactCommandHandler);
+container.bind<i.IQueryHandler>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
+
 // Language
 i18next.init({
     resources: resources.resources,
@@ -72,4 +84,6 @@ container.bind<i18n>(nameof<i18n>()).toConstantValue(i18next);
 // Bootstrapper/Composition Root setup
 container.bind<i.IFormFactory>(nameof<i.IFormFactory>()).toConstantValue(new FormFactory(container));
 container.bind<i.IControlFactory>(nameof<i.IControlFactory>()).toConstantValue(new ControlFactory(container));
+container.bind<i.ICommandDispatcher>(nameof<i.ICommandDispatcher>()).toConstantValue(new CommandDispatcher(container));
+container.bind<i.IQueryDispatcher>(nameof<i.IQueryDispatcher>()).toConstantValue(new QueryDispatcher(container));
 container.resolve<Bootstrapper>(Bootstrapper);

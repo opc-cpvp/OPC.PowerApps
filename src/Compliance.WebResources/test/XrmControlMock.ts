@@ -2,7 +2,7 @@
 import { XrmAttributeMock } from "./XrmAttributeMock";
 
 export class XrmControlMock extends XrmBaseControlMock
-    implements Xrm.Control<XrmAttributeMock>, Xrm.OptionSetControl<any> {
+    implements Xrm.Control<XrmAttributeMock>, Xrm.OptionSetControl<any>{
 
     private _isDisabled: boolean;
     private _options: Xrm.Option<any>[] = [];
@@ -12,7 +12,6 @@ export class XrmControlMock extends XrmBaseControlMock
         this._options = options;
     }
     /* END OF NEW MEMBERS*/
-
 
     getAttribute(): XrmAttributeMock {
         return this.context.getFormContext().getAttribute(this.getName());

@@ -34,8 +34,7 @@
             "parameters": {
               "subscriptionRequest/message": 4,
               "subscriptionRequest/entityname": "contact",
-              "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "statecode,firstname,lastname,telephone1,telephone2,address1_postalcode,emailaddress1"
+              "subscriptionRequest/scope": 4
             },
             "authentication": "@parameters('$authentication')"
           }

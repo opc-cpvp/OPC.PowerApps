@@ -13,6 +13,11 @@ import "./forms/NotificationMainForm.test";
 import "./forms/ReminderMainForm.test";
 import "./forms/AllegationMainForm.test";
 
-
 /* Controls */
 import "./controls/Checklist/ChecklistControl.test"
+
+/* Command Handlers */
+import "./handlers/Commands/MergeContactCommandHandler.test"
+
+/* Query Handlers */
+import "./handlers/Queries/CheckDuplicatesQueryHandler.test"

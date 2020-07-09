@@ -19,6 +19,7 @@ export interface INotificationService {
 export interface IContactService {
     getContact(id: string): Promise<Contact_Result>
     getDuplicateStatus(id: string): Promise<(Contact_Fixed & { opc_duplicatedetectionresult: opc_duplicatedetectionresult })>
+    getPotentialDuplicates(contact: Contact_Result): Promise<IBaseContact[]>
 }
 
 export interface IChecklistService {
@@ -31,6 +32,20 @@ export interface IUserService {
     hasIntakeManagerPermissions(userSecurityRoles: Xrm.Collection<Xrm.Role>): boolean
 }
 
+export interface IBaseContact {
+    contactid: string,
+    firstname: string,
+    lastname: string,
+    telephone1: string,
+    telephone2: string,
+    address1_postalcode: string,
+    emailaddress1: string,
+};
+
+export type IPotentialDuplicate = IBaseContact & { numberOfFieldMatches: number }
+
+export type ExtendedXrmPageBase = Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase> & { getAttribute(attributeName: string): Xrm.Attribute<any>, getControl(controlName: string): Xrm.AnyControl }
+
 export interface IFormFactory {
     createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>): IPowerForm<TForm>
 }
@@ -41,6 +56,22 @@ export interface IControlFactory {
 
 export interface IPowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>> {
     initializeComponents(context: Xrm.ExecutionContext<TForm, any>): void;
+}
+
+export interface IQueryDispatcher {
+    dispatchAsync<TForm extends ExtendedXrmPageBase>(command: string, field: string, context: TForm): Promise<any>
+}
+
+export interface IQueryHandler {
+    executeAsync<TForm extends ExtendedXrmPageBase>(field: string, context: TForm): Promise<any>
+}
+
+export interface ICommandDispatcher {
+    dispatch<TForm extends ExtendedXrmPageBase>(command: string, field: string, context: TForm): void
+}
+
+export interface ICommandHandler {
+    execute<TForm extends ExtendedXrmPageBase>(field: string, context: TForm): void
 }
 
 @injectable()

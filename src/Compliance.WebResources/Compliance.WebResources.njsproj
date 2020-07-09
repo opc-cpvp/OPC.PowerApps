@@ -37,9 +37,14 @@
     <Folder Include="%40types\xrmdefinitelytyped\" />
     <Folder Include="%40types\xrmdefinitelytyped\_internal\" />
     <Folder Include="dist\" />
+    <Folder Include="imgs\ribbon\" />
     <Folder Include="js\" />
     <Folder Include="js\lib\" />
     <Folder Include="js\lib\xrmquery\" />
+    <Folder Include="imgs\" />
+    <Folder Include="src\handlers\" />
+    <Folder Include="src\handlers\Commands\" />
+    <Folder Include="src\handlers\Queries\" />
     <Folder Include="src\utils\" />
     <Folder Include="src\" />
     <Folder Include="src\controls\" />
@@ -64,8 +69,14 @@
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
     <TypeScriptCompile Include="src\enums.ts" />
+    <TypeScriptCompile Include="src\factories\CommandDispatcher.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\factories\ControlFactory.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
+    <TypeScriptCompile Include="src\factories\QueryDispatcher.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ContactMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ContactMainForm.test.ts" />
@@ -76,6 +87,16 @@
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.ts" />
+    <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.test.ts" />
+    <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\handlers\Commands\MergeContactCommandHandler.test.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\helpers\ContactHelper.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\helpers\XrmHelper.ts" />
     <TypeScriptCompile Include="src\resources.json" />
     <TypeScriptCompile Include="src\index.ts" />
@@ -117,6 +138,7 @@
     <Content Include=".yo-rc.json" />
     <Content Include="dist\compliance.min.js" />
     <Content Include="dist\compliance.min.js.map" />
+    <Content Include="imgs\ribbon\MergeRecords.svg" />
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.js" />
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.min.js" />
     <Content Include="js\lib\xrmquery\dg.xrmquery.web.promise.min.js" />
@@ -127,6 +149,8 @@
     <Content Include="src\controls\Checklist\ChecklistControl.html" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.css" />
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
+    <Content Include="src\handlers\Commands\MergeContactCommandHandler.ts" />
+    <Content Include="src\helpers\WindowHelper.ts" />
     <Content Include="src\utils\NotificationIcons\imgs\icon64x64_read_notification.png" />
     <Content Include="src\utils\NotificationIcons\imgs\icon64x64_unread_notification.png" />
     <Content Include="tsconfig.json" />
