@@ -40,15 +40,10 @@ export namespace RiskAssessment.Forms {
             XrmHelper.toggle(formContext.getControl("opc_actualriskappetite"), bypassSuggestedRiskAppetite);
 
             // Set required fields
-            formContext.getAttribute("opc_bypassinitiatedby").setRequiredLevel(bypassSuggestedRiskAppetite ? "required" : "none");
-            formContext.getAttribute("opc_bypassrationale").setRequiredLevel(bypassSuggestedRiskAppetite ? "required" : "none");
-            formContext.getAttribute("opc_actualriskappetite").setRequiredLevel(bypassSuggestedRiskAppetite ? "required" : "none");
-
-            // Clear the fields if it's not required
-            if (!bypassSuggestedRiskAppetite) {
-                formContext.getAttribute("opc_bypassinitiatedby").setValue();
-                formContext.getAttribute("opc_bypassrationale").setValue();
-                formContext.getAttribute("opc_actualriskappetite").setValue();
+            if (bypassSuggestedRiskAppetite) {
+                formContext.getAttribute("opc_bypassinitiatedby").setRequiredLevel("required");
+                formContext.getAttribute("opc_bypassrationale").setRequiredLevel("required");
+                formContext.getAttribute("opc_actualriskappetite").setRequiredLevel("required");
             }
         }
     }
