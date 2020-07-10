@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{274b9ff7-ebd6-4d74-9e35-c2584680902e}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -14,19 +14,11 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65029ad5-f4c2-42a3-a89c-d118ae76d766}" name="section_general" columns="1" height="auto">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{65029ad5-f4c2-42a3-a89c-d118ae76d766}" name="section_general" columns="11" height="auto" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{f6fa13c5-0dee-4b02-b8f6-547c62a9a98b}" showlabel="true" visible="true">
-                        <labels>
-                          <label description="Name" languagecode="1033" />
-                        </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
-                      </cell>
-                    </row>
                     <row>
                       <cell id="{dfffdc53-a889-4023-b944-d1ec3f363317}" showlabel="true" locklevel="0">
                         <labels>
@@ -34,25 +26,23 @@
                         </labels>
                         <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
                       </cell>
-                    </row>
-                    <row>
-                      <cell id="{4a475998-29c4-48ef-acf5-1a1155372ca1}" showlabel="true" locklevel="0" rowspan="5" auto="true">
+                      <cell id="{0c26b11e-eb81-9e66-3341-ce9b81331a70}" showlabel="false">
                         <labels>
-                          <label description="Description" languagecode="1033" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="opc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_description" disabled="false" />
                       </cell>
                     </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row height="auto" />
                     <row>
                       <cell id="{c4d0ad2e-178d-4c9c-9839-ab2ab0f1ad37}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Disposition" languagecode="1033" />
                         </labels>
                         <control id="opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
+                      </cell>
+                      <cell id="{d6c0208e-d9e8-29ac-97a0-e4088b171570}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -70,6 +60,11 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
+                      </cell>
+                      <cell id="{ca335eb6-6056-cc23-b59b-d0d1e845c598}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -90,6 +85,24 @@
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
                         </control>
+                      </cell>
+                      <cell id="{10a99520-5693-b779-646c-16b5348cd8ac}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6f193747-2cde-4b88-adf5-6022e4023971}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="opc_referencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_referencenumber" disabled="false" />
+                      </cell>
+                      <cell showlabel="true" locklevel="0" id="{78b56a71-9e51-45ff-a68c-a12e8bb6e446}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -167,6 +180,17 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{9cd36b7b-4c2d-0c66-1ed3-4d1955c7b9cc}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e9e3c86e-952f-40b7-b7dd-48c7436e38da}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Complaint" languagecode="1033" />
+              </labels>
+              <control id="header_opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="false" />
+            </cell>
             <cell id="{630f574b-10f8-4909-a395-352477318a96}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Owner" languagecode="1033" />
@@ -199,7 +223,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

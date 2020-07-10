@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.34</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls" shownavigationbar="true" showImage="false" maxWidth="1920">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{2090ef38-2636-4d60-9e29-6de47dc3fb11}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
@@ -15,18 +15,23 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{d6760bc2-e185-4f4d-8d8e-9faf0aa3ddac}" name="section_general" columns="111" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{d6760bc2-e185-4f4d-8d8e-9faf0aa3ddac}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{e6a94f93-1ac0-4152-8ed2-42552ffa1050}" showlabel="true" locklevel="0" colspan="3">
+                      <cell id="{e6a94f93-1ac0-4152-8ed2-42552ffa1050}" showlabel="true" locklevel="0" colspan="1">
                         <labels>
                           <label description="Reason" languagecode="1033" />
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" uniqueid="{db058195-2e54-b784-6cc2-2185701b27c4}" />
+                      </cell>
+                      <cell id="{98e230c5-d4dc-0094-e34c-566a67e11c62}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -34,14 +39,9 @@
                         <labels>
                           <label description="Notified by email" languagecode="1033" />
                         </labels>
-                        <control id="opc_notifybyemail" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifybyemail" disabled="true" />
+                        <control id="opc_notifybyemail" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="opc_notifybyemail" disabled="true" uniqueid="{7cd53a0b-4477-3ecb-7551-e13e636c21bd}" />
                       </cell>
-                      <cell id="{09804ee6-c555-bdb7-c39d-c68addc21d96}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                      <cell id="{a391883b-6b03-0e48-b955-ce4a21dc3558}" showlabel="false">
+                      <cell id="{83a8be07-b0e7-393e-a41b-aea34d272abe}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -52,14 +52,18 @@
                         <labels>
                           <label description="Complaint" languagecode="1033" />
                         </labels>
-                        <control id="opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="true" />
+                        <control id="opc_complaintid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_complaintid" disabled="true" uniqueid="{674d921a-66e6-36dd-dd80-9e382d5ce019}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{4C539795-5E34-4D96-9821-24D2265604AA}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
-                      <cell id="{98e230c5-d4dc-0094-e34c-566a67e11c62}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                      <cell id="{509402cd-09b7-9134-1c24-d8a0891265a3}" showlabel="false">
+                      <cell id="{7cd28191-d127-8961-7331-0dcc3052b6ea}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -90,7 +94,7 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
-            <cell id="{6f327651-93b7-47b3-9e53-7d5ee6aa0568}" showlabel="true" locklevel="0">
+            <cell id="{6f327651-93b7-47b3-9e53-7d5ee6aa0568}" showlabel="true" locklevel="0" visible="false">
               <labels>
                 <label description="Status" languagecode="1033" />
                 <label description="Statut" languagecode="1036" />
@@ -109,7 +113,7 @@
                 <label description="Owner" languagecode="1033" />
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
-              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{0581060e-41a2-3994-1c86-1bcc74ce648e}" />
             </cell>
           </row>
         </rows>

@@ -22,10 +22,10 @@
           <attribute name="opc_recommendationid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
-          <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="1" />
           </filter>
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

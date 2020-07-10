@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.26</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{1daf0956-c07b-4643-96c9-0ab3968e4c12}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
@@ -15,18 +15,18 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{771f5a01-89fd-421e-827f-0765761601f4}" name="section_general" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{771f5a01-89fd-421e-827f-0765761601f4}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{3cbf2eb8-9b6b-4b4a-b7dc-c8f8a02f2be7}">
+                      <cell id="{3cbf2eb8-9b6b-4b4a-b7dc-c8f8a02f2be7}" showlabel="true" locklevel="0" colspan="2">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" uniqueid="{52775a85-09e1-8872-c832-446c4947ca84}" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -36,6 +36,11 @@
                         </labels>
                         <control id="opc_riskassessmentfactortemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmentfactortemplate" disabled="false" />
                       </cell>
+                      <cell id="{691d6623-ab03-a860-4048-50942dd2e60b}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
                     <row>
                       <cell id="{1439257c-8bc6-4b1c-bd69-2534752a42e9}" showlabel="true" locklevel="0">
@@ -43,6 +48,11 @@
                           <label description="Risk Appetite" languagecode="1033" />
                         </labels>
                         <control id="opc_riskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskappetite" disabled="false" />
+                      </cell>
+                      <cell id="{3436ce11-921c-a9a8-8452-6aac794298a0}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -131,6 +141,7 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <controlDescriptions />
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

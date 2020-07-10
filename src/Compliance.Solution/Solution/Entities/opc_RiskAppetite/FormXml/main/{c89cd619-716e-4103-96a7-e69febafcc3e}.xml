@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.26</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{bfa1c67e-7ada-482c-a24d-3ef436a9f5da}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -15,7 +15,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{8b94400c-8551-49d8-8ccd-3d9d746a87d8}" name="section_general">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{8b94400c-8551-49d8-8ccd-3d9d746a87d8}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
@@ -28,6 +28,11 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" uniqueid="{84ca4cda-c9d6-158c-a5a0-9774a65e9263}" />
                       </cell>
+                      <cell id="{4a70b201-24b6-d5a8-a841-4ee5bce322d5}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
                     <row>
                       <cell id="{666ca286-4dfe-4e77-b483-1e619a312c2d}" showlabel="true" locklevel="0">
@@ -35,6 +40,11 @@
                           <label description="Value" languagecode="1033" />
                         </labels>
                         <control id="opc_value" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_value" disabled="false" />
+                      </cell>
+                      <cell id="{087002e0-8e74-27ae-e031-6494dcce1522}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -94,7 +104,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

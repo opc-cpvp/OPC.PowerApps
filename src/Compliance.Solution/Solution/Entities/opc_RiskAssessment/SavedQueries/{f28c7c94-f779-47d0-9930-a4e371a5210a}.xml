@@ -11,6 +11,9 @@
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_riskassessmentid">
           <cell name="opc_name" width="300" />
+          <cell name="opc_riskassessmenttype" width="171" />
+          <cell name="opc_suggestedriskappetite" width="197" />
+          <cell name="opc_actualriskappetite" width="161" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -29,6 +32,9 @@
           <filter type="or" isquickfindfields="1">
             <condition attribute="opc_name" operator="like" value="{0}" />
           </filter>
+          <attribute name="opc_riskassessmenttype" />
+          <attribute name="opc_suggestedriskappetite" />
+          <attribute name="opc_actualriskappetite" />
         </entity>
       </fetch>
     </fetchxml>

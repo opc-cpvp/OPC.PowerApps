@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.146</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{a8e8e794-a2df-4d4a-b231-48baac6485df}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -15,34 +15,34 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{6fdaabb9-5041-4f51-8457-ac846a3c23d6}" name="section_general">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{6fdaabb9-5041-4f51-8457-ac846a3c23d6}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{a24c137f-f7d1-4bd1-9552-234dc89c7a6c}" visible="false">
+                      <cell id="{a24c137f-f7d1-4bd1-9552-234dc89c7a6c}" visible="false" showlabel="true" locklevel="0" colspan="2">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" uniqueid="{a6215a70-41e4-9859-0823-dccc40731aad}" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{623f7546-edca-4b47-b0b5-84138a358945}" showlabel="true" locklevel="0">
+                      <cell id="{623f7546-edca-4b47-b0b5-84138a358945}" showlabel="true" locklevel="0" colspan="2">
                         <labels>
                           <label description="Name English" languagecode="1033" />
                         </labels>
-                        <control id="opc_nameenglish" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_nameenglish" disabled="false" />
+                        <control id="opc_nameenglish" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_nameenglish" disabled="false" uniqueid="{5125d544-d4c9-c260-44b1-22d214a744c3}" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{4c76eac2-66cc-4e0b-b9f3-c1fb6fe10069}" showlabel="true" locklevel="0">
+                      <cell id="{4c76eac2-66cc-4e0b-b9f3-c1fb6fe10069}" showlabel="true" locklevel="0" colspan="2">
                         <labels>
                           <label description="Name French" languagecode="1033" />
                         </labels>
-                        <control id="opc_namefrench" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_namefrench" disabled="false" />
+                        <control id="opc_namefrench" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_namefrench" disabled="false" uniqueid="{9898b2c1-8d74-7500-ec41-bd8bb1097c50}" />
                       </cell>
                     </row>
                     <row>
@@ -52,6 +52,11 @@
                         </labels>
                         <control id="opc_parentquestiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_parentquestiontemplateid" disabled="false" />
                       </cell>
+                      <cell id="{23c87523-ee98-936d-a7c9-8be807081952}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
                     <row>
                       <cell id="{b37b53d9-daff-4d9b-a400-dce50cfea0f8}" showlabel="true" locklevel="0">
@@ -59,6 +64,11 @@
                           <label description="Conditional Visibility" languagecode="1033" />
                         </labels>
                         <control id="opc_conditionalvisibility" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_conditionalvisibility" disabled="false" uniqueid="{ada424e4-19f1-4460-a9e2-62a79b736cc7}" />
+                      </cell>
+                      <cell id="{393b8015-590b-3047-a6e6-e70894a83704}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -68,6 +78,11 @@
                         </labels>
                         <control id="opc_sequence" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_sequence" disabled="false" />
                       </cell>
+                      <cell id="{9c08518a-bb58-678b-3db3-1be24e7b62ca}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
                     <row>
                       <cell id="{c1f08029-cf43-4755-b76b-37aae8d5bfb0}" showlabel="true" locklevel="0">
@@ -75,6 +90,11 @@
                           <label description="Question Type" languagecode="1033" />
                         </labels>
                         <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" />
+                      </cell>
+                      <cell id="{86aeb0a7-b289-2a68-36b4-189dcccedde6}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -148,18 +168,18 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{76e28b11-17e4-4fa4-9df2-273d1f3c3cfe}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Checklist Type" languagecode="1033" />
+              </labels>
+              <control id="header_opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
+            </cell>
             <cell id="{31cb1d37-ab95-4421-a1c9-299bdc9de8b8}">
               <labels>
                 <label description="Owner" languagecode="1033" />
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
-            </cell>
-            <cell id="{76e28b11-17e4-4fa4-9df2-273d1f3c3cfe}" showlabel="true" locklevel="0">
-              <labels>
-                <label description="Checklist Type" languagecode="1033" />
-              </labels>
-              <control id="header_opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
             </cell>
           </row>
         </rows>
@@ -186,7 +206,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

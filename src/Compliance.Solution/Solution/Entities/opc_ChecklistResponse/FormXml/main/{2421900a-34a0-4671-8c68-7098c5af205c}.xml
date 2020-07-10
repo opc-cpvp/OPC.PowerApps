@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.146</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{7cd7a6f8-db79-437a-a2da-f6dda0658f67}" IsUserDefined="1" name="tab_general">
           <labels>
@@ -15,7 +15,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{4185ab4f-5c0c-4139-b26f-86355511a756}" name="section_general">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{4185ab4f-5c0c-4139-b26f-86355511a756}" name="section_general" height="auto" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
@@ -28,19 +28,53 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
+                      <cell id="{7116e234-56c1-d81d-ce67-5298ec7189a4}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
                     <row>
-                      <cell id="{bf3f0b73-0ff8-420b-8625-e5f8f9fe3c23}" showlabel="true" locklevel="0" rowspan="5" auto="true">
+                      <cell id="{bf3f0b73-0ff8-420b-8625-e5f8f9fe3c23}" showlabel="true" locklevel="0" rowspan="5" auto="false">
                         <labels>
                           <label description="Response" languagecode="1033" />
                         </labels>
-                        <control id="opc_response" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_response" disabled="false" />
+                        <control id="opc_response" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_response" disabled="false" uniqueid="{201750ad-e3b7-b200-62a9-d54695a8901c}" />
+                      </cell>
+                      <cell id="{4814e6a1-ec35-0159-bea3-798e88d2da94}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
+                    <row>
+                      <cell id="{b173b93c-45c6-4713-2dcc-43a0305c04ec}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eb189739-a31e-ee43-b5c6-97ec481a5953}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{891dee82-8977-8671-30a9-d21ce490d061}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e03c819d-abd3-b715-e68d-376d8ae74d26}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -66,13 +100,6 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
-            <cell id="{98b0c961-5158-4706-ad51-d419b34cd668}">
-              <labels>
-                <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
-              </labels>
-              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
-            </cell>
             <cell id="{91eda753-0ff9-41e7-b110-e1479a09b6dd}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Allegation" languagecode="1033" />
@@ -84,6 +111,13 @@
                 <label description="Question" languagecode="1033" />
               </labels>
               <control id="header_opc_questiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontemplateid" disabled="false" />
+            </cell>
+            <cell id="{98b0c961-5158-4706-ad51-d419b34cd668}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>
           </row>
         </rows>
@@ -109,6 +143,37 @@
           </row>
         </rows>
       </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions />
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

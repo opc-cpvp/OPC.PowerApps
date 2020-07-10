@@ -10,7 +10,11 @@
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_questiontemplateid">
+          <cell name="opc_sequence" width="100" />
           <cell name="opc_name" width="300" />
+          <cell name="opc_questiontypeid" width="117" />
+          <cell name="opc_parentquestiontemplateid" width="300" />
+          <cell name="opc_checklisttypeid" width="125" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -22,13 +26,18 @@
           <attribute name="opc_questiontemplateid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
-          <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
           <filter type="or" isquickfindfields="1">
             <condition attribute="opc_name" operator="like" value="{0}" />
           </filter>
+          <attribute name="opc_sequence" />
+          <attribute name="opc_questiontypeid" />
+          <attribute name="opc_parentquestiontemplateid" />
+          <attribute name="opc_checklisttypeid" />
+          <order attribute="opc_checklisttypeid" descending="false" />
+          <order attribute="opc_sequence" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

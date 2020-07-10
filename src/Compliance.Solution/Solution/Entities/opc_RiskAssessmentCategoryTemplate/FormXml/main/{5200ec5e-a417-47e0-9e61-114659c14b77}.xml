@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.26</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form headerdensity="HighWithControls">
+    <form headerdensity="HighWithControls" shownavigationbar="false" showImage="false" maxWidth="1920">
       <tabs>
         <tab verticallayout="true" id="{d3e010eb-8bef-4942-8f4f-5c8576b45953}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
@@ -15,7 +15,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{e498c0f0-187a-4c37-b75b-0a1f2bc94a77}" name="section_general" columns="1" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{e498c0f0-187a-4c37-b75b-0a1f2bc94a77}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
                     <label description="Général" languagecode="1036" />
@@ -28,6 +28,11 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
                       </cell>
+                      <cell id="{947c11dd-9c40-a487-2e0e-2697a82ae202}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
                     <row>
                       <cell id="{7809f1f5-11f9-4aa4-9858-71daec3eed80}" showlabel="true" locklevel="0">
@@ -36,6 +41,11 @@
                         </labels>
                         <control id="opc_riskassessmenttype" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_riskassessmenttype" disabled="false" />
                       </cell>
+                      <cell id="{4576c792-7491-817a-6602-9387c5e67644}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
                     <row>
                       <cell id="{6914c9a9-e790-4cfd-b98b-ae4045ec069f}" showlabel="true" locklevel="0">
@@ -43,6 +53,11 @@
                           <label description="Sequence" languagecode="1033" />
                         </labels>
                         <control id="opc_sequence" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="opc_sequence" disabled="false" />
+                      </cell>
+                      <cell id="{eaca093b-c8d9-c1b7-d825-d4798ce7b4b2}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>

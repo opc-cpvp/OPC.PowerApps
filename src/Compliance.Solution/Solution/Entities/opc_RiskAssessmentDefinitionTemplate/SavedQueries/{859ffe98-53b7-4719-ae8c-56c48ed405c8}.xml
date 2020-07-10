@@ -28,10 +28,11 @@
           </filter>
           <attribute name="opc_riskassessmentfactortemplate" />
           <attribute name="opc_riskappetite" />
+          <attribute name="opc_riskassessmentdefinitiontemplateid" />
           <order attribute="opc_riskassessmentfactortemplate" descending="false" />
           <order attribute="opc_riskappetite" descending="false" />
           <order attribute="opc_name" descending="false" />
-          <attribute name="opc_riskassessmentdefinitiontemplateid" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>

@@ -10,8 +10,11 @@
     <layoutxml>
       <grid name="opc_allegations" jump="opc_name" select="1" icon="1" preview="1">
         <row name="opc_allegation" id="opc_allegationid">
-          <cell name="opc_name" width="300" />
-          <cell name="createdon" width="125" />
+          <cell name="opc_allegationtypeid" width="172" />
+          <cell name="opc_disposition" width="264" />
+          <cell name="opc_dispositionreasonid" width="265" />
+          <cell name="opc_referencenumber" width="223" />
+          <cell name="createdon" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -20,12 +23,14 @@
       <fetch version="1.0" mapping="logical">
         <entity name="opc_allegation">
           <attribute name="opc_allegationid" />
-          <attribute name="opc_name" />
-          <attribute name="createdon" />
-          <order attribute="opc_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
+          <attribute name="opc_disposition" />
+          <attribute name="opc_dispositionreasonid" />
+          <attribute name="createdon" />
+          <attribute name="opc_allegationtypeid" />
+          <attribute name="opc_referencenumber" />
         </entity>
       </fetch>
     </fetchxml>

@@ -10,10 +10,11 @@
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
         <row name="result" id="opc_notificationid">
-          <cell name="statuscode" width="93" />
+          <cell name="statuscode" width="113" />
           <cell name="opc_name" width="300" imageproviderfunctionname="compliance.Utilities.NotificationIcons.displayNotificationIcons" imageproviderwebresource="$webresource:opc_compliance/js/compliance.min.js" />
-          <cell name="opc_notifybyemail" width="100" />
-          <cell name="createdon" width="100" />
+          <cell name="opc_notifybyemail" width="151" />
+          <cell name="opc_complaintid" width="149" />
+          <cell name="createdon" width="121" />
         </row>
       </grid>
     </layoutxml>
@@ -31,6 +32,7 @@
           </filter>
           <order attribute="createdon" descending="true" />
           <attribute name="opc_notificationid" />
+          <attribute name="opc_complaintid" />
         </entity>
       </fetch>
     </fetchxml>
