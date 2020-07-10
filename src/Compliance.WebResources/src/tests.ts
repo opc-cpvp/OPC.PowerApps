@@ -12,10 +12,17 @@ import "./forms/ContactMainForm.test";
 import "./forms/NotificationMainForm.test";
 import "./forms/ReminderMainForm.test";
 import "./forms/AllegationMainForm.test";
-
+import "./forms/RiskAssessmentsMainForm.test";
 
 /* Controls */
 import "./controls/Checklist/ChecklistControl.test"
+import "./controls/RiskAssessment/RiskAssessmentControl.test"
+
+/* Command Handlers */
+import "./handlers/Commands/MergeContactCommandHandler.test"
+
+/* Query Handlers */
+import "./handlers/Queries/CheckDuplicatesQueryHandler.test"
 
 /* Dialogs */
 import "./dialogs/Templates/TemplateDialog.test"

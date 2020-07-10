@@ -19,25 +19,41 @@
 
 
 export class XrmHelper {
-    static toggle<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, state: boolean, withReset?: boolean) {
-        state ? XrmHelper.toggleOn(control, withReset) : XrmHelper.toggleOff(control)
+    static toggle(baseControl: Xrm.BaseControl, state: boolean, withReset?: boolean) {
+        state ? XrmHelper.toggleOn(baseControl, withReset) : XrmHelper.toggleOff(baseControl);
     }
 
-    static toggleOff<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>): void {
-        control.setVisible(false);
-        control.setDisabled(true);
+    static toggleOff(baseControl: Xrm.BaseControl): void {
+        baseControl.setVisible(false);
 
+        const control = (<Xrm.Control<Xrm.Attribute<any>>>baseControl);
+        
+        if (!control.setDisabled)
+            return;
+
+        control.setDisabled(true);
+        
+        if (!control.getAttribute)
+            return;
+        
         const attr = control.getAttribute();
         attr.setValue();
         attr.setRequiredLevel("none");
     }
 
-    static toggleOn<T extends Xrm.Attribute<any>>(control: Xrm.Control<T>, withReset?: boolean): void {
-        // If withReset means that if its same visible value, reset before turning on
-        if (withReset && control.getVisible()) control.getAttribute().setValue();
-        control.setVisible(true);
+    static toggleOn(baseControl: Xrm.BaseControl, withReset?: boolean): void {
+        const control = (<Xrm.Control<Xrm.Attribute<any>>>baseControl);
+        if (control.getAttribute) {
+            // If withReset means that if its same visible value, reset before turning on
+            if (withReset && baseControl.getVisible()) control.getAttribute().setValue();
+        }
+
+        baseControl.setVisible(true);
+
+        if (!control.setDisabled)
+            return;
+
         control.setDisabled(false);
     }
-
     //TODO: Add a method to Clear notifications on the form?
 }

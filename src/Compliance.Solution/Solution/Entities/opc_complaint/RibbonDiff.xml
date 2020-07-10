@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CustomActions>
+    <CustomAction Id="opc.opc_complaint.Button.Merge.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Management.Controls._children" Sequence="20">
+      <CommandUIDefinition>
+        <FlyoutAnchor Alt="$LocLabels:opc.opc_complaint.Button.Merge.Alt" Command="opc.opc_complaint.Command.Blank" Id="opc.opc_complaint.Button.Merge" Image16by16="/_imgs/ribbon/MergeRecords_16.png" Image32by32="/_imgs/ribbon/MergeRecords_32.png" LabelText="$LocLabels:opc.opc_complaint.Button.Merge.LabelText" Sequence="20" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.Merge.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.Merge.ToolTipDescription" ModernImage="$webresource:opc_compliance/imgs/MergeRecords.svg">
+          <Menu Id="opc.opc_complaint.Button.Merge.Menu">
+            <MenuSection Id="opc.opc_complaint.Section.Complainant" Title="$LocLabels:opc.opc_complaint.Section.Complainant.Title" Sequence="4" DisplayMode="Menu16">
+              <Controls Id="opc.opc_complaint.Section.Complainant.Controls">
+                <Button Alt="$LocLabels:opc.opc_complaint.Button.MergeComplainant.Alt" Command="opc.opc_complaint.Command.MergeComplainant" Id="opc.opc_complaint.Button.MergeComplainant" Image32by32="" Image16by16="" LabelText="$LocLabels:opc.opc_complaint.Button.MergeComplainant.LabelText" Sequence="7" TemplateAlias="o1" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.MergeComplainant.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.MergeComplainant.ToolTipDescription" ModernImage="$webresource:opc_compliance/imgs/MergeRecords.svg" />
+                <Button Alt="$LocLabels:opc.opc_complaint.Button.MergeRepresentative.Alt" Command="opc.opc_complaint.Command.MergeRepresentative" Id="opc.opc_complaint.Button.MergeRepresentative" Image32by32="" Image16by16="" LabelText="$LocLabels:opc.opc_complaint.Button.MergeRepresentative.LabelText" Sequence="10" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.MergeRepresentative.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.MergeRepresentative.ToolTipDescription" ModernImage="$webresource:opc_compliance/imgs/MergeRecords.svg" />
+                <Button Alt="$LocLabels:opc.opc_complaint.Button.MergeComplainantLegalRep.Alt" Command="opc.opc_complaint.Command.MergeLegalRep" Id="opc.opc_complaint.Button.MergeComplainantLegalRep" Image32by32="" Image16by16="" LabelText="$LocLabels:opc.opc_complaint.Button.MergeComplainantLegalRep.LabelText" Sequence="13" TemplateAlias="o1" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.MergeComplainantLegalRep.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.MergeComplainantLegalRep.ToolTipDescription" ModernImage="$webresource:opc_compliance/imgs/MergeRecords.svg" />
+              </Controls>
+            </MenuSection>
+            <MenuSection Id="opc.opc_complaint.Section.Respondent" Title="$LocLabels:opc.opc_complaint.Section.Respondent.Title" Sequence="15" DisplayMode="Menu16">
+              <Controls Id="opc.opc_complaint.Section.Respondent.Controls">
+                <Button Alt="$LocLabels:opc.opc_complaint.Button.MergeRespondentRep.Alt" Command="opc.opc_complaint.Command.MergeRespondentRep" Id="opc.opc_complaint.Button.MergeRespondentRep" Image32by32="" Image16by16="" LabelText="$LocLabels:opc.opc_complaint.Button.MergeRespondentRep.LabelText" Sequence="18" TemplateAlias="o1" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.MergeRespondentRep.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.MergeRespondentRep.ToolTipDescription" ModernImage="$webresource:opc_compliance/imgs/MergeRecords.svg" />
+                <Button Alt="$LocLabels:opc.opc_complaint.Button.MergeRespondentLegalRep.Alt" Command="opc.opc_complaint.Command.MergeRespondentLegalRep" Id="opc.opc_complaint.Button.MergeRespondentLegalRep" Image32by32="" Image16by16="" LabelText="$LocLabels:opc.opc_complaint.Button.MergeRespondentLegalRep.LabelText" Sequence="20" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.MergeRespondentLegalRep.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.MergeRespondentLegalRep.ToolTipDescription" ModernImage="$webresource:opc_compliance/imgs/MergeRecords.svg" />
+              </Controls>
+            </MenuSection>
+          </Menu>
+        </FlyoutAnchor>
+      </CommandUIDefinition>
+    </CustomAction>
     <CustomAction Id="opc.opc_complaint.TemplateDialog.Button.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Actions.Controls._children" Sequence="15">
       <CommandUIDefinition>
         <Button Alt="$LocLabels:opc.opc_complaint.TemplateDialog.Button.Alt" Command="opc.opc_complaint.TemplateDialog.Command" Id="opc.opc_complaint.TemplateDialog.Button" LabelText="$LocLabels:opc.opc_complaint.TemplateDialog.Button.LabelText" Sequence="15" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.TemplateDialog.Button.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.TemplateDialog.Button.ToolTipDescription" />
@@ -11,6 +32,78 @@
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
   <CommandDefinitions>
+    <CommandDefinition Id="opc.opc_complaint.Command.Blank">
+      <EnableRules>
+        <EnableRule Id="opc.opc_complaint.EnableRule.AnyContactDuplicateExists" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="opc.opc_complaint.Command.MergeComplainant">
+      <EnableRules>
+        <EnableRule Id="opc.opc_complaint.EnableRule.ComplainantDuplicateExists" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <StringParameter Value="MergeContactCommandHandler" />
+          <StringParameter Value="opc_complainant" />
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="opc.opc_complaint.Command.MergeLegalRep">
+      <EnableRules>
+        <EnableRule Id="opc.opc_complaint.EnableRule.ComplainantLegalRepDuplicateExists" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <StringParameter Value="MergeContactCommandHandler" />
+          <StringParameter Value="opc_complainantlegalrepresentative" />
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="opc.opc_complaint.Command.MergeRepresentative">
+      <EnableRules>
+        <EnableRule Id="opc.opc_complaint.EnableRule.RepresentativeDuplicateExists" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <StringParameter Value="MergeContactCommandHandler" />
+          <StringParameter Value="opc_complainantrep" />
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="opc.opc_complaint.Command.MergeRespondentLegalRep">
+      <EnableRules>
+        <EnableRule Id="opc.opc_complaint.EnableRule.RespondentLegalRepresentativeDuplicateExists" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <StringParameter Value="MergeContactCommandHandler" />
+          <StringParameter Value="opc_respondentlegalrepresentative" />
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="opc.opc_complaint.Command.MergeRespondentRep">
+      <EnableRules>
+        <EnableRule Id="opc.opc_complaint.EnableRule.RespondentRepDuplicateExists" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <StringParameter Value="MergeContactCommandHandler" />
+          <StringParameter Value="opc_respondentrepresentative" />
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
     <CommandDefinition Id="opc.opc_complaint.TemplateDialog.Command">
       <EnableRules />
       <DisplayRules />
@@ -24,9 +117,214 @@
   <RuleDefinitions>
     <TabDisplayRules />
     <DisplayRules />
-    <EnableRules />
+    <EnableRules>
+      <EnableRule Id="opc.opc_complaint.EnableRule.AnyContactDuplicateExists">
+        <OrRule>
+          <Or>
+            <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false">
+              <StringParameter Value="CheckDuplicatesQueryHandler" />
+              <StringParameter Value="opc_complainant" />
+              <CrmParameter Value="PrimaryControl" />
+            </CustomRule>
+          </Or>
+          <Or>
+            <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false">
+              <StringParameter Value="CheckDuplicatesQueryHandler" />
+              <StringParameter Value="opc_complainantrep" />
+              <CrmParameter Value="PrimaryControl" />
+            </CustomRule>
+          </Or>
+          <Or>
+            <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false">
+              <StringParameter Value="CheckDuplicatesQueryHandler" />
+              <StringParameter Value="opc_complainantlegalrepresentative" />
+              <CrmParameter Value="PrimaryControl" />
+            </CustomRule>
+          </Or>
+          <Or>
+            <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false">
+              <StringParameter Value="CheckDuplicatesQueryHandler" />
+              <StringParameter Value="opc_respondentrepresentative" />
+              <CrmParameter Value="PrimaryControl" />
+            </CustomRule>
+          </Or>
+          <Or>
+            <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false">
+              <StringParameter Value="CheckDuplicatesQueryHandler" />
+              <StringParameter Value="opc_respondentlegalrepresentative" />
+              <CrmParameter Value="PrimaryControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="opc.opc_complaint.EnableRule.ComplainantDuplicateExists">
+        <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
+          <StringParameter Value="CheckDuplicatesQueryHandler" />
+          <StringParameter Value="opc_complainant" />
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="opc.opc_complaint.EnableRule.ComplainantLegalRepDuplicateExists">
+        <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
+          <StringParameter Value="CheckDuplicatesQueryHandler" />
+          <StringParameter Value="opc_complainantlegalrepresentative" />
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="opc.opc_complaint.EnableRule.RepresentativeDuplicateExists">
+        <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
+          <StringParameter Value="CheckDuplicatesQueryHandler" />
+          <StringParameter Value="opc_complainantrep" />
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="opc.opc_complaint.EnableRule.RespondentLegalRepresentativeDuplicateExists">
+        <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
+          <StringParameter Value="CheckDuplicatesQueryHandler" />
+          <StringParameter Value="opc_respondentlegalrepresentative" />
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="opc.opc_complaint.EnableRule.RespondentRepDuplicateExists">
+        <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
+          <StringParameter Value="CheckDuplicatesQueryHandler" />
+          <StringParameter Value="opc_respondentrepresentative" />
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+    </EnableRules>
   </RuleDefinitions>
   <LocLabels>
+    <LocLabel Id="opc.opc_complaint.Button.Merge.Alt">
+      <Titles>
+        <Title description="Merge likely duplicates" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.Merge.LabelText">
+      <Titles>
+        <Title description="Merge" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.Merge.ToolTipDescription">
+      <Titles>
+        <Title description="Merge the contacts with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.Merge.ToolTipTitle">
+      <Titles>
+        <Title description="Merge" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeComplainant.Alt">
+      <Titles>
+        <Title description="Merge the Complainant Contact with the most likely duplicate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeComplainant.LabelText">
+      <Titles>
+        <Title description="Complainant" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeComplainant.ToolTipDescription">
+      <Titles>
+        <Title description="Merge the Complainant Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeComplainant.ToolTipTitle">
+      <Titles>
+        <Title description="Merge Complainant" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeComplainantLegalRep.Alt">
+      <Titles>
+        <Title description="Merge the Legal Representative Contact with the most likely duplicate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeComplainantLegalRep.LabelText">
+      <Titles>
+        <Title description="Legal Representative" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeComplainantLegalRep.ToolTipDescription">
+      <Titles>
+        <Title description="Merge the Complainant Legal Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeComplainantLegalRep.ToolTipTitle">
+      <Titles>
+        <Title description="Merge Complainant" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRepresentative.Alt">
+      <Titles>
+        <Title description="Merge the representative contact with it's most likely duplicate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRepresentative.LabelText">
+      <Titles>
+        <Title description="Representative" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRepresentative.ToolTipDescription">
+      <Titles>
+        <Title description="Merge the Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRepresentative.ToolTipTitle">
+      <Titles>
+        <Title description="Merge Representative" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRespondentLegalRep.Alt">
+      <Titles>
+        <Title description="Merge the Respondent Legal Representative Contact with the most likely duplicate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRespondentLegalRep.LabelText">
+      <Titles>
+        <Title description="Legal Representative" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRespondentLegalRep.ToolTipDescription">
+      <Titles>
+        <Title description="Merge the Respondent Legal Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRespondentLegalRep.ToolTipTitle">
+      <Titles>
+        <Title description="Merge Respondent Legal Representative" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRespondentRep.Alt">
+      <Titles>
+        <Title description="Merge the Respondent Representative Contact with the most likely duplicate" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRespondentRep.LabelText">
+      <Titles>
+        <Title description="Representative" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRespondentRep.ToolTipDescription">
+      <Titles>
+        <Title description="Merge the Respondent Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.MergeRespondentRep.ToolTipTitle">
+      <Titles>
+        <Title description="Merge Respondent Representative" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Section.Complainant.Title">
+      <Titles>
+        <Title description="Complainant" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Section.Respondent.Title">
+      <Titles>
+        <Title description="Respondent" languagecode="1033" />
+      </Titles>
+    </LocLabel>
     <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.Alt">
       <Titles>
         <Title description="Button to open template menu to select which document to generate." languagecode="1033" />

@@ -8,5 +8,6 @@
   <FileToFile map="WebResources\opc_compliance\template_dialog.html" to="..\..\Compliance.WebResources\src\dialogs\Templates\TemplateDialog.html" />
   <FileToFile map="WebResources\opc_compliance\imgs\icon64x64_read_notification.png" to="..\..\Compliance.WebResources\src\utils\NotificationIcons\imgs\icon64x64_read_notification.png" />
   <FileToFile map="WebResources\opc_compliance\imgs\icon64x64_unread_notification.png" to="..\..\Compliance.WebResources\src\utils\NotificationIcons\imgs\icon64x64_unread_notification.png" />
+  <FileToFile map="WebResources\opc_compliance\imgs\MergeRecords.svg" to="..\..\Compliance.WebResources\imgs\ribbon\MergeRecords.svg" />
   <FileToFile map="CompliancePlugins.dll" to="..\..\Compliance.Plugins\bin\ILRepack\Compliance.Plugins.dll" />
 </Mapping>

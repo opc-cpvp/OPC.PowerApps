@@ -36,7 +36,7 @@ describe("Reminder", () => {
             form.initializeComponents(mockContext);
 
             // Assert
-            contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(true);
+            contextSpy.getFormContext().getControl("grid_additionalusers").getVisible().should.equal(true);
         });
 
         it("it should hide the section to add additional users if the user chooses not to notify additional users", () => {
@@ -47,7 +47,7 @@ describe("Reminder", () => {
             form.initializeComponents(mockContext);
 
             // Assert
-            contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(false);
+            contextSpy.getFormContext().getControl("grid_additionalusers").getVisible().should.equal(false);
         });
     });
 
@@ -164,7 +164,7 @@ describe("Reminder", () => {
             mockContext.getFormContext().getAttribute("opc_notifyadditionalusers").fireOnChange();
 
             // Assert
-            contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(true);
+            contextSpy.getFormContext().getControl("grid_additionalusers").getVisible().should.equal(true);
         });
     });
 
@@ -179,7 +179,7 @@ describe("Reminder", () => {
             mockContext.getFormContext().getAttribute("opc_notifyadditionalusers").fireOnChange();
 
             // Assert
-            contextSpy.getFormContext().ui.tabs.get("tab_general").sections.get("section_additionalusers").getVisible().should.equal(false);
+            contextSpy.getFormContext().getControl("grid_additionalusers").getVisible().should.equal(false);
         });
     });
 });

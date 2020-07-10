@@ -30,11 +30,13 @@
           <attribute name="opc_duplicatedetectionresult" />
           <order attribute="fullname" descending="false" />
           <order attribute="opc_duplicatedetectionresult" descending="false" />
+          <attribute name="createdon" />
           <filter type="and">
             <condition attribute="opc_duplicatedetectionresult" operator="in">
               <value>924340002</value>
               <value>924340001</value>
             </condition>
+            <condition attribute="statecode" operator="eq" value="0" />
           </filter>
         </entity>
       </fetch>

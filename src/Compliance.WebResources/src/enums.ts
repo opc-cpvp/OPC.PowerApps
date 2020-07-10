@@ -21,5 +21,8 @@ export enum Roles {
 
 export enum ContactType {
     Complainant = "complainant",
-    Representative = "representative"
+    ComplainantRepresentative = "complainantrepresentative",
+    ComplainantLegalRepresentative = "complainantlegalrepresentative",
+    RespondentRepresentative = "respondentrepresentative",
+    RespondentLegalRepresentative = "respondentlegalrepresentative"
 }

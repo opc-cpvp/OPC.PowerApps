@@ -163,7 +163,9 @@
       <field displayname="Queue" name="queueid" type="guid" primaryKey="true" />
       <field displayname="Type" name="queueviewtype" type="optionsetvalue" />
     </fields>
-    <relationships />
+    <relationships>
+      <relationship name="opc_queues_teams" manyToMany="true" relatedEntityName="opc_queues_teams" m2mTargetEntity="team" m2mTargetEntityPrimaryKey="teamid" />
+    </relationships>
     <filter>
       &lt;filter type="and" &gt;
       &lt;condition attribute="name" operator="not-begin-with" value="&amp;lt;" /&gt;

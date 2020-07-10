@@ -13,16 +13,8 @@ namespace Compliance.Plugins.Tests
     {
         public static AnnotationAuthorPlugin pluginInstance = null;
 
-        public static AnnotationAuthorPlugin PluginInstance
-        {
-            get
-            {
-                if (pluginInstance is null)
-                    pluginInstance = new AnnotationAuthorPlugin();
-
-                return pluginInstance;
-            }
-        }
+        public static AnnotationAuthorPlugin PluginInstance => 
+            pluginInstance ?? (pluginInstance = new AnnotationAuthorPlugin());
 
         public class when_retrieving_an_annotation
         {

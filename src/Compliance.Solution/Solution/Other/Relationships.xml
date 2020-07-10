@@ -82,7 +82,9 @@
   <EntityRelationship Name="lk_opc_theme_modifiedby" />
   <EntityRelationship Name="lk_opc_topic_createdby" />
   <EntityRelationship Name="lk_opc_topic_modifiedby" />
+  <EntityRelationship Name="opc_account_complaints_complainantlegalfirm" />
   <EntityRelationship Name="opc_account_complaints_respondent" />
+  <EntityRelationship Name="opc_account_complaints_respondentlegalfirm" />
   <EntityRelationship Name="opc_allegation_checklistresponses_allegation" />
   <EntityRelationship Name="opc_allegationtype_allegations_allegationtype" />
   <EntityRelationship Name="opc_checklisttype_allegationtypes_checklistty" />
@@ -96,7 +98,10 @@
   <EntityRelationship Name="opc_complaint_SharePointDocuments" />
   <EntityRelationship Name="opc_complaints_topics_relatedtopics" />
   <EntityRelationship Name="opc_contact_complaints_complainant" />
+  <EntityRelationship Name="opc_contact_complaints_complainantlegalrep" />
   <EntityRelationship Name="opc_contact_complaints_complainantreps" />
+  <EntityRelationship Name="opc_contact_complaints_repondentrep" />
+  <EntityRelationship Name="opc_contact_complaints_respondentlegalrep" />
   <EntityRelationship Name="opc_dispositionaction_allegations_action" />
   <EntityRelationship Name="opc_dispositionreason_allegations_reason" />
   <EntityRelationship Name="opc_dispositionreason_dispositionactions_reas" />
@@ -108,6 +113,7 @@
   <EntityRelationship Name="opc_questiontemplate_checklistresponses_quest" />
   <EntityRelationship Name="opc_questiontemplate_questiontemplates_parent" />
   <EntityRelationship Name="opc_questiontype_questiontemplates_questionty" />
+  <EntityRelationship Name="opc_queues_teams_membership" />
   <EntityRelationship Name="opc_reminders_users_additionaluserstonotify" />
   <EntityRelationship Name="opc_RiskAssessment_ActualRiskAppetite_opc" />
   <EntityRelationship Name="opc_RiskAssessment_BypassInitiatedBy_Syst" />

@@ -42,7 +42,7 @@ export namespace Controls {
             this._checklistService.getChecklist(this._allegationId)
                 .then(async crArray => {
 
-                    // Both requests can run at the same time, but before processing results 
+                    // Both requests can run at the same time, but before processing results
                     // we want to make sure to have the question types.
                     await qTypesPromise;
                     crArray.forEach(cr => this.addQuestion(cr));
