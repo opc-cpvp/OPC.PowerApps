@@ -12,6 +12,7 @@ import { NotificationService } from "./services/NotificationService";
 import { ChecklistService } from "./services/ChecklistService";
 import { ContactService } from "./services/ContactService";
 import { UserService } from "./services/UserService";
+import { RiskAssessmentService } from "./services/RiskAssessmentService";
 
 // Forms
 import ComplaintMainForm = require("./forms/ComplaintMainForm");
@@ -24,9 +25,12 @@ import NotificationMainForm = require("./forms/NotificationMainForm");
 import Notification = NotificationMainForm.Notification;
 import ContactMainForm = require("./forms/ContactMainForm");
 import Contact = ContactMainForm.Contact;
+import RiskAssessmentMainForm = require("./forms/RiskAssessmentMainForm");
+import RiskAssessment = RiskAssessmentMainForm.RiskAssessment;
 
 // Controls
-import { Controls } from "./controls/Checklist/ChecklistControl";
+import { Controls as ChecklistCtrl } from "./controls/Checklist/ChecklistControl";
+import { Controls as RiskAssessmentCtrl } from "./controls/RiskAssessment/RiskAssessmentControl";
 
 // Translations
 import i18next from 'i18next';
@@ -49,6 +53,7 @@ container.bind<i.IAllegationService>(nameof<i.IAllegationService>()).to(Allegati
 container.bind<i.IReminderService>(nameof<i.IReminderService>()).to(ReminderService);
 container.bind<i.INotificationService>(nameof<i.INotificationService>()).to(NotificationService);
 container.bind<i.IChecklistService>(nameof<i.IChecklistService>()).to(ChecklistService);
+container.bind<i.IRiskAssessmentService>(nameof<i.IRiskAssessmentService>()).to(RiskAssessmentService);
 container.bind<i.IContactService>(nameof<i.IContactService>()).to(ContactService);
 container.bind<i.IUserService>(nameof<i.IUserService>()).to(UserService);
 
@@ -58,9 +63,11 @@ container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegati
 container.bind<i.IPowerForm<Form.opc_reminder.Main.Information>>("opc_reminder_information").to(Reminder.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_notification.Main.Information>>("opc_notification_information").to(Notification.Forms.MainForm);
 container.bind<i.IPowerForm<Form.contact.Main.ComplianceContact>>("contact_compliancecontact").to(Contact.Forms.MainForm);
+container.bind<i.IPowerForm<Form.opc_riskassessment.Main.Information>>("opc_riskassessment_information").to(RiskAssessment.Forms.MainForm);
 
 // Register controls
-container.bind<Controls.ChecklistControl>(nameof<Controls.ChecklistControl>()).to(Controls.ChecklistControl);
+container.bind<ChecklistCtrl.ChecklistControl>(nameof<ChecklistCtrl.ChecklistControl>()).to(ChecklistCtrl.ChecklistControl);
+container.bind<RiskAssessmentCtrl.RiskAssessmentControl>(nameof<RiskAssessmentCtrl.RiskAssessmentControl>()).to(RiskAssessmentCtrl.RiskAssessmentControl);
 
 // Other contexts
 container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);

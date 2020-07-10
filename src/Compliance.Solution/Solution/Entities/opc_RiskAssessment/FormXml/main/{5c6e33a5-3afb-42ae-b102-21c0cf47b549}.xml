@@ -61,7 +61,7 @@
                         <labels>
                           <label description="Suggested Risk Appetite" languagecode="1033" />
                         </labels>
-                        <control id="opc_suggestedriskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_suggestedriskappetite" disabled="false" />
+                        <control id="opc_suggestedriskappetite" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_suggestedriskappetite" disabled="true" />
                       </cell>
                       <cell id="{d3de5e0d-d34a-3b3a-426d-3b26475826eb}" showlabel="false">
                         <labels>
@@ -329,7 +329,7 @@
         </controlDescription>
       </controlDescriptions>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -358,6 +358,16 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{91a7ac42-c106-2004-0b11-c9c8b369e711}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{a56ba0cc-aaa6-98bd-aa08-399e28a7bb82}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>
