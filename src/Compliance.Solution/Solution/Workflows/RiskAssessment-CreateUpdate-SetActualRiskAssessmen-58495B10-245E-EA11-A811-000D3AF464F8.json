@@ -35,7 +35,8 @@
               "subscriptionRequest/message": 4,
               "subscriptionRequest/entityname": "opc_riskassessment",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "opc_actualriskappetite"
+              "subscriptionRequest/filteringattributes": "opc_actualriskappetite",
+              "subscriptionRequest/filterexpression": "_opc_actualriskappetite_value ne null"
             },
             "authentication": "@parameters('$authentication')"
           }

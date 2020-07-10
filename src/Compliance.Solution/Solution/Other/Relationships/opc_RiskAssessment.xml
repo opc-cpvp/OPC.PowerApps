@@ -51,7 +51,7 @@
     <ReferencingAttributeName>opc_RiskAssessment</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="The risk assessment associated with this risk category" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

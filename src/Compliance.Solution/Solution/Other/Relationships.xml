@@ -90,6 +90,7 @@
   <EntityRelationship Name="opc_checklisttype_allegationtypes_checklistty" />
   <EntityRelationship Name="opc_checklisttype_questiontemplates_checklist" />
   <EntityRelationship Name="opc_complaint_allegations_complaint" />
+  <EntityRelationship Name="opc_complaint_intakeofficer_SystemUser" />
   <EntityRelationship Name="opc_complaint_issues_complaint" />
   <EntityRelationship Name="opc_complaint_notifications_complaint" />
   <EntityRelationship Name="opc_complaint_recommendations_complaint" />
