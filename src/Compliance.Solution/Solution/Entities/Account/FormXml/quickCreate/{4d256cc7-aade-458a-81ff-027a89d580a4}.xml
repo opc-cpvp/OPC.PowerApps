@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4d256cc7-aade-458a-81ff-027a89d580a4}</formid>
+    <IntroducedVersion>1.0.271</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="1900">
+      <tabs>
+        <tab id="{8ca48364-f790-43e4-b753-aa35fa4f9c77}" name="tab_1" expanded="true" locklevel="0" showlabel="false" IsUserDefined="0" labelid="{1ccb18aa-ca7b-4148-be4e-f1cf892033bb}">
+          <labels>
+            <label description="Tab" languagecode="1033" />
+            <label description="Onglet" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section id="{bcee7abc-6004-49f3-bc27-9eb7d1d3561b}" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{06e96b36-2da1-4ece-87e4-2787fefe2997}">
+                  <labels>
+                    <label description="Details" languagecode="1033" />
+                    <label description="Détails" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7697e89b-cb21-2809-82b3-dc18084c2d6a}" showlabel="true" locklevel="0" labelid="{eb14f94c-5efe-41b5-b2d9-18cb02bb4b63}">
+                        <labels>
+                          <label description="Account Name" languagecode="1033" />
+                          <label description="Nom du compte" languagecode="1036" />
+                        </labels>
+                        <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{82276376-1b6c-401c-bd95-f59510376799}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Phone" languagecode="1033" />
+                          <label description="Téléphone principal" languagecode="1036" />
+                        </labels>
+                        <control id="telephone1" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="telephone1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a2a862e5-f422-4388-ba7a-6091a8f69934}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Fax" languagecode="1033" />
+                          <label description="Télécopie" languagecode="1036" />
+                        </labels>
+                        <control id="fax" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="fax" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5470d934-c3ac-49dd-85a3-6ee64bf1eb89}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Website" languagecode="1033" />
+                          <label description="Site Web" languagecode="1036" />
+                        </labels>
+                        <control id="websiteurl" classid="{71716B6C-711E-476C-8AB8-5D11542BFB47}" datafieldname="websiteurl" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3eed4b38-18a5-4d98-901e-c0c0e375b835}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Parent Account" languagecode="1033" />
+                          <label description="Compte parent" languagecode="1036" />
+                        </labels>
+                        <control id="parentaccountid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentaccountid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{74462bc8-31ba-726c-e195-bc30857d41e5}" showlabel="true" locklevel="0" labelid="{4b8322e6-51e1-44f0-bc02-6844cee715cd}">
+                        <labels>
+                          <label description="Primary Contact" languagecode="1033" />
+                          <label description="Contact principal" languagecode="1036" />
+                        </labels>
+                        <control id="primarycontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="primarycontactid" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{32ff71fb-26e6-4b51-8e93-e94b5780a8ae}" name="tab_1_column_2_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{11ebbb5c-6c61-4273-8f0e-3f71db06ed38}">
+                  <labels>
+                    <label description="Description" languagecode="1033" />
+                    <label description="Description" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0b52c646-e775-1bd7-5943-3b5397543993}" showlabel="false" userspacer="true" labelid="{b66d40e4-ddba-4787-94ef-a298789fe907}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="{a549aa16-a731-41b7-9181-86710f8feef5}" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" labelid="{08333ce9-237d-4c5f-848c-e54ba41e9218}">
+                  <labels>
+                    <label description="Address" languagecode="1033" />
+                    <label description="Adresse" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0242a250-892a-4fff-b3f9-490c24a91d6d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Street 1" languagecode="1033" />
+                          <label description="Adresse 1 : Rue 1" languagecode="1036" />
+                        </labels>
+                        <control id="address1_line1" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="address1_line1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2b4031cb-e5a8-4415-a381-26e0573e6d64}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Street 2" languagecode="1033" />
+                          <label description="Adresse 1 : Rue 2" languagecode="1036" />
+                        </labels>
+                        <control id="address1_line2" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="address1_line2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b76bf75f-341d-4dc5-bcbf-182db465ec91}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Street 3" languagecode="1033" />
+                          <label description="Adresse 1 : Rue 3" languagecode="1036" />
+                        </labels>
+                        <control id="address1_line3" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="address1_line3" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1b9984ce-2d19-4955-ad8c-0ed448812c26}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                          <label description="Adresse 1 : Ville" languagecode="1036" />
+                        </labels>
+                        <control id="address1_city" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="address1_city" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fb2dccf2-f9a1-4687-929a-56c456f42669}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Province" languagecode="1033" />
+                          <label description="Adresse 1 : Département/province" languagecode="1036" />
+                        </labels>
+                        <control id="address1_stateorprovince" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="address1_stateorprovince" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3b98647b-7669-4dd2-bbec-1f2e6bd2578f}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Postal Code" languagecode="1033" />
+                          <label description="Adresse 1 : Code postal" languagecode="1036" />
+                        </labels>
+                        <control id="address1_postalcode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="address1_postalcode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{584fbd3d-eddc-4276-a529-02d7b9ea14a1}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Country" languagecode="1033" />
+                          <label description="Adresse 1 : Pays/région" languagecode="1036" />
+                        </labels>
+                        <control id="address1_country" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="address1_country" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions FallbackForm="true" Order="2">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="QuickCreate" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

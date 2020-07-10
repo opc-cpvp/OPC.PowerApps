@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form showImage="true" headerdensity="HighWithControls" shownavigationbar="true" maxWidth="1920">
+    <form showImage="true" headerdensity="HighWithControls" shownavigationbar="false" maxWidth="1920">
       <ancestor id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       <hiddencontrols>
         <data id="fullname" datafieldname="fullname" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
@@ -117,6 +117,10 @@
                     </row>
                   </rows>
                 </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
                 <section name="section_address" showlabel="true" showbar="false" locklevel="0" id="{48217560-909d-6ea6-b10b-a782ecc3e105}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="Address" languagecode="1033" />
@@ -187,37 +191,9 @@
                     </row>
                   </rows>
                 </section>
-                <section name="section_map" showlabel="false" showbar="false" id="{e0109668-cb5b-4b6c-8ca6-9d0c4b24f385}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" labelid="{4f8791b2-b16f-43c8-9121-f1f6472f29b0}" locklevel="0" celllabelalignment="Left">
-                  <labels>
-                    <label description="Map" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{4a07b010-3ae2-440c-adbd-7fe13249b0d7}" showlabel="false" rowspan="9" colspan="1" auto="false" labelid="{46815077-07a8-47e4-9ce6-173e0c5b8846}">
-                        <labels>
-                          <label description="Map View" languagecode="1033" />
-                          <label description="Vue Carte" languagecode="1036" />
-                        </labels>
-                        <control id="mapcontrol" classid="{62B0DF79-0464-470F-8AF7-4483CFEA0C7D}">
-                          <parameters>
-                            <AddressField>address1_composite</AddressField>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
               </sections>
             </column>
-            <column width="42%">
+            <column width="34%">
               <sections>
                 <section name="section_Timeline" showlabel="false" showbar="false" id="{bea579b8-8901-77b0-1128-351760e68bd4}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" labelid="{b4c61e64-c200-4f14-892f-bd7d688aa7ca}" locklevel="0" celllabelalignment="Left">
                   <labels>
@@ -279,258 +255,34 @@
                 </section>
               </sections>
             </column>
-            <column width="25%">
-              <sections>
-                <section id="{12582701-08f9-49e4-a8f0-4fd05a793e25}" name="tab_summary_column_3_section_1" columns="11" showlabel="false" showbar="false" IsUserDefined="0">
-                  <labels>
-                    <label description="section" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{61cc0fce-4fc8-4c19-89bf-aacd9d8b1b6f}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                      <cell id="{8f9c87e2-f3aa-49ec-8c27-ab83f466fe8f}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-              </sections>
-            </column>
           </columns>
         </tab>
-        <tab name="tab_details" id="{fe1c5c3b-d556-4552-a444-4781214a6d63}" IsUserDefined="0" expanded="true" showlabel="true" labelid="{15b85cdf-e777-4227-a175-a4e173712c7c}" locklevel="0">
+        <tab name="tab_complaints" id="32ef5a29-759c-4d74-88bd-4b6520f1a1b7" IsUserDefined="0" locklevel="0" showlabel="true">
           <labels>
-            <label description="Details" languagecode="1033" />
-            <label description="Détails" languagecode="1036" />
+            <label description="Complaints" languagecode="1033" />
           </labels>
           <columns>
-            <column width="34%">
+            <column width="100%">
               <sections>
-                <section name="section_personal" showlabel="true" showbar="false" id="{0F64B9A3-01F2-4411-B0B5-6C6C39D7B011}" IsUserDefined="0" columns="1" labelwidth="115" celllabelposition="Left" labelid="{5cd1c9c9-0201-4e08-a56d-704cc29198d1}" locklevel="0" celllabelalignment="Left">
+                <section name="section_complaints" id="91444211-2436-48df-96fe-95f70ccfc993" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
-                    <label description="Personal" languagecode="1033" />
-                    <label description="PERSONNEL" languagecode="1036" />
+                    <label description="Complaints" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{cb391eb8-02ec-0ee6-9d92-6996d4311809}" showlabel="true" labelid="{6ece7ff4-9a15-4557-a0bf-15f43ae86008}">
+                      <cell showlabel="false" locklevel="0" id="{430a9855-ed4c-401d-ace3-a3ad9a46b9f1}" rowspan="1" colspan="1">
                         <labels>
-                          <label description="Gender" languagecode="1033" />
-                          <label description="Sexe" languagecode="1036" />
+                          <label description="Complaints" languagecode="1033" />
                         </labels>
-                        <control id="gendercode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="gendercode" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{2d8cee50-7123-01e7-c2cc-0068c0ecc4c0}" showlabel="true" labelid="{8142112b-1be8-48fd-9b2d-b1e2a2c1814f}">
-                        <labels>
-                          <label description="Marital Status" languagecode="1033" />
-                          <label description="État civil" languagecode="1036" />
-                        </labels>
-                        <control id="familystatuscode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="familystatuscode" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{450c5a59-c7de-1289-0934-9a04bc4e1c72}" showlabel="true" labelid="{912e95df-7e03-4ddb-ab83-c607d8ae3c61}">
-                        <labels>
-                          <label description="Spouse/Partner Name" languagecode="1033" />
-                          <label description="Nom du (de la) conjoint(e)/partenaire" languagecode="1036" />
-                        </labels>
-                        <control id="spousesname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="spousesname" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{bac50a31-27a0-c7e2-3ab3-5d6aa8895c6e}" showlabel="true" labelid="{ffb1c2af-3010-450b-b9b5-fba83ddad9d0}">
-                        <labels>
-                          <label description="Birthday" languagecode="1033" />
-                          <label description="Date de naissance" languagecode="1036" />
-                        </labels>
-                        <control id="birthdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="birthdate" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{ba714204-2499-db47-78e0-d8795307301d}" showlabel="true" labelid="{88512a09-a411-47e3-9647-4071193ab2f0}">
-                        <labels>
-                          <label description="Anniversary" languagecode="1033" />
-                          <label description="Date d'anniversaire" languagecode="1036" />
-                        </labels>
-                        <control id="anniversary" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="anniversary" disabled="false" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-                <section name="section_personal_notes" showlabel="true" showbar="false" locklevel="0" id="{9435d60e-c5ac-2462-a159-414573dc2e45}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top" labelid="{88be3810-601f-4e15-8875-1fb3214a8060}">
-                  <labels>
-                    <label description="Personal Notes" languagecode="1033" />
-                    <label description="NOTES PERSONNELLES" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{d0c6aad7-7064-924e-b0e0-718dc557ccee}" showlabel="false" locklevel="0" rowspan="5" labelid="{bb44804d-1575-48eb-a42a-58ae0f1f739d}">
-                        <labels>
-                          <label description="Description" languagecode="1033" />
-                          <label description="Description" languagecode="1036" />
-                        </labels>
-                        <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" />
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
-              </sections>
-            </column>
-            <column width="33%">
-              <sections>
-                <section name="section_contact_preferences" showlabel="true" showbar="false" id="{42aa148d-17fa-4c73-8213-bd22400b74ea}" IsUserDefined="0" columns="1" labelwidth="115" celllabelposition="Left" labelid="{b91ec60c-8898-4edb-bcf6-c3a4a8c3f7dc}" locklevel="0" celllabelalignment="Left">
-                  <labels>
-                    <label description="Contact Preferences" languagecode="1033" />
-                    <label description="PRÉFÉRENCES DE CONTACT" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{d4ec2d52-6658-cee9-4a2a-7a8029ad1862}" showlabel="true" locklevel="0" labelid="{8442c00a-2c7b-4bea-84e2-61b246ec70ab}">
-                        <labels>
-                          <label description="Contact Method" languagecode="1033" />
-                          <label description="Mode de communication" languagecode="1036" />
-                        </labels>
-                        <control id="preferredcontactmethodcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="preferredcontactmethodcode" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{f0b4951b-b5ec-4103-b69d-7ac2ad176ee4}" labelid="{2bc9fc0e-32ea-4d72-a97b-56b349a3c42b}">
-                        <labels>
-                          <label description="Email" languagecode="1033" />
-                          <label description="Courrier électronique" languagecode="1036" />
-                        </labels>
-                        <control id="donotemail" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="donotemail" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{2344e926-ebe5-43a9-a634-98a98b1b9267}" labelid="{ae0e290a-db29-4279-b8cb-7cbfc55facd7}">
-                        <labels>
-                          <label description="Follow Email" languagecode="1033" />
-                          <label description="Suivre le courrier électronique" languagecode="1036" />
-                        </labels>
-                        <control id="followemail" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="followemail" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{041968bd-14fe-486a-baa0-719e7691e6ee}" labelid="{c2831c43-ce62-4f9a-817a-da66d04ef4d4}">
-                        <labels>
-                          <label description="Bulk Email" languagecode="1033" />
-                          <label description="Envoi en nombre" languagecode="1036" />
-                        </labels>
-                        <control id="donotbulkemail" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="donotbulkemail" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{569cf3bd-3b14-46d8-a03a-22e6317d1d41}" labelid="{82dca536-ced0-4918-b9d3-c56cd6b04faa}">
-                        <labels>
-                          <label description="Phone" languagecode="1033" />
-                          <label description="Téléphone" languagecode="1036" />
-                        </labels>
-                        <control id="donotphone" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="donotphone" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{28d804f2-b314-42f6-92f8-982f4929bd6f}" labelid="{4e5b5320-27f6-4a31-83c3-0e051a8580e1}">
-                        <labels>
-                          <label description="Fax" languagecode="1033" />
-                          <label description="Télécopie" languagecode="1036" />
-                        </labels>
-                        <control id="donotfax" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="donotfax" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{dfe9aafd-1acc-488d-b31e-feef6f63a34d}" labelid="{8b766c9d-77f3-4374-9259-395e1f1a1a89}">
-                        <labels>
-                          <label description="Mail" languagecode="1033" />
-                          <label description="Courrier" languagecode="1036" />
-                        </labels>
-                        <control id="donotpostalmail" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="donotpostalmail" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-              </sections>
-            </column>
-            <column width="33%">
-              <sections>
-                <section name="section_billing" showlabel="true" showbar="false" id="{4565ac06-d780-4467-9baa-d03d6af45ae7}" IsUserDefined="0" columns="1" labelwidth="115" celllabelposition="Left" labelid="{d34c732b-9e73-423b-8db8-88fa03a151a9}" locklevel="0" celllabelalignment="Left">
-                  <labels>
-                    <label description="Billing" languagecode="1033" />
-                    <label description="FACTURATION" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{4e7b2783-1a45-4a13-bfd6-e12915e74161}" labelid="{f2786412-d840-4e55-a3dd-4a716a99b645}">
-                        <labels>
-                          <label description="Currency" languagecode="1033" />
-                          <label description="Devise" languagecode="1036" />
-                        </labels>
-                        <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{6b03860a-a677-48f1-bfdc-a04faf8b151c}" labelid="{8747a33b-5520-4b17-8cb6-b54e3eec2110}">
-                        <labels>
-                          <label description="Credit Limit" languagecode="1033" />
-                          <label description="Limite de crédit" languagecode="1036" />
-                        </labels>
-                        <control id="creditlimit" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="creditlimit" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{64e56163-0a77-46c9-9872-50b94d661d96}" labelid="{06506c7c-8747-4077-8505-e281ac1d82cb}">
-                        <labels>
-                          <label description="Credit Hold" languagecode="1033" />
-                          <label description="Suspension de crédit" languagecode="1036" />
-                        </labels>
-                        <control id="creditonhold" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="creditonhold" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{9980090e-c75b-4bc9-834f-63ba6e3a93f2}" labelid="{b4d07ae6-3cf0-48a5-928f-0e4d29c03f9b}">
-                        <labels>
-                          <label description="Payment Terms" languagecode="1033" />
-                          <label description="Conditions de paiement" languagecode="1036" />
-                        </labels>
-                        <control id="paymenttermscode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="paymenttermscode" />
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-                <section name="section_shipping" showlabel="true" showbar="false" id="{19e024e7-16f7-40c6-a1d6-e8672a639011}" IsUserDefined="0" columns="1" labelwidth="115" celllabelposition="Left" labelid="{2813973f-6d98-4983-8b66-5d44804c2e01}" locklevel="0" celllabelalignment="Left">
-                  <labels>
-                    <label description="Shipping" languagecode="1033" />
-                    <label description="EXPÉDITION" languagecode="1036" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{aa10fd1b-42f6-4e26-b42c-6ab4effc54d0}" labelid="{197f54ce-d96e-4f3f-97ef-0af59b2cba79}">
-                        <labels>
-                          <label description="Shipping Method" languagecode="1033" />
-                          <label description="Mode de livraison" languagecode="1036" />
-                        </labels>
-                        <control id="address1_shippingmethodcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="address1_shippingmethodcode" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{bbb8d9cb-6c80-47f2-885b-d4a5d6384c07}" labelid="{0065933f-b102-4169-819e-03b06df46b35}">
-                        <labels>
-                          <label description="Freight Terms" languagecode="1033" />
-                          <label description="Conditions de transport" languagecode="1036" />
-                        </labels>
-                        <control id="address1_freighttermscode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="address1_freighttermscode" />
+                        <control id="subgrid_complaints" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>opc_complaint</TargetEntityType>
+                            <ViewId>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewId>
+                            <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_contact_complaints_complainant</RelationshipName>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>
@@ -543,18 +295,18 @@
       <header id="{3ff9aa06-4e43-41ce-afa9-22a038af5c19}" celllabelposition="Top" columns="1" labelwidth="115">
         <rows>
           <row>
+            <cell id="{e6c1e3e8-e555-461d-8223-e8e6fa589856}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Duplicate Detection Result" languagecode="1033" />
+              </labels>
+              <control id="header_opc_duplicatedetectionresult" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_duplicatedetectionresult" disabled="false" />
+            </cell>
             <cell id="{24be01cc-16a6-8eea-8916-42d20a1097ae}" showlabel="true" locklevel="1" labelid="{58141e3e-cfd6-4e4a-825a-90cbce7ed85b}">
               <labels>
                 <label description="Owner" languagecode="1033" />
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
-            </cell>
-            <cell id="{e6c1e3e8-e555-461d-8223-e8e6fa589856}" showlabel="true" locklevel="0">
-              <labels>
-                <label description="Duplicate Detection Result" languagecode="1033" />
-              </labels>
-              <control id="header_opc_duplicatedetectionresult" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_duplicatedetectionresult" disabled="false" />
             </cell>
           </row>
         </rows>
