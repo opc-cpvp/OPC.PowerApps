@@ -113,8 +113,8 @@
       <RootComponent type="1" schemaName="opc_topic" behavior="0" />
       <RootComponent type="1" schemaName="queue" behavior="1" />
       <RootComponent type="1" schemaName="queueitem" behavior="1" />
-      <RootComponent type="1" schemaName="sharepointdocument" behavior="0" />
-      <RootComponent type="1" schemaName="sharepointdocumentlocation" behavior="0" />
+      <RootComponent type="1" schemaName="sharepointdocument" behavior="1" />
+      <RootComponent type="1" schemaName="sharepointdocumentlocation" behavior="1" />
       <RootComponent type="1" schemaName="systemuser" behavior="2" />
       <RootComponent type="1" schemaName="team" behavior="1" />
       <RootComponent type="9" schemaName="opc_allegationdisposition" behavior="0" />
