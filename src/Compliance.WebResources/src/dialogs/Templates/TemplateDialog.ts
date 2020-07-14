@@ -35,12 +35,15 @@ export class TemplateDialog {
     // TODO: Move this to ComplaintMainForm.ts after changes from duplicate-contact gets merged into master.
     public static ribbonButton_OnClick(formContext: Form.opc_complaint.Main.Information): void {
         const complaintId = formContext.data.entity.getId();
+
         formContext.ui.tabs.get("tab_documents").setFocus();
 
-        Xrm.Navigation.navigateTo({ pageType: "webresource", webresourceName: "opc_compliance/template_dialog.html", data: complaintId }, { target: 2, position: 1, width: { value: 420, unit: "px" }, height: { value: 355, unit: "px" } })
-            .then(() => {
-                formContext.getControl("SubgridControl1570557025307").refresh();
-            });
+        setTimeout(() => {
+            Xrm.Navigation.navigateTo({ pageType: "webresource", webresourceName: "opc_compliance/template_dialog.html", data: complaintId }, { target: 2, position: 1, width: { value: 420, unit: "px" }, height: { value: 355, unit: "px" } })
+                .then(() => {
+                    formContext.getControl("SubgridControl1570557025307").refresh();
+                });
+        }, 200);
     }
 
     // TODO: Refactor to make this faster.
