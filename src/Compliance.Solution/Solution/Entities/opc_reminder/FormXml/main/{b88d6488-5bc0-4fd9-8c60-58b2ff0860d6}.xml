@@ -122,29 +122,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{3b3bc680-34c5-b26c-131d-d206dadcb602}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Notify Additional Users" languagecode="1033" />
-                        </labels>
-                        <control id="opc_notifyadditionalusers" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_notifyadditionalusers" disabled="false" uniqueid="{b61b8ab9-9bc6-416d-a93d-729bf086796c}" />
-                      </cell>
-                      <cell id="{7ca99d0b-c992-7b15-7004-93e6b0478347}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                      <cell id="{4a742bad-3200-1c64-4a2c-1042c1badd5e}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                      <cell id="{32d32a6e-570d-a283-8835-deeda1832b75}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{e7d81d90-ddbc-7626-9a6c-cc35b0e7e656}" showlabel="false" colspan="1" auto="false" rowspan="6">
                         <labels>
                           <label description="Additional Users to Notify" languagecode="1033" />
@@ -445,28 +422,6 @@
           <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>opc_notifyme</value>
-            </parameters>
-          </customControl>
-        </controlDescription>
-        <controlDescription forControl="{b61b8ab9-9bc6-416d-a93d-729bf086796c}">
-          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
-            <parameters>
-              <datafieldname>opc_notifyadditionalusers</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
-            <parameters>
-              <value>opc_notifyadditionalusers</value>
-            </parameters>
-          </customControl>
-          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
-            <parameters>
-              <value>opc_notifyadditionalusers</value>
-            </parameters>
-          </customControl>
-          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
-            <parameters>
-              <value>opc_notifyadditionalusers</value>
             </parameters>
           </customControl>
         </controlDescription>

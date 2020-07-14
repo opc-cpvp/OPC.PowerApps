@@ -10,6 +10,7 @@ export interface IAllegationService {
 }
 
 export interface IReminderService {
+    hasAdditionalUsersToNotify(id: string) : Promise<boolean>
 }
 
 export interface INotificationService {

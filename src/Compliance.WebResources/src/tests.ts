@@ -11,6 +11,7 @@ import "./forms/ComplaintMainForm.test";
 import "./forms/ContactMainForm.test";
 import "./forms/NotificationMainForm.test";
 import "./forms/ReminderMainForm.test";
+import "./forms/ReminderQuickCreateForm.test";
 import "./forms/AllegationMainForm.test";
 import "./forms/RiskAssessmentsMainForm.test";
 

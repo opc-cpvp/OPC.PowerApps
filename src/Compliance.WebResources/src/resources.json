@@ -32,8 +32,6 @@
             },
             "reminder": {
                 "error": {
-                    "global": "There is an error on the form.",
-                    "global_plural": "There are multiple errors on the form.",
                     "nobody_selected": "You must select at least one person to notify.",
                     "case_must_be_linked": "To notify the case owner, you must have at least one case linked to the reminder."
                 }

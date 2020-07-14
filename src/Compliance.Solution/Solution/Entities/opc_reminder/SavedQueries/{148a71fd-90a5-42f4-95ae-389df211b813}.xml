@@ -14,7 +14,6 @@
           <cell name="opc_reminderdate" width="145" />
           <cell name="opc_notifycaseowner" width="144" />
           <cell name="opc_notifyme" width="100" />
-          <cell name="opc_notifyadditionalusers" width="178" />
           <cell name="opc_notifybyemail" width="185" />
           <cell name="createdon" width="125" />
         </row>
@@ -24,7 +23,6 @@
     <fetchxml>
       <fetch version="1.0" mapping="logical">
         <entity name="opc_reminder">
-          <attribute name="opc_reminderid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
           <attribute name="opc_notifyme" />
@@ -37,7 +35,7 @@
             <condition attribute="statecode" operator="eq" value="0" />
             <condition attribute="ownerid" operator="eq-userid" />
           </filter>
-          <attribute name="opc_notifyadditionalusers" />
+          <attribute name="opc_reminderid" />
         </entity>
       </fetch>
     </fetchxml>
