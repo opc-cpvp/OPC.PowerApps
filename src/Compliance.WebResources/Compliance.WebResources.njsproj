@@ -57,7 +57,7 @@
     <Folder Include="src\helpers\" />
     <Folder Include="src\services\" />
     <Folder Include="src\utils\NotificationIcons\" />
-    <Folder Include="src\utils\NotificationIcons\imgs\" />
+    <Folder Include="imgs\Notifications\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -157,8 +157,8 @@
     <Content Include="src\helpers\WindowHelper.ts" />
     <Content Include="src\dialogs\Templates\TemplateDialog.css" />
     <Content Include="src\dialogs\Templates\TemplateDialog.html" />
-    <Content Include="src\utils\NotificationIcons\imgs\icon64x64_read_notification.png" />
-    <Content Include="src\utils\NotificationIcons\imgs\icon64x64_unread_notification.png" />
+    <Content Include="imgs\Notifications\icon64x64_read_notification.png" />
+    <Content Include="imgs\Notifications\icon64x64_unread_notification.png" />
     <Content Include="tsconfig.json" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
