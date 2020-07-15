@@ -5,14 +5,16 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
 
 namespace Compliance.Plugins
 {
     public partial class TemplatePlugin : PluginBase
     {
         private const string SharePointWebAPIUrl = "https://096gc.sharepoint.com/sites/PowerAppsSandbox/_api/web";
-        private string resultMessage = "";
-        private int sharepointFileMaxCharacters = 128;
+
+        // This number includes the frontslash separating the CaseFolderPath and the actual FileName AND the .docx extension
+        private const int sharepointFileNameAndPathMaxCharacters = 298;
 
         public TemplatePlugin()
             : base(typeof(TemplatePlugin), runAsSystem: true)
@@ -23,16 +25,16 @@ namespace Compliance.Plugins
             if (localContext == null)
                 throw new InvalidPluginExecutionException("localContext", new ArgumentNullException(nameof(localContext)));
 
-            IPluginExecutionContext pluginExecutionContext = localContext.PluginExecutionContext;
-            string templatePath = (string)pluginExecutionContext.InputParameters["TemplatePath"];
-            string xmlData = (string)pluginExecutionContext.InputParameters["XMLData"];
-            string caseFolderPath = (string)pluginExecutionContext.InputParameters["CaseFolderPath"];
-            string token = (string)pluginExecutionContext.InputParameters["Token"];
-            string documentName = (string)pluginExecutionContext.InputParameters["DocumentName"];
+            var pluginExecutionContext = localContext.PluginExecutionContext;
+            var templatePath = (string)pluginExecutionContext.InputParameters["TemplatePath"];
+            var xmlData = (string)pluginExecutionContext.InputParameters["XMLData"];
+            var caseFolderPath = (string)pluginExecutionContext.InputParameters["CaseFolderPath"];
+            var accessToken = (string)pluginExecutionContext.InputParameters["AccessToken"];
+            var documentName = (string)pluginExecutionContext.InputParameters["DocumentName"];
 
             try
             {
-                GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, token, documentName, localContext);
+                pluginExecutionContext.OutputParameters["Result"] = GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, accessToken, documentName);
             }
             catch (Exception ex)
             {
@@ -40,21 +42,19 @@ namespace Compliance.Plugins
                 localContext.Trace($"Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
                 throw new InvalidPluginExecutionException($"An error occurred in the plug-in. Template: {ex.Message}", ex);
             }
-
-            pluginExecutionContext.OutputParameters["Result"] = resultMessage;
         }
 
-        private void GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string token, string documentName, LocalPluginContext context)
+        private string GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string accessToken, string documentName)
         {
-            documentName = GetValidDocumentName(documentName, sharepointFileMaxCharacters, context);
+            documentName = GetValidDocumentName(documentName, caseFolderPath, sharepointFileNameAndPathMaxCharacters);
 
             var getUrl = $"{SharePointWebAPIUrl}/getfilebyserverrelativeurl('{templatePath}')/$value";
             var postUrl = $"{SharePointWebAPIUrl}/GetFolderByServerRelativeUrl('{caseFolderPath}')/Files/add(url='{documentName}.docx',overwrite=true)";
 
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(getUrl);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(getUrl);
             httpWebRequest.Method = "GET";
-            httpWebRequest.Headers.Add("Authorization", "Bearer " + token);
-            HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            httpWebRequest.Headers.Add("Authorization", "Bearer " + accessToken);
+            var httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
             using (MemoryStream memoryStream = new MemoryStream())
             {
@@ -62,11 +62,11 @@ namespace Compliance.Plugins
 
                 using (WordprocessingDocument wordDoc = WordprocessingDocument.Open(memoryStream, true))
                 {
-                    MainDocumentPart mainPart = wordDoc.MainDocumentPart;
+                    var mainPart = wordDoc.MainDocumentPart;
                     mainPart.DeleteParts(mainPart.CustomXmlParts);
-                    CustomXmlPart myXmlPart = mainPart.AddCustomXmlPart(CustomXmlPartType.CustomXml);
+                    var myXmlPart = mainPart.AddCustomXmlPart(CustomXmlPartType.CustomXml);
 
-                    byte[] byteArray = Encoding.UTF8.GetBytes(xmlData);
+                    var byteArray = Encoding.UTF8.GetBytes(xmlData);
 
                     using (MemoryStream stream = new MemoryStream(byteArray)) myXmlPart.FeedData(stream);
 
@@ -76,27 +76,29 @@ namespace Compliance.Plugins
 
                     httpWebRequest = (HttpWebRequest)WebRequest.Create(postUrl);
                     httpWebRequest.Method = "POST";
-                    httpWebRequest.Headers.Add("Authorization", "Bearer " + token);
+                    httpWebRequest.Headers.Add("Authorization", "Bearer " + accessToken);
                     httpWebRequest.ContentLength = byteArray.Length;
 
                     using (Stream stream = httpWebRequest.GetRequestStream()) stream.Write(byteArray, 0, byteArray.Length);
 
                     // It is not necessary to get the response when creating the file, but I would like to use it to return a success or not to the action.
-                    resultMessage = ((HttpWebResponse)httpWebRequest.GetResponse()).StatusCode.ToString();
+                    return ((HttpWebResponse)httpWebRequest.GetResponse()).StatusCode.ToString();
                 }
             }
         }
-        private string GetValidDocumentName(string name, int maxLength, LocalPluginContext localContext)
+        private string GetValidDocumentName(string name, string caseFolderPath, int maxLength)
         {
-            // Shorten the name of the file if it's too long (the SharePoint max is 128 characters)
-            if (name.Length > maxLength)
-            {
-                // Truncate the filename
-                name = name.Substring(0, maxLength).TrimEnd('.');
-            }
-
             // Remove SharePoint illegal characters
-            name = Regex.Replace(name, "[~#%&*{}\\\\:<>?/|“”\"+']", "");
+            name = Regex.Replace(name, "[*\\\\:<>?/|\"#%']", string.Empty);
+
+            var nameMaxChar = maxLength - caseFolderPath.Length;
+
+            // Shorten the name of the file if it's too long
+            if (name.Length > nameMaxChar)
+            {
+                // Truncate the filename.
+                name = name.Substring(0, nameMaxChar);
+            }
 
             return name;
         }

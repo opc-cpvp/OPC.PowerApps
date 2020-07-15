@@ -28,7 +28,7 @@ export class TemplateDialog {
     );
     private _dialogSelect: HTMLSelectElement;
     private _complaintId: string;
-    private _token: string;
+    private _accessToken: string;
     private _loginHint: string;
     private readonly _authorityBaseUrl: string = "https://login.microsoftonline.com/";
     private readonly _redirectUri: string = "https://opc-compliance-templates.crm3.dynamics.com";
@@ -66,9 +66,9 @@ export class TemplateDialog {
         this._templatesEnvironmentVariable = JSON.parse(await this.getEnvironmentVariable("opc_templatesapplicationids"));
         this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
 
-        await this.getToken()
+        await this.getAccessToken()
             .then(async response => {
-                this._token = response.accessToken;
+                this._accessToken = response.accessToken;
                 await this.getTemplates();
             });
 
@@ -158,7 +158,7 @@ export class TemplateDialog {
                 method: 'GET',
                 headers: new Headers({
                     "Accept": "application/json; odata=verbose",
-                    "Authorization": `Bearer ${this._token}`
+                    "Authorization": `Bearer ${this._accessToken}`
                 })
             });
 
@@ -229,7 +229,7 @@ export class TemplateDialog {
 
     private triggerActionToGenerateDocument(xmlString: string, caseFolderPath: string, templateRelativeUrl: string, documentName: string) {
         const request = {
-            Token: this._token,
+            AccessToken: this._accessToken,
             CaseFolderPath: caseFolderPath,
             TemplatePath: templateRelativeUrl,
             XMLData: xmlString,
@@ -239,7 +239,7 @@ export class TemplateDialog {
                     operationType: 0,
                     operationName: "opc_GenerateDocumentFromTemplate",
                     parameterTypes: {
-                        Token: {
+                        AccessToken: {
                             typeName: "Edm.String",
                             structuralProperty: 1
                         },
@@ -276,7 +276,7 @@ export class TemplateDialog {
             }
         );
     }
-    private async getToken() {
+    private async getAccessToken() {
         const msalConfig: Msal.Configuration = {
             auth: {
                 clientId: this._templatesEnvironmentVariable.applicationId,
