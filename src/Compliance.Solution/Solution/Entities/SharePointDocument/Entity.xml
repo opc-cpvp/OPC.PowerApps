@@ -3,7 +3,41 @@
   <Name LocalizedName="Sharepoint Document" OriginalName="">SharePointDocument</Name>
   <EntityInfo>
     <entity Name="SharePointDocument" unmodified="1">
-      <attributes />
+      <attributes>
+        <attribute PhysicalName="RegardingObjectId" unmodified="1">
+          <Type>lookup</Type>
+          <Name>regardingobjectid</Name>
+          <LogicalName>regardingobjectid</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>6.1.0.0</IntroducedVersion>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <LookupStyle>single</LookupStyle>
+          <displaynames>
+            <displayname description="Regarding" languagecode="1033" />
+            <displayname description="Concernant" languagecode="1036" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Choose the parent record that the SharePoint document record is associated with." languagecode="1033" />
+            <Description description="Sélectionnez l'enregistrement parent auquel l'enregistrement de document SharePoint est associé." languagecode="1036" />
+          </Descriptions>
+        </attribute>
+      </attributes>
     </entity>
   </EntityInfo>
   <SavedQueries />
