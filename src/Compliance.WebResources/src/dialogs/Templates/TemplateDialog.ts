@@ -12,7 +12,18 @@ export class TemplateDialog {
     private _complaint: (
         opc_complaint &
         { opc_legislation: opc_legislation_Result } &
+        { opc_opcpriorityid: opc_opcpriority_Result } &
+        { opc_sectorid: opc_sector_Result } &
+        { opc_intakeofficer: SystemUser_Result } &
+        { owninguser: SystemUser_Result } &
         { opc_complainant: Contact_Result } &
+        { opc_complainantrep: Contact_Result } &
+        { opc_complainantlegalrepresentative: Contact_Result } &
+        { opc_complainantlegalrepresentativefirm: Account_Result } &
+        { opc_accountid: Account_Result } &
+        { opc_respondentlegalrepresentativefirm: Account_Result } &
+        { opc_respondentrepresentative: Contact_Result } &
+        { opc_respondentlegalrepresentative: Contact_Result } &
         { opc_complaint_SharePointDocumentLocations: SharePointDocumentLocation_Result[]}
     );
     private _dialogSelect: HTMLSelectElement;
@@ -110,9 +121,21 @@ export class TemplateDialog {
 
     private async getComplaint() {
         return XrmQuery.retrieve(x => x.opc_complaints, this._complaintId)
-            .expand(x => x.opc_complainant)
             .expand(x => x.opc_legislation, x => [x.opc_acronym])
+            .expand(x => x.opc_opcpriorityid)
+            .expand(x => x.opc_sectorid)
+            .expand(x => x.opc_accountid, x => [x.name, x.telephone1, x.fax, x.websiteurl, x.address1_line1, x.address1_line2, x.address1_line3, x.address1_city, x.address1_stateorprovince, x.address1_postalcode, x.address1_country])
+            .expand(x => x.opc_intakeofficer, x => [x.firstname, x.lastname, x.fullname, x.title, x.domainname, x.internalemailaddress, x.address1_telephone1, x.mobilephone])
+            .expand(x => x.owninguser, x => [x.firstname, x.lastname, x.fullname, x.title, x.domainname, x.internalemailaddress, x.address1_telephone1, x.mobilephone])
+            .expand(x => x.opc_complainant, x => [x.firstname, x.lastname, x.fullname, x.jobtitle, x.emailaddress1, x.telephone1, x.telephone2, x.fax, x.address1_line1, x.address1_line2, x.address1_line3, x.address1_city, x.address1_stateorprovince, x.address1_postalcode, x.address1_country])
+            .expand(x => x.opc_complainantrep, x => [x.firstname, x.lastname, x.fullname, x.jobtitle, x.emailaddress1, x.telephone1, x.telephone2, x.fax, x.address1_line1, x.address1_line2, x.address1_line3, x.address1_city, x.address1_stateorprovince, x.address1_postalcode, x.address1_country])
+            .expand(x => x.opc_complainantlegalrepresentative, x => [x.firstname, x.lastname, x.fullname, x.jobtitle, x.emailaddress1, x.telephone1, x.telephone2, x.fax, x.address1_line1, x.address1_line2, x.address1_line3, x.address1_city, x.address1_stateorprovince, x.address1_postalcode, x.address1_country])
+            .expand(x => x.opc_complainantlegalrepresentativefirm, x => [x.name, x.telephone1, x.fax, x.websiteurl, x.address1_line1, x.address1_line2, x.address1_line3, x.address1_city, x.address1_stateorprovince, x.address1_postalcode, x.address1_country])
+            .expand(x => x.opc_respondentrepresentative, x => [x.firstname, x.lastname, x.fullname, x.jobtitle, x.emailaddress1, x.telephone1, x.telephone2, x.fax, x.address1_line1, x.address1_line2, x.address1_line3, x.address1_city, x.address1_stateorprovince, x.address1_postalcode, x.address1_country])
+            .expand(x => x.opc_respondentlegalrepresentative, x => [x.firstname, x.lastname, x.fullname, x.jobtitle, x.emailaddress1, x.telephone1, x.telephone2, x.fax, x.address1_line1, x.address1_line2, x.address1_line3, x.address1_city, x.address1_stateorprovince, x.address1_postalcode, x.address1_country])
+            .expand(x => x.opc_respondentlegalrepresentativefirm, x => [x.name, x.telephone1, x.fax, x.websiteurl, x.address1_line1, x.address1_line2, x.address1_line3, x.address1_city, x.address1_stateorprovince, x.address1_postalcode, x.address1_country])
             .expand(x => x.opc_complaint_SharePointDocumentLocations, x => [x.relativeurl])
+            .includeFormattedValues()
             .promise();
     }
 
