@@ -11,7 +11,7 @@ namespace Compliance.Plugins
 {
     public partial class TemplatePlugin : PluginBase
     {
-        private const string SharePointWebAPIUrl = "https://096gc.sharepoint.com/sites/PowerAppsSandbox/_api/web";
+        private const string sharePointSiteUrl = "https://096gc.sharepoint.com/sites/PowerAppsSandbox/";
 
         // This number includes the frontslash separating the CaseFolderPath and the actual FileName AND the .docx extension
         private const int sharepointFileNameAndPathMaxCharacters = 298;
@@ -48,8 +48,8 @@ namespace Compliance.Plugins
         {
             documentName = GetValidDocumentName(documentName, caseFolderPath, sharepointFileNameAndPathMaxCharacters);
 
-            var getUrl = $"{SharePointWebAPIUrl}/getfilebyserverrelativeurl('{templatePath}')/$value";
-            var postUrl = $"{SharePointWebAPIUrl}/GetFolderByServerRelativeUrl('{caseFolderPath}')/Files/add(url='{documentName}.docx',overwrite=true)";
+            var getUrl = $"{sharePointSiteUrl}_api/web/getfilebyserverrelativeurl('{templatePath}')/$value";
+            var postUrl = $"{sharePointSiteUrl}_api/web/GetFolderByServerRelativeUrl('{caseFolderPath}')/Files/add(url='{documentName}.docx',overwrite=true)";
 
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(getUrl);
             httpWebRequest.Method = "GET";
