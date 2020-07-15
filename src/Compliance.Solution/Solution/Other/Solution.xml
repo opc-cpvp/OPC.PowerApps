@@ -240,7 +240,7 @@
       <RootComponent type="92" id="{b333b5bb-532e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="92" id="{d7f77688-a5ac-ea11-a812-000d3af46fff}" behavior="0" />
       <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
-      <RootComponent type="380" schemaName="opc_templatesapplicationids" behavior="0" />
+      <RootComponent type="380" schemaName="opc_templatesapplication" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
