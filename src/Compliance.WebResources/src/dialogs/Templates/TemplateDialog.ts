@@ -28,6 +28,7 @@ export class TemplateDialog {
         { opc_complaint_SharePointDocumentLocations: SharePointDocumentLocation_Result[]}
     );
     private _dialogSelect: HTMLSelectElement;
+    private _globalContext: Xrm.context;
     private _complaintId: string;
     private _accessToken: string;
     private _loginHint: string;
@@ -57,12 +58,13 @@ export class TemplateDialog {
     // TODO: Refactor to make this faster.
     // It should probably call as much async methods as possible and before getting the token and rendering the page, it should wait for all of them to finish.
     public async initializeDialog() {
+        this._globalContext = Xrm.Utility.getGlobalContext();
         this._complaintId = this.getDataParameter();
         this._complaint = await this.getComplaint();
         this._loginHint = await this.getUserEmail();
         this._templatesEnvironmentVariable = JSON.parse(await this.getEnvironmentVariable("opc_templatesapplication"));
         this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
-        this._redirectUri = Xrm.Utility.getGlobalContext().getClientUrl();
+        this._redirectUri = this._globalContext.getClientUrl();
 
         await this.getAccessToken()
             .then(async response => {
@@ -138,7 +140,7 @@ export class TemplateDialog {
     }
 
     private async getUserEmail() {
-        return (await XrmQuery.retrieve(x => x.systemusers, Xrm.Utility.getGlobalContext().userSettings.userId)
+        return (await XrmQuery.retrieve(x => x.systemusers, this._globalContext.userSettings.userId)
             .promise()).domainname;
     }
 

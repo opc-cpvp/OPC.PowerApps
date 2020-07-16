@@ -8,10 +8,8 @@ export class TemplateDialogPage {
         this._templateDialog = new TemplateDialog(placeholder);
 
         this._templateDialog.initializeDialog().then(() => {
-            //const confirmButton = document.getElementById("template-comfirm");
             const cancelButton = document.getElementById("template-cancel");
 
-            //confirmButton.addEventListener("submit", () => this._templateDialog.generateTemplate_onClick());
             cancelButton.addEventListener("click", () => this.closePage());
             document.addEventListener("submit", x => {
                 x.preventDefault();
