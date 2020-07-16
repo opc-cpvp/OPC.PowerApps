@@ -3,6 +3,7 @@ import 'core-js/features/url-search-params';
 import * as Msal from 'msal';
 import { TemplateDialogPage } from './TemplateDialogPage';
 
+// TODO: Refactor for tests
 // TODO: Better handle errors/exceptions
 // TODO: Change the display of the template choices. Either have categories in the dropdown or have some sort of tree view of the available templates.
 // TODO: Add something that will show that the app is loading.
@@ -30,14 +31,10 @@ export class TemplateDialog {
     private _complaintId: string;
     private _accessToken: string;
     private _loginHint: string;
-    private readonly _authorityBaseUrl: string = "https://login.microsoftonline.com/";
-    private readonly _redirectUri: string = "https://opc-compliance-templates.crm3.dynamics.com";
-    private readonly _tokenScope: string[] = ["https://096gc.sharepoint.com/Sites.ReadWrite.All"];
-    private readonly _sharePointSiteUrl: string = "https://096gc.sharepoint.com/sites/PowerAppsSandbox/";
-    private readonly _sharePointTemplatesFolderLocation: string = "/sites/PowerAppsSandbox/Shared Documents/Templates/";
+    private _redirectUri: string;
     private _sharePointTemplatesSubFolderLocation: string;
     private _caseDocumentsLocationRelativeUrl: string;
-    private _templatesEnvironmentVariable: { applicationId: string; tenantId: string; };
+    private _templatesEnvironmentVariable: { applicationId: string; tenantId: string; sharePointSiteUrl: string; templatesFolderPath: string; tokenScope: string[]; authorityBaseUrl: string;};
 
     constructor(placeholder: HTMLDivElement) {
         this._placeholder = placeholder;
@@ -63,8 +60,9 @@ export class TemplateDialog {
         this._complaintId = this.getDataParameter();
         this._complaint = await this.getComplaint();
         this._loginHint = await this.getUserEmail();
-        this._templatesEnvironmentVariable = JSON.parse(await this.getEnvironmentVariable("opc_templatesapplicationids"));
+        this._templatesEnvironmentVariable = JSON.parse(await this.getEnvironmentVariable("opc_templatesapplication"));
         this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
+        this._redirectUri = Xrm.Utility.getGlobalContext().getClientUrl();
 
         await this.getAccessToken()
             .then(async response => {
@@ -153,7 +151,7 @@ export class TemplateDialog {
 
     private async getTemplates() {
         const request = new Request(
-            `${this._sharePointSiteUrl}_api/web/GetFolderByServerRelativeUrl('${this._sharePointTemplatesFolderLocation}${this._sharePointTemplatesSubFolderLocation}')/Files`
+            `${this._templatesEnvironmentVariable.sharePointSiteUrl}_api/web/GetFolderByServerRelativeUrl('${this._templatesEnvironmentVariable.templatesFolderPath}${this._sharePointTemplatesSubFolderLocation}')/Files`
             , {
                 method: 'GET',
                 headers: new Headers({
@@ -234,6 +232,7 @@ export class TemplateDialog {
             TemplatePath: templateRelativeUrl,
             XMLData: xmlString,
             DocumentName: documentName,
+            SharePointSiteUrl: this._templatesEnvironmentVariable.sharePointSiteUrl,
             getMetadata: () => {
                 return {
                     operationType: 0,
@@ -258,6 +257,10 @@ export class TemplateDialog {
                         DocumentName: {
                             typeName: "Edm.String",
                             structuralProperty: 1
+                        },
+                        SharePointSiteUrl: {
+                            typeName: "Edm.String",
+                            structuralProperty: 1
                         }
                     },
                 };
@@ -280,16 +283,16 @@ export class TemplateDialog {
         const msalConfig: Msal.Configuration = {
             auth: {
                 clientId: this._templatesEnvironmentVariable.applicationId,
-                authority: `${this._authorityBaseUrl}${this._templatesEnvironmentVariable.tenantId}`,
+                authority: `${this._templatesEnvironmentVariable.authorityBaseUrl}${this._templatesEnvironmentVariable.tenantId}`,
                 redirectUri: this._redirectUri
             }
         };
 
         const msalInstance = new Msal.UserAgentApplication(msalConfig);
         const tokenRequest: Msal.AuthenticationParameters = {
-            scopes: this._tokenScope,
+            scopes: this._templatesEnvironmentVariable.tokenScope,
             loginHint: this._loginHint,
-            authority: `${this._authorityBaseUrl}${this._templatesEnvironmentVariable.tenantId}`
+            authority: `${this._templatesEnvironmentVariable.authorityBaseUrl}${this._templatesEnvironmentVariable.tenantId}`
         };
 
         return msalInstance.acquireTokenSilent(tokenRequest)

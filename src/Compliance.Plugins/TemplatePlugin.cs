@@ -11,8 +11,6 @@ namespace Compliance.Plugins
 {
     public partial class TemplatePlugin : PluginBase
     {
-        private const string sharePointSiteUrl = "https://096gc.sharepoint.com/sites/PowerAppsSandbox/";
-
         // This number includes the frontslash separating the CaseFolderPath and the actual FileName AND the .docx extension
         private const int sharepointFileNameAndPathMaxCharacters = 298;
 
@@ -31,10 +29,11 @@ namespace Compliance.Plugins
             var caseFolderPath = (string)pluginExecutionContext.InputParameters["CaseFolderPath"];
             var accessToken = (string)pluginExecutionContext.InputParameters["AccessToken"];
             var documentName = (string)pluginExecutionContext.InputParameters["DocumentName"];
+            var sharePointSiteUrl = (string)pluginExecutionContext.InputParameters["SharePointSiteUrl"];
 
             try
             {
-                pluginExecutionContext.OutputParameters["Result"] = GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, accessToken, documentName);
+                pluginExecutionContext.OutputParameters["Result"] = GenerateDocumentFromTemplate(templatePath, xmlData, caseFolderPath, accessToken, documentName, sharePointSiteUrl);
             }
             catch (Exception ex)
             {
@@ -44,7 +43,7 @@ namespace Compliance.Plugins
             }
         }
 
-        private string GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string accessToken, string documentName)
+        private string GenerateDocumentFromTemplate(string templatePath, string xmlData, string caseFolderPath, string accessToken, string documentName, string sharePointSiteUrl)
         {
             documentName = GetValidDocumentName(documentName, caseFolderPath, sharepointFileNameAndPathMaxCharacters);
 
