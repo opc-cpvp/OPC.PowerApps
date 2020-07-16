@@ -14,10 +14,21 @@ export class FormFactory implements IFormFactory {
     }
 
     createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>): IPowerForm<TForm> {
-        let fctx = context.getFormContext();
-        let form = this._container.get<IPowerForm<TForm>>(fctx.data.entity.getEntityName() +
-            "_" +
-            fctx.ui.formSelector.getCurrentItem().getLabel().toLowerCase());
+        const fctx = context.getFormContext();
+        const pageType = context.getContext().getQueryStringParameters()["pageType"];
+        let formName: string;
+
+        switch (pageType) {
+            case "quickcreate":
+                formName = pageType;
+                break;
+            case "entityrecord":
+                // For whatever reason formSelector is not available with quickcreates
+                formName = fctx.ui.formSelector.getCurrentItem().getLabel().toLowerCase();
+                break;
+        }
+
+        let form = this._container.get<IPowerForm<TForm>>(fctx.data.entity.getEntityName() + "_" + formName);
         form.initializeComponents(context);
         return form;
     }

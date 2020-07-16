@@ -71,13 +71,12 @@ export namespace Complaint.Forms {
             const contactAttr = context.getEventSource();
             const contactValue = contactAttr.getValue();
             const duplicationNotificationId = `duplicateNotificationId - ${contactType}`;
-            const otherAffectedAttributes = this._contactAttrs.filter(c => c.Attribute.getValue() && c.Attribute.getValue()[0].name === contactValue[0].name &&
-                c.Attribute.getName() !== contactAttr.getName());
-
-            // reset the notification
-            //formContext.ui.clearFormNotification(duplicationNotificationId);
 
             if (contactValue) {
+
+                // Identify other attributes which may have same contact
+                const otherAffectedAttributes = this._contactAttrs.filter(c => c.Attribute.getValue() && c.Attribute.getValue()[0].name === contactValue[0].name &&
+                    c.Attribute.getName() !== contactAttr.getName());
 
                 this._contactService.getContact(contactValue[0].id)
                     .then(contactResult => {

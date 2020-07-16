@@ -89,6 +89,7 @@
     <TypeScriptCompile Include="src\forms\ContactMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\ReminderQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.ts" />
@@ -100,6 +101,7 @@
     <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.ts" />
     <TypeScriptCompile Include="src\handlers\Commands\MergeContactCommandHandler.test.ts" />
     <TypeScriptCompile Include="src\helpers\ContactHelper.ts" />
+    <TypeScriptCompile Include="src\forms\ReminderQuickCreateForm.ts" />
     <TypeScriptCompile Include="src\helpers\XrmHelper.ts" />
     <TypeScriptCompile Include="src\resources.json" />
     <TypeScriptCompile Include="src\index.ts" />

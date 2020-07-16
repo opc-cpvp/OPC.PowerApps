@@ -572,10 +572,12 @@
                 ]
               },
               "expression": {
-                "equals": [
-                  "@items('Apply_to_each_reminders')?['opc_notifyadditionalusers']",
-                  "@true"
-                ]
+                "not": {
+                  "equals": [
+                    "@items('Apply_to_each_reminders')?['opc_additionalusers']",
+                    "@null"
+                  ]
+                }
               },
               "type": "If"
             }

@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.271</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form maxWidth="1920">
       <tabs>
         <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{bafd6540-cb3b-42ab-916e-8fed2f732a3c}">
           <labels>
@@ -60,11 +60,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{d15c5a42-e132-433c-989c-35a8148f2302}" showlabel="true" locklevel="0">
+                      <cell id="{7be398a0-8b94-553a-7cb7-5285a435e20c}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Notify Additional Users" languagecode="1033" />
                         </labels>
-                        <control id="opc_notifyadditionalusers" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_notifyadditionalusers" disabled="false" uniqueid="{8c19a6c0-41e7-473d-b72c-d5ea8e8bc11c}" />
+                        <control id="opc_additionalusers" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_additionalusers" disabled="false" uniqueid="{03936294-0049-605c-3378-e2d7ab11582e}" />
                       </cell>
                     </row>
                   </rows>
@@ -79,7 +79,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{a3062600-9956-4922-b9ff-a3950df91b62}">
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{a3062600-9956-4922-b9ff-a3950df91b62}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -97,7 +97,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{31f0179e-1732-4728-be12-97c176156c50}">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{31f0179e-1732-4728-be12-97c176156c50}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -110,10 +110,6 @@
           </columns>
         </tab>
       </tabs>
-      <DisplayConditions Order="0" FallbackForm="true">
-        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
-        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
-      </DisplayConditions>
       <controlDescriptions>
         <controlDescription forControl="{36d6bd03-a282-4e36-b39e-e891b59b78a4}">
           <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
@@ -181,34 +177,60 @@
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{8c19a6c0-41e7-473d-b72c-d5ea8e8bc11c}">
-          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+        <controlDescription forControl="{03936294-0049-605c-3378-e2d7ab11582e}">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
             <parameters>
-              <datafieldname>opc_notifyadditionalusers</datafieldname>
+              <datafieldname>opc_additionalusers</datafieldname>
             </parameters>
           </customControl>
-          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+          <customControl formFactor="0" name="opc_opc.pcf.TagPickerComponent">
             <parameters>
-              <value>opc_notifyadditionalusers</value>
+              <tagData>opc_additionalusers</tagData>
+              <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
             </parameters>
           </customControl>
-          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+          <customControl formFactor="1" name="opc_opc.pcf.TagPickerComponent">
             <parameters>
-              <value>opc_notifyadditionalusers</value>
+              <tagData>opc_additionalusers</tagData>
+              <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
             </parameters>
           </customControl>
-          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+          <customControl formFactor="2" name="opc_opc.pcf.TagPickerComponent">
             <parameters>
-              <value>opc_notifyadditionalusers</value>
+              <tagData>opc_additionalusers</tagData>
+              <relatedEntity static="true" type="SingleLine.Text">systemuser</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_reminders_users_additionaluserstonotify</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_reminder_user</relationshipEntity>
             </parameters>
           </customControl>
         </controlDescription>
       </controlDescriptions>
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{c7d2181e-c16d-cbd0-c899-12a21248c36e}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{d14d1da2-8128-b55c-581a-91aad10d54ca}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="QuickCreate" languagecode="1033" />
     </LocalizedNames>
+    <Descriptions>
+      <Description description="A Quick Create Form for this entity." languagecode="1033" />
+    </Descriptions>
   </systemform>
 </forms>

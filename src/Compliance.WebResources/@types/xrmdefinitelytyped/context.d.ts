@@ -626,48 +626,48 @@ declare const enum duplicaterule_baseentitytypecode {
   StageSolutionUpload = 10600,
   ProcessStageParameter = 10626,
   AIBuilderDatasetRecord = 10762,
-  ServiceConfiguration = 11402,
-  SLAKPI = 11403,
-  NonRelationalDataSource = 11404,
-  DataLakeWorkspace = 11405,
-  DataLakeWorkspacePermission = 11406,
-  ApplicationUser = 11407,
-  SolutionComponentRelationshipConfiguration = 11409,
-  ModelDrivenAppElement = 11410,
-  ModelDrivenAppComponentNodesEdge = 11411,
-  ModelDrivenAppComponentNode = 11412,
-  ModelDrivenAppSetting = 11413,
-  SettingDefinition = 11414,
-  ConnectionReference = 11415,
-  CanvasAppExtendedMetadata = 11416,
-  PDFSetting = 11452,
-  AllegationConcern = 11513,
-  AllegationType = 11514,
-  ChecklistResponse = 11515,
-  ChecklistType = 11516,
-  Complaint = 11517,
-  DispositionAction = 11518,
-  DispositionReason = 11519,
-  IndividualComplaint = 11520,
-  Issue = 11521,
-  Legislation = 11522,
-  Notification = 11523,
-  OPCPriority = 11524,
-  QuestionTemplate = 11525,
-  QuestionType = 11526,
-  Recommendation = 11527,
-  Reminder = 11528,
-  RiskAppetite = 11529,
-  RiskAssessment = 11530,
-  RiskAssessmentCategory = 11531,
-  RiskAssessmentCategoryTemplate = 11532,
-  RiskAssessmentDefinition = 11533,
-  RiskAssessmentDefinitionTemplate = 11534,
-  RiskAssessmentFactorTemplate = 11535,
-  RiskAssessmentType = 11536,
-  Sector = 11537,
-  Theme = 11538,
-  Topic = 11539,
+  ServiceConfiguration = 11547,
+  SLAKPI = 11548,
+  NonRelationalDataSource = 11549,
+  DataLakeWorkspace = 11579,
+  DataLakeWorkspacePermission = 11580,
+  ApplicationUser = 11581,
+  SolutionComponentRelationshipConfiguration = 11612,
+  ModelDrivenAppElement = 11671,
+  ModelDrivenAppComponentNodesEdge = 11672,
+  ModelDrivenAppComponentNode = 11673,
+  ModelDrivenAppSetting = 11674,
+  SettingDefinition = 11675,
+  ConnectionReference = 11677,
+  CanvasAppExtendedMetadata = 11678,
+  PDFSetting = 11679,
+  AllegationConcern = 11680,
+  AllegationType = 11681,
+  ChecklistResponse = 11682,
+  ChecklistType = 11683,
+  Complaint = 11684,
+  DispositionAction = 11685,
+  DispositionReason = 11686,
+  IndividualComplaint = 11687,
+  Issue = 11688,
+  Legislation = 11689,
+  Notification = 11690,
+  OPCPriority = 11691,
+  QuestionTemplate = 11692,
+  QuestionType = 11693,
+  Recommendation = 11694,
+  Reminder = 11695,
+  RiskAppetite = 11696,
+  RiskAssessment = 11697,
+  RiskAssessmentCategory = 11698,
+  RiskAssessmentCategoryTemplate = 11699,
+  RiskAssessmentDefinition = 11700,
+  RiskAssessmentDefinitionTemplate = 11701,
+  RiskAssessmentFactorTemplate = 11702,
+  RiskAssessmentType = 11703,
+  Sector = 11704,
+  Theme = 11705,
+  Topic = 11706,
 }
 declare const enum duplicaterule_matchingentitytypecode {
   Account = 1,
@@ -1025,48 +1025,48 @@ declare const enum duplicaterule_matchingentitytypecode {
   StageSolutionUpload = 10600,
   ProcessStageParameter = 10626,
   AIBuilderDatasetRecord = 10762,
-  ServiceConfiguration = 11402,
-  SLAKPI = 11403,
-  NonRelationalDataSource = 11404,
-  DataLakeWorkspace = 11405,
-  DataLakeWorkspacePermission = 11406,
-  ApplicationUser = 11407,
-  SolutionComponentRelationshipConfiguration = 11409,
-  ModelDrivenAppElement = 11410,
-  ModelDrivenAppComponentNodesEdge = 11411,
-  ModelDrivenAppComponentNode = 11412,
-  ModelDrivenAppSetting = 11413,
-  SettingDefinition = 11414,
-  ConnectionReference = 11415,
-  CanvasAppExtendedMetadata = 11416,
-  PDFSetting = 11452,
-  AllegationConcern = 11513,
-  AllegationType = 11514,
-  ChecklistResponse = 11515,
-  ChecklistType = 11516,
-  Complaint = 11517,
-  DispositionAction = 11518,
-  DispositionReason = 11519,
-  IndividualComplaint = 11520,
-  Issue = 11521,
-  Legislation = 11522,
-  Notification = 11523,
-  OPCPriority = 11524,
-  QuestionTemplate = 11525,
-  QuestionType = 11526,
-  Recommendation = 11527,
-  Reminder = 11528,
-  RiskAppetite = 11529,
-  RiskAssessment = 11530,
-  RiskAssessmentCategory = 11531,
-  RiskAssessmentCategoryTemplate = 11532,
-  RiskAssessmentDefinition = 11533,
-  RiskAssessmentDefinitionTemplate = 11534,
-  RiskAssessmentFactorTemplate = 11535,
-  RiskAssessmentType = 11536,
-  Sector = 11537,
-  Theme = 11538,
-  Topic = 11539,
+  ServiceConfiguration = 11547,
+  SLAKPI = 11548,
+  NonRelationalDataSource = 11549,
+  DataLakeWorkspace = 11579,
+  DataLakeWorkspacePermission = 11580,
+  ApplicationUser = 11581,
+  SolutionComponentRelationshipConfiguration = 11612,
+  ModelDrivenAppElement = 11671,
+  ModelDrivenAppComponentNodesEdge = 11672,
+  ModelDrivenAppComponentNode = 11673,
+  ModelDrivenAppSetting = 11674,
+  SettingDefinition = 11675,
+  ConnectionReference = 11677,
+  CanvasAppExtendedMetadata = 11678,
+  PDFSetting = 11679,
+  AllegationConcern = 11680,
+  AllegationType = 11681,
+  ChecklistResponse = 11682,
+  ChecklistType = 11683,
+  Complaint = 11684,
+  DispositionAction = 11685,
+  DispositionReason = 11686,
+  IndividualComplaint = 11687,
+  Issue = 11688,
+  Legislation = 11689,
+  Notification = 11690,
+  OPCPriority = 11691,
+  QuestionTemplate = 11692,
+  QuestionType = 11693,
+  Recommendation = 11694,
+  Reminder = 11695,
+  RiskAppetite = 11696,
+  RiskAssessment = 11697,
+  RiskAssessmentCategory = 11698,
+  RiskAssessmentCategoryTemplate = 11699,
+  RiskAssessmentDefinition = 11700,
+  RiskAssessmentDefinitionTemplate = 11701,
+  RiskAssessmentFactorTemplate = 11702,
+  RiskAssessmentType = 11703,
+  Sector = 11704,
+  Theme = 11705,
+  Topic = 11706,
 }
 declare const enum duplicaterulecondition_operatorcode {
   ExactMatch = 0,
@@ -1456,7 +1456,7 @@ declare const enum queueitem_objecttypecode {
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
   KnowledgeArticleTemplate = 10007,
-  Complaint = 11517,
+  Complaint = 11684,
 }
 declare const enum sharepointsite_servicetype {
   SharePoint = 0,
@@ -6719,8 +6719,8 @@ declare namespace Form.opc_reminder.QuickCreate {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_additionalusers"): Xrm.Attribute<any>;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_notifyadditionalusers"): Xrm.Attribute<any>;
       get(name: "opc_notifybyemail"): Xrm.Attribute<any>;
       get(name: "opc_notifycaseowner"): Xrm.Attribute<any>;
       get(name: "opc_notifyme"): Xrm.Attribute<any>;
@@ -6731,8 +6731,8 @@ declare namespace Form.opc_reminder.QuickCreate {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "opc_additionalusers"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_notifybyemail"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
@@ -6751,15 +6751,15 @@ declare namespace Form.opc_reminder.QuickCreate {
     }
   }
   interface QuickCreate extends Xrm.PageBase<QuickCreate.Attributes,QuickCreate.Tabs,QuickCreate.Controls> {
+    getAttribute(attributeName: "opc_additionalusers"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_notifyadditionalusers"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_notifybyemail"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_notifycaseowner"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_notifyme"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_reminderdate"): Xrm.DateAttribute;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "opc_additionalusers"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_notifybyemail"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
@@ -6824,7 +6824,6 @@ declare namespace Form.opc_reminder.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_name"): Xrm.Attribute<string>;
-      get(name: "opc_notifyadditionalusers"): Xrm.Attribute<any>;
       get(name: "opc_notifybyemail"): Xrm.Attribute<any>;
       get(name: "opc_notifycaseowner"): Xrm.Attribute<any>;
       get(name: "opc_notifyme"): Xrm.Attribute<any>;
@@ -6844,7 +6843,6 @@ declare namespace Form.opc_reminder.Main {
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
       get(name: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_notifybyemail"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
@@ -6866,7 +6864,6 @@ declare namespace Form.opc_reminder.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_notifyadditionalusers"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_notifybyemail"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_notifycaseowner"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_notifyme"): Xrm.Attribute<any>;
@@ -6881,7 +6878,6 @@ declare namespace Form.opc_reminder.Main {
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_reminder_statuscode>;
     getControl(controlName: "opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "opc_notifyadditionalusers"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_notifybyemail"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_notifycaseowner"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_notifyme"): Xrm.Control<Xrm.Attribute<any>>;
@@ -14583,8 +14579,8 @@ interface opc_reminder_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
+  opc_additionalusers?: string | null;
   opc_name?: string | null;
-  opc_notifyadditionalusers?: boolean | null;
   opc_notifybyemail?: boolean | null;
   opc_notifycaseowner?: boolean | null;
   opc_notifyme?: boolean | null;
@@ -14617,9 +14613,9 @@ interface opc_reminder_Select {
   modifiedby_guid: WebAttribute<opc_reminder_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_reminder_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_reminder_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_additionalusers: WebAttribute<opc_reminder_Select, { opc_additionalusers: string | null }, {  }>;
   opc_complaintid_guid: WebAttribute<opc_reminder_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
   opc_name: WebAttribute<opc_reminder_Select, { opc_name: string | null }, {  }>;
-  opc_notifyadditionalusers: WebAttribute<opc_reminder_Select, { opc_notifyadditionalusers: boolean | null }, {  }>;
   opc_notifybyemail: WebAttribute<opc_reminder_Select, { opc_notifybyemail: boolean | null }, {  }>;
   opc_notifycaseowner: WebAttribute<opc_reminder_Select, { opc_notifycaseowner: boolean | null }, {  }>;
   opc_notifyme: WebAttribute<opc_reminder_Select, { opc_notifyme: boolean | null }, {  }>;
@@ -14644,9 +14640,9 @@ interface opc_reminder_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
+  opc_additionalusers: string;
   opc_complaintid_guid: XQW.Guid;
   opc_name: string;
-  opc_notifyadditionalusers: boolean;
   opc_notifybyemail: boolean;
   opc_notifycaseowner: boolean;
   opc_notifyme: boolean;
