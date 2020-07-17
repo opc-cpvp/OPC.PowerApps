@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{b6e92153-ffc3-41bc-a222-336ab86a4635}" Name="Generate Document from Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <XamlFileName>/Workflows/GenerateDocumentFromTemplate-B6E92153-FFC3-41BC-A222-336AB86A4635.xaml</XamlFileName>
+<Workflow WorkflowId="{b6e92153-ffc3-41bc-a222-336ab86a4635}" Name="Global - Action - Generate Document from Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/Global-Action-GenerateDocumentfromTemplate-B6E92153-FFC3-41BC-A222-336AB86A4635.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>3</Category>
@@ -24,6 +24,6 @@
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Generate Document from Template" />
+    <LocalizedName languagecode="1033" description="Global - Action - Generate Document from Template" />
   </LocalizedNames>
 </Workflow>
