@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="Compliance.Plugins.TemplatePlugin: opc_GenerateDocumentFromTemplate of  any Entity" SdkMessageProcessingStepId="{68afe5e3-8894-ea11-a812-000d3af45a96}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="Compliance.Plugins.TemplatePlugin: opc_generatedocumentfromtemplate of any Entity" SdkMessageProcessingStepId="{68afe5e3-8894-ea11-a812-000d3af45a96}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SdkMessageId>26f327e8-7e94-ea11-a812-000d3af45a96</SdkMessageId>
   <PluginTypeName>Compliance.Plugins.TemplatePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548</PluginTypeName>
   <PluginTypeId>eff4f902-858c-4fff-b917-ca60d3ebfc6c</PluginTypeId>

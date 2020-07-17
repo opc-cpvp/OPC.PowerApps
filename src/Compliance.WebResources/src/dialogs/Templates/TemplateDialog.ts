@@ -238,7 +238,7 @@ export class TemplateDialog {
             getMetadata: () => {
                 return {
                     operationType: 0,
-                    operationName: "opc_GenerateDocumentFromTemplate",
+                    operationName: "opc_generatedocumentfromtemplate",
                     parameterTypes: {
                         AccessToken: {
                             typeName: "Edm.String",

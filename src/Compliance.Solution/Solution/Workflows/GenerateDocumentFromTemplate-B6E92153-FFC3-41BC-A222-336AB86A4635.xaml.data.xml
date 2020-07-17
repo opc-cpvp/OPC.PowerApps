@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{b6e92153-ffc3-41bc-a222-336ab86a4635}" Name="GenerateDocumentFromTemplate" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Workflow WorkflowId="{b6e92153-ffc3-41bc-a222-336ab86a4635}" Name="Generate Document from Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <XamlFileName>/Workflows/GenerateDocumentFromTemplate-B6E92153-FFC3-41BC-A222-336AB86A4635.xaml</XamlFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
@@ -16,7 +16,7 @@
   <CreateStage>40</CreateStage>
   <RunAs>1</RunAs>
   <SdkMessageId>{26f327e8-7e94-ea11-a812-000d3af45a96}</SdkMessageId>
-  <UniqueName>GenerateDocumentFromTemplate</UniqueName>
+  <UniqueName>generatedocumentfromtemplate</UniqueName>
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>1.0.270</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
@@ -24,6 +24,6 @@
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="GenerateDocumentFromTemplate" />
+    <LocalizedName languagecode="1033" description="Generate Document from Template" />
   </LocalizedNames>
 </Workflow>
