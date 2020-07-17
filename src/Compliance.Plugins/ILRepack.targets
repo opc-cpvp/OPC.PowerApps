@@ -3,6 +3,7 @@
   <Target Name="ILRepackBuild" AfterTargets="Build" Condition="$(Configuration.Contains('Release'))">
     <ItemGroup>
       <InputAssemblies Include="$(OutputPath)Compliance.*.dll" />
+      <InputAssemblies Include="$(OutputPath)DocumentFormat.OpenXml.dll" />
     </ItemGroup>
     <ILRepack
       Parallel="true"

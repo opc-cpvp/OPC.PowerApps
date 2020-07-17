@@ -24,3 +24,7 @@ import "./handlers/Commands/MergeContactCommandHandler.test"
 
 /* Query Handlers */
 import "./handlers/Queries/CheckDuplicatesQueryHandler.test"
+
+/* Dialogs */
+import "./dialogs/Templates/TemplateDialog.test"
+import "./dialogs/Templates/TemplateDialogPage.test"

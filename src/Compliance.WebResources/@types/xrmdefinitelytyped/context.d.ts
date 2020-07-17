@@ -1077,6 +1077,35 @@ declare const enum duplicaterulecondition_operatorcode {
   ExactMatchPickListLabel = 5,
   ExactMatchPickListValue = 6,
 }
+declare const enum environmentvariabledefinition_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum componentstate {
+  Published = 0,
+  Unpublished = 1,
+  Deleted = 2,
+  DeletedUnpublished = 3,
+}
+declare const enum environmentvariabledefinition_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum environmentvariabledefinition_type {
+  String = 100000000,
+  Number = 100000001,
+  Boolean = 100000002,
+  JSON = 100000003,
+  Connectionreference = 100000004,
+}
+declare const enum environmentvariablevalue_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum environmentvariablevalue_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum opc_allegation_statecode {
   Active = 0,
   Inactive = 1,
@@ -1438,6 +1467,14 @@ declare const enum sharepointsite_servicetype {
 declare const enum sharepointdocumentlocation_locationtype {
   General = 0,
   DedicatedforOneNoteIntegration = 1,
+}
+declare const enum sharepointdocumentlocation_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum sharepointdocumentlocation_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
@@ -8363,6 +8400,81 @@ declare namespace Form.sharepointdocument.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.sharepointdocumentlocation.Main {
+  namespace Information {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "url option"): Xrm.PageSection;
+        get(name: "{272eb814-0769-5ebe-3ed1-e95a0b16853e}"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "absoluteurl"): Xrm.Attribute<string>;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "locationtype"): Xrm.OptionSetAttribute<sharepointdocumentlocation_locationtype>;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "parentsiteorlocation"): Xrm.LookupAttribute<"sharepointdocumentlocation" | "sharepointsite">;
+      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "kbarticle" | "knowledgearticle" | "msdyn_knowledgearticletemplate" | "opc_complaint">;
+      get(name: "relativeurl"): Xrm.Attribute<string>;
+      get(name: "statecode"): Xrm.OptionSetAttribute<sharepointdocumentlocation_statecode>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "absoluteurl"): Xrm.StringControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "footer_statecode"): Xrm.OptionSetControl<sharepointdocumentlocation_statecode>;
+      get(name: "locationtype"): Xrm.OptionSetControl<sharepointdocumentlocation_locationtype>;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "parentsiteorlocation"): Xrm.LookupControl<"sharepointdocumentlocation" | "sharepointsite">;
+      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "kbarticle" | "knowledgearticle" | "msdyn_knowledgearticletemplate" | "opc_complaint">;
+      get(name: "relativeurl"): Xrm.StringControl;
+      get(name: "urloption"): Xrm.OptionSetControl<number>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "absoluteurl"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "locationtype"): Xrm.OptionSetAttribute<sharepointdocumentlocation_locationtype>;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "parentsiteorlocation"): Xrm.LookupAttribute<"sharepointdocumentlocation" | "sharepointsite">;
+    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "kbarticle" | "knowledgearticle" | "msdyn_knowledgearticletemplate" | "opc_complaint">;
+    getAttribute(attributeName: "relativeurl"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<sharepointdocumentlocation_statecode>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "absoluteurl"): Xrm.StringControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "footer_statecode"): Xrm.OptionSetControl<sharepointdocumentlocation_statecode>;
+    getControl(controlName: "locationtype"): Xrm.OptionSetControl<sharepointdocumentlocation_locationtype>;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "parentsiteorlocation"): Xrm.LookupControl<"sharepointdocumentlocation" | "sharepointsite">;
+    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "kbarticle" | "knowledgearticle" | "msdyn_knowledgearticletemplate" | "opc_complaint">;
+    getControl(controlName: "relativeurl"): Xrm.StringControl;
+    getControl(controlName: "urloption"): Xrm.OptionSetControl<number>;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.systemuser.Main {
   namespace User {
     namespace Tabs {
@@ -9295,6 +9407,52 @@ interface DuplicateRuleCondition_Create extends DuplicateRuleCondition {
 }
 interface DuplicateRuleCondition_Update extends DuplicateRuleCondition {
 }
+interface EnvironmentVariableDefinition_Base extends WebEntity {
+}
+interface EnvironmentVariableDefinition_Fixed extends WebEntity_Fixed {
+  environmentvariabledefinitionid: string;
+}
+interface EnvironmentVariableDefinition extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
+}
+interface EnvironmentVariableDefinition_Relationships {
+}
+interface EnvironmentVariableDefinition_Result extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
+}
+interface EnvironmentVariableDefinition_FormattedResult {
+}
+interface EnvironmentVariableDefinition_Select {
+}
+interface EnvironmentVariableDefinition_Expand {
+}
+interface EnvironmentVariableDefinition_Filter {
+}
+interface EnvironmentVariableDefinition_Create extends EnvironmentVariableDefinition {
+}
+interface EnvironmentVariableDefinition_Update extends EnvironmentVariableDefinition {
+}
+interface EnvironmentVariableValue_Base extends WebEntity {
+}
+interface EnvironmentVariableValue_Fixed extends WebEntity_Fixed {
+  environmentvariablevalueid: string;
+}
+interface EnvironmentVariableValue extends EnvironmentVariableValue_Base, EnvironmentVariableValue_Relationships {
+}
+interface EnvironmentVariableValue_Relationships {
+}
+interface EnvironmentVariableValue_Result extends EnvironmentVariableValue_Base, EnvironmentVariableValue_Relationships {
+}
+interface EnvironmentVariableValue_FormattedResult {
+}
+interface EnvironmentVariableValue_Select {
+}
+interface EnvironmentVariableValue_Expand {
+}
+interface EnvironmentVariableValue_Filter {
+}
+interface EnvironmentVariableValue_Create extends EnvironmentVariableValue {
+}
+interface EnvironmentVariableValue_Update extends EnvironmentVariableValue {
+}
 interface opc_allegation_Base extends WebEntity {
 }
 interface opc_allegation_Fixed extends WebEntity_Fixed {
@@ -10077,6 +10235,29 @@ interface SharePointDocument_Create extends SharePointDocument {
 }
 interface SharePointDocument_Update extends SharePointDocument {
 }
+interface SharePointDocumentLocation_Base extends WebEntity {
+}
+interface SharePointDocumentLocation_Fixed extends WebEntity_Fixed {
+  sharepointdocumentlocationid: string;
+}
+interface SharePointDocumentLocation extends SharePointDocumentLocation_Base, SharePointDocumentLocation_Relationships {
+}
+interface SharePointDocumentLocation_Relationships {
+}
+interface SharePointDocumentLocation_Result extends SharePointDocumentLocation_Base, SharePointDocumentLocation_Relationships {
+}
+interface SharePointDocumentLocation_FormattedResult {
+}
+interface SharePointDocumentLocation_Select {
+}
+interface SharePointDocumentLocation_Expand {
+}
+interface SharePointDocumentLocation_Filter {
+}
+interface SharePointDocumentLocation_Create extends SharePointDocumentLocation {
+}
+interface SharePointDocumentLocation_Update extends SharePointDocumentLocation {
+}
 interface SystemUser_Base extends WebEntity {
 }
 interface SystemUser_Fixed extends WebEntity_Fixed {
@@ -10322,6 +10503,7 @@ interface Account_Base extends WebEntity {
 }
 interface Account_Relationships {
   Account_SharepointDocument?: SharePointDocument_Result[] | null;
+  Account_SharepointDocumentLocation?: SharePointDocumentLocation_Result[] | null;
   account_activity_parties?: ActivityParty_Result[] | null;
   account_connections1?: Connection_Result[] | null;
   account_connections2?: Connection_Result[] | null;
@@ -10636,6 +10818,7 @@ interface Account_Filter {
 }
 interface Account_Expand {
   Account_SharepointDocument: WebExpand<Account_Expand, SharePointDocument_Select, SharePointDocument_Filter, { Account_SharepointDocument: SharePointDocument_Result[] }>;
+  Account_SharepointDocumentLocation: WebExpand<Account_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { Account_SharepointDocumentLocation: SharePointDocumentLocation_Result[] }>;
   account_activity_parties: WebExpand<Account_Expand, ActivityParty_Select, ActivityParty_Filter, { account_activity_parties: ActivityParty_Result[] }>;
   account_connections1: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections1: Connection_Result[] }>;
   account_connections2: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections2: Connection_Result[] }>;
@@ -10750,6 +10933,7 @@ interface Account_RelatedOne {
 }
 interface Account_RelatedMany {
   Account_SharepointDocument: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+  Account_SharepointDocumentLocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   account_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   account_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   account_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
@@ -11743,6 +11927,334 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   duplicateruleconditions: WebMappingCUDA<DuplicateRuleCondition_Create,DuplicateRuleCondition_Update,DuplicateRuleCondition_Select>;
 }
+interface EnvironmentVariableDefinition_Base extends WebEntity {
+  componentstate?: componentstate | null;
+  createdon?: Date | null;
+  defaultvalue?: string | null;
+  description?: string | null;
+  displayname?: string | null;
+  environmentvariabledefinitionid?: string | null;
+  environmentvariabledefinitionidunique?: string | null;
+  hint?: string | null;
+  importsequencenumber?: number | null;
+  introducedversion?: string | null;
+  iscustomizable?: any | null;
+  ismanaged?: boolean | null;
+  isrequired?: boolean | null;
+  modifiedon?: Date | null;
+  overriddencreatedon?: Date | null;
+  overwritetime?: Date | null;
+  schemaname?: string | null;
+  solutionid?: string | null;
+  statecode?: environmentvariabledefinition_statecode | null;
+  statuscode?: environmentvariabledefinition_statuscode | null;
+  supportingsolutionid?: string | null;
+  timezoneruleversionnumber?: number | null;
+  type?: environmentvariabledefinition_type | null;
+  utcconversiontimezonecode?: number | null;
+  valueschema?: string | null;
+  versionnumber?: number | null;
+}
+interface EnvironmentVariableDefinition_Relationships {
+  environmentvariabledefinition_environmentvariablevalue?: EnvironmentVariableValue_Result[] | null;
+}
+interface EnvironmentVariableDefinition extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface EnvironmentVariableDefinition_Create extends EnvironmentVariableDefinition {
+}
+interface EnvironmentVariableDefinition_Update extends EnvironmentVariableDefinition {
+}
+interface EnvironmentVariableDefinition_Select {
+  componentstate: WebAttribute<EnvironmentVariableDefinition_Select, { componentstate: componentstate | null }, { componentstate_formatted?: string }>;
+  createdby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<EnvironmentVariableDefinition_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  defaultvalue: WebAttribute<EnvironmentVariableDefinition_Select, { defaultvalue: string | null }, {  }>;
+  description: WebAttribute<EnvironmentVariableDefinition_Select, { description: string | null }, {  }>;
+  displayname: WebAttribute<EnvironmentVariableDefinition_Select, { displayname: string | null }, {  }>;
+  environmentvariabledefinitionid: WebAttribute<EnvironmentVariableDefinition_Select, { environmentvariabledefinitionid: string | null }, {  }>;
+  environmentvariabledefinitionidunique: WebAttribute<EnvironmentVariableDefinition_Select, { environmentvariabledefinitionidunique: string | null }, {  }>;
+  hint: WebAttribute<EnvironmentVariableDefinition_Select, { hint: string | null }, {  }>;
+  importsequencenumber: WebAttribute<EnvironmentVariableDefinition_Select, { importsequencenumber: number | null }, {  }>;
+  introducedversion: WebAttribute<EnvironmentVariableDefinition_Select, { introducedversion: string | null }, {  }>;
+  iscustomizable: WebAttribute<EnvironmentVariableDefinition_Select, { iscustomizable: any | null }, {  }>;
+  ismanaged: WebAttribute<EnvironmentVariableDefinition_Select, { ismanaged: boolean | null }, {  }>;
+  isrequired: WebAttribute<EnvironmentVariableDefinition_Select, { isrequired: boolean | null }, {  }>;
+  modifiedby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<EnvironmentVariableDefinition_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  overriddencreatedon: WebAttribute<EnvironmentVariableDefinition_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  overwritetime: WebAttribute<EnvironmentVariableDefinition_Select, { overwritetime: Date | null }, { overwritetime_formatted?: string }>;
+  ownerid_guid: WebAttribute<EnvironmentVariableDefinition_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  schemaname: WebAttribute<EnvironmentVariableDefinition_Select, { schemaname: string | null }, {  }>;
+  solutionid: WebAttribute<EnvironmentVariableDefinition_Select, { solutionid: string | null }, {  }>;
+  statecode: WebAttribute<EnvironmentVariableDefinition_Select, { statecode: environmentvariabledefinition_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<EnvironmentVariableDefinition_Select, { statuscode: environmentvariabledefinition_statuscode | null }, { statuscode_formatted?: string }>;
+  supportingsolutionid: WebAttribute<EnvironmentVariableDefinition_Select, { supportingsolutionid: string | null }, {  }>;
+  timezoneruleversionnumber: WebAttribute<EnvironmentVariableDefinition_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  type: WebAttribute<EnvironmentVariableDefinition_Select, { type: environmentvariabledefinition_type | null }, { type_formatted?: string }>;
+  utcconversiontimezonecode: WebAttribute<EnvironmentVariableDefinition_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  valueschema: WebAttribute<EnvironmentVariableDefinition_Select, { valueschema: string | null }, {  }>;
+  versionnumber: WebAttribute<EnvironmentVariableDefinition_Select, { versionnumber: number | null }, {  }>;
+}
+interface EnvironmentVariableDefinition_Filter {
+  componentstate: componentstate;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  defaultvalue: string;
+  description: string;
+  displayname: string;
+  environmentvariabledefinitionid: XQW.Guid;
+  environmentvariabledefinitionidunique: XQW.Guid;
+  hint: string;
+  importsequencenumber: number;
+  introducedversion: string;
+  iscustomizable: any;
+  ismanaged: boolean;
+  isrequired: boolean;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  overwritetime: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  schemaname: string;
+  solutionid: XQW.Guid;
+  statecode: environmentvariabledefinition_statecode;
+  statuscode: environmentvariabledefinition_statuscode;
+  supportingsolutionid: XQW.Guid;
+  timezoneruleversionnumber: number;
+  type: environmentvariabledefinition_type;
+  utcconversiontimezonecode: number;
+  valueschema: string;
+  versionnumber: number;
+}
+interface EnvironmentVariableDefinition_Expand {
+  createdby: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  environmentvariabledefinition_environmentvariablevalue: WebExpand<EnvironmentVariableDefinition_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { environmentvariabledefinition_environmentvariablevalue: EnvironmentVariableValue_Result[] }>;
+  modifiedby: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  ownerid: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<EnvironmentVariableDefinition_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<EnvironmentVariableDefinition_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
+}
+interface EnvironmentVariableDefinition_FormattedResult {
+  componentstate_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  overwritetime_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+  type_formatted?: string;
+}
+interface EnvironmentVariableDefinition_Result extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface EnvironmentVariableDefinition_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface EnvironmentVariableDefinition_RelatedMany {
+  environmentvariabledefinition_environmentvariablevalue: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  environmentvariabledefinitions: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  environmentvariabledefinitions: WebMappingRelated<EnvironmentVariableDefinition_RelatedOne,EnvironmentVariableDefinition_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  environmentvariabledefinitions: WebMappingCUDA<EnvironmentVariableDefinition_Create,EnvironmentVariableDefinition_Update,EnvironmentVariableDefinition_Select>;
+}
+interface EnvironmentVariableValue_Base extends WebEntity {
+  componentstate?: componentstate | null;
+  createdon?: Date | null;
+  environmentvariablevalueid?: string | null;
+  environmentvariablevalueidunique?: string | null;
+  importsequencenumber?: number | null;
+  introducedversion?: string | null;
+  iscustomizable?: any | null;
+  ismanaged?: boolean | null;
+  modifiedon?: Date | null;
+  overriddencreatedon?: Date | null;
+  overwritetime?: Date | null;
+  schemaname?: string | null;
+  solutionid?: string | null;
+  statecode?: environmentvariablevalue_statecode | null;
+  statuscode?: environmentvariablevalue_statuscode | null;
+  supportingsolutionid?: string | null;
+  timezoneruleversionnumber?: number | null;
+  utcconversiontimezonecode?: number | null;
+  value?: string | null;
+  versionnumber?: number | null;
+}
+interface EnvironmentVariableValue_Relationships {
+  EnvironmentVariableDefinitionId?: EnvironmentVariableDefinition_Result | null;
+}
+interface EnvironmentVariableValue extends EnvironmentVariableValue_Base, EnvironmentVariableValue_Relationships {
+  EnvironmentVariableDefinitionId_bind$environmentvariabledefinitions?: string | null;
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+}
+interface EnvironmentVariableValue_Create extends EnvironmentVariableValue {
+}
+interface EnvironmentVariableValue_Update extends EnvironmentVariableValue {
+}
+interface EnvironmentVariableValue_Select {
+  componentstate: WebAttribute<EnvironmentVariableValue_Select, { componentstate: componentstate | null }, { componentstate_formatted?: string }>;
+  createdby_guid: WebAttribute<EnvironmentVariableValue_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<EnvironmentVariableValue_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<EnvironmentVariableValue_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  environmentvariabledefinitionid_guid: WebAttribute<EnvironmentVariableValue_Select, { environmentvariabledefinitionid_guid: string | null }, { environmentvariabledefinitionid_formatted?: string }>;
+  environmentvariablevalueid: WebAttribute<EnvironmentVariableValue_Select, { environmentvariablevalueid: string | null }, {  }>;
+  environmentvariablevalueidunique: WebAttribute<EnvironmentVariableValue_Select, { environmentvariablevalueidunique: string | null }, {  }>;
+  importsequencenumber: WebAttribute<EnvironmentVariableValue_Select, { importsequencenumber: number | null }, {  }>;
+  introducedversion: WebAttribute<EnvironmentVariableValue_Select, { introducedversion: string | null }, {  }>;
+  iscustomizable: WebAttribute<EnvironmentVariableValue_Select, { iscustomizable: any | null }, {  }>;
+  ismanaged: WebAttribute<EnvironmentVariableValue_Select, { ismanaged: boolean | null }, {  }>;
+  modifiedby_guid: WebAttribute<EnvironmentVariableValue_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<EnvironmentVariableValue_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<EnvironmentVariableValue_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  overriddencreatedon: WebAttribute<EnvironmentVariableValue_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  overwritetime: WebAttribute<EnvironmentVariableValue_Select, { overwritetime: Date | null }, { overwritetime_formatted?: string }>;
+  ownerid_guid: WebAttribute<EnvironmentVariableValue_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<EnvironmentVariableValue_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<EnvironmentVariableValue_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<EnvironmentVariableValue_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  schemaname: WebAttribute<EnvironmentVariableValue_Select, { schemaname: string | null }, {  }>;
+  solutionid: WebAttribute<EnvironmentVariableValue_Select, { solutionid: string | null }, {  }>;
+  statecode: WebAttribute<EnvironmentVariableValue_Select, { statecode: environmentvariablevalue_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<EnvironmentVariableValue_Select, { statuscode: environmentvariablevalue_statuscode | null }, { statuscode_formatted?: string }>;
+  supportingsolutionid: WebAttribute<EnvironmentVariableValue_Select, { supportingsolutionid: string | null }, {  }>;
+  timezoneruleversionnumber: WebAttribute<EnvironmentVariableValue_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<EnvironmentVariableValue_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  value: WebAttribute<EnvironmentVariableValue_Select, { value: string | null }, {  }>;
+  versionnumber: WebAttribute<EnvironmentVariableValue_Select, { versionnumber: number | null }, {  }>;
+}
+interface EnvironmentVariableValue_Filter {
+  componentstate: componentstate;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  environmentvariabledefinitionid_guid: XQW.Guid;
+  environmentvariablevalueid: XQW.Guid;
+  environmentvariablevalueidunique: XQW.Guid;
+  importsequencenumber: number;
+  introducedversion: string;
+  iscustomizable: any;
+  ismanaged: boolean;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  overriddencreatedon: Date;
+  overwritetime: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  schemaname: string;
+  solutionid: XQW.Guid;
+  statecode: environmentvariablevalue_statecode;
+  statuscode: environmentvariablevalue_statuscode;
+  supportingsolutionid: XQW.Guid;
+  timezoneruleversionnumber: number;
+  utcconversiontimezonecode: number;
+  value: string;
+  versionnumber: number;
+}
+interface EnvironmentVariableValue_Expand {
+  EnvironmentVariableDefinitionId: WebExpand<EnvironmentVariableValue_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { EnvironmentVariableDefinitionId: EnvironmentVariableDefinition_Result }>;
+  createdby: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  ownerid: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<EnvironmentVariableValue_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<EnvironmentVariableValue_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
+}
+interface EnvironmentVariableValue_FormattedResult {
+  componentstate_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  environmentvariabledefinitionid_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  overwritetime_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+}
+interface EnvironmentVariableValue_Result extends EnvironmentVariableValue_Base, EnvironmentVariableValue_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  environmentvariabledefinitionid_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+}
+interface EnvironmentVariableValue_RelatedOne {
+  EnvironmentVariableDefinitionId: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+}
+interface EnvironmentVariableValue_RelatedMany {
+}
+interface WebEntitiesRetrieve {
+  environmentvariablevalues: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  environmentvariablevalues: WebMappingRelated<EnvironmentVariableValue_RelatedOne,EnvironmentVariableValue_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  environmentvariablevalues: WebMappingCUDA<EnvironmentVariableValue_Create,EnvironmentVariableValue_Update,EnvironmentVariableValue_Select>;
+}
 interface opc_allegation_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
@@ -12361,6 +12873,7 @@ interface opc_complaint_Relationships {
   bpf_opc_complaint_opc_individualcomplaint_bp?: opc_individualcomplaint_bp_Result[] | null;
   opc_RiskAssessment_Complaint_opc_complain?: opc_RiskAssessment_Result[] | null;
   opc_complaint_QueueItems?: QueueItem_Result[] | null;
+  opc_complaint_SharePointDocumentLocations?: SharePointDocumentLocation_Result[] | null;
   opc_complaint_SharePointDocuments?: SharePointDocument_Result[] | null;
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
@@ -12507,6 +13020,7 @@ interface opc_complaint_Expand {
   opc_complainantlegalrepresentativefirm: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_complainantlegalrepresentativefirm: Account_Result }>;
   opc_complainantrep: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_complainantrep: Contact_Result }>;
   opc_complaint_QueueItems: WebExpand<opc_complaint_Expand, QueueItem_Select, QueueItem_Filter, { opc_complaint_QueueItems: QueueItem_Result[] }>;
+  opc_complaint_SharePointDocumentLocations: WebExpand<opc_complaint_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { opc_complaint_SharePointDocumentLocations: SharePointDocumentLocation_Result[] }>;
   opc_complaint_SharePointDocuments: WebExpand<opc_complaint_Expand, SharePointDocument_Select, SharePointDocument_Filter, { opc_complaint_SharePointDocuments: SharePointDocument_Result[] }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
@@ -12610,6 +13124,7 @@ interface opc_complaint_RelatedMany {
   bpf_opc_complaint_opc_individualcomplaint_bp: WebMappingRetrieve<opc_individualcomplaint_bp_Select,opc_individualcomplaint_bp_Expand,opc_individualcomplaint_bp_Filter,opc_individualcomplaint_bp_Fixed,opc_individualcomplaint_bp_Result,opc_individualcomplaint_bp_FormattedResult>;
   opc_RiskAssessment_Complaint_opc_complain: WebMappingRetrieve<opc_RiskAssessment_Select,opc_RiskAssessment_Expand,opc_RiskAssessment_Filter,opc_RiskAssessment_Fixed,opc_RiskAssessment_Result,opc_RiskAssessment_FormattedResult>;
   opc_complaint_QueueItems: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  opc_complaint_SharePointDocumentLocations: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   opc_complaint_SharePointDocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
@@ -16538,6 +17053,183 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   sharepointdocuments: WebMappingCUDA<SharePointDocument_Create,SharePointDocument_Update,SharePointDocument_Select>;
 }
+interface SharePointDocumentLocation_Base extends WebEntity {
+  absoluteurl?: string | null;
+  createdon?: Date | null;
+  description?: string | null;
+  exchangerate?: number | null;
+  importsequencenumber?: number | null;
+  locationtype?: sharepointdocumentlocation_locationtype | null;
+  modifiedon?: Date | null;
+  name?: string | null;
+  overriddencreatedon?: Date | null;
+  relativeurl?: string | null;
+  servicetype?: sharepointsite_servicetype | null;
+  sharepointdocumentlocationid?: string | null;
+  sitecollectionid?: string | null;
+  statecode?: sharepointdocumentlocation_statecode | null;
+  statuscode?: sharepointdocumentlocation_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  userid?: string | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface SharePointDocumentLocation_Relationships {
+  parentsiteorlocation_sharepointdocumentlocation?: SharePointDocumentLocation_Result | null;
+  regardingobjectid_account?: Account_Result | null;
+  regardingobjectid_opc_complaint?: opc_complaint_Result | null;
+  sharepointdocumentlocation_parent_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
+}
+interface SharePointDocumentLocation extends SharePointDocumentLocation_Base, SharePointDocumentLocation_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+  parentsiteorlocation_sharepointdocumentlocation_bind$sharepointdocumentlocations?: string | null;
+  parentsiteorlocation_sharepointsite_bind$sharepointsites?: string | null;
+  regardingobjectid_account_bind$accounts?: string | null;
+  regardingobjectid_kbarticle_bind$kbarticles?: string | null;
+  regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
+  regardingobjectid_msdyn_knowledgearticletemplate_bind$msdyn_knowledgearticletemplates?: string | null;
+  regardingobjectid_opc_complaint_bind$opc_complaints?: string | null;
+}
+interface SharePointDocumentLocation_Create extends SharePointDocumentLocation {
+}
+interface SharePointDocumentLocation_Update extends SharePointDocumentLocation {
+}
+interface SharePointDocumentLocation_Select {
+  absoluteurl: WebAttribute<SharePointDocumentLocation_Select, { absoluteurl: string | null }, {  }>;
+  createdby_guid: WebAttribute<SharePointDocumentLocation_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<SharePointDocumentLocation_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<SharePointDocumentLocation_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  description: WebAttribute<SharePointDocumentLocation_Select, { description: string | null }, {  }>;
+  exchangerate: WebAttribute<SharePointDocumentLocation_Select, { exchangerate: number | null }, {  }>;
+  importsequencenumber: WebAttribute<SharePointDocumentLocation_Select, { importsequencenumber: number | null }, {  }>;
+  locationtype: WebAttribute<SharePointDocumentLocation_Select, { locationtype: sharepointdocumentlocation_locationtype | null }, { locationtype_formatted?: string }>;
+  modifiedby_guid: WebAttribute<SharePointDocumentLocation_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<SharePointDocumentLocation_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<SharePointDocumentLocation_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  name: WebAttribute<SharePointDocumentLocation_Select, { name: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<SharePointDocumentLocation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<SharePointDocumentLocation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<SharePointDocumentLocation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<SharePointDocumentLocation_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<SharePointDocumentLocation_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  parentsiteorlocation_guid: WebAttribute<SharePointDocumentLocation_Select, { parentsiteorlocation_guid: string | null }, { parentsiteorlocation_formatted?: string }>;
+  regardingobjectid_guid: WebAttribute<SharePointDocumentLocation_Select, { regardingobjectid_guid: string | null }, { regardingobjectid_formatted?: string }>;
+  relativeurl: WebAttribute<SharePointDocumentLocation_Select, { relativeurl: string | null }, {  }>;
+  servicetype: WebAttribute<SharePointDocumentLocation_Select, { servicetype: sharepointsite_servicetype | null }, { servicetype_formatted?: string }>;
+  sharepointdocumentlocationid: WebAttribute<SharePointDocumentLocation_Select, { sharepointdocumentlocationid: string | null }, {  }>;
+  sitecollectionid: WebAttribute<SharePointDocumentLocation_Select, { sitecollectionid: string | null }, {  }>;
+  statecode: WebAttribute<SharePointDocumentLocation_Select, { statecode: sharepointdocumentlocation_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<SharePointDocumentLocation_Select, { statuscode: sharepointdocumentlocation_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<SharePointDocumentLocation_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  transactioncurrencyid_guid: WebAttribute<SharePointDocumentLocation_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  userid: WebAttribute<SharePointDocumentLocation_Select, { userid: string | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<SharePointDocumentLocation_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<SharePointDocumentLocation_Select, { versionnumber: number | null }, {  }>;
+}
+interface SharePointDocumentLocation_Filter {
+  absoluteurl: string;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  description: string;
+  exchangerate: any;
+  importsequencenumber: number;
+  locationtype: sharepointdocumentlocation_locationtype;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  name: string;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  parentsiteorlocation_guid: XQW.Guid;
+  regardingobjectid_guid: XQW.Guid;
+  relativeurl: string;
+  servicetype: sharepointsite_servicetype;
+  sharepointdocumentlocationid: XQW.Guid;
+  sitecollectionid: XQW.Guid;
+  statecode: sharepointdocumentlocation_statecode;
+  statuscode: sharepointdocumentlocation_statuscode;
+  timezoneruleversionnumber: number;
+  transactioncurrencyid_guid: XQW.Guid;
+  userid: XQW.Guid;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface SharePointDocumentLocation_Expand {
+  createdby: WebExpand<SharePointDocumentLocation_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<SharePointDocumentLocation_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<SharePointDocumentLocation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<SharePointDocumentLocation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  ownerid: WebExpand<SharePointDocumentLocation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<SharePointDocumentLocation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<SharePointDocumentLocation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
+  parentsiteorlocation_sharepointdocumentlocation: WebExpand<SharePointDocumentLocation_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { parentsiteorlocation_sharepointdocumentlocation: SharePointDocumentLocation_Result }>;
+  regardingobjectid_account: WebExpand<SharePointDocumentLocation_Expand, Account_Select, Account_Filter, { regardingobjectid_account: Account_Result }>;
+  regardingobjectid_opc_complaint: WebExpand<SharePointDocumentLocation_Expand, opc_complaint_Select, opc_complaint_Filter, { regardingobjectid_opc_complaint: opc_complaint_Result }>;
+  sharepointdocumentlocation_parent_sharepointdocumentlocation: WebExpand<SharePointDocumentLocation_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { sharepointdocumentlocation_parent_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
+}
+interface SharePointDocumentLocation_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  locationtype_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  parentsiteorlocation_formatted?: string;
+  regardingobjectid_formatted?: string;
+  servicetype_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+}
+interface SharePointDocumentLocation_Result extends SharePointDocumentLocation_Base, SharePointDocumentLocation_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+  parentsiteorlocation_guid: string | null;
+  regardingobjectid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface SharePointDocumentLocation_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  parentsiteorlocation_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  regardingobjectid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  regardingobjectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface SharePointDocumentLocation_RelatedMany {
+  sharepointdocumentlocation_parent_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  sharepointdocumentlocations: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  sharepointdocumentlocations: WebMappingRelated<SharePointDocumentLocation_RelatedOne,SharePointDocumentLocation_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  sharepointdocumentlocations: WebMappingCUDA<SharePointDocumentLocation_Create,SharePointDocumentLocation_Update,SharePointDocumentLocation_Select>;
+}
 interface SystemUser_Base extends WebEntity {
   accessmode?: systemuser_accessmode | null;
   activedirectoryguid?: string | null;
@@ -16672,6 +17364,14 @@ interface SystemUser_Relationships {
   lk_duplicaterulecondition_modifiedonbehalfby?: DuplicateRuleCondition_Result[] | null;
   lk_duplicateruleconditionbase_createdby?: DuplicateRuleCondition_Result[] | null;
   lk_duplicateruleconditionbase_modifiedby?: DuplicateRuleCondition_Result[] | null;
+  lk_environmentvariabledefinition_createdby?: EnvironmentVariableDefinition_Result[] | null;
+  lk_environmentvariabledefinition_createdonbehalfby?: EnvironmentVariableDefinition_Result[] | null;
+  lk_environmentvariabledefinition_modifiedby?: EnvironmentVariableDefinition_Result[] | null;
+  lk_environmentvariabledefinition_modifiedonbehalfby?: EnvironmentVariableDefinition_Result[] | null;
+  lk_environmentvariablevalue_createdby?: EnvironmentVariableValue_Result[] | null;
+  lk_environmentvariablevalue_createdonbehalfby?: EnvironmentVariableValue_Result[] | null;
+  lk_environmentvariablevalue_modifiedby?: EnvironmentVariableValue_Result[] | null;
+  lk_environmentvariablevalue_modifiedonbehalfby?: EnvironmentVariableValue_Result[] | null;
   lk_opc_allegation_createdby?: opc_allegation_Result[] | null;
   lk_opc_allegation_createdonbehalfby?: opc_allegation_Result[] | null;
   lk_opc_allegation_modifiedby?: opc_allegation_Result[] | null;
@@ -16793,6 +17493,10 @@ interface SystemUser_Relationships {
   lk_sharepointdocumentbase_createdonbehalfby?: SharePointDocument_Result[] | null;
   lk_sharepointdocumentbase_modifiedby?: SharePointDocument_Result[] | null;
   lk_sharepointdocumentbase_modifiedonbehalfby?: SharePointDocument_Result[] | null;
+  lk_sharepointdocumentlocationbase_createdby?: SharePointDocumentLocation_Result[] | null;
+  lk_sharepointdocumentlocationbase_createdonbehalfby?: SharePointDocumentLocation_Result[] | null;
+  lk_sharepointdocumentlocationbase_modifiedby?: SharePointDocumentLocation_Result[] | null;
+  lk_sharepointdocumentlocationbase_modifiedonbehalfby?: SharePointDocumentLocation_Result[] | null;
   lk_systemuser_createdonbehalfby?: SystemUser_Result[] | null;
   lk_systemuser_modifiedonbehalfby?: SystemUser_Result[] | null;
   lk_systemuserbase_createdby?: SystemUser_Result[] | null;
@@ -16816,6 +17520,8 @@ interface SystemUser_Relationships {
   systemuser_connections2?: Connection_Result[] | null;
   teammembership_association?: Team_Result[] | null;
   user_accounts?: Account_Result[] | null;
+  user_environmentvariabledefinition?: EnvironmentVariableDefinition_Result[] | null;
+  user_environmentvariablevalue?: EnvironmentVariableValue_Result[] | null;
   user_opc_allegation?: opc_allegation_Result[] | null;
   user_opc_allegationtype?: opc_allegationtype_Result[] | null;
   user_opc_checklistresponse?: opc_ChecklistResponse_Result[] | null;
@@ -16842,6 +17548,7 @@ interface SystemUser_Relationships {
   user_opc_theme?: opc_theme_Result[] | null;
   user_opc_topic?: opc_topic_Result[] | null;
   user_parent_user?: SystemUser_Result[] | null;
+  user_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
 }
 interface SystemUser extends SystemUser_Base, SystemUser_Relationships {
   businessunitid_bind$businessunits?: string | null;
@@ -17132,6 +17839,14 @@ interface SystemUser_Expand {
   lk_duplicaterulecondition_modifiedonbehalfby: WebExpand<SystemUser_Expand, DuplicateRuleCondition_Select, DuplicateRuleCondition_Filter, { lk_duplicaterulecondition_modifiedonbehalfby: DuplicateRuleCondition_Result[] }>;
   lk_duplicateruleconditionbase_createdby: WebExpand<SystemUser_Expand, DuplicateRuleCondition_Select, DuplicateRuleCondition_Filter, { lk_duplicateruleconditionbase_createdby: DuplicateRuleCondition_Result[] }>;
   lk_duplicateruleconditionbase_modifiedby: WebExpand<SystemUser_Expand, DuplicateRuleCondition_Select, DuplicateRuleCondition_Filter, { lk_duplicateruleconditionbase_modifiedby: DuplicateRuleCondition_Result[] }>;
+  lk_environmentvariabledefinition_createdby: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { lk_environmentvariabledefinition_createdby: EnvironmentVariableDefinition_Result[] }>;
+  lk_environmentvariabledefinition_createdonbehalfby: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { lk_environmentvariabledefinition_createdonbehalfby: EnvironmentVariableDefinition_Result[] }>;
+  lk_environmentvariabledefinition_modifiedby: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { lk_environmentvariabledefinition_modifiedby: EnvironmentVariableDefinition_Result[] }>;
+  lk_environmentvariabledefinition_modifiedonbehalfby: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { lk_environmentvariabledefinition_modifiedonbehalfby: EnvironmentVariableDefinition_Result[] }>;
+  lk_environmentvariablevalue_createdby: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { lk_environmentvariablevalue_createdby: EnvironmentVariableValue_Result[] }>;
+  lk_environmentvariablevalue_createdonbehalfby: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { lk_environmentvariablevalue_createdonbehalfby: EnvironmentVariableValue_Result[] }>;
+  lk_environmentvariablevalue_modifiedby: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { lk_environmentvariablevalue_modifiedby: EnvironmentVariableValue_Result[] }>;
+  lk_environmentvariablevalue_modifiedonbehalfby: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { lk_environmentvariablevalue_modifiedonbehalfby: EnvironmentVariableValue_Result[] }>;
   lk_opc_allegation_createdby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_createdby: opc_allegation_Result[] }>;
   lk_opc_allegation_createdonbehalfby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_createdonbehalfby: opc_allegation_Result[] }>;
   lk_opc_allegation_modifiedby: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { lk_opc_allegation_modifiedby: opc_allegation_Result[] }>;
@@ -17253,6 +17968,10 @@ interface SystemUser_Expand {
   lk_sharepointdocumentbase_createdonbehalfby: WebExpand<SystemUser_Expand, SharePointDocument_Select, SharePointDocument_Filter, { lk_sharepointdocumentbase_createdonbehalfby: SharePointDocument_Result[] }>;
   lk_sharepointdocumentbase_modifiedby: WebExpand<SystemUser_Expand, SharePointDocument_Select, SharePointDocument_Filter, { lk_sharepointdocumentbase_modifiedby: SharePointDocument_Result[] }>;
   lk_sharepointdocumentbase_modifiedonbehalfby: WebExpand<SystemUser_Expand, SharePointDocument_Select, SharePointDocument_Filter, { lk_sharepointdocumentbase_modifiedonbehalfby: SharePointDocument_Result[] }>;
+  lk_sharepointdocumentlocationbase_createdby: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { lk_sharepointdocumentlocationbase_createdby: SharePointDocumentLocation_Result[] }>;
+  lk_sharepointdocumentlocationbase_createdonbehalfby: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { lk_sharepointdocumentlocationbase_createdonbehalfby: SharePointDocumentLocation_Result[] }>;
+  lk_sharepointdocumentlocationbase_modifiedby: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { lk_sharepointdocumentlocationbase_modifiedby: SharePointDocumentLocation_Result[] }>;
+  lk_sharepointdocumentlocationbase_modifiedonbehalfby: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { lk_sharepointdocumentlocationbase_modifiedonbehalfby: SharePointDocumentLocation_Result[] }>;
   lk_systemuser_createdonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_createdonbehalfby: SystemUser_Result[] }>;
   lk_systemuser_modifiedonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_modifiedonbehalfby: SystemUser_Result[] }>;
   lk_systemuserbase_createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_createdby: SystemUser_Result[] }>;
@@ -17280,6 +17999,8 @@ interface SystemUser_Expand {
   systemuser_connections2: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections2: Connection_Result[] }>;
   teammembership_association: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { teammembership_association: Team_Result[] }>;
   user_accounts: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { user_accounts: Account_Result[] }>;
+  user_environmentvariabledefinition: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { user_environmentvariabledefinition: EnvironmentVariableDefinition_Result[] }>;
+  user_environmentvariablevalue: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { user_environmentvariablevalue: EnvironmentVariableValue_Result[] }>;
   user_opc_allegation: WebExpand<SystemUser_Expand, opc_allegation_Select, opc_allegation_Filter, { user_opc_allegation: opc_allegation_Result[] }>;
   user_opc_allegationtype: WebExpand<SystemUser_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { user_opc_allegationtype: opc_allegationtype_Result[] }>;
   user_opc_checklistresponse: WebExpand<SystemUser_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { user_opc_checklistresponse: opc_ChecklistResponse_Result[] }>;
@@ -17306,6 +18027,7 @@ interface SystemUser_Expand {
   user_opc_theme: WebExpand<SystemUser_Expand, opc_theme_Select, opc_theme_Filter, { user_opc_theme: opc_theme_Result[] }>;
   user_opc_topic: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { user_opc_topic: opc_topic_Result[] }>;
   user_parent_user: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { user_parent_user: SystemUser_Result[] }>;
+  user_sharepointdocumentlocation: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { user_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
 }
 interface SystemUser_FormattedResult {
   accessmode_formatted?: string;
@@ -17385,6 +18107,14 @@ interface SystemUser_RelatedMany {
   lk_duplicaterulecondition_modifiedonbehalfby: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
   lk_duplicateruleconditionbase_createdby: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
   lk_duplicateruleconditionbase_modifiedby: WebMappingRetrieve<DuplicateRuleCondition_Select,DuplicateRuleCondition_Expand,DuplicateRuleCondition_Filter,DuplicateRuleCondition_Fixed,DuplicateRuleCondition_Result,DuplicateRuleCondition_FormattedResult>;
+  lk_environmentvariabledefinition_createdby: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  lk_environmentvariabledefinition_createdonbehalfby: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  lk_environmentvariabledefinition_modifiedby: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  lk_environmentvariabledefinition_modifiedonbehalfby: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  lk_environmentvariablevalue_createdby: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
+  lk_environmentvariablevalue_createdonbehalfby: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
+  lk_environmentvariablevalue_modifiedby: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
+  lk_environmentvariablevalue_modifiedonbehalfby: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
   lk_opc_allegation_createdby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   lk_opc_allegation_createdonbehalfby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   lk_opc_allegation_modifiedby: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
@@ -17506,6 +18236,10 @@ interface SystemUser_RelatedMany {
   lk_sharepointdocumentbase_createdonbehalfby: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   lk_sharepointdocumentbase_modifiedby: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   lk_sharepointdocumentbase_modifiedonbehalfby: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+  lk_sharepointdocumentlocationbase_createdby: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  lk_sharepointdocumentlocationbase_createdonbehalfby: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  lk_sharepointdocumentlocationbase_modifiedby: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  lk_sharepointdocumentlocationbase_modifiedonbehalfby: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   lk_systemuser_createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuser_modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuserbase_createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
@@ -17529,6 +18263,8 @@ interface SystemUser_RelatedMany {
   systemuser_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   teammembership_association: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  user_environmentvariabledefinition: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  user_environmentvariablevalue: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
   user_opc_allegation: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   user_opc_allegationtype: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
   user_opc_checklistresponse: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
@@ -17555,6 +18291,7 @@ interface SystemUser_RelatedMany {
   user_opc_theme: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
   user_opc_topic: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
   user_parent_user: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  user_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   systemusers: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
@@ -17592,6 +18329,8 @@ interface Team_Relationships {
   team_connections1?: Connection_Result[] | null;
   team_connections2?: Connection_Result[] | null;
   team_contacts?: Contact_Result[] | null;
+  team_environmentvariabledefinition?: EnvironmentVariableDefinition_Result[] | null;
+  team_environmentvariablevalue?: EnvironmentVariableValue_Result[] | null;
   team_opc_allegation?: opc_allegation_Result[] | null;
   team_opc_allegationtype?: opc_allegationtype_Result[] | null;
   team_opc_checklistresponse?: opc_ChecklistResponse_Result[] | null;
@@ -17618,6 +18357,7 @@ interface Team_Relationships {
   team_opc_theme?: opc_theme_Result[] | null;
   team_opc_topic?: opc_topic_Result[] | null;
   team_queueitembase_workerid?: QueueItem_Result[] | null;
+  team_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
   teammembership_association?: SystemUser_Result[] | null;
 }
 interface Team extends Team_Base, Team_Relationships {
@@ -17706,6 +18446,8 @@ interface Team_Expand {
   team_connections1: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections1: Connection_Result[] }>;
   team_connections2: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections2: Connection_Result[] }>;
   team_contacts: WebExpand<Team_Expand, Contact_Select, Contact_Filter, { team_contacts: Contact_Result[] }>;
+  team_environmentvariabledefinition: WebExpand<Team_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { team_environmentvariabledefinition: EnvironmentVariableDefinition_Result[] }>;
+  team_environmentvariablevalue: WebExpand<Team_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { team_environmentvariablevalue: EnvironmentVariableValue_Result[] }>;
   team_opc_allegation: WebExpand<Team_Expand, opc_allegation_Select, opc_allegation_Filter, { team_opc_allegation: opc_allegation_Result[] }>;
   team_opc_allegationtype: WebExpand<Team_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { team_opc_allegationtype: opc_allegationtype_Result[] }>;
   team_opc_checklistresponse: WebExpand<Team_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { team_opc_checklistresponse: opc_ChecklistResponse_Result[] }>;
@@ -17732,6 +18474,7 @@ interface Team_Expand {
   team_opc_theme: WebExpand<Team_Expand, opc_theme_Select, opc_theme_Filter, { team_opc_theme: opc_theme_Result[] }>;
   team_opc_topic: WebExpand<Team_Expand, opc_topic_Select, opc_topic_Filter, { team_opc_topic: opc_topic_Result[] }>;
   team_queueitembase_workerid: WebExpand<Team_Expand, QueueItem_Select, QueueItem_Filter, { team_queueitembase_workerid: QueueItem_Result[] }>;
+  team_sharepointdocumentlocation: WebExpand<Team_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { team_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
   teammembership_association: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { teammembership_association: SystemUser_Result[] }>;
 }
 interface Team_FormattedResult {
@@ -17778,6 +18521,8 @@ interface Team_RelatedMany {
   team_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   team_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   team_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  team_environmentvariabledefinition: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  team_environmentvariablevalue: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
   team_opc_allegation: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   team_opc_allegationtype: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
   team_opc_checklistresponse: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
@@ -17804,6 +18549,7 @@ interface Team_RelatedMany {
   team_opc_theme: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
   team_opc_topic: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
   team_queueitembase_workerid: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  team_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   teammembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface WebEntitiesRetrieve {

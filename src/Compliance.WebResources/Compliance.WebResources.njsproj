@@ -45,6 +45,8 @@
     <Folder Include="src\handlers\" />
     <Folder Include="src\handlers\Commands\" />
     <Folder Include="src\handlers\Queries\" />
+    <Folder Include="src\dialogs\" />
+    <Folder Include="src\dialogs\Templates\" />
     <Folder Include="src\utils\" />
     <Folder Include="src\" />
     <Folder Include="src\controls\" />
@@ -55,7 +57,7 @@
     <Folder Include="src\helpers\" />
     <Folder Include="src\services\" />
     <Folder Include="src\utils\NotificationIcons\" />
-    <Folder Include="src\utils\NotificationIcons\imgs\" />
+    <Folder Include="imgs\Notifications\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +71,10 @@
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
+    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialogPage.test.ts" />
+    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialog.test.ts" />
+    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialog.ts" />
+    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialogPage.ts" />
     <TypeScriptCompile Include="src\enums.ts" />
     <TypeScriptCompile Include="src\factories\CommandDispatcher.ts">
       <SubType>Code</SubType>
@@ -151,8 +157,10 @@
     <Content Include="src\controls\RiskAssessment\RiskAssessmentControl.html" />
     <Content Include="src\handlers\Commands\MergeContactCommandHandler.ts" />
     <Content Include="src\helpers\WindowHelper.ts" />
-    <Content Include="src\utils\NotificationIcons\imgs\icon64x64_read_notification.png" />
-    <Content Include="src\utils\NotificationIcons\imgs\icon64x64_unread_notification.png" />
+    <Content Include="src\dialogs\Templates\TemplateDialog.css" />
+    <Content Include="src\dialogs\Templates\TemplateDialog.html" />
+    <Content Include="imgs\Notifications\icon64x64_read_notification.png" />
+    <Content Include="imgs\Notifications\icon64x64_unread_notification.png" />
     <Content Include="tsconfig.json" />
     <Content Include="webpack.config.js" />
   </ItemGroup>

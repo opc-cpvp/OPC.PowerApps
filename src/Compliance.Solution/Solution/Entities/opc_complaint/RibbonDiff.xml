@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CustomActions>
+    <HideCustomAction HideActionId="opc.Mscrm.Form.opc_complaint.WordTemplate.Hide" Location="Mscrm.Form.opc_complaint.WordTemplate" />
     <CustomAction Id="opc.opc_complaint.Button.Merge.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Management.Controls._children" Sequence="20">
       <CommandUIDefinition>
         <FlyoutAnchor Alt="$LocLabels:opc.opc_complaint.Button.Merge.Alt" Command="opc.opc_complaint.Command.Blank" Id="opc.opc_complaint.Button.Merge" Image16by16="/_imgs/ribbon/MergeRecords_16.png" Image32by32="/_imgs/ribbon/MergeRecords_32.png" LabelText="$LocLabels:opc.opc_complaint.Button.Merge.LabelText" Sequence="20" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.Merge.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.Merge.ToolTipDescription" ModernImage="$webresource:opc_compliance/imgs/MergeRecords.svg">
@@ -20,6 +21,11 @@
             </MenuSection>
           </Menu>
         </FlyoutAnchor>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="opc.opc_complaint.TemplateDialog.Button.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Actions.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:opc.opc_complaint.TemplateDialog.Button.Alt" Command="opc.opc_complaint.TemplateDialog.Command" Id="opc.opc_complaint.TemplateDialog.Button" Image32by32="/_imgs/ribbon/SaveAsWordTemplate_32.png" Image16by16="/_imgs/ribbon/WordTemplate_16.png" LabelText="$LocLabels:opc.opc_complaint.TemplateDialog.Button.LabelText" Sequence="15" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.TemplateDialog.Button.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.TemplateDialog.Button.ToolTipDescription" ModernImage="WordTemplates" />
       </CommandUIDefinition>
     </CustomAction>
   </CustomActions>
@@ -95,6 +101,15 @@
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
           <StringParameter Value="MergeContactCommandHandler" />
           <StringParameter Value="opc_respondentrepresentative" />
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="opc.opc_complaint.TemplateDialog.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.TemplateDialog.ribbonButton_OnClick" Library="$webresource:opc_compliance/js/compliance.min.js">
           <CrmParameter Value="PrimaryControl" />
         </JavaScriptFunction>
       </Actions>
@@ -309,6 +324,26 @@
     <LocLabel Id="opc.opc_complaint.Section.Respondent.Title">
       <Titles>
         <Title description="Respondent" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.Alt">
+      <Titles>
+        <Title description="Button to open template menu to select which document to generate." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.LabelText">
+      <Titles>
+        <Title description="Templates" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Open template menu to select which document to generate." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Open template menu" languagecode="1033" />
       </Titles>
     </LocLabel>
   </LocLabels>

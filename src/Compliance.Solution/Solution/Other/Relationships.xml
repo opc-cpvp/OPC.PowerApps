@@ -95,6 +95,8 @@
   <EntityRelationship Name="opc_complaint_notifications_complaint" />
   <EntityRelationship Name="opc_complaint_recommendations_complaint" />
   <EntityRelationship Name="opc_complaint_reminders_complaint" />
+  <EntityRelationship Name="opc_complaint_SharePointDocumentLocations" />
+  <EntityRelationship Name="opc_complaint_SharePointDocuments" />
   <EntityRelationship Name="opc_complaints_topics_relatedtopics" />
   <EntityRelationship Name="opc_contact_complaints_complainant" />
   <EntityRelationship Name="opc_contact_complaints_complainantlegalrep" />

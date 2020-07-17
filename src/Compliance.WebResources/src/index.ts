@@ -11,3 +11,7 @@ import "./inversify.config";
 // Composition Root
 export { Bootstrapper } from "./bootstrapper";
 export { Utilities } from "./utils/NotificationIcons/NotificationIcons";
+
+// TODO: Temporary, move to factory with IoC container
+export { TemplateDialogPage } from "./dialogs/Templates/TemplateDialogPage";
+export { TemplateDialog } from "./dialogs/Templates/TemplateDialog";
