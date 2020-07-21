@@ -13,6 +13,7 @@
           <cell name="title" width="300" />
           <cell name="a_2e56f503010947898b3e11f06eca328d.opc_accountid" width="111" />
           <cell name="a_2e56f503010947898b3e11f06eca328d.opc_complainant" width="116" />
+          <cell name="opc_priorityscore" width="124" />
           <cell name="opc_complaint.opc_actualriskappetitevalue" width="211" />
           <cell name="enteredon" width="140" />
           <cell name="queueid" width="150" />
@@ -43,6 +44,9 @@
             <attribute name="opc_complainant" />
             <attribute name="opc_accountid" />
           </link-entity>
+          <attribute name="opc_priorityscore" />
+          <order attribute="opc_priorityscore" descending="true" />
+          <order attribute="enteredon" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

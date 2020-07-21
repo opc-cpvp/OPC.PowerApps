@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Compliance.Plugins.ChangeEventPlugin: Update of opc_complaint" SdkMessageProcessingStepId="{a7a73d1b-96cb-ea11-a812-000d3af46757}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>Compliance.Plugins.ChangeEventPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548</PluginTypeName>
+  <PluginTypeId>4f6230d0-1c44-4a19-884f-4cd98f301690</PluginTypeId>
+  <PrimaryEntity>opc_complaint</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>opc_intakeofficer,ownerid</FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="EntityImages">
+      <SdkMessageProcessingStepImageId>{c461512d-96cb-ea11-a812-000d3af46757}</SdkMessageProcessingStepImageId>
+      <Attributes>opc_intakeofficer,ownerid</Attributes>
+      <EntityAlias>EntityImages</EntityAlias>
+      <ImageType>2</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

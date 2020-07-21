@@ -29,7 +29,7 @@
                             <AutoResolve>true</AutoResolve>
                             <DisableMru>false</DisableMru>
                             <DisableQuickFind>false</DisableQuickFind>
-                            <DisableViewPicker>false</DisableViewPicker>
+                            <DisableViewPicker>true</DisableViewPicker>
                             <DefaultViewId>{5BC148F8-EF50-4808-BC46-BB5CAD4C3966}</DefaultViewId>
                             <AllowFilterOff>false</AllowFilterOff>
                           </parameters>
@@ -288,16 +288,17 @@
                             <UClientExpandFilterPane>false</UClientExpandFilterPane>
                             <UClientOrderBy>descending</UClientOrderBy>
                             <UClientRecordPerPage>10</UClientRecordPerPage>
-                            <UClientSortActivitiesByValue>modifiedon</UClientSortActivitiesByValue>
+                            <UClientSortActivitiesByValue>createdon</UClientSortActivitiesByValue>
                             <UClientDisplayActivityHeaderUsing>defaultformat</UClientDisplayActivityHeaderUsing>
                             <UClientCreateActivityUsing>quickcreateform</UClientCreateActivityUsing>
                             <UClientDisplayActivityUsing>defaultfields</UClientDisplayActivityUsing>
                             <DefaultTabId>ActivitiesTab</DefaultTabId>
                             <OrderByActivityWall>descending</OrderByActivityWall>
-                            <SortActivityWall>modifiedon</SortActivityWall>
+                            <SortActivityWall>createdon</SortActivityWall>
                             <EmailConversationView>true</EmailConversationView>
                             <ShowArticleTab>false</ShowArticleTab>
                             <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                            <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
                           </parameters>
                         </control>
                       </cell>
@@ -340,7 +341,7 @@
                           <label description="Documents" languagecode="1033" />
                           <label description="Documents" languagecode="1036" />
                         </labels>
-                        <control id="SubgridControl1570557025307" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="subgrid_documents" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>sharepointdocument</TargetEntityType>
                             <ViewId>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewId>

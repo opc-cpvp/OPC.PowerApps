@@ -8,6 +8,7 @@
           <entity name="opc_complaint">
             <attribute name="createdon" groupby="true" alias="_CRMAutoGen_groupby_column_Num_0" dategrouping="month" />
             <attribute name="opc_complaintid" aggregate="count" alias="_CRMAutoGen_aggregate_column_Num_0" />
+            <attribute name="opc_legislation" groupby="true" alias="_CRMAutoGen_groupby_column_Num_17" />
           </entity>
         </fetch>
       </fetchcollection>
@@ -42,11 +43,14 @@
       <Titles>
         <Title Alignment="TopLeft" DockingOffset="-3" Font="{0}, 13px" ForeColor="59, 59, 59" />
       </Titles>
+      <Legends>
+        <Legend Alignment="Center" LegendStyle="Table" Docking="right" IsEquallySpacedItems="True" Font="{0}, 11px" ShadowColor="0, 0, 0, 0" ForeColor="59, 59, 59" />
+      </Legends>
     </Chart>
   </presentationdescription>
   <isdefault>0</isdefault>
   <LocalizedNames>
-    <LocalizedName description="Complaint by Created On" languagecode="1033" />
+    <LocalizedName description="Complaint by Legislation and Created On" languagecode="1033" />
   </LocalizedNames>
   <IsCustomizable>1</IsCustomizable>
   <IntroducedVersion>1.0.146</IntroducedVersion>

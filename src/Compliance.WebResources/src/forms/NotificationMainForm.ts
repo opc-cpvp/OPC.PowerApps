@@ -42,6 +42,8 @@ export namespace Notification.Forms {
 
             // Redirect to the related case if there is any.
             if (entityFormOptions.entityName !== "") {
+                // Remove the current page from history
+                window.location.replace(window.location.href);
                 this._xrmNavigation.openForm(entityFormOptions);
             }
         }

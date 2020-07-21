@@ -270,4 +270,33 @@
       <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
     </fields>
   </entity>
+  <entity name="opc_theme" displayname="Theme" etc="11852" primaryidfield="opc_themeid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Description" name="opc_descriptionfrench" type="string" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Theme" name="opc_themeid" type="guid" primaryKey="true" />
+    </fields>
+  </entity>
+  <entity name="opc_topic" displayname="Topic" etc="11853" primaryidfield="opc_topicid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
+      <field displayname="French Description" name="opc_descriptionfrench" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Owner" name="ownerid" type="owner" />
+      <field displayname="Topic" name="opc_topicid" type="guid" primaryKey="true" />
+      <field displayname="Theme" name="opc_themeid" type="entityreference" lookupType="opc_theme" customfield="true" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+      <field displayname="Status" name="statecode" type="state" />
+    </fields>
+  </entity>
 </entities>

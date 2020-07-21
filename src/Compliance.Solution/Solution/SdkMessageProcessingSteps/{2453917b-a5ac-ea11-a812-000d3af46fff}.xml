@@ -2,7 +2,7 @@
 <SdkMessageProcessingStep Name="Compliance.Plugins.QueueMemberShipPlugin: Associate of any Entity" SdkMessageProcessingStepId="{2453917b-a5ac-ea11-a812-000d3af46fff}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SdkMessageId>16e7c888-3b24-448b-b7da-ebfe9b681762</SdkMessageId>
   <PluginTypeName>Compliance.Plugins.QueueMemberShipPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548</PluginTypeName>
-  <PluginTypeId>341dc720-bd14-4054-881c-e55d202367c6</PluginTypeId>
+  <PluginTypeId>7411c007-3539-4599-a188-8669165aea6b</PluginTypeId>
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <Description>Compliance.Plugins.QueueMemberShipPlugin: Associate of any Entity</Description>
   <FilteringAttributes></FilteringAttributes>

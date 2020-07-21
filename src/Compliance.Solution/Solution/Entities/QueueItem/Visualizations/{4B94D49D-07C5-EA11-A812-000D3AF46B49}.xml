@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <visualization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <savedqueryvisualizationid>{97604B86-6764-EA11-A812-000D3AF46CC5}</savedqueryvisualizationid>
+  <savedqueryvisualizationid>{4B94D49D-07C5-EA11-A812-000D3AF46B49}</savedqueryvisualizationid>
   <datadescription>
     <datadefinition>
       <fetchcollection>
@@ -51,6 +51,6 @@
     <LocalizedName description="Complaints by Resource" languagecode="1033" />
   </LocalizedNames>
   <IsCustomizable>1</IsCustomizable>
-  <IntroducedVersion>1.0.162</IntroducedVersion>
+  <IntroducedVersion>1.0.347</IntroducedVersion>
   <CanBeDeleted>1</CanBeDeleted>
 </visualization>

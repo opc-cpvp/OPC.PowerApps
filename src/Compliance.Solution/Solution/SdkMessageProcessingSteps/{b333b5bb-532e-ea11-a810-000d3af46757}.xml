@@ -2,7 +2,7 @@
 <SdkMessageProcessingStep Name="Compliance.Plugins.AnnotationAuthorPlugin: RetrieveMultiple of annotation" SdkMessageProcessingStepId="{b333b5bb-532e-ea11-a810-000d3af46757}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SdkMessageId>03bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
   <PluginTypeName>Compliance.Plugins.AnnotationAuthorPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548</PluginTypeName>
-  <PluginTypeId>3dd8a37e-7c07-48e7-ab66-6b91c874199b</PluginTypeId>
+  <PluginTypeId>b8d7117b-789d-4dc5-bbc8-848495405790</PluginTypeId>
   <PrimaryEntity>annotation</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <FilteringAttributes></FilteringAttributes>

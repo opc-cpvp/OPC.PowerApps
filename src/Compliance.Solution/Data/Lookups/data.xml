@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-06-29T19:08:59.7388918Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-07-14T18:25:05.9179936Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -36,7 +36,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Restricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org1ec55546" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org293434cb" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="e960220a-3f2e-ea11-a810-000d3af46757">
@@ -52,7 +52,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unclassified" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org1ec55546" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org293434cb" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="a6bd0471-3739-ea11-a813-000d3af46757">
@@ -68,7 +68,7 @@
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unrestricted" />
-        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org1ec55546" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org293434cb" />
         <field name="workflowsuspended" value="False" />
       </record>
     </records>
@@ -2611,16 +2611,89 @@
         <field name="opc_namefrench" value="Redirected to other Federal Institution" />
         <field name="opc_islocalizable" value="True" />
       </record>
-      <record id="ce4fadf0-b16e-ea11-a811-000d3af45a96">
-        <field name="opc_dispositionactionid" value="ce4fadf0-b16e-ea11-a811-000d3af45a96" />
-        <field name="opc_name" value="Redirected to CIC" />
-        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
-        <field name="statecode" value="0" />
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_theme" displayname="Theme">
+    <records>
+      <record id="41a07e3d-fcc5-ea11-a812-000d3af46b49">
+        <field name="opc_namefrench" value="Technologie" />
+        <field name="opc_nameenglish" value="Technology" />
+        <field name="opc_name" value="Technology" />
         <field name="statuscode" value="1" />
-        <field name="opc_dispositionreasonid" value="11df9980-a76e-ea11-a811-000d3af45a96" lookupentity="opc_dispositionreason" lookupentityname="Not a privacy complaint" />
-        <field name="opc_nameenglish" value="Redirected to CIC" />
-        <field name="opc_namefrench" value="Redirected to CIC" />
+        <field name="statecode" value="0" />
+        <field name="ownerid" value="439bb895-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Pierluc Simplicio-Soucy" />
         <field name="opc_islocalizable" value="True" />
+        <field name="opc_themeid" value="41a07e3d-fcc5-ea11-a812-000d3af46b49" />
+      </record>
+      <record id="8712d550-fcc5-ea11-a812-000d3af46b49">
+        <field name="opc_namefrench" value="Internet et sites Web" />
+        <field name="opc_nameenglish" value="Internet and Websites" />
+        <field name="opc_name" value="Internet and Websites" />
+        <field name="statuscode" value="1" />
+        <field name="statecode" value="0" />
+        <field name="ownerid" value="439bb895-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Pierluc Simplicio-Soucy" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_themeid" value="8712d550-fcc5-ea11-a812-000d3af46b49" />
+      </record>
+      <record id="5fbab457-fcc5-ea11-a812-000d3af46b49">
+        <field name="opc_namefrench" value="Technologie de localisation" />
+        <field name="opc_nameenglish" value="Location Tracking Technologie" />
+        <field name="opc_name" value="Location Tracking Technologie" />
+        <field name="statuscode" value="1" />
+        <field name="statecode" value="0" />
+        <field name="ownerid" value="439bb895-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Pierluc Simplicio-Soucy" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_themeid" value="5fbab457-fcc5-ea11-a812-000d3af46b49" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="opc_topic" displayname="Topic">
+    <records>
+      <record id="46361d71-fcc5-ea11-a812-000d3af46b49">
+        <field name="opc_nameenglish" value="Biometrics" />
+        <field name="opc_namefrench" value="Donn&amp;#233;es biom&amp;#233;triques" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Biometrics" />
+        <field name="ownerid" value="439bb895-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Pierluc Simplicio-Soucy" />
+        <field name="opc_topicid" value="46361d71-fcc5-ea11-a812-000d3af46b49" />
+        <field name="opc_themeid" value="41a07e3d-fcc5-ea11-a812-000d3af46b49" lookupentity="opc_theme" lookupentityname="Technology" />
+        <field name="statuscode" value="1" />
+        <field name="statecode" value="0" />
+      </record>
+      <record id="1a547a84-fcc5-ea11-a812-000d3af46b49">
+        <field name="opc_nameenglish" value="Emerging technologies" />
+        <field name="opc_namefrench" value="Nouvelles echnologies" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Emerging technologies" />
+        <field name="ownerid" value="439bb895-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Pierluc Simplicio-Soucy" />
+        <field name="opc_topicid" value="1a547a84-fcc5-ea11-a812-000d3af46b49" />
+        <field name="opc_themeid" value="41a07e3d-fcc5-ea11-a812-000d3af46b49" lookupentity="opc_theme" lookupentityname="Technology" />
+        <field name="statuscode" value="1" />
+        <field name="statecode" value="0" />
+      </record>
+      <record id="9444a097-fcc5-ea11-a812-000d3af46b49">
+        <field name="opc_nameenglish" value="Application Software" />
+        <field name="opc_namefrench" value="Logiciel d&amp;#39;application" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Application Software" />
+        <field name="ownerid" value="439bb895-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Pierluc Simplicio-Soucy" />
+        <field name="opc_topicid" value="9444a097-fcc5-ea11-a812-000d3af46b49" />
+        <field name="opc_themeid" value="8712d550-fcc5-ea11-a812-000d3af46b49" lookupentity="opc_theme" lookupentityname="Internet and Websites" />
+        <field name="statuscode" value="1" />
+        <field name="statecode" value="0" />
+      </record>
+      <record id="87c3e99d-fcc5-ea11-a812-000d3af46b49">
+        <field name="opc_nameenglish" value="Geospatial Technologies" />
+        <field name="opc_namefrench" value="Technologies g&amp;#233;ospatiales" />
+        <field name="opc_islocalizable" value="True" />
+        <field name="opc_name" value="Geospatial Technologies" />
+        <field name="ownerid" value="439bb895-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Pierluc Simplicio-Soucy" />
+        <field name="opc_topicid" value="87c3e99d-fcc5-ea11-a812-000d3af46b49" />
+        <field name="opc_themeid" value="5fbab457-fcc5-ea11-a812-000d3af46b49" lookupentity="opc_theme" lookupentityname="Location Tracking Technologie" />
+        <field name="statuscode" value="1" />
+        <field name="statecode" value="0" />
       </record>
     </records>
     <m2mrelationships />

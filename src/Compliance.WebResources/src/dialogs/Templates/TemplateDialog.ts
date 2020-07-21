@@ -50,7 +50,7 @@ export class TemplateDialog {
         setTimeout(() => {
             Xrm.Navigation.navigateTo({ pageType: "webresource", webresourceName: "opc_compliance/template_dialog.html", data: complaintId }, { target: 2, position: 1, width: { value: 420, unit: "px" }, height: { value: 355, unit: "px" } })
                 .then(() => {
-                    formContext.getControl("SubgridControl1570557025307").refresh();
+                    formContext.getControl("subgrid_documents").refresh();
                 });
         }, 200);
     }

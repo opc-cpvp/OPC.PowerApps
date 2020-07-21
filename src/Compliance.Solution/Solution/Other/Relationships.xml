@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="account_opc_events" />
+  <EntityRelationship Name="activity_pointer_opc_event" />
   <EntityRelationship Name="bpf_opc_complaint_opc_individualcomplaint_bp" />
   <EntityRelationship Name="business_unit_opc_allegation" />
   <EntityRelationship Name="business_unit_opc_allegationtype" />
@@ -26,6 +28,10 @@
   <EntityRelationship Name="business_unit_opc_sector" />
   <EntityRelationship Name="business_unit_opc_theme" />
   <EntityRelationship Name="business_unit_opc_topic" />
+  <EntityRelationship Name="contact_opc_events" />
+  <EntityRelationship Name="interactionforemail_opc_events" />
+  <EntityRelationship Name="knowledgearticle_opc_events" />
+  <EntityRelationship Name="knowledgebaserecord_opc_events" />
   <EntityRelationship Name="lk_opc_allegation_createdby" />
   <EntityRelationship Name="lk_opc_allegation_modifiedby" />
   <EntityRelationship Name="lk_opc_allegationtype_createdby" />
@@ -93,6 +99,7 @@
   <EntityRelationship Name="opc_complaint_intakeofficer_SystemUser" />
   <EntityRelationship Name="opc_complaint_issues_complaint" />
   <EntityRelationship Name="opc_complaint_notifications_complaint" />
+  <EntityRelationship Name="opc_complaint_opc_events" />
   <EntityRelationship Name="opc_complaint_recommendations_complaint" />
   <EntityRelationship Name="opc_complaint_reminders_complaint" />
   <EntityRelationship Name="opc_complaint_SharePointDocumentLocations" />
@@ -106,6 +113,15 @@
   <EntityRelationship Name="opc_dispositionaction_allegations_action" />
   <EntityRelationship Name="opc_dispositionreason_allegations_reason" />
   <EntityRelationship Name="opc_dispositionreason_dispositionactions_reas" />
+  <EntityRelationship Name="opc_event_businessunit_owningbusinessunit" />
+  <EntityRelationship Name="opc_event_mailbox_sendermailboxid" />
+  <EntityRelationship Name="opc_event_owner_ownerid" />
+  <EntityRelationship Name="opc_event_sla_slaid" />
+  <EntityRelationship Name="opc_event_sla_slainvokedid" />
+  <EntityRelationship Name="opc_event_systemuser_createdby" />
+  <EntityRelationship Name="opc_event_systemuser_modifiedby" />
+  <EntityRelationship Name="opc_event_systemuser_owninguser" />
+  <EntityRelationship Name="opc_event_team_owningteam" />
   <EntityRelationship Name="opc_legislation_complaints_legislation" />
   <EntityRelationship Name="opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite" />
   <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />

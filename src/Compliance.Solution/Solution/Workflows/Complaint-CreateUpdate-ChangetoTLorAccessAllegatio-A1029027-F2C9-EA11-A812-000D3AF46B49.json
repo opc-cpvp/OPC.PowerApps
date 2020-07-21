@@ -1,0 +1,160 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Change_to_Has_TL_or_Access_Allegation_on_Complaint": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "opc_complaint",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "opc_hasaccessallegation,opc_hastlallegation"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Has_Access_Allegation": {
+          "actions": {
+            "Add_10_to_Priority_Score": {
+              "runAfter": {},
+              "type": "IncrementVariable",
+              "inputs": {
+                "name": "Priority Score",
+                "value": 10
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@triggerOutputs()?['body/opc_hasaccessallegation']",
+              true
+            ]
+          },
+          "type": "If"
+        },
+        "Initialize_variable": {
+          "runAfter": {},
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Priority Score",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Has_TL_Allegation": {
+          "actions": {
+            "Increment_variable": {
+              "runAfter": {},
+              "type": "IncrementVariable",
+              "inputs": {
+                "name": "Priority Score",
+                "value": 15
+              }
+            }
+          },
+          "runAfter": {
+            "Has_Access_Allegation": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@triggerOutputs()?['body/opc_hastlallegation']",
+              true
+            ]
+          },
+          "type": "If"
+        },
+        "Queue_Item_for_Complaint": {
+          "runAfter": {
+            "Has_TL_Allegation": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "queueitems",
+              "$filter": "_objectid_value eq @{triggerOutputs()?['body/opc_complaintid']}",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('Queue_Item_for_Complaint')?['body/value']",
+          "actions": {
+            "Update_Priority_Score_on_Queue_Item": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "queueitems",
+                  "recordId": "@items('Apply_to_each')?['queueitemid']",
+                  "item/opc_priorityscore": "@variables('Priority Score')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Queue_Item_for_Complaint": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
