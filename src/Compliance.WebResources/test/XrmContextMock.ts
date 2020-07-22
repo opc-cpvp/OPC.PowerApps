@@ -35,6 +35,6 @@ export class XrmContextMock implements Xrm.context {
     userSettings: Xrm.userSettings;
     organizationSettings: Xrm.organizationSettings;
     getCurrentAppUrl(): string {
-        throw new Error("Method not implemented.");
+        return "https://fakeurl";
     }
 }

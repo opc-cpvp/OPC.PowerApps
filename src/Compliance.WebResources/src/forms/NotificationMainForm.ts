@@ -2,6 +2,7 @@ import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IPowerForm, INotificationService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
+import { WindowHelper } from "../helpers/WindowHelper";
 
 
 export namespace Notification.Forms {
@@ -10,11 +11,11 @@ export namespace Notification.Forms {
     export class MainForm implements IPowerForm<Form.opc_notification.Main.Information> {
 
         private _notificationService: INotificationService;
-        private _xrmNavigation: Xrm.Navigation;
+        private readonly _context: Xrm.context;
 
-        constructor(@inject(nameof<INotificationService>()) notificationService: INotificationService, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
+        constructor(@inject(nameof<INotificationService>()) notificationService: INotificationService, @inject(nameof<Xrm.context>()) context: Xrm.context) {
             this._notificationService = notificationService;
-            this._xrmNavigation = xrmNavigation;
+            this._context = context;
         }
 
         /**
@@ -26,7 +27,7 @@ export namespace Notification.Forms {
             const formContext = <Form.opc_notification.Main.Information>initializationContext.getFormContext();
             const notificationIdValue = formContext.data.entity.getId();
             const complaintIdValue = formContext.getAttribute("opc_complaintid").getValue();
-            const entityFormOptions = {entityName: "", entityId: ""};
+            const entityFormOptions = { entityName: "", entityId: "" };
 
             // Change the Status Reason of the notification from UNREAD to READ.
             if (formContext.getAttribute("statecode").getValue() == opc_notification_statecode.Active) {
@@ -42,9 +43,9 @@ export namespace Notification.Forms {
 
             // Redirect to the related case if there is any.
             if (entityFormOptions.entityName !== "") {
-                // Remove the current page from history
-                window.location.replace(window.location.href);
-                this._xrmNavigation.openForm(entityFormOptions);
+                // Use location replace instead of a OOB feature to remove this current page from the browsing history
+                var url = this._context.getCurrentAppUrl() + `&pagetype=entityrecord&etn=${entityFormOptions["entityName"]}&id=${encodeURIComponent(entityFormOptions["entityId"])}`;
+                WindowHelper.replaceLocation(url);
             }
         }
     }

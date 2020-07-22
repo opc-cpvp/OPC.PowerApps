@@ -1,8 +1,9 @@
 ﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
 import { Notification } from './NotificationMainForm';
 import { NotificationService } from '../services/NotificationService';
-import { XrmNavigationMock } from '../../test/XrmNavigationMock';
 import { XrmSaveEventContextMock } from '../../test/XrmSaveEventContextMock';
+import { XrmContextMock } from '../../test/XrmContextMock';
+import { WindowHelper } from '../helpers/WindowHelper';
 
 var chai = require("chai");
 var sinon = require("sinon");
@@ -23,20 +24,22 @@ describe("Notification", () => {
     describe("when form is loading", () => {
         let service: NotificationService;
         let form: Notification.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.opc_notification.Main.Information, any>;
-        let mockNavigation: XrmNavigationMock;
-        let contextSpy: any;
+        let mockExecutionContext: XrmExecutionContextMock<Form.opc_notification.Main.Information, any>;
+        let mockContext: XrmContextMock;
+
+        let executionContextSpy: any;
         let serviceSpy: any;
-        let navigationSpy: any;
+        let replaceLocation: any;
 
         beforeEach(function () {
             service = new NotificationService();
-            mockContext = new XrmSaveEventContextMock<Form.opc_notification.Main.Information>();
-            mockNavigation = new XrmNavigationMock();
-            form = new Notification.Forms.MainForm(service, mockNavigation);
-            contextSpy = sandbox.spy(mockContext);
+            mockExecutionContext = new XrmSaveEventContextMock<Form.opc_notification.Main.Information>();
+            mockContext = new XrmContextMock();
+            form = new Notification.Forms.MainForm(service, mockContext);
+            executionContextSpy = sandbox.spy(mockExecutionContext);
             serviceSpy = sandbox.spy(service);
-            navigationSpy = sandbox.spy(mockNavigation);
+
+            replaceLocation = sandbox.stub(WindowHelper, "replaceLocation");
         });
 
         afterEach(function () {
@@ -45,38 +48,38 @@ describe("Notification", () => {
 
         it("it should display Complaint field if it is related to a Complaint", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complaintid").setValue("PA-000000");
-            mockContext.getFormContext().getControl("opc_complaintid").setVisible(false);
-            ReplaceFunctions(service, mockContext);
+            mockExecutionContext.getFormContext().getAttribute("opc_complaintid").setValue("PA-000000");
+            mockExecutionContext.getFormContext().getControl("opc_complaintid").setVisible(false);
+            ReplaceFunctions(service, mockExecutionContext);
 
             // Act
-            form.initializeComponents(mockContext);
+            form.initializeComponents(mockExecutionContext);
 
             // Assert
-            contextSpy.getFormContext().getControl("opc_complaintid").getVisible().should.equal(true);
+            executionContextSpy.getFormContext().getControl("opc_complaintid").getVisible().should.equal(true);
         });
 
         it("it should not display Complaint field if it is not related to a Complaint", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complaintid").setValue(null);
-            mockContext.getFormContext().getControl("opc_complaintid").setVisible(false);
-            ReplaceFunctions(service, mockContext);
+            mockExecutionContext.getFormContext().getAttribute("opc_complaintid").setValue(null);
+            mockExecutionContext.getFormContext().getControl("opc_complaintid").setVisible(false);
+            ReplaceFunctions(service, mockExecutionContext);
 
             // Act
-            form.initializeComponents(mockContext);
+            form.initializeComponents(mockExecutionContext);
 
             // Assert
-            contextSpy.getFormContext().getControl("opc_complaintid").getVisible().should.equal(false);
+            executionContextSpy.getFormContext().getControl("opc_complaintid").getVisible().should.equal(false);
         });
 
         it("it should mark the Notification as Read", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("statecode").setValue(opc_notification_statecode.Active);
-            mockContext.getFormContext().getAttribute("statuscode").setValue(opc_notification_statuscode.Unread);
-            ReplaceFunctions(service, mockContext);
+            mockExecutionContext.getFormContext().getAttribute("statecode").setValue(opc_notification_statecode.Active);
+            mockExecutionContext.getFormContext().getAttribute("statuscode").setValue(opc_notification_statuscode.Unread);
+            ReplaceFunctions(service, mockExecutionContext);
 
             // Act
-            form.initializeComponents(mockContext);
+            form.initializeComponents(mockExecutionContext);
 
             // Assert
             serviceSpy.markAsRead.should.have.been.called;
@@ -84,26 +87,26 @@ describe("Notification", () => {
 
         it("it should redirect user to Complaint page if it is related to a Complaint", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complaintid").setValue("PA-000000");
-            ReplaceFunctions(service, mockContext);
+            mockExecutionContext.getFormContext().getAttribute("opc_complaintid").setValue("PA-000000");
+            ReplaceFunctions(service, mockExecutionContext);
 
             // Act
-            form.initializeComponents(mockContext);
+            form.initializeComponents(mockExecutionContext);
 
-            // Assert
-            navigationSpy.openForm.should.have.been.called;
+            // Assert   
+            replaceLocation.should.have.been.called;
         });
 
         it("it should not redirect user to Complaint page if it is not related to a Complaint", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_complaintid").setValue(null);
-            ReplaceFunctions(service, mockContext);
+            mockExecutionContext.getFormContext().getAttribute("opc_complaintid").setValue(null);
+            ReplaceFunctions(service, mockExecutionContext);
 
             // Act
-            form.initializeComponents(mockContext);
+            form.initializeComponents(mockExecutionContext);
 
             // Assert
-            navigationSpy.openForm.should.not.have.been.called;
+            replaceLocation.should.not.have.been.called;
         });
     });
 });

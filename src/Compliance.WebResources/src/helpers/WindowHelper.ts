@@ -22,4 +22,9 @@ export class WindowHelper {
             `
         );
     }
+
+    // Created for ease of testing
+    static replaceLocation(url: string): void {
+        window.top.location.replace(url);
+    }
 }
