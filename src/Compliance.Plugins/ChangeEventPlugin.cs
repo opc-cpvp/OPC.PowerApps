@@ -69,9 +69,8 @@ namespace Compliance.Plugins
                     var postImageFieldReference = postImageEntity.GetAttributeValue<EntityReference>(fieldChange.FieldLogicalName);
 
                     // Check if the prior value and current value are different, if not the case, don't create the event
-                    if (preImageFieldReference.Id == postImageFieldReference.Id ||
-                        preImageFieldReference == null ||
-                        postImageFieldReference == null) continue;
+                    if (preImageFieldReference.Id == postImageFieldReference.Id) continue;
+
 
                     // Create an Event record based on the change of the field and relate it to the current record
                     var trackedEvent = new opc_event()
@@ -80,6 +79,7 @@ namespace Compliance.Plugins
                         OwnerId = new EntityReference("systemuser", context.InitiatingUserId)
                     };
 
+                    // TODO: Impersonate the initiating user as created by is still System atm
                     var id = localContext.OrganizationService.Create(trackedEvent);
                     trackedEvent.Id = id;
 

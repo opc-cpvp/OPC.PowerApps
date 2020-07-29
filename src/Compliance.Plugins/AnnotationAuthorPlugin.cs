@@ -22,7 +22,10 @@ namespace Compliance.Plugins
                         break;
 
                     if (localContext.PluginExecutionContext.OutputParameters["BusinessEntity"] is Entity businessEntity)
+                    {
                         entities.Entities.Add(businessEntity);
+                        localContext.Trace("Only one entity???");
+                    }
                     break;
 
                 case PluginMessage.RetrieveMultiple:
@@ -30,7 +33,18 @@ namespace Compliance.Plugins
                         break;
 
                     if (localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"] is EntityCollection businessEntityCollection)
+                    {
+                        localContext.Trace("Multi entity!");
+
+                        // Sort the the collection as the order in which they come makes a difference
+                        // Can't completely squish the Entities property as it's read only, so need to clear and re-add the sorted references
+                        var sortedAnnotations = businessEntityCollection.Entities.OrderByDescending(x => x["createdon"]).ToList();
+                        businessEntityCollection.Entities.Clear();
+                        businessEntityCollection.Entities.AddRange(sortedAnnotations);
+
+                        // Prepare a new list to switch certain values later
                         entities.Entities.AddRange(businessEntityCollection.Entities);
+                    }
                     break;
 
                 default:
@@ -42,9 +56,11 @@ namespace Compliance.Plugins
                 return;
 
             // Replace the annotation modified by user with the original author.
-            foreach(var entity in entities.Entities)
+            foreach (var entity in entities.Entities)
             {
                 var annotation = entity.ToEntity<Annotation>();
+
+                localContext.Trace($"{annotation.Subject}: {annotation.CreatedOn}");
 
                 entity["modifiedby"] = annotation.CreatedBy;
                 entity["modifiedon"] = annotation.CreatedOn;
