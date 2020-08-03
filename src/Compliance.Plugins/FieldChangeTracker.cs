@@ -18,14 +18,14 @@
         /// <summary>
         /// Phrase which will be used to show the change. Will contain at some point the old and new value for the changed field to be injected with a string format.
         /// </summary>
-        public string ChangePhrase { get; set; } = "The {0} has been changed from {1} to {2}.";
+        public string ChangePhrase { get; set; } = "{0} has changed {1} from {2} to {3}.";
 
         /// <summary>
         /// Formats the change phrase to inject it with the old and new values for the field
         /// </summary>
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
-        /// <returns>The formatted chnage phrase with the old and new value for the field</returns>
-        public string GetChangePhrase(string oldValue, string newValue) => string.Format(ChangePhrase, FieldLabel, oldValue, newValue);
+        /// <returns>The formatted change phrase with the old and new value for the field</returns>
+        public string GetChangePhrase(string user, string oldValue, string newValue, params string[] otherValues) => string.Format(ChangePhrase, user, FieldLabel, oldValue, newValue, otherValues);
     }
 }

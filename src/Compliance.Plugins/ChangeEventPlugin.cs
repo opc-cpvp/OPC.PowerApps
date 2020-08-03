@@ -71,15 +71,16 @@ namespace Compliance.Plugins
                     // Check if the prior value and current value are different, if not the case, don't create the event
                     if (preImageFieldReference.Id == postImageFieldReference.Id) continue;
 
-
+                    var initiatingUser = localContext.OrganizationService.Retrieve("systemuser", context.InitiatingUserId, new ColumnSet("fullname"));
+                    var currentUser = new EntityReference("systemuser", context.InitiatingUserId);
                     // Create an Event record based on the change of the field and relate it to the current record
                     var trackedEvent = new opc_event()
                     {
-                        Subject = fieldChange.GetChangePhrase(preImageFieldReference.Name, postImageFieldReference.Name),
-                        OwnerId = new EntityReference("systemuser", context.InitiatingUserId)
+                        Subject = fieldChange.GetChangePhrase(initiatingUser["fullname"]?.ToString(), preImageFieldReference.Name, postImageFieldReference.Name),
+                        OwnerId = currentUser,
                     };
 
-                    // TODO: Impersonate the initiating user as created by is still System atm
+                    // Create and setup the event for a reference
                     var id = localContext.OrganizationService.Create(trackedEvent);
                     trackedEvent.Id = id;
 

@@ -1,5 +1,6 @@
 using Compliance.Entities;
 using Microsoft.Xrm.Sdk;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Compliance.Plugins
@@ -22,10 +23,7 @@ namespace Compliance.Plugins
                         break;
 
                     if (localContext.PluginExecutionContext.OutputParameters["BusinessEntity"] is Entity businessEntity)
-                    {
                         entities.Entities.Add(businessEntity);
-                        localContext.Trace("Only one entity???");
-                    }
                     break;
 
                 case PluginMessage.RetrieveMultiple:
@@ -34,8 +32,6 @@ namespace Compliance.Plugins
 
                     if (localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"] is EntityCollection businessEntityCollection)
                     {
-                        localContext.Trace("Multi entity!");
-
                         // Sort the the collection as the order in which they come makes a difference
                         // Can't completely squish the Entities property as it's read only, so need to clear and re-add the sorted references
                         var sortedAnnotations = businessEntityCollection.Entities.OrderByDescending(x => x["createdon"]).ToList();
@@ -46,7 +42,18 @@ namespace Compliance.Plugins
                         entities.Entities.AddRange(businessEntityCollection.Entities);
                     }
                     break;
+                case PluginMessage.RetrieveTimelineWallRecords:
+                    if (localContext.PluginExecutionContext.InputParameters.ContainsKey("FetchXml"))
+                    {
+                        // the params are read only, we need remove and add the param we want to change
+                        var InputParams = localContext.PluginExecutionContext.InputParameters;
 
+                        // Remove the state code attribute so we don't see the state on the timeline as it's useless
+                        var newFetchXmlValue = InputParams["FetchXml"].ToString().Replace("<attribute name=\"statecode\"/>", "");
+                        InputParams.Remove("FetchXml");
+                        InputParams.Add(new KeyValuePair<string, object>("FetchXml", newFetchXmlValue));
+                    }
+                    break;
                 default:
                     break;
             }
