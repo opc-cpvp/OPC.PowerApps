@@ -139,11 +139,11 @@
   <EntityRelationship Name="opc_complaint_opc_events">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.404</IntroducedVersion>
+    <IntroducedVersion>1.0.362</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_event</ReferencingEntityName>
     <ReferencedEntityName>opc_complaint</ReferencedEntityName>
-    <CascadeAssign>NoCascade</CascadeAssign>
+    <CascadeAssign>Cascade</CascadeAssign>
     <CascadeDelete>Cascade</CascadeDelete>
     <CascadeReparent>Cascade</CascadeReparent>
     <CascadeShare>Cascade</CascadeShare>
