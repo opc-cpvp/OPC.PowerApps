@@ -2,6 +2,7 @@ import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IPowerForm } from "../interfaces";
 import { i18n } from "i18next";
+import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Reminder.Forms {
     @injectable()
@@ -47,34 +48,26 @@ export namespace Reminder.Forms {
 
             //Check if at least one person is to be notified
             if (!shouldNotifyCaseOwner && !shouldNotifyReminderOwner && !shouldNotifyAdditionalUsers) {
-                notifyCaseOwnerControl.setNotification(this._i18n.t("reminder:error.nobody_selected"), "notifyCaseOwnerControlNotification");
-                notifyReminderOwnerControl.setNotification(this._i18n.t("reminder:error.nobody_selected"), "notifyReminderOwnerAlert");
-                notifyAdditionalUsersControl.setNotification(this._i18n.t("reminder:error.nobody_selected"), "notifyAdditionalUsersAlert");
-
-                formContext.ui.setFormNotification(this._i18n.t("reminder:error.nobody_selected"), "ERROR", "formNotificationError");
-
+                XrmHelper.setNotification(notifyCaseOwnerControl, this._i18n.t("reminder:error.nobody_selected"));
+                XrmHelper.setNotification(notifyReminderOwnerControl, this._i18n.t("reminder:error.nobody_selected"));
+                XrmHelper.setNotification(notifyAdditionalUsersControl, this._i18n.t("reminder:error.nobody_selected"));
                 context.getEventArgs().preventDefault();
             }
 
             //Check if there is a case linked to the reminder if Notify Case Owner is checked.
             else if (shouldNotifyCaseOwner && !containsComplaint) {
-
-                notifyCaseOwnerControl.setNotification(this._i18n.t("reminder:error.case_must_be_linked"), "notifyCaseOwnerAlert");
-                formContext.ui.setFormNotification(this._i18n.t("reminder:error.case_must_be_linked"), "ERROR", "formNotificationError");
-
+                XrmHelper.setNotification(notifyCaseOwnerControl, this._i18n.t("reminder:error.case_must_be_linked"));
                 context.getEventArgs().preventDefault();
             }
         }
 
         /**
-   * Handles changes to controls on the form to clear all error notifications and allow a save event.
-   *
-   * @event OnChanged
-   */
+           * Handles changes to controls on the form to clear all error notifications and allow a save event.
+           *
+           * @event OnChanged
+           */
         private control_OnChange_ClearAllNotifications(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            const formContext = <Form.opc_reminder.QuickCreate.QuickCreate>context.getFormContext();
-            formContext.ui.clearFormNotification("formNotificationError");
-            formContext.ui.controls.forEach(control => control.clearNotification());
+            XrmHelper.clearAllNotifications(context.getFormContext());
         }
 
     }

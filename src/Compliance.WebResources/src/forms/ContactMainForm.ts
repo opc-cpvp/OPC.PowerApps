@@ -2,6 +2,7 @@ import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IPowerForm, IUserService } from "../interfaces";
 import { i18n } from "i18next";
+import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Contact.Forms {
     @injectable()
@@ -82,7 +83,7 @@ export namespace Contact.Forms {
         */
         private multipleComplaintStrategy_DisplayNotification(formContext: Form.contact.Main.ComplianceContact): void {
             // Clear Notification
-            formContext.ui.clearFormNotification("formNotificationMCS");
+            XrmHelper.clearAllNotifications(formContext);
 
             // Check if Contact is part of the Multiple Complaint Strategy
             const multipleComplaintStrategy = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
@@ -90,7 +91,7 @@ export namespace Contact.Forms {
                 // Display Notification
                 const firstName = formContext.getAttribute("firstname").getValue();
                 const lastName = formContext.getAttribute("lastname").getValue();
-                formContext.ui.setFormNotification(this._i18n.t("contact:mcs.warning", { context: 'main', fullname: (firstName ? firstName + " " : "") + lastName }), "INFO", "formNotificationMCS");
+                XrmHelper.setFormNotification(formContext, "INFO", this._i18n.t("contact:mcs.warning", { context: 'main', fullname: (firstName ? firstName + " " : "") + lastName }))
             }
         }
 
