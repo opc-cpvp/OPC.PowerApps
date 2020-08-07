@@ -4,7 +4,7 @@ import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmControlMock } from "./XrmControlMock";
 
 export class XrmAttributeMock
-    implements Xrm.Attribute<any>, Xrm.OptionSetAttribute<any>, INamedComponent {
+    implements Xrm.Attribute<any>, Xrm.OptionSetAttribute<any>, Xrm.LookupAttribute<any>, INamedComponent {
 
     private _executionContext: XrmExecutionContextMock<any, any>;
     private _name: string;

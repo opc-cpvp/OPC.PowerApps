@@ -70,7 +70,6 @@ export namespace Complaint.Forms {
             const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
             const contactAttr = context.getEventSource();
             const contactValue = contactAttr.getValue();
-            const duplicationNotificationId = `duplicateNotificationId - ${contactType}`;
 
             if (contactValue) {
 
@@ -83,9 +82,9 @@ export namespace Complaint.Forms {
                         this._contactService.getPotentialDuplicates(contactResult)
                             .then(x => {
                                 if (x.length == 0) {
-                                    formContext.ui.clearFormNotification(duplicationNotificationId);
+                                    XrmHelper.clearNotification(contactAttr);
                                     // Update other attribute that may use the same contact
-                                    otherAffectedAttributes.forEach(c => formContext.ui.clearFormNotification(`duplicateNotificationId - ${c.Type}`));
+                                    otherAffectedAttributes.forEach(c => XrmHelper.clearNotification(c.Attribute));
                                     return;
                                 }
 
@@ -99,28 +98,28 @@ export namespace Complaint.Forms {
                                     duplicateResult = opc_duplicatedetectionresult.Duplicatefound;
 
                                 // Update event source attribute
-                                this.showContactDuplicateStatusNotification(formContext, contactType, duplicateResult, duplicationNotificationId);
+                                this.showContactDuplicateStatusNotification(contactAttr, contactType, duplicateResult);
 
                                 // Update other attribute that may use the same contact
-                                otherAffectedAttributes.forEach(attr => this.showContactDuplicateStatusNotification(formContext, attr.Type, opc_duplicatedetectionresult.Potentialduplicate, `duplicateNotificationId - ${attr.Type}`));
+                                otherAffectedAttributes.forEach(attr => this.showContactDuplicateStatusNotification(attr.Attribute, attr.Type, opc_duplicatedetectionresult.Potentialduplicate));
                             })
                             .catch(() => console.error(`error getting duplicates of ${contactType}`))
                     })
                     .catch(() => console.error(`error getting duplicate status of ${contactType}`));
             } else {
-                formContext.ui.clearFormNotification(duplicationNotificationId);
+                XrmHelper.clearNotification(contactAttr);
             }
 
             formContext.ui.refreshRibbon(); // For merge ribbon buttons to re-evaluate if they should be enabled
         }
 
-        private showContactDuplicateStatusNotification(formContext: Form.opc_complaint.Main.Information, contactType: ContactType, duplicateResult: opc_duplicatedetectionresult, notificationId: string) {
+        private showContactDuplicateStatusNotification(contactAttr: Xrm.LookupAttribute<"contact">, contactType: ContactType, duplicateResult: opc_duplicatedetectionresult) {
             if (duplicateResult == opc_duplicatedetectionresult.Potentialduplicate)
-                formContext.ui.setFormNotification(this._i18n.t("contact:duplicate.warning", { context: "potential", contactType: contactType }), "WARNING", notificationId);
+                XrmHelper.setNotification(contactAttr, this._i18n.t("contact:duplicate.warning", { context: "potential", contactType: contactType }), "WARNING");
             else if (duplicateResult == opc_duplicatedetectionresult.Duplicatefound) {
-                formContext.ui.setFormNotification(this._i18n.t("contact:duplicate.warning", { context: "actual", contactType: contactType }), "WARNING", notificationId);
+                XrmHelper.setNotification(contactAttr, this._i18n.t("contact:duplicate.warning", { context: "actual", contactType: contactType }), "WARNING");
             } else {
-                formContext.ui.clearFormNotification(notificationId);
+                XrmHelper.clearNotification(contactAttr);
             }
         }
 
@@ -168,7 +167,6 @@ export namespace Complaint.Forms {
                 case opc_intakedisposition.Close:
                     formContext.getAttribute("opc_closereason").controls.forEach(control => {
                         XrmHelper.toggleOn(control);
-                        // when closereason off filter reason based on stage.
                     });
                     formContext.getAttribute("opc_closereason").setRequiredLevel("required");
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(false));
@@ -240,12 +238,12 @@ export namespace Complaint.Forms {
             const fullname = complainantEntityReference ? complainantEntityReference[0].name : "";
 
             // Clear Notification
-            formContext.ui.clearFormNotification("formNotificationMCS");
+            XrmHelper.clearNotification(multipleComplaintStrategyControl);
 
             // Check if Complainant is part of the Multiple Complaint Strategy
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
                 // Display Notification
-                formContext.ui.setFormNotification(this._i18n.t("contact:mcs.warning", { context: 'complaint', fullname }), "INFO", "formNotificationMCS");
+                XrmHelper.setNotification(multipleComplaintStrategyControl, "INFO", this._i18n.t("contact:mcs.warning", { context: 'complaint', fullname }));
             }
         }
     }

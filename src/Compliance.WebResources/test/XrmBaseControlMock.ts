@@ -1,5 +1,6 @@
 ﻿import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { INamedComponent } from "./INamedComponent";
+import { XrmPageSectionMock } from "./XrmPageSectionMock";
 
 export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INamedComponent {
     protected context: XrmExecutionContextMock<any, any>;
@@ -7,6 +8,7 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
     private _isVisible: boolean;
     private _name: string;
     private _notifications: any[] = [];
+    private _parentSection: Xrm.PageSection;
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this.context = executionContext;
@@ -22,6 +24,9 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
     getNotificationsLength(): number {
         return this._notifications.length;
     }
+    setParentSection(section: Xrm.PageSection) {
+        this._parentSection = section;
+    }
     /* END OF NEW MEMBERS*/
 
     getControlType(): Xrm.ControlType {
@@ -31,7 +36,12 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
         throw new Error("Method not implemented.");
     }
     getParent(): Xrm.PageSection {
-        throw new Error("Method not implemented.");
+        if (!this._parentSection) {
+            const parentSection = new XrmPageSectionMock(this.context);
+            parentSection.controls.collection.push(this);
+            this._parentSection = parentSection;
+        }
+        return this._parentSection; 
     }
     getName(): string {
         return this._name;
