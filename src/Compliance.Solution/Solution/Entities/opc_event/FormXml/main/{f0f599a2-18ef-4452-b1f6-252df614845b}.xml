@@ -22,20 +22,20 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{71b383c7-1846-447d-8b55-db242a568b2a}">
+                      <cell id="{71b383c7-1846-447d-8b55-db242a568b2a}" showlabel="true" visible="false">
                         <labels>
                           <label description="Subject" languagecode="1033" />
                           <label description="Sujet" languagecode="1036" />
                         </labels>
-                        <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" />
+                        <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="true" />
                       </cell>
                     </row>
                     <row>
-                      <cell id="{ef5f8b39-ecfe-4962-937e-d1f86326e907}" showlabel="true" locklevel="0">
+                      <cell id="{ef5f8b39-ecfe-4962-937e-d1f86326e907}" showlabel="true" locklevel="0" visible="false">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
                       </cell>
                     </row>
                     <row>

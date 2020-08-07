@@ -20,6 +20,9 @@
     <PluginType AssemblyQualifiedName="Compliance.Plugins.QueueMemberShipPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="341dc720-bd14-4054-881c-e55d202367c6" Name="Compliance.Plugins.QueueMemberShipPlugin">
       <FriendlyName>5b477333-1610-4b17-aed4-c0a7a680cf2b</FriendlyName>
     </PluginType>
+    <PluginType AssemblyQualifiedName="Compliance.Plugins.RemoveTimelineCardStatusPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="dc9ea112-a068-467e-ad27-ad5014e41410" Name="Compliance.Plugins.RemoveTimelineCardStatusPlugin">
+      <FriendlyName>592ea2f4-5f72-4efa-89ff-7cd9f5a35d8a</FriendlyName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="Compliance.Plugins.TemplatePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="eff4f902-858c-4fff-b917-ca60d3ebfc6c" Name="Compliance.Plugins.TemplatePlugin">
       <FriendlyName>220b880f-7727-4907-b3d0-70001306308a</FriendlyName>
     </PluginType>
