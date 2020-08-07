@@ -28,12 +28,31 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
+            public static string TestUserId = "6cecee3c-ca7d-4072-ba17-502e8cb6a29a";
+            public static Entity TestUser
+            {
+                get
+                {
+                    return new Entity("systemuser", Guid.Parse(TestUserId))
+                    {
+                        Attributes = new AttributeCollection()
+                        {
+                            { "fullname", "test user"}
+                        }
+                    };
+                }
+            }
+
             [Fact]
             public void an_event_should_be_created_for_tracked_changed_field()
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
+
+                context.Initialize(new[] {
+                    TestUser
+                });
 
                 var preImageEntity = PreImageEntity;
                 var postImageEntity = new Entity("opc_complaint", Guid.NewGuid())
@@ -46,6 +65,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.PreEntityImages.Add(new KeyValuePair<string, Entity>("EntityImages", preImageEntity));
                 pluginContext.PostEntityImages.Add(new KeyValuePair<string, Entity>("EntityImages", postImageEntity));
+                pluginContext.InitiatingUserId = TestUser.Id;
                 context.AddRelationship("opc_complaint_opc_events", new XrmFakedRelationship("opc_complaint_opc_events", "opc_complaint_opc_events", "opc_complaint", "opc_event"));
                 pluginContext.InputParameters = new ParameterCollection {
                     { "Target", new EntityReference("opc_complaint", preImageEntity.Id) },
@@ -70,6 +90,10 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
+                context.Initialize(new[] {
+                    TestUser
+                });
+
                 var preImageEntity = new Entity("opc_complaint", Guid.NewGuid())
                 {
                     Attributes = new AttributeCollection()
@@ -90,6 +114,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.PreEntityImages.Add(new KeyValuePair<string, Entity>("EntityImages", preImageEntity));
                 pluginContext.PostEntityImages.Add(new KeyValuePair<string, Entity>("EntityImages", postImageEntity));
+                pluginContext.InitiatingUserId = TestUser.Id;
                 context.AddRelationship("opc_complaint_opc_events", new XrmFakedRelationship("opc_complaint_opc_events", "opc_complaint_opc_events", "opc_complaint", "opc_event"));
                 pluginContext.InputParameters = new ParameterCollection {
                     { "Target", new EntityReference("opc_complaint", Guid.NewGuid()) },

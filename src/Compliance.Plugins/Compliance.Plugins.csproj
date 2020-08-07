@@ -90,6 +90,7 @@
     <Compile Include="PluginBase.cs" />
     <Compile Include="PluginMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveTimelineCardStatusPlugin.cs" />
     <Compile Include="TemplatePlugin.cs" />
     <Compile Include="ChangeEventPlugin.cs" />
     <Compile Include="FieldChangeTracker.cs" />

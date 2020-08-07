@@ -13,7 +13,7 @@ namespace Compliance.Plugins.Tests
     {
         public static AnnotationAuthorPlugin pluginInstance = null;
 
-        public static AnnotationAuthorPlugin PluginInstance => 
+        public static AnnotationAuthorPlugin PluginInstance =>
             pluginInstance ?? (pluginInstance = new AnnotationAuthorPlugin());
 
         public class when_retrieving_an_annotation
@@ -88,25 +88,44 @@ namespace Compliance.Plugins.Tests
                         new object[] {
                             new EntityCollection()
                             {
-                                Entities = {
-                                    new Entity {
+                                Entities = 
+                                {
+                                    new Entity 
+                                    {
                                         Id = Guid.NewGuid(),
                                         LogicalName = Annotation.EntityLogicalName,
-                                        Attributes = new AttributeCollection() {
+                                        Attributes = new AttributeCollection() 
+                                        {
                                             new KeyValuePair<string, object>("subject", "Subject"),
                                             new KeyValuePair<string, object>("notetext", "Note"),
                                             new KeyValuePair<string, object>("createdby", new EntityReference(SystemUser.EntityLogicalName, Guid.NewGuid())),
-                                            new KeyValuePair<string, object>("createdon", DateTime.Now.AddDays(-1)),
+                                            new KeyValuePair<string, object>("createdon", DateTime.Now.AddDays(-3)),
                                             new KeyValuePair<string, object>("modifiedby", new EntityReference(SystemUser.EntityLogicalName, Guid.NewGuid())),
                                             new KeyValuePair<string, object>("modifiedon", DateTime.Now)
                                         }
                                     }.ToEntity<Annotation>(),
-                                    new Entity {
+                                    new Entity 
+                                    {
                                         Id = Guid.NewGuid(),
                                         LogicalName = Annotation.EntityLogicalName,
-                                        Attributes = new AttributeCollection() {
+                                        Attributes = new AttributeCollection() 
+                                        {
                                             new KeyValuePair<string, object>("subject", "Subject 2"),
                                             new KeyValuePair<string, object>("notetext", "Note 2"),
+                                            new KeyValuePair<string, object>("createdby", new EntityReference(SystemUser.EntityLogicalName, Guid.NewGuid())),
+                                            new KeyValuePair<string, object>("createdon", DateTime.Now.AddDays(-2)),
+                                            new KeyValuePair<string, object>("modifiedby", new EntityReference(SystemUser.EntityLogicalName, Guid.NewGuid())),
+                                            new KeyValuePair<string, object>("modifiedon", DateTime.Now)
+                                        }
+                                    }.ToEntity<Annotation>(),
+                                    new Entity
+                                    {
+                                        Id = Guid.NewGuid(),
+                                        LogicalName = Annotation.EntityLogicalName,
+                                        Attributes = new AttributeCollection()
+                                        {
+                                            new KeyValuePair<string, object>("subject", "Subject 3"),
+                                            new KeyValuePair<string, object>("notetext", "Note 3"),
                                             new KeyValuePair<string, object>("createdby", new EntityReference(SystemUser.EntityLogicalName, Guid.NewGuid())),
                                             new KeyValuePair<string, object>("createdon", DateTime.Now.AddDays(-1)),
                                             new KeyValuePair<string, object>("modifiedby", new EntityReference(SystemUser.EntityLogicalName, Guid.NewGuid())),
@@ -155,7 +174,29 @@ namespace Compliance.Plugins.Tests
                 var annotations = annotationCollection.Entities.Select(e => e.ToEntity<Annotation>());
                 annotations.All(a => a.ModifiedOn == a.CreatedOn).Should().BeTrue();
             }
+
+            [Theory, MemberData(nameof(AnnotationCollection))]
+            public void annotations_should_be_sorted_by_created_in_descending_order(EntityCollection annotationCollection)
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                pluginContext.OutputParameters = new ParameterCollection { { "BusinessEntityCollection", annotationCollection } };
+                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
+
+                // Act
+                context.ExecutePluginWith<AnnotationAuthorPlugin>(pluginContext);
+
+                // Assert
+                var annotations = annotationCollection.Entities.Select(e => e.ToEntity<Annotation>()).ToArray();
+                annotations[0].Subject.Should().Be("Subject 3");
+                annotations[1].Subject.Should().Be("Subject 2");
+                annotations[2].Subject.Should().Be("Subject");
+            }
         }
+
+
     }
 }
 

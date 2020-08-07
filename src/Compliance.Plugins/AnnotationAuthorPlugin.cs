@@ -42,18 +42,6 @@ namespace Compliance.Plugins
                         entities.Entities.AddRange(businessEntityCollection.Entities);
                     }
                     break;
-                case PluginMessage.RetrieveTimelineWallRecords:
-                    if (localContext.PluginExecutionContext.InputParameters.ContainsKey("FetchXml"))
-                    {
-                        // the params are read only, we need remove and add the param we want to change
-                        var InputParams = localContext.PluginExecutionContext.InputParameters;
-
-                        // Remove the state code attribute so we don't see the state on the timeline as it's useless
-                        var newFetchXmlValue = InputParams["FetchXml"].ToString().Replace("<attribute name=\"statecode\"/>", "");
-                        InputParams.Remove("FetchXml");
-                        InputParams.Add(new KeyValuePair<string, object>("FetchXml", newFetchXmlValue));
-                    }
-                    break;
                 default:
                     break;
             }
@@ -66,8 +54,6 @@ namespace Compliance.Plugins
             foreach (var entity in entities.Entities)
             {
                 var annotation = entity.ToEntity<Annotation>();
-
-                localContext.Trace($"{annotation.Subject}: {annotation.CreatedOn}");
 
                 entity["modifiedby"] = annotation.CreatedBy;
                 entity["modifiedon"] = annotation.CreatedOn;

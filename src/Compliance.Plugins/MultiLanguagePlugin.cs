@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Compliance.Plugins
 {
@@ -20,6 +21,13 @@ namespace Compliance.Plugins
 
         private const string LanguageKey = "uilanguageid";
         private const string LanguageAttribute = "uilanguageid";
+
+        /// <summary>
+        /// Regex to match strings used for the multilangual plugin.
+        /// It first matches the double quote, followed by the prefix,
+        /// then matches anything (inlcuding escaped quotes) until it matches the end of the other double quotes
+        /// </summary>
+        private const string MultilangualStringPattern = "\"(\\|\\^\\|(?:(?=(\\\\?))\\2.)*?)\"";
 
         private readonly Dictionary<Language, string> LanguageSuffixes = new Dictionary<Language, string> {
             { Language.English, "english" },
@@ -48,6 +56,9 @@ namespace Compliance.Plugins
                         break;
                     case PluginMessage.RetrieveMultiple:
                         UnpackNameOnRetrieveMultiple(localContext);
+                        break;
+                    case PluginMessage.RetrieveTimelineWallRecords:
+                        UnpackNameOnRetrieveTimelineWallRecords(localContext);
                         break;
                     default:
                         break;
@@ -187,6 +198,25 @@ namespace Compliance.Plugins
             {
                 SetLocalizableValue(localContext, businessEntity);
             }
+        }
+
+        protected void UnpackNameOnRetrieveTimelineWallRecords(LocalPluginContext localContext)
+        {
+            if (!localContext.PluginExecutionContext.OutputParameters.Contains("TimelineWallRecords")
+                || localContext.PluginExecutionContext.OutputParameters["TimelineWallRecords"] == null)
+                return;
+
+            var outputParams = localContext.PluginExecutionContext.OutputParameters;
+
+            // Get and replace all timeline wall record names that are meant to be bilingual using a regex pattern
+            var languageTimeLineRecords = Regex.Replace(
+                outputParams["TimelineWallRecords"].ToString(),
+                MultilangualStringPattern,
+                m => $"\"{UnpackName(localContext, m.Groups[1].Value)}\"");
+
+            // Remove and add as the property is readonly
+            outputParams.Remove("TimelineWallRecords");
+            outputParams.Add(new KeyValuePair<string, object>("TimelineWallRecords", languageTimeLineRecords));
         }
 
         private void SetLocalizableValue(LocalPluginContext localContext, Entity businessEntity)

@@ -24,8 +24,8 @@ namespace Compliance.Plugins
                 EntityLogicalName = nameof(opc_complaint),
                 TrackedFields = new List<FieldChangeTracker>
                 {
-                    new FieldChangeTracker(nameof(opc_complaint.OwnerId).ToLower(), "Owner"),
-                    new FieldChangeTracker(nameof(opc_complaint.opc_intakeofficer), "Intake Officer")
+                    new FieldChangeTracker(nameof(opc_complaint.OwnerId).ToLower(), "Owner", "Propriétaire"),
+                    new FieldChangeTracker(nameof(opc_complaint.opc_intakeofficer), "Intake Officer", "Intake Officer") // TODO: No translation done yet
                 }
             }
         };
@@ -72,12 +72,13 @@ namespace Compliance.Plugins
                     if (preImageFieldReference.Id == postImageFieldReference.Id) continue;
 
                     var initiatingUser = localContext.OrganizationService.Retrieve("systemuser", context.InitiatingUserId, new ColumnSet("fullname"));
-                    var currentUser = new EntityReference("systemuser", context.InitiatingUserId);
+
                     // Create an Event record based on the change of the field and relate it to the current record
                     var trackedEvent = new opc_event()
                     {
-                        Subject = fieldChange.GetChangePhrase(initiatingUser["fullname"]?.ToString(), preImageFieldReference.Name, postImageFieldReference.Name),
-                        OwnerId = currentUser,
+                        OwnerId = initiatingUser?.ToEntityReference(),
+                        opc_nameenglish = fieldChange.GetChangePhraseEnglish(initiatingUser?["fullname"]?.ToString(), preImageFieldReference.Name, postImageFieldReference.Name),
+                        opc_namefrench = fieldChange.GetChangePhraseFrench(initiatingUser?["fullname"]?.ToString(), preImageFieldReference.Name, postImageFieldReference.Name)
                     };
 
                     // Create and setup the event for a reference
