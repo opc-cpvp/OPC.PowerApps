@@ -490,7 +490,6 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                //var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
                 var outputs = new ParameterCollection { { "TimelineWallRecords", "Should not be modified \"|^|Test English|Test French\" should not be modified" } };
 
                 pluginContext.OutputParameters = outputs;
@@ -510,7 +509,6 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                //var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
                 var outputs = new ParameterCollection { { "TimelineWallRecords", "Should not be modified \"|^|Test English|Test French\" should not be modified \"|^|Test English|Test French\" test" } };
 
                 pluginContext.OutputParameters = outputs;
@@ -530,7 +528,6 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                //var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
                 var outputs = new ParameterCollection { { "TimelineWallRecords", "Should not be modified \"|^|Test \\\" English|Test French\" should not be modified \"|^|Test \\\" English|Test \\\" French\" test" } };
 
                 pluginContext.OutputParameters = outputs;
@@ -550,7 +547,6 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                //var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
                 var outputs = new ParameterCollection { { "TimelineWallRecords", null } };
 
                 pluginContext.OutputParameters = outputs;
