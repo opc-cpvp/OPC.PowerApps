@@ -545,7 +545,7 @@ namespace Compliance.Plugins.Tests
             }
 
             [Fact]
-            public void timeline_records_should_stay_null_if_null()
+            public void timeline_records_should_not_throw_when_null()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -558,10 +558,10 @@ namespace Compliance.Plugins.Tests
                 pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
                 // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+                var ex = Record.Exception(() => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext));
 
                 // Assert
-                pluginContext.OutputParameters["TimelineWallRecords"].Should().Be(null);
+                Assert.Null(ex);                
             }
         }
     }
