@@ -59,6 +59,7 @@ namespace Compliance.Package.Deployment
         public override bool BeforeImportStage()
         {
             UpdateImportDataBusinessUnits();
+            UpdateDuplicateRulesStatus();
             return true;
         }
 
@@ -98,11 +99,71 @@ namespace Compliance.Package.Deployment
             if (_rootBusinessUnit is null)
                 throw new NullReferenceException("Failed to find Root Business Unit.");
 
-            var dataImportPath = Path.Combine(PackageTemplate.CurrentPackageLocation, PackageTemplate.GetImportPackageDataFolderName, PackageTemplate.Configuration.CrmMigrationDataImportFile);
+            UpdateDataXml(document =>
+            {
+                // Locate the Business Units that require updates.
+                var businessUnits = document.XPathSelectElements($"/entities/entity[@name='{BusinessUnit.EntityLogicalName}']/records/record");
+                foreach (var businessUnit in businessUnits)
+                {
+                    var fields = businessUnit.XPathSelectElements("./field");
+                    foreach (var field in fields)
+                    {
+                        var name = field.Attribute("name").Value;
 
-            // Ensure that the CRM Import Data file exists.
-            if (!File.Exists(dataImportPath))
-                throw new FileNotFoundException("Failed to find the CRM Migration Data file.", dataImportPath);
+                        // Check if we're working with the correct field.
+                        if (name != "parentbusinessunitid")
+                            continue;
+
+                        // Update the ID and Lookup Name.
+                        field.Attribute("value").SetValue(_rootBusinessUnit.Id);
+                        field.Attribute("lookupentityname").SetValue(_rootBusinessUnit.Name);
+                    }
+                }
+            });
+        }
+
+        /// <summary>
+        /// Changes the state code and status code to counteract dynamics behaviour of inverting the wanted result on import
+        /// In short, keep this data the same from export to import (e.g. A published rule should stay published)
+        /// </summary>
+        private void UpdateDuplicateRulesStatus()
+        {
+            UpdateDataXml(document =>
+            {
+                // Locate the DuplicateDetectionRules that will require updating
+                var duplicateRules = document.XPathSelectElements($"/entities/entity[@name='{DuplicateRule.EntityLogicalName}']/records/record");
+                foreach (var duplicateRule in duplicateRules)
+                {
+                    var fields = duplicateRule.XPathSelectElements("./field");
+                    foreach (var field in fields)
+                    {
+                        var name = field.Attribute("name")?.Value;
+
+                        if (name == "statecode")
+                        {
+                            
+                            if (field.Attribute("value")?.Value == DuplicateRuleState.Active.ToString("d"))
+                                field.Attribute("value").SetValue(DuplicateRuleState.Inactive.ToString("d"));
+
+                            if (field.Attribute("value")?.Value == DuplicateRuleState.Inactive.ToString("d"))
+                                field.Attribute("value").SetValue(DuplicateRuleState.Active.ToString("d"));
+                        }
+                        else if (name == "statuscode")
+                        {
+                            if (field.Attribute("value")?.Value == duplicaterule_statuscode.Unpublished.ToString("d"))
+                                field.Attribute("value").SetValue(duplicaterule_statuscode.Published.ToString("d"));
+
+                            if (field.Attribute("value")?.Value == duplicaterule_statuscode.Published.ToString("d"))
+                                field.Attribute("value").SetValue(duplicaterule_statuscode.Publishing .ToString("d"));
+                        }
+                    }
+                }
+            });
+        }
+
+        private void UpdateDataXml(Action<XDocument> updateAction)
+        {
+            var dataImportPath = Path.Combine(PackageTemplate.CurrentPackageLocation, PackageTemplate.GetImportPackageDataFolderName, PackageTemplate.Configuration.CrmMigrationDataImportFile);
 
             var dataEntry = @"data.xml";
             using (var zipArchive = ZipFile.Open(dataImportPath, ZipArchiveMode.Update))
@@ -122,24 +183,8 @@ namespace Compliance.Package.Deployment
                 if (document is null)
                     throw new XmlException($"Failed to read {dataEntry}.");
 
-                // Locate the Business Units that require updates.
-                var businessUnits = document.XPathSelectElements($"/entities/entity[@name='{BusinessUnit.EntityLogicalName}']/records/record");
-                foreach (var businessUnit in businessUnits)
-                {
-                    var fields = businessUnit.XPathSelectElements("./field");
-                    foreach (var field in fields)
-                    {
-                        var name = field.Attribute("name").Value;
-
-                        // Check if we're working with the correct field.
-                        if (name != "parentbusinessunitid")
-                            continue;
-
-                        // Update the ID and Lookup Name.
-                        field.Attribute("value").SetValue(_rootBusinessUnit.Id);
-                        field.Attribute("lookupentityname").SetValue(_rootBusinessUnit.Name);
-                    }
-                }
+                // Execute the action given by the caller
+                updateAction(document);
 
                 // Save the changes to the CRM Import Data file.
                 using (var stream = zipEntry.Open())
@@ -284,7 +329,7 @@ namespace Compliance.Package.Deployment
                         new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
                     );
                 }
-                catch(Exception ex) when (ex.Message.Contains("Cannot insert duplicate key"))
+                catch (Exception ex) when (ex.Message.Contains("Cannot insert duplicate key"))
                 {
                     PackageTemplate.PackageLog.Log($"Role association to team was already done for {name}... skipping.");
                 }
