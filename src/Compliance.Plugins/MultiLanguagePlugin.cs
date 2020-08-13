@@ -17,7 +17,7 @@ namespace Compliance.Plugins
         private const string PreImageAlias = "PreImage";
         private const string IsLocalizableAttribute = "opc_islocalizable";
         private const string Prefix = "|^|";
-
+        private const string NameField = "opc_name";
         private const string LanguageKey = "uilanguageid";
         private const string LanguageAttribute = "uilanguageid";
 
@@ -152,7 +152,7 @@ namespace Compliance.Plugins
             }
 
             // Store the packed value in the target entity
-            target["opc_name"] = $"{Prefix}{string.Join("|", names)}";
+            target[NameField] = $"{Prefix}{string.Join("|", names)}";
         }
 
         ///
@@ -191,8 +191,8 @@ namespace Compliance.Plugins
 
         private void SetLocalizableValue(LocalPluginContext localContext, Entity businessEntity)
         {
-            if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(Prefix))
-                businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
+            if (businessEntity.Attributes.ContainsKey(NameField) && businessEntity[NameField].ToString().Contains(Prefix))
+                businessEntity[NameField] = UnpackName(localContext, businessEntity.GetAttributeValue<string>(NameField));
 
             var attributes = businessEntity.Attributes
                 .Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(Prefix) ?? false));
@@ -200,7 +200,7 @@ namespace Compliance.Plugins
             var relatedEntities = businessEntity.RelatedEntities
                 .Where(x => x.Key.ToString().Contains("id"))
                 .SelectMany(x => x.Value.Entities
-                    .Where(entity => entity.Contains("opc_name") && entity["opc_name"].ToString().Contains(Prefix))
+                    .Where(entity => entity.Contains(NameField) && entity[NameField].ToString().Contains(Prefix))
                 );
 
             foreach (var attribute in attributes)
@@ -211,7 +211,7 @@ namespace Compliance.Plugins
 
             foreach (var entity in relatedEntities)
             {
-                entity["opc_name"] = UnpackName(localContext, entity.GetAttributeValue<string>("opc_name"));
+                entity[NameField] = UnpackName(localContext, entity.GetAttributeValue<string>(NameField));
             }
         }
 
