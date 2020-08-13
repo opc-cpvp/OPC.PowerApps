@@ -194,10 +194,24 @@ namespace Compliance.Plugins
             if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(Prefix))
                 businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
 
-            foreach (var attribute in businessEntity.Attributes.Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(Prefix) ?? false)))
+            var attributes = businessEntity.Attributes
+                .Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(Prefix) ?? false));
+
+            var relatedEntities = businessEntity.RelatedEntities
+                .Where(x => x.Key.ToString().Contains("id"))
+                .SelectMany(x => x.Value.Entities
+                    .Where(entity => entity.Contains("opc_name") && entity["opc_name"].ToString().Contains(Prefix))
+                );
+
+            foreach (var attribute in attributes)
             {
                 var entityReference = (EntityReference)attribute.Value;
                 entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
+            }
+
+            foreach (var entity in relatedEntities)
+            {
+                entity["opc_name"] = UnpackName(localContext, entity.GetAttributeValue<string>("opc_name"));
             }
         }
 
