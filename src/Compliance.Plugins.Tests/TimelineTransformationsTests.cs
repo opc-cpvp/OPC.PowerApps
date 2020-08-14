@@ -9,12 +9,12 @@ using Xunit;
 
 namespace Compliance.Plugins.Tests
 {
-    public class AnnotationAuthorPluginTests
+    public class TimelineTransformationsTests
     {
-        public static AnnotationAuthorPlugin pluginInstance = null;
+        public static TimelineTransformationsPlugin pluginInstance = null;
 
-        public static AnnotationAuthorPlugin PluginInstance =>
-            pluginInstance ?? (pluginInstance = new AnnotationAuthorPlugin());
+        public static TimelineTransformationsPlugin PluginInstance =>
+            pluginInstance ?? (pluginInstance = new TimelineTransformationsPlugin());
 
         public class when_retrieving_an_annotation
         {
@@ -53,7 +53,7 @@ namespace Compliance.Plugins.Tests
                 pluginContext.MessageName = PluginMessage.Retrieve;
 
                 // Act
-                context.ExecutePluginWith<AnnotationAuthorPlugin>(pluginContext);
+                context.ExecutePluginWith<TimelineTransformationsPlugin>(pluginContext);
 
                 // Assert
                 annotation.ModifiedBy.Should().Be(annotation.CreatedBy);
@@ -70,7 +70,7 @@ namespace Compliance.Plugins.Tests
                 pluginContext.MessageName = PluginMessage.Retrieve;
 
                 // Act
-                context.ExecutePluginWith<AnnotationAuthorPlugin>(pluginContext);
+                context.ExecutePluginWith<TimelineTransformationsPlugin>(pluginContext);
 
                 // Assert
                 annotation.ModifiedOn.Should().Be(annotation.CreatedOn);
@@ -88,13 +88,13 @@ namespace Compliance.Plugins.Tests
                         new object[] {
                             new EntityCollection()
                             {
-                                Entities = 
+                                Entities =
                                 {
-                                    new Entity 
+                                    new Entity
                                     {
                                         Id = Guid.NewGuid(),
                                         LogicalName = Annotation.EntityLogicalName,
-                                        Attributes = new AttributeCollection() 
+                                        Attributes = new AttributeCollection()
                                         {
                                             new KeyValuePair<string, object>("subject", "Subject"),
                                             new KeyValuePair<string, object>("notetext", "Note"),
@@ -104,11 +104,11 @@ namespace Compliance.Plugins.Tests
                                             new KeyValuePair<string, object>("modifiedon", DateTime.Now)
                                         }
                                     }.ToEntity<Annotation>(),
-                                    new Entity 
+                                    new Entity
                                     {
                                         Id = Guid.NewGuid(),
                                         LogicalName = Annotation.EntityLogicalName,
-                                        Attributes = new AttributeCollection() 
+                                        Attributes = new AttributeCollection()
                                         {
                                             new KeyValuePair<string, object>("subject", "Subject 2"),
                                             new KeyValuePair<string, object>("notetext", "Note 2"),
@@ -150,7 +150,7 @@ namespace Compliance.Plugins.Tests
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
 
                 // Act
-                context.ExecutePluginWith<AnnotationAuthorPlugin>(pluginContext);
+                context.ExecutePluginWith<TimelineTransformationsPlugin>(pluginContext);
 
                 // Assert
                 var annotations = annotationCollection.Entities.Select(e => e.ToEntity<Annotation>());
@@ -168,7 +168,7 @@ namespace Compliance.Plugins.Tests
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
 
                 // Act
-                context.ExecutePluginWith<AnnotationAuthorPlugin>(pluginContext);
+                context.ExecutePluginWith<TimelineTransformationsPlugin>(pluginContext);
 
                 // Assert
                 var annotations = annotationCollection.Entities.Select(e => e.ToEntity<Annotation>());
@@ -186,7 +186,7 @@ namespace Compliance.Plugins.Tests
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
 
                 // Act
-                context.ExecutePluginWith<AnnotationAuthorPlugin>(pluginContext);
+                context.ExecutePluginWith<TimelineTransformationsPlugin>(pluginContext);
 
                 // Assert
                 var annotations = annotationCollection.Entities.Select(e => e.ToEntity<Annotation>()).ToArray();
@@ -196,7 +196,48 @@ namespace Compliance.Plugins.Tests
             }
         }
 
+        public class when_retrieving_timeline_wall_records
+        {
+            [Fact]
+            public void state_code_attribute_should_be_removed_from_fetchXml()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
 
+                pluginContext.InputParameters = new ParameterCollection {
+                    { "FetchXml", "<attribute name=\"testAttribute\"/> <attribute name=\"statecode\"/> <attribute name=\"testAttribute2\"/>" },
+                };
+
+                pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
+
+                // Act
+                context.ExecutePluginWith<TimelineTransformationsPlugin>(pluginContext);
+
+                // Assert
+                pluginContext.InputParameters["FetchXml"].ToString().Should().NotContain("<attribute name=\"statecode\"/>");
+            }
+
+            [Fact]
+            public void fetchXml_should_not_throw_if_null()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                pluginContext.InputParameters = new ParameterCollection {
+                    { "FetchXml", null },
+                };
+
+                pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
+
+                // Act
+                var ex = Record.Exception(() => context.ExecutePluginWith<TimelineTransformationsPlugin>(pluginContext));
+
+                // Assert
+                ex.Should().Be(null);
+            }
+        }
     }
 }
 

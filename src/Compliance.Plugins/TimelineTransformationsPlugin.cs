@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Compliance.Plugins
 {
-    public partial class AnnotationAuthorPlugin : PluginBase
+    public partial class TimelineTransformationsPlugin : PluginBase
     {
-        public AnnotationAuthorPlugin() : base(typeof(AnnotationAuthorPlugin), runAsSystem: true)
+        public TimelineTransformationsPlugin() : base(typeof(TimelineTransformationsPlugin), runAsSystem: true)
         {
         }
 
@@ -40,6 +40,19 @@ namespace Compliance.Plugins
 
                         // Prepare a new list to switch certain values later
                         entities.Entities.AddRange(businessEntityCollection.Entities);
+                    }
+                    break;
+                case PluginMessage.RetrieveTimelineWallRecords:
+                    if (localContext.PluginExecutionContext.InputParameters.ContainsKey("FetchXml"))
+                    {
+                        var inputParams = localContext.PluginExecutionContext.InputParameters;
+
+                        // Remove the state code attribute so we don't see the state on the timeline as it's useless
+                        var newFetchXmlValue = inputParams["FetchXml"]?.ToString().Replace("<attribute name=\"statecode\"/>", "");
+
+                        // the params are read only, we need remove and add the param we want to change
+                        inputParams.Remove("FetchXml");
+                        inputParams.Add(new KeyValuePair<string, object>("FetchXml", newFetchXmlValue));
                     }
                     break;
                 default:

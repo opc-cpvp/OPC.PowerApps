@@ -25,7 +25,7 @@ namespace Compliance.Plugins
                 TrackedFields = new List<FieldChangeTracker>
                 {
                     new FieldChangeTracker(nameof(opc_complaint.OwnerId).ToLower(), "Owner", "Propriétaire"),
-                    new FieldChangeTracker(nameof(opc_complaint.opc_intakeofficer), "Intake Officer", "Intake Officer") // TODO: No translation done yet
+                    new FieldChangeTracker(nameof(opc_complaint.opc_intakeofficer), "Intake Officer", "Agent d'admission")
                 }
             }
         };
@@ -71,14 +71,14 @@ namespace Compliance.Plugins
                     // Check if the prior value and current value are different, if not the case, don't create the event
                     if (preImageFieldReference.Id == postImageFieldReference.Id) continue;
 
-                    var initiatingUser = localContext.OrganizationService.Retrieve("systemuser", context.InitiatingUserId, new ColumnSet("fullname"));
+                    var initiatingUser = localContext.OrganizationService.Retrieve("systemuser", context.InitiatingUserId, new ColumnSet("fullname"))?.ToEntity<SystemUser>();
 
                     // Create an Event record based on the change of the field and relate it to the current record
                     var trackedEvent = new opc_event()
                     {
                         OwnerId = initiatingUser?.ToEntityReference(),
-                        opc_nameenglish = fieldChange.GetChangePhraseEnglish(initiatingUser?["fullname"]?.ToString(), preImageFieldReference.Name, postImageFieldReference.Name),
-                        opc_namefrench = fieldChange.GetChangePhraseFrench(initiatingUser?["fullname"]?.ToString(), preImageFieldReference.Name, postImageFieldReference.Name)
+                        opc_nameenglish = fieldChange.GetChangePhraseEnglish(initiatingUser?.FullName, preImageFieldReference.Name, postImageFieldReference.Name),
+                        opc_namefrench = fieldChange.GetChangePhraseFrench(initiatingUser?.FullName, preImageFieldReference.Name, postImageFieldReference.Name)
                     };
 
                     // Create and setup the event for a reference

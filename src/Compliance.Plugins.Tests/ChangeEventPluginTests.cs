@@ -31,16 +31,7 @@ namespace Compliance.Plugins.Tests
             public static string TestUserId = "6cecee3c-ca7d-4072-ba17-502e8cb6a29a";
             public static Entity TestUser
             {
-                get
-                {
-                    return new Entity("systemuser", Guid.Parse(TestUserId))
-                    {
-                        Attributes = new AttributeCollection()
-                        {
-                            { "fullname", "test user"}
-                        }
-                    };
-                }
+                get => new Entity("systemuser", Guid.Parse(TestUserId));
             }
 
             [Fact]

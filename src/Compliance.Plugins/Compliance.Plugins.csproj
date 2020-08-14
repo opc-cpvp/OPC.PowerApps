@@ -83,14 +83,13 @@
   <ItemGroup>
     <Compile Include="EntityFieldChangeTracker.cs" />
     <Compile Include="QueueMembershipPlugin.cs" />
-    <Compile Include="AnnotationAuthorPlugin.cs" />
+    <Compile Include="TimelineTransformationsPlugin.cs" />
     <Compile Include="CrmPluginRegistrationAttribute.cs" />
     <Compile Include="ComplaintPrefixPlugin.cs" />
     <Compile Include="MultiLanguagePlugin.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="PluginMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemoveTimelineCardStatusPlugin.cs" />
     <Compile Include="TemplatePlugin.cs" />
     <Compile Include="ChangeEventPlugin.cs" />
     <Compile Include="FieldChangeTracker.cs" />
