@@ -481,6 +481,69 @@ namespace Compliance.Plugins.Tests
                 }
             }
         }
+        public class when_retrieving_multilanguage_expandedproperties
+        {
+            public opc_topic GetMockedMultiLanguageEntity()
+            {
+                return new opc_topic
+                {
+                    Id = Guid.NewGuid(),
+                    opc_islocalizable = true,
+                    opc_name = $"{Prefix}Artificial Intelligence|Intelligence Artificielle",
+                    opc_nameenglish = "Artificial Intelligence",
+                    opc_namefrench = "Intelligence Artificielle",
+                    opc_theme_topics_themeid = new opc_theme {
+                        Id = Guid.NewGuid(),
+                        opc_islocalizable = true,
+                        opc_name = $"{Prefix}Computer Science|Informatique",
+                        opc_nameenglish = "Computer Science",
+                        opc_namefrench = "Informatique",
+                    }
+                };
+            }
+
+            [Fact]
+            public void opc_name_should_be_french_when_ui_is_french()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+                var multiLanguageEntity = GetMockedMultiLanguageEntity();
+                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
+                var expectedName = "Informatique";
+
+                pluginContext.OutputParameters = outputs;
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                multiLanguageEntity.opc_theme_topics_themeid.opc_name.Should().Be(expectedName);
+            }
+
+            [Fact]
+            public void opc_name_should_be_english_when_ui_is_english()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+                var multiLanguageEntity = GetMockedMultiLanguageEntity();
+                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
+                var expectedName = "Computer Science";
+
+                pluginContext.OutputParameters = outputs;
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                multiLanguageEntity.opc_theme_topics_themeid.opc_name.Should().Be(expectedName);
+            }
+        }
     }
 }
 
