@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Compliance.Entities;
 using FakeXrmEasy;
 using FluentAssertions;
@@ -493,7 +494,8 @@ namespace Compliance.Plugins.Tests
                     opc_name = $"{Prefix}Artificial Intelligence|Intelligence Artificielle",
                     opc_nameenglish = "Artificial Intelligence",
                     opc_namefrench = "Intelligence Artificielle",
-                    opc_theme_topics_themeid = new opc_theme {
+                    opc_theme_topics_themeid = new opc_theme
+                    {
                         Id = Guid.NewGuid(),
                         opc_islocalizable = true,
                         opc_name = $"{Prefix}Computer Science|Informatique",
@@ -548,61 +550,75 @@ namespace Compliance.Plugins.Tests
 
         public class when_retrieving_timeline_records
         {
-            [Fact]
-            public void timeline_records_strings_should_turn_to_english_when_ui_is_english()
+            public class TimelineRecordTransform
             {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-                var outputs = new ParameterCollection { { "TimelineWallRecords", "Should not be modified \"|^|Test English|Test French\" should not be modified" } };
-
-                pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
-                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
-
-                // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                pluginContext.OutputParameters["TimelineWallRecords"].Should().Be("Should not be modified \"Test English\" should not be modified");
+                public Language Language { get; set; }
+                public string Initial { get; set; }
+                public string Expected { get; set; }
             }
 
-            [Fact]
-            public void multiple_multilangual_strings_in_timeline_should_turn_to_english_when_ui_is_english()
+            public static IEnumerable<object[]> TimelineRecordTransforms
             {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-                var outputs = new ParameterCollection { { "TimelineWallRecords", "Should not be modified \"|^|Test English|Test French\" should not be modified \"|^|Test English|Test French\" test" } };
+                get
+                {
+                    return new[]
+                    {
+                        // Single occurences of multilangual strings
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.English,
+                            Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified",
+                            Expected = "Should not be modified \"Test English\" should not be modified"
+                        }},
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.French,
+                            Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified",
+                            Expected = "Should not be modified \"Test French\" should not be modified" 
+                        }},
 
-                pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
-                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+                        // Multi occurence of multilangual strings
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.English,
+                            Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified \"|^|Test English|Test French\" test",
+                            Expected = "Should not be modified \"Test English\" should not be modified \"Test English\" test"
+                        }},
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.French,
+                            Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified \"|^|Test English|Test French\" test",
+                            Expected = "Should not be modified \"Test French\" should not be modified \"Test French\" test"
+                        }},
 
-                // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                pluginContext.OutputParameters["TimelineWallRecords"].Should().Be("Should not be modified \"Test English\" should not be modified \"Test English\" test");
+                        // Strings with escaped quotes should still be changed properly
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.English,
+                            Initial = "Should not be modified \"|^|Test \\\" English|Test French\" should not be modified \"|^|Test \\\" English|Test \\\" French\" test",
+                            Expected = "Should not be modified \"Test \\\" English\" should not be modified \"Test \\\" English\" test"
+                        }},
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.French,
+                            Initial = "Should not be modified \"|^|Test \\\" English|Test \\\" French\" should not be modified \"|^|Test \\\" English|Test \\\" French\" test",
+                            Expected = "Should not be modified \"Test \\\" French\" should not be modified \"Test \\\" French\" test"
+                        }},
+                    };
+                }
             }
 
-            [Fact]
-            public void timeline_records_strings_should_still_turn_to_english_with_escaped_quotes()
+            [Theory, MemberData(nameof(TimelineRecordTransforms))]
+            public void timeline_records_strings_should_turn_to_correct_language(TimelineRecordTransform timelineRecordTransform)
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var outputs = new ParameterCollection { { "TimelineWallRecords", "Should not be modified \"|^|Test \\\" English|Test French\" should not be modified \"|^|Test \\\" English|Test \\\" French\" test" } };
+                var outputs = new ParameterCollection { { "TimelineWallRecords", timelineRecordTransform.Initial } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
-                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+                pluginContext.SharedVariables.Add(LanguageKey, (int)timelineRecordTransform.Language);
 
                 // Act
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                pluginContext.OutputParameters["TimelineWallRecords"].Should().Be("Should not be modified \"Test \\\" English\" should not be modified \"Test \\\" English\" test");
+                pluginContext.OutputParameters["TimelineWallRecords"].Should().Be(timelineRecordTransform.Expected);
             }
 
             [Fact]
@@ -621,7 +637,7 @@ namespace Compliance.Plugins.Tests
                 var ex = Record.Exception(() => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext));
 
                 // Assert
-                Assert.Null(ex);                
+                Assert.Null(ex);
             }
         }
     }
