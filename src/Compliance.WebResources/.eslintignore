@@ -1,0 +1,8 @@
+@types/xrmdefinitelytyped
+node_modules
+
+.eslintrc.js
+package.json
+package-lock.json
+tsconfig.json
+webpack.config.js
