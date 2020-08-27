@@ -1,4 +1,6 @@
 @types/xrmdefinitelytyped
+dist
+js/lib/xrmquery
 node_modules
 
 .eslintrc.js
