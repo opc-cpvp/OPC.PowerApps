@@ -59,42 +59,32 @@ namespace Compliance.Plugins
                         inputParams.Add(new KeyValuePair<string, object>("FetchXml", newFetchXmlValue));
                     }
 
-                    // https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to
                     // Post-fetch of results
                     if (localContext.PluginExecutionContext.OutputParameters.ContainsKey("TimelineWallRecords"))
                     {
                         var serializer = new JavaScriptSerializer();
                         var timelineWallRecords = serializer.Deserialize<TimelineRecords>(localContext.PluginExecutionContext.OutputParameters["TimelineWallRecords"]?.ToString());
 
+
+                        // For each event entity, switch out the owner for the created on behalf user
                         foreach (var entity in timelineWallRecords.Entities)
                         {
-                            //TODO: if (entity["LogicalName"] != "opc_event") continue;
+                            TimelineAttribute createdOnBehalfAttribute = null;
+                            TimelineAttribute ownerAttribute = null;
 
-                            // This or regex? I would still need to be in the context of one entity at a time to not replace the wrong ownerid attribute but due to nested curly braces not sure
-
-                            // Could most likely be a cleaner and statically typed way here but it's already pretty simple
-                            dynamic createdOnBehalfAttribute = null;
-                            dynamic ownerAttribute = null;
-
-                            foreach (var attribute in entity["Attributes"])
+                            foreach (var attribute in entity.Attributes)
                             {
-                                if (attribute["Key"] == "opc_event_createdonbehalfby")
+                                if (attribute.Key == "opc_event_createdonbehalfby")
                                     createdOnBehalfAttribute = attribute;
 
-                                if (attribute["Key"] == "ownerid")
+                                if (attribute.Key == "ownerid")
                                     ownerAttribute = attribute;
                             }
 
                             if (createdOnBehalfAttribute != null && ownerAttribute != null)
                             {
-                                ownerAttribute["Value"] = createdOnBehalfAttribute["Value"]["Value"];
+                                ownerAttribute.Value = createdOnBehalfAttribute.Value["Value"];
                             }
-
-                            // Regex really simple pseudo code Considering we can somehow iterate over a string of the represented entity..
-
-                            // Find the opc_event_createdonbehalf with the expression and capture the "value" of the "value" group
-
-                            // Find the ownerid and replace the "value" group with the found value of opc_eventcreatedonbehalf
                         }
 
                         localContext.PluginExecutionContext.OutputParameters["TimelineWallRecords"] = serializer.Serialize(timelineWallRecords);
