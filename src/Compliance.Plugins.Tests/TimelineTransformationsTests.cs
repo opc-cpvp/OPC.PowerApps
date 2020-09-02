@@ -6,6 +6,8 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using Xunit;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace Compliance.Plugins.Tests
 {
@@ -236,6 +238,40 @@ namespace Compliance.Plugins.Tests
 
                 // Assert
                 ex.Should().Be(null);
+            }
+        }
+
+        public class after_retrieving_timeline_wall_records_json
+        {
+            private readonly string TimelineRecords = File.ReadAllText("timelinerecords.json");
+
+            [Fact]
+            public void owners_should_be_replaced_by_created_on_behalf()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                pluginContext.OutputParameters = new ParameterCollection {
+                    { "TimelineWallRecords", TimelineRecords },
+                };
+
+                pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
+
+                // Act
+                context.ExecutePluginWith<TimelineTransformationsPlugin>(pluginContext);
+
+                // Assert
+                var serializer = new JavaScriptSerializer();
+                var timelineWallRecords = serializer.Deserialize<TimelineRecords>(pluginContext.OutputParameters["TimelineWallRecords"].ToString());
+
+                foreach (var entity in timelineWallRecords.Entities)
+                {
+                    var owner = entity.Attributes.First(x => x.Key == "ownerid").Value;
+                    var createdOnBehalf = entity.Attributes.First(x => x.Key == "opc_event_createdonbehalfby").Value["Value"];
+
+                    Assert.Equal(createdOnBehalf["Id"], owner["Id"]);
+                }
             }
         }
     }
