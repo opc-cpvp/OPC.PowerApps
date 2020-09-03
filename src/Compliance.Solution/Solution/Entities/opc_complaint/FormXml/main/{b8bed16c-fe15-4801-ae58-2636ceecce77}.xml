@@ -291,7 +291,7 @@
                             <UClientSortActivitiesByValue>createdon</UClientSortActivitiesByValue>
                             <UClientDisplayActivityHeaderUsing>defaultformat</UClientDisplayActivityHeaderUsing>
                             <UClientCreateActivityUsing>quickcreateform</UClientCreateActivityUsing>
-                            <UClientDisplayActivityUsing>defaultfields</UClientDisplayActivityUsing>
+                            <UClientDisplayActivityUsing>cardform</UClientDisplayActivityUsing>
                             <DefaultTabId>ActivitiesTab</DefaultTabId>
                             <OrderByActivityWall>descending</OrderByActivityWall>
                             <SortActivityWall>createdon</SortActivityWall>
@@ -299,6 +299,7 @@
                             <ShowArticleTab>false</ShowArticleTab>
                             <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
                             <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
+                            <UClientActivityCardMap>appointment:4201:,email:4202:,fax:4204:,letter:4207:,phonecall:4210:,task:4212:,opc_event:11280:4196a63e-0f60-458b-902c-74d0ac883f22</UClientActivityCardMap>
                           </parameters>
                         </control>
                       </cell>

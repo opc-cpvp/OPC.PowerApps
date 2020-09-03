@@ -9,6 +9,8 @@
         public const string Delete = "Delete";
         public const string Associate = "Associate";
         public const string Disassociate = "Disassociate";
+        public const string RetrieveTimelineWallRecords = "RetrieveTimelineWallRecords";
+        
     }
 }
 

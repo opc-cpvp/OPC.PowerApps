@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Compliance.Entities;
 using FakeXrmEasy;
 using FluentAssertions;
@@ -305,7 +306,7 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
 
-                var outputs = new ParameterCollection { {"BusinessEntityCollection", multiLanguageEntityCollection} };
+                var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
@@ -481,6 +482,7 @@ namespace Compliance.Plugins.Tests
                 }
             }
         }
+
         public class when_retrieving_multilanguage_expandedproperties
         {
             public opc_topic GetMockedMultiLanguageEntity()
@@ -492,7 +494,8 @@ namespace Compliance.Plugins.Tests
                     opc_name = $"{Prefix}Artificial Intelligence|Intelligence Artificielle",
                     opc_nameenglish = "Artificial Intelligence",
                     opc_namefrench = "Intelligence Artificielle",
-                    opc_theme_topics_themeid = new opc_theme {
+                    opc_theme_topics_themeid = new opc_theme
+                    {
                         Id = Guid.NewGuid(),
                         opc_islocalizable = true,
                         opc_name = $"{Prefix}Computer Science|Informatique",
@@ -542,6 +545,99 @@ namespace Compliance.Plugins.Tests
 
                 // Assert
                 multiLanguageEntity.opc_theme_topics_themeid.opc_name.Should().Be(expectedName);
+            }
+        }
+
+        public class when_retrieving_timeline_records
+        {
+            public class TimelineRecordTransform
+            {
+                public Language Language { get; set; }
+                public string Initial { get; set; }
+                public string Expected { get; set; }
+            }
+
+            public static IEnumerable<object[]> TimelineRecordTransforms
+            {
+                get
+                {
+                    return new[]
+                    {
+                        // Single occurences of multilangual strings
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.English,
+                            Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified",
+                            Expected = "Should not be modified \"Test English\" should not be modified"
+                        }},
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.French,
+                            Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified",
+                            Expected = "Should not be modified \"Test French\" should not be modified" 
+                        }},
+
+                        // Multi occurence of multilangual strings
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.English,
+                            Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified \"|^|Test English|Test French\" test",
+                            Expected = "Should not be modified \"Test English\" should not be modified \"Test English\" test"
+                        }},
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.French,
+                            Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified \"|^|Test English|Test French\" test",
+                            Expected = "Should not be modified \"Test French\" should not be modified \"Test French\" test"
+                        }},
+
+                        // Strings with escaped quotes should still be changed properly
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.English,
+                            Initial = "Should not be modified \"|^|Test \\\" English|Test French\" should not be modified \"|^|Test \\\" English|Test \\\" French\" test",
+                            Expected = "Should not be modified \"Test \\\" English\" should not be modified \"Test \\\" English\" test"
+                        }},
+                        new object[] { new TimelineRecordTransform() {
+                            Language = Language.French,
+                            Initial = "Should not be modified \"|^|Test \\\" English|Test \\\" French\" should not be modified \"|^|Test \\\" English|Test \\\" French\" test",
+                            Expected = "Should not be modified \"Test \\\" French\" should not be modified \"Test \\\" French\" test"
+                        }},
+                    };
+                }
+            }
+
+            [Theory, MemberData(nameof(TimelineRecordTransforms))]
+            public void timeline_records_strings_should_turn_to_correct_language(TimelineRecordTransform timelineRecordTransform)
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+                var outputs = new ParameterCollection { { "TimelineWallRecords", timelineRecordTransform.Initial } };
+
+                pluginContext.OutputParameters = outputs;
+                pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)timelineRecordTransform.Language);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                pluginContext.OutputParameters["TimelineWallRecords"].Should().Be(timelineRecordTransform.Expected);
+            }
+
+            [Fact]
+            public void timeline_records_should_not_throw_when_null()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+                var outputs = new ParameterCollection { { "TimelineWallRecords", null } };
+
+                pluginContext.OutputParameters = outputs;
+                pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                var ex = Record.Exception(() => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext));
+
+                // Assert
+                Assert.Null(ex);
             }
         }
     }

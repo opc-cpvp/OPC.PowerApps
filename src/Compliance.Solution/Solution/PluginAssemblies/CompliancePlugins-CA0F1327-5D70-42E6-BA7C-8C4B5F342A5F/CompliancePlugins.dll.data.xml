@@ -5,23 +5,23 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <FileName>/PluginAssemblies/CompliancePlugins-CA0F1327-5D70-42E6-BA7C-8C4B5F342A5F/CompliancePlugins.dll</FileName>
   <PluginTypes>
-    <PluginType AssemblyQualifiedName="Compliance.Plugins.AnnotationAuthorPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="b8d7117b-789d-4dc5-bbc8-848495405790" Name="Compliance.Plugins.AnnotationAuthorPlugin">
-      <FriendlyName>5cfd5520-905e-43b6-b7ac-232699c08a26</FriendlyName>
-    </PluginType>
     <PluginType AssemblyQualifiedName="Compliance.Plugins.ChangeEventPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="4f6230d0-1c44-4a19-884f-4cd98f301690" Name="Compliance.Plugins.ChangeEventPlugin">
       <FriendlyName>65f24a90-d4b8-4f63-a554-64d4a3c07510</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="Compliance.Plugins.ComplaintPrefixPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="2ca998ae-1d1c-44ee-9027-b54f77c8cdc7" Name="Compliance.Plugins.ComplaintPrefixPlugin">
+    <PluginType AssemblyQualifiedName="Compliance.Plugins.ComplaintPrefixPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="043cef86-3683-4295-851c-1eb69407025a" Name="Compliance.Plugins.ComplaintPrefixPlugin">
       <FriendlyName>678dc7c1-9b34-4e97-ac04-579b5813764a</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="Compliance.Plugins.MultiLanguagePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="3a9462d2-e175-4079-8c4d-f756f54cd21a" Name="Compliance.Plugins.MultiLanguagePlugin">
+    <PluginType AssemblyQualifiedName="Compliance.Plugins.MultiLanguagePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="dd55a870-8ad7-4927-8871-14d3a0dc6cd2" Name="Compliance.Plugins.MultiLanguagePlugin">
       <FriendlyName>b5b1ff05-fdbd-426c-9c9c-4c292d479008</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="Compliance.Plugins.QueueMemberShipPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="7411c007-3539-4599-a188-8669165aea6b" Name="Compliance.Plugins.QueueMemberShipPlugin">
+    <PluginType AssemblyQualifiedName="Compliance.Plugins.QueueMemberShipPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="341dc720-bd14-4054-881c-e55d202367c6" Name="Compliance.Plugins.QueueMemberShipPlugin">
       <FriendlyName>5b477333-1610-4b17-aed4-c0a7a680cf2b</FriendlyName>
     </PluginType>
     <PluginType AssemblyQualifiedName="Compliance.Plugins.TemplatePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="eff4f902-858c-4fff-b917-ca60d3ebfc6c" Name="Compliance.Plugins.TemplatePlugin">
       <FriendlyName>220b880f-7727-4907-b3d0-70001306308a</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="Compliance.Plugins.TimelineTransformationsPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="505805d1-6a51-4fcd-a22d-e9099b9fe456" Name="Compliance.Plugins.TimelineTransformationsPlugin">
+      <FriendlyName>2ab6668c-7a25-4792-ae62-6c4756a07a7c</FriendlyName>
     </PluginType>
   </PluginTypes>
 </PluginAssembly>
