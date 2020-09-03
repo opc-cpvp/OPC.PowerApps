@@ -1,7 +1,3 @@
-path_classifiers:
-  library:
-  - exclude "src/Compliance.WebResources/@types"
-  - exclude "src/Compliance.WebResources/js"
 extraction:
   csharp:
     index:
@@ -11,4 +7,7 @@ extraction:
         platform: "Any CPU"
   javascript:
     index:
-      include: "src/Compliance.WebResources"
+      include: src/Compliance.WebResources
+      exclude:
+        - src/Compliance.WebResources/@types/xrmdefinitelytyped
+        - src/Compliance.WebResources/js
