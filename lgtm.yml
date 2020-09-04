@@ -1,3 +1,13 @@
+path_classifiers:
+  generated:
+    - src/Compliance.Entities
+    - src/Compliance.Solution
+  library:
+    - src/Compliance.Solution/WARP.XrmSolutionAssistant
+  test:
+    - exclude: /
+    - src/Compliance.Plugins.Tests
+    - src/Compliance.WebResources/**/*.test.ts
 extraction:
   csharp:
     index:
