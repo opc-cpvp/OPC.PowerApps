@@ -122,7 +122,7 @@ describe("RiskAssessmentControl", () => {
             sandbox.stub(service, 'getRiskDefinitions').resolves([]);
 
             // Act
-            control.initializeControl();
+            control.init();
 
             // Assert
             addEventListener.should.have.been.calledOnce;
@@ -135,7 +135,7 @@ describe("RiskAssessmentControl", () => {
             sandbox.stub(service, 'getRiskDefinitions').resolves([]);
 
             // Act
-            control.initializeControl();
+            control.init();
 
             // Assert
             getRiskAppetites.should.have.been.called;
@@ -147,7 +147,7 @@ describe("RiskAssessmentControl", () => {
             sandbox.stub(service, 'getRiskAppetites').resolves([]);
 
             // Act
-            control.initializeControl();
+            control.init();
 
             // Assert
             getRiskDefinitions.should.have.been.called;
@@ -201,7 +201,7 @@ describe("RiskAssessmentControl", () => {
             sandbox.stub(service, 'getRiskAppetites').resolves([]);
 
             // Act
-            await control.initializeControl();
+            await control.init();
             await getRiskDefinitions;
             control.save();
             await updateSuggestedRisk;
@@ -233,7 +233,7 @@ describe("RiskAssessmentControl", () => {
             sandbox.stub(service, 'getRiskAppetites').resolves(riskAppetites);
 
             // Act
-            await control.initializeControl();
+            await control.init();
             await getRiskDefinitions;
             control.save();
             await updateSuggestedRisk;

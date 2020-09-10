@@ -10,7 +10,7 @@
         public const string Associate = "Associate";
         public const string Disassociate = "Disassociate";
         public const string RetrieveTimelineWallRecords = "RetrieveTimelineWallRecords";
-        
+        public const string GenerateDocumentFromTemplate = "opc_generatedocumentfromtemplate";
     }
 }
 

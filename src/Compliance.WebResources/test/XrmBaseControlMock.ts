@@ -33,7 +33,6 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
         return this._type;
     }
     setFocus(): void {
-        throw new Error("Method not implemented.");
     }
     getParent(): Xrm.PageSection {
         if (!this._parentSection) {
