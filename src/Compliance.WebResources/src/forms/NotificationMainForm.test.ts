@@ -1,20 +1,23 @@
-﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
-import { Notification } from './NotificationMainForm';
-import { NotificationService } from '../services/NotificationService';
-import { XrmSaveEventContextMock } from '../../test/XrmSaveEventContextMock';
-import { XrmContextMock } from '../../test/XrmContextMock';
-import { WindowHelper } from '../helpers/WindowHelper';
+﻿import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
+import { Notification } from "./NotificationMainForm";
+import { NotificationService } from "../services/NotificationService";
+import { XrmSaveEventContextMock } from "../../test/XrmSaveEventContextMock";
+import { XrmContextMock } from "../../test/XrmContextMock";
+import { WindowHelper } from "../helpers/WindowHelper";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var sandbox = sinon.createSandbox();
+const chai = require("chai");
+const sinon = require("sinon");
+const sinonChai = require("sinon-chai");
+const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-function ReplaceFunctions(service: NotificationService, mockContext: XrmExecutionContextMock<Form.opc_notification.Main.Information, any>): void {
-    const markAsRead = sandbox.fake(function () {
-        let attrStatusCode = mockContext.getFormContext().getAttribute("statuscode");
+function ReplaceFunctions(
+    service: NotificationService,
+    mockContext: XrmExecutionContextMock<Form.opc_notification.Main.Information, any>
+): void {
+    const markAsRead = sandbox.fake(() => {
+        const attrStatusCode = mockContext.getFormContext().getAttribute("statuscode");
         attrStatusCode.setValue(opc_notification_statuscode.Read);
     });
 
@@ -31,7 +34,7 @@ describe("Notification", () => {
         let serviceSpy: any;
         let replaceLocation: any;
 
-        beforeEach(function () {
+        beforeEach(() => {
             service = new NotificationService();
             mockExecutionContext = new XrmSaveEventContextMock<Form.opc_notification.Main.Information>();
             mockContext = new XrmContextMock();
@@ -42,7 +45,7 @@ describe("Notification", () => {
             replaceLocation = sandbox.stub(WindowHelper, "replaceLocation");
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
         });
 
@@ -93,7 +96,7 @@ describe("Notification", () => {
             // Act
             form.initializeComponents(mockExecutionContext);
 
-            // Assert   
+            // Assert
             replaceLocation.should.have.been.called;
         });
 

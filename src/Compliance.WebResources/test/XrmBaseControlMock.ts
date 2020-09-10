@@ -32,15 +32,14 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
     getControlType(): Xrm.ControlType {
         return this._type;
     }
-    setFocus(): void {
-    }
+    setFocus(): void {}
     getParent(): Xrm.PageSection {
         if (!this._parentSection) {
             const parentSection = new XrmPageSectionMock(this.context);
             parentSection.controls.collection.push(this);
             this._parentSection = parentSection;
         }
-        return this._parentSection; 
+        return this._parentSection;
     }
     getName(): string {
         return this._name;
@@ -58,11 +57,11 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
         this._isVisible = visible;
     }
     setNotification(message: string, uniqueId?: string): boolean {
-        let notification = { message: message, uniqueId: uniqueId };
+        const notification = { message, uniqueId };
         return this._notifications.push(notification) > 0;
     }
     clearNotification(uniqueId?: string): boolean {
-        let notificationCountBefore = this._notifications.length;
+        const notificationCountBefore = this._notifications.length;
         this._notifications = this._notifications.filter(f => f.uniqueId !== uniqueId);
         return this._notifications.length < notificationCountBefore;
     }

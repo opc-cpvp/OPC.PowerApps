@@ -1,29 +1,28 @@
-import { XrmExecutionContextMock } from '../../../test/XrmExecutionContextMock';
-import { ContactService } from '../../services/ContactService';
-import { IBaseContact, IQueryHandler } from '../../interfaces';
-import { CheckDuplicatesQueryHandler } from './CheckDuplicatesQueryHandler';
+import { XrmExecutionContextMock } from "../../../test/XrmExecutionContextMock";
+import { ContactService } from "../../services/ContactService";
+import { IBaseContact, IQueryHandler } from "../../interfaces";
+import { CheckDuplicatesQueryHandler } from "./CheckDuplicatesQueryHandler";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var sandbox = sinon.createSandbox();
+const chai = require("chai");
+const sinon = require("sinon");
+const sinonChai = require("sinon-chai");
+const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
 describe("Check Duplicates Handler", () => {
-
     let contactService: ContactService;
     let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
 
-    let potentialDuplicate: IBaseContact = {
+    const potentialDuplicate: IBaseContact = {
         firstname: "John",
         lastname: "Doe",
         address1_postalcode: "123 123",
         telephone1: "555-555-6666",
         telephone2: "666-666-6666",
         contactid: "42E7C26C-33D5-4A0C-A0D8-21D5563C4C96",
-        emailaddress1: "test@test.com",
-    }
+        emailaddress1: "test@test.com"
+    };
 
     const complainantLookup = [
         {
@@ -48,20 +47,18 @@ describe("Check Duplicates Handler", () => {
         initializeMock();
     });
 
-    afterEach(function () {
+    afterEach(() => {
         sandbox.restore();
     });
 
     describe("when executing", () => {
-
         it("it should return true if duplicates exist", async () => {
             // Arrange
-            const getContact = sandbox.stub(contactService, nameof(contactService.getContact))
-                .resolves({});
+            const getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves({});
 
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([potentialDuplicate]);
+            const getContactDup = sandbox
+                .stub(contactService, nameof(contactService.getPotentialDuplicates))
+                .resolves([potentialDuplicate]);
 
             // Act
             const duplicatesExist = await handler.executeAsync("opc_complainant", mockContext.getFormContext());
@@ -75,12 +72,9 @@ describe("Check Duplicates Handler", () => {
 
         it("it should return false if no duplicates exist", async () => {
             // Arrange
-            const getContact = sandbox.stub(contactService, nameof(contactService.getContact))
-                .resolves({});
+            const getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves({});
 
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([]);
+            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([]);
 
             // Act
             const duplicatesExist = await handler.executeAsync("opc_complainant", mockContext.getFormContext());
@@ -95,8 +89,7 @@ describe("Check Duplicates Handler", () => {
         it("it should return false if no complainant exists", async () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
-            const getContact = sandbox.stub(contactService, nameof(contactService.getContact))
-                .resolves({});
+            const getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves({});
 
             // Act
             const duplicatesExist = await handler.executeAsync("opc_complainant", mockContext.getFormContext());
@@ -105,6 +98,5 @@ describe("Check Duplicates Handler", () => {
             getContact.should.not.have.been.called;
             duplicatesExist.should.equal(false);
         });
-
     });
 });

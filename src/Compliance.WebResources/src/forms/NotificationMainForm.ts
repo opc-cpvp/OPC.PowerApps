@@ -4,16 +4,16 @@ import { IPowerForm, INotificationService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 import { WindowHelper } from "../helpers/WindowHelper";
 
-
 export namespace Notification.Forms {
-
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_notification.Main.Information> {
-
         private _notificationService: INotificationService;
         private readonly _context: Xrm.context;
 
-        constructor(@inject(nameof<INotificationService>()) notificationService: INotificationService, @inject(nameof<Xrm.context>()) context: Xrm.context) {
+        constructor(
+            @inject(nameof<INotificationService>()) notificationService: INotificationService,
+            @inject(nameof<Xrm.context>()) context: Xrm.context
+        ) {
             this._notificationService = notificationService;
             this._context = context;
         }
@@ -44,7 +44,9 @@ export namespace Notification.Forms {
             // Redirect to the related case if there is any.
             if (entityFormOptions.entityName !== "") {
                 // Use location replace instead of a OOB feature to remove this current page from the browsing history
-                var url = this._context.getCurrentAppUrl() + `&pagetype=entityrecord&etn=${entityFormOptions["entityName"]}&id=${encodeURIComponent(entityFormOptions["entityId"])}`;
+                const url =
+                    this._context.getCurrentAppUrl() +
+                    `&pagetype=entityrecord&etn=${entityFormOptions["entityName"]}&id=${encodeURIComponent(entityFormOptions["entityId"])}`;
                 WindowHelper.replaceLocation(url);
             }
         }

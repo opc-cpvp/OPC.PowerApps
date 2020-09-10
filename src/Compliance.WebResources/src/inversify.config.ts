@@ -42,9 +42,9 @@ import { Controls as RiskAssessmentCtrl } from "./controls/RiskAssessment/RiskAs
 import { Dialogs as TemplateDialog } from "./dialogs/Templates/TemplateDialog";
 
 // Translations
-import i18next from 'i18next';
-import { i18n } from 'i18next';
-import * as resources from './resources.json';
+import i18next from "i18next";
+import { i18n } from "i18next";
+import * as resources from "./resources.json";
 
 // Command handlers
 import { OpenTemplateDialogCommandHandler } from "./handlers/Commands/OpenTemplateDialogCommandHandler";
@@ -74,14 +74,18 @@ container.bind<i.ISharePointService>(nameof<i.ISharePointService>()).to(SharePoi
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegation_information").to(Allegation.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_reminder.Main.Information>>("opc_reminder_information").to(Reminder.Forms.MainForm);
-container.bind<i.IPowerForm<Form.opc_reminder.QuickCreate.QuickCreate>>('opc_reminder_quickcreate').to(ReminderQuickCreate.Forms.QuickCreate);
+container
+    .bind<i.IPowerForm<Form.opc_reminder.QuickCreate.QuickCreate>>("opc_reminder_quickcreate")
+    .to(ReminderQuickCreate.Forms.QuickCreate);
 container.bind<i.IPowerForm<Form.opc_notification.Main.Information>>("opc_notification_information").to(Notification.Forms.MainForm);
 container.bind<i.IPowerForm<Form.contact.Main.ComplianceContact>>("contact_compliancecontact").to(Contact.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_riskassessment.Main.Information>>("opc_riskassessment_information").to(RiskAssessment.Forms.MainForm);
 
 // Register controls
 container.bind<ChecklistCtrl.ChecklistControl>(nameof<ChecklistCtrl.ChecklistControl>()).to(ChecklistCtrl.ChecklistControl);
-container.bind<RiskAssessmentCtrl.RiskAssessmentControl>(nameof<RiskAssessmentCtrl.RiskAssessmentControl>()).to(RiskAssessmentCtrl.RiskAssessmentControl);
+container
+    .bind<RiskAssessmentCtrl.RiskAssessmentControl>(nameof<RiskAssessmentCtrl.RiskAssessmentControl>())
+    .to(RiskAssessmentCtrl.RiskAssessmentControl);
 
 // Register dialogs
 container.bind<TemplateDialog.TemplateDialog>(nameof<TemplateDialog.TemplateDialog>()).to(TemplateDialog.TemplateDialog);

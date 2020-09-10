@@ -2,9 +2,9 @@
 import { XrmAttributeMock } from "./XrmAttributeMock";
 import { XrmLookupControlMock } from "./XrmLookupControlMock";
 
-export class XrmControlMock extends XrmBaseControlMock
+export class XrmControlMock
+    extends XrmBaseControlMock
     implements Xrm.Control<XrmAttributeMock>, Xrm.OptionSetControl<any>, XrmLookupControlMock, Xrm.SubGridControl<any> {
-
     private _isDisabled: boolean;
     private _options: Xrm.Option<any>[] = [];
     private _onPreSearchHandlers: Function[] = [];
@@ -30,8 +30,11 @@ export class XrmControlMock extends XrmBaseControlMock
 
     /* OptionSetControl Members */
     addOption(option: Xrm.Option<any>, index?: number): void {
-        if (index) this._options = this._options.splice(index, 0, option);
-        else this._options.push(option);
+        if (index) {
+            this._options = this._options.splice(index, 0, option);
+        } else {
+            this._options.push(option);
+        }
     }
     clearOptions(): void {
         this._options.splice(0, this._options.length);
@@ -45,8 +48,7 @@ export class XrmControlMock extends XrmBaseControlMock
     /* END OF OptionSetControl MEMBERS */
 
     /* SubGridControl MEMBERS */
-    refresh(): void {
-    }
+    refresh(): void {}
     addOnLoad(functionRef: (context?: Xrm.ExecutionContext<this, any>) => any): void {
         throw new Error("Method not implemented.");
     }
@@ -86,7 +88,14 @@ export class XrmControlMock extends XrmBaseControlMock
     /* END OF SubGridControl MEMBERS */
 
     /* LookupControl Members */
-    addCustomView(viewId: string, entityName: string, viewDisplayName: string, fetchXml: string, layoutXml: string, isDefault: boolean): void {
+    addCustomView(
+        viewId: string,
+        entityName: string,
+        viewDisplayName: string,
+        fetchXml: string,
+        layoutXml: string,
+        isDefault: boolean
+    ): void {
         throw new Error("Method not implemented.");
     }
     getDefaultView(): string {

@@ -17,9 +17,15 @@ export class XrmStageMock implements Xrm.Stage, INamedComponent {
         this._id = id;
     }
     /* END OF NEW MEMBERS*/
-    getId(): string { return this._id; }
-    getName(): string { return this._name; }
-    getSteps(): Xrm.StageStep[] { return this._steps; }
+    getId(): string {
+        return this._id;
+    }
+    getName(): string {
+        return this._name;
+    }
+    getSteps(): Xrm.StageStep[] {
+        return this._steps;
+    }
     getCategory(): Xrm.IStageCategory {
         throw new Error("Method not implemented.");
     }

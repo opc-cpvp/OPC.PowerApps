@@ -6,14 +6,15 @@ import IPowerForm = Interfaces.IPowerForm;
 
 @injectable()
 export class FormFactory implements IFormFactory {
-
-    private _container : interfaces.Container;
+    private _container: interfaces.Container;
 
     constructor(container: interfaces.Container) {
         this._container = container;
     }
 
-    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(context: Xrm.ExecutionContext<TForm, any>): IPowerForm<TForm> {
+    createForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>(
+        context: Xrm.ExecutionContext<TForm, any>
+    ): IPowerForm<TForm> {
         const fctx = context.getFormContext();
         const pageType = context.getContext().getQueryStringParameters()["pageType"];
         let formName: string;
@@ -28,7 +29,7 @@ export class FormFactory implements IFormFactory {
                 break;
         }
 
-        let form = this._container.get<IPowerForm<TForm>>(fctx.data.entity.getEntityName() + "_" + formName);
+        const form = this._container.get<IPowerForm<TForm>>(fctx.data.entity.getEntityName() + "_" + formName);
         form.initializeComponents(context);
         return form;
     }

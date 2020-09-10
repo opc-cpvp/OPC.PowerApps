@@ -3,7 +3,6 @@
 import { XrmUserSettingsMock } from "./XrmUserSettingsMock";
 
 export class XrmContextMock implements Xrm.context {
-
     private _kvps: any;
 
     constructor() {

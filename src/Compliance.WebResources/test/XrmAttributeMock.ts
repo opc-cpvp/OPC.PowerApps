@@ -3,9 +3,7 @@ import { INamedComponent } from "./INamedComponent";
 import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmControlMock } from "./XrmControlMock";
 
-export class XrmAttributeMock
-    implements Xrm.Attribute<any>, Xrm.OptionSetAttribute<any>, Xrm.LookupAttribute<any>, INamedComponent {
-
+export class XrmAttributeMock implements Xrm.Attribute<any>, Xrm.OptionSetAttribute<any>, Xrm.LookupAttribute<any>, INamedComponent {
     private _executionContext: XrmExecutionContextMock<any, any>;
     private _name: string;
     private _value: any;
@@ -70,7 +68,9 @@ export class XrmAttributeMock
     }
     fireOnChange(): void {
         this._executionContext.setEventSource(this);
-        this._onChangeHandlers.forEach(f => { f(this._executionContext) });
+        this._onChangeHandlers.forEach(f => {
+            f(this._executionContext);
+        });
         this._executionContext.setEventSource(null);
     }
     getRequiredLevel(): Xrm.AttributeRequiredLevel {
@@ -88,7 +88,7 @@ export class XrmAttributeMock
     isValid(): boolean {
         throw new Error("Method not implemented.");
     }
-    setIsValid(): void{
+    setIsValid(): void {
         throw new Error("Method not implemented.");
     }
 

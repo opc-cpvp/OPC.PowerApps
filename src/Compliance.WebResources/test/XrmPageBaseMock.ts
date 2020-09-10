@@ -31,7 +31,7 @@ export class XrmPageBaseMock<T, V> implements Xrm.BasicPage {
 
     getAttribute(attrName: string): XrmAttributeMock {
         // TODO: Following line should work, but i think because of the <any> it cannot call getFormContext()
-        //return this.data.attributes.get(attrName);
+        // return this.data.attributes.get(attrName);
 
         let attr = this._attr.find(a => a.getName() == attrName);
         if (!attr) {
@@ -48,7 +48,7 @@ export class XrmPageBaseMock<T, V> implements Xrm.BasicPage {
 
     getControl(ctrlName: string): XrmBaseControlMock {
         // TODO: Following line should work, but i think because of the <any> it cannot call getFormContext()
-        //return this.ui.controls.get(ctrlName);
+        // return this.ui.controls.get(ctrlName);
 
         let ctrl = this._ctrls.find(a => a.getName() == ctrlName);
         if (!ctrl) {

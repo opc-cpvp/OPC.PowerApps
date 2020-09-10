@@ -1,9 +1,19 @@
 import { injectable, inject } from "inversify";
-import 'whatwg-fetch';
-import 'core-js/features/url-search-params';
-import * as Msal from 'msal';
+import "whatwg-fetch";
+import "core-js/features/url-search-params";
+import * as Msal from "msal";
 import { i18n } from "i18next";
-import { IPowerDialog, IUserService, IEnvironmentVariableService, IComplaintService, IAuthService, ISharePointService, WindowContext, ComplaintWithRelationships, TemplateEnvironmentVariable } from "../../interfaces";
+import {
+    IPowerDialog,
+    IUserService,
+    IEnvironmentVariableService,
+    IComplaintService,
+    IAuthService,
+    ISharePointService,
+    WindowContext,
+    ComplaintWithRelationships,
+    TemplateEnvironmentVariable
+} from "../../interfaces";
 
 // TODO: Add a notification for the user when there is an error?
 // TODO: Change the display of the template choices.
@@ -11,7 +21,6 @@ import { IPowerDialog, IUserService, IEnvironmentVariableService, IComplaintServ
 // We could also have categories in the dropdown or have some sort of tree view of the available templates.
 
 export namespace Dialogs {
-
     @injectable()
     export class TemplateDialog implements IPowerDialog {
         private readonly _i18n: i18n;
@@ -41,7 +50,8 @@ export namespace Dialogs {
             @inject(nameof<IEnvironmentVariableService>()) environmentVariableService: IEnvironmentVariableService,
             @inject(nameof<IComplaintService>()) complaintService: IComplaintService,
             @inject(nameof<IAuthService>()) authService: IAuthService,
-            @inject(nameof<ISharePointService>()) sharePointService: ISharePointService) {
+            @inject(nameof<ISharePointService>()) sharePointService: ISharePointService
+        ) {
             this._i18n = i18n;
             this._globalContext = xrmContext;
             this._userService = userService;
@@ -56,7 +66,9 @@ export namespace Dialogs {
         public async init() {
             try {
                 let loginHint: string;
-                this._windowContext.parent.document.getElementById("defaultDialogChromeTitle").innerHTML = this._i18n.t("template:dialog.title");
+                this._windowContext.parent.document.getElementById("defaultDialogChromeTitle").innerHTML = this._i18n.t(
+                    "template:dialog.title"
+                );
                 this._placeholder = <HTMLDivElement>this._documentContext.getElementById("dialog");
                 this._complaintId = this.getDataParameter();
 
@@ -66,25 +78,22 @@ export namespace Dialogs {
                     this._environmentVariableService.getEnvironmentVariable("opc_templatesapplication")
                 ];
 
-                await Promise.all(promiseArray)
-                    .then(results => {
-                        this._complaint = results[0];
-                        loginHint = results[1];
-                        this._templatesEnvironmentVariable = JSON.parse(results[2]);
-                    });
+                await Promise.all(promiseArray).then(results => {
+                    this._complaint = results[0];
+                    loginHint = results[1];
+                    this._templatesEnvironmentVariable = JSON.parse(results[2]);
+                });
 
                 this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
                 this._redirectUri = this._globalContext.getClientUrl();
 
-                await this.getAccessToken(loginHint)
-                    .then(async response => {
-                        this._accessToken = response;
-                        await this.initializeHTMLSelectElement();
-                    });
+                await this.getAccessToken(loginHint).then(async response => {
+                    this._accessToken = response;
+                    await this.initializeHTMLSelectElement();
+                });
 
                 this.render();
                 this.addEventListeners();
-
             } catch (error) {
                 console.log(`There was an error while loading the dialog. \nError: ${error}`);
                 this.closePage();
@@ -102,29 +111,40 @@ export namespace Dialogs {
         }
 
         private render() {
-            const modalHtml =
-                /* HTML */ `<div class="modal show" id="dialog" role="dialog" aria-labelledby="dialogLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <form>
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="select-template" class="col-form-label">${this._i18n.t("template:dialog.select_template")}</label>
-                                        ${this._dialogSelect.outerHTML}
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="file-name" class="col-form-label">${this._i18n.t("template:dialog.file_name")}</label>
-                                        <input type="text" class="form-control" id="file-name" required='required'>
-                                    </div>
+            const modalHtml = /* HTML */ `<div
+                class="modal show"
+                id="dialog"
+                role="dialog"
+                aria-labelledby="dialogLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog">
+                    <form>
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="select-template" class="col-form-label"
+                                        >${this._i18n.t("template:dialog.select_template")}</label
+                                    >
+                                    ${this._dialogSelect.outerHTML}
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" id="template-cancel" class="btn btn-secondary">${this._i18n.t("template:dialog.button_cancel")}</button>
-                                    <button type="submit" id="template-comfirm" class="btn btn-primary">${this._i18n.t("template:dialog.button_confirm")}</button>
+                                <div class="form-group">
+                                    <label for="file-name" class="col-form-label">${this._i18n.t("template:dialog.file_name")}</label>
+                                    <input type="text" class="form-control" id="file-name" required="required" />
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>`;
+                            <div class="modal-footer">
+                                <button type="button" id="template-cancel" class="btn btn-secondary">
+                                    ${this._i18n.t("template:dialog.button_cancel")}
+                                </button>
+                                <button type="submit" id="template-comfirm" class="btn btn-primary">
+                                    ${this._i18n.t("template:dialog.button_confirm")}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>`;
 
             this._placeholder.outerHTML = modalHtml;
         }
@@ -135,22 +155,31 @@ export namespace Dialogs {
             const xmlSerializer: XMLSerializer = new this._windowContext.XMLSerializer();
             const serializedXML = xmlSerializer.serializeToString(this.generateComplaintXml());
 
-            this._complaintService.getSharePointDocumentLocation(this._complaintId)
-                .then(documentLocation => {
-                    this._caseDocumentsLocationRelativeUrl = `/sites/PowerAppsSandbox/opc_complaint/${documentLocation.relativeurl}`;
-                    this._sharePointService.generateDocumentFromTemplate(this._accessToken, this._caseDocumentsLocationRelativeUrl, selectElement.value, serializedXML, inputElement.value, this._templatesEnvironmentVariable.sharePointSiteUrl)
-                        .then(
-                            result => {
-                                if (result.ok) {
-                                    this.closePage();
-                                }
-                            },
-                            error => {
-                                console.log(`There was an error while calling action GenerateDocumentFromTemplate: ${error.message} \n${error.raw}`);
+            this._complaintService.getSharePointDocumentLocation(this._complaintId).then(documentLocation => {
+                this._caseDocumentsLocationRelativeUrl = `/sites/PowerAppsSandbox/opc_complaint/${documentLocation.relativeurl}`;
+                this._sharePointService
+                    .generateDocumentFromTemplate(
+                        this._accessToken,
+                        this._caseDocumentsLocationRelativeUrl,
+                        selectElement.value,
+                        serializedXML,
+                        inputElement.value,
+                        this._templatesEnvironmentVariable.sharePointSiteUrl
+                    )
+                    .then(
+                        result => {
+                            if (result.ok) {
                                 this.closePage();
                             }
-                        );
-                });
+                        },
+                        error => {
+                            console.log(
+                                `There was an error while calling action GenerateDocumentFromTemplate: ${error.message} \n${error.raw}`
+                            );
+                            this.closePage();
+                        }
+                    );
+            });
         }
 
         private closePage(): void {
@@ -162,12 +191,15 @@ export namespace Dialogs {
             const queryString = this._windowContext.location.search;
             const urlParams = new URLSearchParams(queryString);
 
-            return urlParams.get('data');
+            return urlParams.get("data");
         }
 
         private async initializeHTMLSelectElement() {
-            let templatesArray = await this._sharePointService
-                .getTemplates(this._templatesEnvironmentVariable.sharePointSiteUrl, `${this._templatesEnvironmentVariable.templatesFolderPath}${this._sharePointTemplatesSubFolderLocation}`, this._accessToken);
+            const templatesArray = await this._sharePointService.getTemplates(
+                this._templatesEnvironmentVariable.sharePointSiteUrl,
+                `${this._templatesEnvironmentVariable.templatesFolderPath}${this._sharePointTemplatesSubFolderLocation}`,
+                this._accessToken
+            );
 
             this._dialogSelect = this._documentContext.createElement("select");
             this._dialogSelect.id = "select-template";
@@ -176,7 +208,6 @@ export namespace Dialogs {
             templatesArray.forEach(result => {
                 this._dialogSelect.add(new Option(result.Name, result.ServerRelativeUrl));
             });
-
         }
 
         // Creating an xml that is compatible with the word template engine.
@@ -198,22 +229,20 @@ export namespace Dialogs {
             for (const propertyName in propertyCollection) {
                 let property: any = propertyCollection[propertyName];
 
-                if (property &&
-                    propertyName !== "@odata.context" &&
-                    propertyName !== "@odata.etag") {
-
-                    if (Array.isArray(property))
+                if (property && propertyName !== "@odata.context" && propertyName !== "@odata.etag") {
+                    if (Array.isArray(property)) {
                         property = property[0];
+                    }
 
                     const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
 
-                    if (typeof property === 'object') {
-                        if (Object.prototype.toString.call(property) === "[object Date]")
+                    if (typeof property === "object") {
+                        if (Object.prototype.toString.call(property) === "[object Date]") {
                             propertyElement.textContent = property.toLocaleString();
-                        else
+                        } else {
                             this.appendValidHTMLElements(xmlDocument, propertyElement, property);
-                    }
-                    else {
+                        }
+                    } else {
                         propertyElement.textContent = property;
                     }
 
@@ -232,11 +261,11 @@ export namespace Dialogs {
             };
             const tokenRequest: Msal.AuthenticationParameters = {
                 scopes: this._templatesEnvironmentVariable.tokenScope,
-                loginHint: loginHint,
+                loginHint,
                 authority: `${this._templatesEnvironmentVariable.authorityBaseUrl}${this._templatesEnvironmentVariable.tenantId}`
             };
 
-            return this._authService.getAccessToken(msalConfig, tokenRequest)
+            return this._authService.getAccessToken(msalConfig, tokenRequest);
         }
     }
 }

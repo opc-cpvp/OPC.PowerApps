@@ -11,7 +11,7 @@ export class DialogFactory implements IDialogFactory {
     }
 
     public createDialog<TDialog extends IPowerDialog>(dialogName: string): TDialog {
-        let dialog = this._container.get<TDialog>(dialogName);
+        const dialog = this._container.get<TDialog>(dialogName);
         dialog.init();
         return dialog;
     }

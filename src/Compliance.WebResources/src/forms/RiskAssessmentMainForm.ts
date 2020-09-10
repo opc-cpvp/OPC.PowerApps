@@ -25,10 +25,10 @@ export namespace RiskAssessment.Forms {
         }
 
         /**
-        * Handles changes to "Bypass Suggested Risk Appetite" control to display/hide bypass fields.
-        *
-        * @event OnChanged
-        */
+         * Handles changes to "Bypass Suggested Risk Appetite" control to display/hide bypass fields.
+         *
+         * @event OnChanged
+         */
         private bypassSuggestedRiskAppetite_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
             const formContext = <Form.opc_riskassessment.Main.Information>context.getFormContext();
 

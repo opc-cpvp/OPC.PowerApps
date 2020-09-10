@@ -1,22 +1,21 @@
-﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
-import { Complaint } from './ComplaintMainForm';
-import { ContactService } from '../services/ContactService';
-import { IBaseContact } from '../interfaces';
-import { ContactType } from '../enums';
-import * as resources from '../resources.json';
-import { XrmControlMock } from '../../test/XrmControlMock';
+﻿import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
+import { Complaint } from "./ComplaintMainForm";
+import { ContactService } from "../services/ContactService";
+import { IBaseContact } from "../interfaces";
+import { ContactType } from "../enums";
+import * as resources from "../resources.json";
+import { XrmControlMock } from "../../test/XrmControlMock";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var sandbox = sinon.createSandbox();
+const chai = require("chai");
+const sinon = require("sinon");
+const sinonChai = require("sinon-chai");
+const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-var i18next = require("i18next");
+const i18next = require("i18next");
 
 describe("Complaint", () => {
-
     let contactService: ContactService;
     let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
     let contextSpy: any;
@@ -39,24 +38,25 @@ describe("Complaint", () => {
             resources: resources.resources,
             defaultNS: "common",
             fallbackLng: "en",
-            lng: "en",
+            lng: "en"
         });
     }
 
     // Initialize the form for every test
     beforeEach(() => {
-        initializeMock()
+        initializeMock();
     });
 
-    afterEach(function () {
+    afterEach(() => {
         sandbox.restore();
     });
 
     describe("when form is initializing", () => {
-
         it("it should not have duplicate contact notification if no contact exists", async () => {
             // Arrange
-            let getDuplicateDup = sandbox.stub(contactService, nameof(contactService.getDuplicateStatus)).resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
+            const getDuplicateDup = sandbox
+                .stub(contactService, nameof(contactService.getDuplicateStatus))
+                .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
             mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
 
             // Act
@@ -67,57 +67,54 @@ describe("Complaint", () => {
             await getDuplicateDup;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
-
     });
 
     describe("when contact is modified", () => {
-
-        let potentialDuplicate: IBaseContact = {
+        const potentialDuplicate: IBaseContact = {
             firstname: "John",
             lastname: "Doe",
             address1_postalcode: "456 456",
             telephone1: "111-111-1111",
             telephone2: "666-666-6666",
             contactid: "1A798143-ADC2-4B0A-B8D6-92358BBD20C6",
-            emailaddress1: "test@test.com",
-        }
+            emailaddress1: "test@test.com"
+        };
 
-        let actualDuplicate: IBaseContact = {
+        const actualDuplicate: IBaseContact = {
             firstname: "John",
             lastname: "Doe",
             address1_postalcode: "123 123",
             telephone1: "555-555-5555",
             telephone2: "666-666-6666",
             contactid: "1A798143-ADC2-4B0A-B8D6-92358BBD20C6",
-            emailaddress1: "test@test.com",
-        }
+            emailaddress1: "test@test.com"
+        };
 
-        let complainant = {
+        const complainant = {
             firstname: "John",
             lastname: "Doe",
             address1_postalcode: "123 123",
             telephone1: "555-555-5555",
             telephone2: "666-666-6666",
             contactid: "1A798143-ADC2-4B0A-B8D6-92358BBD20C6",
-            emailaddress1: "test@test.com",
-        }
+            emailaddress1: "test@test.com"
+        };
 
-        let getContact: any;           
+        let getContact: any;
 
         beforeEach(() => {
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);
-            getContact = sandbox.stub(contactService, nameof(contactService.getContact))
-                .resolves(complainant);
+            getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves(complainant);
         });
 
         it("it should have notifications if a duplicate contacts exists", async () => {
             // Arrange
 
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([potentialDuplicate]);
+            const getContactDup = sandbox
+                .stub(contactService, nameof(contactService.getPotentialDuplicates))
+                .resolves([potentialDuplicate]);
             const contactsLookup = [
                 {
                     id: "233A4366-A101-4B59-9004-DA83CE087922",
@@ -144,9 +141,9 @@ describe("Complaint", () => {
         it("it should have a potential duplicate notification if less than all checked fields match", async () => {
             // Arrange
 
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([potentialDuplicate]);
+            const getContactDup = sandbox
+                .stub(contactService, nameof(contactService.getPotentialDuplicates))
+                .resolves([potentialDuplicate]);
 
             const contactsLookup = [
                 {
@@ -169,16 +166,18 @@ describe("Complaint", () => {
             await getContactDup;
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
-            contextSpy.getFormContext().ui.getFormNotification("opc_complainant")
-                .message.should.equal(i18next.t("contact:duplicate.warning", { context: "potential", contactType: ContactType.Complainant }));
+            contextSpy
+                .getFormContext()
+                .ui.getFormNotification("opc_complainant")
+                .message.should.equal(
+                    i18next.t("contact:duplicate.warning", { context: "potential", contactType: ContactType.Complainant })
+                );
         });
 
         it("it should have a full duplicate notification if all checked fields match", async () => {
             // Arrange
 
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([actualDuplicate]);
+            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([actualDuplicate]);
 
             const contactsLookup = [
                 {
@@ -202,15 +201,15 @@ describe("Complaint", () => {
             await getContactDup;
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
-            contextSpy.getFormContext().ui.getFormNotification("opc_complainant")
+            contextSpy
+                .getFormContext()
+                .ui.getFormNotification("opc_complainant")
                 .message.should.equal(i18next.t("contact:duplicate.warning", { context: "actual", contactType: ContactType.Complainant }));
         });
 
         it("it should not have a notification if a contact does not have a duplication status", async () => {
             // Arrange
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([]);
+            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([]);
 
             const contactsLookup = [
                 {
@@ -235,9 +234,9 @@ describe("Complaint", () => {
         it("it should have multiple notifications if multiple duplicate contacts exist", async () => {
             // Arrange
 
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([potentialDuplicate]);
+            const getContactDup = sandbox
+                .stub(contactService, nameof(contactService.getPotentialDuplicates))
+                .resolves([potentialDuplicate]);
 
             const contactsLookup = [
                 {
@@ -265,9 +264,7 @@ describe("Complaint", () => {
         it("it should remove exsiting notifications when no duplicate status is found", async () => {
             // Arrange
 
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([]);
+            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([]);
 
             const contactsLookup = [
                 {
@@ -306,9 +303,9 @@ describe("Complaint", () => {
         it("it should remove exsiting notifications when no contacts are found", async () => {
             // Arrange
 
-            const getContactDup =
-                sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
-                    .resolves([potentialDuplicate]);
+            const getContactDup = sandbox
+                .stub(contactService, nameof(contactService.getPotentialDuplicates))
+                .resolves([potentialDuplicate]);
 
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
@@ -323,7 +320,6 @@ describe("Complaint", () => {
             mockContext.getFormContext().getAttribute("opc_respondentrepresentative").fireOnChange();
             mockContext.getFormContext().getAttribute("opc_respondentlegalrepresentative").fireOnChange();
 
-
             // Assert
             await getContact;
             await getContactDup;
@@ -333,7 +329,6 @@ describe("Complaint", () => {
     });
 
     describe("when recommending to registrar", () => {
-
         beforeEach(() => {
             mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.Yes);
             form.initializeComponents(mockContext);
@@ -356,7 +351,6 @@ describe("Complaint", () => {
         });
 
         describe("and recommending to investigation", () => {
-
             it("acceptance date should be visible", () => {
                 // Arrange
                 const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
@@ -402,7 +396,7 @@ describe("Complaint", () => {
             it("reasons to close should be [Createdinerror, Duplicate, Redirection]", () => {
                 // Arrange
                 const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
-                const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason")
+                const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason");
                 const closeReasonControlSpy = sandbox.spy(closeReasonControl);
                 closeReasonAttribute.setOptions(closeReasons);
 
@@ -435,12 +429,9 @@ describe("Complaint", () => {
                 acceptancedateControlSpy.getVisible().should.equal(false);
             });
         });
-
     });
 
-
     describe("when not recommending to registrar", () => {
-
         beforeEach(() => {
             form.initializeComponents(mockContext);
         });
@@ -462,7 +453,7 @@ describe("Complaint", () => {
         it("reasons to close should be [Redirection, Resolved, Withdrawn]", () => {
             // Arrange
             const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
-            const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason")
+            const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason");
             const closeReasonControlSpy = sandbox.spy(closeReasonControl);
             closeReasonAttribute.setOptions(closeReasons);
             mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
@@ -494,12 +485,11 @@ describe("Complaint", () => {
     });
 
     describe("when the complainant is part of the Multiple Complaint Strategy", () => {
-
-        beforeEach(function () {
+        beforeEach(() => {
             form.initializeComponents(mockContext);
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
         });
 
@@ -515,13 +505,12 @@ describe("Complaint", () => {
     });
 
     describe("when the complainant is not part of the Multiple Complaint Strategy", () => {
-
-        beforeEach(function () {
-            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+        beforeEach(() => {
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockContext);
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
         });
 

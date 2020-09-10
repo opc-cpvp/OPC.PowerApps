@@ -14,8 +14,8 @@ export class CheckDuplicatesQueryHandler implements IQueryHandler {
 
         // Check if there is any value for the given field
         if (contact?.getValue()?.length > 0) {
-            let fetchedContact = await this._contactService.getContact(contact.getValue()[0].id);
-            let potentialDuplicates = await this._contactService.getPotentialDuplicates(fetchedContact);
+            const fetchedContact = await this._contactService.getContact(contact.getValue()[0].id);
+            const potentialDuplicates = await this._contactService.getPotentialDuplicates(fetchedContact);
             return potentialDuplicates.length > 0;
         }
 

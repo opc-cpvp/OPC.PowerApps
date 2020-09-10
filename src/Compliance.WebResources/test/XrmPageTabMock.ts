@@ -54,4 +54,3 @@ export class XrmPageTabMock implements Xrm.PageTab<Xrm.SectionCollection>, IName
         throw new Error("Method not implemented.");
     }
 }
-

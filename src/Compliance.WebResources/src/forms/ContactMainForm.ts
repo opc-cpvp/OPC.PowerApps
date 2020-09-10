@@ -7,16 +7,20 @@ import { XrmHelper } from "../helpers/XrmHelper";
 export namespace Contact.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.contact.Main.ComplianceContact> {
-
         private readonly _userService: IUserService;
         private readonly _xrmNavigation: Xrm.Navigation;
         private readonly _xrmContext: Xrm.context;
         private readonly _i18n: i18n;
 
-        private _saveEventConfirmed: boolean = false;
-        private _hasIntakeManagerPermissions: boolean = false;
+        private _saveEventConfirmed = false;
+        private _hasIntakeManagerPermissions = false;
 
-        constructor(@inject(nameof<i18n>()) i18n: i18n, @inject(nameof<IUserService>()) userService: IUserService, @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation, @inject(nameof<Xrm.context>()) xrmContext: Xrm.context) {
+        constructor(
+            @inject(nameof<i18n>()) i18n: i18n,
+            @inject(nameof<IUserService>()) userService: IUserService,
+            @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation,
+            @inject(nameof<Xrm.context>()) xrmContext: Xrm.context
+        ) {
             this._i18n = i18n;
             this._userService = userService;
             this._xrmNavigation = xrmNavigation;
@@ -42,18 +46,18 @@ export namespace Contact.Forms {
         }
 
         /**
-        * Handles the form OnSave event.
-        *
-        * @event OnSave
-        */
+         * Handles the form OnSave event.
+         *
+         * @event OnSave
+         */
         private form_OnSave(context?: Xrm.SaveEventContext<Xrm.PageEntity<Form.contact.Main.ComplianceContact.Attributes>>): void {
             this.multipleComplaintStrategy_ConfirmDialog(context);
         }
         /**
-        * Handles changes to Multiple Complaint Strategy attribute.
-        *
-        * @event OnChanged
-        */
+         * Handles changes to Multiple Complaint Strategy attribute.
+         *
+         * @event OnChanged
+         */
         private multipleComplaintStrategy_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
             const formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
 
@@ -64,10 +68,10 @@ export namespace Contact.Forms {
         }
 
         /**
-        * Multiple Complaint Strategy set visible values of option set
-        *
-        * @event OnChange
-        */
+         * Multiple Complaint Strategy set visible values of option set
+         *
+         * @event OnChange
+         */
         private multipleComplaintStrategy_setVisibleValues(formContext: Form.contact.Main.ComplianceContact): void {
             const multipleComplaintStrategyValue = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
 
@@ -77,10 +81,10 @@ export namespace Contact.Forms {
         }
 
         /**
-        * Multiple Complaint Strategy notification display
-        *
-        * @event OnChange
-        */
+         * Multiple Complaint Strategy notification display
+         *
+         * @event OnChange
+         */
         private multipleComplaintStrategy_DisplayNotification(formContext: Form.contact.Main.ComplianceContact): void {
             // Clear Notification
             XrmHelper.clearAllNotifications(formContext);
@@ -91,30 +95,38 @@ export namespace Contact.Forms {
                 // Display Notification
                 const firstName = formContext.getAttribute("firstname").getValue();
                 const lastName = formContext.getAttribute("lastname").getValue();
-                XrmHelper.setFormNotification(formContext, "INFO", this._i18n.t("contact:mcs.warning", { context: 'main', fullname: (firstName ? firstName + " " : "") + lastName }))
+                XrmHelper.setFormNotification(
+                    formContext,
+                    "INFO",
+                    this._i18n.t("contact:mcs.warning", { context: "main", fullname: (firstName ? firstName + " " : "") + lastName })
+                );
             }
         }
 
         /**
-        * Multiple Complaint Strategy field set disabled.
-        *
-        * @event OnChange
-        */
+         * Multiple Complaint Strategy field set disabled.
+         *
+         * @event OnChange
+         */
         private multipleComplaintStrategy_SetDisabled(formContext: Form.contact.Main.ComplianceContact): void {
             const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
             const multipleComplaintStrategy = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
 
             // Check if Contact is part of the Multiple Complaint Strategy
             // and lock the field unless user role is Intake Manager, Sys Admin or Sys Customizer
-            multipleComplaintStrategyControl.setDisabled(multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._hasIntakeManagerPermissions);
+            multipleComplaintStrategyControl.setDisabled(
+                multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied && !this._hasIntakeManagerPermissions
+            );
         }
 
         /**
-        * Multiple Complaint Strategy confirm dialog.
-        *
-        * @event OnSave
-        */
-        private multipleComplaintStrategy_ConfirmDialog(context: Xrm.SaveEventContext<Xrm.PageEntity<Form.contact.Main.ComplianceContact.Attributes>>): void {
+         * Multiple Complaint Strategy confirm dialog.
+         *
+         * @event OnSave
+         */
+        private multipleComplaintStrategy_ConfirmDialog(
+            context: Xrm.SaveEventContext<Xrm.PageEntity<Form.contact.Main.ComplianceContact.Attributes>>
+        ): void {
             const formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
             const multipleComplaintStrategy = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
             const mcsFieldIsDirty = formContext.getAttribute("opc_multiplecomplaintstrategy").getIsDirty();
@@ -129,16 +141,14 @@ export namespace Contact.Forms {
                 // the confirmation dialog is async and the save event will continue while the dialog is open.
                 context.getEventArgs().preventDefault();
 
-                this._xrmNavigation.openConfirmDialog(confirmStrings).then(
-                    (success) => {
-                        if (success.confirmed) {
-                            this._saveEventConfirmed = true;
-                            formContext.data.entity.save();
-                        }
-                        else {
-                            this._saveEventConfirmed = false;
-                        }
-                    });
+                this._xrmNavigation.openConfirmDialog(confirmStrings).then(success => {
+                    if (success.confirmed) {
+                        this._saveEventConfirmed = true;
+                        formContext.data.entity.save();
+                    } else {
+                        this._saveEventConfirmed = false;
+                    }
+                });
             }
         }
     }

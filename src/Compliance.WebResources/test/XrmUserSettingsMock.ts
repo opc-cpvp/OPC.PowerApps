@@ -2,7 +2,6 @@
 import { XrmRoleMock } from "./XrmRoleMock";
 
 export class XrmUserSettingsMock implements Xrm.userSettings {
-
     constructor() {
         // Setting default
         this.languageId = 1033; // English

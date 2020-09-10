@@ -8,7 +8,7 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
 
     constructor() {
         // TODO: Remove this, temp.
-        let mock = new XrmProcessMock("default-mock", "default-mock");
+        const mock = new XrmProcessMock("default-mock", "default-mock");
         mock.setStatus(Xrm.ProcessStatus.Active);
         this._activeProcess = mock;
         this._processes.push(mock);
@@ -26,7 +26,7 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
 
     setActiveProcess(processId: string, callback: (successOrInvalid: string) => any): void {
         // TODO: Something with the other inactive processes? The class variable might be a temporary workaround
-        let p = this._processes.find(p => p.getId() == processId);
+        const p = this._processes.find(p => p.getId() == processId);
         p.setStatus(Xrm.ProcessStatus.Active);
         this._activeProcess = p;
     }
@@ -42,7 +42,7 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
     }
 
     setActiveStage(stageId: string, callback?: (stringVal: Xrm.ProcessStageSetAnswer) => any): void {
-        this._activeProcess.getStages().forEach(s => (<XrmStageMock>s).setStatus(s.getId() == stageId ? Xrm.ProcessStatus.Active : "inactive"));
+        this._activeProcess.getStages().forEach(s => s.setStatus(s.getId() == stageId ? Xrm.ProcessStatus.Active : "inactive"));
     }
 
     getActivePath(): Xrm.Collection<Xrm.Stage> {

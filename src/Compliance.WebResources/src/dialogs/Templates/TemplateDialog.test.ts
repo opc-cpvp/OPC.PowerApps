@@ -1,18 +1,25 @@
-﻿import { XrmContextMock } from '../../../test/XrmContextMock';
-import { IComplaintService, IUserService, IEnvironmentVariableService, WindowContext, ISharePointService, IAuthService } from '../../interfaces';
-import { Dialogs } from '../../dialogs/Templates/TemplateDialog';
-import { ComplaintService } from '../../services/ComplaintService';
-import { UserService } from '../../services/UserService';
-import { EnvironmentVariableService } from '../../services/EnvironmentVariableService';
-import { AuthService } from '../../services/AuthService';
-import { SharePointService } from '../../services/SharePointService';
+﻿import { XrmContextMock } from "../../../test/XrmContextMock";
+import {
+    IComplaintService,
+    IUserService,
+    IEnvironmentVariableService,
+    WindowContext,
+    ISharePointService,
+    IAuthService
+} from "../../interfaces";
+import { Dialogs } from "../../dialogs/Templates/TemplateDialog";
+import { ComplaintService } from "../../services/ComplaintService";
+import { UserService } from "../../services/UserService";
+import { EnvironmentVariableService } from "../../services/EnvironmentVariableService";
+import { AuthService } from "../../services/AuthService";
+import { SharePointService } from "../../services/SharePointService";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var jsdom = require("jsdom").JSDOM;
-var i18next = require("i18next");
-var sandbox = sinon.createSandbox();
+const chai = require("chai");
+const sinon = require("sinon");
+const sinonChai = require("sinon-chai");
+const jsdom = require("jsdom").JSDOM;
+const i18next = require("i18next");
+const sandbox = sinon.createSandbox();
 
 chai.should();
 chai.use(sinonChai);
@@ -34,7 +41,7 @@ describe("TemplateDialog", () => {
     const environmentVariable = `{"applicationId": "", "tenantId": "", "sharePointSiteUrl": "", "templatesFolderPath": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
     const templates = [{ "Name": "templateName", "ServerRelativeUrl": "templateRelativeUrl" }];
 
-    beforeEach(function () {
+    beforeEach(() => {
         xrmContext = new XrmContextMock();
         userService = new UserService();
         environmentVariableService = new EnvironmentVariableService();
@@ -50,10 +57,19 @@ describe("TemplateDialog", () => {
         windowContext.document.body.appendChild(h1Element);
         windowContext.document.body.appendChild(divElement);
 
-        templateDialog = new Dialogs.TemplateDialog(i18next, xrmContext, windowContext, userService, environmentVariableService, complaintService, authService, sharePointService);
+        templateDialog = new Dialogs.TemplateDialog(
+            i18next,
+            xrmContext,
+            windowContext,
+            userService,
+            environmentVariableService,
+            complaintService,
+            authService,
+            sharePointService
+        );
     });
 
-    afterEach(function () {
+    afterEach(() => {
         sandbox.restore();
         windowContext.document.body.removeChild(windowContext.document.getElementById("dialog"));
     });
@@ -67,7 +83,7 @@ describe("TemplateDialog", () => {
         let renderSpy: any;
         let addEventListenersSpy: any;
 
-        beforeEach(function () {
+        beforeEach(() => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             getUserEmailStub = sandbox.stub(userService, "getUserEmail").resolves("");
             getComplaintWithRelationshipsStub = sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
@@ -135,18 +151,18 @@ describe("TemplateDialog", () => {
             addEventListenersSpy.should.have.been.called;
         });
     });
-    describe("when user click on \"Generate Document\"", () => {
+    describe('when user click on "Generate Document"', () => {
         let generateDocumentOnClick: any;
         let getSharePointDocumentLocation: any;
         let generateDocumentFromTemplate: any;
         let windowClose: any;
-        let xrmAPIResponse: any = {
+        const xrmAPIResponse: any = {
             ok: true,
             status: 200,
             statusText: "Ok"
         };
 
-        beforeEach(function () {
+        beforeEach(() => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
@@ -157,7 +173,9 @@ describe("TemplateDialog", () => {
 
             windowClose = sandbox.stub(templateDialog, "closePage");
             generateDocumentOnClick = sandbox.spy(templateDialog, "generateDocument_onClick");
-            getSharePointDocumentLocation = sandbox.stub(complaintService, "getSharePointDocumentLocation").resolves(sharepointDocumentLocation);
+            getSharePointDocumentLocation = sandbox
+                .stub(complaintService, "getSharePointDocumentLocation")
+                .resolves(sharepointDocumentLocation);
             generateDocumentFromTemplate = sandbox.stub(sharePointService, "generateDocumentFromTemplate").resolves(xrmAPIResponse);
         });
 
@@ -200,7 +218,7 @@ describe("TemplateDialog", () => {
             await templateDialog.init();
 
             // Act
-            let submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
             submitButton.click();
 
             await getSharePointDocumentLocation;
@@ -210,8 +228,8 @@ describe("TemplateDialog", () => {
             windowClose.should.have.been.called;
         });
     });
-    describe("when user click on \"Cancel\"", () => {
-        beforeEach(function () {
+    describe('when user click on "Cancel"', () => {
+        beforeEach(() => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);

@@ -8,7 +8,7 @@ export class XrmSaveEventContextMock<T> extends XrmExecutionContextMock<T, XrmSa
 }
 
 export class XrmSaveEventArgsMock implements Xrm.SaveEventArgs {
-    private _defaultPrevented: boolean = false;
+    private _defaultPrevented = false;
 
     getSaveMode(): Xrm.SaveMode {
         throw new Error("Method not implemented.");
