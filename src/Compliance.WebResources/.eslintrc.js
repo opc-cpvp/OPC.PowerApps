@@ -70,7 +70,6 @@ module.exports = {
         // eslint
         "arrow-body-style": "error",
         "complexity": "off",
-        "constructor-super": "error",
         "curly": ["error", "all"],
         "eqeqeq": ["error", "smart"],
         "guard-for-in": "error",
@@ -92,7 +91,6 @@ module.exports = {
         ],
         "no-bitwise": "error",
         "no-caller": "error",
-        "no-cond-assign": "error",
         "no-console": [
             "error",
             {
@@ -119,10 +117,8 @@ module.exports = {
                 ]
             }
         ],
-        "no-debugger": "error",
         "no-empty": "off",
         "no-eval": "error",
-        "no-fallthrough": "error",
         "no-new-wrappers": "error",
         "no-restricted-imports": ["error", "rxjs/Rx"],
         "no-shadow": [
@@ -133,7 +129,6 @@ module.exports = {
         ],
         "no-throw-literal": "error",
         "no-undef-init": "error",
-        "no-unsafe-finally": "error",
         "no-unused-labels": "error",
         "no-var": "error",
         "object-shorthand": "error",
@@ -146,7 +141,6 @@ module.exports = {
             {
                 markers: ["/"]
             }
-        ],
-        "use-isnan": "error"
+        ]
     }
 };
