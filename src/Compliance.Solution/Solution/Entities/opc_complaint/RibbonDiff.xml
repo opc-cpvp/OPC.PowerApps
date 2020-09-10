@@ -23,9 +23,9 @@
         </FlyoutAnchor>
       </CommandUIDefinition>
     </CustomAction>
-    <CustomAction Id="opc.opc_complaint.TemplateDialog.Button.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Actions.Controls._children" Sequence="15">
+    <CustomAction Id="opc.opc_complaint.Button.TemplateDialog.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Actions.Controls._children" Sequence="15">
       <CommandUIDefinition>
-        <Button Alt="$LocLabels:opc.opc_complaint.TemplateDialog.Button.Alt" Command="opc.opc_complaint.TemplateDialog.Command" Id="opc.opc_complaint.TemplateDialog.Button" Image32by32="/_imgs/ribbon/SaveAsWordTemplate_32.png" Image16by16="/_imgs/ribbon/WordTemplate_16.png" LabelText="$LocLabels:opc.opc_complaint.TemplateDialog.Button.LabelText" Sequence="15" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.TemplateDialog.Button.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.TemplateDialog.Button.ToolTipDescription" ModernImage="WordTemplates" />
+        <Button Alt="$LocLabels:opc.opc_complaint.Button.TemplateDialog.Alt" Command="opc.opc_complaint.Command.OpenTemplateDialogPage" Id="opc.opc_complaint.Button.TemplateDialog" Image32by32="/_imgs/ribbon/SaveAsWordTemplate_32.png" Image16by16="/_imgs/ribbon/WordTemplate_16.png" LabelText="$LocLabels:opc.opc_complaint.Button.TemplateDialog.LabelText" Sequence="15" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.TemplateDialog.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.TemplateDialog.ToolTipDescription" ModernImage="WordTemplates" />
       </CommandUIDefinition>
     </CustomAction>
   </CustomActions>
@@ -47,9 +47,9 @@
       <DisplayRules />
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
           <StringParameter Value="MergeContactCommandHandler" />
           <StringParameter Value="opc_complainant" />
-          <CrmParameter Value="PrimaryControl" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
@@ -60,9 +60,9 @@
       <DisplayRules />
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
           <StringParameter Value="MergeContactCommandHandler" />
           <StringParameter Value="opc_complainantlegalrepresentative" />
-          <CrmParameter Value="PrimaryControl" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
@@ -73,9 +73,9 @@
       <DisplayRules />
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
           <StringParameter Value="MergeContactCommandHandler" />
           <StringParameter Value="opc_complainantrep" />
-          <CrmParameter Value="PrimaryControl" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
@@ -86,9 +86,9 @@
       <DisplayRules />
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
           <StringParameter Value="MergeContactCommandHandler" />
           <StringParameter Value="opc_respondentlegalrepresentative" />
-          <CrmParameter Value="PrimaryControl" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
@@ -99,18 +99,19 @@
       <DisplayRules />
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
           <StringParameter Value="MergeContactCommandHandler" />
           <StringParameter Value="opc_respondentrepresentative" />
-          <CrmParameter Value="PrimaryControl" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
-    <CommandDefinition Id="opc.opc_complaint.TemplateDialog.Command">
+    <CommandDefinition Id="opc.opc_complaint.Command.OpenTemplateDialogPage">
       <EnableRules />
       <DisplayRules />
       <Actions>
-        <JavaScriptFunction FunctionName="compliance.TemplateDialog.ribbonButton_OnClick" Library="$webresource:opc_compliance/js/compliance.min.js">
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
           <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="OpenTemplateDialogCommandHandler" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
@@ -199,151 +200,181 @@
     <LocLabel Id="opc.opc_complaint.Button.Merge.Alt">
       <Titles>
         <Title description="Merge likely duplicates" languagecode="1033" />
+        <Title description="Merge likely duplicates" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.Merge.LabelText">
       <Titles>
         <Title description="Merge" languagecode="1033" />
+        <Title description="Merge" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.Merge.ToolTipDescription">
       <Titles>
         <Title description="Merge the contacts with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+        <Title description="Merge the contacts with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.Merge.ToolTipTitle">
       <Titles>
         <Title description="Merge" languagecode="1033" />
+        <Title description="Merge" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeComplainant.Alt">
       <Titles>
         <Title description="Merge the Complainant Contact with the most likely duplicate" languagecode="1033" />
+        <Title description="Merge the Complainant Contact with the most likely duplicate" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeComplainant.LabelText">
       <Titles>
         <Title description="Complainant" languagecode="1033" />
+        <Title description="Complainant" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeComplainant.ToolTipDescription">
       <Titles>
         <Title description="Merge the Complainant Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+        <Title description="Merge the Complainant Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeComplainant.ToolTipTitle">
       <Titles>
         <Title description="Merge Complainant" languagecode="1033" />
+        <Title description="Merge Complainant" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeComplainantLegalRep.Alt">
       <Titles>
         <Title description="Merge the Legal Representative Contact with the most likely duplicate" languagecode="1033" />
+        <Title description="Merge the Legal Representative Contact with the most likely duplicate" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeComplainantLegalRep.LabelText">
       <Titles>
         <Title description="Legal Representative" languagecode="1033" />
+        <Title description="Legal Representative" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeComplainantLegalRep.ToolTipDescription">
       <Titles>
         <Title description="Merge the Complainant Legal Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+        <Title description="Merge the Complainant Legal Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeComplainantLegalRep.ToolTipTitle">
       <Titles>
         <Title description="Merge Complainant" languagecode="1033" />
+        <Title description="Merge Complainant" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRepresentative.Alt">
       <Titles>
         <Title description="Merge the representative contact with it's most likely duplicate" languagecode="1033" />
+        <Title description="Merge the representative contact with it's most likely duplicate" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRepresentative.LabelText">
       <Titles>
         <Title description="Representative" languagecode="1033" />
+        <Title description="Representative" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRepresentative.ToolTipDescription">
       <Titles>
         <Title description="Merge the Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+        <Title description="Merge the Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRepresentative.ToolTipTitle">
       <Titles>
         <Title description="Merge Representative" languagecode="1033" />
+        <Title description="Merge Representative" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRespondentLegalRep.Alt">
       <Titles>
         <Title description="Merge the Respondent Legal Representative Contact with the most likely duplicate" languagecode="1033" />
+        <Title description="Merge the Respondent Legal Representative Contact with the most likely duplicate" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRespondentLegalRep.LabelText">
       <Titles>
         <Title description="Legal Representative" languagecode="1033" />
+        <Title description="Legal Representative" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRespondentLegalRep.ToolTipDescription">
       <Titles>
         <Title description="Merge the Respondent Legal Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+        <Title description="Merge the Respondent Legal Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRespondentLegalRep.ToolTipTitle">
       <Titles>
         <Title description="Merge Respondent Legal Representative" languagecode="1033" />
+        <Title description="Merge Respondent Legal Representative" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRespondentRep.Alt">
       <Titles>
         <Title description="Merge the Respondent Representative Contact with the most likely duplicate" languagecode="1033" />
+        <Title description="Merge the Respondent Representative Contact with the most likely duplicate" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRespondentRep.LabelText">
       <Titles>
         <Title description="Representative" languagecode="1033" />
+        <Title description="Representative" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRespondentRep.ToolTipDescription">
       <Titles>
         <Title description="Merge the Respondent Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1033" />
+        <Title description="Merge the Respondent Representative Contact with the most likely duplicate. For more control, go to the duplicates view and search for the contacts you want to merge." languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.MergeRespondentRep.ToolTipTitle">
       <Titles>
         <Title description="Merge Respondent Representative" languagecode="1033" />
+        <Title description="Merge Respondent Representative" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.TemplateDialog.Alt">
+      <Titles>
+        <Title description="Button to open template menu to select a document to generate." languagecode="1033" />
+        <Title description="Bouton qui permet d'ouvrir le menu pour choisir un document à générer." languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.TemplateDialog.LabelText">
+      <Titles>
+        <Title description="Templates" languagecode="1033" />
+        <Title description="Gabarits" languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.TemplateDialog.ToolTipDescription">
+      <Titles>
+        <Title description="Open template menu to select a document to generate." languagecode="1033" />
+        <Title description="Ouvrir le menu des gabarits pour choisir un document à générer." languagecode="1036" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.TemplateDialog.ToolTipTitle">
+      <Titles>
+        <Title description="Open template menu" languagecode="1033" />
+        <Title description="Ouvrir le menu des gabarits." languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Section.Complainant.Title">
       <Titles>
         <Title description="Complainant" languagecode="1033" />
+        <Title description="Complainant" languagecode="1036" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_complaint.Section.Respondent.Title">
       <Titles>
         <Title description="Respondent" languagecode="1033" />
-      </Titles>
-    </LocLabel>
-    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.Alt">
-      <Titles>
-        <Title description="Button to open template menu to select which document to generate." languagecode="1033" />
-      </Titles>
-    </LocLabel>
-    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.LabelText">
-      <Titles>
-        <Title description="Templates" languagecode="1033" />
-      </Titles>
-    </LocLabel>
-    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.ToolTipDescription">
-      <Titles>
-        <Title description="Open template menu to select which document to generate." languagecode="1033" />
-      </Titles>
-    </LocLabel>
-    <LocLabel Id="opc.opc_complaint.TemplateDialog.Button.ToolTipTitle">
-      <Titles>
-        <Title description="Open template menu" languagecode="1033" />
+        <Title description="Respondent" languagecode="1036" />
       </Titles>
     </LocLabel>
   </LocLabels>

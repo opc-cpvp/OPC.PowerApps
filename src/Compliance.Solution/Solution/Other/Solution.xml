@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.406</Version>
+    <Version>1.0.409</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -245,6 +245,7 @@
       <RootComponent type="92" id="{d7f77688-a5ac-ea11-a812-000d3af46fff}" behavior="0" />
       <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
       <RootComponent type="380" schemaName="opc_templatesapplication" behavior="0" />
+      <RootComponent type="381" id="{4710a2e7-53cc-ea11-a812-000d3af46489}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
@@ -344,15 +345,15 @@
         <Dependent key="26" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="27" type="66" schemaName="opc_opc.pcf.TagPickerComponent" displayName="opc_opc.pcf.TagPickerComponent" solution="opc_OPCPowerAppsPCFControls (1.0.37)" />
+        <Required key="27" type="66" schemaName="opc_opc.pcf.TagPickerComponent" displayName="opc_opc.pcf.TagPickerComponent" solution="opc_OPCPowerAppsPCFControls (1.0.41)" />
         <Dependent key="18" type="60" displayName="QuickCreate" parentDisplayName="Reminder" id="{a97b9687-d18b-ea11-a811-000d3af45c52}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="28" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.37)" />
+        <Required key="28" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.41)" />
         <Dependent key="13" type="60" displayName="Information" parentDisplayName="Reminder" id="{b88d6488-5bc0-4fd9-8c60-58b2ff0860d6}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="28" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.37)" />
+        <Required key="28" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.41)" />
         <Dependent key="14" type="60" displayName="Information" parentDisplayName="Complaint" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" />
       </MissingDependency>
     </MissingDependencies>

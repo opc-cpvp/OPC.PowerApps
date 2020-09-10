@@ -71,15 +71,14 @@
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
-    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialogPage.test.ts" />
     <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialog.test.ts" />
     <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialog.ts" />
-    <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialogPage.ts" />
     <TypeScriptCompile Include="src\enums.ts" />
     <TypeScriptCompile Include="src\factories\CommandDispatcher.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\factories\ControlFactory.ts" />
+    <TypeScriptCompile Include="src\factories\DialogFactory.ts" />
     <TypeScriptCompile Include="src\factories\FormFactory.ts" />
     <TypeScriptCompile Include="src\factories\QueryDispatcher.ts">
       <SubType>Code</SubType>
@@ -97,6 +96,8 @@
     <TypeScriptCompile Include="src\forms\ReminderMainForm.ts" />
     <TypeScriptCompile Include="src\forms\RiskAssessmentMainForm.ts" />
     <TypeScriptCompile Include="src\forms\RiskAssessmentsMainForm.test.ts" />
+    <TypeScriptCompile Include="src\handlers\Commands\OpenTemplateDialogCommandHandler.test.ts" />
+    <TypeScriptCompile Include="src\handlers\Commands\OpenTemplateDialogCommandHandler.ts" />
     <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.test.ts" />
     <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.ts" />
     <TypeScriptCompile Include="src\handlers\Commands\MergeContactCommandHandler.test.ts" />
@@ -107,13 +108,16 @@
     <TypeScriptCompile Include="src\index.ts" />
     <TypeScriptCompile Include="src\interfaces.ts" />
     <TypeScriptCompile Include="src\inversify.config.ts" />
+    <TypeScriptCompile Include="src\services\SharePointService.ts" />
     <TypeScriptCompile Include="src\services\ChecklistService.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />
     <TypeScriptCompile Include="src\services\ContactService.ts" />
     <TypeScriptCompile Include="src\services\ComplaintService.ts" />
+    <TypeScriptCompile Include="src\services\EnvironmentVariableService.ts" />
     <TypeScriptCompile Include="src\services\NotificationService.ts" />
     <TypeScriptCompile Include="src\services\ReminderService.ts" />
     <TypeScriptCompile Include="src\services\RiskAssessmentService.ts" />
+    <TypeScriptCompile Include="src\services\AuthService.ts" />
     <TypeScriptCompile Include="src\services\UserService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
     <TypeScriptCompile Include="src\utils\NotificationIcons\NotificationIcons.ts" />

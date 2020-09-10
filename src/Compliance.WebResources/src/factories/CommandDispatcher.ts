@@ -9,8 +9,8 @@ export class CommandDispatcher implements ICommandDispatcher {
     constructor(container: interfaces.Container) {
         this._container = container;
     }
-    dispatch<TForm extends ExtendedXrmPageBase>(command: string, field: string, context: TForm): void {
+    dispatch<TForm extends ExtendedXrmPageBase>(context: TForm, command: string, field?: string): void {
         let handler = this._container.get<ICommandHandler>(command);
-        handler.execute(field, context);
+        handler.execute(context, field);
     }
 }

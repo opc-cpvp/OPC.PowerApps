@@ -2,10 +2,8 @@
 import { XrmAttributeMock } from "./XrmAttributeMock";
 import { XrmLookupControlMock } from "./XrmLookupControlMock";
 
-
-
 export class XrmControlMock extends XrmBaseControlMock
-    implements Xrm.Control<XrmAttributeMock>, Xrm.OptionSetControl<any>, XrmLookupControlMock {
+    implements Xrm.Control<XrmAttributeMock>, Xrm.OptionSetControl<any>, XrmLookupControlMock, Xrm.SubGridControl<any> {
 
     private _isDisabled: boolean;
     private _options: Xrm.Option<any>[] = [];
@@ -44,7 +42,48 @@ export class XrmControlMock extends XrmBaseControlMock
     getOptions(): Xrm.Option<any>[] {
         return this._options;
     }
-    /* end of OptionSetControl members */
+    /* END OF OptionSetControl MEMBERS */
+
+    /* SubGridControl MEMBERS */
+    refresh(): void {
+    }
+    addOnLoad(functionRef: (context?: Xrm.ExecutionContext<this, any>) => any): void {
+        throw new Error("Method not implemented.");
+    }
+    getEntityName(): string {
+        throw new Error("Method not implemented.");
+    }
+    getGrid(): Xrm.Grid<any> {
+        throw new Error("Method not implemented.");
+    }
+    getViewSelector(): Xrm.ViewSelector {
+        throw new Error("Method not implemented.");
+    }
+    removeOnLoad(reference: Function): void {
+        throw new Error("Method not implemented.");
+    }
+    getRelationshipName(): string {
+        throw new Error("Method not implemented.");
+    }
+    getFetchXml(): string {
+        throw new Error("Method not implemented.");
+    }
+    getRelationship(): Xrm.EntityFormRelationship {
+        throw new Error("Method not implemented.");
+    }
+    getGridType(): Xrm.GridType {
+        throw new Error("Method not implemented.");
+    }
+    getUrl(client?: Xrm.SubGridControlClientType): string {
+        throw new Error("Method not implemented.");
+    }
+    openRelatedGrid(): void {
+        throw new Error("Method not implemented.");
+    }
+    refreshRibbon(): void {
+        throw new Error("Method not implemented.");
+    }
+    /* END OF SubGridControl MEMBERS */
 
     /* LookupControl Members */
     addCustomView(viewId: string, entityName: string, viewDisplayName: string, fetchXml: string, layoutXml: string, isDefault: boolean): void {

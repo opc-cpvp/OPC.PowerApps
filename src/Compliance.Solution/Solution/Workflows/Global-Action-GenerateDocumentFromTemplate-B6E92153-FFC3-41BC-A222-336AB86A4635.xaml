@@ -56,15 +56,6 @@
         <mxsw:ArgumentEntityAttribute Value="" />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property Name="Result" Type="OutArgument(x:String)">
-      <x:Property.Attributes>
-        <mxsw:ArgumentRequiredAttribute Value="False" />
-        <mxsw:ArgumentTargetAttribute Value="False" />
-        <mxsw:ArgumentDescriptionAttribute Value=" " />
-        <mxsw:ArgumentDirectionAttribute Value="Output" />
-        <mxsw:ArgumentEntityAttribute Value="" />
-      </x:Property.Attributes>
-    </x:Property>
   </x:Members>
   <this:XrmWorkflowb6e92153ffc341bca222336ab86a4635.InputEntities>
     <InArgument x:TypeArguments="scg:IDictionary(x:String, mxs:Entity)" />
