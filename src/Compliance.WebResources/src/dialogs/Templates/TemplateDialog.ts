@@ -103,7 +103,7 @@ export namespace Dialogs {
 
         private render() {
             const modalHtml =
-                `<div class="modal show" id="dialog" role="dialog" aria-labelledby="dialogLabel" aria-hidden="true">
+                /* HTML */ `<div class="modal show" id="dialog" role="dialog" aria-labelledby="dialogLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <form>
                             <div class="modal-content">
