@@ -4,8 +4,6 @@ js/lib/xrmquery
 node_modules
 
 .eslintrc.js
-.prettierignore
-.prettierrc.json
 .yo-rc.json
 package.json
 package-lock.json

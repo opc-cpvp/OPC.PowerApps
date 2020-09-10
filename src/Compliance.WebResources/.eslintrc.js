@@ -8,7 +8,8 @@ module.exports = {
         "@typescript-eslint",
         "@typescript-eslint/tslint",
         "jsdoc",
-        "import"
+        "import",
+        "prettier"
     ],
     parserOptions: {
         project: "tsconfig.json",
@@ -17,10 +18,13 @@ module.exports = {
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
     ],
     rules: {
-        // TS rules, @typescript-eslint
+        // @typescript-eslint
         "@typescript-eslint/adjacent-overload-signatures": "error",
         "@typescript-eslint/array-type": [
             "error",
@@ -69,22 +73,7 @@ module.exports = {
             }
         ],
         "@typescript-eslint/explicit-module-boundary-types": "error",
-        "@typescript-eslint/indent": "error",
-        "@typescript-eslint/member-delimiter-style": [
-            "error",
-            {
-                multiline: {
-                    delimiter: "semi",
-                    requireLast: true
-                },
-                singleline: {
-                    delimiter: "semi",
-                    requireLast: false
-                }
-            }
-        ],
         "@typescript-eslint/member-ordering": "error",
-        //"@typescript-eslint/naming-convention": "error",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-empty-interface": "error",
         "@typescript-eslint/no-explicit-any": "off",
@@ -107,8 +96,6 @@ module.exports = {
         "@typescript-eslint/prefer-for-of": "error",
         "@typescript-eslint/prefer-function-type": "error",
         "@typescript-eslint/prefer-namespace-keyword": "error",
-        "@typescript-eslint/quotes": ["error", "double"],
-        "@typescript-eslint/semi": ["error", "always"],
         "@typescript-eslint/triple-slash-reference": [
             "error",
             {
@@ -117,17 +104,13 @@ module.exports = {
                 lib: "always"
             }
         ],
-        "@typescript-eslint/type-annotation-spacing": "error",
         "@typescript-eslint/unified-signatures": "error",
 
-        // ES rules
+        // eslint
         "arrow-body-style": "error",
-        "arrow-parens": ["error", "as-needed"],
-        "brace-style": ["error", "1tbs"],
         "complexity": "off",
         "constructor-super": "error",
-        "curly": "error",
-        "eol-last": "error",
+        "curly": ["error", "all"],
         "eqeqeq": ["error", "smart"],
         "guard-for-in": "error",
         "id-blacklist": "off",
@@ -140,15 +123,14 @@ module.exports = {
         "max-len": [
             "error",
             {
+                code: 140,
                 ignoreComments: true,
+                ignorePattern: `^import |^export (.*?)`,
                 ignoreRegExpLiterals: true,
                 ignoreStrings: true,
-                ignorePattern: `^import |^export (.*?)`,
-                code: 140
+                ignoreTemplateLiterals: true
             }
         ],
-        //"max-statements": ["error", { "max": 10 }],
-        "new-parens": "error",
         "no-bitwise": "error",
         "no-caller": "error",
         "no-cond-assign": "error",
@@ -183,7 +165,6 @@ module.exports = {
         "no-eval": "error",
         "no-fallthrough": "error",
         "no-invalid-this": "off",
-        "no-multiple-empty-lines": "error",
         "no-new-wrappers": "error",
         "no-restricted-imports": ["error", "rxjs/Rx"],
         "no-shadow": [
@@ -193,7 +174,6 @@ module.exports = {
             }
         ],
         "no-throw-literal": "error",
-        "no-trailing-spaces": "error",
         "no-undef-init": "error",
         "no-underscore-dangle": "off",
         "no-unsafe-finally": "error",
@@ -203,7 +183,6 @@ module.exports = {
         "one-var": ["error", "never"],
         "prefer-arrow-callback": "error",
         "prefer-const": "error",
-        //"radix": "error",
         "spaced-comment": [
             "error",
             "always",
