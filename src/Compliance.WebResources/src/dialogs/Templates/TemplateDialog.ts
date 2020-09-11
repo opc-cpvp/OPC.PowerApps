@@ -63,13 +63,13 @@ export namespace Dialogs {
             this._documentContext = windowContext.document;
         }
 
-        public async init() {
+        public async init(): Promise<void> {
             try {
                 let loginHint: string;
                 this._windowContext.parent.document.getElementById("defaultDialogChromeTitle").innerHTML = this._i18n.t(
                     "template:dialog.title"
                 );
-                this._placeholder = <HTMLDivElement>this._documentContext.getElementById("dialog");
+                this._placeholder = this._documentContext.getElementById("dialog") as HTMLDivElement;
                 this._complaintId = this.getDataParameter();
 
                 const promiseArray: [Promise<ComplaintWithRelationships>, Promise<string>, Promise<string>] = [
@@ -106,7 +106,9 @@ export namespace Dialogs {
             cancelButton.addEventListener("click", () => this.closePage());
             this._documentContext.addEventListener("submit", x => {
                 x.preventDefault();
-                this.generateDocument_onClick();
+                this.generateDocument_onClick().catch(error => {
+                    console.error(error);
+                });
             });
         }
 
@@ -150,12 +152,12 @@ export namespace Dialogs {
         }
 
         private async generateDocument_onClick() {
-            const selectElement: HTMLSelectElement = <HTMLSelectElement>this._documentContext.getElementById("select-template");
-            const inputElement: HTMLInputElement = <HTMLInputElement>this._documentContext.getElementById("file-name");
+            const selectElement: HTMLSelectElement = this._documentContext.getElementById("select-template") as HTMLSelectElement;
+            const inputElement: HTMLInputElement = this._documentContext.getElementById("file-name") as HTMLInputElement;
             const xmlSerializer: XMLSerializer = new this._windowContext.XMLSerializer();
             const serializedXML = xmlSerializer.serializeToString(this.generateComplaintXml());
 
-            this._complaintService.getSharePointDocumentLocation(this._complaintId).then(documentLocation => {
+            await this._complaintService.getSharePointDocumentLocation(this._complaintId).then(documentLocation => {
                 this._caseDocumentsLocationRelativeUrl = `/sites/PowerAppsSandbox/opc_complaint/${documentLocation.relativeurl}`;
                 this._sharePointService
                     .generateDocumentFromTemplate(
@@ -183,7 +185,7 @@ export namespace Dialogs {
         }
 
         private closePage(): void {
-            const button = <HTMLButtonElement>parent.document.getElementById("defaultDialogChromeCloseIconButton");
+            const button = parent.document.getElementById("defaultDialogChromeCloseIconButton") as HTMLButtonElement;
             button.click();
         }
 

@@ -24,7 +24,7 @@ export namespace Complaint.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_complaint.Main.Information, any>): void {
-            const formContext = <Form.opc_complaint.Main.Information>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.opc_complaint.Main.Information;
 
             // Register handlers
             formContext.data.process.addOnStageChange(x => this.process_OnStageChanged(x));
@@ -83,7 +83,7 @@ export namespace Complaint.Forms {
         }
 
         private getDuplicateStatus(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, any>, contactType: ContactType): void {
-            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
             const contactAttr = context.getEventSource();
             const contactValue = contactAttr.getValue();
 
@@ -102,7 +102,7 @@ export namespace Complaint.Forms {
                         this._contactService
                             .getPotentialDuplicates(contactResult)
                             .then(x => {
-                                if (x.length == 0) {
+                                if (x.length === 0) {
                                     XrmHelper.clearNotification(contactAttr);
                                     // Update other attribute that may use the same contact
                                     otherAffectedAttributes.forEach(c => XrmHelper.clearNotification(c.Attribute));
@@ -146,13 +146,13 @@ export namespace Complaint.Forms {
             contactType: ContactType,
             duplicateResult: opc_duplicatedetectionresult
         ) {
-            if (duplicateResult == opc_duplicatedetectionresult.Potentialduplicate) {
+            if (duplicateResult === opc_duplicatedetectionresult.Potentialduplicate) {
                 XrmHelper.setNotification(
                     contactAttr,
                     this._i18n.t("contact:duplicate.warning", { context: "potential", contactType }),
                     "WARNING"
                 );
-            } else if (duplicateResult == opc_duplicatedetectionresult.Duplicatefound) {
+            } else if (duplicateResult === opc_duplicatedetectionresult.Duplicatefound) {
                 XrmHelper.setNotification(
                     contactAttr,
                     this._i18n.t("contact:duplicate.warning", { context: "actual", contactType }),
@@ -169,7 +169,7 @@ export namespace Complaint.Forms {
          * @event OnChanged
          */
         private recommendtoregistrar_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_yesorno>, any>): void {
-            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
             const isRecommending = formContext.getAttribute("opc_recommendtoregistrar").getValue();
             const closeReasons = formContext.getAttribute("opc_closereason").getOptions();
 
@@ -184,13 +184,13 @@ export namespace Complaint.Forms {
                 // Clear options before adding the options valid for the current scenario
                 control.clearOptions();
                 if (isRecommending === opc_yesorno.Yes) {
-                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Redirection));
-                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Resolved));
-                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Withdrawn));
+                    control.addOption(closeReasons.find(p => p.value === opc_closereason.Redirection));
+                    control.addOption(closeReasons.find(p => p.value === opc_closereason.Resolved));
+                    control.addOption(closeReasons.find(p => p.value === opc_closereason.Withdrawn));
                 } else if (isRecommending === opc_yesorno.No) {
-                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Createdinerror));
-                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Duplicate));
-                    control.addOption(closeReasons.find(p => p.value == opc_closereason.Redirection));
+                    control.addOption(closeReasons.find(p => p.value === opc_closereason.Createdinerror));
+                    control.addOption(closeReasons.find(p => p.value === opc_closereason.Duplicate));
+                    control.addOption(closeReasons.find(p => p.value === opc_closereason.Redirection));
                 }
             });
             formContext.getAttribute("opc_closereason").setRequiredLevel(isRecommending === opc_yesorno.No ? "required" : "none");
@@ -206,7 +206,7 @@ export namespace Complaint.Forms {
          * @event OnChanged
          */
         private intakedisposition_OnChange(context?: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_intakedisposition>, any>): void {
-            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
 
             switch (formContext.getAttribute("opc_intakedisposition").getValue()) {
                 case opc_intakedisposition.Close:
@@ -238,7 +238,7 @@ export namespace Complaint.Forms {
          */
         private process_OnStageChanged(executionContext?: Xrm.StageChangeContext): void {
             // Relay context to reusable handler
-            const formContext = <Form.opc_complaint.Main.Information>executionContext.getFormContext();
+            const formContext = executionContext.getFormContext() as Form.opc_complaint.Main.Information;
             this.handle_StageStates(formContext);
         }
 
@@ -276,7 +276,7 @@ export namespace Complaint.Forms {
          * @event OnChanged
          */
         private multipleComplaintStrategy_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            const formContext = <Form.opc_complaint.Main.Information>context.getFormContext();
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
             const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
             const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
             const complainantEntityReference = formContext.getAttribute("opc_complainant").getValue();

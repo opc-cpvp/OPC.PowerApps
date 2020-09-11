@@ -11,27 +11,27 @@ export class ContactHelper {
 
     static getNumberOfFieldMatches(contact: Contact_Result, potentialDuplicate: IBaseContact): IPotentialDuplicate {
         let numberOfFieldMatches = 0;
-        if (contact.emailaddress1 && potentialDuplicate.emailaddress1 == contact.emailaddress1) {
+        if (contact.emailaddress1 && potentialDuplicate.emailaddress1 === contact.emailaddress1) {
             numberOfFieldMatches++;
         }
         // Phone number fields can be interchangeable
         if (
             contact.telephone1 &&
-            (potentialDuplicate.telephone1 == contact.telephone1 || potentialDuplicate.telephone1 == contact.telephone2)
+            (potentialDuplicate.telephone1 === contact.telephone1 || potentialDuplicate.telephone1 === contact.telephone2)
         ) {
             numberOfFieldMatches++;
         }
         if (
             contact.telephone2 &&
-            (potentialDuplicate.telephone2 == contact.telephone1 || potentialDuplicate.telephone2 == contact.telephone2)
+            (potentialDuplicate.telephone2 === contact.telephone1 || potentialDuplicate.telephone2 === contact.telephone2)
         ) {
             numberOfFieldMatches++;
         }
-        if (contact.address1_postalcode && potentialDuplicate.address1_postalcode == contact.address1_postalcode) {
+        if (contact.address1_postalcode && potentialDuplicate.address1_postalcode === contact.address1_postalcode) {
             numberOfFieldMatches++;
         }
 
-        const potentialDuplicateWithMatches = <IPotentialDuplicate>potentialDuplicate;
+        const potentialDuplicateWithMatches = potentialDuplicate as IPotentialDuplicate;
         potentialDuplicateWithMatches.numberOfFieldMatches = numberOfFieldMatches;
 
         return potentialDuplicateWithMatches;

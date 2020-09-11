@@ -14,15 +14,15 @@ export class AuthService implements IAuthService {
             .then(response => {
                 accessToken = response.accessToken;
             })
-            .catch(async error => {
-                console.log(error);
+            .catch(async silentError => {
+                console.log(silentError);
                 await msalInstance
                     .acquireTokenPopup(tokenRequest)
                     .then(response => {
                         accessToken = response.accessToken;
                     })
-                    .catch(error => {
-                        console.log(error);
+                    .catch(popupError => {
+                        console.log(popupError);
                     });
             });
 

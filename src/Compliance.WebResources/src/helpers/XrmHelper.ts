@@ -1,14 +1,18 @@
 ﻿export class XrmHelper {
     private static readonly globalFormNotificationId: string = "opc_globalformnotification";
 
-    public static toggle(baseControl: Xrm.BaseControl, state: boolean, withReset?: boolean) {
-        state ? XrmHelper.toggleOn(baseControl, withReset) : XrmHelper.toggleOff(baseControl);
+    public static toggle(baseControl: Xrm.BaseControl, state: boolean, withReset?: boolean): void {
+        if (state) {
+            XrmHelper.toggleOn(baseControl, withReset);
+        } else {
+            XrmHelper.toggleOff(baseControl);
+        }
     }
 
     public static toggleOff(baseControl: Xrm.BaseControl): void {
         baseControl.setVisible(false);
 
-        const control = <Xrm.Control<Xrm.Attribute<any>>>baseControl;
+        const control = baseControl as Xrm.Control<Xrm.Attribute<any>>;
 
         if (!control.setDisabled) {
             return;
@@ -26,7 +30,7 @@
     }
 
     public static toggleOn(baseControl: Xrm.BaseControl, withReset?: boolean): void {
-        const control = <Xrm.Control<Xrm.Attribute<any>>>baseControl;
+        const control = baseControl as Xrm.Control<Xrm.Attribute<any>>;
         if (control.getAttribute) {
             // If withReset means that if its same visible value, reset before turning on
             if (withReset && baseControl.getVisible()) {
@@ -47,11 +51,11 @@
         ctrlOrAttr: Xrm.BaseControl | Xrm.Attribute<any>,
         message: string,
         level: Xrm.NotificationLevel = "ERROR"
-    ) {
+    ): void {
         const notificationid = ctrlOrAttr.getName();
         const setNotificationOnControl = (control: Xrm.BaseControl) => {
             // PCFs don't have setNotification or clearNotification functions
-            if (level == "ERROR" && control.setNotification) {
+            if (level === "ERROR" && control.setNotification) {
                 control.setNotification(message, notificationid);
             }
             control.getParent()?.getParent()?.getParent()?.setFormNotification(message, level, notificationid);

@@ -33,7 +33,7 @@ export namespace Contact.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.contact.Main.ComplianceContact, any>): void {
-            const formContext = <Form.contact.Main.ComplianceContact>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.contact.Main.ComplianceContact;
 
             // Register handlers
             formContext.getAttribute("opc_multiplecomplaintstrategy").addOnChange(x => this.multipleComplaintStrategy_OnChange(x));
@@ -59,7 +59,7 @@ export namespace Contact.Forms {
          * @event OnChanged
          */
         private multipleComplaintStrategy_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            const formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
+            const formContext = context.getFormContext() as Form.contact.Main.ComplianceContact;
 
             if (formContext.ui.getFormType() !== Xrm.FormType.Create) {
                 this.multipleComplaintStrategy_DisplayNotification(formContext);
@@ -127,7 +127,7 @@ export namespace Contact.Forms {
         private multipleComplaintStrategy_ConfirmDialog(
             context: Xrm.SaveEventContext<Xrm.PageEntity<Form.contact.Main.ComplianceContact.Attributes>>
         ): void {
-            const formContext = <Form.contact.Main.ComplianceContact>context.getFormContext();
+            const formContext = context.getFormContext() as Form.contact.Main.ComplianceContact;
             const multipleComplaintStrategy = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
             const mcsFieldIsDirty = formContext.getAttribute("opc_multiplecomplaintstrategy").getIsDirty();
 
@@ -141,14 +141,19 @@ export namespace Contact.Forms {
                 // the confirmation dialog is async and the save event will continue while the dialog is open.
                 context.getEventArgs().preventDefault();
 
-                this._xrmNavigation.openConfirmDialog(confirmStrings).then(success => {
-                    if (success.confirmed) {
-                        this._saveEventConfirmed = true;
-                        formContext.data.entity.save();
-                    } else {
-                        this._saveEventConfirmed = false;
-                    }
-                });
+                this._xrmNavigation
+                    .openConfirmDialog(confirmStrings)
+                    .then(success => {
+                        if (success.confirmed) {
+                            this._saveEventConfirmed = true;
+                            formContext.data.entity.save();
+                        } else {
+                            this._saveEventConfirmed = false;
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
             }
         }
     }

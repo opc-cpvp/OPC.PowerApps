@@ -1,5 +1,6 @@
 import { injectable, inject } from "inversify";
-import { PowerIFrameControl, IRiskAssessmentService } from "../../interfaces";
+import { IRiskAssessmentService } from "../../interfaces";
+import { PowerIFrameControl } from "../PowerIFrameControl";
 
 export namespace Controls {
     @injectable()
@@ -36,7 +37,7 @@ export namespace Controls {
             this._riskTable.classList.add("zui-table", "zui-table-highlight-all");
         }
 
-        public async init() {
+        public async init(): Promise<void> {
             // This registers an handler for the save-entity event dispatched from parent form
             super.init();
 
@@ -49,7 +50,7 @@ export namespace Controls {
                 .catch(() => console.error("error loading risk appetites"));
 
             // Fetch checklist and create controls
-            this._riskAssessmentService
+            await this._riskAssessmentService
                 .getRiskDefinitions(this._riskAssessmentId)
                 .then(
                     async riskDefinitions => {
@@ -63,6 +64,42 @@ export namespace Controls {
                     reason => console.error(reason)
                 )
                 .catch(() => console.error("error loading risk definitions"));
+        }
+
+        public save(): void {
+            const cells = this.documentContext.querySelectorAll("td[data-guid]");
+            const promises: Promise<void>[] = [];
+
+            cells.forEach((value, key, parent) => {
+                const id = value.getAttribute("data-guid");
+                const isSelected = value.classList.contains("is-selected");
+
+                const definition = this._riskDefinitions.find(d => d.opc_riskassessmentdefinitionid === id);
+
+                if (!definition) {
+                    return;
+                }
+
+                // Compare the value with the cached definition.
+                if (definition.opc_isselected !== isSelected) {
+                    promises.push(
+                        this._riskAssessmentService
+                            .updateRiskAssessmentDefinition(id, isSelected)
+                            .then(() => {
+                                // Update the cached definition.
+                                definition.opc_isselected = isSelected;
+                            })
+                            .catch(e => console.error(`error updating definition: ${e}`))
+                    );
+                }
+            });
+
+            // Once all the definitions have been saved, update the suggested risk.
+            Promise.all(promises)
+                .then(() => {
+                    this.updateSuggestedRisk();
+                })
+                .catch(e => console.error(`error updating suggested risk: ${e}`));
         }
 
         private getCategories() {
@@ -147,7 +184,7 @@ export namespace Controls {
                 const tableRow = this._riskTableBody.insertRow();
 
                 // Add the category header for the first factor.
-                if (i == 0) {
+                if (i === 0) {
                     const categoryHeader = this.documentContext.createElement("th");
                     categoryHeader.textContent = category.opc_name;
                     categoryHeader.rowSpan = factors.length;
@@ -187,7 +224,7 @@ export namespace Controls {
 
                     definitionCell.setAttribute("data-guid", definition.opc_riskassessmentdefinitionid);
                     definitionCell.onclick = (ev: MouseEvent) => {
-                        const cell = <HTMLTableCellElement>ev.target;
+                        const cell = ev.target as HTMLTableCellElement;
                         const definitionId = cell.getAttribute("data-guid");
 
                         const currentRow = cell.closest("tr");
@@ -217,7 +254,7 @@ export namespace Controls {
 
             // Get a list of appetites representing the definitions that were selected and order them based on their value (high to low)
             const appetites = this._riskAppetites
-                .filter(ra => definitions.find(d => d.opc_RiskAssessmentDefinitionTemplate.opc_riskappetite_guid == ra.opc_riskappetiteid))
+                .filter(ra => definitions.find(d => d.opc_RiskAssessmentDefinitionTemplate.opc_riskappetite_guid === ra.opc_riskappetiteid))
                 .sort((a, b) => {
                     if (a.opc_value < b.opc_value) {
                         return 1;
@@ -238,42 +275,6 @@ export namespace Controls {
                 .then(() => {
                     const event = new Event("entity-save-completed");
                     this.documentContext.dispatchEvent(event);
-                })
-                .catch(e => console.error(`error updating suggested risk: ${e}`));
-        }
-
-        public save(): void {
-            const cells = this.documentContext.querySelectorAll("td[data-guid]");
-            const promises: Promise<void>[] = [];
-
-            cells.forEach((value, key, parent) => {
-                const id = value.getAttribute("data-guid");
-                const isSelected = value.classList.contains("is-selected");
-
-                const definition = this._riskDefinitions.find(d => d.opc_riskassessmentdefinitionid === id);
-
-                if (!definition) {
-                    return;
-                }
-
-                // Compare the value with the cached definition.
-                if (definition.opc_isselected != isSelected) {
-                    promises.push(
-                        this._riskAssessmentService
-                            .updateRiskAssessmentDefinition(id, isSelected)
-                            .then(() => {
-                                // Update the cached definition.
-                                definition.opc_isselected = isSelected;
-                            })
-                            .catch(e => console.error(`error updating definition: ${e}`))
-                    );
-                }
-            });
-
-            // Once all the definitions have been saved, update the suggested risk.
-            Promise.all(promises)
-                .then(() => {
-                    this.updateSuggestedRisk();
                 })
                 .catch(e => console.error(`error updating suggested risk: ${e}`));
         }

@@ -19,7 +19,7 @@ export namespace Reminder.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_reminder.QuickCreate.QuickCreate, any>): void {
-            const formContext = <Form.opc_reminder.QuickCreate.QuickCreate>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.opc_reminder.QuickCreate.QuickCreate;
 
             // Register handlers
             formContext.data.entity.addOnSave(x => this.form_OnSave(x));
@@ -34,7 +34,7 @@ export namespace Reminder.Forms {
          * @event OnSave
          */
         private form_OnSave(context?: Xrm.SaveEventContext<Xrm.PageEntity<Form.opc_reminder.QuickCreate.QuickCreate.Attributes>>): void {
-            const formContext = <Form.opc_reminder.QuickCreate.QuickCreate>context.getFormContext();
+            const formContext = context.getFormContext() as Form.opc_reminder.QuickCreate.QuickCreate;
 
             // Get the controls and their values
             const notifyCaseOwnerControl = formContext.getControl("opc_notifycaseowner");
@@ -43,7 +43,7 @@ export namespace Reminder.Forms {
             const shouldNotifyCaseOwner = notifyCaseOwnerControl.getAttribute().getValue();
             const shouldNotifyReminderOwner = notifyReminderOwnerControl.getAttribute().getValue();
             const shouldNotifyAdditionalUsers = notifyAdditionalUsersControl.getAttribute().getValue();
-            const containsComplaint = context.getContext().getQueryStringParameters()["parentrecordtype"] == "opc_complaint";
+            const containsComplaint = context.getContext().getQueryStringParameters()["parentrecordtype"] === "opc_complaint";
 
             // Check if at least one person is to be notified
             if (!shouldNotifyCaseOwner && !shouldNotifyReminderOwner && !shouldNotifyAdditionalUsers) {

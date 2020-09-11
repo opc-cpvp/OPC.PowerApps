@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { PowerForm } from "../interfaces";
+import { PowerForm } from "./PowerForm";
 import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace RiskAssessment.Forms {
@@ -18,7 +18,7 @@ export namespace RiskAssessment.Forms {
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_riskassessment.Main.Information, any>): void {
             super.initializeComponents(initializationContext);
 
-            const formContext = <Form.opc_riskassessment.Main.Information>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.opc_riskassessment.Main.Information;
 
             formContext.getAttribute("opc_bypasssuggestedriskappetite").addOnChange(x => this.bypassSuggestedRiskAppetite_OnChange(x));
             formContext.getAttribute("opc_bypasssuggestedriskappetite").fireOnChange();
@@ -30,7 +30,7 @@ export namespace RiskAssessment.Forms {
          * @event OnChanged
          */
         private bypassSuggestedRiskAppetite_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            const formContext = <Form.opc_riskassessment.Main.Information>context.getFormContext();
+            const formContext = context.getFormContext() as Form.opc_riskassessment.Main.Information;
 
             const bypassSuggestedRiskAppetite = formContext.getAttribute("opc_bypasssuggestedriskappetite").getValue();
 

@@ -1,6 +1,7 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IAllegationService, PowerForm } from "../interfaces";
+import { IAllegationService } from "../interfaces";
+import { PowerForm } from "./PowerForm";
 import { XrmHelper } from "../helpers/XrmHelper";
 
 export namespace Allegation.Forms {
@@ -22,7 +23,7 @@ export namespace Allegation.Forms {
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_allegation.Main.Information, any>): void {
             super.initializeComponents(initializationContext);
             this._initializing = true;
-            const formContext = <Form.opc_allegation.Main.Information>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.opc_allegation.Main.Information;
 
             // If not in create mode, display checklist responses section containing iframe
             if (formContext.ui.getFormType() !== Xrm.FormType.Create) {
@@ -44,8 +45,8 @@ export namespace Allegation.Forms {
             this._initializing = false;
         }
 
-        private dispositionreason_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_dispositionreason">, undefined>): any {
-            const formContext = <Form.opc_allegation.Main.Information>context.getFormContext();
+        private dispositionreason_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_dispositionreason">, undefined>): void {
+            const formContext = context.getFormContext() as Form.opc_allegation.Main.Information;
             const value = formContext.getAttribute("opc_dispositionreasonid").getValue();
 
             // Only try to filter if there is a value
@@ -58,8 +59,8 @@ export namespace Allegation.Forms {
             }
         }
 
-        private disposition_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_allegationdisposition>, undefined>): any {
-            const formContext = <Form.opc_allegation.Main.Information>context.getFormContext();
+        private disposition_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_allegationdisposition>, undefined>): void {
+            const formContext = context.getFormContext() as Form.opc_allegation.Main.Information;
 
             // Hardcoding dispositions that have reasons to save a query roundtrip
             const isReasonAvailable = [opc_allegationdisposition.Unacceptable, opc_allegationdisposition.Resolved].includes(

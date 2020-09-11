@@ -21,7 +21,7 @@ export namespace Reminder.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_reminder.Main.Information, any>): void {
-            const formContext = <Form.opc_reminder.Main.Information>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.opc_reminder.Main.Information;
 
             // Register handlers
             formContext.data.entity.addOnSave(x => this.form_OnSave(x));
@@ -37,7 +37,7 @@ export namespace Reminder.Forms {
         private async form_OnSave(
             context?: Xrm.SaveEventContext<Xrm.PageEntity<Form.opc_reminder.Main.Information.Attributes>>
         ): Promise<void> {
-            const formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
+            const formContext = context.getFormContext() as Form.opc_reminder.Main.Information;
 
             // Because we cannot hook an onChange on the grid, we are pre-clearing on the save.
             XrmHelper.clearAllNotifications(formContext);

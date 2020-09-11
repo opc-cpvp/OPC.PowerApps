@@ -22,6 +22,9 @@ export class OpenTemplateDialogCommandHandler implements ICommandHandler {
             )
             .then(() => {
                 documentsSubgrid.refresh();
+            })
+            .catch(error => {
+                console.error(error);
             });
     }
 }

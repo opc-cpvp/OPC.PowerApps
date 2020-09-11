@@ -103,12 +103,16 @@ container.bind<i.ICommandHandler>(nameof<MergeContactCommandHandler>()).to(Merge
 container.bind<i.IQueryHandler>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
 
 // Language
-i18next.init({
-    resources: resources.resources,
-    defaultNS: "common",
-    fallbackLng: "en",
-    lng: Xrm.Utility.getGlobalContext().userSettings.languageId == 1033 ? "en" : "fr" // This works because page is reloaded when language is changed.
-});
+i18next
+    .init({
+        resources: resources.resources,
+        defaultNS: "common",
+        fallbackLng: "en",
+        lng: Xrm.Utility.getGlobalContext().userSettings.languageId === 1033 ? "en" : "fr" // This works because page is reloaded when language is changed.
+    })
+    .catch(error => {
+        console.error(error);
+    });
 container.bind<i18n>(nameof<i18n>()).toConstantValue(i18next);
 
 // Bootstrapper/Composition Root setup

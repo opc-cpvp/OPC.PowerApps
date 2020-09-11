@@ -95,7 +95,7 @@ describe("Reminder - QuickCreate", () => {
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
 
-        it("it should cancel the save operation if the user have not selected someone to be notified", async () => {
+        it("it should cancel the save operation if the user have not selected someone to be notified", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(false);
             mockContext.getFormContext().getAttribute("opc_notifyme").setValue(false);

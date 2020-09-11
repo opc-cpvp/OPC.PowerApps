@@ -1,5 +1,6 @@
 import { injectable, inject } from "inversify";
-import { PowerIFrameControl, IChecklistService } from "../../interfaces";
+import { IChecklistService } from "../../interfaces";
+import { PowerIFrameControl } from "../PowerIFrameControl";
 
 export namespace Controls {
     @injectable()
@@ -28,7 +29,7 @@ export namespace Controls {
             this._isCurrentLanguageEnglish = xrmContext.userSettings.languageId === 1033;
         }
 
-        public init() {
+        public init(): void {
             // This registers an handler for the save-entity event dispatched from parent form
             super.init();
 
@@ -53,6 +54,63 @@ export namespace Controls {
                     reason => console.error(reason)
                 )
                 .catch(() => console.error("error loading checklist responses"));
+        }
+
+        public save(): void {
+            const dirtyInputs = this._placeholder.getElementsByClassName("dirty");
+            const doubleDirtyRadios: string[] = [];
+
+            // Iterate over all dirty elements to persist the state
+            for (let i = 0; i < dirtyInputs.length; i++) {
+                const id: string = dirtyInputs[i].getAttribute("data-responseid");
+                let value: string = null;
+
+                // Extract ID and Values based on type of inputs
+                switch (dirtyInputs[i].tagName.toLowerCase()) {
+                    case "input": {
+                        const input = dirtyInputs[i] as HTMLInputElement;
+                        value = input.value;
+
+                        // Skip if its radio input and not the selected one
+                        if (input.type === "radio") {
+                            // If it's radio we want to ensure:
+                            //  - We are not sending multiple updates
+                            //  - We are updating to null when both values are unselected
+                            if (!input.checked) {
+                                // If all inputs of this group are unchecked, update response to null
+                                const relatedInputs = Array.from(this.documentContext.getElementsByName(input.name));
+                                if (
+                                    relatedInputs.every(di => !(di as HTMLInputElement).checked) &&
+                                    !doubleDirtyRadios.includes(input.name)
+                                ) {
+                                    value = null;
+                                    doubleDirtyRadios.push(input.name);
+                                } else {
+                                    continue;
+                                }
+                            }
+                        }
+
+                        break;
+                    }
+                    case "textarea": {
+                        value = (dirtyInputs[i] as HTMLTextAreaElement).value;
+                        break;
+                    }
+                    default: {
+                        console.log(`unsupported element type: ${dirtyInputs[i].tagName}`);
+                        continue;
+                    }
+                }
+
+                // Send update queries to checklist service
+                this._checklistService
+                    .updateChecklistResponse(id, value)
+                    .then(() => {
+                        dirtyInputs[i].classList.remove("dirty");
+                    })
+                    .catch(e => console.error(`error updating questions: ${e}`));
+            }
         }
 
         private addQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result): void {
@@ -147,7 +205,7 @@ ${cr.opc_response || ""}</textarea
             cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
         ) {
             // We don't know if its a toggle, but just in case we add in the array
-            this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response == "1" });
+            this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response === "1" });
 
             const questionHtml = /* HTML */ `<div id="q-${cr.opc_checklistresponseid}">
                     ${cr.opc_questiontemplateid.opc_sequence} -
@@ -160,7 +218,7 @@ ${cr.opc_response || ""}</textarea
                         name="q-${cr.opc_checklistresponseid}"
                         id="q-${cr.opc_checklistresponseid}-opt1"
                         value="1"
-                        ${cr.opc_response == "1" ? "checked" : ""}
+                        ${cr.opc_response === "1" ? "checked" : ""}
                         data-toggle="collapse"
                         data-target=".toggledby-${cr.opc_questiontemplateid_guid}"
                         data-responseid="${cr.opc_checklistresponseid}"
@@ -176,7 +234,7 @@ ${cr.opc_response || ""}</textarea
                         name="q-${cr.opc_checklistresponseid}"
                         id="q-${cr.opc_checklistresponseid}-opt2"
                         value="0"
-                        ${cr.opc_response == "0" ? "checked" : ""}
+                        ${cr.opc_response === "0" ? "checked" : ""}
                         data-toggle="collapse"
                         data-target=".toggledby-${cr.opc_questiontemplateid_guid}"
                         data-responseid="${cr.opc_checklistresponseid}"
@@ -186,57 +244,6 @@ ${cr.opc_response || ""}</textarea
                     >
                 </div>`;
             element.insertAdjacentHTML("beforeend", questionHtml);
-        }
-
-        public save(): void {
-            const dirtyInputs = this._placeholder.getElementsByClassName("dirty");
-            const doubleDirtyRadios: string[] = [];
-
-            // Iterate over all dirty elements to persist the state
-            for (let i = 0; i < dirtyInputs.length; i++) {
-                const id: string = dirtyInputs[i].getAttribute("data-responseid");
-                let value: string = null;
-
-                // Extract ID and Values based on type of inputs
-                switch (dirtyInputs[i].tagName.toLowerCase()) {
-                    case "input":
-                        const input = <HTMLInputElement>dirtyInputs[i];
-                        value = input.value;
-
-                        // Skip if its radio input and not the selected one
-                        if (input.type == "radio") {
-                            // If it's radio we want to ensure:
-                            //  - We are not sending multiple updates
-                            //  - We are updating to null when both values are unselected
-                            if (!input.checked) {
-                                // If all inputs of this group are unchecked, update response to null
-                                const relatedInputs = Array.from(this.documentContext.getElementsByName(input.name));
-                                if (relatedInputs.every(di => !(<HTMLInputElement>di).checked) && !doubleDirtyRadios.includes(input.name)) {
-                                    value = null;
-                                    doubleDirtyRadios.push(input.name);
-                                } else {
-                                    continue;
-                                }
-                            }
-                        }
-
-                        break;
-                    case "textarea":
-                        value = (<HTMLTextAreaElement>dirtyInputs[i]).value;
-                        break;
-                    default:
-                        console.log("unsupported element type:" + dirtyInputs[i].tagName);
-                        continue;
-                }
-
-                // Send update queries to checklist service
-                this._checklistService
-                    .updateChecklistResponse(id, value)
-                    .then(() => {
-                        dirtyInputs[i].classList.remove("dirty");
-                    })
-                    .catch(e => console.error("error updating questions:" + e));
-            }
         }
     }
 }
