@@ -3,6 +3,10 @@
 import { XrmUserSettingsMock } from "./XrmUserSettingsMock";
 
 export class XrmContextMock implements Xrm.context {
+    client: Xrm.client;
+    userSettings: Xrm.userSettings;
+    organizationSettings: Xrm.organizationSettings;
+
     private _kvps: any;
 
     constructor() {
@@ -10,12 +14,14 @@ export class XrmContextMock implements Xrm.context {
     }
 
     /* NEW MEMBERS TO HELP MOCKING */
-    setQueryStringParameters(keyvalues: any) {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    setQueryStringParameters(keyvalues: any): void {
         this._kvps = keyvalues;
     }
     /* END OF NEW MEMBERS */
 
-    getQueryStringParameters() {
+    getQueryStringParameters(): any {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return this._kvps;
     }
     getClientUrl(): string {
@@ -30,9 +36,6 @@ export class XrmContextMock implements Xrm.context {
         throw new Error("Method not implemented.");
     }
 
-    client: Xrm.client;
-    userSettings: Xrm.userSettings;
-    organizationSettings: Xrm.organizationSettings;
     getCurrentAppUrl(): string {
         return "https://fakeurl";
     }

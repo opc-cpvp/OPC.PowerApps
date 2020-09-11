@@ -4,6 +4,8 @@ import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmControlMock } from "./XrmControlMock";
 
 export class XrmAttributeMock implements Xrm.Attribute<any>, Xrm.OptionSetAttribute<any>, Xrm.LookupAttribute<any>, INamedComponent {
+    controls: XrmCollectionMock<XrmControlMock>;
+
     private _executionContext: XrmExecutionContextMock<any, any>;
     private _name: string;
     private _value: any;
@@ -11,8 +13,6 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, Xrm.OptionSetAttrib
     private _requiredLevel: Xrm.AttributeRequiredLevel;
     private _options: Xrm.Option<any>[] = [];
     private _isDirty: boolean;
-
-    controls: XrmCollectionMock<XrmControlMock>;
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this._executionContext = executionContext;
@@ -23,19 +23,21 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, Xrm.OptionSetAttrib
     setName(name: string): void {
         this._name = name;
     }
-    setOptions(options: Xrm.Option<any>[]) {
+    setOptions(options: Xrm.Option<any>[]): void {
         this._options = options;
         // Clone array into controls
         this.controls.forEach(a => a.setOptions([...options]));
     }
-    setIsDirty(isDirty: boolean) {
+    setIsDirty(isDirty: boolean): void {
         this._isDirty = isDirty;
     }
     /* END OF NEW MEMBERS*/
 
-    getValue() {
+    getValue(): any | null {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return this._value;
     }
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     setValue(val?: any): void {
         this._value = val;
     }
@@ -63,6 +65,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, Xrm.OptionSetAttrib
     addOnChange(functionRef: (context?: Xrm.ExecutionContext<this, any>) => any): void {
         this._onChangeHandlers.push(functionRef);
     }
+    // eslint-disable-next-line @typescript-eslint/ban-types
     removeOnChange(functionRef: Function): void {
         this._onChangeHandlers = this._onChangeHandlers.filter(f => f !== functionRef);
     }
@@ -93,16 +96,18 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, Xrm.OptionSetAttrib
     }
 
     /* BEGIN OptionSetAttribute Members */
-    getInitialValue() {
+    getInitialValue(): any | null {
         throw new Error("Method not implemented.");
     }
     getText(): string {
         throw new Error("Method not implemented.");
     }
-    getOption(value: string): Xrm.Option<any>;
-    getOption(value: any): Xrm.Option<any>;
-    getOption(value: any) {
-        return this._options.find(p => p.value == value);
+    getOption(value: string): Xrm.Option<any> | null;
+    // eslint-disable-next-line @typescript-eslint/unified-signatures, @typescript-eslint/explicit-module-boundary-types
+    getOption(value: any): Xrm.Option<any> | null;
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    getOption(value: any): Xrm.Option<any> | null {
+        return this._options.find(p => p.value === value);
     }
     getOptions(): Xrm.Option<any>[] {
         // TODO: Implement for testing

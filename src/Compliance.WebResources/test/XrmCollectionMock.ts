@@ -1,33 +1,16 @@
 ﻿import { INamedComponent } from "./INamedComponent";
-
-export class XrmCollectionBaseMock<T extends INamedComponent> implements Xrm.CollectionBase<T> {
-    protected args: any[];
-    protected type: new (...args: any[]) => T;
-
-    constructor(type: new (...args: any[]) => T, ...args: any[]) {
-        this.type = type;
-        this.args = args;
-    }
-
-    /* NEW MEMBERS TO HELP MOCKING */
-    collection: T[] = [];
-    /* END OF NEW MEMBERS*/
-
-    forEach(delegate: Xrm.ForEach<T>): void {
-        this.collection.forEach(delegate);
-    }
-
-    getLength(): number {
-        return this.collection.length;
-    }
-}
+import { XrmCollectionBaseMock } from "./XrmCollectionBaseMock";
 
 export class XrmCollectionMock<T extends INamedComponent> extends XrmCollectionBaseMock<T> implements Xrm.Collection<T> {
     get(): T[];
+    // eslint-disable-next-line @typescript-eslint/unified-signatures
     get(index: number): T;
+    // eslint-disable-next-line @typescript-eslint/unified-signatures
     get(name: string): T;
+    // eslint-disable-next-line @typescript-eslint/unified-signatures
     get(chooser: Xrm.CollectionChooser<T>): T[];
-    get(param?: any) {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    get(param?: any): T | T[] | null {
         let obj: T;
         let objInCollection: T;
         if (param === undefined || param === null) {
@@ -41,7 +24,7 @@ export class XrmCollectionMock<T extends INamedComponent> extends XrmCollectionB
             }
         }
         if (typeof param === "string") {
-            objInCollection = this.collection.find(t => t.getName() == param);
+            objInCollection = this.collection.find(t => t.getName() === param);
             obj = objInCollection ? objInCollection : new this.type(...this.args);
             if (!objInCollection) {
                 obj.setName(param);

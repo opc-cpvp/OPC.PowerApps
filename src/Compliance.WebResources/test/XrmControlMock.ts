@@ -7,10 +7,11 @@ export class XrmControlMock
     implements Xrm.Control<XrmAttributeMock>, Xrm.OptionSetControl<any>, XrmLookupControlMock, Xrm.SubGridControl<any> {
     private _isDisabled: boolean;
     private _options: Xrm.Option<any>[] = [];
+    // eslint-disable-next-line @typescript-eslint/ban-types
     private _onPreSearchHandlers: Function[] = [];
 
     /* NEW MEMBERS TO HELP MOCKING */
-    setOptions(options: Xrm.Option<any>[]) {
+    setOptions(options: Xrm.Option<any>[]): void {
         this._options = options;
     }
     /* END OF NEW MEMBERS*/
@@ -61,6 +62,7 @@ export class XrmControlMock
     getViewSelector(): Xrm.ViewSelector {
         throw new Error("Method not implemented.");
     }
+    // eslint-disable-next-line @typescript-eslint/ban-types
     removeOnLoad(reference: Function): void {
         throw new Error("Method not implemented.");
     }
@@ -107,9 +109,11 @@ export class XrmControlMock
     addCustomFilter(fetchXml: string, entityType?: string): void {
         throw new Error("Method not implemented.");
     }
+    // eslint-disable-next-line @typescript-eslint/ban-types
     addPreSearch(handler: Function): void {
         this._onPreSearchHandlers.push(handler);
     }
+    // eslint-disable-next-line @typescript-eslint/ban-types
     removePreSearch(handler: Function): void {
         this._onPreSearchHandlers = this._onPreSearchHandlers.filter(f => f !== handler);
     }

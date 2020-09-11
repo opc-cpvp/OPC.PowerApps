@@ -15,7 +15,7 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
     }
 
     /* NEW MEMBERS TO HELP MOCKING */
-    setControlType(type: Xrm.ControlType) {
+    setControlType(type: Xrm.ControlType): void {
         this._type = type;
     }
     setName(name: string): void {
@@ -24,7 +24,7 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
     getNotificationsLength(): number {
         return this._notifications.length;
     }
-    setParentSection(section: Xrm.PageSection) {
+    setParentSection(section: Xrm.PageSection): void {
         this._parentSection = section;
     }
     /* END OF NEW MEMBERS*/

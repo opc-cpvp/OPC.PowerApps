@@ -2,17 +2,18 @@
 import { XrmPageTabMock } from "./XrmPageTabMock";
 import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { XrmBaseControlMock } from "./XrmBaseControlMock";
+import { XrmFormNotificationMock } from "./XrmFormNotificationMock";
 
 export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.ControlCollection> {
-    private _context: XrmExecutionContextMock<any, any>;
-    private _formNotifications: any[] = [];
-    private _formType: Xrm.FormType;
-
     tabs: XrmCollectionMock<XrmPageTabMock>;
     controls: XrmCollectionMock<XrmBaseControlMock>;
     navigation: Xrm.navigation;
     process: Xrm.UiProcessModule;
     formSelector: Xrm.FormSelector;
+
+    private _context: XrmExecutionContextMock<any, any>;
+    private _formNotifications: XrmFormNotificationMock[] = [];
+    private _formType: Xrm.FormType;
 
     constructor(executionContext: XrmExecutionContextMock<any, any>, uiprocess: Xrm.UiProcessModule) {
         this.process = uiprocess;
@@ -25,13 +26,13 @@ export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.Cont
     getFormNotificationsLength(): number {
         return this._formNotifications.length;
     }
-    getFormNotification(uniqueId: string): any {
-        return this._formNotifications.find(x => x.uniqueId == uniqueId);
+    getFormNotification(uniqueId: string): XrmFormNotificationMock {
+        return this._formNotifications.find(x => x.uniqueId === uniqueId);
     }
-    getFormNotifications(): any {
+    getFormNotifications(): XrmFormNotificationMock[] {
         return this._formNotifications;
     }
-    setFormType(formType: Xrm.FormType) {
+    setFormType(formType: Xrm.FormType): void {
         this._formType = formType;
     }
     /* END OF NEW MEMBERS*/
@@ -61,15 +62,16 @@ export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.Cont
     }
     setFormNotification(message: string, level: Xrm.NotificationLevel, uniqueId: string): boolean {
         // Only add notifications if its not there. This is CRM behavior.
-        if (this._formNotifications.find(x => x.uniqueId == uniqueId)) {
+        if (this._formNotifications.find(x => x.uniqueId === uniqueId)) {
             return true;
         }
-        const notification = { message, level, uniqueId };
+        const notification = new XrmFormNotificationMock(message, level, uniqueId);
         return this._formNotifications.push(notification) > 0;
     }
     addOnLoad(myFunction: (context?: Xrm.OnLoadEventContext) => any): void {
         throw new Error("Method not implemented.");
     }
+    // eslint-disable-next-line @typescript-eslint/ban-types
     removeOnLoad(myFunction: Function): void {
         throw new Error("Method not implemented.");
     }

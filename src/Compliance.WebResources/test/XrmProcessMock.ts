@@ -13,13 +13,14 @@ export class XrmProcessMock implements Xrm.Process {
         this._stages = new XrmCollectionMock<XrmStageMock>(XrmStageMock);
     }
     /* NEW MEMBERS TO HELP MOCKING */
-    setStatus(status: Xrm.ProcessStatus) {
+    setStatus(status: Xrm.ProcessStatus): void {
         this._status = status;
     }
     /* addStage(stage: XrmStageMock) {
         this._stages.collection.push(stage);
     }*/
     /* END OF NEW MEMBERS*/
+
     getId(): string {
         return null;
     }

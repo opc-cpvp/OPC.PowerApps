@@ -13,7 +13,9 @@ export interface XrmLookupControlMock extends Xrm.Control<XrmAttributeMock> /* ,
     getDefaultView(): string;
     setDefaultView(guid: string): void;
     addCustomFilter(fetchXml: string, entityType?: string): void;
+    // eslint-disable-next-line @typescript-eslint/ban-types
     addPreSearch(handler: Function): void;
+    // eslint-disable-next-line @typescript-eslint/ban-types
     removePreSearch(handler: Function): void;
     setEntityTypes(entityTypes: string[]): void;
     getEntityTypes(): string[];

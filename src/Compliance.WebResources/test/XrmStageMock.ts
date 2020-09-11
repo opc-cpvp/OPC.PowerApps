@@ -7,7 +7,7 @@ export class XrmStageMock implements Xrm.Stage, INamedComponent {
     private _steps: Xrm.StageStep[];
 
     /* NEW MEMBERS TO HELP MOCKING */
-    setStatus(status: Xrm.StageStatus) {
+    setStatus(status: Xrm.StageStatus): void {
         this._status = status;
     }
     setName(name: string): void {
