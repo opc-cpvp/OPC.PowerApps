@@ -77,7 +77,7 @@ describe("Reminder - QuickCreate", () => {
             mockContext.getFormContext().data.entity.save();
 
             // Assert
-            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(3);
         });
 
         it("it should not display notifications if the user have selected someone to be notified",  () => {

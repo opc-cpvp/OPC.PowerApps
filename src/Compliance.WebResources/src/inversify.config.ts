@@ -2,6 +2,7 @@
 import { Bootstrapper } from "./bootstrapper";
 import { FormFactory } from "./factories/FormFactory";
 import { ControlFactory } from "./factories/ControlFactory";
+import { DialogFactory } from "./factories/DialogFactory";
 import * as i from "./interfaces";
 
 // Services
@@ -13,6 +14,9 @@ import { ChecklistService } from "./services/ChecklistService";
 import { ContactService } from "./services/ContactService";
 import { UserService } from "./services/UserService";
 import { RiskAssessmentService } from "./services/RiskAssessmentService";
+import { EnvironmentVariableService } from "./services/EnvironmentVariableService";
+import { AuthService } from "./services/AuthService";
+import { SharePointService } from "./services/SharePointService";
 
 // Forms
 import ComplaintMainForm = require("./forms/ComplaintMainForm");
@@ -34,12 +38,16 @@ import RiskAssessment = RiskAssessmentMainForm.RiskAssessment;
 import { Controls as ChecklistCtrl } from "./controls/Checklist/ChecklistControl";
 import { Controls as RiskAssessmentCtrl } from "./controls/RiskAssessment/RiskAssessmentControl";
 
+// Dialogs
+import { Dialogs as TemplateDialog } from "./dialogs/Templates/TemplateDialog";
+
 // Translations
 import i18next from 'i18next';
 import { i18n } from 'i18next';
 import * as resources from './resources.json';
 
 // Command handlers
+import { OpenTemplateDialogCommandHandler } from "./handlers/Commands/OpenTemplateDialogCommandHandler";
 import { MergeContactCommandHandler } from "./handlers/Commands/MergeContactCommandHandler";
 import { CheckDuplicatesQueryHandler } from "./handlers/Queries/CheckDuplicatesQueryHandler";
 
@@ -58,6 +66,9 @@ container.bind<i.IChecklistService>(nameof<i.IChecklistService>()).to(ChecklistS
 container.bind<i.IRiskAssessmentService>(nameof<i.IRiskAssessmentService>()).to(RiskAssessmentService);
 container.bind<i.IContactService>(nameof<i.IContactService>()).to(ContactService);
 container.bind<i.IUserService>(nameof<i.IUserService>()).to(UserService);
+container.bind<i.IEnvironmentVariableService>(nameof<i.IEnvironmentVariableService>()).to(EnvironmentVariableService);
+container.bind<i.IAuthService>(nameof<i.IAuthService>()).to(AuthService);
+container.bind<i.ISharePointService>(nameof<i.ISharePointService>()).to(SharePointService);
 
 // Register Forms
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);
@@ -72,13 +83,18 @@ container.bind<i.IPowerForm<Form.opc_riskassessment.Main.Information>>("opc_risk
 container.bind<ChecklistCtrl.ChecklistControl>(nameof<ChecklistCtrl.ChecklistControl>()).to(ChecklistCtrl.ChecklistControl);
 container.bind<RiskAssessmentCtrl.RiskAssessmentControl>(nameof<RiskAssessmentCtrl.RiskAssessmentControl>()).to(RiskAssessmentCtrl.RiskAssessmentControl);
 
+// Register dialogs
+container.bind<TemplateDialog.TemplateDialog>(nameof<TemplateDialog.TemplateDialog>()).to(TemplateDialog.TemplateDialog);
+
 // Other contexts
 container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Navigation);
 container.bind<Xrm.Utility>(nameof<Xrm.Utility>()).toConstantValue(Xrm.Utility);
 container.bind<Xrm.context>(nameof<Xrm.context>()).toDynamicValue(() => Xrm.Utility.getGlobalContext());
 container.bind<Document>(nameof<Document>()).toDynamicValue(() => window.document);
+container.bind<i.WindowContext>(nameof<Window>()).toDynamicValue(() => window);
 
 // Commands and queries
+container.bind<i.ICommandHandler>(nameof<OpenTemplateDialogCommandHandler>()).to(OpenTemplateDialogCommandHandler);
 container.bind<i.ICommandHandler>(nameof<MergeContactCommandHandler>()).to(MergeContactCommandHandler);
 container.bind<i.IQueryHandler>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
 
@@ -94,6 +110,7 @@ container.bind<i18n>(nameof<i18n>()).toConstantValue(i18next);
 // Bootstrapper/Composition Root setup
 container.bind<i.IFormFactory>(nameof<i.IFormFactory>()).toConstantValue(new FormFactory(container));
 container.bind<i.IControlFactory>(nameof<i.IControlFactory>()).toConstantValue(new ControlFactory(container));
+container.bind<i.IDialogFactory>(nameof<i.IDialogFactory>()).toConstantValue(new DialogFactory(container));
 container.bind<i.ICommandDispatcher>(nameof<i.ICommandDispatcher>()).toConstantValue(new CommandDispatcher(container));
 container.bind<i.IQueryDispatcher>(nameof<i.IQueryDispatcher>()).toConstantValue(new QueryDispatcher(container));
 container.resolve<Bootstrapper>(Bootstrapper);

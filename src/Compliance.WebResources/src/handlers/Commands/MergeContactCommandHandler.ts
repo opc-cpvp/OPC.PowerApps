@@ -20,7 +20,7 @@ export class MergeContactCommandHandler implements ICommandHandler {
         this._context = context;
     }
 
-    public execute<TForm extends ExtendedXrmPageBase>(field: string, context: TForm): void {
+    public execute<TForm extends ExtendedXrmPageBase>(context: TForm, field: string): void {
         const contact = context.getAttribute(field);
 
         // Get the contact and merge if a potential duplicate is found

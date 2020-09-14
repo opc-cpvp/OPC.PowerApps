@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Compliance.Plugins
 {
@@ -17,9 +18,16 @@ namespace Compliance.Plugins
         private const string PreImageAlias = "PreImage";
         private const string IsLocalizableAttribute = "opc_islocalizable";
         private const string Prefix = "|^|";
-
+        private const string NameField = "opc_name";
         private const string LanguageKey = "uilanguageid";
         private const string LanguageAttribute = "uilanguageid";
+
+        /// <summary>
+        /// Regex to match strings used for the multilangual plugin.
+        /// It first matches the double quote, followed by the prefix,
+        /// then matches anything (inlcuding escaped quotes) until it matches the end of the other double quotes
+        /// </summary>
+        private const string MultilangualStringPattern = "\"(\\|\\^\\|(?:(?=(\\\\?))\\2.)*?)\"";
 
         private readonly Dictionary<Language, string> LanguageSuffixes = new Dictionary<Language, string> {
             { Language.English, "english" },
@@ -48,6 +56,9 @@ namespace Compliance.Plugins
                         break;
                     case PluginMessage.RetrieveMultiple:
                         UnpackNameOnRetrieveMultiple(localContext);
+                        break;
+                    case PluginMessage.RetrieveTimelineWallRecords:
+                        UnpackNameOnRetrieveTimelineWallRecords(localContext);
                         break;
                     default:
                         break;
@@ -152,7 +163,7 @@ namespace Compliance.Plugins
             }
 
             // Store the packed value in the target entity
-            target["opc_name"] = $"{Prefix}{string.Join("|", names)}";
+            target[NameField] = $"{Prefix}{string.Join("|", names)}";
         }
 
         ///
@@ -189,15 +200,48 @@ namespace Compliance.Plugins
             }
         }
 
+        protected void UnpackNameOnRetrieveTimelineWallRecords(LocalPluginContext localContext)
+        {
+            if (!localContext.PluginExecutionContext.OutputParameters.Contains("TimelineWallRecords")
+                || localContext.PluginExecutionContext.OutputParameters["TimelineWallRecords"] == null)
+                return;
+
+            var outputParams = localContext.PluginExecutionContext.OutputParameters;
+
+            // Get and replace all timeline wall record names that are meant to be bilingual using a regex pattern
+            var languageTimeLineRecords = Regex.Replace(
+                outputParams["TimelineWallRecords"].ToString(),
+                MultilangualStringPattern,
+                m => $"\"{UnpackName(localContext, m.Groups[1].Value)}\"");
+
+            // Remove and add as the property is readonly
+            outputParams.Remove("TimelineWallRecords");
+            outputParams.Add(new KeyValuePair<string, object>("TimelineWallRecords", languageTimeLineRecords));
+        }
+
         private void SetLocalizableValue(LocalPluginContext localContext, Entity businessEntity)
         {
-            if (businessEntity.Attributes.ContainsKey("opc_name") && businessEntity["opc_name"].ToString().Contains(Prefix))
-                businessEntity["opc_name"] = UnpackName(localContext, businessEntity.GetAttributeValue<string>("opc_name"));
+            if (businessEntity.Attributes.ContainsKey(NameField) && businessEntity[NameField].ToString().Contains(Prefix))
+                businessEntity[NameField] = UnpackName(localContext, businessEntity.GetAttributeValue<string>(NameField));
 
-            foreach (var attribute in businessEntity.Attributes.Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(Prefix) ?? false)))
+            var attributes = businessEntity.Attributes
+                .Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(Prefix) ?? false));
+
+            var relatedEntities = businessEntity.RelatedEntities
+                .Where(x => x.Key.ToString().Contains("id"))
+                .SelectMany(x => x.Value.Entities
+                    .Where(entity => entity.Contains(NameField) && entity[NameField].ToString().Contains(Prefix))
+                );
+
+            foreach (var attribute in attributes)
             {
                 var entityReference = (EntityReference)attribute.Value;
                 entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
+            }
+
+            foreach (var entity in relatedEntities)
+            {
+                entity[NameField] = UnpackName(localContext, entity.GetAttributeValue<string>(NameField));
             }
         }
 

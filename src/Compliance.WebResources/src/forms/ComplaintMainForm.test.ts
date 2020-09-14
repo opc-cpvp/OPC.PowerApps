@@ -4,6 +4,7 @@ import { ContactService } from '../services/ContactService';
 import { IBaseContact } from '../interfaces';
 import { ContactType } from '../enums';
 import * as resources from '../resources.json';
+import { XrmControlMock } from '../../test/XrmControlMock';
 
 var chai = require("chai");
 var sinon = require("sinon");
@@ -117,7 +118,6 @@ describe("Complaint", () => {
             const getContactDup =
                 sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
                     .resolves([potentialDuplicate]);
-
             const contactsLookup = [
                 {
                     id: "233A4366-A101-4B59-9004-DA83CE087922",
@@ -125,8 +125,11 @@ describe("Complaint", () => {
                     entityType: "contact"
                 }
             ];
+            const complainantControl = new XrmControlMock(mockContext);
+            complainantControl.setName("opc_complainant");
 
             mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
+            mockContext.getFormContext().getAttribute("opc_complainant").controls.collection.push(complainantControl);
 
             // Act
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
@@ -153,7 +156,10 @@ describe("Complaint", () => {
                 }
             ];
 
+            const complainantControl = new XrmControlMock(mockContext);
+            complainantControl.setName("opc_complainant");
             mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
+            mockContext.getFormContext().getAttribute("opc_complainant").controls.collection.push(complainantControl);
 
             // Act
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
@@ -163,7 +169,7 @@ describe("Complaint", () => {
             await getContactDup;
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
-            contextSpy.getFormContext().ui.getFormNotification("duplicateNotificationId - " + ContactType.Complainant)
+            contextSpy.getFormContext().ui.getFormNotification("opc_complainant")
                 .message.should.equal(i18next.t("contact:duplicate.warning", { context: "potential", contactType: ContactType.Complainant }));
         });
 
@@ -182,7 +188,11 @@ describe("Complaint", () => {
                 }
             ];
 
+            const complainantControl = new XrmControlMock(mockContext);
+            complainantControl.setName("opc_complainant");
+
             mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
+            mockContext.getFormContext().getAttribute("opc_complainant").controls.collection.push(complainantControl);
 
             // Act
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
@@ -192,7 +202,7 @@ describe("Complaint", () => {
             await getContactDup;
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
-            contextSpy.getFormContext().ui.getFormNotification("duplicateNotificationId - " + ContactType.Complainant)
+            contextSpy.getFormContext().ui.getFormNotification("opc_complainant")
                 .message.should.equal(i18next.t("contact:duplicate.warning", { context: "actual", contactType: ContactType.Complainant }));
         });
 
@@ -273,11 +283,11 @@ describe("Complaint", () => {
             mockContext.getFormContext().getAttribute("opc_respondentrepresentative").setValue(contactsLookup);
             mockContext.getFormContext().getAttribute("opc_respondentlegalrepresentative").setValue(contactsLookup);
 
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.Complainant);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.ComplainantRepresentative);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.ComplainantLegalRepresentative);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.RespondentRepresentative);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.RespondentLegalRepresentative);
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantlegalrepresentative");
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_respondentrepresentative");
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_respondentlegalrepresentative");
 
             // Act
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
@@ -300,11 +310,11 @@ describe("Complaint", () => {
                 sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates))
                     .resolves([potentialDuplicate]);
 
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.Complainant);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.ComplainantRepresentative);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.ComplainantLegalRepresentative);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.RespondentRepresentative);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "duplicateNotificationId - " + ContactType.RespondentLegalRepresentative);
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantlegalrepresentative");
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_respondentrepresentative");
+            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_respondentlegalrepresentative");
 
             // Act
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();

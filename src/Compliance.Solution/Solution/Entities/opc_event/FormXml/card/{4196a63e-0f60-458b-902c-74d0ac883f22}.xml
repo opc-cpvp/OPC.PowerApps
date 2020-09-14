@@ -41,21 +41,21 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{11835886-c674-4a39-90f5-26c9926417d0}" showlabel="true" locklevel="0">
+                      <cell id="{a8c5edde-c0e2-62b3-25b0-a701192c7d73}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Priority" languagecode="1033" />
-                          <label description="Priorité" languagecode="1036" />
+                          <label description="Created By (Delegate)" languagecode="1033" />
+                          <label description="Créé par (délégué)" languagecode="1036" />
                         </labels>
-                        <control id="prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
+                        <control id="createdonbehalfby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdonbehalfby" disabled="false" />
                       </cell>
-                      <cell id="{1e41b3f4-d7da-4e4d-b84f-a97a922f7756}" showlabel="true" locklevel="0">
+                      <cell id="{9e4a26d2-e616-4ea8-a695-4bcc0c534463}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Due Date" languagecode="1033" />
-                          <label description="Date d’échéance" languagecode="1036" />
+                          <label description="Date Created" languagecode="1033" />
+                          <label description="Date de création" languagecode="1036" />
                         </labels>
-                        <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
+                        <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
                       </cell>
-                      <cell id="{c7af1e71-a5da-47a7-a8b4-0e72fbc40cb0}" showlabel="true" locklevel="0">
+                      <cell id="{0d4eeda3-269e-999b-cb45-47560d9464ae}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -79,12 +79,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{d3e8440b-9b3e-40a8-9937-3d87f5340acc}" showlabel="true" locklevel="0">
+                      <cell id="{e7ab259c-50de-a23d-5513-e3da0c3a2b49}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Regarding" languagecode="1033" />
-                          <label description="Concernant" languagecode="1036" />
+                          <label description="Name" languagecode="1033" />
                         </labels>
-                        <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -103,17 +102,19 @@
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
                       </cell>
-                      <cell id="{9e4a26d2-e616-4ea8-a695-4bcc0c534463}" showlabel="true" locklevel="0">
+                      <cell id="{d3e8440b-9b3e-40a8-9937-3d87f5340acc}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Date Created" languagecode="1033" />
-                          <label description="Date de création" languagecode="1036" />
+                          <label description="Regarding" languagecode="1033" />
+                          <label description="Concernant" languagecode="1036" />
                         </labels>
-                        <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
+                        <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false" />
                       </cell>
-                      <cell id="{2cbde160-78fd-4878-bf59-67603f6213df}" showlabel="true" locklevel="0">
+                      <cell id="{62918bac-130e-3985-4b18-7891a5a63e71}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Created By" languagecode="1033" />
+                          <label description="Créé par" languagecode="1036" />
                         </labels>
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
                       </cell>
                       <cell id="{1cc70bb2-c8f5-41c4-9559-1e44aa63d80b}" showlabel="true" locklevel="0">
                         <labels>

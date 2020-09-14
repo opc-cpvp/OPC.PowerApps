@@ -60,10 +60,8 @@ export class XrmUIModuleMock implements Xrm.UiModule<Xrm.TabCollection, Xrm.Cont
         return this._formNotifications.length < notificationCountBefore;
     }
     setFormNotification(message: string, level: Xrm.NotificationLevel, uniqueId: string): boolean {
-
         // Only add notifications if its not there. This is CRM behavior.
         if (this._formNotifications.find(x => x.uniqueId == uniqueId)) return true;
-
         let notification = { message: message, level: level, uniqueId: uniqueId };
         return this._formNotifications.push(notification) > 0;
     }

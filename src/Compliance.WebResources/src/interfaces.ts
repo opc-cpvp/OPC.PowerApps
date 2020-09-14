@@ -1,6 +1,10 @@
 ﻿import { injectable } from "inversify";
+import * as Msal from 'msal';
 
 export interface IComplaintService {
+    getComplaint(id: string): Promise<opc_complaint>
+    getComplaintWithRelationships(id: string): Promise<ComplaintWithRelationships>
+    getSharePointDocumentLocation(id: string): Promise<SharePointDocumentLocation>
 }
 
 export interface IAllegationService {
@@ -10,7 +14,7 @@ export interface IAllegationService {
 }
 
 export interface IReminderService {
-    hasAdditionalUsersToNotify(id: string) : Promise<boolean>
+    hasAdditionalUsersToNotify(id: string): Promise<boolean>
 }
 
 export interface INotificationService {
@@ -48,6 +52,20 @@ export interface IRiskAssessmentService {
 
 export interface IUserService {
     hasIntakeManagerPermissions(userSecurityRoles: Xrm.Collection<Xrm.Role>): boolean
+    getUserEmail(id: string): Promise<string>
+}
+
+export interface IEnvironmentVariableService {
+    getEnvironmentVariable(schemaName: string): Promise<string>
+}
+
+export interface ISharePointService {
+    getTemplates(sharePointSiteUrl: string, templatesFolderPath: string, accessToken: string): Promise<any[]>
+    generateDocumentFromTemplate(accessToken: string, caseFolderPath: string, templatePath: string, xmlData: string, documentName: string, sharePointSiteUrl: string): Promise<Xrm.WebApiResponse>
+}
+
+export interface IAuthService {
+    getAccessToken(msalConfig: Msal.Configuration, tokenRequest: Msal.AuthenticationParameters): Promise<string>
 }
 
 export interface IBaseContact {
@@ -62,6 +80,32 @@ export interface IBaseContact {
 
 export type IPotentialDuplicate = IBaseContact & { numberOfFieldMatches: number }
 
+export type WindowContext = Window & typeof globalThis
+
+export type TemplateEnvironmentVariable = {
+    applicationId: string;
+    tenantId: string;
+    sharePointSiteUrl: string;
+    templatesFolderPath: string;
+    tokenScope: string[];
+    authorityBaseUrl: string;
+}
+
+export type ComplaintWithRelationships = opc_complaint &
+{ opc_legislation: opc_legislation_Result } &
+{ opc_opcpriorityid: opc_opcpriority_Result } &
+{ opc_sectorid: opc_sector_Result } &
+{ opc_intakeofficer: SystemUser_Result } &
+{ owninguser: SystemUser_Result } &
+{ opc_complainant: Contact_Result } &
+{ opc_complainantrep: Contact_Result } &
+{ opc_complainantlegalrepresentative: Contact_Result } &
+{ opc_complainantlegalrepresentativefirm: Account_Result } &
+{ opc_accountid: Account_Result } &
+{ opc_respondentlegalrepresentativefirm: Account_Result } &
+{ opc_respondentrepresentative: Contact_Result } &
+{ opc_respondentlegalrepresentative: Contact_Result }
+
 export type ExtendedXrmPageBase = Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase> & { getAttribute(attributeName: string): Xrm.Attribute<any>, getControl(controlName: string): Xrm.AnyControl }
 
 export interface IFormFactory {
@@ -70,6 +114,10 @@ export interface IFormFactory {
 
 export interface IControlFactory {
     createControl<TControl extends IPowerControl>(controlName: string): TControl
+}
+
+export interface IDialogFactory {
+    createDialog<TDialog extends IPowerDialog>(dialogName: string): TDialog
 }
 
 export interface IPowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>> {
@@ -85,11 +133,11 @@ export interface IQueryHandler {
 }
 
 export interface ICommandDispatcher {
-    dispatch<TForm extends ExtendedXrmPageBase>(command: string, field: string, context: TForm): void
+    dispatch<TForm extends ExtendedXrmPageBase>(context: TForm, command: string, field?: string): void
 }
 
 export interface ICommandHandler {
-    execute<TForm extends ExtendedXrmPageBase>(field: string, context: TForm): void
+    execute<TForm extends ExtendedXrmPageBase>(context: TForm, field?: string): void
 }
 
 @injectable()
@@ -156,7 +204,7 @@ export abstract class PowerIFrameControl implements IPowerControl {
         this.xrmContext = xrmContext;
     }
 
-    public initializeControl() {
+    public init() {
         // Add listener for parent form trigerred save event
         this.documentContext.addEventListener("entity-save", (e) => {
             this.save()
@@ -167,5 +215,9 @@ export abstract class PowerIFrameControl implements IPowerControl {
 }
 
 export interface IPowerControl {
-    initializeControl(): void
+    init(): void
+}
+
+export interface IPowerDialog {
+    init(): void
 }

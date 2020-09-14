@@ -1,80 +1,98 @@
 {
     "resources": {
-        "en": {
-            "common": {
-                "hello": "hello in english"
-            },
-            "contact": {
-                "type": {
-                    "complainant": "complainant",
-                    "complainantrepresentative": "representative",
-                    "complainantlegalrepresentative": "complainant legal representative",
-                    "respondentrepresentative": "respondent representative",
-                    "respondentlegalrepresentative": "respondent legal representative"
-                },
-                "mcs": {
-                    "confirmation": {
-                        "title": "Multiple Complaint Strategy Confirmation",
-                        "text": "You are about to include this contact in the Multiple Complaint Strategy list. Would you like to proceed?"
-                    },
-                    "warning_main": "{{fullname}} is part of the Multiple Complaint Strategy.",
-                    "warning_complaint": "The Complainant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
-                },
-              "duplicate": {
-                "warning_potential": "Please review $t(contact:type.{{contactType}}) contact, there's a potential duplicate contact. You can merge contacts by using the button on this form or by going to the 'Duplicate Contacts' view for more control.",
-                "warning_actual": "Please review $t(contact:type.{{contactType}}) contact, there's a duplicate contact. You can merge contacts by using the button on this form or by going to the 'Duplicate Contacts' view for more control.",
-                "error": {
-                  "no_potential_duplicate": "No potential duplicate found, no merging will happen.",
-                  "error_fetching": "Error fetching $t(contact:type.{{contactType}}).",
-                  "error_fetching_duplicates": "Error fetching duplicate contacts."
-                }
-              }
-            },
-            "reminder": {
-                "error": {
-                    "nobody_selected": "You must select at least one person to notify.",
-                    "case_must_be_linked": "To notify the case owner, you must have at least one case linked to the reminder."
-                }
-            }
+      "en": {
+        "common": {
+          "hello": "hello in english"
         },
-        "fr": {
-            "common": {
-                "hello": "allo en francais"
+        "contact": {
+          "type": {
+            "complainant": "complainant",
+            "complainantrepresentative": "representative",
+            "complainantlegalrepresentative": "complainant legal representative",
+            "respondentrepresentative": "respondent representative",
+            "respondentlegalrepresentative": "respondent legal representative"
+          },
+          "mcs": {
+            "confirmation": {
+              "title": "Multiple Complaint Strategy Confirmation",
+              "text": "You are about to include this contact in the Multiple Complaint Strategy list. Would you like to proceed?"
             },
-            "contact": {
-                "type": {
-                    "complainant": "plaignant",
-                    "representative": "représentant",
-                    "complainantlegalrepresentative": "représentant légal du plaignant",
-                    "respondentrepresentative": "représentant du répondent",
-                    "respondentlegalrepresentative": "représentant légal du répondent"
-                },
-                "mcs": {
-                    "confirmation": {
-                        "title": "Confirmation d'application de la Stratégie de Plaintes Multiple",
-                        "text": "Vous êtes sur le point d'appliquer la Stratégie de Plaintes Multiple à ce contact. Voulez vous continuer?"
-                    },
-                    "warning_main": "{{fullname}} fait partie de la Stratégie de Plainte Multiple.",
-                    "warning_complaint": "Le plaignant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
-                },
-              "duplicate": {
-                "warning_potential": "Veuillez réviser les informations de contact du $t(contact:type.{{contactType}}), c'est un doublon potentiel. Vous pouvez fusionner les contacts en utilisant le bouton sur le formualire ou en allant à la vue 'Doublons' sur la page du contact pour avoir plus de contrôle.",
-                "warning_actual": "Veuillez réviser les information de contact du $t(contact:type.{{contactType}}), c'est un doublon. Vous pouvez fusionner les contacts en utilisant le bouton sur le formualire ou en allant à la vue 'Doublons' sur la page du contact pour avoir plus de contrôle.",
-                "error": {
-                  "no_potential_duplicate": "Aucun doubon n'a été trouvé, aucune fusion n'aura lieu.",
-                  "error_fetching": "Erreur en allant chercher le contact $t(contact:type.{{contactType}})",
-                  "error_fetching_duplicates": "Erreur en allant chercher les contacts doublons"
-                }
-              }
-            },
-            "reminder": {
-                "error": {
-                    "global": "Il y a une erreur sur le formulaire.",
-                    "global_plural": "Il y a plusieurs erreurs sur le formulaire.",
-                    "nobody_selected": "Vous devez sélectionner au moins une personne à notifier. ",
-                    "case_must_be_linked": "Pour notifier le propriétaire du cas, votre rappel doit être lié à au moins un cas."
-                }
+            "warning_main": "{{fullname}} is part of the Multiple Complaint Strategy.",
+            "warning_complaint": "The Complainant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
+          },
+          "duplicate": {
+            "warning_potential": "Please review $t(contact:type.{{contactType}}) contact, there's a potential duplicate contact. You can merge contacts by using the button on this form or by going to the 'Duplicate Contacts' view for more control.",
+            "warning_actual": "Please review $t(contact:type.{{contactType}}) contact, there's a duplicate contact. You can merge contacts by using the button on this form or by going to the 'Duplicate Contacts' view for more control.",
+            "error": {
+              "no_potential_duplicate": "No potential duplicate found, no merging will happen.",
+              "error_fetching": "Error fetching $t(contact:type.{{contactType}}).",
+              "error_fetching_duplicates": "Error fetching duplicate contacts."
             }
+          }
+        },
+        "reminder": {
+          "error": {
+            "nobody_selected": "You must select at least one person to notify.",
+            "case_must_be_linked": "To notify the case owner, you must have at least one case linked to the reminder."
+          }
+        },
+        "template": {
+          "dialog": {
+            "title": "Document Generator",
+            "select_template": "Select a template:",
+            "file_name": "File name:",
+            "button_confirm": "Generate Document",
+            "button_cancel": "Cancel"
+          }
         }
+      },
+      "fr": {
+        "common": {
+          "hello": "allo en francais"
+        },
+        "contact": {
+          "type": {
+            "complainant": "plaignant",
+            "representative": "représentant",
+            "complainantlegalrepresentative": "représentant légal du plaignant",
+            "respondentrepresentative": "représentant du répondent",
+            "respondentlegalrepresentative": "représentant légal du répondent"
+          },
+          "mcs": {
+            "confirmation": {
+              "title": "Confirmation d'application de la Stratégie de Plaintes Multiple",
+              "text": "Vous êtes sur le point d'appliquer la Stratégie de Plaintes Multiple à ce contact. Voulez vous continuer?"
+            },
+            "warning_main": "{{fullname}} fait partie de la Stratégie de Plainte Multiple.",
+            "warning_complaint": "Le plaignant $t(contact:mcs.warning, { 'context': 'main', 'fullname': '{{fullname}}' })"
+          },
+          "duplicate": {
+            "warning_potential": "Veuillez réviser les informations de contact du $t(contact:type.{{contactType}}), c'est un doublon potentiel. Vous pouvez fusionner les contacts en utilisant le bouton sur le formualire ou en allant à la vue 'Doublons' sur la page du contact pour avoir plus de contrôle.",
+            "warning_actual": "Veuillez réviser les information de contact du $t(contact:type.{{contactType}}), c'est un doublon. Vous pouvez fusionner les contacts en utilisant le bouton sur le formualire ou en allant à la vue 'Doublons' sur la page du contact pour avoir plus de contrôle.",
+            "error": {
+              "no_potential_duplicate": "Aucun doubon n'a été trouvé, aucune fusion n'aura lieu.",
+              "error_fetching": "Erreur en allant chercher le contact $t(contact:type.{{contactType}})",
+              "error_fetching_duplicates": "Erreur en allant chercher les contacts doublons"
+            }
+          }
+        },
+        "reminder": {
+          "error": {
+            "global": "Il y a une erreur sur le formulaire.",
+            "global_plural": "Il y a plusieurs erreurs sur le formulaire.",
+            "nobody_selected": "Vous devez sélectionner au moins une personne à notifier. ",
+            "case_must_be_linked": "Pour notifier le propriétaire du cas, votre rappel doit être lié à au moins un cas."
+          }
+        },
+        "template": {
+          "dialog": {
+            "title": "Générateur de Documents",
+            "select_template": "Choisissez un gabarit:",
+            "file_name": "Nom du fichier:",
+            "button_confirm": "Générer Document",
+            "button_cancel": "Annuler"
+          }
+        }
+      }
     }
 }

@@ -63,7 +63,7 @@ describe("Merge Contact Handler", () => {
             fallbackLng: "en",
             lng: "en",
         });
-        
+
         mockExecutionContext.getFormContext().getAttribute("opc_complainant").setValue(complainantLookup);
     }
 
@@ -94,7 +94,7 @@ describe("Merge Contact Handler", () => {
                     .resolves([potentialDuplicate]);
 
             // Act
-            handler.execute("opc_complainant", mockExecutionContext.getFormContext());
+            handler.execute(mockExecutionContext.getFormContext(), "opc_complainant");
 
             // Assert
             await getContact;
@@ -134,7 +134,7 @@ describe("Merge Contact Handler", () => {
             mockExecutionContext.getFormContext().getAttribute("opc_complainant").setValue(complainantLookup);
 
             // Act
-            handler.execute("opc_complainant", mockExecutionContext.getFormContext());
+            handler.execute(mockExecutionContext.getFormContext(), "opc_complainant");
 
             // Assert
             await getContact;
@@ -150,7 +150,7 @@ describe("Merge Contact Handler", () => {
             mockExecutionContext.getFormContext().getAttribute("opc_complainant").setValue(complainantLookup);
 
             // Act
-            handler.execute("opc_complainant", mockExecutionContext.getFormContext());
+            handler.execute(mockExecutionContext.getFormContext(), "opc_complainant");
 
             // Assert
             await getContact;

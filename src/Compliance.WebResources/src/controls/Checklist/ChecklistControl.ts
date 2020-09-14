@@ -29,9 +29,9 @@ export namespace Controls {
             this._isCurrentLanguageEnglish = xrmContext.userSettings.languageId === 1033;
         }
 
-        public initializeControl() {
+        public init() {
             // This registers an handler for the save-entity event dispatched from parent form
-            super.initializeControl();
+            super.init();
 
             // Fetch question type to cross reference later
             const qTypesPromise = this._checklistService.getQuestionTypes()

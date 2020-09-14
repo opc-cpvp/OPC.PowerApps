@@ -39,9 +39,9 @@ export namespace Controls {
             this._riskTable.classList.add("zui-table", "zui-table-highlight-all");
         }
 
-        public async initializeControl() {
+        public async init() {
             // This registers an handler for the save-entity event dispatched from parent form
-            super.initializeControl();
+            super.init();
 
             // Fetch risk appetites to cross reference later
             const qRiskAppetitesPromise = this._riskAssessmentService.getRiskAppetites()

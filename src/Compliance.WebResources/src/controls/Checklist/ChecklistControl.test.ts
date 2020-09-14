@@ -46,7 +46,7 @@ describe("ChecklistControl", () => {
             sandbox.stub(service, 'getQuestionTypes').resolves([]);
 
             // Act
-            control.initializeControl();
+            control.init();
 
             // Assert
             addEventListener.should.have.been.calledOnce;
@@ -59,7 +59,7 @@ describe("ChecklistControl", () => {
             sandbox.stub(service, 'getChecklist').resolves([]);
 
             // Act
-            control.initializeControl();
+            control.init();
 
             // Assert
             getQuestionTypes.should.have.been.called;
@@ -72,7 +72,7 @@ describe("ChecklistControl", () => {
             sandbox.stub(service, 'getQuestionTypes').resolves([]);
 
             // Act
-            control.initializeControl();
+            control.init();
 
             // Assert
             getChecklist.should.have.been.called;
@@ -89,7 +89,7 @@ describe("ChecklistControl", () => {
             }));
 
             // Act
-            control.initializeControl();
+            control.init();
 
             // Assert
             forEachFake.should.not.have.been.called;
@@ -122,7 +122,7 @@ describe("ChecklistControl", () => {
             documentContext.body.appendChild(formElement);
 
             control = new Controls.ChecklistControl(xrmContext, documentContext, service);
-            control.initializeControl();
+            control.init();
         });
 
         afterEach(function () {
@@ -146,7 +146,7 @@ describe("ChecklistControl", () => {
             updateQuestionResponseStub.should.have.been.calledWith("1");
 
             //sandbox.restore();
-            //document.body.removeChild(formElement); 
+            //document.body.removeChild(formElement);
         });
 
 

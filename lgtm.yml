@@ -1,7 +1,13 @@
 path_classifiers:
+  generated:
+    - src/Compliance.Entities
+    - src/Compliance.Solution
   library:
-  - exclude "src/Compliance.WebResources/@types"
-  - exclude "src/Compliance.WebResources/js"
+    - src/Compliance.Solution/WARP.XrmSolutionAssistant
+  test:
+    - exclude: /
+    - src/Compliance.Plugins.Tests
+    - src/Compliance.WebResources/**/*.test.ts
 extraction:
   csharp:
     index:
@@ -11,4 +17,7 @@ extraction:
         platform: "Any CPU"
   javascript:
     index:
-      include: "src/Compliance.WebResources"
+      include: src/Compliance.WebResources
+      exclude:
+        - src/Compliance.WebResources/@types/xrmdefinitelytyped
+        - src/Compliance.WebResources/js
