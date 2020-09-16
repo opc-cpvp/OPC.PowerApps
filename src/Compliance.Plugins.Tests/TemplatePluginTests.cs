@@ -22,7 +22,6 @@ namespace Compliance.Plugins.Tests
 
         public class when_executing_the_plugin: IDisposable
         {
-            private ParameterCollection outputs = new ParameterCollection { { "Result", "" } };
             private ParameterCollection inputs = new ParameterCollection {
                     { "TemplatePath", "" },
                     { "XMLData", "" },
@@ -56,7 +55,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 // Act
@@ -74,7 +72,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 // Act
@@ -92,7 +89,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 // Act
@@ -110,7 +106,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 MockSharePointService.Setup(x => x.GetDocumentAsStream(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
@@ -131,7 +126,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 MockSharePointService.Setup(x => x.GenerateDocumentFromTemplate(It.IsAny<Stream>(), It.IsAny<string>()))
@@ -152,7 +146,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 MockSharePointService.Setup(x => x.AddFileToSharePoint(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<byte[]>()))
@@ -173,7 +166,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 MockSharePointService.Setup(x => x.GetDocumentAsStream(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
@@ -195,7 +187,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 MockSharePointService.Setup(x => x.GenerateDocumentFromTemplate(It.IsAny<Stream>(), It.IsAny<string>()))
@@ -217,7 +208,6 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.InputParameters = inputs;
-                pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.GenerateDocumentFromTemplate;
 
                 MockSharePointService.Setup(x => x.AddFileToSharePoint(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<byte[]>()))
