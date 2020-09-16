@@ -180,12 +180,6 @@ declare const enum contact_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
-declare const enum contact_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
 declare const enum contact_gendercode {
   Male = 1,
   Female = 2,
@@ -229,16 +223,16 @@ declare const enum contact_address3_freighttermscode {
 declare const enum contact_address3_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum contact_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
 declare const enum contact_accountrolecode {
   DecisionMaker = 1,
   Employee = 2,
   Influencer = 3,
-}
-declare const enum opc_multiplecomplaintstrategy {
-  NotApplied = 924340000,
-  Proposed = 924340001,
-  Applied = 924340002,
-  Former = 924340003,
 }
 declare const enum contact_statecode {
   Active = 0,
@@ -246,6 +240,12 @@ declare const enum contact_statecode {
 }
 declare const enum contact_address2_addresstypecode {
   DefaultValue = 1,
+}
+declare const enum opc_multiplecomplaintstrategy {
+  NotApplied = 924340000,
+  Proposed = 924340001,
+  Applied = 924340002,
+  Former = 924340003,
 }
 declare const enum contact_preferredappointmentdaycode {
   Sunday = 0,
@@ -411,7 +411,7 @@ declare const enum duplicaterule_baseentitytypecode {
   EmailHash = 4023,
   DisplayStringMap = 4101,
   DisplayString = 4102,
-  Notification = 4110,
+  Notification_2 = 4110,
   ExchangeSyncIdMapping = 4120,
   Activity = 4200,
   Appointment = 4201,
@@ -674,7 +674,7 @@ declare const enum duplicaterule_baseentitytypecode {
   IndividualComplaint = 10340,
   Issue = 10341,
   Legislation = 10342,
-  Notification_2 = 10343,
+  Notification = 10343,
   OPCPriority = 10344,
   QuestionTemplate = 10345,
   QuestionType = 10346,
@@ -823,7 +823,7 @@ declare const enum duplicaterule_matchingentitytypecode {
   EmailHash = 4023,
   DisplayStringMap = 4101,
   DisplayString = 4102,
-  Notification = 4110,
+  Notification_2 = 4110,
   ExchangeSyncIdMapping = 4120,
   Activity = 4200,
   Appointment = 4201,
@@ -1086,7 +1086,7 @@ declare const enum duplicaterule_matchingentitytypecode {
   IndividualComplaint = 10340,
   Issue = 10341,
   Legislation = 10342,
-  Notification_2 = 10343,
+  Notification = 10343,
   OPCPriority = 10344,
   QuestionTemplate = 10345,
   QuestionType = 10346,
@@ -1132,7 +1132,7 @@ declare const enum environmentvariabledefinition_type {
   Number = 100000001,
   Boolean = 100000002,
   JSON = 100000003,
-  Connectionreference = 100000004,
+  DataSource = 100000004,
 }
 declare const enum environmentvariablevalue_statecode {
   Active = 0,
@@ -1146,23 +1146,23 @@ declare const enum opc_allegation_statecode {
   Active = 0,
   Inactive = 1,
 }
+declare const enum opc_allegation_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum opc_allegationdisposition {
   Acceptable = 924340000,
   Unacceptable = 924340001,
   Withdrawn = 924340002,
   Resolved = 924340005,
 }
-declare const enum opc_allegation_statuscode {
+declare const enum opc_allegationtype_statuscode {
   Active = 1,
   Inactive = 2,
 }
 declare const enum opc_allegationtype_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_allegationtype_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum opc_checklistresponse_statecode {
   Active = 0,
@@ -1196,19 +1196,15 @@ declare const enum opc_complaintmilestone {
   EarlyResolution = 924340002,
   Investigation = 924340003,
 }
+declare const enum opc_intakedisposition {
+  MovetoEarlyResolution = 924340000,
+  MovetoInvestigation = 924340001,
+  Declinetoinvestigate = 924340002,
+  Close = 924340003,
+}
 declare const enum opc_complaint_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
 }
 declare const enum opc_closereason {
   Redirection = 924340000,
@@ -1221,11 +1217,15 @@ declare const enum opc_yesorno {
   Yes = 924340000,
   No = 924340001,
 }
-declare const enum opc_intakedisposition {
-  MovetoEarlyResolution = 924340000,
-  MovetoInvestigation = 924340001,
-  Declinetoinvestigate = 924340002,
-  Close = 924340003,
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
 }
 declare const enum opc_complaint_statuscode {
   Declined = 924340001,
@@ -1250,13 +1250,13 @@ declare const enum opc_dispositionaction_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionreason_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_dispositionreason_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_dispositionreason_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_event_instancetypecode {
   NotRecurring = 0,
@@ -1463,21 +1463,21 @@ declare const enum opc_sector_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_theme_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_theme_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_topic_statecode {
+declare const enum opc_theme_statecode {
   Active = 0,
   Inactive = 1,
 }
 declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_topic_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queue_outgoingemaildeliverymethod {
   None = 0,
@@ -12260,7 +12260,9 @@ interface WebEntitiesCUDA {
 }
 interface EnvironmentVariableDefinition_Base extends WebEntity {
   componentstate?: componentstate | null;
+  connectionid?: string | null;
   createdon?: Date | null;
+  datasourcetype?: string | null;
   defaultvalue?: string | null;
   description?: string | null;
   displayname?: string | null;
@@ -12299,9 +12301,12 @@ interface EnvironmentVariableDefinition_Update extends EnvironmentVariableDefini
 }
 interface EnvironmentVariableDefinition_Select {
   componentstate: WebAttribute<EnvironmentVariableDefinition_Select, { componentstate: componentstate | null }, { componentstate_formatted?: string }>;
+  connectionid: WebAttribute<EnvironmentVariableDefinition_Select, { connectionid: string | null }, {  }>;
+  connectionreferenceid_guid: WebAttribute<EnvironmentVariableDefinition_Select, { connectionreferenceid_guid: string | null }, { connectionreferenceid_formatted?: string }>;
   createdby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
   createdon: WebAttribute<EnvironmentVariableDefinition_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
   createdonbehalfby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  datasourcetype: WebAttribute<EnvironmentVariableDefinition_Select, { datasourcetype: string | null }, {  }>;
   defaultvalue: WebAttribute<EnvironmentVariableDefinition_Select, { defaultvalue: string | null }, {  }>;
   description: WebAttribute<EnvironmentVariableDefinition_Select, { description: string | null }, {  }>;
   displayname: WebAttribute<EnvironmentVariableDefinition_Select, { displayname: string | null }, {  }>;
@@ -12322,6 +12327,7 @@ interface EnvironmentVariableDefinition_Select {
   owningbusinessunit_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
   owningteam_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
   owninguser_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  parentdefinitionid_guid: WebAttribute<EnvironmentVariableDefinition_Select, { parentdefinitionid_guid: string | null }, { parentdefinitionid_formatted?: string }>;
   schemaname: WebAttribute<EnvironmentVariableDefinition_Select, { schemaname: string | null }, {  }>;
   solutionid: WebAttribute<EnvironmentVariableDefinition_Select, { solutionid: string | null }, {  }>;
   statecode: WebAttribute<EnvironmentVariableDefinition_Select, { statecode: environmentvariabledefinition_statecode | null }, { statecode_formatted?: string }>;
@@ -12335,9 +12341,12 @@ interface EnvironmentVariableDefinition_Select {
 }
 interface EnvironmentVariableDefinition_Filter {
   componentstate: componentstate;
+  connectionid: string;
+  connectionreferenceid_guid: XQW.Guid;
   createdby_guid: XQW.Guid;
   createdon: Date;
   createdonbehalfby_guid: XQW.Guid;
+  datasourcetype: string;
   defaultvalue: string;
   description: string;
   displayname: string;
@@ -12358,6 +12367,7 @@ interface EnvironmentVariableDefinition_Filter {
   owningbusinessunit_guid: XQW.Guid;
   owningteam_guid: XQW.Guid;
   owninguser_guid: XQW.Guid;
+  parentdefinitionid_guid: XQW.Guid;
   schemaname: string;
   solutionid: XQW.Guid;
   statecode: environmentvariabledefinition_statecode;
@@ -12381,6 +12391,7 @@ interface EnvironmentVariableDefinition_Expand {
 }
 interface EnvironmentVariableDefinition_FormattedResult {
   componentstate_formatted?: string;
+  connectionreferenceid_formatted?: string;
   createdby_formatted?: string;
   createdon_formatted?: string;
   createdonbehalfby_formatted?: string;
@@ -12393,12 +12404,14 @@ interface EnvironmentVariableDefinition_FormattedResult {
   owningbusinessunit_formatted?: string;
   owningteam_formatted?: string;
   owninguser_formatted?: string;
+  parentdefinitionid_formatted?: string;
   statecode_formatted?: string;
   statuscode_formatted?: string;
   type_formatted?: string;
 }
 interface EnvironmentVariableDefinition_Result extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
   "@odata.etag": string;
+  connectionreferenceid_guid: string | null;
   createdby_guid: string | null;
   createdonbehalfby_guid: string | null;
   modifiedby_guid: string | null;
@@ -12407,6 +12420,7 @@ interface EnvironmentVariableDefinition_Result extends EnvironmentVariableDefini
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
   owninguser_guid: string | null;
+  parentdefinitionid_guid: string | null;
 }
 interface EnvironmentVariableDefinition_RelatedOne {
   createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
