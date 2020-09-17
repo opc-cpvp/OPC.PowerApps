@@ -19,7 +19,7 @@ Write-Host "$duplicateRules.Count duplicate rules found"
      
 if($duplicateRules.Count -lt 1)
 {      
-    Write-Host "No duplicate rules found, stopping."
+    Write-Host "No duplicate rules found, halting script."
     Return
 }
 
@@ -41,7 +41,7 @@ if($PublishState -eq "published")
     foreach ($rule in $duplicateRules.CrmRecords)
     {
         write - host "unpublishing rule id: " $rule.duplicateruleid
-        $duplicateRuleToUnpublish = New - Object Microsoft.Crm.Sdk.Messages.UnpublishDuplicateRuleRequest
+        $duplicateRuleToUnpublish = New-Object Microsoft.Crm.Sdk.Messages.UnpublishDuplicateRuleRequest
         $duplicateRuleToUnpublish.DuplicateRuleId = $rule.duplicateruleid
         $response = $conn.ExecuteCrmOrganizationRequest($duplicateRuleToUnpublish, $trace)
         Write - Host "Rule Unpublished"
