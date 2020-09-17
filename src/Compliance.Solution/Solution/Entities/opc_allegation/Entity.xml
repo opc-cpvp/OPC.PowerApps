@@ -1035,6 +1035,20 @@
           </Descriptions>
         </attribute>
       </attributes>
+      <EntityKeys>
+        <EntityKey>
+          <Name>opc_referencenumber</Name>
+          <LogicalName>opc_referencenumber</LogicalName>
+          <IntroducedVersion>1.0.421</IntroducedVersion>
+          <IsCustomizable>0</IsCustomizable>
+          <EntityKeyAttributes>
+            <AttributeName>opc_referencenumber</AttributeName>
+          </EntityKeyAttributes>
+          <displaynames>
+            <displayname description="Reference Number" languagecode="1033" />
+          </displaynames>
+        </EntityKey>
+      </EntityKeys>
       <EntitySetName>opc_allegations</EntitySetName>
       <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>
       <IsBusinessProcessEnabled>0</IsBusinessProcessEnabled>

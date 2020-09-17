@@ -1,6 +1,76 @@
+declare const enum account_address1_addresstypecode {
+  BillTo = 1,
+  ShipTo = 2,
+  Primary = 3,
+  Other = 4,
+}
+declare const enum account_address1_shippingmethodcode {
+  Airborne = 1,
+  DHL = 2,
+  FedEx = 3,
+  UPS = 4,
+  PostalMail = 5,
+  FullLoad = 6,
+  WillCall = 7,
+}
+declare const enum account_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
+declare const enum account_accountcategorycode {
+  PreferredCustomer = 1,
+  Standard = 2,
+}
+declare const enum account_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum account_accountratingcode {
+  DefaultValue = 1,
+}
+declare const enum account_preferredappointmenttimecode {
+  Morning = 1,
+  Afternoon = 2,
+  Evening = 3,
+}
+declare const enum account_accountclassificationcode {
+  DefaultValue = 1,
+}
+declare const enum account_customertypecode {
+  Competitor = 1,
+  Consultant = 2,
+  Customer = 3,
+  Investor = 4,
+  Partner = 5,
+  Influencer = 6,
+  Press = 7,
+  Prospect = 8,
+  Reseller = 9,
+  Supplier = 10,
+  Vendor = 11,
+  Other = 12,
+}
 declare const enum account_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum account_ownershipcode {
+  Public = 1,
+  Private = 2,
+  Subsidiary = 3,
+  Other = 4,
+}
+declare const enum account_preferredcontactmethodcode {
+  Any = 1,
+  Email = 2,
+  Phone = 3,
+  Fax = 4,
+  Mail = 5,
+}
+declare const enum account_territorycode {
+  DefaultValue = 1,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -37,44 +107,20 @@ declare const enum account_industrycode {
   VehicleRetail = 32,
   Wholesale = 33,
 }
-declare const enum account_customersizecode {
-  DefaultValue = 1,
-}
-declare const enum account_accountratingcode {
-  DefaultValue = 1,
-}
-declare const enum account_address1_shippingmethodcode {
-  Airborne = 1,
-  DHL = 2,
-  FedEx = 3,
-  UPS = 4,
-  PostalMail = 5,
-  FullLoad = 6,
-  WillCall = 7,
-}
 declare const enum account_businesstypecode {
   DefaultValue = 1,
 }
 declare const enum account_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum account_preferredappointmenttimecode {
-  Morning = 1,
-  Afternoon = 2,
-  Evening = 3,
+declare const enum account_address2_addresstypecode {
+  DefaultValue = 1,
+}
+declare const enum account_customersizecode {
+  DefaultValue = 1,
 }
 declare const enum account_address2_shippingmethodcode {
   DefaultValue = 1,
-}
-declare const enum account_territorycode {
-  DefaultValue = 1,
-}
-declare const enum account_preferredcontactmethodcode {
-  Any = 1,
-  Email = 2,
-  Phone = 3,
-  Fax = 4,
-  Mail = 5,
 }
 declare const enum account_preferredappointmentdaycode {
   Sunday = 0,
@@ -85,65 +131,12 @@ declare const enum account_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum account_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
-declare const enum account_address1_addresstypecode {
-  BillTo = 1,
-  ShipTo = 2,
-  Primary = 3,
-  Other = 4,
-}
-declare const enum account_ownershipcode {
-  Public = 1,
-  Private = 2,
-  Subsidiary = 3,
-  Other = 4,
-}
 declare const enum account_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum account_address2_addresstypecode {
   DefaultValue = 1,
 }
 declare const enum account_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum account_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
-declare const enum account_customertypecode {
-  Competitor = 1,
-  Consultant = 2,
-  Customer = 3,
-  Investor = 4,
-  Partner = 5,
-  Influencer = 6,
-  Press = 7,
-  Prospect = 8,
-  Reseller = 9,
-  Supplier = 10,
-  Vendor = 11,
-  Other = 12,
-}
-declare const enum account_accountcategorycode {
-  PreferredCustomer = 1,
-  Standard = 2,
-}
-declare const enum account_accountclassificationcode {
-  DefaultValue = 1,
-}
-declare const enum activityparty_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -158,6 +151,13 @@ declare const enum activityparty_participationtypemask {
   Resource = 10,
   Customer = 11,
 }
+declare const enum activityparty_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
+}
 declare const enum contact_address3_addresstypecode {
   DefaultValue = 1,
 }
@@ -166,6 +166,10 @@ declare const enum contact_address1_addresstypecode {
   ShipTo = 2,
   Primary = 3,
   Other = 4,
+}
+declare const enum contact_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
 }
 declare const enum contact_address1_shippingmethodcode {
   Airborne = 1,
@@ -194,34 +198,10 @@ declare const enum contact_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_preferredlanguage {
-  English = 924340000,
-  French = 924340001,
+declare const enum contact_customertypecode {
+  DefaultValue = 1,
 }
 declare const enum contact_customersizecode {
-  DefaultValue = 1,
-}
-declare const enum contact_address2_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum contact_educationcode {
-  DefaultValue = 1,
-}
-declare const enum contact_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
-declare const enum contact_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
-declare const enum contact_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -231,28 +211,32 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
+declare const enum contact_address2_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_educationcode {
+  DefaultValue = 1,
+}
+declare const enum contact_address3_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_address3_shippingmethodcode {
+  DefaultValue = 1,
+}
 declare const enum contact_paymenttermscode {
   Net30 = 1,
   _210Net30 = 2,
   Net45 = 3,
   Net60 = 4,
 }
-declare const enum contact_territorycode {
-  DefaultValue = 1,
-}
-declare const enum contact_address3_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum contact_familystatuscode {
-  Single = 1,
-  Married = 2,
-  Divorced = 3,
-  Widowed = 4,
-}
 declare const enum contact_accountrolecode {
   DecisionMaker = 1,
   Employee = 2,
   Influencer = 3,
+}
+declare const enum contact_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum contact_address2_addresstypecode {
   DefaultValue = 1,
@@ -272,14 +256,34 @@ declare const enum contact_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum contact_customertypecode {
-  DefaultValue = 1,
+declare const enum opc_preferredlanguage {
+  English = 924340000,
+  French = 924340001,
 }
 declare const enum contact_haschildrencode {
   DefaultValue = 1,
 }
-declare const enum contact_address3_shippingmethodcode {
+declare const enum contact_familystatuscode {
+  Single = 1,
+  Married = 2,
+  Divorced = 3,
+  Widowed = 4,
+}
+declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
+}
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
+declare const enum contact_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum contact_territorycode {
+  DefaultValue = 1,
+}
+declare const enum duplicaterule_statecode {
+  Inactive = 0,
+  Active = 1,
 }
 declare const enum duplicaterule_baseentitytypecode {
   Account = 1,
@@ -605,83 +609,93 @@ declare const enum duplicaterule_baseentitytypecode {
   EmailSignature = 9997,
   SolutionHistory = 10000,
   SolutionHistoryDataSource = 10001,
-  ComponentLayer = 10002,
-  ComponentLayerDataSource = 10003,
-  SolutionComponentSummary = 10004,
-  SolutionComponentDataSource = 10005,
-  KnowledgeArticleImage = 10006,
-  KnowledgeArticleTemplate = 10007,
-  ODatav4DataSource = 10008,
-  AIFormProcessingDocument = 10009,
-  AIObjectDetectionImage = 10010,
-  AIObjectDetectionLabel = 10011,
-  AIObjectDetectionBoundingBox = 10012,
-  AIObjectDetectionImageMapping = 10013,
-  WorkflowBinary = 10015,
-  HelpPage = 10016,
-  AnalysisComponent = 10029,
-  AnalysisJob = 10030,
-  AnalysisResult = 10031,
-  AnalysisResultDetail = 10032,
-  SolutionHealthRule = 10033,
-  SolutionHealthRuleArgument = 10034,
-  SolutionHealthRuleSet = 10035,
-  ApiSettings = 10049,
-  SolutionComponentAttributeConfiguration = 10056,
-  AIBuilderDataset = 10468,
-  AIBuilderDatasetFile = 10469,
-  AIBuilderDatasetsContainer = 10470,
-  AIBuilderFile = 10471,
-  AIBuilderFileAttachedData = 10472,
-  SolutionComponentConfiguration = 10494,
-  StageSolutionUpload = 10600,
-  ProcessStageParameter = 10626,
-  AIBuilderDatasetRecord = 10762,
-  ServiceConfiguration = 11174,
-  SLAKPI = 11175,
-  NonRelationalDataSource = 11176,
-  DataLakeWorkspace = 11177,
-  DataLakeWorkspacePermission = 11178,
-  ApplicationUser = 11179,
-  SolutionComponentRelationshipConfiguration = 11210,
-  ModelDrivenAppElement = 11240,
-  ModelDrivenAppComponentNodesEdge = 11241,
-  ModelDrivenAppComponentNode = 11242,
-  ModelDrivenAppSetting = 11243,
-  SettingDefinition = 11244,
-  ConnectionReference = 11245,
-  CanvasAppExtendedMetadata = 11246,
-  AllegationConcern = 11248,
-  AllegationType = 11249,
-  ChecklistResponse = 11250,
-  ChecklistType = 11251,
-  Complaint = 11252,
-  DispositionAction = 11253,
-  DispositionReason = 11254,
-  IndividualComplaint = 11255,
-  Issue = 11256,
-  Legislation = 11257,
-  Notification = 11258,
-  OPCPriority = 11259,
-  QuestionTemplate = 11260,
-  QuestionType = 11261,
-  Recommendation = 11262,
-  Reminder = 11263,
-  RiskAppetite = 11264,
-  RiskAssessment = 11265,
-  RiskAssessmentCategory = 11266,
-  RiskAssessmentCategoryTemplate = 11267,
-  RiskAssessmentDefinition = 11268,
-  RiskAssessmentDefinitionTemplate = 11269,
-  RiskAssessmentFactorTemplate = 11270,
-  RiskAssessmentType = 11271,
-  Sector = 11272,
-  Theme = 11273,
-  Topic = 11274,
-  PDFSetting = 11278,
-  ExportSolutionUpload = 11279,
-  Event = 11280,
-  RichTextAttachment = 11281,
+  SolutionComponentAttributeConfiguration = 10002,
+  SolutionComponentConfiguration = 10003,
+  ComponentLayer = 10004,
+  ComponentLayerDataSource = 10005,
+  StageSolutionUpload = 10006,
+  SolutionComponentSummary = 10007,
+  SolutionComponentDataSource = 10008,
+  ApiSettings = 10009,
+  ODatav4DataSource = 10011,
+  ProcessStageParameter = 10012,
+  WorkflowBinary = 10013,
+  ConnectionReference = 10014,
+  HelpPage = 10015,
+  AnalysisComponent = 10016,
+  AnalysisJob = 10017,
+  AnalysisResult = 10018,
+  AnalysisResultDetail = 10019,
+  SolutionHealthRule = 10020,
+  SolutionHealthRuleArgument = 10021,
+  SolutionHealthRuleSet = 10022,
+  KnowledgeArticleImage = 10023,
+  KnowledgeArticleTemplate = 10024,
+  NonRelationalDataSource = 10025,
+  AIBuilderDataset = 10026,
+  AIBuilderDatasetFile = 10027,
+  AIBuilderDatasetRecord = 10028,
+  AIBuilderDatasetsContainer = 10029,
+  AIBuilderFile = 10030,
+  AIBuilderFileAttachedData = 10031,
+  AIFormProcessingDocument = 10032,
+  AIObjectDetectionImage = 10033,
+  AIObjectDetectionLabel = 10034,
+  AIObjectDetectionBoundingBox = 10035,
+  AIObjectDetectionImageMapping = 10036,
+  DataLakeWorkspace = 10067,
+  DataLakeWorkspacePermission = 10068,
+  ApplicationUser = 10069,
+  SolutionComponentRelationshipConfiguration = 10110,
+  ModelDrivenAppElement = 10285,
+  ModelDrivenAppComponentNodesEdge = 10286,
+  ModelDrivenAppComponentNode = 10287,
+  ModelDrivenAppSetting = 10288,
+  SettingDefinition = 10289,
+  CanvasAppExtendedMetadata = 10320,
+  PDFSetting = 10321,
+  ServiceConfiguration = 10322,
+  SLAKPI = 10323,
+  ExportSolutionUpload = 10324,
+  RichTextAttachment = 10325,
+  CascadeGrantRevokeAccessRecordsTracker = 10326,
+  CascadeGrantRevokeAccessVersionTracker = 10327,
+  Package = 10328,
+  KnowledgeInteractionInsight = 10330,
+  KnowledgeSearchInsight = 10331,
+  AllegationConcern = 10332,
+  AllegationType = 10333,
+  ChecklistResponse = 10334,
+  ChecklistType = 10335,
+  Complaint = 10336,
+  DispositionAction = 10337,
+  DispositionReason = 10338,
+  Event = 10339,
+  IndividualComplaint = 10340,
+  Issue = 10341,
+  Legislation = 10342,
+  Notification = 10343,
+  OPCPriority = 10344,
+  QuestionTemplate = 10345,
+  QuestionType = 10346,
+  Recommendation = 10347,
+  Reminder = 10348,
+  RiskAppetite = 10349,
+  RiskAssessment = 10350,
+  RiskAssessmentCategory = 10351,
+  RiskAssessmentCategoryTemplate = 10352,
+  RiskAssessmentDefinition = 10353,
+  RiskAssessmentDefinitionTemplate = 10354,
+  RiskAssessmentFactorTemplate = 10355,
+  RiskAssessmentType = 10356,
+  Sector = 10357,
+  Theme = 10358,
+  Topic = 10359,
+}
+declare const enum duplicaterule_statuscode {
+  Unpublished = 0,
+  Publishing = 1,
+  Published = 2,
 }
 declare const enum duplicaterule_matchingentitytypecode {
   Account = 1,
@@ -1007,92 +1021,88 @@ declare const enum duplicaterule_matchingentitytypecode {
   EmailSignature = 9997,
   SolutionHistory = 10000,
   SolutionHistoryDataSource = 10001,
-  ComponentLayer = 10002,
-  ComponentLayerDataSource = 10003,
-  SolutionComponentSummary = 10004,
-  SolutionComponentDataSource = 10005,
-  KnowledgeArticleImage = 10006,
-  KnowledgeArticleTemplate = 10007,
-  ODatav4DataSource = 10008,
-  AIFormProcessingDocument = 10009,
-  AIObjectDetectionImage = 10010,
-  AIObjectDetectionLabel = 10011,
-  AIObjectDetectionBoundingBox = 10012,
-  AIObjectDetectionImageMapping = 10013,
-  WorkflowBinary = 10015,
-  HelpPage = 10016,
-  AnalysisComponent = 10029,
-  AnalysisJob = 10030,
-  AnalysisResult = 10031,
-  AnalysisResultDetail = 10032,
-  SolutionHealthRule = 10033,
-  SolutionHealthRuleArgument = 10034,
-  SolutionHealthRuleSet = 10035,
-  ApiSettings = 10049,
-  SolutionComponentAttributeConfiguration = 10056,
-  AIBuilderDataset = 10468,
-  AIBuilderDatasetFile = 10469,
-  AIBuilderDatasetsContainer = 10470,
-  AIBuilderFile = 10471,
-  AIBuilderFileAttachedData = 10472,
-  SolutionComponentConfiguration = 10494,
-  StageSolutionUpload = 10600,
-  ProcessStageParameter = 10626,
-  AIBuilderDatasetRecord = 10762,
-  ServiceConfiguration = 11174,
-  SLAKPI = 11175,
-  NonRelationalDataSource = 11176,
-  DataLakeWorkspace = 11177,
-  DataLakeWorkspacePermission = 11178,
-  ApplicationUser = 11179,
-  SolutionComponentRelationshipConfiguration = 11210,
-  ModelDrivenAppElement = 11240,
-  ModelDrivenAppComponentNodesEdge = 11241,
-  ModelDrivenAppComponentNode = 11242,
-  ModelDrivenAppSetting = 11243,
-  SettingDefinition = 11244,
-  ConnectionReference = 11245,
-  CanvasAppExtendedMetadata = 11246,
-  AllegationConcern = 11248,
-  AllegationType = 11249,
-  ChecklistResponse = 11250,
-  ChecklistType = 11251,
-  Complaint = 11252,
-  DispositionAction = 11253,
-  DispositionReason = 11254,
-  IndividualComplaint = 11255,
-  Issue = 11256,
-  Legislation = 11257,
-  Notification = 11258,
-  OPCPriority = 11259,
-  QuestionTemplate = 11260,
-  QuestionType = 11261,
-  Recommendation = 11262,
-  Reminder = 11263,
-  RiskAppetite = 11264,
-  RiskAssessment = 11265,
-  RiskAssessmentCategory = 11266,
-  RiskAssessmentCategoryTemplate = 11267,
-  RiskAssessmentDefinition = 11268,
-  RiskAssessmentDefinitionTemplate = 11269,
-  RiskAssessmentFactorTemplate = 11270,
-  RiskAssessmentType = 11271,
-  Sector = 11272,
-  Theme = 11273,
-  Topic = 11274,
-  PDFSetting = 11278,
-  ExportSolutionUpload = 11279,
-  Event = 11280,
-  RichTextAttachment = 11281,
-}
-declare const enum duplicaterule_statuscode {
-  Unpublished = 0,
-  Publishing = 1,
-  Published = 2,
-}
-declare const enum duplicaterule_statecode {
-  Inactive = 0,
-  Active = 1,
+  SolutionComponentAttributeConfiguration = 10002,
+  SolutionComponentConfiguration = 10003,
+  ComponentLayer = 10004,
+  ComponentLayerDataSource = 10005,
+  StageSolutionUpload = 10006,
+  SolutionComponentSummary = 10007,
+  SolutionComponentDataSource = 10008,
+  ApiSettings = 10009,
+  ODatav4DataSource = 10011,
+  ProcessStageParameter = 10012,
+  WorkflowBinary = 10013,
+  ConnectionReference = 10014,
+  HelpPage = 10015,
+  AnalysisComponent = 10016,
+  AnalysisJob = 10017,
+  AnalysisResult = 10018,
+  AnalysisResultDetail = 10019,
+  SolutionHealthRule = 10020,
+  SolutionHealthRuleArgument = 10021,
+  SolutionHealthRuleSet = 10022,
+  KnowledgeArticleImage = 10023,
+  KnowledgeArticleTemplate = 10024,
+  NonRelationalDataSource = 10025,
+  AIBuilderDataset = 10026,
+  AIBuilderDatasetFile = 10027,
+  AIBuilderDatasetRecord = 10028,
+  AIBuilderDatasetsContainer = 10029,
+  AIBuilderFile = 10030,
+  AIBuilderFileAttachedData = 10031,
+  AIFormProcessingDocument = 10032,
+  AIObjectDetectionImage = 10033,
+  AIObjectDetectionLabel = 10034,
+  AIObjectDetectionBoundingBox = 10035,
+  AIObjectDetectionImageMapping = 10036,
+  DataLakeWorkspace = 10067,
+  DataLakeWorkspacePermission = 10068,
+  ApplicationUser = 10069,
+  SolutionComponentRelationshipConfiguration = 10110,
+  ModelDrivenAppElement = 10285,
+  ModelDrivenAppComponentNodesEdge = 10286,
+  ModelDrivenAppComponentNode = 10287,
+  ModelDrivenAppSetting = 10288,
+  SettingDefinition = 10289,
+  CanvasAppExtendedMetadata = 10320,
+  PDFSetting = 10321,
+  ServiceConfiguration = 10322,
+  SLAKPI = 10323,
+  ExportSolutionUpload = 10324,
+  RichTextAttachment = 10325,
+  CascadeGrantRevokeAccessRecordsTracker = 10326,
+  CascadeGrantRevokeAccessVersionTracker = 10327,
+  Package = 10328,
+  KnowledgeInteractionInsight = 10330,
+  KnowledgeSearchInsight = 10331,
+  AllegationConcern = 10332,
+  AllegationType = 10333,
+  ChecklistResponse = 10334,
+  ChecklistType = 10335,
+  Complaint = 10336,
+  DispositionAction = 10337,
+  DispositionReason = 10338,
+  Event = 10339,
+  IndividualComplaint = 10340,
+  Issue = 10341,
+  Legislation = 10342,
+  Notification = 10343,
+  OPCPriority = 10344,
+  QuestionTemplate = 10345,
+  QuestionType = 10346,
+  Recommendation = 10347,
+  Reminder = 10348,
+  RiskAppetite = 10349,
+  RiskAssessment = 10350,
+  RiskAssessmentCategory = 10351,
+  RiskAssessmentCategoryTemplate = 10352,
+  RiskAssessmentDefinition = 10353,
+  RiskAssessmentDefinitionTemplate = 10354,
+  RiskAssessmentFactorTemplate = 10355,
+  RiskAssessmentType = 10356,
+  Sector = 10357,
+  Theme = 10358,
+  Topic = 10359,
 }
 declare const enum duplicaterulecondition_operatorcode {
   ExactMatch = 0,
@@ -1122,7 +1132,7 @@ declare const enum environmentvariabledefinition_type {
   Number = 100000001,
   Boolean = 100000002,
   JSON = 100000003,
-  Connectionreference = 100000004,
+  DataSource = 100000004,
 }
 declare const enum environmentvariablevalue_statecode {
   Active = 0,
@@ -1132,12 +1142,6 @@ declare const enum environmentvariablevalue_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_allegationdisposition {
-  Acceptable = 924340000,
-  Unacceptable = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340005,
-}
 declare const enum opc_allegation_statecode {
   Active = 0,
   Inactive = 1,
@@ -1146,13 +1150,19 @@ declare const enum opc_allegation_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_allegationtype_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_allegationdisposition {
+  Acceptable = 924340000,
+  Unacceptable = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340005,
 }
 declare const enum opc_allegationtype_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_allegationtype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_checklistresponse_statecode {
   Active = 0,
@@ -1166,12 +1176,12 @@ declare const enum opc_checklisttype_statecode {
   Active = 0,
   Inactive = 1,
 }
+declare const enum opc_complaintstage {
+  Intake = 924340000,
+}
 declare const enum opc_checklisttype_statuscode {
   Active = 1,
   Inactive = 2,
-}
-declare const enum opc_complaintstage {
-  Intake = 924340000,
 }
 declare const enum opc_nextstep {
   Transfertoinvestigations = 924340000,
@@ -1180,9 +1190,42 @@ declare const enum opc_nextstep {
   Settled = 924340003,
   Discontinued = 924340004,
 }
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
+}
+declare const enum opc_intakedisposition {
+  MovetoEarlyResolution = 924340000,
+  MovetoInvestigation = 924340001,
+  Declinetoinvestigate = 924340002,
+  Close = 924340003,
+}
+declare const enum opc_complaint_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
+}
 declare const enum opc_yesorno {
   Yes = 924340000,
   No = 924340001,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
 }
 declare const enum opc_complaint_statuscode {
   Declined = 924340001,
@@ -1199,39 +1242,6 @@ declare const enum opc_complaint_statuscode {
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
 }
-declare const enum opc_intakedisposition {
-  MovetoEarlyResolution = 924340000,
-  MovetoInvestigation = 924340001,
-  Declinetoinvestigate = 924340002,
-  Close = 924340003,
-}
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
-}
-declare const enum opc_complaintmilestone {
-  Triage = 924340000,
-  Intake = 924340001,
-  EarlyResolution = 924340002,
-  Investigation = 924340003,
-}
-declare const enum opc_complaint_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_closereason {
-  Redirection = 924340000,
-  Duplicate = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
-  Createdinerror = 924340004,
-}
 declare const enum opc_dispositionaction_statecode {
   Active = 0,
   Inactive = 1,
@@ -1240,34 +1250,13 @@ declare const enum opc_dispositionaction_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionreason_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_dispositionreason_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum socialprofile_community {
-  Other = 0,
-  Facebook = 1,
-  Twitter = 2,
-}
-declare const enum activitypointer_activitytypecode {
-  Appointment = 4201,
-  Email = 4202,
-  Fax = 4204,
-  Letter = 4207,
-  PhoneCall = 4210,
-  Task = 4212,
-  RecurringAppointment = 4251,
-  Event = 11280,
-}
-declare const enum opc_event_statuscode {
-  Open = 1,
-  Completed = 2,
-  Canceled = 3,
-  Scheduled = 4,
+declare const enum opc_dispositionreason_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_event_instancetypecode {
   NotRecurring = 0,
@@ -1292,14 +1281,30 @@ declare const enum opc_event_statecode {
   Canceled = 2,
   Scheduled = 3,
 }
+declare const enum socialprofile_community {
+  Other = 0,
+  Facebook = 1,
+  Twitter = 2,
+}
+declare const enum activitypointer_activitytypecode {
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  RecurringAppointment = 4251,
+  Event = 10339,
+}
+declare const enum opc_event_statuscode {
+  Open = 1,
+  Completed = 2,
+  Canceled = 3,
+  Scheduled = 4,
+}
 declare const enum opc_individualcomplaint_bp_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_individualcomplaint_bp_statuscode {
-  Active = 1,
-  Finished = 2,
-  Aborted = 3,
 }
 declare const enum processstage_category {
   Qualify = 0,
@@ -1315,6 +1320,11 @@ declare const enum processstage_category {
   Acceptance = 924340002,
   EarlyResoloution = 924340003,
   Investigation = 924340004,
+}
+declare const enum opc_individualcomplaint_bp_statuscode {
+  Active = 1,
+  Finished = 2,
+  Aborted = 3,
 }
 declare const enum opc_issue_statecode {
   Active = 0,
@@ -1357,13 +1367,13 @@ declare const enum opc_questiontemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_questiontype_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_questiontype_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_questiontype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_recommendation_statecode {
   Active = 0,
@@ -1413,13 +1423,13 @@ declare const enum opc_riskassessmentcategorytemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentdefinition_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_riskassessmentdefinition_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_riskassessmentdefinition_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_riskassessmentdefinitiontemplate_statecode {
   Active = 0,
@@ -1453,11 +1463,15 @@ declare const enum opc_sector_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum opc_theme_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum opc_theme_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_theme_statuscode {
+declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
 }
@@ -1465,9 +1479,31 @@ declare const enum opc_topic_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_topic_statuscode {
-  Active = 1,
-  Inactive = 2,
+declare const enum queue_outgoingemaildeliverymethod {
+  None = 0,
+  ServerSideSynchronizationorEmailRouter = 2,
+}
+declare const enum queue_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum queue_queuetypecode {
+  DefaultValue = 1,
+}
+declare const enum queue_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum queue_queueviewtype {
+  Public = 0,
+  Private = 1,
+}
+declare const enum queue_incomingemaildeliverymethod {
+  None = 0,
+  ServerSideSynchronizationorEmailRouter = 2,
+  ForwardMailbox = 3,
 }
 declare const enum queue_incomingemailfilteringmethod {
   Allemailmessages = 0,
@@ -1479,32 +1515,6 @@ declare const enum queue_incomingemailfilteringmethod {
 declare const enum queue_statuscode {
   Active = 1,
   Inactive = 2,
-}
-declare const enum queue_incomingemaildeliverymethod {
-  None = 0,
-  ServerSideSynchronizationorEmailRouter = 2,
-  ForwardMailbox = 3,
-}
-declare const enum queue_queuetypecode {
-  DefaultValue = 1,
-}
-declare const enum queue_outgoingemaildeliverymethod {
-  None = 0,
-  ServerSideSynchronizationorEmailRouter = 2,
-}
-declare const enum queue_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum queue_emailrouteraccessapproval {
-  Empty = 0,
-  Approved = 1,
-  PendingApproval = 2,
-  Rejected = 3,
-}
-declare const enum queue_queueviewtype {
-  Public = 0,
-  Private = 1,
 }
 declare const enum queueitem_statuscode {
   Active = 1,
@@ -1525,9 +1535,9 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10007,
-  Complaint = 11252,
-  Event = 11280,
+  KnowledgeArticleTemplate = 10024,
+  Complaint = 10336,
+  Event = 10339,
 }
 declare const enum sharepointsite_servicetype {
   SharePoint = 0,
@@ -1547,11 +1557,41 @@ declare const enum sharepointdocumentlocation_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum systemuser_address2_addresstypecode {
+declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
 }
-declare const enum systemuser_address2_shippingmethodcode {
+declare const enum systemuser_address1_shippingmethodcode {
   DefaultValue = 1,
+}
+declare const enum systemuser_preferredemailcode {
+  DefaultValue = 1,
+}
+declare const enum systemuser_outgoingemaildeliverymethod {
+  None = 0,
+  MicrosoftDynamics365forOutlook = 1,
+  ServerSideSynchronizationorEmailRouter = 2,
+}
+declare const enum systemuser_preferredphonecode {
+  MainPhone = 1,
+  OtherPhone = 2,
+  HomePhone = 3,
+  MobilePhone = 4,
+}
+declare const enum systemuser_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum systemuser_preferredaddresscode {
+  MailingAddress = 1,
+  OtherAddress = 2,
+}
+declare const enum systemuser_incomingemaildeliverymethod {
+  None = 0,
+  MicrosoftDynamics365forOutlook = 1,
+  ServerSideSynchronizationorEmailRouter = 2,
+  ForwardMailbox = 3,
 }
 declare const enum systemuser_accessmode {
   ReadWrite = 0,
@@ -1560,15 +1600,6 @@ declare const enum systemuser_accessmode {
   SupportUser = 3,
   Noninteractive = 4,
   DelegatedAdmin = 5,
-}
-declare const enum systemuser_address1_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum systemuser_address1_addresstypecode {
-  DefaultValue = 1,
-}
-declare const enum systemuser_preferredemailcode {
-  DefaultValue = 1,
 }
 declare const enum systemuser_caltype {
   Professional = 0,
@@ -1585,20 +1616,8 @@ declare const enum systemuser_caltype {
   FieldService = 11,
   ProjectService = 12,
 }
-declare const enum systemuser_preferredaddresscode {
-  MailingAddress = 1,
-  OtherAddress = 2,
-}
-declare const enum systemuser_incomingemaildeliverymethod {
-  None = 0,
-  MicrosoftDynamics365forOutlook = 1,
-  ServerSideSynchronizationorEmailRouter = 2,
-  ForwardMailbox = 3,
-}
-declare const enum systemuser_outgoingemaildeliverymethod {
-  None = 0,
-  MicrosoftDynamics365forOutlook = 1,
-  ServerSideSynchronizationorEmailRouter = 2,
+declare const enum systemuser_address2_addresstypecode {
+  DefaultValue = 1,
 }
 declare const enum systemuser_invitestatuscode {
   InvitationNotSent = 0,
@@ -1609,17 +1628,8 @@ declare const enum systemuser_invitestatuscode {
   InvitationRejected = 5,
   InvitationRevoked = 6,
 }
-declare const enum systemuser_emailrouteraccessapproval {
-  Empty = 0,
-  Approved = 1,
-  PendingApproval = 2,
-  Rejected = 3,
-}
-declare const enum systemuser_preferredphonecode {
-  MainPhone = 1,
-  OtherPhone = 2,
-  HomePhone = 3,
-  MobilePhone = 4,
+declare const enum systemuser_address2_shippingmethodcode {
+  DefaultValue = 1,
 }
 declare const enum team_type {
   Owner = 0,
@@ -1632,30 +1642,6 @@ declare const enum _team_membershiptype {
   Members = 1,
   Owners = 2,
   Guests = 3,
-}
-declare const enum connection_record1objecttypecode {
-  Account = 1,
-  Contact = 2,
-  User = 8,
-  Team = 9,
-  Position = 50,
-  SocialProfile = 99,
-  Territory = 2013,
-  Activity = 4200,
-  Appointment = 4201,
-  Email = 4202,
-  Fax = 4204,
-  Letter = 4207,
-  PhoneCall = 4210,
-  Task = 4212,
-  SocialActivity = 4216,
-  RecurringAppointment = 4251,
-  ProcessSession = 4710,
-  ChannelAccessProfileRule = 9400,
-  Goal = 9600,
-  KnowledgeBaseRecord = 9930,
-  KnowledgeArticle = 9953,
-  Event = 11280,
 }
 declare const enum connection_record2objecttypecode {
   Account = 1,
@@ -1679,15 +1665,39 @@ declare const enum connection_record2objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-  Event = 11280,
+  Event = 10339,
+}
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum connection_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum connection_record1objecttypecode {
+  Account = 1,
+  Contact = 2,
+  User = 8,
+  Team = 9,
+  Position = 50,
+  SocialProfile = 99,
+  Territory = 2013,
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  RecurringAppointment = 4251,
+  ProcessSession = 4710,
+  ChannelAccessProfileRule = 9400,
+  Goal = 9600,
+  KnowledgeBaseRecord = 9930,
+  KnowledgeArticle = 9953,
+  Event = 10339,
 }
 declare namespace Form.account.QuickCreate {
   namespace QuickCreate {
@@ -5365,9 +5375,6 @@ declare namespace Form.opc_complaint.Main {
       get(name: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
-      get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_accountid"): Xrm.LookupControl<"account">;
@@ -5460,9 +5467,6 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
-    getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
@@ -5504,7 +5508,6 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector"> | null;
       get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -5529,9 +5532,6 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
-      get(name: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-      get(name: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -5562,7 +5562,6 @@ declare namespace Form.opc_complaint.Quick {
     getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_sector"> | null;
     getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
-    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_complaint_statuscode> | null;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_process_opc_accountid"): Xrm.LookupControl<"account"> | null;
     getControl(controlName: "header_process_opc_closereason"): Xrm.OptionSetControl<opc_closereason> | null;
@@ -5582,9 +5581,6 @@ declare namespace Form.opc_complaint.Quick {
     getControl(controlName: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
-    getControl(controlName: "header_process_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode_1"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
-    getControl(controlName: "header_process_statuscode_2"): Xrm.OptionSetControl<opc_complaint_statuscode> | null;
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -5945,36 +5941,36 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep42 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep42_section1"): Xrm.PageSection;
+      interface StageStep40 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep40_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep47 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep47_section1"): Xrm.PageSection;
+      interface StageStep45 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep45_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep51 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep51_section1"): Xrm.PageSection;
+      interface StageStep49 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep49_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep59 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep59_section1"): Xrm.PageSection;
+      interface StageStep55 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep55_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep69 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep69_section1"): Xrm.PageSection;
+      interface StageStep63 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep63_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -5991,7 +5987,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_sectorid"): Xrm.LookupAttribute<"opc_complaints">;
       get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean>;
-      get(name: "statuscode"): Xrm.OptionSetAttribute<opc_individualcomplaint_bp_statuscode>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
@@ -6016,9 +6011,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter1"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter2"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter3"): Xrm.OptionSetControl<boolean>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode1"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode2"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -6030,11 +6022,11 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "StageStep29"): Xrm.PageTab<Tabs.StageStep29>;
       get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
       get(name: "StageStep34"): Xrm.PageTab<Tabs.StageStep34>;
-      get(name: "StageStep42"): Xrm.PageTab<Tabs.StageStep42>;
-      get(name: "StageStep47"): Xrm.PageTab<Tabs.StageStep47>;
-      get(name: "StageStep51"): Xrm.PageTab<Tabs.StageStep51>;
-      get(name: "StageStep59"): Xrm.PageTab<Tabs.StageStep59>;
-      get(name: "StageStep69"): Xrm.PageTab<Tabs.StageStep69>;
+      get(name: "StageStep40"): Xrm.PageTab<Tabs.StageStep40>;
+      get(name: "StageStep45"): Xrm.PageTab<Tabs.StageStep45>;
+      get(name: "StageStep49"): Xrm.PageTab<Tabs.StageStep49>;
+      get(name: "StageStep55"): Xrm.PageTab<Tabs.StageStep55>;
+      get(name: "StageStep63"): Xrm.PageTab<Tabs.StageStep63>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -6051,7 +6043,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_sectorid"): Xrm.LookupAttribute<"opc_complaints">;
     getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean>;
-    getAttribute(attributeName: "statuscode"): Xrm.OptionSetAttribute<opc_individualcomplaint_bp_statuscode>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_accountid"): Xrm.LookupControl<"opc_complaints">;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason"): Xrm.OptionSetControl<number>;
@@ -6071,9 +6062,6 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter1"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter2"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter3"): Xrm.OptionSetControl<boolean>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode1"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:statuscode2"): Xrm.OptionSetControl<opc_individualcomplaint_bp_statuscode>;
     getControl(controlName: string): undefined;
   }
 }
@@ -9343,6 +9331,7 @@ declare namespace Form.team.Main {
       get(name: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
       get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
       get(name: "description"): Xrm.Attribute<string>;
+      get(name: "membershiptype"): Xrm.OptionSetAttribute<_team_membershiptype>;
       get(name: "name"): Xrm.Attribute<string>;
       get(name: "queueid"): Xrm.LookupAttribute<"queue">;
       get(name: "teamtype"): Xrm.OptionSetAttribute<team_type>;
@@ -9358,6 +9347,7 @@ declare namespace Form.team.Main {
       get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
       get(name: "description"): Xrm.StringControl;
       get(name: "header_queueid"): Xrm.LookupControl<"queue">;
+      get(name: "membershiptype"): Xrm.OptionSetControl<_team_membershiptype>;
       get(name: "name"): Xrm.StringControl;
       get(name: "teamtype"): Xrm.OptionSetControl<team_type>;
       get(name: string): undefined;
@@ -9378,6 +9368,7 @@ declare namespace Form.team.Main {
     getAttribute(attributeName: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
     getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "membershiptype"): Xrm.OptionSetAttribute<_team_membershiptype>;
     getAttribute(attributeName: "name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
     getAttribute(attributeName: "teamtype"): Xrm.OptionSetAttribute<team_type>;
@@ -9388,6 +9379,7 @@ declare namespace Form.team.Main {
     getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
     getControl(controlName: "description"): Xrm.StringControl;
     getControl(controlName: "header_queueid"): Xrm.LookupControl<"queue">;
+    getControl(controlName: "membershiptype"): Xrm.OptionSetControl<_team_membershiptype>;
     getControl(controlName: "name"): Xrm.StringControl;
     getControl(controlName: "teamtype"): Xrm.OptionSetControl<team_type>;
     getControl(controlName: string): undefined;
@@ -12268,7 +12260,9 @@ interface WebEntitiesCUDA {
 }
 interface EnvironmentVariableDefinition_Base extends WebEntity {
   componentstate?: componentstate | null;
+  connectionid?: string | null;
   createdon?: Date | null;
+  datasourcetype?: string | null;
   defaultvalue?: string | null;
   description?: string | null;
   displayname?: string | null;
@@ -12307,9 +12301,12 @@ interface EnvironmentVariableDefinition_Update extends EnvironmentVariableDefini
 }
 interface EnvironmentVariableDefinition_Select {
   componentstate: WebAttribute<EnvironmentVariableDefinition_Select, { componentstate: componentstate | null }, { componentstate_formatted?: string }>;
+  connectionid: WebAttribute<EnvironmentVariableDefinition_Select, { connectionid: string | null }, {  }>;
+  connectionreferenceid_guid: WebAttribute<EnvironmentVariableDefinition_Select, { connectionreferenceid_guid: string | null }, { connectionreferenceid_formatted?: string }>;
   createdby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
   createdon: WebAttribute<EnvironmentVariableDefinition_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
   createdonbehalfby_guid: WebAttribute<EnvironmentVariableDefinition_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  datasourcetype: WebAttribute<EnvironmentVariableDefinition_Select, { datasourcetype: string | null }, {  }>;
   defaultvalue: WebAttribute<EnvironmentVariableDefinition_Select, { defaultvalue: string | null }, {  }>;
   description: WebAttribute<EnvironmentVariableDefinition_Select, { description: string | null }, {  }>;
   displayname: WebAttribute<EnvironmentVariableDefinition_Select, { displayname: string | null }, {  }>;
@@ -12330,6 +12327,7 @@ interface EnvironmentVariableDefinition_Select {
   owningbusinessunit_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
   owningteam_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
   owninguser_guid: WebAttribute<EnvironmentVariableDefinition_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  parentdefinitionid_guid: WebAttribute<EnvironmentVariableDefinition_Select, { parentdefinitionid_guid: string | null }, { parentdefinitionid_formatted?: string }>;
   schemaname: WebAttribute<EnvironmentVariableDefinition_Select, { schemaname: string | null }, {  }>;
   solutionid: WebAttribute<EnvironmentVariableDefinition_Select, { solutionid: string | null }, {  }>;
   statecode: WebAttribute<EnvironmentVariableDefinition_Select, { statecode: environmentvariabledefinition_statecode | null }, { statecode_formatted?: string }>;
@@ -12343,9 +12341,12 @@ interface EnvironmentVariableDefinition_Select {
 }
 interface EnvironmentVariableDefinition_Filter {
   componentstate: componentstate;
+  connectionid: string;
+  connectionreferenceid_guid: XQW.Guid;
   createdby_guid: XQW.Guid;
   createdon: Date;
   createdonbehalfby_guid: XQW.Guid;
+  datasourcetype: string;
   defaultvalue: string;
   description: string;
   displayname: string;
@@ -12366,6 +12367,7 @@ interface EnvironmentVariableDefinition_Filter {
   owningbusinessunit_guid: XQW.Guid;
   owningteam_guid: XQW.Guid;
   owninguser_guid: XQW.Guid;
+  parentdefinitionid_guid: XQW.Guid;
   schemaname: string;
   solutionid: XQW.Guid;
   statecode: environmentvariabledefinition_statecode;
@@ -12389,6 +12391,7 @@ interface EnvironmentVariableDefinition_Expand {
 }
 interface EnvironmentVariableDefinition_FormattedResult {
   componentstate_formatted?: string;
+  connectionreferenceid_formatted?: string;
   createdby_formatted?: string;
   createdon_formatted?: string;
   createdonbehalfby_formatted?: string;
@@ -12401,12 +12404,14 @@ interface EnvironmentVariableDefinition_FormattedResult {
   owningbusinessunit_formatted?: string;
   owningteam_formatted?: string;
   owninguser_formatted?: string;
+  parentdefinitionid_formatted?: string;
   statecode_formatted?: string;
   statuscode_formatted?: string;
   type_formatted?: string;
 }
 interface EnvironmentVariableDefinition_Result extends EnvironmentVariableDefinition_Base, EnvironmentVariableDefinition_Relationships {
   "@odata.etag": string;
+  connectionreferenceid_guid: string | null;
   createdby_guid: string | null;
   createdonbehalfby_guid: string | null;
   modifiedby_guid: string | null;
@@ -12415,6 +12420,7 @@ interface EnvironmentVariableDefinition_Result extends EnvironmentVariableDefini
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
   owninguser_guid: string | null;
+  parentdefinitionid_guid: string | null;
 }
 interface EnvironmentVariableDefinition_RelatedOne {
   createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
