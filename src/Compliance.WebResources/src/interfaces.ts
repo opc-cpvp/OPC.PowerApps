@@ -5,6 +5,7 @@ export interface IComplaintService {
     getComplaint(id: string): Promise<opc_complaint>
     getComplaintWithRelationships(id: string): Promise<ComplaintWithRelationships>
     getSharePointDocumentLocation(id: string): Promise<SharePointDocumentLocation>
+    getAllegationsWithChecklistResponses(id: string): Promise<any>
 }
 
 export interface IAllegationService {

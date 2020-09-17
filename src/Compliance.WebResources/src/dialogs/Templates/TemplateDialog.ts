@@ -4,6 +4,7 @@ import 'core-js/features/url-search-params';
 import * as Msal from 'msal';
 import { i18n } from "i18next";
 import { IPowerDialog, IUserService, IEnvironmentVariableService, IComplaintService, IAuthService, ISharePointService, WindowContext, ComplaintWithRelationships, TemplateEnvironmentVariable } from "../../interfaces";
+import { setTimeout } from "timers";
 
 // TODO: Add a notification for the user when there is an error?
 // TODO: Change the display of the template choices.
@@ -22,6 +23,7 @@ export namespace Dialogs {
         private readonly _sharePointService: ISharePointService;
         private _placeholder: HTMLDivElement;
         private _complaint: ComplaintWithRelationships;
+        private _allegations: any;
         private _dialogSelect: HTMLSelectElement;
         private _globalContext: Xrm.context;
         private _windowContext: WindowContext;
@@ -60,10 +62,12 @@ export namespace Dialogs {
                 this._placeholder = <HTMLDivElement>this._documentContext.getElementById("dialog");
                 this._complaintId = this.getDataParameter();
 
-                const promiseArray: [Promise<ComplaintWithRelationships>, Promise<string>, Promise<string>] = [
+                const promiseArray: [Promise<ComplaintWithRelationships>, Promise<string>, Promise<string>, Promise<any>] = [
                     this._complaintService.getComplaintWithRelationships(this._complaintId),
                     this._userService.getUserEmail(this._globalContext.userSettings.userId),
-                    this._environmentVariableService.getEnvironmentVariable("opc_templatesapplication")
+                    this._environmentVariableService.getEnvironmentVariable("opc_templatesapplication"),
+                    this._complaintService.getAllegationsWithChecklistResponses(this._complaintId)
+
                 ];
 
                 await Promise.all(promiseArray)
@@ -71,6 +75,8 @@ export namespace Dialogs {
                         this._complaint = results[0];
                         loginHint = results[1];
                         this._templatesEnvironmentVariable = JSON.parse(results[2]);
+                        this._allegations = results[3];
+                        console.log(this._allegations);
                     });
 
                 this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
@@ -184,12 +190,18 @@ export namespace Dialogs {
             const xmlDocument = this._documentContext.implementation.createDocument("", "", null);
             const opcElement = xmlDocument.createElement("cpvp_opc");
             const complaintElement = xmlDocument.createElement("opc_complaint");
+            const attributesElement = xmlDocument.createElement("opc_allegations");
 
             opcElement.setAttribute("xmlns", "CPVP-OPC");
             this.appendValidHTMLElements(xmlDocument, complaintElement, this._complaint);
 
+            this.appendAllegations(xmlDocument, attributesElement, this._allegations, "allegation");
+
+            complaintElement.appendChild(attributesElement);
             opcElement.appendChild(complaintElement);
             xmlDocument.appendChild(opcElement);
+
+            console.log(xmlDocument);
 
             return xmlDocument;
         }
@@ -202,6 +214,7 @@ export namespace Dialogs {
                     propertyName !== "@odata.context" &&
                     propertyName !== "@odata.etag") {
 
+                    // This will need to be changed. We have to go through all of the values in the array, not just the first.
                     if (Array.isArray(property))
                         property = property[0];
 
@@ -212,6 +225,65 @@ export namespace Dialogs {
                             propertyElement.textContent = property.toLocaleString();
                         else
                             this.appendValidHTMLElements(xmlDocument, propertyElement, property);
+                    }
+                    else {
+                        propertyElement.textContent = property;
+                    }
+
+                    parentElement.appendChild(propertyElement);
+                }
+            }
+        }
+
+        private appendAllegations(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any, prefix: string) {
+            for (let propertyName in propertyCollection) {
+                let property: any = propertyCollection[propertyName];
+
+                if (property &&
+                    propertyName !== "@odata.context" &&
+                    propertyName !== "@odata.etag") {
+
+                    if (!isNaN(Number(propertyName)))
+                        propertyName = `${prefix}_${propertyName}`;
+
+                    const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
+
+                    if (propertyName === 'opc_allegation_checklistresponses_allegation') {
+                        let array: { opc_name: number; opc_response: string; }[] = Array.from(property);
+
+                        array.forEach(x => {
+                            switch (x.opc_response) {
+                                case "0": {
+                                    x.opc_response = "No";
+                                    break;
+                                }
+                                case "1": {
+                                    x.opc_response = "Yes";
+                                    break;
+                                }
+                                default: {
+                                    x.opc_response = "N/A";
+                                    break;
+                                }
+                            }
+                        });
+
+                        array.sort((a, b) => {
+                            if (a.opc_name > b.opc_name)
+                                return 1
+                            else
+
+                                return -1
+                        });
+                        property = array
+                    }
+
+
+                    if (typeof property === 'object') {
+                        if (Object.prototype.toString.call(property) === "[object Date]")
+                            propertyElement.textContent = property.toLocaleString();
+                        else
+                            this.appendAllegations(xmlDocument, propertyElement, property, "question");
                     }
                     else {
                         propertyElement.textContent = property;

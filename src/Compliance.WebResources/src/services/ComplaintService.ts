@@ -33,4 +33,11 @@ export class ComplaintService implements IComplaintService {
         return XrmQuery.retrieveRelatedMultiple(x => x.opc_complaints, id, x => x.opc_complaint_SharePointDocumentLocations)
             .promiseFirst();
     }
+    getAllegationsWithChecklistResponses(id: string): Promise<any> {
+        return XrmQuery.retrieveRelatedMultiple(x => x.opc_complaints, id, x => x.opc_complaint_allegations_complaint)
+            .expand(x => x.opc_allegation_checklistresponses_allegation, x => [x.opc_name, x.opc_response])
+            .select(x => [x.opc_allegationtypeid_guid, x.opc_disposition, x.opc_referencenumber])
+            .includeFormattedValues()
+            .promise();
+    }
 }
