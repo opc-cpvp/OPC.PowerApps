@@ -45,6 +45,7 @@ steps:
     filePath: 'src/$(SolutionName).Package/set_duplicaterule_publishstate.ps1'
     arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)" -PublishState "published"'
     workingDirectory: 'src/$(SolutionName).Package'
+  condition: always()
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractCMData.MSCRMExtractCMData@9
   displayName: 'MSCRM Extract Configuration Migration Data'
