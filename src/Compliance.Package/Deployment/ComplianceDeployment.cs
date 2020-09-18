@@ -141,7 +141,7 @@ namespace Compliance.Package.Deployment
                 Criteria = new FilterExpression
                 {
                     Conditions = {
-                                    new ConditionExpression("name", ConditionOperator.Equal, _defaultDuplicateRulesToDelete),
+                                    new ConditionExpression("name", ConditionOperator.In, _defaultDuplicateRulesToDelete),
                                  }
                 }
             };
