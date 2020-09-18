@@ -76,7 +76,6 @@ export namespace Dialogs {
                         loginHint = results[1];
                         this._templatesEnvironmentVariable = JSON.parse(results[2]);
                         this._allegations = results[3];
-                        console.log(this._allegations);
                     });
 
                 this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
@@ -191,16 +190,12 @@ export namespace Dialogs {
             const opcElement = xmlDocument.createElement("cpvp_opc");
             const complaintElement = xmlDocument.createElement("opc_complaint");
             const allegationsElement = xmlDocument.createElement("opc_allegations");
-            const allegationsTestElement = xmlDocument.createElement("opc_allegationstest");
 
             opcElement.setAttribute("xmlns", "CPVP-OPC");
             this.appendValidHTMLElements(xmlDocument, complaintElement, this._complaint);
-
-            this.appendAllegations(xmlDocument, allegationsElement, this._allegations, "allegation");
-            this.appendAllegationsTest(xmlDocument, allegationsTestElement, this._allegations, "allegation");
+            this.appendAllegations(xmlDocument, allegationsElement, this._allegations);
 
             complaintElement.appendChild(allegationsElement);
-            complaintElement.appendChild(allegationsTestElement);
             opcElement.appendChild(complaintElement);
             xmlDocument.appendChild(opcElement);
 
@@ -238,13 +233,16 @@ export namespace Dialogs {
             }
         }
 
-        private appendAllegations(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any, prefix: string) {
+        private appendAllegations(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any, prefix?: string) {
             for (let propertyName in propertyCollection) {
                 let property: any = propertyCollection[propertyName];
 
                 if (property &&
                     propertyName !== "@odata.context" &&
                     propertyName !== "@odata.etag") {
+
+                    if (!prefix)
+                        propertyName = "allegation";
 
                     if (!isNaN(Number(propertyName)))
                         propertyName = `${prefix}_${propertyName}`;
@@ -252,9 +250,9 @@ export namespace Dialogs {
                     const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
 
                     if (propertyName === 'opc_allegation_checklistresponses_allegation') {
-                        let array: { opc_name: number; opc_response: string; }[] = Array.from(property);
+                        let checklistResponses: opc_ChecklistResponse_Result[] = property;
 
-                        array.forEach(x => {
+                        checklistResponses.forEach(x => {
                             switch (x.opc_response) {
                                 case "0": {
                                     x.opc_response = "No";
@@ -264,88 +262,31 @@ export namespace Dialogs {
                                     x.opc_response = "Yes";
                                     break;
                                 }
-                                default: {
+                                case null: {
                                     x.opc_response = "N/A";
+                                    break;
+                                }
+                                default: {
                                     break;
                                 }
                             }
                         });
 
-                        array.sort((a, b) => {
+                        checklistResponses.sort((a, b) => {
                             if (a.opc_name > b.opc_name)
                                 return 1
                             else
-
                                 return -1
                         });
-                        property = array
-                    }
 
+                        property = checklistResponses
+                    }
 
                     if (typeof property === 'object') {
                         if (Object.prototype.toString.call(property) === "[object Date]")
                             propertyElement.textContent = property.toLocaleString();
                         else
-                            this.appendAllegations(xmlDocument, propertyElement, property, "question");
-                    }
-                    else {
-                        propertyElement.textContent = property;
-                    }
-
-                    parentElement.appendChild(propertyElement);
-                }
-            }
-        }
-
-        private appendAllegationsTest(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any, prefix: string) {
-            for (let propertyName in propertyCollection) {
-                let property: any = propertyCollection[propertyName];
-
-                if (property &&
-                    propertyName !== "@odata.context" &&
-                    propertyName !== "@odata.etag") {
-
-                    if (!isNaN(Number(propertyName)))
-                        propertyName = prefix;
-
-                    const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
-
-                    if (propertyName === 'opc_allegation_checklistresponses_allegation') {
-                        let array: { opc_name: number; opc_response: string; }[] = Array.from(property);
-
-                        array.forEach(x => {
-                            switch (x.opc_response) {
-                                case "0": {
-                                    x.opc_response = "No";
-                                    break;
-                                }
-                                case "1": {
-                                    x.opc_response = "Yes";
-                                    break;
-                                }
-                                default: {
-                                    x.opc_response = "N/A";
-                                    break;
-                                }
-                            }
-                        });
-
-                        array.sort((a, b) => {
-                            if (a.opc_name > b.opc_name)
-                                return 1
-                            else
-
-                                return -1
-                        });
-                        property = array
-                    }
-
-
-                    if (typeof property === 'object') {
-                        if (Object.prototype.toString.call(property) === "[object Date]")
-                            propertyElement.textContent = property.toLocaleString();
-                        else
-                            this.appendAllegations(xmlDocument, propertyElement, property, "question");
+                            this.appendAllegations(xmlDocument, propertyElement, property, "question"); //I guess that's a little bit of a cheat?
                     }
                     else {
                         propertyElement.textContent = property;
