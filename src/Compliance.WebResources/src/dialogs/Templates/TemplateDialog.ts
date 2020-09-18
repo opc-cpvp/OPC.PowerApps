@@ -190,14 +190,17 @@ export namespace Dialogs {
             const xmlDocument = this._documentContext.implementation.createDocument("", "", null);
             const opcElement = xmlDocument.createElement("cpvp_opc");
             const complaintElement = xmlDocument.createElement("opc_complaint");
-            const attributesElement = xmlDocument.createElement("opc_allegations");
+            const allegationsElement = xmlDocument.createElement("opc_allegations");
+            const allegationsTestElement = xmlDocument.createElement("opc_allegationstest");
 
             opcElement.setAttribute("xmlns", "CPVP-OPC");
             this.appendValidHTMLElements(xmlDocument, complaintElement, this._complaint);
 
-            this.appendAllegations(xmlDocument, attributesElement, this._allegations, "allegation");
+            this.appendAllegations(xmlDocument, allegationsElement, this._allegations, "allegation");
+            this.appendAllegationsTest(xmlDocument, allegationsTestElement, this._allegations, "allegation");
 
-            complaintElement.appendChild(attributesElement);
+            complaintElement.appendChild(allegationsElement);
+            complaintElement.appendChild(allegationsTestElement);
             opcElement.appendChild(complaintElement);
             xmlDocument.appendChild(opcElement);
 
@@ -245,6 +248,65 @@ export namespace Dialogs {
 
                     if (!isNaN(Number(propertyName)))
                         propertyName = `${prefix}_${propertyName}`;
+
+                    const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
+
+                    if (propertyName === 'opc_allegation_checklistresponses_allegation') {
+                        let array: { opc_name: number; opc_response: string; }[] = Array.from(property);
+
+                        array.forEach(x => {
+                            switch (x.opc_response) {
+                                case "0": {
+                                    x.opc_response = "No";
+                                    break;
+                                }
+                                case "1": {
+                                    x.opc_response = "Yes";
+                                    break;
+                                }
+                                default: {
+                                    x.opc_response = "N/A";
+                                    break;
+                                }
+                            }
+                        });
+
+                        array.sort((a, b) => {
+                            if (a.opc_name > b.opc_name)
+                                return 1
+                            else
+
+                                return -1
+                        });
+                        property = array
+                    }
+
+
+                    if (typeof property === 'object') {
+                        if (Object.prototype.toString.call(property) === "[object Date]")
+                            propertyElement.textContent = property.toLocaleString();
+                        else
+                            this.appendAllegations(xmlDocument, propertyElement, property, "question");
+                    }
+                    else {
+                        propertyElement.textContent = property;
+                    }
+
+                    parentElement.appendChild(propertyElement);
+                }
+            }
+        }
+
+        private appendAllegationsTest(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any, prefix: string) {
+            for (let propertyName in propertyCollection) {
+                let property: any = propertyCollection[propertyName];
+
+                if (property &&
+                    propertyName !== "@odata.context" &&
+                    propertyName !== "@odata.etag") {
+
+                    if (!isNaN(Number(propertyName)))
+                        propertyName = prefix;
 
                     const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
 
