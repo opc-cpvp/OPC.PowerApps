@@ -37,6 +37,12 @@ namespace Compliance.Package.Deployment
             { "Compliance - Strategic Advisor", new Guid("e46a895e-137e-48e7-b413-466dcd34ef43") }
         };
 
+        private readonly List<string> _defaultDuplicateRulesToDelete = new List<string>()
+        {
+            "",
+            ""
+        };
+
         public ComplianceDeployment(PackageTemplate packageTemplate) : base(packageTemplate)
         {
             _rootBusinessUnit = GetRootBusinessUnit();
@@ -59,7 +65,7 @@ namespace Compliance.Package.Deployment
         public override bool BeforeImportStage()
         {
             UpdateImportDataBusinessUnits();
-            UpdateDuplicateRulesStatus();
+            DeleteDefaultDuplicateRules();
             return true;
         }
 
@@ -123,6 +129,33 @@ namespace Compliance.Package.Deployment
         }
 
         /// <summary>
+        /// Deletes specified default duplicate rules on import, as they are not needed in the environment
+        /// </summary>
+        private void DeleteDefaultDuplicateRules()
+        {
+            // Get the specified rules to be deleted
+            var duplicateRuleQuery = new QueryExpression
+            {
+                EntityName = DuplicateRule.EntityLogicalName,
+                ColumnSet = new ColumnSet("name", "id"),
+                Criteria = new FilterExpression
+                {
+                    Conditions = {
+                                    new ConditionExpression("name", ConditionOperator.Equal, _defaultDuplicateRulesToDelete),
+                                 }
+                }
+            };
+
+            var duplicateRulesToDelete = PackageTemplate.CrmSvc.RetrieveMultiple(duplicateRuleQuery).Entities;
+
+            // Delete all the specific rules we found
+            foreach(var duplicateRuleToDelete in duplicateRulesToDelete)
+            {
+                PackageTemplate.CrmSvc.Delete(DuplicateRule.EntityLogicalName, duplicateRuleToDelete.Id);
+            }
+        }
+
+        /// <summary>
         /// Changes the state code and status code to counteract dynamics behaviour of inverting the wanted result on import
         /// In short, keep this data the same from export to import (e.g. A published rule should stay published)
         /// </summary>
@@ -141,7 +174,7 @@ namespace Compliance.Package.Deployment
 
                         if (name == "statecode")
                         {
-                            
+
                             if (field.Attribute("value")?.Value == DuplicateRuleState.Active.ToString("d"))
                                 field.Attribute("value").SetValue(DuplicateRuleState.Inactive.ToString("d"));
 
@@ -154,7 +187,7 @@ namespace Compliance.Package.Deployment
                                 field.Attribute("value").SetValue(duplicaterule_statuscode.Published.ToString("d"));
 
                             if (field.Attribute("value")?.Value == duplicaterule_statuscode.Published.ToString("d"))
-                                field.Attribute("value").SetValue(duplicaterule_statuscode.Publishing .ToString("d"));
+                                field.Attribute("value").SetValue(duplicaterule_statuscode.Publishing.ToString("d"));
                         }
                     }
                 }
