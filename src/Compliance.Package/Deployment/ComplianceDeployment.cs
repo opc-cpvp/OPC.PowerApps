@@ -39,8 +39,8 @@ namespace Compliance.Package.Deployment
 
         private readonly List<string> _defaultDuplicateRulesToDelete = new List<string>()
         {
-            "",
-            ""
+            "Accounts with the same website",
+            "Social profiles with same full name and social channel"
         };
 
         public ComplianceDeployment(PackageTemplate packageTemplate) : base(packageTemplate)
