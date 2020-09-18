@@ -137,7 +137,7 @@ namespace Compliance.Package.Deployment
             var duplicateRuleQuery = new QueryExpression
             {
                 EntityName = DuplicateRule.EntityLogicalName,
-                ColumnSet = new ColumnSet("name", "id"),
+                ColumnSet = new ColumnSet("name", "duplicateruleid"),
                 Criteria = new FilterExpression
                 {
                     Conditions = {
