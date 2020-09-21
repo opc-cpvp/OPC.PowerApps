@@ -40,7 +40,7 @@ steps:
     dataFile: '$(Agent.TempDirectory)/data.zip'
 
 - task: PowerShell@2
-  displayName: 'Republish all duplicate rules to set them ot their original state'
+  displayName: 'Republish all duplicate rules to set them to their original state'
   inputs:
     filePath: 'src/$(SolutionName).Package/set_duplicaterule_publishstate.ps1'
     arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)" -PublishState "published"'
