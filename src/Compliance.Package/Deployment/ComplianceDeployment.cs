@@ -94,43 +94,6 @@ namespace Compliance.Package.Deployment
             return PackageTemplate.CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
         }
 
-        /// <summary>
-        /// Updates CRM Migration Data Business Units with the correct parent Bussiness Unit ID.
-        /// </summary>
-        private void UpdateImportDataBusinessUnits()
-        {
-            PackageTemplate.PackageLog.Log("Updating Import Data Business Units");
-
-            // Ensure that the Root Business Unit is defined.
-            if (_rootBusinessUnit is null)
-                throw new NullReferenceException("Failed to find Root Business Unit.");
-
-            UpdateDataXml(document =>
-            {
-                // Locate the Business Units that require updates.
-                var businessUnits = document.XPathSelectElements($"/entities/entity[@name='{BusinessUnit.EntityLogicalName}']/records/record");
-                foreach (var businessUnit in businessUnits)
-                {
-                    var fields = businessUnit.XPathSelectElements("./field");
-                    foreach (var field in fields)
-                    {
-                        var name = field.Attribute("name").Value;
-
-                        // Check if we're working with the correct field.
-                        if (name != "parentbusinessunitid")
-                            continue;
-
-                        // Update the ID and Lookup Name.
-                        field.Attribute("value").SetValue(_rootBusinessUnit.Id);
-                        field.Attribute("lookupentityname").SetValue(_rootBusinessUnit.Name);
-                    }
-                }
-            });
-        }
-
-        /// <summary>
-        /// Deletes specified default duplicate rules on import, as they are not needed in the environment
-        /// </summary>
         private void DeleteDefaultDuplicateRules()
         {
             // Get the specified rules to be deleted
@@ -149,54 +112,28 @@ namespace Compliance.Package.Deployment
             var duplicateRulesToDelete = PackageTemplate.CrmSvc.RetrieveMultiple(duplicateRuleQuery).Entities;
 
             // Delete all the specific rules we found
-            foreach(var duplicateRuleToDelete in duplicateRulesToDelete)
+            foreach (var duplicateRuleToDelete in duplicateRulesToDelete)
             {
                 PackageTemplate.CrmSvc.Delete(DuplicateRule.EntityLogicalName, duplicateRuleToDelete.Id);
             }
         }
 
         /// <summary>
-        /// Changes the state code and status code to counteract dynamics behaviour of inverting the wanted result on import
-        /// In short, keep this data the same from export to import (e.g. A published rule should stay published)
+        /// Updates CRM Migration Data Business Units with the correct parent Bussiness Unit ID.
         /// </summary>
-        private void UpdateDuplicateRulesStatus()
+        private void UpdateImportDataBusinessUnits()
         {
-            UpdateDataXml(document =>
-            {
-                // Locate the DuplicateDetectionRules that will require updating
-                var duplicateRules = document.XPathSelectElements($"/entities/entity[@name='{DuplicateRule.EntityLogicalName}']/records/record");
-                foreach (var duplicateRule in duplicateRules)
-                {
-                    var fields = duplicateRule.XPathSelectElements("./field");
-                    foreach (var field in fields)
-                    {
-                        var name = field.Attribute("name")?.Value;
+            PackageTemplate.PackageLog.Log("Updating Import Data Business Units");
 
-                        if (name == "statecode")
-                        {
+            // Ensure that the Root Business Unit is defined.
+            if (_rootBusinessUnit is null)
+                throw new NullReferenceException("Failed to find Root Business Unit.");
 
-                            if (field.Attribute("value")?.Value == DuplicateRuleState.Active.ToString("d"))
-                                field.Attribute("value").SetValue(DuplicateRuleState.Inactive.ToString("d"));
-
-                            if (field.Attribute("value")?.Value == DuplicateRuleState.Inactive.ToString("d"))
-                                field.Attribute("value").SetValue(DuplicateRuleState.Active.ToString("d"));
-                        }
-                        else if (name == "statuscode")
-                        {
-                            if (field.Attribute("value")?.Value == duplicaterule_statuscode.Unpublished.ToString("d"))
-                                field.Attribute("value").SetValue(duplicaterule_statuscode.Published.ToString("d"));
-
-                            if (field.Attribute("value")?.Value == duplicaterule_statuscode.Published.ToString("d"))
-                                field.Attribute("value").SetValue(duplicaterule_statuscode.Publishing.ToString("d"));
-                        }
-                    }
-                }
-            });
-        }
-
-        private void UpdateDataXml(Action<XDocument> updateAction)
-        {
             var dataImportPath = Path.Combine(PackageTemplate.CurrentPackageLocation, PackageTemplate.GetImportPackageDataFolderName, PackageTemplate.Configuration.CrmMigrationDataImportFile);
+
+            // Ensure that the CRM Import Data file exists.
+            if (!File.Exists(dataImportPath))
+                throw new FileNotFoundException("Failed to find the CRM Migration Data file.", dataImportPath);
 
             var dataEntry = @"data.xml";
             using (var zipArchive = ZipFile.Open(dataImportPath, ZipArchiveMode.Update))
@@ -216,8 +153,24 @@ namespace Compliance.Package.Deployment
                 if (document is null)
                     throw new XmlException($"Failed to read {dataEntry}.");
 
-                // Execute the action given by the caller
-                updateAction(document);
+                // Locate the Business Units that require updates.
+                var businessUnits = document.XPathSelectElements($"/entities/entity[@name='{BusinessUnit.EntityLogicalName}']/records/record");
+                foreach (var businessUnit in businessUnits)
+                {
+                    var fields = businessUnit.XPathSelectElements("./field");
+                    foreach (var field in fields)
+                    {
+                        var name = field.Attribute("name").Value;
+
+                        // Check if we're working with the correct field.
+                        if (name != "parentbusinessunitid")
+                            continue;
+
+                        // Update the ID and Lookup Name.
+                        field.Attribute("value").SetValue(_rootBusinessUnit.Id);
+                        field.Attribute("lookupentityname").SetValue(_rootBusinessUnit.Name);
+                    }
+                }
 
                 // Save the changes to the CRM Import Data file.
                 using (var stream = zipEntry.Open())
