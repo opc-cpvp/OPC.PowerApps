@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-09-17T20:37:38.3101052Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-09-18T20:20:24.4920713Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -2683,19 +2683,6 @@
   </entity>
   <entity name="duplicaterule" displayname="Duplicate Detection Rule">
     <records>
-      <record id="e68d2246-d8b0-4e85-967d-07d82a3d61eb">
-        <field name="baseentityname" value="account" />
-        <field name="baseentitytypecode" value="1" />
-        <field name="iscasesensitive" value="False" />
-        <field name="description" value="Detects account records that have the same value in the Website field." />
-        <field name="duplicateruleid" value="e68d2246-d8b0-4e85-967d-07d82a3d61eb" />
-        <field name="excludeinactiverecords" value="False" />
-        <field name="matchingentityname" value="account" />
-        <field name="matchingentitytypecode" value="1" />
-        <field name="name" value="Accounts with the same website" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="0" />
-      </record>
       <record id="0c16fb72-201d-4581-9ed9-1d4ac969af81">
         <field name="baseentityname" value="contact" />
         <field name="baseentitytypecode" value="2" />
@@ -2761,19 +2748,6 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="0" />
       </record>
-      <record id="b99f9d91-6bcd-4ae7-8585-d1ae2046622d">
-        <field name="baseentityname" value="socialprofile" />
-        <field name="baseentitytypecode" value="99" />
-        <field name="iscasesensitive" value="False" />
-        <field name="description" value="Detects social profile records that have the same value in the full name and social channel fields." />
-        <field name="duplicateruleid" value="b99f9d91-6bcd-4ae7-8585-d1ae2046622d" />
-        <field name="excludeinactiverecords" value="False" />
-        <field name="matchingentityname" value="socialprofile" />
-        <field name="matchingentitytypecode" value="99" />
-        <field name="name" value="Social profiles with same full name and social channel" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="0" />
-      </record>
       <record id="7b1003be-b33e-4c83-b8ae-f56c63487a2b">
         <field name="baseentityname" value="contact" />
         <field name="baseentitytypecode" value="2" />
@@ -2798,17 +2772,7 @@
         <field name="ignoreblankvalues" value="False" />
         <field name="matchingattributename" value="name" />
         <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
         <field name="regardingobjectid" value="d8d2e6cc-3a9b-48f8-a0c6-b9a1f10b9fb4" lookupentity="duplicaterule" />
-      </record>
-      <record id="63c238bb-bca2-ea11-a812-000d3a0c2a5b">
-        <field name="baseattributename" value="websiteurl" />
-        <field name="duplicateruleconditionid" value="63c238bb-bca2-ea11-a812-000d3a0c2a5b" />
-        <field name="ignoreblankvalues" value="False" />
-        <field name="matchingattributename" value="websiteurl" />
-        <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
-        <field name="regardingobjectid" value="e68d2246-d8b0-4e85-967d-07d82a3d61eb" lookupentity="duplicaterule" />
       </record>
       <record id="65c238bb-bca2-ea11-a812-000d3a0c2a5b">
         <field name="baseattributename" value="telephone1" />
@@ -2816,7 +2780,6 @@
         <field name="ignoreblankvalues" value="False" />
         <field name="matchingattributename" value="telephone1" />
         <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
         <field name="regardingobjectid" value="e4e8866a-97c2-4938-8b71-8743731e59c8" lookupentity="duplicaterule" />
       </record>
       <record id="6bc238bb-bca2-ea11-a812-000d3a0c2a5b">
@@ -2825,7 +2788,6 @@
         <field name="ignoreblankvalues" value="False" />
         <field name="matchingattributename" value="telephone1" />
         <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
         <field name="regardingobjectid" value="7fc828b5-5703-4320-95ae-38b835f9091b" lookupentity="duplicaterule" />
       </record>
       <record id="6ec238bb-bca2-ea11-a812-000d3a0c2a5b">
@@ -2834,7 +2796,6 @@
         <field name="ignoreblankvalues" value="False" />
         <field name="matchingattributename" value="firstname" />
         <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
         <field name="regardingobjectid" value="0c16fb72-201d-4581-9ed9-1d4ac969af81" lookupentity="duplicaterule" />
       </record>
       <record id="71c238bb-bca2-ea11-a812-000d3a0c2a5b">
@@ -2843,26 +2804,7 @@
         <field name="ignoreblankvalues" value="False" />
         <field name="matchingattributename" value="lastname" />
         <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
         <field name="regardingobjectid" value="0c16fb72-201d-4581-9ed9-1d4ac969af81" lookupentity="duplicaterule" />
-      </record>
-      <record id="72c238bb-bca2-ea11-a812-000d3a0c2a5b">
-        <field name="baseattributename" value="profilefullname" />
-        <field name="duplicateruleconditionid" value="72c238bb-bca2-ea11-a812-000d3a0c2a5b" />
-        <field name="ignoreblankvalues" value="False" />
-        <field name="matchingattributename" value="profilefullname" />
-        <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
-        <field name="regardingobjectid" value="b99f9d91-6bcd-4ae7-8585-d1ae2046622d" lookupentity="duplicaterule" />
-      </record>
-      <record id="73c238bb-bca2-ea11-a812-000d3a0c2a5b">
-        <field name="baseattributename" value="community" />
-        <field name="duplicateruleconditionid" value="73c238bb-bca2-ea11-a812-000d3a0c2a5b" />
-        <field name="ignoreblankvalues" value="False" />
-        <field name="matchingattributename" value="community" />
-        <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
-        <field name="regardingobjectid" value="b99f9d91-6bcd-4ae7-8585-d1ae2046622d" lookupentity="duplicaterule" />
       </record>
       <record id="76c238bb-bca2-ea11-a812-000d3a0c2a5b">
         <field name="baseattributename" value="emailaddress1" />
@@ -2870,7 +2812,6 @@
         <field name="ignoreblankvalues" value="False" />
         <field name="matchingattributename" value="emailaddress1" />
         <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
         <field name="regardingobjectid" value="4e396448-6fb4-4dab-9ace-af6aef4f0977" lookupentity="duplicaterule" />
       </record>
       <record id="78c238bb-bca2-ea11-a812-000d3a0c2a5b">
@@ -2879,7 +2820,6 @@
         <field name="ignoreblankvalues" value="False" />
         <field name="matchingattributename" value="emailaddress1" />
         <field name="operatorcode" value="0" />
-        <field name="operatorparam" value="0" />
         <field name="regardingobjectid" value="7b1003be-b33e-4c83-b8ae-f56c63487a2b" lookupentity="duplicaterule" />
       </record>
       <record id="cbddd5fc-9297-ea11-a811-000d3af43eda">
