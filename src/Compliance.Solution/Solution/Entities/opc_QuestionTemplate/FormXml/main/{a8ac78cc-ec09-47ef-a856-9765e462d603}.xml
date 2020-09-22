@@ -52,7 +52,7 @@
                         </labels>
                         <control id="opc_parentquestiontemplateid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_parentquestiontemplateid" disabled="false" />
                       </cell>
-                      <cell id="{23c87523-ee98-936d-a7c9-8be807081952}" showlabel="false">
+                      <cell id="{479583e2-93e0-9bd0-7e2a-076b5a9745ad}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -65,7 +65,7 @@
                         </labels>
                         <control id="opc_conditionalvisibility" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_conditionalvisibility" disabled="false" uniqueid="{ada424e4-19f1-4460-a9e2-62a79b736cc7}" />
                       </cell>
-                      <cell id="{393b8015-590b-3047-a6e6-e70894a83704}" showlabel="false">
+                      <cell id="{be081c59-9e61-e06a-7cc1-c17418e261e0}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -78,7 +78,7 @@
                         </labels>
                         <control id="opc_sequence" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_sequence" disabled="false" />
                       </cell>
-                      <cell id="{9c08518a-bb58-678b-3db3-1be24e7b62ca}" showlabel="false">
+                      <cell id="{531d92d0-ac09-7a00-7bb1-b933d107a856}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -91,7 +91,76 @@
                         </labels>
                         <control id="opc_questiontypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_questiontypeid" disabled="false" />
                       </cell>
-                      <cell id="{86aeb0a7-b289-2a68-36b4-189dcccedde6}" showlabel="false">
+                      <cell id="{403c8d09-2851-5d94-9199-015c838a98ce}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{52abb0e1-8a24-c833-aacb-764ae3e40004}" showlabel="true" locklevel="0" rowspan="9">
+                        <labels>
+                          <label description="Additional Parameters" languagecode="1033" />
+                        </labels>
+                        <control id="opc_additionalparameters" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="opc_additionalparameters" disabled="false" uniqueid="{e3e4a968-ebb5-4b3c-6a5a-352d7b171a4c}" />
+                      </cell>
+                      <cell id="{cd0593aa-468c-51d1-8139-ebd6324c8836}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4bd970d6-85e4-7213-7b7b-0c1b4d332b92}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4b1e8405-d02e-6430-0c54-d86d55288740}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a54002ac-2561-5e5c-b528-053049837eb7}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{52c8a775-e09d-4b2e-9e0c-ca6506a62a54}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1136ea2d-0925-ae64-ea01-b368da3856aa}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{62027992-e3e3-5b6b-99cd-3339b66ad04e}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ce88d6b0-4bda-5895-661c-1da2bdd36d47}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{163ebeb5-a243-e679-ebd1-5ee8c36c94a0}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
