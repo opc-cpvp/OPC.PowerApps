@@ -84,6 +84,12 @@ export namespace Controls {
                 case this._questionTypes.find(qt => qt.type === "Two Options").id:
                     this.addTwoOptionsQuestion(indentingContainer, cr);
                     break;
+                case this._questionTypes.find(qt => qt.type === "Multiselect").id:
+                    this.addMultiselectQuestion(indentingContainer, cr);
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Date").id:
+                    this.addDateQuestion(indentingContainer, cr);
+                    break;
                 default:
                     console.log("control type not supported - not adding control");
                     break;
@@ -122,6 +128,33 @@ export namespace Controls {
                 `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">${this._isCurrentLanguageEnglish ? "No" : "Non"}</label>` +
                 '</div>';
             element.insertAdjacentHTML('beforeend', questionHtml);
+        }
+        //*****************************************
+
+
+
+        private addMultiselectQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+            // We don't know if its a toggle, but just in case we add in the array
+            //this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response == "1" });
+
+            //const questionHtml =
+            //    `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</div>` +
+            //    '<div class="form-check form-check-inline">' +
+            //    `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
+            //    `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">${this._isCurrentLanguageEnglish ? "Yes" : "Oui"}</label>` +
+            //    '</div>' +
+            //    '<div class="form-check form-check-inline">' +
+            //    `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
+            //    `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">${this._isCurrentLanguageEnglish ? "No" : "Non"}</label>` +
+            //    '</div>';
+            //element.insertAdjacentHTML('beforeend', questionHtml);
+        }
+
+        private addDateQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+            //const questionHtml =
+            //    `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
+            //    `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
+            //element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         public save(): void {
