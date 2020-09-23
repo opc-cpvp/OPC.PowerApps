@@ -1,5 +1,5 @@
 
-<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-09-18T20:20:24.4920713Z">
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timestamp="2020-09-23T17:40:48.4926029Z">
   <entity name="opc_legislation" displayname="Legislation">
     <records>
       <record id="7ec56b15-e61d-ea11-a810-000d3af464f8">
@@ -31,12 +31,12 @@
         <field name="address2_addressid" value="9a7e536b-d7f0-4ee4-93e1-0a013c7c2e36" />
         <field name="address2_shippingmethodcode" value="1" />
         <field name="businessunitid" value="e560220a-3f2e-ea11-a810-000d3af46757" />
-        <field name="transactioncurrencyid" value="19499057-bda2-ea11-a812-000d3a0c2a5b" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
+        <field name="transactioncurrencyid" value="1659023c-ea06-ea11-a813-000d3af436d7" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
         <field name="exchangerate" value="1.0000000000" />
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Restricted" />
-        <field name="parentbusinessunitid" value="cfa65f5a-b3a2-ea11-a812-000d3a0c2a5b" lookupentity="businessunit" lookupentityname="org5e0086a3" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org1ec55546" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="e960220a-3f2e-ea11-a810-000d3af46757">
@@ -47,12 +47,12 @@
         <field name="address2_addressid" value="bf41e0eb-d402-469b-8072-9c507a57961e" />
         <field name="address2_shippingmethodcode" value="1" />
         <field name="businessunitid" value="e960220a-3f2e-ea11-a810-000d3af46757" />
-        <field name="transactioncurrencyid" value="19499057-bda2-ea11-a812-000d3a0c2a5b" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
+        <field name="transactioncurrencyid" value="1659023c-ea06-ea11-a813-000d3af436d7" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
         <field name="exchangerate" value="1.0000000000" />
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unclassified" />
-        <field name="parentbusinessunitid" value="cfa65f5a-b3a2-ea11-a812-000d3a0c2a5b" lookupentity="businessunit" lookupentityname="org5e0086a3" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org1ec55546" />
         <field name="workflowsuspended" value="False" />
       </record>
       <record id="a6bd0471-3739-ea11-a813-000d3af46757">
@@ -63,15 +63,15 @@
         <field name="address2_addressid" value="e73650bd-fda7-42a0-8d2f-039ffcb07c5f" />
         <field name="address2_shippingmethodcode" value="1" />
         <field name="businessunitid" value="a6bd0471-3739-ea11-a813-000d3af46757" />
-        <field name="transactioncurrencyid" value="19499057-bda2-ea11-a812-000d3a0c2a5b" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
+        <field name="transactioncurrencyid" value="1659023c-ea06-ea11-a813-000d3af436d7" lookupentity="transactioncurrency" lookupentityname="Canadian Dollar" />
         <field name="exchangerate" value="1.0000000000" />
         <field name="inheritancemask" value="1023" />
         <field name="isdisabled" value="False" />
         <field name="name" value="Unrestricted" />
-        <field name="parentbusinessunitid" value="cfa65f5a-b3a2-ea11-a812-000d3a0c2a5b" lookupentity="businessunit" lookupentityname="org5e0086a3" />
+        <field name="parentbusinessunitid" value="30f59588-e306-ea11-a813-000d3af436d7" lookupentity="businessunit" lookupentityname="org1ec55546" />
         <field name="workflowsuspended" value="False" />
       </record>
-    </records>	
+    </records>
     <m2mrelationships />
   </entity>
   <entity name="opc_riskappetite" displayname="Risk Appetite">
@@ -2611,6 +2611,17 @@
         <field name="opc_namefrench" value="Redirected to other Federal Institution" />
         <field name="opc_islocalizable" value="True" />
       </record>
+      <record id="ce4fadf0-b16e-ea11-a811-000d3af45a96">
+        <field name="opc_dispositionactionid" value="ce4fadf0-b16e-ea11-a811-000d3af45a96" />
+        <field name="opc_name" value="Redirected to CIC" />
+        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="opc_dispositionreasonid" value="11df9980-a76e-ea11-a811-000d3af45a96" lookupentity="opc_dispositionreason" lookupentityname="Not a privacy complaint" />
+        <field name="opc_nameenglish" value="Redirected to CIC" />
+        <field name="opc_namefrench" value="Redirected to CIC" />
+        <field name="opc_islocalizable" value="True" />
+      </record>
     </records>
     <m2mrelationships />
   </entity>
@@ -2837,6 +2848,69 @@
         <field name="ignoreblankvalues" value="False" />
         <field name="matchingattributename" value="emailaddress1" />
         <field name="operatorcode" value="0" />
+        <field name="regardingobjectid" value="7b1003be-b33e-4c83-b8ae-f56c63487a2b" lookupentity="duplicaterule" />
+      </record>
+      <record id="1801efd3-e906-ea11-a813-000d3af436d7">
+        <field name="baseattributename" value="name" />
+        <field name="duplicateruleconditionid" value="1801efd3-e906-ea11-a813-000d3af436d7" />
+        <field name="ignoreblankvalues" value="False" />
+        <field name="matchingattributename" value="name" />
+        <field name="operatorcode" value="0" />
+        <field name="operatorparam" value="0" />
+        <field name="regardingobjectid" value="d8d2e6cc-3a9b-48f8-a0c6-b9a1f10b9fb4" lookupentity="duplicaterule" />
+      </record>
+      <record id="1a01efd3-e906-ea11-a813-000d3af436d7">
+        <field name="baseattributename" value="telephone1" />
+        <field name="duplicateruleconditionid" value="1a01efd3-e906-ea11-a813-000d3af436d7" />
+        <field name="ignoreblankvalues" value="False" />
+        <field name="matchingattributename" value="telephone1" />
+        <field name="operatorcode" value="0" />
+        <field name="operatorparam" value="0" />
+        <field name="regardingobjectid" value="e4e8866a-97c2-4938-8b71-8743731e59c8" lookupentity="duplicaterule" />
+      </record>
+      <record id="1b01efd3-e906-ea11-a813-000d3af436d7">
+        <field name="baseattributename" value="telephone1" />
+        <field name="duplicateruleconditionid" value="1b01efd3-e906-ea11-a813-000d3af436d7" />
+        <field name="ignoreblankvalues" value="False" />
+        <field name="matchingattributename" value="telephone1" />
+        <field name="operatorcode" value="0" />
+        <field name="operatorparam" value="0" />
+        <field name="regardingobjectid" value="7fc828b5-5703-4320-95ae-38b835f9091b" lookupentity="duplicaterule" />
+      </record>
+      <record id="1c01efd3-e906-ea11-a813-000d3af436d7">
+        <field name="baseattributename" value="firstname" />
+        <field name="duplicateruleconditionid" value="1c01efd3-e906-ea11-a813-000d3af436d7" />
+        <field name="ignoreblankvalues" value="False" />
+        <field name="matchingattributename" value="firstname" />
+        <field name="operatorcode" value="0" />
+        <field name="operatorparam" value="0" />
+        <field name="regardingobjectid" value="0c16fb72-201d-4581-9ed9-1d4ac969af81" lookupentity="duplicaterule" />
+      </record>
+      <record id="1d01efd3-e906-ea11-a813-000d3af436d7">
+        <field name="baseattributename" value="lastname" />
+        <field name="duplicateruleconditionid" value="1d01efd3-e906-ea11-a813-000d3af436d7" />
+        <field name="ignoreblankvalues" value="False" />
+        <field name="matchingattributename" value="lastname" />
+        <field name="operatorcode" value="0" />
+        <field name="operatorparam" value="0" />
+        <field name="regardingobjectid" value="0c16fb72-201d-4581-9ed9-1d4ac969af81" lookupentity="duplicaterule" />
+      </record>
+      <record id="2001efd3-e906-ea11-a813-000d3af436d7">
+        <field name="baseattributename" value="emailaddress1" />
+        <field name="duplicateruleconditionid" value="2001efd3-e906-ea11-a813-000d3af436d7" />
+        <field name="ignoreblankvalues" value="False" />
+        <field name="matchingattributename" value="emailaddress1" />
+        <field name="operatorcode" value="0" />
+        <field name="operatorparam" value="0" />
+        <field name="regardingobjectid" value="4e396448-6fb4-4dab-9ace-af6aef4f0977" lookupentity="duplicaterule" />
+      </record>
+      <record id="2101efd3-e906-ea11-a813-000d3af436d7">
+        <field name="baseattributename" value="emailaddress1" />
+        <field name="duplicateruleconditionid" value="2101efd3-e906-ea11-a813-000d3af436d7" />
+        <field name="ignoreblankvalues" value="False" />
+        <field name="matchingattributename" value="emailaddress1" />
+        <field name="operatorcode" value="0" />
+        <field name="operatorparam" value="0" />
         <field name="regardingobjectid" value="7b1003be-b33e-4c83-b8ae-f56c63487a2b" lookupentity="duplicaterule" />
       </record>
       <record id="cbddd5fc-9297-ea11-a811-000d3af43eda">
