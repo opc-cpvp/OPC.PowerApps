@@ -19,7 +19,24 @@
         <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
       </record>
     </records>
-    <m2mrelationships />
+    <m2mrelationships>
+      <m2mrelationship sourceid="0318d98e-8a5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">	
+        <targetids>	
+          <targetid>a7d81b68-b53e-ea11-a812-000d3af464f8</targetid>	
+        </targetids>	
+      </m2mrelationship>	
+      <m2mrelationship sourceid="c1545086-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">	
+        <targetids>	
+          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>	
+          <targetid>a2d81b68-b53e-ea11-a812-000d3af464f8</targetid>	
+        </targetids>	
+      </m2mrelationship>	
+      <m2mrelationship sourceid="4645d1a6-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">	
+        <targetids>	
+          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>	
+        </targetids>	
+      </m2mrelationship>	
+    </m2mrelationships>
   </entity>
   <entity name="businessunit" displayname="Business Unit">
     <records>
