@@ -251,7 +251,6 @@
     <None Include="deploy_package.ps1" />
     <None Include="packages.config" />
     <None Include="package_solution.ps1" />
-    <None Include="set_duplicaterule_publishstate.ps1" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
