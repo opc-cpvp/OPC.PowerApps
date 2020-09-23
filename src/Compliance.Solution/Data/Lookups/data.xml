@@ -71,25 +71,8 @@
         <field name="parentbusinessunitid" value="cfa65f5a-b3a2-ea11-a812-000d3a0c2a5b" lookupentity="businessunit" lookupentityname="org5e0086a3" />
         <field name="workflowsuspended" value="False" />
       </record>
-    </records>
-    <m2mrelationships>
-      <m2mrelationship sourceid="0318d98e-8a5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">	
-        <targetids>	
-          <targetid>a7d81b68-b53e-ea11-a812-000d3af464f8</targetid>	
-        </targetids>	
-      </m2mrelationship>	
-      <m2mrelationship sourceid="c1545086-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">	
-        <targetids>	
-          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>	
-          <targetid>a2d81b68-b53e-ea11-a812-000d3af464f8</targetid>	
-        </targetids>	
-      </m2mrelationship>	
-      <m2mrelationship sourceid="4645d1a6-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">	
-        <targetids>	
-          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>	
-        </targetids>	
-      </m2mrelationship>	
-    </m2mrelationships>
+    </records>	
+    <m2mrelationships />
   </entity>
   <entity name="opc_riskappetite" displayname="Risk Appetite">
     <records>
@@ -1481,7 +1464,24 @@
         <field name="queueviewtype" value="1" />
       </record>
     </records>
-    <m2mrelationships />
+    <m2mrelationships>
+      <m2mrelationship sourceid="0318d98e-8a5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>a7d81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+      <m2mrelationship sourceid="c1545086-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>
+          <targetid>a2d81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+      <m2mrelationship sourceid="4645d1a6-8d5c-ea11-a811-000d3af46fff" targetentityname="team" targetentitynameidfield="teamid" m2mrelationshipname="opc_queues_teams">
+        <targetids>
+          <targetid>9ed81b68-b53e-ea11-a812-000d3af464f8</targetid>
+        </targetids>
+      </m2mrelationship>
+    </m2mrelationships>
   </entity>
   <entity name="opc_checklisttype" displayname="Checklist Type">
     <records>
