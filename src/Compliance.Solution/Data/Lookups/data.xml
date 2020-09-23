@@ -2611,17 +2611,6 @@
         <field name="opc_namefrench" value="Redirected to other Federal Institution" />
         <field name="opc_islocalizable" value="True" />
       </record>
-      <record id="ce4fadf0-b16e-ea11-a811-000d3af45a96">
-        <field name="opc_dispositionactionid" value="ce4fadf0-b16e-ea11-a811-000d3af45a96" />
-        <field name="opc_name" value="Redirected to CIC" />
-        <field name="ownerid" value="e3f1c462-47fa-4e41-8b27-ff84842afe3b" lookupentity="systemuser" lookupentityname="# SVC_OPC_CRM_Admin" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-        <field name="opc_dispositionreasonid" value="11df9980-a76e-ea11-a811-000d3af45a96" lookupentity="opc_dispositionreason" lookupentityname="Not a privacy complaint" />
-        <field name="opc_nameenglish" value="Redirected to CIC" />
-        <field name="opc_namefrench" value="Redirected to CIC" />
-        <field name="opc_islocalizable" value="True" />
-      </record>
     </records>
     <m2mrelationships />
   </entity>
