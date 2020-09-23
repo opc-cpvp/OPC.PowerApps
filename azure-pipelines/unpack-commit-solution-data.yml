@@ -22,6 +22,12 @@ steps:
 - checkout: self
   persistCredentials: true
 
+- task: PowerShell@2
+  displayName: 'Unpublish all duplicate rules to be able to export them'
+  inputs:
+    filePath: 'azure-pipelines/scripts/set_duplicaterule_publishstate.ps1'
+    arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)" -PublishState "unpublished"'
+
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMToolInstaller.MSCRMToolInstaller@9
   displayName: 'MSCRM Tool Installer'
 
@@ -31,6 +37,13 @@ steps:
     crmConnectionString: 'AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)'
     schemaFile: src/$(SolutionName).Solution/lookups-schema.xml
     dataFile: '$(Agent.TempDirectory)/data.zip'
+
+- task: PowerShell@2
+  displayName: 'Republish all duplicate rules to set them to their original state'
+  inputs:
+    filePath: 'azure-pipelines/scripts/set_duplicaterule_publishstate.ps1'
+    arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)" -PublishState "published"'
+  condition: always()
 
 - task: WaelHamze.xrm-ci-framework-build-tasks.MSCRMExtractCMData.MSCRMExtractCMData@9
   displayName: 'MSCRM Extract Configuration Migration Data'
