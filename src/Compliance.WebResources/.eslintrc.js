@@ -50,6 +50,7 @@ module.exports = {
                 ignoreParameters: true
             }
         ],
+        "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-non-null-assertion": "error",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unsafe-call": "off",
@@ -123,11 +124,13 @@ module.exports = {
         "no-shadow": [
             "error",
             {
-                hoist: "all"
+                hoist: "all",
+                allow: ["i18n"]
             }
         ],
         "no-throw-literal": "error",
         "no-undef-init": "error",
+        "no-unused-expressions": "off",
         "no-unused-labels": "error",
         "no-var": "error",
         "object-shorthand": "error",
@@ -141,5 +144,14 @@ module.exports = {
                 markers: ["/"]
             }
         ]
-    }
+    },
+    overrides: [
+        {
+            // disable checking @typescript-eslint/no-unused-expressions in testing files as @typescript-eslint incorrectly flags sinon-chai 'should' methods
+            "files": ["*.test.ts"],
+            "rules": {
+                "@typescript-eslint/no-unused-expressions": "off"
+            }
+        }
+    ]
 };
