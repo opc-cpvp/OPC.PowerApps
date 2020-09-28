@@ -6,7 +6,7 @@ import { XrmContextMock } from "../../test/XrmContextMock";
 import { WindowHelper } from "../helpers/WindowHelper";
 
 import chai from "chai";
-import sinon, { SinonSpy } from "sinon";
+import sinon from "sinon";
 import sinonChai from "sinon-chai";
 
 const sandbox = sinon.createSandbox();
