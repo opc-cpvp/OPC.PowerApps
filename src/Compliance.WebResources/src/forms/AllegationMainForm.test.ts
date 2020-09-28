@@ -1,13 +1,12 @@
 ﻿import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
 import { Allegation } from "./AllegationMainForm";
 import { AllegationService } from ".././services/AllegationService";
-import { XrmAttributeMock } from "../../test/XrmAttributeMock";
-import { XrmControlMock } from "../../test/XrmControlMock";
 import { XrmPageBaseMock } from "../../test/XrmPageBaseMock";
 
-const chai = require("chai");
-const sinon = require("sinon");
-const sinonChai = require("sinon-chai");
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
 const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);

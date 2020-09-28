@@ -95,7 +95,7 @@ container.bind<Xrm.Navigation>(nameof<Xrm.Navigation>()).toConstantValue(Xrm.Nav
 container.bind<Xrm.Utility>(nameof<Xrm.Utility>()).toConstantValue(Xrm.Utility);
 container.bind<Xrm.context>(nameof<Xrm.context>()).toDynamicValue(() => Xrm.Utility.getGlobalContext());
 container.bind<Document>(nameof<Document>()).toDynamicValue(() => window.document);
-container.bind<i.WindowContext>(nameof<Window>()).toDynamicValue(() => window);
+container.bind<Window>(nameof<Window>()).toDynamicValue(() => window);
 
 // Commands and queries
 container.bind<i.ICommandHandler>(nameof<OpenTemplateDialogCommandHandler>()).to(OpenTemplateDialogCommandHandler);

@@ -3,15 +3,15 @@ import { XrmSaveEventContextMock } from "../../test/XrmSaveEventContextMock";
 import { Reminder } from "./ReminderMainForm";
 import { IReminderService } from "../interfaces";
 import { ReminderService } from "../services/ReminderService";
+import i18next from "i18next";
 
-const chai = require("chai");
-const sinon = require("sinon");
-const sinonChai = require("sinon-chai");
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
 const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
-
-const i18next = require("i18next");
 
 describe("Reminder - Main", () => {
     let form: Reminder.Forms.MainForm;
@@ -70,9 +70,7 @@ describe("Reminder - Main", () => {
 
         it("it should display notifications if the user have not selected someone to be notified", async () => {
             // Arrange
-            const hasAdditionalUsersToNotifyStub = sandbox
-                .stub(reminderService, nameof(reminderService.hasAdditionalUsersToNotify))
-                .resolves(false);
+            const hasAdditionalUsersToNotifyStub = sandbox.stub(reminderService, "hasAdditionalUsersToNotify").resolves(false);
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(false);
             mockContext.getFormContext().getAttribute("opc_notifyme").setValue(false);
             form.initializeComponents(mockContext);

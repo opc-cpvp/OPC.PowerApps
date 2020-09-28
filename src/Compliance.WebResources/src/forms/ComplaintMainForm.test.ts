@@ -5,15 +5,15 @@ import { IBaseContact } from "../interfaces";
 import { ContactType } from "../enums";
 import * as resources from "../resources.json";
 import { XrmControlMock } from "../../test/XrmControlMock";
+import i18next from "i18next";
 
-const chai = require("chai");
-const sinon = require("sinon");
-const sinonChai = require("sinon-chai");
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
 const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
-
-const i18next = require("i18next");
 
 describe("Complaint", () => {
     let contactService: ContactService;
@@ -34,7 +34,7 @@ describe("Complaint", () => {
         contextSpy = sandbox.spy(mockContext);
         form = new Complaint.Forms.MainForm(i18next, contactService);
 
-        i18next.init({
+        void i18next.init({
             resources: resources.resources,
             defaultNS: "common",
             fallbackLng: "en",

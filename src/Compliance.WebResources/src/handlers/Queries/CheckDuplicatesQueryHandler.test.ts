@@ -3,9 +3,10 @@ import { ContactService } from "../../services/ContactService";
 import { IBaseContact, IQueryHandler } from "../../interfaces";
 import { CheckDuplicatesQueryHandler } from "./CheckDuplicatesQueryHandler";
 
-const chai = require("chai");
-const sinon = require("sinon");
-const sinonChai = require("sinon-chai");
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
 const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);

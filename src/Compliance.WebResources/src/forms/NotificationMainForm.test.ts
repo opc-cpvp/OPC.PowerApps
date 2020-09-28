@@ -5,9 +5,10 @@ import { XrmSaveEventContextMock } from "../../test/XrmSaveEventContextMock";
 import { XrmContextMock } from "../../test/XrmContextMock";
 import { WindowHelper } from "../helpers/WindowHelper";
 
-const chai = require("chai");
-const sinon = require("sinon");
-const sinonChai = require("sinon-chai");
+import chai from "chai";
+import sinon, { SinonSpy } from "sinon";
+import sinonChai from "sinon-chai";
+
 const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
@@ -16,7 +17,7 @@ function ReplaceFunctions(
     service: NotificationService,
     mockContext: XrmExecutionContextMock<Form.opc_notification.Main.Information, any>
 ): void {
-    const markAsRead = sandbox.fake(() => {
+    const markAsRead = sandbox.spy(() => {
         const attrStatusCode = mockContext.getFormContext().getAttribute("statuscode");
         attrStatusCode.setValue(opc_notification_statuscode.Read);
     });

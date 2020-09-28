@@ -1,24 +1,19 @@
 ﻿import { XrmContextMock } from "../../../test/XrmContextMock";
-import {
-    IComplaintService,
-    IUserService,
-    IEnvironmentVariableService,
-    WindowContext,
-    ISharePointService,
-    IAuthService
-} from "../../interfaces";
+import { IComplaintService, IUserService, IEnvironmentVariableService, ISharePointService, IAuthService } from "../../interfaces";
 import { Dialogs } from "../../dialogs/Templates/TemplateDialog";
 import { ComplaintService } from "../../services/ComplaintService";
 import { UserService } from "../../services/UserService";
 import { EnvironmentVariableService } from "../../services/EnvironmentVariableService";
 import { AuthService } from "../../services/AuthService";
 import { SharePointService } from "../../services/SharePointService";
+import * as resources from "../../resources.json";
+import { DOMWindow, JSDOM as jsdom } from "jsdom";
+import i18next from "i18next";
 
-const chai = require("chai");
-const sinon = require("sinon");
-const sinonChai = require("sinon-chai");
-const jsdom = require("jsdom").JSDOM;
-const i18next = require("i18next");
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
 const sandbox = sinon.createSandbox();
 
 chai.should();
@@ -31,7 +26,7 @@ describe("TemplateDialog", () => {
     let complaintService: IComplaintService;
     let authService: IAuthService;
     let sharePointService: ISharePointService;
-    let windowContext: WindowContext;
+    let windowContext: DOMWindow;
     let h1Element: HTMLElement;
     let divElement: HTMLDivElement;
     let templateDialog: Dialogs.TemplateDialog;
@@ -56,6 +51,13 @@ describe("TemplateDialog", () => {
         divElement.id = "dialog";
         windowContext.document.body.appendChild(h1Element);
         windowContext.document.body.appendChild(divElement);
+
+        void i18next.init({
+            resources: resources.resources,
+            defaultNS: "common",
+            fallbackLng: "en",
+            lng: "en"
+        });
 
         templateDialog = new Dialogs.TemplateDialog(
             i18next,
@@ -184,7 +186,7 @@ describe("TemplateDialog", () => {
             await templateDialog.init();
 
             // Act
-            const submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
             // Assert
@@ -194,7 +196,7 @@ describe("TemplateDialog", () => {
             // Arrange
             await templateDialog.init();
             // Act
-            const submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
             // Assert
@@ -205,7 +207,7 @@ describe("TemplateDialog", () => {
             await templateDialog.init();
 
             // Act
-            const submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
             await getSharePointDocumentLocation;
@@ -218,7 +220,7 @@ describe("TemplateDialog", () => {
             await templateDialog.init();
 
             // Act
-            const submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
             await getSharePointDocumentLocation;
@@ -244,7 +246,7 @@ describe("TemplateDialog", () => {
             const windowClose = sandbox.stub(templateDialog, "closePage");
 
             // Act
-            const cancelButton = <HTMLButtonElement>windowContext.document.getElementById("template-cancel");
+            const cancelButton = windowContext.document.getElementById("template-cancel") as HTMLButtonElement;
             cancelButton.click();
 
             // Assert

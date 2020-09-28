@@ -10,10 +10,10 @@ import {
     IComplaintService,
     IAuthService,
     ISharePointService,
-    WindowContext,
     ComplaintWithRelationships,
     TemplateEnvironmentVariable
 } from "../../interfaces";
+import { DOMWindow } from "jsdom";
 
 // TODO: Add a notification for the user when there is an error?
 // TODO: Change the display of the template choices.
@@ -33,7 +33,7 @@ export namespace Dialogs {
         private _complaint: ComplaintWithRelationships;
         private _dialogSelect: HTMLSelectElement;
         private _globalContext: Xrm.context;
-        private _windowContext: WindowContext;
+        private _windowContext: DOMWindow;
         private _documentContext: Document;
         private _templatesEnvironmentVariable: TemplateEnvironmentVariable;
         private _complaintId: string;
@@ -45,7 +45,7 @@ export namespace Dialogs {
         constructor(
             @inject(nameof<i18n>()) i18n: i18n,
             @inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
-            @inject(nameof<Window>()) windowContext: WindowContext,
+            @inject(nameof<Window>()) windowContext: DOMWindow,
             @inject(nameof<IUserService>()) userService: IUserService,
             @inject(nameof<IEnvironmentVariableService>()) environmentVariableService: IEnvironmentVariableService,
             @inject(nameof<IComplaintService>()) complaintService: IComplaintService,
