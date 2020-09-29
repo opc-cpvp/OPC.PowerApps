@@ -8,10 +8,11 @@ using System.Linq;
 namespace Compliance.Plugins
 {
     /// <summary>
-    /// Updates the Duplicate Detection Result of a master record after a merge. This ensures (to be tested) the flow that checks for duplicates will run and set the duplicate status correctly.
+    /// Updates the Duplicate Detection Result of a master record after a merge.
+    /// This ensures the flow that checks for duplicates will run and set the duplicate status correctly.
     /// </summary>
     public partial class DuplicateMergeUpdateStatusPlugin : PluginBase
-    { 
+    {
         public DuplicateMergeUpdateStatusPlugin()
             : base(typeof(DuplicateMergeUpdateStatusPlugin), runAsSystem: false)
         { }
@@ -23,27 +24,30 @@ namespace Compliance.Plugins
 
             try
             {
-
-                // TODO: All of it
-
-                // A bit of info on Merge Action (Not message but could be similar): https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/merge?view=dynamics-ce-odata-9
-
                 var context = localContext.PluginExecutionContext;
 
                 if (context.MessageName != PluginMessage.Merge) return;
 
-                // This plugin will need to be run in post-operation, or else, the flow could run before the merge and give a false result. Make sure post-operation has all the values we need.
-                
-                // Get the two records (or only the master record as it's the only one that the flow does not get triggered on)
+                // The master record of the merge is referenced through the target entity reference
+                if (!(localContext.PluginExecutionContext.InputParameters["Target"] is EntityReference masterRecordReference))
+                    return;
 
-                // Simply update the master record by putting it's Duplicate Detection Result to "none".
-                // Make sure if empty, or already at "none" for some reason, that it still triggers the flow as this could be a problem.
+                if (masterRecordReference.LogicalName == Contact.EntityLogicalName)
+                {
+                    // Update the duplicate status result to reset it due to a merge and consequencely trigger a flow to check for duplicates
+                    var contact = new Contact()
+                    {
+                        Id = masterRecordReference.Id,
+                        opc_duplicatedetectionresult = new OptionSetValue((int)opc_duplicatedetectionresult.None),
+                    };
+                    localContext.OrganizationService.Update(contact);
+                }
             }
             catch (Exception ex)
             {
                 // Trace and throw any exceptions
                 localContext.Trace($"Exception: {ex.Message} - Stack Trace: {ex.StackTrace}");
-                throw new InvalidPluginExecutionException($"An error occurred in the plug-in. {nameof(ChangeEventPlugin)}: {ex.Message}", ex);
+                throw new InvalidPluginExecutionException($"An error occurred in the plug-in. {nameof(DuplicateMergeUpdateStatusPlugin)}: {ex.Message}", ex);
             }
         }
     }

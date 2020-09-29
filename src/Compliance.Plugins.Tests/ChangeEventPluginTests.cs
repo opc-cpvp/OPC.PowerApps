@@ -75,7 +75,7 @@ namespace Compliance.Plugins.Tests
             }
 
             [Fact]
-            public void two_events_should_be_created_for_two_tracked_changed_field()
+            public void two_events_should_be_created_for_two_tracked_changed_fields()
             {
                 // Arrange
                 var context = new XrmFakedContext();
