@@ -3,7 +3,7 @@ import 'whatwg-fetch';
 import 'core-js/features/url-search-params';
 import * as Msal from 'msal';
 import { i18n } from "i18next";
-import { IPowerDialog, IUserService, IEnvironmentVariableService, IComplaintService, IAuthService, ISharePointService, WindowContext, ComplaintWithRelationships, TemplateEnvironmentVariable } from "../../interfaces";
+import { IPowerDialog, IUserService, IEnvironmentVariableService, IComplaintService, IAuthService, ISharePointService, WindowContext, ComplaintWithRelationships, TemplateEnvironmentVariable, AllegationWithChecklistResponse } from "../../interfaces";
 import { setTimeout } from "timers";
 
 // TODO: Add a notification for the user when there is an error?
@@ -23,7 +23,7 @@ export namespace Dialogs {
         private readonly _sharePointService: ISharePointService;
         private _placeholder: HTMLDivElement;
         private _complaint: ComplaintWithRelationships;
-        private _allegations: any;
+        private _allegations: AllegationWithChecklistResponse[];
         private _dialogSelect: HTMLSelectElement;
         private _globalContext: Xrm.context;
         private _windowContext: WindowContext;
@@ -67,7 +67,6 @@ export namespace Dialogs {
                     this._userService.getUserEmail(this._globalContext.userSettings.userId),
                     this._environmentVariableService.getEnvironmentVariable("opc_templatesapplication"),
                     this._complaintService.getAllegationsWithChecklistResponses(this._complaintId)
-
                 ];
 
                 await Promise.all(promiseArray)
@@ -233,7 +232,7 @@ export namespace Dialogs {
             }
         }
 
-        private appendAllegations(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any, prefix?: string) {
+        private appendAllegations(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any) {
             for (let propertyName in propertyCollection) {
                 let property: any = propertyCollection[propertyName];
 
@@ -241,11 +240,17 @@ export namespace Dialogs {
                     propertyName !== "@odata.context" &&
                     propertyName !== "@odata.etag") {
 
-                    if (!prefix)
-                        propertyName = "allegation";
+                    if (property.opc_allegationtypeid_formatted !== undefined) {
+                        if (property.opc_allegationtypeid_formatted.indexOf("Access") !== -1)
+                            propertyName = "allegation_access";
+                        else if (property.opc_allegationtypeid_formatted.indexOf("Time Limit") !== -1)
+                            propertyName = "allegation_timelimit";
+                        else
+                            propertyName = "allegation";
+                    }
 
                     if (!isNaN(Number(propertyName)))
-                        propertyName = `${prefix}_${propertyName}`;
+                        propertyName = `question_${propertyName}`;
 
                     const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
 
@@ -253,6 +258,7 @@ export namespace Dialogs {
                         let checklistResponses: opc_ChecklistResponse_Result[] = property;
 
                         checklistResponses.forEach(x => {
+                            // TODO: We need to change this because if the response is of type text but the value is 1 or 0 it won't display the right value.
                             switch (x.opc_response) {
                                 case "0": {
                                     x.opc_response = "No";
@@ -286,7 +292,7 @@ export namespace Dialogs {
                         if (Object.prototype.toString.call(property) === "[object Date]")
                             propertyElement.textContent = property.toLocaleString();
                         else
-                            this.appendAllegations(xmlDocument, propertyElement, property, "question"); //I guess that's a little bit of a cheat?
+                            this.appendAllegations(xmlDocument, propertyElement, property);
                     }
                     else {
                         propertyElement.textContent = property;

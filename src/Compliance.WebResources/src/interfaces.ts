@@ -5,7 +5,7 @@ export interface IComplaintService {
     getComplaint(id: string): Promise<opc_complaint>
     getComplaintWithRelationships(id: string): Promise<ComplaintWithRelationships>
     getSharePointDocumentLocation(id: string): Promise<SharePointDocumentLocation>
-    getAllegationsWithChecklistResponses(id: string): Promise<any>
+    getAllegationsWithChecklistResponses(id: string): Promise<AllegationWithChecklistResponse[]>
 }
 
 export interface IAllegationService {
@@ -91,6 +91,8 @@ export type TemplateEnvironmentVariable = {
     tokenScope: string[];
     authorityBaseUrl: string;
 }
+
+export type AllegationWithChecklistResponse = opc_allegation & opc_allegation_FormattedResult & { opc_allegation_checklistresponses_allegation?: opc_ChecklistResponse_Result[] }
 
 export type ComplaintWithRelationships = opc_complaint &
 { opc_legislation: opc_legislation_Result } &

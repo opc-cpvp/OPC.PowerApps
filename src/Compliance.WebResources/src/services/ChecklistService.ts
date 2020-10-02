@@ -19,7 +19,7 @@ export class ChecklistService implements IChecklistService {
         // TODO: This is querying allegation but should query checklist directly to generalize the solution.
         return XrmQuery.retrieveMultiple(x => x.opc_checklistresponses)
             //.select(x => [x.opc_checklistresponseid, x.opc_name, x.opc_response, x.opc_questiontemplateid])
-            .expand(x => x.opc_questiontemplateid, x => [x.opc_questiontemplateid, x.opc_name, x.opc_conditionalvisibility, x.opc_sequence, x.opc_questiontypeid_guid, x.opc_parentquestiontemplateid_guid, x.opc_nameenglish, x.opc_namefrench])
+            .expand(x => x.opc_questiontemplateid, x => [x.opc_questiontemplateid, x.opc_name, x.opc_conditionalvisibility, x.opc_sequence, x.opc_questiontypeid_guid, x.opc_parentquestiontemplateid_guid, x.opc_nameenglish, x.opc_namefrench, x.opc_additionalparameters])
             .filter(x => Filter.equals(x.opc_allegationid_guid, Filter.makeGuid(XQW.stripGUID(id))))
             .orderAsc(x => x.opc_name)
             .promise()

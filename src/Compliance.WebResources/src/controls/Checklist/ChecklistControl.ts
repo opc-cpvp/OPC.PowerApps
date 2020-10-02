@@ -1,5 +1,6 @@
 import { injectable, inject } from "inversify";
 import { PowerIFrameControl, IChecklistService } from "../../interfaces";
+import { JQueryHelper } from "../../helpers/JQueryHelper";
 
 export namespace Controls {
 
@@ -48,6 +49,8 @@ export namespace Controls {
                     crArray.forEach(cr => this.addQuestion(cr));
 
                 }, reason => console.error(reason)).catch(() => console.error("error loading checklist responses"));
+
+            JQueryHelper.setDatepickers();
         }
 
         private addQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result): void {
@@ -129,32 +132,38 @@ export namespace Controls {
                 '</div>';
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
-        //*****************************************
-
-
 
         private addMultiselectQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
-            // We don't know if its a toggle, but just in case we add in the array
-            //this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response == "1" });
+            // Get the Additional Parameters string and separate the options.
+            const options = cr.opc_questiontemplateid.opc_additionalparameters.split("\n");
 
-            //const questionHtml =
-            //    `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</div>` +
-            //    '<div class="form-check form-check-inline">' +
-            //    `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
-            //    `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">${this._isCurrentLanguageEnglish ? "Yes" : "Oui"}</label>` +
-            //    '</div>' +
-            //    '<div class="form-check form-check-inline">' +
-            //    `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
-            //    `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">${this._isCurrentLanguageEnglish ? "No" : "Non"}</label>` +
-            //    '</div>';
-            //element.insertAdjacentHTML('beforeend', questionHtml);
+            let optionsHtml: string = "";
+
+            options.forEach(x => {
+                const bilangualOptions = x.split("|");
+
+                // I was looking if response included x before, but now I use one of the bilangual option just in case the formating of the options change over time.
+                optionsHtml = optionsHtml.concat(`<option value="${x}" ${cr.opc_response?.includes(bilangualOptions[0].trim()) ? "selected" : ""}>${this._isCurrentLanguageEnglish ? bilangualOptions[0].trim() : bilangualOptions[1].trim()}</option>`);
+            });
+
+            const questionHtml =
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
+                `<select multiple="multiple" class="form-control" id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}'>` +
+                optionsHtml +
+                `</select>`;
+
+            element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         private addDateQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
-            //const questionHtml =
-            //    `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-            //    `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
-            //element.insertAdjacentHTML('beforeend', questionHtml);
+            const questionHtml =
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
+                //`<input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="text" class="form-control" data-provide="datepicker" value="${cr.opc_response || ""}">`;
+                //`<div class="input-group date"><input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="text" class="form-control date" value="${cr.opc_response || ""}"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span></div>`;
+                `<div class="input-group date"><input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="text" class="form-control" data-provide="datepicker" value="${cr.opc_response || ""}"><div class="input-group-addon"><span class="glyphicon glyphicon-th"></span></div></div>`;
+
+
+            element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         public save(): void {
@@ -188,13 +197,21 @@ export namespace Controls {
                                     doubleDirtyRadios.push(input.name);
                                 }
                                 else continue;
-
                             }
                         }
 
                         break;
                     case "textarea":
                         value = (<HTMLTextAreaElement>dirtyInputs[i]).value;
+                        break;
+                    case "select":
+                        const options = Array.from((<HTMLSelectElement>dirtyInputs[i]).selectedOptions);
+
+                        value = "";
+                        options.forEach(x => {
+                            value = value.concat(x.value);
+                        });
+
                         break;
                     default:
                         console.log("unsupported element type:" + dirtyInputs[i].tagName);
