@@ -61,6 +61,7 @@ export namespace Controls {
             const doubleDirtyRadios: string[] = [];
 
             // Iterate over all dirty elements to persist the state
+            // eslint-disable-next-line @typescript-eslint/prefer-for-of
             for (let i = 0; i < dirtyInputs.length; i++) {
                 const id: string = dirtyInputs[i].getAttribute("data-responseid");
                 let value: string = null;
@@ -109,7 +110,7 @@ export namespace Controls {
                     .then(() => {
                         dirtyInputs[i].classList.remove("dirty");
                     })
-                    .catch(e => console.error(`error updating questions: ${e}`));
+                    .catch(e => console.error("error updating questions", e));
             }
         }
 
