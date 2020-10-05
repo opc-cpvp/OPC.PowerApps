@@ -89,7 +89,7 @@ export namespace Controls {
                                 // Update the cached definition.
                                 definition.opc_isselected = isSelected;
                             })
-                            .catch(e => console.error(`error updating definition: ${e}`))
+                            .catch(e => console.error("error updating definition", e))
                     );
                 }
             });
@@ -99,7 +99,7 @@ export namespace Controls {
                 .then(() => {
                     this.updateSuggestedRisk();
                 })
-                .catch(e => console.error(`error updating suggested risk: ${e}`));
+                .catch(e => console.error("error updating suggested risk", e));
         }
 
         private getCategories() {
@@ -276,7 +276,7 @@ export namespace Controls {
                     const event = new Event("entity-save-completed");
                     this.documentContext.dispatchEvent(event);
                 })
-                .catch(e => console.error(`error updating suggested risk: ${e}`));
+                .catch(e => console.error("error updating suggested risk", e));
         }
     }
 }
