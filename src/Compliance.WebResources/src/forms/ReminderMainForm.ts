@@ -53,8 +53,8 @@ export namespace Reminder.Forms {
             // Check if at least one person is to be notified
             if (!shouldNotifyCaseOwner && !shouldNotifyReminderOwner) {
                 // Only query for additional user check if the two other fields are not selected to minimize API calls.
-                const hasAdditionalUsersToNotify = this._reminderService.hasAdditionalUsersToNotify(formContext.data.entity.getId());
-                if (!(await hasAdditionalUsersToNotify)) {
+                const hasAdditionalUsersToNotify = await this._reminderService.hasAdditionalUsersToNotify(formContext.data.entity.getId());
+                if (!hasAdditionalUsersToNotify) {
                     // Only setting form notifications because there does not seem to be away to set a notification for the
                     // underlaying pcf (it throws an error on SetNotification)
                     XrmHelper.setFormNotification(formContext, "ERROR", this._i18n.t("reminder:error.nobody_selected"));
