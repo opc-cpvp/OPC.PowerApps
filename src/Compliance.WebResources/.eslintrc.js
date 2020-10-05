@@ -150,7 +150,14 @@ module.exports = {
             // disable checking @typescript-eslint/no-unused-expressions in testing files as @typescript-eslint incorrectly flags sinon-chai 'should' methods
             "files": ["*.test.ts"],
             "rules": {
-                "@typescript-eslint/no-unused-expressions": "off"
+                "@typescript-eslint/no-unused-expressions": "off",
+            }
+        },
+        {
+            // disable checking @typescript-eslint/no-unused-vars in test framework
+            "files": ["test/*.ts"],
+            "rules": {
+                "@typescript-eslint/no-unused-vars": "off",
             }
         }
     ]
