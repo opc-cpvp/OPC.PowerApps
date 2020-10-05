@@ -78,7 +78,7 @@ describe("ChecklistControl", () => {
             getChecklist.should.have.been.called;
         });
 
-        it.skip("it should only load all question responses when question types are loaded", async () => {
+        it.skip("it should only load all question responses when question types are loaded", () => {
             const checklistResponses: any[][] = [null];
             const qTypes: { id: string; type: string }[] = [{ id: "1", type: "Text" }];
             const forEachFake = sandbox.stub(checklistResponses, "forEach").callsFake(sinon.fake());
