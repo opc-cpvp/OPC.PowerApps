@@ -95,7 +95,7 @@ export namespace Dialogs {
                 this.render();
                 this.addEventListeners();
             } catch (error) {
-                console.log(`There was an error while loading the dialog. \nError: ${error}`);
+                console.log("There was an error while loading the dialog.", error);
                 this.closePage();
             }
         }
@@ -175,9 +175,13 @@ export namespace Dialogs {
                             }
                         },
                         error => {
-                            console.log(
-                                `There was an error while calling action GenerateDocumentFromTemplate: ${error.message} \n${error.raw}`
-                            );
+                            const message = "There was an error while calling action GenerateDocumentFromTemplate";
+                            if (error instanceof Error) {
+                                console.log(`${message}: ${error.message} \n${error.stack}`);
+                            } else {
+                                console.log(message, error);
+                            }
+
                             this.closePage();
                         }
                     );
@@ -229,9 +233,13 @@ export namespace Dialogs {
 
         private appendValidHTMLElements(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any) {
             for (const propertyName in propertyCollection) {
+                if (["@odata.context", "@odata.etag"].some(value => value === propertyName)) {
+                    continue;
+                }
+
                 let property: any = propertyCollection[propertyName];
 
-                if (property && propertyName !== "@odata.context" && propertyName !== "@odata.etag") {
+                if (property) {
                     if (Array.isArray(property)) {
                         property = property[0];
                     }
