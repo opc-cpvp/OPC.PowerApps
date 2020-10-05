@@ -1,11 +1,11 @@
 ﻿import { injectable } from "inversify";
 import "reflect-metadata";
-import { ISharePointService } from "../interfaces";
+import { ISharePointService, SharePointFile } from "../interfaces";
 
 @injectable()
 export class SharePointService implements ISharePointService {
-    async getTemplates(sharePointSiteUrl: string, templatesFolderPath: string, accessToken: string): Promise<any[]> {
-        let results: any[];
+    async getTemplates(sharePointSiteUrl: string, templatesFolderPath: string, accessToken: string): Promise<SharePointFile[]> {
+        let results: SharePointFile[];
         const request = new Request(`${sharePointSiteUrl}_api/web/GetFolderByServerRelativeUrl('${templatesFolderPath}')/Files`, {
             method: "GET",
             headers: new Headers({
@@ -24,7 +24,7 @@ export class SharePointService implements ISharePointService {
                 }
             })
             .then(data => {
-                results = data.d.results;
+                results = data.d.results as SharePointFile[];
             })
             .catch(error => {
                 console.log(error.message);

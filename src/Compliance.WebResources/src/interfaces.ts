@@ -1,5 +1,4 @@
-﻿import { injectable } from "inversify";
-import * as Msal from "msal";
+﻿import * as Msal from "msal";
 
 export interface IComplaintService {
     getComplaint(id: string): Promise<opc_complaint>;
@@ -8,7 +7,6 @@ export interface IComplaintService {
 }
 
 export interface IAllegationService {
-    getAllegation(id: string): opc_allegation;
     getAllegationDispositionFilter(disposition: opc_allegationdisposition): string;
     getAllegationDispositionActionFilter(dispositionReason: string): string;
 }
@@ -60,7 +58,7 @@ export interface IEnvironmentVariableService {
 }
 
 export interface ISharePointService {
-    getTemplates(sharePointSiteUrl: string, templatesFolderPath: string, accessToken: string): Promise<any[]>;
+    getTemplates(sharePointSiteUrl: string, templatesFolderPath: string, accessToken: string): Promise<SharePointFile[]>;
     generateDocumentFromTemplate(
         accessToken: string,
         caseFolderPath: string,
@@ -88,6 +86,30 @@ export interface IBaseContact {
 export type IPotentialDuplicate = IBaseContact & { numberOfFieldMatches: number };
 
 export type WindowContext = Window & typeof globalThis;
+
+export interface SharePointFile {
+    CheckInComment: string;
+    CheckOutType: number;
+    ContentTag: string;
+    CustomizedPageStatus: number;
+    ETag: string;
+    Exists: boolean;
+    IrmEnabled: boolean;
+    Length: string;
+    Level: number;
+    LinkingUri: string;
+    LinkingUrl: string;
+    MajorVersion: number;
+    MinorVersion: number;
+    Name: string;
+    ServerRelativeUrl: string;
+    TimeCreated: Date;
+    TimeLastModified: Date;
+    Title: string;
+    UIVersion: number;
+    UIVersionLabel: string;
+    UniqueId: string;
+}
 
 export interface TemplateEnvironmentVariable {
     applicationId: string;
