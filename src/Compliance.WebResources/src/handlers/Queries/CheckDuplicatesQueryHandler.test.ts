@@ -55,34 +55,26 @@ describe("Check Duplicates Handler", () => {
     describe("when executing", () => {
         it("it should return true if duplicates exist", async () => {
             // Arrange
-            const getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves({});
-
-            const getContactDup = sandbox
-                .stub(contactService, nameof(contactService.getPotentialDuplicates))
-                .resolves([potentialDuplicate]);
+            sandbox.stub(contactService, "getContact").resolves();
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
 
             // Act
             const duplicatesExist = await handler.executeAsync("opc_complainant", mockContext.getFormContext());
 
             // Assert
-            await getContact;
-            await getContactDup;
             getContactDup.should.have.been.called;
             duplicatesExist.should.equal(true);
         });
 
         it("it should return false if no duplicates exist", async () => {
             // Arrange
-            const getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves({});
-
-            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([]);
+            sandbox.stub(contactService, "getContact").resolves({});
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
 
             // Act
             const duplicatesExist = await handler.executeAsync("opc_complainant", mockContext.getFormContext());
 
             // Assert
-            await getContact;
-            await getContactDup;
             getContactDup.should.have.been.called;
             duplicatesExist.should.equal(false);
         });
@@ -90,7 +82,7 @@ describe("Check Duplicates Handler", () => {
         it("it should return false if no complainant exists", async () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
-            const getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves({});
+            const getContact = sandbox.stub(contactService, "getContact").resolves({});
 
             // Act
             const duplicatesExist = await handler.executeAsync("opc_complainant", mockContext.getFormContext());
