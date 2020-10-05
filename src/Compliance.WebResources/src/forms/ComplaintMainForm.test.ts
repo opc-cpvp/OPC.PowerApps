@@ -55,7 +55,7 @@ describe("Complaint", () => {
         it("it should not have duplicate contact notification if no contact exists", async () => {
             // Arrange
             const getDuplicateDup = sandbox
-                .stub(contactService, nameof(contactService.getDuplicateStatus))
+                .stub(contactService, "getDuplicateStatus")
                 .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
             mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
 
@@ -64,7 +64,7 @@ describe("Complaint", () => {
 
             // Assert
             getDuplicateDup.should.not.have.been.called;
-            await getDuplicateDup;
+            await Promise.all(getDuplicateDup.returnValues);
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
     });
@@ -106,15 +106,13 @@ describe("Complaint", () => {
             // Run the Initialize first so that the form doesn't set notifications yet without a contact,
             // testing will be done when firing the on change
             form.initializeComponents(mockContext);
-            getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves(complainant);
+            getContact = sandbox.stub(contactService, "getContact").resolves(complainant);
         });
 
         it("it should have notifications if a duplicate contacts exists", async () => {
             // Arrange
 
-            const getContactDup = sandbox
-                .stub(contactService, nameof(contactService.getPotentialDuplicates))
-                .resolves([potentialDuplicate]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
             const contactsLookup = [
                 {
                     id: "233A4366-A101-4B59-9004-DA83CE087922",
@@ -132,8 +130,7 @@ describe("Complaint", () => {
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
         });
@@ -141,9 +138,7 @@ describe("Complaint", () => {
         it("it should have a potential duplicate notification if less than all checked fields match", async () => {
             // Arrange
 
-            const getContactDup = sandbox
-                .stub(contactService, nameof(contactService.getPotentialDuplicates))
-                .resolves([potentialDuplicate]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
 
             const contactsLookup = [
                 {
@@ -162,8 +157,7 @@ describe("Complaint", () => {
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
             contextSpy
@@ -177,7 +171,7 @@ describe("Complaint", () => {
         it("it should have a full duplicate notification if all checked fields match", async () => {
             // Arrange
 
-            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([actualDuplicate]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([actualDuplicate]);
 
             const contactsLookup = [
                 {
@@ -197,8 +191,7 @@ describe("Complaint", () => {
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
             contextSpy
@@ -209,7 +202,7 @@ describe("Complaint", () => {
 
         it("it should not have a notification if a contact does not have a duplication status", async () => {
             // Arrange
-            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
 
             const contactsLookup = [
                 {
@@ -225,8 +218,7 @@ describe("Complaint", () => {
             mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
@@ -234,9 +226,7 @@ describe("Complaint", () => {
         it("it should have multiple notifications if multiple duplicate contacts exist", async () => {
             // Arrange
 
-            const getContactDup = sandbox
-                .stub(contactService, nameof(contactService.getPotentialDuplicates))
-                .resolves([potentialDuplicate]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
 
             const contactsLookup = [
                 {
@@ -255,8 +245,7 @@ describe("Complaint", () => {
 
             // Assert
             // Any better way?
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(2);
         });
@@ -264,7 +253,7 @@ describe("Complaint", () => {
         it("it should remove exsiting notifications when no duplicate status is found", async () => {
             // Arrange
 
-            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
 
             const contactsLookup = [
                 {
@@ -294,8 +283,7 @@ describe("Complaint", () => {
             mockContext.getFormContext().getAttribute("opc_respondentlegalrepresentative").fireOnChange();
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
@@ -303,9 +291,7 @@ describe("Complaint", () => {
         it("it should remove exsiting notifications when no contacts are found", async () => {
             // Arrange
 
-            const getContactDup = sandbox
-                .stub(contactService, nameof(contactService.getPotentialDuplicates))
-                .resolves([potentialDuplicate]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
 
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
@@ -321,8 +307,7 @@ describe("Complaint", () => {
             mockContext.getFormContext().getAttribute("opc_respondentlegalrepresentative").fireOnChange();
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.not.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });

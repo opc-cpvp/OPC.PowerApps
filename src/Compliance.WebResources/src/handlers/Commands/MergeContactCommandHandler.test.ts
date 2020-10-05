@@ -5,12 +5,12 @@ import { WindowHelper } from "../../helpers/WindowHelper";
 import { MergeContactCommandHandler } from "./MergeContactCommandHandler";
 import { XrmContextMock } from "../../../test/XrmContextMock";
 import * as resources from "../../resources.json";
+import i18next from "i18next";
 
-const i18next = require("i18next");
+import chai from "chai";
+import sinon, { SinonStub } from "sinon";
+import sinonChai from "sinon-chai";
 
-const chai = require("chai");
-const sinon = require("sinon");
-const sinonChai = require("sinon-chai");
 const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
@@ -51,33 +51,35 @@ describe("Merge Contact Handler", () => {
     let handler: ICommandHandler;
 
     function initializeMock() {
-        contactService = new ContactService();
-        mockContext = new XrmContextMock();
-        mockExecutionContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
-        handler = new MergeContactCommandHandler(i18next, contactService, mockContext);
-
-        i18next.init({
+        void i18next.init({
             resources: resources.resources,
             defaultNS: "common",
             fallbackLng: "en",
             lng: "en"
         });
 
+        contactService = new ContactService();
+        mockContext = new XrmContextMock();
+        mockExecutionContext = new XrmExecutionContextMock<Form.contact.Main.ComplianceContact, any>();
+        handler = new MergeContactCommandHandler(i18next, contactService, mockContext);
+
         mockExecutionContext.getFormContext().getAttribute("opc_complainant").setValue(complainantLookup);
     }
 
-    let getContact: any;
+    let getContact: SinonStub<any[], PromiseLike<any>>;
     let windowOpen: any;
     const fakeClientUrl = "fakeUrl";
 
     beforeEach(() => {
         initializeMock();
 
-        windowOpen = sandbox.stub(WindowHelper, "openWindow").returns({ addEventListener(str: string, listener: Function) {} });
+        windowOpen = sandbox
+            .stub(WindowHelper, "openWindow")
+            .returns({ addEventListener(str: string, listener: EventListenerOrEventListenerObject) {} });
 
-        sandbox.stub(mockContext, nameof(mockContext.getClientUrl)).returns(fakeClientUrl);
+        sandbox.stub(mockContext, "getClientUrl").returns(fakeClientUrl);
 
-        getContact = sandbox.stub(contactService, nameof(contactService.getContact)).resolves(complainant);
+        getContact = sandbox.stub(contactService, "getContact").resolves(complainant);
     });
 
     afterEach(() => {
@@ -86,16 +88,13 @@ describe("Merge Contact Handler", () => {
 
     describe("when executed", () => {
         it("it should open the merge window when a duplicate is found", async () => {
-            const getContactDup = sandbox
-                .stub(contactService, nameof(contactService.getPotentialDuplicates))
-                .resolves([potentialDuplicate]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
 
             // Act
             handler.execute(mockExecutionContext.getFormContext(), "opc_complainant");
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             windowOpen.should.have.been.called;
         });
 
@@ -121,7 +120,7 @@ describe("Merge Contact Handler", () => {
             };
 
             const getContactDup = sandbox
-                .stub(contactService, nameof(contactService.getPotentialDuplicates))
+                .stub(contactService, "getPotentialDuplicates")
                 .resolves([potentialDuplicate, mostLikelyDuplicate, leastLikelyDuplicate]);
 
             const mergeUrl =
@@ -134,13 +133,12 @@ describe("Merge Contact Handler", () => {
             handler.execute(mockExecutionContext.getFormContext(), "opc_complainant");
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             windowOpen.should.have.been.calledWith(mergeUrl, "_blank", 900, 700);
         });
 
         it("it should not merge if no duplicates are found", async () => {
-            const getContactDup = sandbox.stub(contactService, nameof(contactService.getPotentialDuplicates)).resolves([]);
+            const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
 
             mockExecutionContext.getFormContext().getAttribute("opc_complainant").setValue(complainantLookup);
 
@@ -148,8 +146,7 @@ describe("Merge Contact Handler", () => {
             handler.execute(mockExecutionContext.getFormContext(), "opc_complainant");
 
             // Assert
-            await getContact;
-            await getContactDup;
+            await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.have.been.called;
             windowOpen.should.not.have.been.called;
         });

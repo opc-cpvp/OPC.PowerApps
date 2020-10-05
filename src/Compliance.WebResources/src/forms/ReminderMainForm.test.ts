@@ -79,15 +79,13 @@ describe("Reminder - Main", () => {
             mockContext.getFormContext().data.entity.save();
 
             // Assert
-            await hasAdditionalUsersToNotifyStub;
+            await Promise.all(hasAdditionalUsersToNotifyStub.returnValues);
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
         });
 
         it("it should not display notifications if the user have selected someone to be notified", async () => {
             // Arrange
-            const hasAdditionalUsersToNotifyStub = sandbox
-                .stub(reminderService, nameof(reminderService.hasAdditionalUsersToNotify))
-                .resolves(true);
+            const hasAdditionalUsersToNotifyStub = sandbox.stub(reminderService, "hasAdditionalUsersToNotify").resolves(true);
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(true);
             mockContext.getFormContext().getAttribute("opc_notifyme").setValue(true);
             mockContext.getFormContext().getAttribute("opc_complaintid").setValue("PA-000000");
@@ -97,15 +95,13 @@ describe("Reminder - Main", () => {
             mockContext.getFormContext().data.entity.save();
 
             // Assert
-            await hasAdditionalUsersToNotifyStub;
+            await Promise.all(hasAdditionalUsersToNotifyStub.returnValues);
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
 
         it("it should cancel the save operation if the user have not selected someone to be notified", async () => {
             // Arrange
-            const hasAdditionalUsersToNotifyStub = sandbox
-                .stub(reminderService, nameof(reminderService.hasAdditionalUsersToNotify))
-                .resolves(false);
+            const hasAdditionalUsersToNotifyStub = sandbox.stub(reminderService, "hasAdditionalUsersToNotify").resolves(false);
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(false);
             mockContext.getFormContext().getAttribute("opc_notifyme").setValue(false);
             form.initializeComponents(mockContext);
@@ -114,7 +110,7 @@ describe("Reminder - Main", () => {
             mockContext.getFormContext().data.entity.save();
 
             // Assert
-            await hasAdditionalUsersToNotifyStub;
+            await Promise.all(hasAdditionalUsersToNotifyStub.returnValues);
             eventArgsSpy.preventDefault.should.have.been.called;
         });
 

@@ -3,9 +3,10 @@ import { XrmNavigationMock } from "../../../test/XrmNavigationMock";
 import { ICommandHandler } from "../../interfaces";
 import { OpenTemplateDialogCommandHandler } from "./OpenTemplateDialogCommandHandler";
 
-const chai = require("chai");
-const sinon = require("sinon");
-const sinonChai = require("sinon-chai");
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
 const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
@@ -48,11 +49,11 @@ describe("OpenTemplateDialog Command Handler", () => {
         });
         it("it should refresh the documents subgrid when the template dialog is closed", async () => {
             // Arrange
-            const navigateTo = sandbox.stub(mockNavigation, nameof(mockNavigation.navigateTo)).resolves();
+            const navigateTo = sandbox.stub(mockNavigation, "navigateTo").resolves();
 
             // Act
             handler.execute(mockExecutionContext.getFormContext());
-            await navigateTo;
+            await Promise.all(navigateTo.returnValues);
 
             // Assert
             controlSpy.refresh.should.have.been.calledOnce;

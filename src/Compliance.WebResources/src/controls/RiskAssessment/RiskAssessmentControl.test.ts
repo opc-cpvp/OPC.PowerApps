@@ -115,39 +115,39 @@ describe("RiskAssessmentControl", () => {
             document.body.removeChild(placeholderElement); // not a true dom reset, tried jsdom and had several issues
         });
 
-        it("it should register handler for saving entity", () => {
+        it("it should register handler for saving entity", async () => {
             // Arrange
             const addEventListener = sandbox.stub(documentContext, "addEventListener");
             sandbox.stub(service, "getRiskAppetites").resolves([]);
             sandbox.stub(service, "getRiskDefinitions").resolves([]);
 
             // Act
-            control.init();
+            await control.init();
 
             // Assert
             addEventListener.should.have.been.calledOnce;
             addEventListener.should.have.been.calledWith("entity-save");
         });
 
-        it("it should load all risk appetites", () => {
+        it("it should load all risk appetites", async () => {
             // Arrange
             const getRiskAppetites = sandbox.stub(service, "getRiskAppetites").resolves([]);
             sandbox.stub(service, "getRiskDefinitions").resolves([]);
 
             // Act
-            control.init();
+            await control.init();
 
             // Assert
             getRiskAppetites.should.have.been.called;
         });
 
-        it("it should load all risk definitions", () => {
+        it("it should load all risk definitions", async () => {
             // Arrange
             const getRiskDefinitions = sandbox.stub(service, "getRiskDefinitions").resolves([]);
             sandbox.stub(service, "getRiskAppetites").resolves([]);
 
             // Act
-            control.init();
+            await control.init();
 
             // Assert
             getRiskDefinitions.should.have.been.called;
@@ -192,14 +192,13 @@ describe("RiskAssessmentControl", () => {
         it("it should clear the suggested risk if nothing's selected", async () => {
             // Arrange
             const updateSuggestedRisk = sandbox.stub(service, "updateSuggestedRisk").resolves();
-            const getRiskDefinitions = sandbox.stub(service, "getRiskDefinitions").resolves([]);
+            sandbox.stub(service, "getRiskDefinitions").resolves([]);
             sandbox.stub(service, "getRiskAppetites").resolves([]);
 
             // Act
             await control.init();
-            await getRiskDefinitions;
             control.save();
-            await updateSuggestedRisk;
+            await Promise.all(updateSuggestedRisk.returnValues);
 
             // Assert
             updateSuggestedRisk.should.have.been.called;
@@ -220,14 +219,13 @@ describe("RiskAssessmentControl", () => {
 
             // Arrange
             const updateSuggestedRisk = sandbox.stub(service, "updateSuggestedRisk").resolves();
-            const getRiskDefinitions = sandbox.stub(service, "getRiskDefinitions").resolves(riskDefinitions);
+            sandbox.stub(service, "getRiskDefinitions").resolves(riskDefinitions);
             sandbox.stub(service, "getRiskAppetites").resolves(riskAppetites);
 
             // Act
             await control.init();
-            await getRiskDefinitions;
             control.save();
-            await updateSuggestedRisk;
+            await Promise.all(updateSuggestedRisk.returnValues);
 
             // Assert
             updateSuggestedRisk.should.have.been.called;
