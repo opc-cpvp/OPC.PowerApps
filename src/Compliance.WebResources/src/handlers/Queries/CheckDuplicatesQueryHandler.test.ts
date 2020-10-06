@@ -33,7 +33,7 @@ describe("Check Duplicates Handler", () => {
         }
     ];
 
-    let handler: IQueryHandler;
+    let handler: CheckDuplicatesQueryHandler;
 
     function initializeMock() {
         contactService = new ContactService();

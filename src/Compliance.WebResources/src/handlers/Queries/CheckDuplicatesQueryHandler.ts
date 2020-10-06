@@ -2,14 +2,14 @@ import { injectable, inject } from "inversify";
 import { IContactService, IQueryHandler, ExtendedXrmPageBase } from "../../interfaces";
 
 @injectable()
-export class CheckDuplicatesQueryHandler implements IQueryHandler {
+export class CheckDuplicatesQueryHandler implements IQueryHandler<boolean> {
     private readonly _contactService: IContactService;
 
     constructor(@inject(nameof<IContactService>()) contactService: IContactService) {
         this._contactService = contactService;
     }
 
-    public async executeAsync<TForm extends ExtendedXrmPageBase>(field: string, context: TForm): Promise<any> {
+    public async executeAsync<TForm extends ExtendedXrmPageBase>(field: string, context: TForm): Promise<boolean> {
         const contact = context.getAttribute(field);
 
         // Check if there is any value for the given field

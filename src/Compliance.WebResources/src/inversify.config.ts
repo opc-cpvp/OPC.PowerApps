@@ -100,7 +100,7 @@ container.bind<Window>(nameof<Window>()).toDynamicValue(() => window);
 // Commands and queries
 container.bind<i.ICommandHandler>(nameof<OpenTemplateDialogCommandHandler>()).to(OpenTemplateDialogCommandHandler);
 container.bind<i.ICommandHandler>(nameof<MergeContactCommandHandler>()).to(MergeContactCommandHandler);
-container.bind<i.IQueryHandler>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
+container.bind<i.IQueryHandler<boolean>>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
 
 // Language
 i18next
