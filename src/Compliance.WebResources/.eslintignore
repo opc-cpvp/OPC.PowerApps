@@ -4,6 +4,7 @@ js/lib/xrmquery
 node_modules
 
 .eslintrc.json
+.lintstagedrc.json
 .prettierignore
 .prettierrc.json
 .yo-rc.json
