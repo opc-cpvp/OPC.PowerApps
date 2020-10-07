@@ -4,6 +4,8 @@ import { IPowerForm, IReminderService } from "../interfaces";
 import { i18n } from "i18next";
 import { XrmHelper } from "../helpers/XrmHelper";
 
+// @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Reminder.Forms {
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_reminder.Main.Information> {

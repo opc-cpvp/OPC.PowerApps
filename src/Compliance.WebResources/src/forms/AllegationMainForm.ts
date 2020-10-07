@@ -4,6 +4,8 @@ import { IAllegationService } from "../interfaces";
 import { PowerForm } from "./PowerForm";
 import { XrmHelper } from "../helpers/XrmHelper";
 
+// @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Allegation.Forms {
     @injectable()
     export class MainForm extends PowerForm<Form.opc_allegation.Main.Information> {
