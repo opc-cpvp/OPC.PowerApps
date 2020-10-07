@@ -1,6 +1,6 @@
 import { XrmExecutionContextMock } from "../../../test/XrmExecutionContextMock";
 import { ContactService } from "../../services/ContactService";
-import { IBaseContact, IQueryHandler } from "../../interfaces";
+import { IBaseContact } from "../../interfaces";
 import { CheckDuplicatesQueryHandler } from "./CheckDuplicatesQueryHandler";
 
 import chai from "chai";
