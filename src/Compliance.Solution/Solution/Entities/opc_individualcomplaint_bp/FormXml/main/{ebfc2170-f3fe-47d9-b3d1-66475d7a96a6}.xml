@@ -14,7 +14,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{e0bf78b2-9a4e-44f1-8d12-b5ed83ce3c6f}" name="StageStep3_section1" labelid="{27bf4d06-180f-436f-85ca-0d9257808040}">
+                <section showbar="false" columns="1" id="{705c0559-4697-fc75-630c-177c1b8849a1}" name="StageStep3_section1" labelid="{27bf4d06-180f-436f-85ca-0d9257808040}">
                   <labels>
                     <label description="Triage" languagecode="1033" />
                   </labels>
@@ -56,7 +56,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{a6c493c6-ac5e-434e-ac45-233fcca6aef2}" name="StageStep12_section1" labelid="{4b33fef5-110b-47d0-8611-496a02623af2}">
+                <section showbar="false" columns="1" id="{fe396b05-18ed-3b55-77d7-19a246f0ee82}" name="StageStep12_section1" labelid="{4b33fef5-110b-47d0-8611-496a02623af2}">
                   <labels>
                     <label description="Intake" languagecode="1033" />
                   </labels>
@@ -106,7 +106,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}" name="StageStep23_section1" labelid="{4f9b82b9-e06f-494d-918e-a9455c095d18}">
+                <section showbar="false" columns="1" id="{b665304c-faeb-e1ad-76d9-8b93b8c11bf2}" name="StageStep23_section1" labelid="{4f9b82b9-e06f-494d-918e-a9455c095d18}">
                   <labels>
                     <label description="Acceptance" languagecode="1033" />
                   </labels>
@@ -140,7 +140,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{34649765-2943-4b28-aa58-cf2c44af4060}" name="StageStep29_section1" labelid="{1225c73f-0aa3-4a9b-9709-e2e77bb06a81}">
+                <section showbar="false" columns="1" id="{401a2caa-a99d-b371-175b-0244d0aca9cf}" name="StageStep29_section1" labelid="{1225c73f-0aa3-4a9b-9709-e2e77bb06a81}">
                   <labels>
                     <label description="Investigation" languagecode="1033" />
                   </labels>
@@ -167,7 +167,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{a52e31c9-0cad-4800-b80c-ef45c28726e5}" name="StageStep34_section1" labelid="{4b7f029b-264d-4c49-9745-859c1e822f00}">
+                <section showbar="false" columns="1" id="{4267c845-226d-e163-c95b-22101b87f6d6}" name="StageStep34_section1" labelid="{4b7f029b-264d-4c49-9745-859c1e822f00}">
                   <labels>
                     <label description="Close" languagecode="1033" />
                   </labels>
@@ -180,29 +180,20 @@
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="opc_sendcloseletter" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{bc5f8395-9640-4569-a004-629d48be9180}" showlabel="true" visible="true" labelid="{57711bec-470a-4620-b1cd-cf6cde42c268}">
-                        <labels>
-                          <label description="Status Reason" languagecode="1033" />
-                          <label description="Raison du statut" languagecode="1036" />
-                        </labels>
-                        <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{681295a9-e97d-479a-9c1d-65386c3f95a8}" name="StageStep42" locklevel="0" expanded="true" visible="false" labelid="{30e50499-9a6d-416f-9a50-91ede78606af}">
+        <tab verticallayout="true" id="{681295a9-e97d-479a-9c1d-65386c3f95a8}" name="StageStep40" locklevel="0" expanded="true" visible="false" labelid="{30e50499-9a6d-416f-9a50-91ede78606af}">
           <labels>
             <label description="Early Resolution" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{681295a9-e97d-479a-9c1d-65386c3f95a8}" name="StageStep42_section1" labelid="{3c500815-460f-4878-8ace-e92db82ba43f}">
+                <section showbar="false" columns="1" id="{d030dadf-dfab-6657-e59b-e670d0f2ba8a}" name="StageStep40_section1" labelid="{22f157fb-12b0-4248-a93a-2ad2ab0a4118}">
                   <labels>
                     <label description="Early Resolution" languagecode="1033" />
                   </labels>
@@ -222,14 +213,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{62ba6bdd-fb3a-4162-8a2c-4190e6c5e5dc}" name="StageStep47" locklevel="0" expanded="true" visible="false" labelid="{76e46203-2580-4ec9-8de1-e742245483e2}">
+        <tab verticallayout="true" id="{62ba6bdd-fb3a-4162-8a2c-4190e6c5e5dc}" name="StageStep45" locklevel="0" expanded="true" visible="false" labelid="{76e46203-2580-4ec9-8de1-e742245483e2}">
           <labels>
             <label description="Investigation" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{62ba6bdd-fb3a-4162-8a2c-4190e6c5e5dc}" name="StageStep47_section1" labelid="{e29d9220-8eaa-4ffe-88fd-dac95ec3eed5}">
+                <section showbar="false" columns="1" id="{51eade4b-829e-8737-f650-ef674c81d6f1}" name="StageStep45_section1" labelid="{2626d744-368c-4c63-a6a2-6a1321572db0}">
                   <labels>
                     <label description="Investigation" languagecode="1033" />
                   </labels>
@@ -249,14 +240,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{da76887d-434e-4b18-9f18-4c82ae5daadd}" name="StageStep51" locklevel="0" expanded="true" visible="false" labelid="{384d54ad-2374-40aa-9880-27ab0ac77c3e}">
+        <tab verticallayout="true" id="{da76887d-434e-4b18-9f18-4c82ae5daadd}" name="StageStep49" locklevel="0" expanded="true" visible="false" labelid="{384d54ad-2374-40aa-9880-27ab0ac77c3e}">
           <labels>
             <label description="Close" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{da76887d-434e-4b18-9f18-4c82ae5daadd}" name="StageStep51_section1" labelid="{b6a611f5-1d8b-48bc-8e27-c11ca8c9c2f3}">
+                <section showbar="false" columns="1" id="{cc5695d7-4cc2-4a40-1f93-8d3403317622}" name="StageStep49_section1" labelid="{7468756f-2cb8-4c4b-ab0d-39fea8cd7bf1}">
                   <labels>
                     <label description="Close" languagecode="1033" />
                   </labels>
@@ -269,29 +260,20 @@
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="opc_sendcloseletter" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{d57ba287-ce23-4c1a-a005-3777450cf3b0}" showlabel="true" visible="true" labelid="{220b5258-ca40-473a-8c03-646dfe431e09}">
-                        <labels>
-                          <label description="Status Reason" languagecode="1033" />
-                          <label description="Raison du statut" languagecode="1036" />
-                        </labels>
-                        <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{57863eb5-5caf-47c0-aabf-8b50814a4190}" name="StageStep59" locklevel="0" expanded="true" visible="false" labelid="{810fa7e4-ab1b-4e08-a014-b0b19590f9db}">
+        <tab verticallayout="true" id="{57863eb5-5caf-47c0-aabf-8b50814a4190}" name="StageStep55" locklevel="0" expanded="true" visible="false" labelid="{810fa7e4-ab1b-4e08-a014-b0b19590f9db}">
           <labels>
             <label description="Close" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{57863eb5-5caf-47c0-aabf-8b50814a4190}" name="StageStep59_section1" labelid="{6e66529e-7f5c-4b96-b67c-be8ee403d62b}">
+                <section showbar="false" columns="1" id="{583a140a-3e4d-88d4-df1d-958a5362e103}" name="StageStep55_section1" labelid="{aa8ec4a1-0b43-431e-9629-6c40218aaf95}">
                   <labels>
                     <label description="Close" languagecode="1033" />
                   </labels>
@@ -302,15 +284,6 @@
                           <label description="Close letter sent" languagecode="1033" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="opc_sendcloseletter" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{bd2b4fc8-1ef2-4e8e-84d1-eb780f47f41f}" showlabel="true" visible="true" labelid="{4594ec28-adfa-425a-9bb2-5f491d1d71e5}">
-                        <labels>
-                          <label description="Status Reason" languagecode="1033" />
-                          <label description="Raison du statut" languagecode="1036" />
-                        </labels>
-                        <control id="bpf_opc_complaint_opc_individualcomplaint_bp:statuscode" classid="{5d68b988-0661-4db2-bc3e-17598ad3be6c}" datafieldname="statuscode" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -328,14 +301,14 @@
             </column>
           </columns>
         </tab>
-        <tab verticallayout="true" id="{dd5bbf69-bc1b-4db8-a075-9e6cc6c263ef}" name="StageStep69" locklevel="0" expanded="true" visible="false" labelid="{b9236ec2-59bd-446a-a3b3-efdf6aeee0c0}">
+        <tab verticallayout="true" id="{dd5bbf69-bc1b-4db8-a075-9e6cc6c263ef}" name="StageStep63" locklevel="0" expanded="true" visible="false" labelid="{b9236ec2-59bd-446a-a3b3-efdf6aeee0c0}">
           <labels>
             <label description="Close" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showbar="false" columns="1" id="{dd5bbf69-bc1b-4db8-a075-9e6cc6c263ef}" name="StageStep69_section1" labelid="{1c1b77a0-df09-4491-95bd-1e0d39d0d7e3}">
+                <section showbar="false" columns="1" id="{31893f43-c863-3b18-2577-c95f2a6d735e}" name="StageStep63_section1" labelid="{3fef89e9-2233-407a-81ff-eb928c740025}">
                   <labels>
                     <label description="Close" languagecode="1033" />
                   </labels>
