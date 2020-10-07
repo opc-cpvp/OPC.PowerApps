@@ -3,7 +3,7 @@ dist
 js/lib/xrmquery
 node_modules
 
-.eslintrc.js
+.eslintrc.json
 .yo-rc.json
 package.json
 package-lock.json
