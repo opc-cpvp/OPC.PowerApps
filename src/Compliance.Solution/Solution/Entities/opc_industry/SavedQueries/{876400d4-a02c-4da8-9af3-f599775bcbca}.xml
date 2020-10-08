@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{876400d4-a02c-4da8-9af3-f599775bcbca}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_industryid">
+          <cell name="opc_naicsnumber" width="124" />
+          <cell name="opc_name" width="300" />
+          <cell name="opc_parentindustryid" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_industry">
+          <attribute name="opc_industryid" />
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <order attribute="opc_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="opc_parentindustryid" />
+          <attribute name="opc_naicsnumber" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.427</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Industries" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

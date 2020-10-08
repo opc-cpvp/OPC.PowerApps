@@ -37,6 +37,12 @@ namespace Compliance.Package.Deployment
             { "Compliance - Strategic Advisor", new Guid("e46a895e-137e-48e7-b413-466dcd34ef43") }
         };
 
+        private readonly List<string> _defaultDuplicateRulesToDelete = new List<string>()
+        {
+            "Accounts with the same website",
+            "Social profiles with same full name and social channel"
+        };
+
         public ComplianceDeployment(PackageTemplate packageTemplate) : base(packageTemplate)
         {
             _rootBusinessUnit = GetRootBusinessUnit();
@@ -59,6 +65,7 @@ namespace Compliance.Package.Deployment
         public override bool BeforeImportStage()
         {
             UpdateImportDataBusinessUnits();
+            DeleteDefaultDuplicateRules();
             return true;
         }
 
@@ -85,6 +92,30 @@ namespace Compliance.Package.Deployment
             };
 
             return PackageTemplate.CrmSvc.RetrieveMultiple(query).Entities.FirstOrDefault()?.ToEntity<BusinessUnit>();
+        }
+
+        private void DeleteDefaultDuplicateRules()
+        {
+            // Get the specified rules to be deleted
+            var duplicateRuleQuery = new QueryExpression
+            {
+                EntityName = DuplicateRule.EntityLogicalName,
+                ColumnSet = new ColumnSet("name", "duplicateruleid"),
+                Criteria = new FilterExpression
+                {
+                    Conditions = {
+                                    new ConditionExpression("name", ConditionOperator.In, _defaultDuplicateRulesToDelete),
+                                 }
+                }
+            };
+
+            var duplicateRulesToDelete = PackageTemplate.CrmSvc.RetrieveMultiple(duplicateRuleQuery).Entities;
+
+            // Delete all the specific rules we found
+            foreach (var duplicateRuleToDelete in duplicateRulesToDelete)
+            {
+                PackageTemplate.CrmSvc.Delete(DuplicateRule.EntityLogicalName, duplicateRuleToDelete.Id);
+            }
         }
 
         /// <summary>
@@ -284,7 +315,7 @@ namespace Compliance.Package.Deployment
                         new EntityReferenceCollection() { new EntityReference(Role.EntityLogicalName, role.Id) }
                     );
                 }
-                catch(Exception ex) when (ex.Message.Contains("Cannot insert duplicate key"))
+                catch (Exception ex) when (ex.Message.Contains("Cannot insert duplicate key"))
                 {
                     PackageTemplate.PackageLog.Log($"Role association to team was already done for {name}... skipping.");
                 }

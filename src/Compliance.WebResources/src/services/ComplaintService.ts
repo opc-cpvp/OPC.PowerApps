@@ -15,7 +15,7 @@ export class ComplaintService implements IComplaintService {
         return XrmQuery.retrieve(x => x.opc_complaints, id)
             .expand(x => x.opc_legislation, x => [x.opc_acronym])
             .expand(x => x.opc_opcpriorityid)
-            .expand(x => x.opc_sectorid)
+            .expand(x => x.opc_complaints_industries_relatedindustries, x => [x.opc_industryid, x.opc_name, x.opc_industryid])
             .expand(x => x.opc_accountid, accountAttributes)
             .expand(x => x.opc_intakeofficer, userAttributes)
             .expand(x => x.owninguser, userAttributes)

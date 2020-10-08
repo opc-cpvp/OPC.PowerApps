@@ -97,7 +97,7 @@ export type AllegationWithChecklistResponse = opc_allegation & opc_allegation_Fo
 export type ComplaintWithRelationships = opc_complaint &
 { opc_legislation: opc_legislation_Result } &
 { opc_opcpriorityid: opc_opcpriority_Result } &
-{ opc_sectorid: opc_sector_Result } &
+{ opc_complaints_industries_relatedindustries: opc_industry_Result[] } &
 { opc_intakeofficer: SystemUser_Result } &
 { owninguser: SystemUser_Result } &
 { opc_complainant: Contact_Result } &

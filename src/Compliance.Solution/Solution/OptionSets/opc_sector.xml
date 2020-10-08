@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_sector" localizedName="Sector" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.427</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Sector" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Private" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Public" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="Civil" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>
