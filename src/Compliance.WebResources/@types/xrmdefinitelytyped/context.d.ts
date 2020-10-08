@@ -6711,7 +6711,8 @@ declare namespace Form.opc_questiontemplate.Main {
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
     }
-    interface Attributes extends Xrm.AttributeCollectionBase {
+      interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_additionalparameters"): Xrm.Attribute<string>;
       get(name: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
       get(name: "opc_conditionalvisibility"): Xrm.Attribute<any>;
       get(name: "opc_name"): Xrm.Attribute<string>;
@@ -6729,6 +6730,7 @@ declare namespace Form.opc_questiontemplate.Main {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_opc_checklisttypeid"): Xrm.LookupControl<"opc_checklisttype">;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "opc_additionalparameters"): Xrm.StringControl;
       get(name: "opc_conditionalvisibility"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_nameenglish"): Xrm.StringControl;
@@ -6751,7 +6753,8 @@ declare namespace Form.opc_questiontemplate.Main {
       get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
     }
   }
-  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    interface Information extends Xrm.PageBase<Information.Attributes, Information.Tabs, Information.Controls> {
+    getAttribute(attributeName: "opc_additionalparameters"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
     getAttribute(attributeName: "opc_conditionalvisibility"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
@@ -6764,6 +6767,7 @@ declare namespace Form.opc_questiontemplate.Main {
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_opc_checklisttypeid"): Xrm.LookupControl<"opc_checklisttype">;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "opc_additionalparameters"): Xrm.StringControl;
     getControl(controlName: "opc_conditionalvisibility"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
@@ -15170,6 +15174,7 @@ interface opc_QuestionTemplate_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
+  opc_additionalparameters?: string | null;
   opc_conditionalvisibility?: boolean | null;
   opc_islocalizable?: boolean | null;
   opc_name?: string | null;
@@ -15207,6 +15212,7 @@ interface opc_QuestionTemplate_Select {
   modifiedby_guid: WebAttribute<opc_QuestionTemplate_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_QuestionTemplate_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_QuestionTemplate_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  opc_additionalparameters: WebAttribute<opc_QuestionTemplate_Select, { opc_additionalparameters: string | null }, {}>;
   opc_checklisttypeid_guid: WebAttribute<opc_QuestionTemplate_Select, { opc_checklisttypeid_guid: string | null }, { opc_checklisttypeid_formatted?: string }>;
   opc_conditionalvisibility: WebAttribute<opc_QuestionTemplate_Select, { opc_conditionalvisibility: boolean | null }, {  }>;
   opc_islocalizable: WebAttribute<opc_QuestionTemplate_Select, { opc_islocalizable: boolean | null }, {  }>;
@@ -15236,6 +15242,7 @@ interface opc_QuestionTemplate_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
+  opc_additionalparameters: string;
   opc_checklisttypeid_guid: XQW.Guid;
   opc_conditionalvisibility: boolean;
   opc_islocalizable: boolean;
@@ -15332,6 +15339,7 @@ interface opc_QuestionType_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
+  opc_additionalparameters?: string | null;
   opc_islocalizable?: boolean | null;
   opc_name?: string | null;
   opc_nameenglish?: string | null;
@@ -15361,7 +15369,8 @@ interface opc_QuestionType_Select {
   modifiedby_guid: WebAttribute<opc_QuestionType_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_QuestionType_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_QuestionType_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_islocalizable: WebAttribute<opc_QuestionType_Select, { opc_islocalizable: boolean | null }, {  }>;
+  opc_additionalparameters: WebAttribute<opc_QuestionType_Select, { opc_additionalparameters: string | null }, {}>;
+  opc_islocalizable: WebAttribute<opc_QuestionType_Select, { opc_islocalizable: boolean | null }, {}>;
   opc_name: WebAttribute<opc_QuestionType_Select, { opc_name: string | null }, {  }>;
   opc_nameenglish: WebAttribute<opc_QuestionType_Select, { opc_nameenglish: string | null }, {  }>;
   opc_namefrench: WebAttribute<opc_QuestionType_Select, { opc_namefrench: string | null }, {  }>;
@@ -15382,6 +15391,7 @@ interface opc_QuestionType_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
+  opc_additionalparameters: string;
   opc_islocalizable: boolean;
   opc_name: string;
   opc_nameenglish: string;
