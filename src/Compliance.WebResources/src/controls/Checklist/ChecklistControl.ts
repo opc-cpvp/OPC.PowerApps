@@ -48,9 +48,9 @@ export namespace Controls {
                     await qTypesPromise;
                     crArray.forEach(cr => this.addQuestion(cr));
 
-                }, reason => console.error(reason)).catch(() => console.error("error loading checklist responses"));
+                    JQueryHelper.initSelectElements();
 
-            JQueryHelper.setDatepickers();
+                }, reason => console.error(reason)).catch(() => console.error("error loading checklist responses"));
         }
 
         private addQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result): void {
@@ -88,10 +88,16 @@ export namespace Controls {
                     this.addTwoOptionsQuestion(indentingContainer, cr);
                     break;
                 case this._questionTypes.find(qt => qt.type === "Multiselect").id:
-                    this.addMultiselectQuestion(indentingContainer, cr);
+                    this.addSelectQuestion(indentingContainer, cr, "multiselect");
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Select").id:
+                    this.addSelectQuestion(indentingContainer, cr, "select");
                     break;
                 case this._questionTypes.find(qt => qt.type === "Date").id:
                     this.addDateQuestion(indentingContainer, cr);
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Number").id:
+                    this.addInputTypeQuestion(indentingContainer, cr, "number");
                     break;
                 default:
                     console.log("control type not supported - not adding control");
@@ -100,6 +106,13 @@ export namespace Controls {
 
             // Append created question
             this._placeholder.appendChild(questionContainer);
+        }
+
+        private addInputTypeQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result, inputType: string) {
+            const questionHtml =
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
+                `<input id="q-${cr.opc_checklistresponseid}" type="${inputType}" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
+            element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         private addTextQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
@@ -133,7 +146,7 @@ export namespace Controls {
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
-        private addMultiselectQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+        private addSelectQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result, selectType: string) {
             // Get the Additional Parameters string and separate the options.
             const options = cr.opc_questiontemplateid.opc_additionalparameters.split("\n");
 
@@ -148,7 +161,7 @@ export namespace Controls {
 
             const questionHtml =
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                `<select multiple="multiple" class="form-control" id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}'>` +
+                `<select multiple="multiple" class="form-control ${selectType}" id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}'>` +
                 optionsHtml +
                 `</select>`;
 
@@ -158,10 +171,7 @@ export namespace Controls {
         private addDateQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                //`<input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="text" class="form-control" data-provide="datepicker" value="${cr.opc_response || ""}">`;
-                //`<div class="input-group date"><input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="text" class="form-control date" value="${cr.opc_response || ""}"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span></div>`;
-                `<div class="input-group date"><input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="text" class="form-control" data-provide="datepicker" value="${cr.opc_response || ""}"><div class="input-group-addon"><span class="glyphicon glyphicon-th"></span></div></div>`;
-
+                `<input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="date" class="form-control" value="${cr.opc_response || ""}">`;
 
             element.insertAdjacentHTML('beforeend', questionHtml);
         }

@@ -2,6 +2,7 @@
 import { XrmContextMock } from '../../../test/XrmContextMock';
 import { IChecklistService } from '../../interfaces';
 import { ChecklistService } from '../../services/ChecklistService';
+import { JQueryHelper } from '../../helpers/JQueryHelper';
 
 var chai = require("chai");
 var sinon = require("sinon");
@@ -26,6 +27,7 @@ describe("ChecklistControl", () => {
             documentContext = document;
             xrmContext = new XrmContextMock();
             xrmContext.setQueryStringParameters({ id: "guid-test" }); // this is the format that is passed to the iframe
+            sandbox.stub(JQueryHelper, "initSelectElements").resolves();
 
             formElement = documentContext.createElement("form");
             formElement.id = 'checklist';
@@ -97,6 +99,17 @@ describe("ChecklistControl", () => {
             forEachFake.should.have.been.called;
         });
 
+        it.skip("it should initialize the select/multiselect elements using the bootstrap-multiselect plugin", async () => {
+            // Arrange
+            sandbox.stub(service, 'getChecklist').resolves([]);
+            sandbox.stub(service, 'getQuestionTypes').resolves([]);
+
+            // Act
+            control.init();
+
+            // Assert
+        });
+
     });
 
     describe("when form is saving", () => {
@@ -112,6 +125,7 @@ describe("ChecklistControl", () => {
             service = new ChecklistService();
             sandbox.stub(service, 'getQuestionTypes').resolves([]);
             sandbox.stub(service, 'getChecklist').resolves([]);
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             xrmContext = new XrmContextMock();
             xrmContext.setQueryStringParameters({ id: "guid-test" }); // this is the format that is passed to the iframe
@@ -138,15 +152,11 @@ describe("ChecklistControl", () => {
             formElement.insertAdjacentHTML("beforeend", "<input type='text' id='q-2' data-responseid='2' value='val' />")
 
             // Act
-            //documentContext.dispatchEvent(new Event("entity-save"));
             control.save();
 
             // Assert
             updateQuestionResponseStub.should.have.been.calledOnce;
             updateQuestionResponseStub.should.have.been.calledWith("1");
-
-            //sandbox.restore();
-            //document.body.removeChild(formElement);
         });
 
 
@@ -157,7 +167,6 @@ describe("ChecklistControl", () => {
             formElement.insertAdjacentHTML("beforeend", "<textarea id='q-2' data-responseid='2'>do not update</textarea>")
 
             // Act
-            //documentContext.dispatchEvent(new Event("entity-save"));
             control.save();
 
             // Assert

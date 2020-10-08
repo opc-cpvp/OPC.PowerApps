@@ -21,6 +21,8 @@
     "@types/node": "^14.0.27",
     "@types/sinon-chai": "^3.2.4",
     "@types/ts-nameof": "^4.2.1",
+    "@types/bootstrap-multiselect": "^0.9.0",
+    "@types/jquery": "^3.5.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "chai": "^4.2.0",

@@ -31,6 +31,7 @@ describe("TemplateDialog", () => {
 
     const sharepointDocumentLocation: SharePointDocumentLocation = { "relativeurl": "" };
     const complaint = { "opc_legislation": { "opc_acronym": "" } };
+    const allegations = [{}];
     const environmentVariable = `{"applicationId": "", "tenantId": "", "sharePointSiteUrl": "", "templatesFolderPath": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
     const templates = [{ "Name": "templateName", "ServerRelativeUrl": "templateRelativeUrl" }];
 
@@ -63,6 +64,7 @@ describe("TemplateDialog", () => {
         let getAccessTokenStub: any;
         let getTemplatesStub: any;
         let getComplaintWithRelationshipsStub: any;
+        let getAllegationsWithChecklistResponsesStub: any;
         let getEnvironmentVariableStub: any;
         let renderSpy: any;
         let addEventListenersSpy: any;
@@ -71,6 +73,7 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             getUserEmailStub = sandbox.stub(userService, "getUserEmail").resolves("");
             getComplaintWithRelationshipsStub = sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
+            getAllegationsWithChecklistResponsesStub = sandbox.stub(complaintService, "getAllegationsWithChecklistResponses").resolves(allegations);
             getEnvironmentVariableStub = sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             getAccessTokenStub = sandbox.stub(authService, "getAccessToken").resolves("");
             getTemplatesStub = sandbox.stub(sharePointService, "getTemplates").resolves(templates);
@@ -85,6 +88,14 @@ describe("TemplateDialog", () => {
 
             // Assert
             getComplaintWithRelationshipsStub.should.have.been.calledOnce;
+        });
+        it("it should retrieve the complaint's allegations and their checklist responses", async () => {
+            // Arrange
+            // Act
+            await templateDialog.init();
+
+            // Assert
+            getAllegationsWithChecklistResponsesStub.should.have.been.calledOnce;
         });
         it("it should retrieve the user's email", async () => {
             // Arrange
@@ -150,6 +161,7 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
+            sandbox.stub(complaintService, "getAllegationsWithChecklistResponses").resolves(allegations);
             sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             sandbox.stub(authService, "getAccessToken").resolves("");
             sandbox.stub(sharePointService, "getTemplates").resolves(templates);
@@ -215,6 +227,7 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
+            sandbox.stub(complaintService, "getAllegationsWithChecklistResponses").resolves(allegations);
             sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             sandbox.stub(authService, "getAccessToken").resolves("");
             sandbox.stub(sharePointService, "getTemplates").resolves(templates);

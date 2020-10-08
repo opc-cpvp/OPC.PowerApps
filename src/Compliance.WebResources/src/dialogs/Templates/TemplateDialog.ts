@@ -4,7 +4,6 @@ import 'core-js/features/url-search-params';
 import * as Msal from 'msal';
 import { i18n } from "i18next";
 import { IPowerDialog, IUserService, IEnvironmentVariableService, IComplaintService, IAuthService, ISharePointService, WindowContext, ComplaintWithRelationships, TemplateEnvironmentVariable, AllegationWithChecklistResponse } from "../../interfaces";
-import { setTimeout } from "timers";
 
 // TODO: Add a notification for the user when there is an error?
 // TODO: Change the display of the template choices.

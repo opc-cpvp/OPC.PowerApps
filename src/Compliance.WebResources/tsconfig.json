@@ -3,7 +3,7 @@
         "allowSyntheticDefaultImports": true,
         "maxNodeModuleJsDepth": 2,
         "sourceMap": true,
-        "types": [ "reflect-metadata", "node", "ts-nameof" ],
+      "types": [ "reflect-metadata", "node", "ts-nameof", "jquery", "bootstrap-multiselect" ],
         "module": "commonjs",
         "target": "es5",
         "lib": [ "es6", "dom" ],
