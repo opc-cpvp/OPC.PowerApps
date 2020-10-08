@@ -122,13 +122,13 @@ export interface TemplateEnvironmentVariable {
 
 export type ComplaintWithRelationships = opc_complaint & { opc_legislation: opc_legislation_Result } & {
     opc_opcpriorityid: opc_opcpriority_Result;
-} & { opc_sectorid: opc_sector_Result } & { opc_intakeofficer: SystemUser_Result } & { owninguser: SystemUser_Result } & {
-    opc_complainant: Contact_Result;
-} & { opc_complainantrep: Contact_Result } & { opc_complainantlegalrepresentative: Contact_Result } & {
-    opc_complainantlegalrepresentativefirm: Account_Result;
-} & { opc_accountid: Account_Result } & { opc_respondentlegalrepresentativefirm: Account_Result } & {
-    opc_respondentrepresentative: Contact_Result;
-} & { opc_respondentlegalrepresentative: Contact_Result };
+} & { opc_complaints_industries_relatedindustries: opc_industry_Result[] } & { opc_intakeofficer: SystemUser_Result } & {
+    owninguser: SystemUser_Result;
+} & { opc_complainant: Contact_Result } & { opc_complainantrep: Contact_Result } & {
+    opc_complainantlegalrepresentative: Contact_Result;
+} & { opc_complainantlegalrepresentativefirm: Account_Result } & { opc_accountid: Account_Result } & {
+    opc_respondentlegalrepresentativefirm: Account_Result;
+} & { opc_respondentrepresentative: Contact_Result } & { opc_respondentlegalrepresentative: Contact_Result };
 
 export type ExtendedXrmPageBase = Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase> & {
     getAttribute(attributeName: string): Xrm.Attribute<any>;

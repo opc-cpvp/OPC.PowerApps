@@ -46,9 +46,6 @@
     <steplabels id="{a6c493c6-ac5e-434e-ac45-233fcca6aef2}">
       <label languagecode="1033" description="Intake" />
     </steplabels>
-    <steplabels id="{6a3403c6-f308-4b29-b198-e5bded19d2d4}">
-      <label languagecode="1033" description="Sector" />
-    </steplabels>
     <steplabels id="{1a1aad27-e90d-4cbb-9d96-5e791a69b809}">
       <label languagecode="1033" description="Recommend to registrar" />
     </steplabels>
