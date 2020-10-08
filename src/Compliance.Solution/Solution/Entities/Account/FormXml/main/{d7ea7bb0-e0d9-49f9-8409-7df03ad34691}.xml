@@ -36,6 +36,46 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{ea709234-6b18-4b45-8a1b-a189b6af489f}" locklevel="0">
+                        <labels>
+                          <label description="Sector" languagecode="1033" />
+                        </labels>
+                        <control id="opc_sector" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_sector" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{3c4142da-9313-4af2-88e0-f86c226f705c}" rowspan="6" colspan="1" showlabel="false" auto="false">
+                        <labels>
+                          <label description="Industries" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_industries" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{84d012bc-2ad6-cd88-da1c-44ed1e291dcb}">
+                          <parameters>
+                            <TargetEntityType>opc_industry</TargetEntityType>
+                            <ViewId>{34EB755F-EE69-45F2-8BEC-1CF72D352D6E}</ViewId>
+                            <ViewIds>{34EB755F-EE69-45F2-8BEC-1CF72D352D6E}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_accounts_industries_relatedindustries</RelationshipName>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
                       <cell id="{8a159350-977b-4b2c-adba-8059dbb68a62}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Phone" languagecode="1033" />
@@ -720,7 +760,64 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
-      <controlDescriptions />
+      <controlDescriptions>
+        <controlDescription forControl="{84d012bc-2ad6-cd88-da1c-44ed1e291dcb}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+            <parameters />
+          </customControl>
+          <customControl formFactor="0" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{34EB755F-EE69-45F2-8BEC-1CF72D352D6E}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_accounts_industries_relatedindustries</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_industry</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{34EB755F-EE69-45F2-8BEC-1CF72D352D6E}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_industry</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_accounts_industries_relatedindustries</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_accountsrelatedindustries</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Industries|fr=Industries</labelText>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{34EB755F-EE69-45F2-8BEC-1CF72D352D6E}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_accounts_industries_relatedindustries</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_industry</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{34EB755F-EE69-45F2-8BEC-1CF72D352D6E}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_industry</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_accounts_industries_relatedindustries</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_accountsrelatedindustries</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Industries|fr=Industries</labelText>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{34EB755F-EE69-45F2-8BEC-1CF72D352D6E}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_accounts_industries_relatedindustries</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_industry</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{34EB755F-EE69-45F2-8BEC-1CF72D352D6E}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_industry</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_accounts_industries_relatedindustries</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_accountsrelatedindustries</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">en=Industries|fr=Industries</labelText>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
       <footer id="{dd840005-abf9-41ef-8b85-43db867ac778}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
           <row>
