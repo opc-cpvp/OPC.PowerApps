@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "author": {
-    "name": ""
+    "name": "opc-cpvp"
   },
   "scripts": {
     "test": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts",
@@ -14,7 +14,8 @@
     "build:watch": "webpack --watch --mode development",
     "build:prod": "webpack --mode production",
     "build:prod:watch": "webpack --watch --mode production",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
