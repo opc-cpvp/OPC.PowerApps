@@ -3,7 +3,7 @@
   <EntityRelationship Name="knowledgearticle_opc_events">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.446</IntroducedVersion>
+    <IntroducedVersion>1.0.454</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_event</ReferencingEntityName>
     <ReferencedEntityName>KnowledgeArticle</ReferencedEntityName>

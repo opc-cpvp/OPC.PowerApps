@@ -1,28 +1,6 @@
-declare const enum account_preferredcontactmethodcode {
-  Any = 1,
-  Email = 2,
-  Phone = 3,
-  Fax = 4,
-  Mail = 5,
-}
 declare const enum account_statuscode {
   Active = 1,
   Inactive = 2,
-}
-declare const enum account_accountratingcode {
-  DefaultValue = 1,
-}
-declare const enum account_address1_shippingmethodcode {
-  Airborne = 1,
-  DHL = 2,
-  FedEx = 3,
-  UPS = 4,
-  PostalMail = 5,
-  FullLoad = 6,
-  WillCall = 7,
-}
-declare const enum account_businesstypecode {
-  DefaultValue = 1,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -59,6 +37,24 @@ declare const enum account_industrycode {
   VehicleRetail = 32,
   Wholesale = 33,
 }
+declare const enum account_customersizecode {
+  DefaultValue = 1,
+}
+declare const enum account_accountratingcode {
+  DefaultValue = 1,
+}
+declare const enum account_address1_shippingmethodcode {
+  Airborne = 1,
+  DHL = 2,
+  FedEx = 3,
+  UPS = 4,
+  PostalMail = 5,
+  FullLoad = 6,
+  WillCall = 7,
+}
+declare const enum account_businesstypecode {
+  DefaultValue = 1,
+}
 declare const enum account_shippingmethodcode {
   DefaultValue = 1,
 }
@@ -72,6 +68,13 @@ declare const enum account_address2_shippingmethodcode {
 }
 declare const enum account_territorycode {
   DefaultValue = 1,
+}
+declare const enum account_preferredcontactmethodcode {
+  Any = 1,
+  Email = 2,
+  Phone = 3,
+  Fax = 4,
+  Mail = 5,
 }
 declare const enum account_preferredappointmentdaycode {
   Sunday = 0,
@@ -88,9 +91,6 @@ declare const enum account_paymenttermscode {
   Net45 = 3,
   Net60 = 4,
 }
-declare const enum account_accountclassificationcode {
-  DefaultValue = 1,
-}
 declare const enum account_address1_addresstypecode {
   BillTo = 1,
   ShipTo = 2,
@@ -103,16 +103,16 @@ declare const enum account_ownershipcode {
   Subsidiary = 3,
   Other = 4,
 }
+declare const enum opc_sector {
+  Private = 533950000,
+  Public = 533950001,
+  Civil = 533950002,
+}
 declare const enum account_address2_freighttermscode {
   DefaultValue = 1,
 }
 declare const enum account_address2_addresstypecode {
   DefaultValue = 1,
-}
-declare const enum opc_sector {
-  Private = 533950000,
-  Public = 533950001,
-  Civil = 533950002,
 }
 declare const enum account_statecode {
   Active = 0,
@@ -121,9 +121,6 @@ declare const enum account_statecode {
 declare const enum account_address1_freighttermscode {
   FOB = 1,
   NoCharge = 2,
-}
-declare const enum account_customersizecode {
-  DefaultValue = 1,
 }
 declare const enum account_customertypecode {
   Competitor = 1,
@@ -142,6 +139,9 @@ declare const enum account_customertypecode {
 declare const enum account_accountcategorycode {
   PreferredCustomer = 1,
   Standard = 2,
+}
+declare const enum account_accountclassificationcode {
+  DefaultValue = 1,
 }
 declare const enum activityparty_instancetypecode {
   NotRecurring = 0,
@@ -172,10 +172,6 @@ declare const enum contact_address1_addresstypecode {
   Primary = 3,
   Other = 4,
 }
-declare const enum contact_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
 declare const enum contact_address1_shippingmethodcode {
   Airborne = 1,
   DHL = 2,
@@ -184,12 +180,6 @@ declare const enum contact_address1_shippingmethodcode {
   PostalMail = 5,
   FullLoad = 6,
   WillCall = 7,
-}
-declare const enum contact_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
 }
 declare const enum contact_gendercode {
   Male = 1,
@@ -209,18 +199,12 @@ declare const enum contact_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum contact_customertypecode {
-  DefaultValue = 1,
+declare const enum opc_preferredlanguage {
+  English = 924340000,
+  French = 924340001,
 }
 declare const enum contact_customersizecode {
   DefaultValue = 1,
-}
-declare const enum contact_preferredcontactmethodcode {
-  Any = 1,
-  Email = 2,
-  Phone = 3,
-  Fax = 4,
-  Mail = 5,
 }
 declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
@@ -231,23 +215,58 @@ declare const enum contact_address2_freighttermscode {
 declare const enum contact_educationcode {
   DefaultValue = 1,
 }
+declare const enum contact_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
+declare const enum contact_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum contact_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum contact_preferredcontactmethodcode {
+  Any = 1,
+  Email = 2,
+  Phone = 3,
+  Fax = 4,
+  Mail = 5,
+}
+declare const enum contact_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
+declare const enum contact_territorycode {
+  DefaultValue = 1,
+}
 declare const enum contact_address3_freighttermscode {
   DefaultValue = 1,
+}
+declare const enum contact_familystatuscode {
+  Single = 1,
+  Married = 2,
+  Divorced = 3,
+  Widowed = 4,
 }
 declare const enum contact_accountrolecode {
   DecisionMaker = 1,
   Employee = 2,
   Influencer = 3,
 }
-declare const enum contact_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum contact_address2_addresstypecode {
   DefaultValue = 1,
 }
-declare const enum contact_territorycode {
-  DefaultValue = 1,
+declare const enum opc_multiplecomplaintstrategy {
+  NotApplied = 924340000,
+  Proposed = 924340001,
+  Applied = 924340002,
+  Former = 924340003,
 }
 declare const enum contact_preferredappointmentdaycode {
   Sunday = 0,
@@ -258,32 +277,13 @@ declare const enum contact_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum opc_multiplecomplaintstrategy {
-  NotApplied = 924340000,
-  Proposed = 924340001,
-  Applied = 924340002,
-  Former = 924340003,
-}
-declare const enum opc_preferredlanguage {
-  English = 924340000,
-  French = 924340001,
+declare const enum contact_customertypecode {
+  DefaultValue = 1,
 }
 declare const enum contact_haschildrencode {
   DefaultValue = 1,
 }
-declare const enum contact_familystatuscode {
-  Single = 1,
-  Married = 2,
-  Divorced = 3,
-  Widowed = 4,
-}
 declare const enum contact_address3_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
-declare const enum contact_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum duplicaterule_baseentitytypecode {
@@ -610,108 +610,104 @@ declare const enum duplicaterule_baseentitytypecode {
   EmailSignature = 9997,
   SolutionHistory = 10000,
   SolutionHistoryDataSource = 10001,
-  SolutionComponentAttributeConfiguration = 10002,
-  SolutionComponentConfiguration = 10003,
-  SolutionComponentRelationshipConfiguration = 10004,
-  ComponentLayer = 10005,
-  ComponentLayerDataSource = 10006,
-  Package = 10007,
-  StageSolutionUpload = 10009,
-  ExportSolutionUpload = 10010,
-  SolutionComponentSummary = 10011,
-  SolutionComponentDataSource = 10012,
-  DataLakeFolder = 10013,
-  DataLakeFolderPermission = 10014,
-  DataLakeWorkspace = 10015,
-  DataLakeWorkspacePermission = 10016,
-  ProvisionLanguageForUser = 10017,
-  CascadeGrantRevokeAccessRecordsTracker = 10018,
-  CascadeGrantRevokeAccessVersionTracker = 10019,
-  ApplicationUser = 10021,
-  ModelDrivenAppElement = 10024,
-  ModelDrivenAppComponentNodesEdge = 10025,
-  ModelDrivenAppComponentNode = 10026,
-  ModelDrivenAppSetting = 10027,
-  SettingDefinition = 10028,
-  CanvasAppExtendedMetadata = 10029,
-  ODatav4DataSource = 10030,
-  ProcessStageParameter = 10031,
-  WorkflowBinary = 10032,
-  ConnectionReference = 10033,
-  HelpPage = 10034,
-  BotContent = 10035,
-  ConversationTranscript = 10036,
-  Chatbot = 10037,
-  Chatbotsubcomponent = 10038,
-  PDFSetting = 10042,
-  ServiceConfiguration = 10043,
-  SLAKPI = 10044,
-  KnowledgeArticleImage = 10045,
-  KnowledgeInteractionInsight = 10046,
-  KnowledgeSearchInsight = 10047,
-  KnowledgeArticleTemplate = 10048,
-  Catalog = 10049,
-  CatalogAssignment = 10050,
-  InternalCatalogAssignment = 10051,
-  CustomAPI = 10052,
-  CustomAPIRequestParameter = 10053,
-  CustomAPIResponseProperty = 10054,
-  RichTextAttachment = 10055,
-  NonRelationalDataSource = 10056,
-  SearchTelemetry = 10057,
-  AIBuilderDataset = 10058,
-  AIBuilderDatasetFile = 10059,
-  AIBuilderDatasetRecord = 10060,
-  AIBuilderDatasetsContainer = 10061,
-  AIBuilderFile = 10062,
-  AIBuilderFileAttachedData = 10063,
-  AIFormProcessingDocument = 10064,
-  AIObjectDetectionImage = 10065,
-  AIObjectDetectionLabel = 10066,
-  AIObjectDetectionBoundingBox = 10067,
-  AIObjectDetectionImageMapping = 10068,
-  AnalysisComponent = 10070,
-  AnalysisJob = 10071,
-  AnalysisResult = 10072,
-  AnalysisResultDetail = 10073,
-  SolutionHealthRule = 10074,
-  SolutionHealthRuleArgument = 10075,
-  SolutionHealthRuleSet = 10076,
-  AllegationConcern = 10108,
-  AllegationType = 10109,
-  ChecklistResponse = 10110,
-  ChecklistType = 10111,
-  Complaint = 10112,
-  DispositionAction = 10113,
-  DispositionReason = 10114,
-  Event = 10115,
-  IndividualComplaint = 10116,
-  Industry = 10117,
-  Issue = 10118,
-  Legislation = 10119,
-  Notification = 10120,
-  OPCPriority = 10121,
-  QuestionTemplate = 10122,
-  QuestionType = 10123,
-  Recommendation = 10124,
-  Reminder = 10125,
-  RiskAppetite = 10126,
-  RiskAssessment = 10127,
-  RiskAssessmentCategory = 10128,
-  RiskAssessmentCategoryTemplate = 10129,
-  RiskAssessmentDefinition = 10130,
-  RiskAssessmentDefinitionTemplate = 10131,
-  RiskAssessmentFactorTemplate = 10132,
-  RiskAssessmentType = 10133,
-  Theme = 10134,
-  Topic = 10135,
-  KnowledgeFederatedArticle = 10141,
-  KnowledgeFederatedArticleIncident = 10142,
-  Searchprovider = 10143,
-}
-declare const enum duplicaterule_statecode {
-  Inactive = 0,
-  Active = 1,
+  ComponentLayer = 10002,
+  ComponentLayerDataSource = 10003,
+  SolutionComponentSummary = 10004,
+  SolutionComponentDataSource = 10005,
+  KnowledgeArticleImage = 10006,
+  KnowledgeArticleTemplate = 10007,
+  ODatav4DataSource = 10008,
+  AIFormProcessingDocument = 10009,
+  AIObjectDetectionImage = 10010,
+  AIObjectDetectionLabel = 10011,
+  AIObjectDetectionBoundingBox = 10012,
+  AIObjectDetectionImageMapping = 10013,
+  WorkflowBinary = 10015,
+  HelpPage = 10016,
+  AnalysisComponent = 10029,
+  AnalysisJob = 10030,
+  AnalysisResult = 10031,
+  AnalysisResultDetail = 10032,
+  SolutionHealthRule = 10033,
+  SolutionHealthRuleArgument = 10034,
+  SolutionHealthRuleSet = 10035,
+  ApiSettings = 10049,
+  SolutionComponentAttributeConfiguration = 10056,
+  AIBuilderDataset = 10468,
+  AIBuilderDatasetFile = 10469,
+  AIBuilderDatasetsContainer = 10470,
+  AIBuilderFile = 10471,
+  AIBuilderFileAttachedData = 10472,
+  SolutionComponentConfiguration = 10494,
+  StageSolutionUpload = 10600,
+  ProcessStageParameter = 10626,
+  AIBuilderDatasetRecord = 10762,
+  ServiceConfiguration = 11402,
+  SLAKPI = 11403,
+  NonRelationalDataSource = 11404,
+  DataLakeWorkspace = 11405,
+  DataLakeWorkspacePermission = 11406,
+  ApplicationUser = 11407,
+  SolutionComponentRelationshipConfiguration = 11409,
+  ModelDrivenAppElement = 11410,
+  ModelDrivenAppComponentNodesEdge = 11411,
+  ModelDrivenAppComponentNode = 11412,
+  ModelDrivenAppSetting = 11413,
+  SettingDefinition = 11414,
+  ConnectionReference = 11415,
+  CanvasAppExtendedMetadata = 11416,
+  PDFSetting = 11452,
+  ExportSolutionUpload = 11633,
+  RichTextAttachment = 11665,
+  CascadeGrantRevokeAccessRecordsTracker = 11697,
+  CascadeGrantRevokeAccessVersionTracker = 11698,
+  Package = 11699,
+  KnowledgeInteractionInsight = 11701,
+  KnowledgeSearchInsight = 11702,
+  DataLakeFolder = 11765,
+  DataLakeFolderPermission = 11766,
+  ProvisionLanguageForUser = 11767,
+  Catalog = 11769,
+  CatalogAssignment = 11770,
+  InternalCatalogAssignment = 11771,
+  CustomAPI = 11772,
+  CustomAPIRequestParameter = 11773,
+  CustomAPIResponseProperty = 11774,
+  BotContent = 11778,
+  ConversationTranscript = 11779,
+  Chatbot = 11780,
+  Chatbotsubcomponent = 11781,
+  KnowledgeFederatedArticle = 11785,
+  KnowledgeFederatedArticleIncident = 11786,
+  Searchprovider = 11787,
+  AllegationConcern = 11788,
+  AllegationType = 11789,
+  ChecklistResponse = 11790,
+  ChecklistType = 11791,
+  Complaint = 11792,
+  DispositionAction = 11793,
+  DispositionReason = 11794,
+  Event = 11795,
+  IndividualComplaint = 11796,
+  Industry = 11797,
+  Issue = 11798,
+  Legislation = 11799,
+  Notification = 11800,
+  OPCPriority = 11801,
+  QuestionTemplate = 11802,
+  QuestionType = 11803,
+  Recommendation = 11804,
+  Reminder = 11805,
+  RiskAppetite = 11806,
+  RiskAssessment = 11807,
+  RiskAssessmentCategory = 11808,
+  RiskAssessmentCategoryTemplate = 11809,
+  RiskAssessmentDefinition = 11810,
+  RiskAssessmentDefinitionTemplate = 11811,
+  RiskAssessmentFactorTemplate = 11812,
+  RiskAssessmentType = 11813,
+  Theme = 11814,
+  Topic = 11815,
 }
 declare const enum duplicaterule_matchingentitytypecode {
   Account = 1,
@@ -1037,109 +1033,113 @@ declare const enum duplicaterule_matchingentitytypecode {
   EmailSignature = 9997,
   SolutionHistory = 10000,
   SolutionHistoryDataSource = 10001,
-  SolutionComponentAttributeConfiguration = 10002,
-  SolutionComponentConfiguration = 10003,
-  SolutionComponentRelationshipConfiguration = 10004,
-  ComponentLayer = 10005,
-  ComponentLayerDataSource = 10006,
-  Package = 10007,
-  StageSolutionUpload = 10009,
-  ExportSolutionUpload = 10010,
-  SolutionComponentSummary = 10011,
-  SolutionComponentDataSource = 10012,
-  DataLakeFolder = 10013,
-  DataLakeFolderPermission = 10014,
-  DataLakeWorkspace = 10015,
-  DataLakeWorkspacePermission = 10016,
-  ProvisionLanguageForUser = 10017,
-  CascadeGrantRevokeAccessRecordsTracker = 10018,
-  CascadeGrantRevokeAccessVersionTracker = 10019,
-  ApplicationUser = 10021,
-  ModelDrivenAppElement = 10024,
-  ModelDrivenAppComponentNodesEdge = 10025,
-  ModelDrivenAppComponentNode = 10026,
-  ModelDrivenAppSetting = 10027,
-  SettingDefinition = 10028,
-  CanvasAppExtendedMetadata = 10029,
-  ODatav4DataSource = 10030,
-  ProcessStageParameter = 10031,
-  WorkflowBinary = 10032,
-  ConnectionReference = 10033,
-  HelpPage = 10034,
-  BotContent = 10035,
-  ConversationTranscript = 10036,
-  Chatbot = 10037,
-  Chatbotsubcomponent = 10038,
-  PDFSetting = 10042,
-  ServiceConfiguration = 10043,
-  SLAKPI = 10044,
-  KnowledgeArticleImage = 10045,
-  KnowledgeInteractionInsight = 10046,
-  KnowledgeSearchInsight = 10047,
-  KnowledgeArticleTemplate = 10048,
-  Catalog = 10049,
-  CatalogAssignment = 10050,
-  InternalCatalogAssignment = 10051,
-  CustomAPI = 10052,
-  CustomAPIRequestParameter = 10053,
-  CustomAPIResponseProperty = 10054,
-  RichTextAttachment = 10055,
-  NonRelationalDataSource = 10056,
-  SearchTelemetry = 10057,
-  AIBuilderDataset = 10058,
-  AIBuilderDatasetFile = 10059,
-  AIBuilderDatasetRecord = 10060,
-  AIBuilderDatasetsContainer = 10061,
-  AIBuilderFile = 10062,
-  AIBuilderFileAttachedData = 10063,
-  AIFormProcessingDocument = 10064,
-  AIObjectDetectionImage = 10065,
-  AIObjectDetectionLabel = 10066,
-  AIObjectDetectionBoundingBox = 10067,
-  AIObjectDetectionImageMapping = 10068,
-  AnalysisComponent = 10070,
-  AnalysisJob = 10071,
-  AnalysisResult = 10072,
-  AnalysisResultDetail = 10073,
-  SolutionHealthRule = 10074,
-  SolutionHealthRuleArgument = 10075,
-  SolutionHealthRuleSet = 10076,
-  AllegationConcern = 10108,
-  AllegationType = 10109,
-  ChecklistResponse = 10110,
-  ChecklistType = 10111,
-  Complaint = 10112,
-  DispositionAction = 10113,
-  DispositionReason = 10114,
-  Event = 10115,
-  IndividualComplaint = 10116,
-  Industry = 10117,
-  Issue = 10118,
-  Legislation = 10119,
-  Notification = 10120,
-  OPCPriority = 10121,
-  QuestionTemplate = 10122,
-  QuestionType = 10123,
-  Recommendation = 10124,
-  Reminder = 10125,
-  RiskAppetite = 10126,
-  RiskAssessment = 10127,
-  RiskAssessmentCategory = 10128,
-  RiskAssessmentCategoryTemplate = 10129,
-  RiskAssessmentDefinition = 10130,
-  RiskAssessmentDefinitionTemplate = 10131,
-  RiskAssessmentFactorTemplate = 10132,
-  RiskAssessmentType = 10133,
-  Theme = 10134,
-  Topic = 10135,
-  KnowledgeFederatedArticle = 10141,
-  KnowledgeFederatedArticleIncident = 10142,
-  Searchprovider = 10143,
+  ComponentLayer = 10002,
+  ComponentLayerDataSource = 10003,
+  SolutionComponentSummary = 10004,
+  SolutionComponentDataSource = 10005,
+  KnowledgeArticleImage = 10006,
+  KnowledgeArticleTemplate = 10007,
+  ODatav4DataSource = 10008,
+  AIFormProcessingDocument = 10009,
+  AIObjectDetectionImage = 10010,
+  AIObjectDetectionLabel = 10011,
+  AIObjectDetectionBoundingBox = 10012,
+  AIObjectDetectionImageMapping = 10013,
+  WorkflowBinary = 10015,
+  HelpPage = 10016,
+  AnalysisComponent = 10029,
+  AnalysisJob = 10030,
+  AnalysisResult = 10031,
+  AnalysisResultDetail = 10032,
+  SolutionHealthRule = 10033,
+  SolutionHealthRuleArgument = 10034,
+  SolutionHealthRuleSet = 10035,
+  ApiSettings = 10049,
+  SolutionComponentAttributeConfiguration = 10056,
+  AIBuilderDataset = 10468,
+  AIBuilderDatasetFile = 10469,
+  AIBuilderDatasetsContainer = 10470,
+  AIBuilderFile = 10471,
+  AIBuilderFileAttachedData = 10472,
+  SolutionComponentConfiguration = 10494,
+  StageSolutionUpload = 10600,
+  ProcessStageParameter = 10626,
+  AIBuilderDatasetRecord = 10762,
+  ServiceConfiguration = 11402,
+  SLAKPI = 11403,
+  NonRelationalDataSource = 11404,
+  DataLakeWorkspace = 11405,
+  DataLakeWorkspacePermission = 11406,
+  ApplicationUser = 11407,
+  SolutionComponentRelationshipConfiguration = 11409,
+  ModelDrivenAppElement = 11410,
+  ModelDrivenAppComponentNodesEdge = 11411,
+  ModelDrivenAppComponentNode = 11412,
+  ModelDrivenAppSetting = 11413,
+  SettingDefinition = 11414,
+  ConnectionReference = 11415,
+  CanvasAppExtendedMetadata = 11416,
+  PDFSetting = 11452,
+  ExportSolutionUpload = 11633,
+  RichTextAttachment = 11665,
+  CascadeGrantRevokeAccessRecordsTracker = 11697,
+  CascadeGrantRevokeAccessVersionTracker = 11698,
+  Package = 11699,
+  KnowledgeInteractionInsight = 11701,
+  KnowledgeSearchInsight = 11702,
+  DataLakeFolder = 11765,
+  DataLakeFolderPermission = 11766,
+  ProvisionLanguageForUser = 11767,
+  Catalog = 11769,
+  CatalogAssignment = 11770,
+  InternalCatalogAssignment = 11771,
+  CustomAPI = 11772,
+  CustomAPIRequestParameter = 11773,
+  CustomAPIResponseProperty = 11774,
+  BotContent = 11778,
+  ConversationTranscript = 11779,
+  Chatbot = 11780,
+  Chatbotsubcomponent = 11781,
+  KnowledgeFederatedArticle = 11785,
+  KnowledgeFederatedArticleIncident = 11786,
+  Searchprovider = 11787,
+  AllegationConcern = 11788,
+  AllegationType = 11789,
+  ChecklistResponse = 11790,
+  ChecklistType = 11791,
+  Complaint = 11792,
+  DispositionAction = 11793,
+  DispositionReason = 11794,
+  Event = 11795,
+  IndividualComplaint = 11796,
+  Industry = 11797,
+  Issue = 11798,
+  Legislation = 11799,
+  Notification = 11800,
+  OPCPriority = 11801,
+  QuestionTemplate = 11802,
+  QuestionType = 11803,
+  Recommendation = 11804,
+  Reminder = 11805,
+  RiskAppetite = 11806,
+  RiskAssessment = 11807,
+  RiskAssessmentCategory = 11808,
+  RiskAssessmentCategoryTemplate = 11809,
+  RiskAssessmentDefinition = 11810,
+  RiskAssessmentDefinitionTemplate = 11811,
+  RiskAssessmentFactorTemplate = 11812,
+  RiskAssessmentType = 11813,
+  Theme = 11814,
+  Topic = 11815,
 }
 declare const enum duplicaterule_statuscode {
   Unpublished = 0,
   Publishing = 1,
   Published = 2,
+}
+declare const enum duplicaterule_statecode {
+  Inactive = 0,
+  Active = 1,
 }
 declare const enum duplicaterulecondition_operatorcode {
   ExactMatch = 0,
@@ -1308,7 +1308,7 @@ declare const enum activitypointer_activitytypecode {
   PhoneCall = 4210,
   Task = 4212,
   RecurringAppointment = 4251,
-  Event = 10115,
+  Event = 11795,
 }
 declare const enum opc_event_statuscode {
   Open = 1,
@@ -1543,15 +1543,15 @@ declare const enum queue_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum queue_queueviewtype {
-  Public = 0,
-  Private = 1,
-}
 declare const enum queue_emailrouteraccessapproval {
   Empty = 0,
   Approved = 1,
   PendingApproval = 2,
   Rejected = 3,
+}
+declare const enum queue_queueviewtype {
+  Public = 0,
+  Private = 1,
 }
 declare const enum queueitem_statuscode {
   Active = 1,
@@ -1572,19 +1572,19 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10048,
-  Complaint = 10112,
-  Event = 10115,
-}
-declare const enum sharepointdocumentlocation_locationtype {
-  General = 0,
-  DedicatedforOneNoteIntegration = 1,
+  KnowledgeArticleTemplate = 10007,
+  Complaint = 11792,
+  Event = 11795,
 }
 declare const enum sharepointsite_servicetype {
   SharePoint = 0,
   OneDrive = 1,
   Sharedwithme = 2,
   MSTeams = 3,
+}
+declare const enum sharepointdocumentlocation_locationtype {
+  General = 0,
+  DedicatedforOneNoteIntegration = 1,
 }
 declare const enum sharepointdocumentlocation_statecode {
   Active = 0,
@@ -1600,15 +1600,19 @@ declare const enum systemuser_address2_addresstypecode {
 declare const enum systemuser_address2_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum systemuser_accessmode {
+  ReadWrite = 0,
+  Administrative = 1,
+  Read = 2,
+  SupportUser = 3,
+  Noninteractive = 4,
+  DelegatedAdmin = 5,
+}
 declare const enum systemuser_address1_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
-}
-declare const enum systemuser_preferredaddresscode {
-  MailingAddress = 1,
-  OtherAddress = 2,
 }
 declare const enum systemuser_preferredemailcode {
   DefaultValue = 1,
@@ -1628,17 +1632,15 @@ declare const enum systemuser_caltype {
   FieldService = 11,
   ProjectService = 12,
 }
+declare const enum systemuser_preferredaddresscode {
+  MailingAddress = 1,
+  OtherAddress = 2,
+}
 declare const enum systemuser_incomingemaildeliverymethod {
   None = 0,
   MicrosoftDynamics365forOutlook = 1,
   ServerSideSynchronizationorEmailRouter = 2,
   ForwardMailbox = 3,
-}
-declare const enum systemuser_preferredphonecode {
-  MainPhone = 1,
-  OtherPhone = 2,
-  HomePhone = 3,
-  MobilePhone = 4,
 }
 declare const enum systemuser_outgoingemaildeliverymethod {
   None = 0,
@@ -1660,13 +1662,11 @@ declare const enum systemuser_emailrouteraccessapproval {
   PendingApproval = 2,
   Rejected = 3,
 }
-declare const enum systemuser_accessmode {
-  ReadWrite = 0,
-  Administrative = 1,
-  Read = 2,
-  SupportUser = 3,
-  Noninteractive = 4,
-  DelegatedAdmin = 5,
+declare const enum systemuser_preferredphonecode {
+  MainPhone = 1,
+  OtherPhone = 2,
+  HomePhone = 3,
+  MobilePhone = 4,
 }
 declare const enum team_type {
   Owner = 0,
@@ -1674,43 +1674,11 @@ declare const enum team_type {
   AADSecurityGroup = 2,
   AADOfficeGroup = 3,
 }
-declare const enum team_membershiptype {
+declare const enum _team_membershiptype {
   Membersandguests = 0,
   Members = 1,
   Owners = 2,
   Guests = 3,
-}
-declare const enum connection_record2objecttypecode {
-  Account = 1,
-  Contact = 2,
-  User = 8,
-  Team = 9,
-  Position = 50,
-  SocialProfile = 99,
-  Territory = 2013,
-  Activity = 4200,
-  Appointment = 4201,
-  Email = 4202,
-  Fax = 4204,
-  Letter = 4207,
-  PhoneCall = 4210,
-  Task = 4212,
-  SocialActivity = 4216,
-  RecurringAppointment = 4251,
-  ProcessSession = 4710,
-  ChannelAccessProfileRule = 9400,
-  Goal = 9600,
-  KnowledgeBaseRecord = 9930,
-  KnowledgeArticle = 9953,
-  Event = 10115,
-}
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum connection_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum connection_record1objecttypecode {
   Account = 1,
@@ -1734,7 +1702,39 @@ declare const enum connection_record1objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-  Event = 10115,
+  Event = 11795,
+}
+declare const enum connection_record2objecttypecode {
+  Account = 1,
+  Contact = 2,
+  User = 8,
+  Team = 9,
+  Position = 50,
+  SocialProfile = 99,
+  Territory = 2013,
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  RecurringAppointment = 4251,
+  ProcessSession = 4710,
+  ChannelAccessProfileRule = 9400,
+  Goal = 9600,
+  KnowledgeBaseRecord = 9930,
+  KnowledgeArticle = 9953,
+  Event = 11795,
+}
+declare const enum connection_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare namespace Form.account.QuickCreate {
   namespace QuickCreate {
@@ -6711,7 +6711,7 @@ declare namespace Form.opc_questiontemplate.Main {
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
     }
-      interface Attributes extends Xrm.AttributeCollectionBase {
+    interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_additionalparameters"): Xrm.Attribute<string>;
       get(name: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
       get(name: "opc_conditionalvisibility"): Xrm.Attribute<any>;
@@ -6753,7 +6753,7 @@ declare namespace Form.opc_questiontemplate.Main {
       get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
     }
   }
-    interface Information extends Xrm.PageBase<Information.Attributes, Information.Tabs, Information.Controls> {
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_additionalparameters"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
     getAttribute(attributeName: "opc_conditionalvisibility"): Xrm.Attribute<any>;
@@ -9390,7 +9390,7 @@ declare namespace Form.team.Main {
       get(name: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
       get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
       get(name: "description"): Xrm.Attribute<string>;
-      get(name: "membershiptype"): Xrm.OptionSetAttribute<team_membershiptype>;
+      get(name: "membershiptype"): Xrm.OptionSetAttribute<_team_membershiptype>;
       get(name: "name"): Xrm.Attribute<string>;
       get(name: "queueid"): Xrm.LookupAttribute<"queue">;
       get(name: "teamtype"): Xrm.OptionSetAttribute<team_type>;
@@ -9406,7 +9406,7 @@ declare namespace Form.team.Main {
       get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
       get(name: "description"): Xrm.StringControl;
       get(name: "header_queueid"): Xrm.LookupControl<"queue">;
-      get(name: "membershiptype"): Xrm.OptionSetControl<team_membershiptype>;
+      get(name: "membershiptype"): Xrm.OptionSetControl<_team_membershiptype>;
       get(name: "name"): Xrm.StringControl;
       get(name: "teamtype"): Xrm.OptionSetControl<team_type>;
       get(name: string): undefined;
@@ -9427,7 +9427,7 @@ declare namespace Form.team.Main {
     getAttribute(attributeName: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
     getAttribute(attributeName: "description"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "membershiptype"): Xrm.OptionSetAttribute<team_membershiptype>;
+    getAttribute(attributeName: "membershiptype"): Xrm.OptionSetAttribute<_team_membershiptype>;
     getAttribute(attributeName: "name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
     getAttribute(attributeName: "teamtype"): Xrm.OptionSetAttribute<team_type>;
@@ -9438,7 +9438,7 @@ declare namespace Form.team.Main {
     getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
     getControl(controlName: "description"): Xrm.StringControl;
     getControl(controlName: "header_queueid"): Xrm.LookupControl<"queue">;
-    getControl(controlName: "membershiptype"): Xrm.OptionSetControl<team_membershiptype>;
+    getControl(controlName: "membershiptype"): Xrm.OptionSetControl<_team_membershiptype>;
     getControl(controlName: "name"): Xrm.StringControl;
     getControl(controlName: "teamtype"): Xrm.OptionSetControl<team_type>;
     getControl(controlName: string): undefined;
@@ -15212,7 +15212,7 @@ interface opc_QuestionTemplate_Select {
   modifiedby_guid: WebAttribute<opc_QuestionTemplate_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_QuestionTemplate_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_QuestionTemplate_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_additionalparameters: WebAttribute<opc_QuestionTemplate_Select, { opc_additionalparameters: string | null }, {}>;
+  opc_additionalparameters: WebAttribute<opc_QuestionTemplate_Select, { opc_additionalparameters: string | null }, {  }>;
   opc_checklisttypeid_guid: WebAttribute<opc_QuestionTemplate_Select, { opc_checklisttypeid_guid: string | null }, { opc_checklisttypeid_formatted?: string }>;
   opc_conditionalvisibility: WebAttribute<opc_QuestionTemplate_Select, { opc_conditionalvisibility: boolean | null }, {  }>;
   opc_islocalizable: WebAttribute<opc_QuestionTemplate_Select, { opc_islocalizable: boolean | null }, {  }>;
@@ -15339,7 +15339,6 @@ interface opc_QuestionType_Base extends WebEntity {
   createdon?: Date | null;
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
-  opc_additionalparameters?: string | null;
   opc_islocalizable?: boolean | null;
   opc_name?: string | null;
   opc_nameenglish?: string | null;
@@ -15369,8 +15368,7 @@ interface opc_QuestionType_Select {
   modifiedby_guid: WebAttribute<opc_QuestionType_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<opc_QuestionType_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<opc_QuestionType_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  opc_additionalparameters: WebAttribute<opc_QuestionType_Select, { opc_additionalparameters: string | null }, {}>;
-  opc_islocalizable: WebAttribute<opc_QuestionType_Select, { opc_islocalizable: boolean | null }, {}>;
+  opc_islocalizable: WebAttribute<opc_QuestionType_Select, { opc_islocalizable: boolean | null }, {  }>;
   opc_name: WebAttribute<opc_QuestionType_Select, { opc_name: string | null }, {  }>;
   opc_nameenglish: WebAttribute<opc_QuestionType_Select, { opc_nameenglish: string | null }, {  }>;
   opc_namefrench: WebAttribute<opc_QuestionType_Select, { opc_namefrench: string | null }, {  }>;
@@ -15391,7 +15389,6 @@ interface opc_QuestionType_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
-  opc_additionalparameters: string;
   opc_islocalizable: boolean;
   opc_name: string;
   opc_nameenglish: string;
@@ -19244,7 +19241,7 @@ interface Team_Base extends WebEntity {
   exchangerate?: number | null;
   importsequencenumber?: number | null;
   isdefault?: boolean | null;
-  membershiptype?: team_membershiptype | null;
+  membershiptype?: _team_membershiptype | null;
   modifiedon?: Date | null;
   name?: string | null;
   organizationid?: string | null;
@@ -19321,7 +19318,7 @@ interface Team_Select {
   exchangerate: WebAttribute<Team_Select, { exchangerate: number | null }, {  }>;
   importsequencenumber: WebAttribute<Team_Select, { importsequencenumber: number | null }, {  }>;
   isdefault: WebAttribute<Team_Select, { isdefault: boolean | null }, {  }>;
-  membershiptype: WebAttribute<Team_Select, { membershiptype: team_membershiptype | null }, { membershiptype_formatted?: string }>;
+  membershiptype: WebAttribute<Team_Select, { membershiptype: _team_membershiptype | null }, { membershiptype_formatted?: string }>;
   modifiedby_guid: WebAttribute<Team_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<Team_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<Team_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
@@ -19352,7 +19349,7 @@ interface Team_Filter {
   exchangerate: any;
   importsequencenumber: number;
   isdefault: boolean;
-  membershiptype: team_membershiptype;
+  membershiptype: _team_membershiptype;
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
