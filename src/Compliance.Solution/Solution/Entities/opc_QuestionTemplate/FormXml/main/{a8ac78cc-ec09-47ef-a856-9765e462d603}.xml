@@ -98,11 +98,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{52abb0e1-8a24-c833-aacb-764ae3e40004}" showlabel="true" locklevel="0" rowspan="9">
+                      <cell id="{71f94f62-3e43-4408-bd32-d2567d3e9f0f}" locklevel="0">
                         <labels>
-                          <label description="Additional Parameters" languagecode="1033" />
+                          <label description="Managed Internally" languagecode="1033" />
                         </labels>
-                        <control id="opc_additionalparameters" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="opc_additionalparameters" disabled="false" uniqueid="{e3e4a968-ebb5-4b3c-6a5a-352d7b171a4c}" />
+                        <control id="opc_managedinternally" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_managedinternally" uniqueid="{781eca73-c106-4b4a-a039-412456c8061d}" />
                       </cell>
                       <cell id="{cd0593aa-468c-51d1-8139-ebd6324c8836}" showlabel="false">
                         <labels>
@@ -111,6 +111,12 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{52abb0e1-8a24-c833-aacb-764ae3e40004}" showlabel="true" locklevel="0" rowspan="9">
+                        <labels>
+                          <label description="Additional Parameters" languagecode="1033" />
+                        </labels>
+                        <control id="opc_additionalparameters" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="opc_additionalparameters" disabled="false" uniqueid="{e3e4a968-ebb5-4b3c-6a5a-352d7b171a4c}" />
+                      </cell>
                       <cell id="{4bd970d6-85e4-7213-7b7b-0c1b4d332b92}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
@@ -161,6 +167,13 @@
                     </row>
                     <row>
                       <cell id="{163ebeb5-a243-e679-ebd1-5ee8c36c94a0}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{95d26828-9e56-4dd9-a15e-7c7b2ea7b927}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -275,7 +288,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -324,6 +337,28 @@
           <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
             <parameters>
               <value>opc_conditionalvisibility</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{781eca73-c106-4b4a-a039-412456c8061d}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_managedinternally</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_managedinternally</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_managedinternally</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_managedinternally</value>
             </parameters>
           </customControl>
         </controlDescription>
