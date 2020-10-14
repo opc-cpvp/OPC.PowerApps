@@ -53,8 +53,11 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerateEarlyBoundFilter.cs" />
     <Compile Include="GenerateOptionSetEnums\CodeCustomizationsService.cs" />
     <Compile Include="GenerateOptionSetEnums\FilteringService.cs" />
     <Compile Include="GenerateOptionSetEnums\NamingService.cs" />
@@ -81,6 +84,9 @@
     <Content Include="bin\coretools\SolutionPackagerLib.dll" />
     <Content Include="bin\coretools\System.Diagnostics.DiagnosticSource.dll" />
     <Content Include="bin\coretools\System.ValueTuple.dll" />
+    <Content Include="filter.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -88,7 +94,9 @@
     <None Include="bin\coretools\LicenseTerms.docx" />
     <None Include="bin\coretools\SolutionPackager.exe.config" />
     <None Include="generate_optionset_enums.ps1" />
-    <None Include="generate_earlybound_entities.ps1" />
+    <None Include="generate_earlybound_entities.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

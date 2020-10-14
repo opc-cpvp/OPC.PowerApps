@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<filter>
+  <black-listed-entities>
+    <entity name="CustomAPIRequestParameter">
+      <field>EntityLogicalName</field>
+    </entity>
+    <entity name="CustomAPIResponseProperty">
+      <field>EntityLogicalName</field>
+    </entity>
+  </black-listed-entities>
+</filter>
