@@ -33,17 +33,18 @@ export interface IChecklistService {
 
 export interface IRiskAssessmentService {
     getRiskAppetites(): Promise<(opc_RiskAppetite_Fixed & { opc_riskappetiteid: string } & { opc_name: string } & { opc_value: number })[]>;
-    getRiskDefinitions(
-        id: string
-    ): Promise<
-        ({ opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } & {
-            opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result;
-        } & { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } & opc_RiskAssessmentDefinition_Fixed & {
-                opc_riskassessmentdefinitionid: string;
-            } & { opc_riskassessmentcategory_guid: string } & { opc_riskassessmentfactortemplate_guid: string } & {
-                opc_riskassessmentdefinitiontemplate_guid: string;
-            } & { opc_isselected: boolean })[]
-    >;
+    // prettier-ignore
+    getRiskDefinitions(id: string): Promise<(
+        { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } &
+        { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result } &
+        { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } &
+        opc_RiskAssessmentDefinition_Fixed &
+        { opc_riskassessmentdefinitionid: string } &
+        { opc_riskassessmentcategory_guid: string } &
+        { opc_riskassessmentfactortemplate_guid: string } &
+        { opc_riskassessmentdefinitiontemplate_guid: string } &
+        { opc_isselected: boolean }
+    )[]>;
     updateRiskAssessmentDefinition(definitionid: string, value: boolean): Promise<undefined>;
     updateSuggestedRisk(riskassessmentid: string, riskappetiteid: string | null): Promise<undefined>;
 }
@@ -120,15 +121,21 @@ export interface TemplateEnvironmentVariable {
     authorityBaseUrl: string;
 }
 
-export type ComplaintWithRelationships = opc_complaint & { opc_legislation: opc_legislation_Result } & {
-    opc_opcpriorityid: opc_opcpriority_Result;
-} & { opc_complaints_industries_relatedindustries: opc_industry_Result[] } & { opc_intakeofficer: SystemUser_Result } & {
-    owninguser: SystemUser_Result;
-} & { opc_complainant: Contact_Result } & { opc_complainantrep: Contact_Result } & {
-    opc_complainantlegalrepresentative: Contact_Result;
-} & { opc_complainantlegalrepresentativefirm: Account_Result } & { opc_accountid: Account_Result } & {
-    opc_respondentlegalrepresentativefirm: Account_Result;
-} & { opc_respondentrepresentative: Contact_Result } & { opc_respondentlegalrepresentative: Contact_Result };
+// prettier-ignore
+export type ComplaintWithRelationships = opc_complaint &
+{ opc_legislation: opc_legislation_Result } &
+{ opc_opcpriorityid: opc_opcpriority_Result } &
+{ opc_complaints_industries_relatedindustries: opc_industry_Result[] } &
+{ opc_intakeofficer: SystemUser_Result } &
+{ owninguser: SystemUser_Result } &
+{ opc_complainant: Contact_Result } &
+{ opc_complainantrep: Contact_Result } &
+{ opc_complainantlegalrepresentative: Contact_Result } &
+{ opc_complainantlegalrepresentativefirm: Account_Result } &
+{ opc_accountid: Account_Result } &
+{ opc_respondentlegalrepresentativefirm: Account_Result } &
+{ opc_respondentrepresentative: Contact_Result } &
+{ opc_respondentlegalrepresentative: Contact_Result };
 
 export type ExtendedXrmPageBase = Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase> & {
     getAttribute(attributeName: string): Xrm.Attribute<any>;

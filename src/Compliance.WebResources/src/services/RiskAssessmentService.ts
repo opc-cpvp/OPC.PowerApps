@@ -14,17 +14,18 @@ export class RiskAssessmentService implements IRiskAssessmentService {
             .promise();
     }
 
-    getRiskDefinitions(
-        id: string
-    ): Promise<
-        ({ opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } & {
-            opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result;
-        } & { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } & opc_RiskAssessmentDefinition_Fixed & {
-                opc_riskassessmentdefinitionid: string;
-            } & { opc_riskassessmentcategory_guid: string } & { opc_riskassessmentfactortemplate_guid: string } & {
-                opc_riskassessmentdefinitiontemplate_guid: string;
-            } & { opc_isselected: boolean })[]
-    > {
+    // prettier-ignore
+    getRiskDefinitions(id: string): Promise<(
+        { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } &
+        { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result } &
+        { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } &
+        opc_RiskAssessmentDefinition_Fixed &
+        { opc_riskassessmentdefinitionid: string } &
+        { opc_riskassessmentcategory_guid: string } &
+        { opc_riskassessmentfactortemplate_guid: string } &
+        { opc_riskassessmentdefinitiontemplate_guid: string } &
+        { opc_isselected: boolean }
+    )[]> {
         return XrmQuery.retrieveRelatedMultiple(
             x => x.opc_riskassessments,
             id,

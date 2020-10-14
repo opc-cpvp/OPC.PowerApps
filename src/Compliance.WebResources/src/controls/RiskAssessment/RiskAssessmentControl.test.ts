@@ -23,18 +23,21 @@ function generateRiskAppetite(
     };
 }
 
+// prettier-ignore
 function generateRiskAssessmentDefinition(
     guid: string,
     riskAssessmentGuid: string,
     riskAppetiteGuid: string,
     isSelected: boolean
-): { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } & {
-    opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result;
-} & { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } & opc_RiskAssessmentDefinition_Fixed & {
-        opc_riskassessmentdefinitionid: string;
-    } & { opc_riskassessmentcategory_guid: string } & { opc_riskassessmentfactortemplate_guid: string } & {
-        opc_riskassessmentdefinitiontemplate_guid: string;
-    } & { opc_isselected: boolean } {
+): { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } &
+    { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result } &
+    { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } &
+    opc_RiskAssessmentDefinition_Fixed &
+    { opc_riskassessmentdefinitionid: string } &
+    { opc_riskassessmentcategory_guid: string } &
+    { opc_riskassessmentfactortemplate_guid: string } &
+    { opc_riskassessmentdefinitiontemplate_guid: string } &
+    { opc_isselected: boolean } {
     return {
         "@odata.etag": "",
         opc_RiskAssessmentDefinitionTemplate: {
@@ -163,13 +166,19 @@ describe("RiskAssessmentControl", () => {
 
         let control: Controls.RiskAssessmentControl;
 
-        const riskAppetites: (opc_RiskAppetite_Fixed & { opc_riskappetiteid: string } & { opc_name: string } & { opc_value: number })[] = [
-            generateRiskAppetite("guid-marginal", 1),
-            generateRiskAppetite("guid-lower", 2),
-            generateRiskAppetite("guid-moderate", 3),
-            generateRiskAppetite("guid-higher", 4),
-            generateRiskAppetite("guid-extreme", 5)
-        ];
+        // prettier-ignore
+        const riskAppetites: (
+            opc_RiskAppetite_Fixed &
+            { opc_riskappetiteid: string } &
+            { opc_name: string } &
+            { opc_value: number }
+        )[] = [
+                generateRiskAppetite("guid-marginal", 1),
+                generateRiskAppetite("guid-lower", 2),
+                generateRiskAppetite("guid-moderate", 3),
+                generateRiskAppetite("guid-higher", 4),
+                generateRiskAppetite("guid-extreme", 5)
+            ];
 
         beforeEach(() => {
             service = new RiskAssessmentService();
@@ -206,16 +215,21 @@ describe("RiskAssessmentControl", () => {
         });
 
         it("it should set the suggested risk to the highest selected value", async () => {
-            const riskDefinitions: ({ opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } & {
-                opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result;
-            } & { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } & opc_RiskAssessmentDefinition_Fixed & {
-                    opc_riskassessmentdefinitionid: string;
-                } & { opc_riskassessmentcategory_guid: string } & { opc_riskassessmentfactortemplate_guid: string } & {
-                    opc_riskassessmentdefinitiontemplate_guid: string;
-                } & { opc_isselected: boolean })[] = [
-                generateRiskAssessmentDefinition("guid-assessment-marginal", "guid-test", "guid-marginal", true),
-                generateRiskAssessmentDefinition("guid-assessment-lower", "guid-test", "guid-lower", false)
-            ];
+            // prettier-ignore
+            const riskDefinitions: (
+                { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } &
+                { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result } &
+                { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } &
+                opc_RiskAssessmentDefinition_Fixed &
+                { opc_riskassessmentdefinitionid: string } &
+                { opc_riskassessmentcategory_guid: string } &
+                { opc_riskassessmentfactortemplate_guid: string } &
+                { opc_riskassessmentdefinitiontemplate_guid: string } &
+                { opc_isselected: boolean }
+            )[] = [
+                    generateRiskAssessmentDefinition("guid-assessment-marginal", "guid-test", "guid-marginal", true),
+                    generateRiskAssessmentDefinition("guid-assessment-lower", "guid-test", "guid-lower", false)
+                ];
 
             // Arrange
             const updateSuggestedRisk = sandbox.stub(service, "updateSuggestedRisk").resolves();
