@@ -1,0 +1,11 @@
+@types/xrmdefinitelytyped
+dist
+js/lib/xrmquery
+node_modules
+
+.eslintrc.json
+.yo-rc.json
+package.json
+package-lock.json
+tsconfig.json
+webpack.config.js

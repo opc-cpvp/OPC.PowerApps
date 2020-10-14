@@ -3,21 +3,27 @@
         "allowSyntheticDefaultImports": true,
         "maxNodeModuleJsDepth": 2,
         "sourceMap": true,
-        "types": [ "reflect-metadata", "node", "ts-nameof" ],
+        "types": [
+            "reflect-metadata",
+            "node",
+            "ts-nameof"
+        ],
         "module": "commonjs",
         "target": "es5",
-        "lib": [ "es6", "dom" ],
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "esModuleInterop": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "allowJs": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noEmitOnError": true,
-
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-
         "plugins": [
             {
                 "transform": "ts-nameof",

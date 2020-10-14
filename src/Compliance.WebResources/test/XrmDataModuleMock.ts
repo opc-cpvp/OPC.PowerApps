@@ -24,6 +24,7 @@ export class XrmDataModuleMock implements Xrm.DataModule<XrmCollectionMock<XrmAt
     isValid(): boolean {
         throw new Error("Method not implemented.");
     }
+    // eslint-disable-next-line @typescript-eslint/ban-types
     removeOnLoad(myFunction: Function): void {
         throw new Error("Method not implemented.");
     }

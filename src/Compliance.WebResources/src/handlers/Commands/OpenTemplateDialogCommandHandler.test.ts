@@ -1,12 +1,13 @@
-import { XrmExecutionContextMock } from '../../../test/XrmExecutionContextMock';
-import { XrmNavigationMock } from '../../../test/XrmNavigationMock';
-import { ICommandHandler } from '../../interfaces';
-import { OpenTemplateDialogCommandHandler } from './OpenTemplateDialogCommandHandler';
+import { XrmExecutionContextMock } from "../../../test/XrmExecutionContextMock";
+import { XrmNavigationMock } from "../../../test/XrmNavigationMock";
+import { ICommandHandler } from "../../interfaces";
+import { OpenTemplateDialogCommandHandler } from "./OpenTemplateDialogCommandHandler";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var sandbox = sinon.createSandbox();
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
+const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
@@ -17,14 +18,14 @@ describe("OpenTemplateDialog Command Handler", () => {
         let handler: ICommandHandler;
         let controlSpy: any;
 
-        beforeEach(function () {
+        beforeEach(() => {
             mockExecutionContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
             mockNavigation = new XrmNavigationMock();
             handler = new OpenTemplateDialogCommandHandler(mockNavigation);
             controlSpy = sandbox.spy(mockExecutionContext.getFormContext().getControl("subgrid_documents"));
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
         });
 
@@ -38,7 +39,7 @@ describe("OpenTemplateDialog Command Handler", () => {
         });
         it("it should open the template dialog", () => {
             // Arrange
-            let navigateTo = sandbox.spy(mockNavigation, "navigateTo");
+            const navigateTo = sandbox.spy(mockNavigation, "navigateTo");
 
             // Act
             handler.execute(mockExecutionContext.getFormContext());
@@ -48,11 +49,11 @@ describe("OpenTemplateDialog Command Handler", () => {
         });
         it("it should refresh the documents subgrid when the template dialog is closed", async () => {
             // Arrange
-            let navigateTo = sandbox.stub(mockNavigation, nameof(mockNavigation.navigateTo)).resolves();
+            const navigateTo = sandbox.stub(mockNavigation, "navigateTo").resolves();
 
             // Act
             handler.execute(mockExecutionContext.getFormContext());
-            await navigateTo;
+            await Promise.all(navigateTo.returnValues);
 
             // Assert
             controlSpy.refresh.should.have.been.calledOnce;

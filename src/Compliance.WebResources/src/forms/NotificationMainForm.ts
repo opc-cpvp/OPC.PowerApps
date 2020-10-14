@@ -4,16 +4,18 @@ import { IPowerForm, INotificationService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 import { WindowHelper } from "../helpers/WindowHelper";
 
-
+// @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Notification.Forms {
-
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_notification.Main.Information> {
-
         private _notificationService: INotificationService;
         private readonly _context: Xrm.context;
 
-        constructor(@inject(nameof<INotificationService>()) notificationService: INotificationService, @inject(nameof<Xrm.context>()) context: Xrm.context) {
+        constructor(
+            @inject(nameof<INotificationService>()) notificationService: INotificationService,
+            @inject(nameof<Xrm.context>()) context: Xrm.context
+        ) {
             this._notificationService = notificationService;
             this._context = context;
         }
@@ -24,13 +26,13 @@ export namespace Notification.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_notification.Main.Information, any>): void {
-            const formContext = <Form.opc_notification.Main.Information>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.opc_notification.Main.Information;
             const notificationIdValue = formContext.data.entity.getId();
             const complaintIdValue = formContext.getAttribute("opc_complaintid").getValue();
             const entityFormOptions = { entityName: "", entityId: "" };
 
             // Change the Status Reason of the notification from UNREAD to READ.
-            if (formContext.getAttribute("statecode").getValue() == opc_notification_statecode.Active) {
+            if (formContext.getAttribute("statecode").getValue() === opc_notification_statecode.Active) {
                 this._notificationService.markAsRead(notificationIdValue);
             }
 
@@ -44,7 +46,9 @@ export namespace Notification.Forms {
             // Redirect to the related case if there is any.
             if (entityFormOptions.entityName !== "") {
                 // Use location replace instead of a OOB feature to remove this current page from the browsing history
-                var url = this._context.getCurrentAppUrl() + `&pagetype=entityrecord&etn=${entityFormOptions["entityName"]}&id=${encodeURIComponent(entityFormOptions["entityId"])}`;
+                const url =
+                    this._context.getCurrentAppUrl() +
+                    `&pagetype=entityrecord&etn=${entityFormOptions["entityName"]}&id=${encodeURIComponent(entityFormOptions["entityId"])}`;
                 WindowHelper.replaceLocation(url);
             }
         }

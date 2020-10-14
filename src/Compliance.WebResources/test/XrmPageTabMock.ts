@@ -4,13 +4,13 @@ import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { XrmPageSectionMock } from "./XrmPageSectionMock";
 
 export class XrmPageTabMock implements Xrm.PageTab<Xrm.SectionCollection>, INamedComponent {
+    sections: XrmCollectionMock<XrmPageSectionMock>;
+
     private _context: XrmExecutionContextMock<any, any>;
     private _name: string;
     private _label: string;
     private _isVisible: boolean;
     private _focus: boolean;
-
-    sections: XrmCollectionMock<XrmPageSectionMock>;
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this._context = executionContext;
@@ -50,8 +50,9 @@ export class XrmPageTabMock implements Xrm.PageTab<Xrm.SectionCollection>, IName
     getVisible(): boolean {
         return this._isVisible;
     }
+
+    // eslint-disable-next-line @typescript-eslint/ban-types
     addTabStateChange(reference: Function): void {
         throw new Error("Method not implemented.");
     }
 }
-
