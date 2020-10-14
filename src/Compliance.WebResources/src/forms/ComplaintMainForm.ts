@@ -151,13 +151,13 @@ export namespace Complaint.Forms {
             if (duplicateResult === opc_duplicatedetectionresult.Potentialduplicate) {
                 XrmHelper.setNotification(
                     contactAttr,
-                    this._i18n.t("contact:duplicate.warning", { context: "potential", contactType }),
+                    this._i18n.t("contact:duplicate.warning", { context: "potential", contactType: contactType }),
                     "WARNING"
                 );
             } else if (duplicateResult === opc_duplicatedetectionresult.Duplicatefound) {
                 XrmHelper.setNotification(
                     contactAttr,
-                    this._i18n.t("contact:duplicate.warning", { context: "actual", contactType }),
+                    this._i18n.t("contact:duplicate.warning", { context: "actual", contactType: contactType }),
                     "WARNING"
                 );
             } else {
@@ -293,7 +293,7 @@ export namespace Complaint.Forms {
                 XrmHelper.setNotification(
                     multipleComplaintStrategyControl,
                     "INFO",
-                    this._i18n.t("contact:mcs.warning", { context: "complaint", fullname })
+                    this._i18n.t("contact:mcs.warning", { context: "complaint", fullname: fullname })
                 );
             }
         }

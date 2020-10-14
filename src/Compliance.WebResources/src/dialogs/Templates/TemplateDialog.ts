@@ -271,7 +271,7 @@ export namespace Dialogs {
             };
             const tokenRequest: Msal.AuthenticationParameters = {
                 scopes: this._templatesEnvironmentVariable.tokenScope,
-                loginHint,
+                loginHint: loginHint,
                 authority: `${this._templatesEnvironmentVariable.authorityBaseUrl}${this._templatesEnvironmentVariable.tenantId}`
             };
 

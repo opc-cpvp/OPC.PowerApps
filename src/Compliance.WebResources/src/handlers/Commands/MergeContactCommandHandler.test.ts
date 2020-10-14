@@ -75,7 +75,7 @@ describe("Merge Contact Handler", () => {
 
         windowOpen = sandbox
             .stub(WindowHelper, "openWindow")
-            .returns({ addEventListener(str: string, listener: EventListenerOrEventListenerObject) {} });
+            .returns({ addEventListener: function (str: string, listener: EventListenerOrEventListenerObject) {} });
 
         sandbox.stub(mockContext, "getClientUrl").returns(fakeClientUrl);
 

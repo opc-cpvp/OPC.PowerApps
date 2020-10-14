@@ -57,7 +57,7 @@ export class XrmBaseControlMock implements Xrm.AnyControl, Xrm.BaseControl, INam
         this._isVisible = visible;
     }
     setNotification(message: string, uniqueId?: string): boolean {
-        const notification = { message, uniqueId };
+        const notification = { message: message, uniqueId: uniqueId };
         return this._notifications.push(notification) > 0;
     }
     clearNotification(uniqueId?: string): boolean {
