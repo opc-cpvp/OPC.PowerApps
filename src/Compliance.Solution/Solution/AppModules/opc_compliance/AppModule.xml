@@ -56,6 +56,7 @@
     <AppModuleComponent type="1" schemaName="opc_dispositionaction" />
     <AppModuleComponent type="1" schemaName="opc_dispositionreason" />
     <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
+    <AppModuleComponent type="1" schemaName="opc_industry" />
     <AppModuleComponent type="1" schemaName="opc_issue" />
     <AppModuleComponent type="1" schemaName="opc_notification" />
     <AppModuleComponent type="1" schemaName="opc_questiontemplate" />
@@ -88,16 +89,15 @@
     <AppModuleComponent type="1" schemaName="opc_riskassessmentdefinitiontemplate" />
     <AppModuleComponent type="1" schemaName="opc_riskassessmentfactortemplate" />
     <AppModuleComponent type="1" schemaName="opc_riskassessmenttype" />
-    <AppModuleComponent type="1" schemaName="opc_sector" />
     <AppModuleComponent type="1" schemaName="sharepointdocument" />
     <AppModuleComponent type="26" id="{a5b008ac-07d9-4554-8509-2c05767bff51}" />
     <AppModuleComponent type="1" schemaName="opc_theme" />
     <AppModuleComponent type="1" schemaName="opc_topic" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
-    <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
     <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
     <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{e8d3b19c-362e-ea11-a810-000d3af46757}" />
   </AppModuleRoleMaps>
   <LocalizedNames>
     <LocalizedName description="Compliance" languagecode="1033" />

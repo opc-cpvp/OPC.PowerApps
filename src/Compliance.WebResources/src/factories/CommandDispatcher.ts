@@ -10,7 +10,7 @@ export class CommandDispatcher implements ICommandDispatcher {
         this._container = container;
     }
     dispatch<TForm extends ExtendedXrmPageBase>(context: TForm, command: string, field?: string): void {
-        let handler = this._container.get<ICommandHandler>(command);
+        const handler = this._container.get<ICommandHandler>(command);
         handler.execute(context, field);
     }
 }

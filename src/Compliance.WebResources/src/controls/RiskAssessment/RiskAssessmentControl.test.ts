@@ -1,21 +1,20 @@
-import { Controls } from './RiskAssessmentControl';
-import { XrmContextMock } from '../../../test/XrmContextMock';
-import { IRiskAssessmentService } from '../../interfaces';
-import { RiskAssessmentService } from '../../services/RiskAssessmentService';
+import { Controls } from "./RiskAssessmentControl";
+import { XrmContextMock } from "../../../test/XrmContextMock";
+import { IRiskAssessmentService } from "../../interfaces";
+import { RiskAssessmentService } from "../../services/RiskAssessmentService";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var sandbox = sinon.createSandbox();
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
+const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-function generateRiskAppetite(guid: string, value: number): (
-    opc_RiskAppetite_Fixed &
-    { opc_riskappetiteid: string; } &
-    { opc_name: string; } &
-    { opc_value: number; }
-) {
+function generateRiskAppetite(
+    guid: string,
+    value: number
+): opc_RiskAppetite_Fixed & { opc_riskappetiteid: string } & { opc_name: string } & { opc_value: number } {
     return {
         "@odata.etag": "",
         opc_riskappetiteid: guid,
@@ -24,17 +23,21 @@ function generateRiskAppetite(guid: string, value: number): (
     };
 }
 
-function generateRiskAssessmentDefinition(guid: string, riskAssessmentGuid: string, riskAppetiteGuid: string, isSelected: boolean): (
-    { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result; } &
-    { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result; } &
-    { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result; } &
+// prettier-ignore
+function generateRiskAssessmentDefinition(
+    guid: string,
+    riskAssessmentGuid: string,
+    riskAppetiteGuid: string,
+    isSelected: boolean
+): { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } &
+    { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result } &
+    { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } &
     opc_RiskAssessmentDefinition_Fixed &
     { opc_riskassessmentdefinitionid: string } &
     { opc_riskassessmentcategory_guid: string } &
     { opc_riskassessmentfactortemplate_guid: string } &
     { opc_riskassessmentdefinitiontemplate_guid: string } &
-    { opc_isselected: boolean }
-) {
+    { opc_isselected: boolean } {
     return {
         "@odata.etag": "",
         opc_RiskAssessmentDefinitionTemplate: {
@@ -97,57 +100,57 @@ describe("RiskAssessmentControl", () => {
 
         let control: Controls.RiskAssessmentControl;
 
-        beforeEach(function () {
+        beforeEach(() => {
             service = new RiskAssessmentService();
             documentContext = document;
             xrmContext = new XrmContextMock();
             xrmContext.setQueryStringParameters({ id: "guid-test" }); // this is the format that is passed to the iframe
 
             placeholderElement = documentContext.createElement("div");
-            placeholderElement.id = 'risks';
+            placeholderElement.id = "risks";
             documentContext.body.appendChild(placeholderElement);
 
             control = new Controls.RiskAssessmentControl(xrmContext, documentContext, service);
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
             document.body.removeChild(placeholderElement); // not a true dom reset, tried jsdom and had several issues
         });
 
-        it("it should register handler for saving entity", () => {
+        it("it should register handler for saving entity", async () => {
             // Arrange
-            let addEventListener = sandbox.stub(documentContext, 'addEventListener');
-            sandbox.stub(service, 'getRiskAppetites').resolves([]);
-            sandbox.stub(service, 'getRiskDefinitions').resolves([]);
+            const addEventListener = sandbox.stub(documentContext, "addEventListener");
+            sandbox.stub(service, "getRiskAppetites").resolves([]);
+            sandbox.stub(service, "getRiskDefinitions").resolves([]);
 
             // Act
-            control.init();
+            await control.init();
 
             // Assert
             addEventListener.should.have.been.calledOnce;
-            addEventListener.should.have.been.calledWith('entity-save');
+            addEventListener.should.have.been.calledWith("entity-save");
         });
 
-        it("it should load all risk appetites", () => {
+        it("it should load all risk appetites", async () => {
             // Arrange
-            let getRiskAppetites = sandbox.stub(service, 'getRiskAppetites').resolves([]);
-            sandbox.stub(service, 'getRiskDefinitions').resolves([]);
+            const getRiskAppetites = sandbox.stub(service, "getRiskAppetites").resolves([]);
+            sandbox.stub(service, "getRiskDefinitions").resolves([]);
 
             // Act
-            control.init();
+            await control.init();
 
             // Assert
             getRiskAppetites.should.have.been.called;
         });
 
-        it("it should load all risk definitions", () => {
+        it("it should load all risk definitions", async () => {
             // Arrange
-            let getRiskDefinitions = sandbox.stub(service, 'getRiskDefinitions').resolves([]);
-            sandbox.stub(service, 'getRiskAppetites').resolves([]);
+            const getRiskDefinitions = sandbox.stub(service, "getRiskDefinitions").resolves([]);
+            sandbox.stub(service, "getRiskAppetites").resolves([]);
 
             // Act
-            control.init();
+            await control.init();
 
             // Assert
             getRiskDefinitions.should.have.been.called;
@@ -163,48 +166,48 @@ describe("RiskAssessmentControl", () => {
 
         let control: Controls.RiskAssessmentControl;
 
-        let riskAppetites: (
+        // prettier-ignore
+        const riskAppetites: (
             opc_RiskAppetite_Fixed &
-            { opc_riskappetiteid: string; } &
-            { opc_name: string; } &
-            { opc_value: number; }
+            { opc_riskappetiteid: string } &
+            { opc_name: string } &
+            { opc_value: number }
         )[] = [
-            generateRiskAppetite("guid-marginal", 1),
-            generateRiskAppetite("guid-lower", 2),
-            generateRiskAppetite("guid-moderate", 3),
-            generateRiskAppetite("guid-higher", 4),
-            generateRiskAppetite("guid-extreme", 5)
-        ];
+                generateRiskAppetite("guid-marginal", 1),
+                generateRiskAppetite("guid-lower", 2),
+                generateRiskAppetite("guid-moderate", 3),
+                generateRiskAppetite("guid-higher", 4),
+                generateRiskAppetite("guid-extreme", 5)
+            ];
 
-        beforeEach(function () {
+        beforeEach(() => {
             service = new RiskAssessmentService();
             documentContext = document;
             xrmContext = new XrmContextMock();
             xrmContext.setQueryStringParameters({ id: "guid-test" }); // this is the format that is passed to the iframe
 
             placeholderElement = documentContext.createElement("div");
-            placeholderElement.id = 'risks';
+            placeholderElement.id = "risks";
             documentContext.body.appendChild(placeholderElement);
 
             control = new Controls.RiskAssessmentControl(xrmContext, documentContext, service);
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
             document.body.removeChild(placeholderElement); // not a true dom reset, tried jsdom and had several issues
         });
 
         it("it should clear the suggested risk if nothing's selected", async () => {
             // Arrange
-            let updateSuggestedRisk = sandbox.stub(service, 'updateSuggestedRisk').resolves();
-            let getRiskDefinitions = sandbox.stub(service, 'getRiskDefinitions').resolves([]);
-            sandbox.stub(service, 'getRiskAppetites').resolves([]);
+            const updateSuggestedRisk = sandbox.stub(service, "updateSuggestedRisk").resolves();
+            sandbox.stub(service, "getRiskDefinitions").resolves([]);
+            sandbox.stub(service, "getRiskAppetites").resolves([]);
 
             // Act
             await control.init();
-            await getRiskDefinitions;
             control.save();
-            await updateSuggestedRisk;
+            await Promise.all(updateSuggestedRisk.returnValues);
 
             // Assert
             updateSuggestedRisk.should.have.been.called;
@@ -212,10 +215,11 @@ describe("RiskAssessmentControl", () => {
         });
 
         it("it should set the suggested risk to the highest selected value", async () => {
-            let riskDefinitions:(
-                { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result; } &
-                { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result; } &
-                { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result; } &
+            // prettier-ignore
+            const riskDefinitions: (
+                { opc_RiskAssessmentDefinitionTemplate: opc_RiskAssessmentDefinitionTemplate_Result } &
+                { opc_RiskAssessmentFactorTemplate: opc_RiskAssessmentFactorTemplate_Result } &
+                { opc_RiskAssessmentCategory: opc_RiskAssessmentCategory_Result } &
                 opc_RiskAssessmentDefinition_Fixed &
                 { opc_riskassessmentdefinitionid: string } &
                 { opc_riskassessmentcategory_guid: string } &
@@ -223,20 +227,19 @@ describe("RiskAssessmentControl", () => {
                 { opc_riskassessmentdefinitiontemplate_guid: string } &
                 { opc_isselected: boolean }
             )[] = [
-                generateRiskAssessmentDefinition("guid-assessment-marginal", "guid-test", "guid-marginal", true),
-                generateRiskAssessmentDefinition("guid-assessment-lower", "guid-test", "guid-lower", false)
-            ];
+                    generateRiskAssessmentDefinition("guid-assessment-marginal", "guid-test", "guid-marginal", true),
+                    generateRiskAssessmentDefinition("guid-assessment-lower", "guid-test", "guid-lower", false)
+                ];
 
             // Arrange
-            let updateSuggestedRisk = sandbox.stub(service, 'updateSuggestedRisk').resolves();
-            let getRiskDefinitions = sandbox.stub(service, 'getRiskDefinitions').resolves(riskDefinitions);
-            sandbox.stub(service, 'getRiskAppetites').resolves(riskAppetites);
+            const updateSuggestedRisk = sandbox.stub(service, "updateSuggestedRisk").resolves();
+            sandbox.stub(service, "getRiskDefinitions").resolves(riskDefinitions);
+            sandbox.stub(service, "getRiskAppetites").resolves(riskAppetites);
 
             // Act
             await control.init();
-            await getRiskDefinitions;
             control.save();
-            await updateSuggestedRisk;
+            await Promise.all(updateSuggestedRisk.returnValues);
 
             // Assert
             updateSuggestedRisk.should.have.been.called;

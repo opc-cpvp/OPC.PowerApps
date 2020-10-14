@@ -6,33 +6,33 @@
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
     <isdefault>1</isdefault>
-    <savedqueryid>{b642f6ee-7011-4785-9b15-51902cea95b6}</savedqueryid>
+    <savedqueryid>{1cff0e43-b6b8-4874-a79a-2f0661d9e4b2}</savedqueryid>
     <layoutxml>
-      <grid name="opc_sectors" jump="opc_name" select="1" icon="1" preview="0">
-        <row name="opc_sector" id="opc_sectorid">
+      <grid name="opc_industries" jump="opc_name" select="1" icon="1" preview="0">
+        <row name="opc_industry" id="opc_industryid">
+          <cell name="opc_naicsnumber" width="132" />
           <cell name="opc_name" width="300" />
-          <cell name="opc_parentsectorid" width="300" />
+          <cell name="opc_parentindustryid" width="300" />
         </row>
       </grid>
     </layoutxml>
     <querytype>64</querytype>
     <fetchxml>
       <fetch version="1.0" mapping="logical">
-        <entity name="opc_sector">
-          <attribute name="opc_sectorid" />
+        <entity name="opc_industry">
+          <attribute name="opc_industryid" />
           <attribute name="opc_name" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="opc_parentsectorid" />
-          <order attribute="opc_parentsectorid" descending="false" />
-          <order attribute="opc_name" descending="false" />
+          <attribute name="opc_parentindustryid" />
+          <attribute name="opc_naicsnumber" />
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>1.0.137</IntroducedVersion>
+    <IntroducedVersion>1.0.427</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Sector Lookup View" languagecode="1033" />
+      <LocalizedName description="Industry Lookup View" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -1,19 +1,19 @@
-﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
-import { XrmNavigationMock } from '../../test/XrmNavigationMock';
-import { Contact } from './ContactMainForm';
-import { UserService } from '../services/UserService';
-import { XrmContextMock } from '../../test/XrmContextMock';
-import { XrmSaveEventContextMock } from '../../test/XrmSaveEventContextMock';
-import { XrmControlMock } from '../../test/XrmControlMock';
+﻿import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
+import { XrmNavigationMock } from "../../test/XrmNavigationMock";
+import { Contact } from "./ContactMainForm";
+import { UserService } from "../services/UserService";
+import { XrmContextMock } from "../../test/XrmContextMock";
+import { XrmSaveEventContextMock } from "../../test/XrmSaveEventContextMock";
+import { XrmControlMock } from "../../test/XrmControlMock";
+import i18next from "i18next";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var sandbox = sinon.createSandbox();
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
+const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
-
-var i18next = require("i18next");
 
 describe("Contact", () => {
     const mcsOptions: Xrm.Option<any>[] = [
@@ -43,7 +43,7 @@ describe("Contact", () => {
 
         // We make sure it returns a value since it is called as soon as the form loads.
         // The user does not have Intake Manager permissions by default.
-        hasIntakeManagerPermissions = sandbox.stub(userService, 'hasIntakeManagerPermissions');
+        hasIntakeManagerPermissions = sandbox.stub(userService, "hasIntakeManagerPermissions");
         hasIntakeManagerPermissions.returns(false);
     }
 
@@ -51,22 +51,25 @@ describe("Contact", () => {
         let mockSaveEventContext: XrmSaveEventContextMock<Form.contact.Main.ComplianceContact>;
         let navigationSpy: any;
 
-        beforeEach(function () {
+        beforeEach(() => {
             initializeMock();
             mockSaveEventContext = new XrmSaveEventContextMock<Form.contact.Main.ComplianceContact>();
             navigationSpy = sandbox.spy(mockNavigation);
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
         });
 
         it("it should display a confirmation dialog if the contact has been applied to the MCS", () => {
             // Arrange
-            mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            mockSaveEventContext
+                .getFormContext()
+                .getAttribute("opc_multiplecomplaintstrategy")
+                .setValue(opc_multiplecomplaintstrategy.Applied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(true);
 
-            //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
+            // We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
             form.initializeComponents(mockSaveEventContext);
 
             // Act
@@ -78,10 +81,13 @@ describe("Contact", () => {
 
         it("it should not display a confirmation dialog if the contact is already in the MCS", () => {
             // Arrange
-            mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            mockSaveEventContext
+                .getFormContext()
+                .getAttribute("opc_multiplecomplaintstrategy")
+                .setValue(opc_multiplecomplaintstrategy.Applied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(false);
 
-            //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
+            // We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
             form.initializeComponents(mockSaveEventContext);
 
             // Act
@@ -93,10 +99,13 @@ describe("Contact", () => {
 
         it("it should not display a confirmation dialog if the contact has not been applied to MCS", () => {
             // Arrange
-            mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
+            mockSaveEventContext
+                .getFormContext()
+                .getAttribute("opc_multiplecomplaintstrategy")
+                .setValue(opc_multiplecomplaintstrategy.NotApplied);
             mockSaveEventContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setIsDirty(true);
 
-            //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
+            // We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
             form.initializeComponents(mockSaveEventContext);
 
             // Act
@@ -108,7 +117,7 @@ describe("Contact", () => {
     });
 
     describe("after MCS field is loaded", () => {
-        beforeEach(function () {
+        beforeEach(() => {
             initializeMock();
             mcsControl = new XrmControlMock(mockExecutionContext);
             controlSpy = sandbox.spy(mcsControl);
@@ -118,7 +127,7 @@ describe("Contact", () => {
             mockExecutionContext.getFormContext().ui.setFormType(Xrm.FormType.Update);
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
         });
 
@@ -136,7 +145,10 @@ describe("Contact", () => {
 
         it("it should contain option 'Applied' if user is not Intake Manager BUT MCS value is already 'Applied'", () => {
             // Arrange
-            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            mockExecutionContext
+                .getFormContext()
+                .getAttribute("opc_multiplecomplaintstrategy")
+                .setValue(opc_multiplecomplaintstrategy.Applied);
 
             // Act
             form.initializeComponents(mockExecutionContext);
@@ -157,19 +169,22 @@ describe("Contact", () => {
         });
     });
     describe("when the contact is part of the Multiple Complaint Strategy", () => {
-        beforeEach(function () {
+        beforeEach(() => {
             initializeMock();
             mockExecutionContext.getFormContext().ui.setFormType(Xrm.FormType.Update);
-            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            mockExecutionContext
+                .getFormContext()
+                .getAttribute("opc_multiplecomplaintstrategy")
+                .setValue(opc_multiplecomplaintstrategy.Applied);
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
         });
 
         it("it should display a form notification", () => {
             // Arrange
-            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
 
             // Act
@@ -181,7 +196,7 @@ describe("Contact", () => {
 
         it("it should lock the field if user is not Intake Manager", () => {
             // Arrange
-            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
 
             // Act
@@ -195,7 +210,7 @@ describe("Contact", () => {
             // Arrange
             hasIntakeManagerPermissions.returns(true);
 
-            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
 
             // Act
@@ -206,7 +221,7 @@ describe("Contact", () => {
         });
     });
     describe("when the contact is not part of the Multiple Complaint Strategy", () => {
-        beforeEach(function () {
+        beforeEach(() => {
             initializeMock();
             mcsControl = new XrmControlMock(mockExecutionContext);
             mcsControl.setOptions(mcsOptions);
@@ -215,15 +230,18 @@ describe("Contact", () => {
             mockExecutionContext.getFormContext().ui.setFormType(Xrm.FormType.Update);
         });
 
-        afterEach(function () {
+        afterEach(() => {
             sandbox.restore();
         });
 
         it("it should not display a form notification(if not applied)", () => {
             // Arrange
-            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
+            mockExecutionContext
+                .getFormContext()
+                .getAttribute("opc_multiplecomplaintstrategy")
+                .setValue(opc_multiplecomplaintstrategy.NotApplied);
 
-            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
 
             // Act
@@ -234,9 +252,12 @@ describe("Contact", () => {
         });
         it("it should not display a form notification(if proposed)", () => {
             // Arrange
-            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Proposed);
+            mockExecutionContext
+                .getFormContext()
+                .getAttribute("opc_multiplecomplaintstrategy")
+                .setValue(opc_multiplecomplaintstrategy.Proposed);
 
-            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
 
             // Act
@@ -247,9 +268,12 @@ describe("Contact", () => {
         });
         it("it should not display a form notification(if former)", () => {
             // Arrange
-            mockExecutionContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Former);
+            mockExecutionContext
+                .getFormContext()
+                .getAttribute("opc_multiplecomplaintstrategy")
+                .setValue(opc_multiplecomplaintstrategy.Former);
 
-            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockExecutionContext);
 
             // Act

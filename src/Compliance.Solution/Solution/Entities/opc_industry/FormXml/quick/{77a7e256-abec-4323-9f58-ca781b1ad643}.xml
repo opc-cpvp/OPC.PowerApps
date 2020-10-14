@@ -1,27 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <systemform>
-    <formid>{805197ac-6927-4546-ab79-197312a99c27}</formid>
-    <IntroducedVersion>1.0.137</IntroducedVersion>
+    <formid>{77a7e256-abec-4323-9f58-ca781b1ad643}</formid>
+    <IntroducedVersion>1.0.427</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
     <form>
       <tabs>
-        <tab verticallayout="true" id="{3e8a60a3-8809-44e7-b9f0-3b9190defc7a}" IsUserDefined="1">
+        <tab verticallayout="true" id="{13195e75-e463-4993-89c5-0c55f825e84d}" IsUserDefined="1">
           <labels>
             <label description="" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{d1243456-578a-487b-9cf4-89029887ff98}">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{6e67f1b6-ea10-487e-b748-2ea98d164fa2}">
                   <labels>
                     <label description="GENERAL" languagecode="1033" />
                     <label description="GÉNÉRAL" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{f58aa381-6835-4a3b-acf4-7a2b3b4bb871}">
+                      <cell id="{fbdbe4d9-f87c-4000-907b-1f2771158523}" locklevel="0">
+                        <labels>
+                          <label description="NAICS Number" languagecode="1033" />
+                        </labels>
+                        <control id="opc_naicsnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_naicsnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{12500aca-daf0-4263-b3a8-b7c1972c2d93}">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
@@ -29,7 +37,15 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{bb8e26ed-9cc3-4101-bc5d-c2a44499a385}">
+                      <cell id="{c521911b-81ad-48d8-a90b-16cffac79722}" locklevel="0">
+                        <labels>
+                          <label description="Parent Industry" languagecode="1033" />
+                        </labels>
+                        <control id="opc_parentindustryid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_parentindustryid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{edc9f482-fa2e-44e0-9150-1dee56962619}" visible="false">
                         <labels>
                           <label description="Owner" languagecode="1033" />
                           <label description="Propriétaire" languagecode="1036" />
@@ -44,6 +60,9 @@
           </columns>
         </tab>
       </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

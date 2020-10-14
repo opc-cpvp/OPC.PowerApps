@@ -5,37 +5,30 @@
     <CanBeDeleted>0</CanBeDeleted>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
-    <isdefault>0</isdefault>
-    <savedqueryid>{a371f46e-07a0-4855-9c52-6ddab00b2af2}</savedqueryid>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f67fb20e-42c2-4a39-8100-c4eaf1c32d8d}</savedqueryid>
     <layoutxml>
       <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
-        <row name="result" id="opc_sectorid">
+        <row name="result" id="opc_industryid">
           <cell name="opc_name" width="300" />
-          <cell name="opc_parentsectorid" width="300" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
-    <querytype>0</querytype>
+    <querytype>1</querytype>
     <fetchxml>
       <fetch version="1.0" mapping="logical">
-        <entity name="opc_sector">
-          <attribute name="opc_sectorid" />
+        <entity name="opc_industry">
+          <attribute name="opc_industryid" />
           <attribute name="opc_name" />
           <attribute name="createdon" />
-          <filter type="and">
-            <condition attribute="statecode" operator="eq" value="1" />
-          </filter>
-          <attribute name="opc_parentsectorid" />
-          <order attribute="opc_parentsectorid" descending="false" />
           <order attribute="opc_name" descending="false" />
-          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>1.0.137</IntroducedVersion>
+    <IntroducedVersion>1.0.427</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Inactive Sectors" languagecode="1033" />
+      <LocalizedName description="Industry Advanced Find View" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

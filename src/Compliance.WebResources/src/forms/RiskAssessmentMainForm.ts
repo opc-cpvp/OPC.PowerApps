@@ -1,8 +1,10 @@
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { PowerForm } from "../interfaces";
+import { PowerForm } from "./PowerForm";
 import { XrmHelper } from "../helpers/XrmHelper";
 
+// @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace RiskAssessment.Forms {
     @injectable()
     export class MainForm extends PowerForm<Form.opc_riskassessment.Main.Information> {
@@ -18,19 +20,19 @@ export namespace RiskAssessment.Forms {
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_riskassessment.Main.Information, any>): void {
             super.initializeComponents(initializationContext);
 
-            const formContext = <Form.opc_riskassessment.Main.Information>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.opc_riskassessment.Main.Information;
 
             formContext.getAttribute("opc_bypasssuggestedriskappetite").addOnChange(x => this.bypassSuggestedRiskAppetite_OnChange(x));
             formContext.getAttribute("opc_bypasssuggestedriskappetite").fireOnChange();
         }
 
         /**
-        * Handles changes to "Bypass Suggested Risk Appetite" control to display/hide bypass fields.
-        *
-        * @event OnChanged
-        */
+         * Handles changes to "Bypass Suggested Risk Appetite" control to display/hide bypass fields.
+         *
+         * @event OnChanged
+         */
         private bypassSuggestedRiskAppetite_OnChange(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any>): void {
-            const formContext = <Form.opc_riskassessment.Main.Information>context.getFormContext();
+            const formContext = context.getFormContext() as Form.opc_riskassessment.Main.Information;
 
             const bypassSuggestedRiskAppetite = formContext.getAttribute("opc_bypasssuggestedriskappetite").getValue();
 
