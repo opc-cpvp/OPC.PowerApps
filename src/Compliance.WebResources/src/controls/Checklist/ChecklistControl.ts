@@ -14,6 +14,7 @@ export namespace Controls {
         private _visbilityToggles: { id: string, value: boolean }[] = [];
         private _placeholder: HTMLElement;
         private _isCurrentLanguageEnglish: boolean = true;
+        private _checklist: ({ opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result)[];
 
         constructor(
             @inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
@@ -48,6 +49,8 @@ export namespace Controls {
                     await qTypesPromise;
                     crArray.forEach(cr => this.addQuestion(cr));
 
+                    this._checklist = crArray;
+
                     JQueryHelper.initSelectElements();
 
                 }, reason => console.error(reason)).catch(() => console.error("error loading checklist responses"));
@@ -64,8 +67,12 @@ export namespace Controls {
             const questionContainer = this.documentContext.createElement("div");
             questionContainer.classList.add("form-group", "border-bottom", "pb-4");
 
+            // Check whether or not the question should be hidden and managed internally
+            if (cr.opc_questiontemplateid.opc_managedinternally) {
+                //questionContainer.classList.add("collapse");
+            }
             // Check whether or not the question should be conditionally visible
-            if (cr.opc_questiontemplateid.opc_conditionalvisibility) {
+            else if (cr.opc_questiontemplateid.opc_conditionalvisibility) {
                 // If so set respective visibility and means for "parent" control to toggle visibility
                 if (isVisible) questionContainer.classList.add("show");
                 questionContainer.classList.add("collapse", `toggledby-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid}`);
@@ -99,6 +106,9 @@ export namespace Controls {
                 case this._questionTypes.find(qt => qt.type === "Number").id:
                     this.addInputTypeQuestion(indentingContainer, cr, "number");
                     break;
+                case this._questionTypes.find(qt => qt.type === "Calculated Field").id:
+                    this.addCalculatedFieldQuestion(indentingContainer, cr);
+                    break;
                 default:
                     console.log("control type not supported - not adding control");
                     break;
@@ -106,6 +116,13 @@ export namespace Controls {
 
             // Append created question
             this._placeholder.appendChild(questionContainer);
+        }
+
+        private addCalculatedFieldQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+            const questionHtml =
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
+                `<label id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" data-additionalparameters="${cr.opc_questiontemplateid.opc_additionalparameters}" data-responseid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</label>`;
+            element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
         private addInputTypeQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result, inputType: string) {
@@ -179,6 +196,7 @@ export namespace Controls {
         public save(): void {
 
             const dirtyInputs = this._placeholder.getElementsByClassName("dirty");
+            const calculatedFields = this._placeholder.getElementsByClassName("calculated-field");
             const doubleDirtyRadios: string[] = [];
 
             // Iterate over all dirty elements to persist the state
@@ -236,7 +254,52 @@ export namespace Controls {
                     .catch(e => console.error("error updating questions:" + e));
             }
 
-        }
+            for (let i = 0; i < calculatedFields.length; i++) {
+                const id: string = calculatedFields[i].getAttribute("data-responseid");
+                let value: string = null;
 
+                // Get the additional parameters of the question template
+                const label = <HTMLLabelElement>calculatedFields[i];
+                const formula = label.dataset.additionalparameters;
+
+                // Split fields
+                //[0] is whole formula, [1] is first value, [2] is the operator, [3] is the second value
+                const formulaArray = /([0-9][.]?[0-9]?) ?([-+/*]) ?([0-9][.]?[0-9]?)/g.exec(formula);
+
+                // Retrieve associated fields
+                const field1 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[1])
+                const field2 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[3])
+
+                const field1Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field1.opc_checklistresponseid}`)).value;
+                const field2Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field2.opc_checklistresponseid}`)).value;
+
+                // Check if both fields have a value
+                if (field1Value === null || field1Value.match(/^ *$/) !== null || field2Value === null || field2Value.match(/^ *$/) !== null) {
+                    return;
+                }
+
+                // Switch-Case for the operator
+                switch (formulaArray[2]) {
+                    case "-":
+                        // Check if both fields are dates
+                        if (!isNaN(Date.parse(field1Value)) && !isNaN(Date.parse(field2Value))) {
+                            // Do the Math!
+                            const diffInMs = Date.parse(field1Value) - Date.parse(field2Value);
+                            value = `${diffInMs / (1000 * 60 * 60 * 24)}`;
+                            console.log(value);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                label.innerText = value;
+
+                // Send update queries to checklist service
+                this._checklistService.updateChecklistResponse(id, value)
+                    .catch(e => console.error("error updating questions:" + e));
+            }
+
+        }
     }
 }
