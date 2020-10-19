@@ -362,6 +362,15 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum opc_declinereason
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Nojurisdiction = 924340000,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
 	public enum workflowlog_objecttypecode
 	{
 		
@@ -377,50 +386,53 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_complaintdisposition
+	public enum msdynce_contentstate
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Discontinued = 924340000,
+		Released = 0,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Investigationcompleted = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Nojurisidiction = 924340002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Resolvedatearlyresolution = 924340003,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Resolvedatintake = 924340004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Settled = 924340005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Unresponsiveinquirer = 924340006,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Withdrawn = 924340007,
+		Draft = 1,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_multiplecomplaintstrategy
+	public enum connectortype
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NotApplied = 924340000,
+		CustomConnector = 1,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Proposed = 924340001,
+		NotSpecified = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum opc_yesorno
+	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Applied = 924340002,
+		Yes = 924340000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Former = 924340003,
+		No = 924340001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum bulkemail_recipients
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Selectedrecordsoncurrentpage = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Allrecordsoncurrentpage = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Allrecordsonallpages = 3,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -467,6 +479,36 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum opc_sector
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Private = 533950000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Public = 533950001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Civil = 533950002,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum opc_duplicatedetectionresult
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		None = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Potentialduplicate = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Duplicatefound = 924340002,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
 	public enum orginsightsconfiguration_plotoption
 	{
 		
@@ -506,17 +548,11 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum bulkemail_recipients
+	public enum opc_complaintstage
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Selectedrecordsoncurrentpage = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Allrecordsoncurrentpage = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Allrecordsonallpages = 3,
+		Intake = 924340000,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -533,23 +569,32 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_complaintstage
+	public enum opc_complaintdisposition
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Intake = 924340000,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum msdynce_contentstate
-	{
+		Discontinued = 924340000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Released = 0,
+		Investigationcompleted = 924340001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Draft = 1,
+		Nojurisidiction = 924340002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Resolvedatearlyresolution = 924340003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Resolvedatintake = 924340004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Settled = 924340005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Unresponsiveinquirer = 924340006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Withdrawn = 924340007,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -569,104 +614,71 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum delete_recurringappointmentmaster
+	public enum opc_preferredlanguage
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Allinstances = 1,
+		English = 924340000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theseriesleavepastappointments = 2,
+		French = 924340001,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_declinereason
+	public enum customapifieldtype
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Nojurisdiction = 924340000,
+		Boolean = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DateTime = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Decimal = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Entity = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityCollection = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityReference = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Float = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Integer = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Money = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Picklist = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		String = 10,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_duplicatedetectionresult
+	public enum opc_intakedisposition
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None = 924340000,
+		MovetoEarlyResolution = 924340000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Potentialduplicate = 924340001,
+		MovetoInvestigation = 924340001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Duplicatefound = 924340002,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum chatbotlanguage
-	{
+		Declinetoinvestigate = 924340002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		English = 1033,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Spanish = 1034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Portuguese_Brazilian = 1046,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		French = 1036,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Dutch = 1043,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Norwegian = 1044,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Danish = 1030,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Swedish = 1053,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Italian = 1040,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		German = 1031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chinese_Simplified = 2052,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chinese_Traditional = 1028,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Arabic = 1025,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Japanese = 1041,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Korean = 1042,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Hindi = 1081,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Indonesian = 1057,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Russian = 1049,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Polish = 1045,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Turkish = 1055,
+		Close = 924340003,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -972,7 +984,7 @@ namespace Compliance.Entities
 		RecurringAppointment = 4251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
+		Event = 10302,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -985,6 +997,24 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CallingUser = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum opc_multiplecomplaintstrategy
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotApplied = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Proposed = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Applied = 924340002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Former = 924340003,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1049,6 +1079,24 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum opc_allegationdisposition
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Resolved = 924340005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Acceptable = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Unacceptable = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Withdrawn = 924340002,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
 	public enum sharepointsite_servicetype
 	{
 		
@@ -1092,6 +1140,9 @@ namespace Compliance.Entities
 		Note = 5,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Team = 9,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -1116,10 +1167,10 @@ namespace Compliance.Entities
 		SLAKPIInstance = 9752,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11255,
+		Event = 10302,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
+		IndividualComplaint = 10303,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1143,7 +1194,22 @@ namespace Compliance.Entities
 		SocialActivity = 4216,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
+		Event = 10302,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum knowledgearticle_expirationstate
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Expired = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Published = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Archived = 5,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1162,21 +1228,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Investigation = 924340003,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum knowledgearticle_expirationstate
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Expired = 4,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Published = 3,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Archived = 5,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1223,23 +1274,35 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_nextstep
+	public enum dependencytype
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Transfertoinvestigations = 924340000,
+		None = 0,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Resolved = 924340001,
+		SolutionInternal = 1,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Withdrawn = 924340002,
+		Published = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Settled = 924340003,
+		Unpublished = 4,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum socialprofile_community
+	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Discontinued = 924340004,
+		Facebook = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Twitter = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Other = 0,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1265,69 +1328,6 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum dependencytype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionInternal = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Published = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Unpublished = 4,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_intakedisposition
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MovetoEarlyResolution = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MovetoInvestigation = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Declinetoinvestigate = 924340002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Close = 924340003,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum socialprofile_community
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Facebook = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Twitter = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Other = 0,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_yesorno
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Yes = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		No = 924340001,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
 	public enum field_security_permission_type
 	{
 		
@@ -1336,6 +1336,21 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Allowed = 4,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum botsharingroletypes
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotmanager = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotauthor = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotreviewer = 3,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1364,45 +1379,6 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum customapifieldtype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Boolean = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DateTime = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Decimal = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Entity = 3,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityCollection = 4,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityReference = 5,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Float = 6,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Integer = 7,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Money = 8,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Picklist = 9,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		String = 10,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
 	public enum flipswitch_options
 	{
 		
@@ -1411,6 +1387,18 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		On = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum delete_recurringappointmentmaster
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Allinstances = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theseriesleavepastappointments = 2,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1456,6 +1444,27 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Close = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum opc_nextstep
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Transfertoinvestigations = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Resolved = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Withdrawn = 924340002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Settled = 924340003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Discontinued = 924340004,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1532,17 +1541,68 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum botsharingroletypes
+	public enum chatbotlanguage
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotmanager = 1,
+		English = 1033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotauthor = 2,
+		Spanish = 1034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotreviewer = 3,
+		Portuguese_Brazilian = 1046,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		French = 1036,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dutch = 1043,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Norwegian = 1044,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Danish = 1030,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Swedish = 1053,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Italian = 1040,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		German = 1031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chinese_Simplified = 2052,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chinese_Traditional = 1028,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Arabic = 1025,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Japanese = 1041,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Korean = 1042,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Hindi = 1081,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Indonesian = 1057,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Russian = 1049,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Polish = 1045,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Turkish = 1055,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1561,48 +1621,6 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Bidirectional = 3,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_preferredlanguage
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		English = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		French = 924340001,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum connectortype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomConnector = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NotSpecified = 0,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_allegationdisposition
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Resolved = 924340005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Acceptable = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Unacceptable = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Withdrawn = 924340002,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -2207,7 +2225,7 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum apisettingsBulkApiExecutionMode
+	public enum ApiSettingsBulkApiExecutionMode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -3546,40 +3564,7 @@ namespace Compliance.Entities
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialActivity = 4216,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelAccessProfileRule = 9400,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Letter = 4207,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Activity = 4200,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticle = 9953,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessSession = 4710,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeBaseRecord = 9930,
+		Territory = 2013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecurringAppointment = 4251,
@@ -3588,28 +3573,61 @@ namespace Compliance.Entities
 		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		User = 8,
+		Email = 4202,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Position = 50,
+		Task = 4212,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Goal = 9600,
+		ChannelAccessProfileRule = 9400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Account = 1,
+		ProcessSession = 4710,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Team = 9,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Territory = 2013,
+		SocialProfile = 99,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Email = 4202,
+		PhoneCall = 4210,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Activity = 4200,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Goal = 9600,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10302,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeArticle = 9953,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Letter = 4207,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Position = 50,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Appointment = 4201,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeBaseRecord = 9930,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Account = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SocialActivity = 4216,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -3618,70 +3636,70 @@ namespace Compliance.Entities
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessSession = 4710,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Account = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurringAppointment = 4251,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Goal = 9600,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeBaseRecord = 9930,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Territory = 2013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Position = 50,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticle = 9953,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialActivity = 4216,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Letter = 4207,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		User = 8,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelAccessProfileRule = 9400,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Activity = 4200,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
+		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Team = 9,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
+		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Contact = 2,
+		Fax = 4204,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringAppointment = 4251,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Letter = 4207,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SocialActivity = 4216,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Territory = 2013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Email = 4202,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10302,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Appointment = 4201,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Activity = 4200,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SocialProfile = 99,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Goal = 9600,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Account = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChannelAccessProfileRule = 9400,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Position = 50,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessSession = 4710,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeBaseRecord = 9930,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Task = 4212,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -4305,7 +4323,7 @@ namespace Compliance.Entities
 		ProcessStage = 4724,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		ProcessStageParameter = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PrincipalSyncAttributeMap = 1404,
@@ -4329,7 +4347,7 @@ namespace Compliance.Entities
 		QueueItem = 2029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 11291,
+		ProvisionLanguageForUser = 10268,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Publisher = 7101,
@@ -4458,46 +4476,46 @@ namespace Compliance.Entities
 		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11252,
+		Complaint = 10299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 11253,
+		DispositionAction = 10300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 11254,
+		DispositionReason = 10301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 11249,
+		AllegationType = 10296,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 11250,
+		ChecklistResponse = 10297,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 11251,
+		ChecklistType = 10298,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
+		Event = 10302,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification = 11258,
+		Legislation = 10306,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 11259,
+		Notification = 10307,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 11260,
+		OPCPriority = 10308,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11255,
+		IndividualComplaint = 10303,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 11256,
+		Industry = 10304,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 11257,
+		Issue = 10305,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 11299,
+		BotContent = 10276,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MultiEntitySearch = 9910,
@@ -4506,7 +4524,7 @@ namespace Compliance.Entities
 		MultiSelectOptionValue = 9912,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
+		SolutionHealthRuleSet = 10036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistory = 10000,
@@ -4524,7 +4542,7 @@ namespace Compliance.Entities
 		OfflineCommandDefinition = 9870,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 11248,
+		AllegationConcern = 10295,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		NewProcess = 950,
@@ -4545,7 +4563,7 @@ namespace Compliance.Entities
 		OrganizationInsightsMetric = 9699,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 11274,
+		Topic = 10322,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OptionSet = 9809,
@@ -4560,7 +4578,7 @@ namespace Compliance.Entities
 		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11278,
+		PDFSetting = 10257,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PersonalDocumentTemplate = 9941,
@@ -4572,46 +4590,49 @@ namespace Compliance.Entities
 		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 11284,
+		Package = 10262,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 11264,
+		Reminder = 10312,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 11265,
+		RiskAppetite = 10313,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 11266,
+		RiskAssessment = 10314,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 11261,
+		QuestionTemplate = 10309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 11262,
+		QuestionType = 10310,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 11263,
+		Recommendation = 10311,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 11267,
+		RiskAssessmentCategory = 10315,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 11271,
+		RiskAssessmentFactorTemplate = 10319,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Sector = 11272,
+		RiskAssessmentType = 10320,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme = 11273,
+		Theme = 10321,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 11268,
+		RiskAssessmentCategoryTemplate = 10316,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 11269,
+		RiskAssessmentDefinition = 10317,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 11270,
+		RiskAssessmentDefinitionTemplate = 10318,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RollupJob = 9511,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailTemplate = 2010,
@@ -4728,7 +4749,7 @@ namespace Compliance.Entities
 		Process = 4703,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
+		WorkflowBinary = 10027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		TransformationParameterMapping = 4427,
@@ -4773,22 +4794,22 @@ namespace Compliance.Entities
 		SubscriptionSynchronizationInformation = 33,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponse = 4610,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SemiannualFiscalCalendar = 2001,
+		SearchTelemetry = 10286,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageProcessingStepSecureConfiguration = 4616,
+		SemiannualFiscalCalendar = 2001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageRequest = 4609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageRequestField = 4614,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SdkMessageResponse = 4610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ServiceEndpoint = 4618,
@@ -4806,13 +4827,10 @@ namespace Compliance.Entities
 		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11244,
+		SettingDefinition = 10254,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SharePointData = 9509,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RuntimeDependency = 7200,
@@ -4821,7 +4839,7 @@ namespace Compliance.Entities
 		SavedOrganizationInsightsConfiguration = 1309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupJob = 9511,
+		View = 1039,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RollupProperties = 9510,
@@ -4830,10 +4848,10 @@ namespace Compliance.Entities
 		RoutingRuleSet = 8181,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		View = 1039,
+		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessagePair = 4613,
+		SystemChart = 1111,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageProcessingStep = 4608,
@@ -4842,13 +4860,16 @@ namespace Compliance.Entities
 		SdkMessageProcessingStepImage = 4615,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemChart = 1111,
+		SdkMessageProcessingStepSecureConfiguration = 4616,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessage = 4606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageFilter = 4607,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SdkMessagePair = 4613,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		StatusMap = 1075,
@@ -4860,13 +4881,13 @@ namespace Compliance.Entities
 		Subject = 129,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11210,
+		SolutionComponentRelationshipConfiguration = 10220,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryData = 9890,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		StageSolutionUpload = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Subscription = 29,
@@ -4911,10 +4932,10 @@ namespace Compliance.Entities
 		SocialInsightsConfiguration = 1300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionComponentDefinition = 7104,
@@ -4929,13 +4950,10 @@ namespace Compliance.Entities
 		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 11300,
+		ConversationTranscript = 10277,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
@@ -4962,13 +4980,13 @@ namespace Compliance.Entities
 		CustomControlResource = 9754,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 11296,
+		CustomAPI = 10273,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 11297,
+		CustomAPIRequestParameter = 10274,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 11298,
+		CustomAPIResponseProperty = 10275,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfile = 3005,
@@ -4980,10 +4998,10 @@ namespace Compliance.Entities
 		ChannelAccessProfileRuleItem = 9401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 11293,
+		Catalog = 10270,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 11294,
+		CatalogAssignment = 10271,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
@@ -4998,7 +5016,7 @@ namespace Compliance.Entities
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11245,
+		ConnectionReference = 10028,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelPropertyGroup = 1234,
@@ -5049,13 +5067,13 @@ namespace Compliance.Entities
 		EmailSignature = 9997,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 11290,
+		DataLakeFolderPermission = 10267,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11177,
+		DataLakeWorkspace = 10185,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11178,
+		DataLakeWorkspacePermission = 10186,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Address = 1071,
@@ -5064,7 +5082,7 @@ namespace Compliance.Entities
 		CustomerRelationship = 4502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 11289,
+		DataLakeFolder = 10266,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataPerformanceDashboard = 4450,
@@ -5088,13 +5106,13 @@ namespace Compliance.Entities
 		DependencyFeature = 7108,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 11283,
+		CascadeGrantRevokeAccessVersionTracker = 10261,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationFile = 4707,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11179,
+		ApplicationUser = 10187,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ModeldrivenApp = 9006,
@@ -5106,7 +5124,7 @@ namespace Compliance.Entities
 		AppConfigMaster = 9011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11240,
+		ModelDrivenAppElement = 10250,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleComponent = 9007,
@@ -5121,10 +5139,10 @@ namespace Compliance.Entities
 		AppModuleRoles = 9009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11241,
+		ModelDrivenAppComponentNodesEdge = 10251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11242,
+		ModelDrivenAppComponentNode = 10252,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadata = 8700,
@@ -5154,7 +5172,7 @@ namespace Compliance.Entities
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		ApiSettings = 10012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfiguration = 9012,
@@ -5190,13 +5208,13 @@ namespace Compliance.Entities
 		Calendar = 4003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11246,
+		CanvasAppExtendedMetadata = 10256,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionCardType = 9983,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 11282,
+		CascadeGrantRevokeAccessRecordsTracker = 10260,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CalendarRule = 4004,
@@ -5220,7 +5238,7 @@ namespace Compliance.Entities
 		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11243,
+		ModelDrivenAppSetting = 10253,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemJob = 4700,
@@ -5229,10 +5247,10 @@ namespace Compliance.Entities
 		AttributeMap = 4601,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 11301,
+		Chatbot = 10278,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 11302,
+		Chatbotsubcomponent = 10279,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -5247,46 +5265,46 @@ namespace Compliance.Entities
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		VirtualEntityDataSource = 85,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		AIBuilderDatasetRecord = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MobileOfflineProfileItemAssociation = 9868,
+		AIBuilderFile = 10018,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MonthlyFiscalCalendar = 2003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10014,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderDatasetFile = 10015,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIModel = 401,
+		AIBuilderFileAttachedData = 10019,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
+		AIObjectDetectionImage = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
+		AIObjectDetectionLabel = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
+		AIObjectDetectionBoundingBox = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIFormProcessingDocument = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Mailbox = 9606,
+		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MailboxStatistics = 9607,
@@ -5295,7 +5313,7 @@ namespace Compliance.Entities
 		MailboxTrackingCategory = 9609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		License = 2027,
+		MailboxAutoTrackingFolder = 9608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LocalConfigStore = 9201,
@@ -5304,10 +5322,10 @@ namespace Compliance.Entities
 		LookupMapping = 4419,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailboxAutoTrackingFolder = 9608,
+		Mailbox = 9606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GoalMetric = 9603,
+		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfile = 9866,
@@ -5316,7 +5334,7 @@ namespace Compliance.Entities
 		MobileOfflineProfileItem = 9867,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailMergeTemplate = 9106,
+		MobileOfflineProfileItemAssociation = 9868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ManagedProperty = 9812,
@@ -5325,88 +5343,88 @@ namespace Compliance.Entities
 		MetadataDifference = 4231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 11287,
+		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 11288,
+		KnowledgeSearchInsight = 10265,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11176,
+		NonRelationalDataSource = 10097,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 11308,
+		ODatav4DataSource = 10013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		KnowledgeArticleImage = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
+		KnowledgeArticleTemplate = 10011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
+		KnowledgeInteractionInsight = 10264,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
+		RichTextAttachment = 10259,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
+		SolutionComponentSummary = 10008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
+		SolutionHealthRule = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 11281,
+		SolutionHealthRuleArgument = 10035,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11174,
+		ServiceConfiguration = 10095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11175,
+		SLAKPI = 10096,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		SolutionComponentDataSource = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		AnalysisJob = 10031,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
+		AnalysisResult = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AnalysisResultDetail = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
+		AIObjectDetectionImageMapping = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
+		AnalysisComponent = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 11306,
+		ComponentLayer = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 11307,
+		KnowledgeFederatedArticleIncident = 10284,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		HelpPage = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		Searchprovider = 10285,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ComponentLayerDataSource = 10005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Dataflow = 418,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Letter = 4207,
+		KnowledgeFederatedArticle = 10283,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FieldSecurityProfile = 1200,
+		License = 2027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FileAttachment = 55,
@@ -5415,7 +5433,7 @@ namespace Compliance.Entities
 		FilterTemplate = 30,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
+		FixedMonthlyFiscalCalendar = 2004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Feedback = 9958,
@@ -5424,10 +5442,10 @@ namespace Compliance.Entities
 		FieldPermission = 1201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FixedMonthlyFiscalCalendar = 2004,
+		FieldSecurityProfile = 1200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupQuery = 9602,
+		FlowSession = 4720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchyRule = 8840,
@@ -5436,7 +5454,7 @@ namespace Compliance.Entities
 		HierarchySecurityConfiguration = 9919,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FlowSession = 4720,
+		HolidayWrapper = 9996,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		GlobalSearchConfiguration = 54,
@@ -5445,7 +5463,7 @@ namespace Compliance.Entities
 		Goal = 9600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityMap = 4600,
+		RollupQuery = 9602,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityRelationship = 9811,
@@ -5454,7 +5472,7 @@ namespace Compliance.Entities
 		EnvironmentVariableDefinition = 380,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		VirtualEntityDataSource = 85,
+		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityImageConfiguration = 432,
@@ -5463,10 +5481,10 @@ namespace Compliance.Entities
 		EntityKey = 9810,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EnvironmentVariableValue = 381,
+		EntityMap = 4600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11279,
+		ExchangeSyncIdMapping = 4120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalParty = 3008,
@@ -5475,7 +5493,7 @@ namespace Compliance.Entities
 		ExternalPartyItem = 9987,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExchangeSyncIdMapping = 4120,
+		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExpanderEvent = 4711,
@@ -5484,7 +5502,7 @@ namespace Compliance.Entities
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Article = 127,
+		ExportSolutionUpload = 10258,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ArticleComment = 1082,
@@ -5493,7 +5511,7 @@ namespace Compliance.Entities
 		ArticleTemplate = 1016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InterProcessLock = 4011,
+		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InvalidDependency = 7107,
@@ -5502,10 +5520,10 @@ namespace Compliance.Entities
 		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticle = 9953,
+		Article = 127,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchModel = 9947,
+		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Language = 9957,
@@ -5514,7 +5532,7 @@ namespace Compliance.Entities
 		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleCategory = 9960,
+		Letter = 4207,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleViews = 9955,
@@ -5523,7 +5541,7 @@ namespace Compliance.Entities
 		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportData = 4413,
+		KnowledgeSearchModel = 9947,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportEntityMapping = 4428,
@@ -5532,7 +5550,7 @@ namespace Compliance.Entities
 		ImportSourceFile = 4412,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HolidayWrapper = 9996,
+		ImportJob = 9107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageDescriptor = 1007,
@@ -5541,25 +5559,28 @@ namespace Compliance.Entities
 		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportJob = 9107,
+		ImportData = 4413,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InteractionforEmail = 9986,
+		ImportLog = 4423,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InternalAddress = 1003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 11295,
+		InternalCatalogAssignment = 10272,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportLog = 4423,
+		InterProcessLock = 4011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataMap = 4411,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		IntegrationStatus = 3000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InteractionforEmail = 9986,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -5574,7 +5595,7 @@ namespace Compliance.Entities
 		ProcessStage = 4724,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		ProcessStageParameter = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PrincipalSyncAttributeMap = 1404,
@@ -5598,7 +5619,7 @@ namespace Compliance.Entities
 		QueueItem = 2029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 11291,
+		ProvisionLanguageForUser = 10268,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Publisher = 7101,
@@ -5727,46 +5748,46 @@ namespace Compliance.Entities
 		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11252,
+		Complaint = 10299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 11253,
+		DispositionAction = 10300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 11254,
+		DispositionReason = 10301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 11249,
+		AllegationType = 10296,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 11250,
+		ChecklistResponse = 10297,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 11251,
+		ChecklistType = 10298,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
+		Event = 10302,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification = 11258,
+		Legislation = 10306,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 11259,
+		Notification = 10307,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 11260,
+		OPCPriority = 10308,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11255,
+		IndividualComplaint = 10303,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 11256,
+		Industry = 10304,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 11257,
+		Issue = 10305,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 11299,
+		BotContent = 10276,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MultiEntitySearch = 9910,
@@ -5775,7 +5796,7 @@ namespace Compliance.Entities
 		MultiSelectOptionValue = 9912,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
+		SolutionHealthRuleSet = 10036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistory = 10000,
@@ -5793,7 +5814,7 @@ namespace Compliance.Entities
 		OfflineCommandDefinition = 9870,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 11248,
+		AllegationConcern = 10295,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		NewProcess = 950,
@@ -5814,7 +5835,7 @@ namespace Compliance.Entities
 		OrganizationInsightsMetric = 9699,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 11274,
+		Topic = 10322,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OptionSet = 9809,
@@ -5829,7 +5850,7 @@ namespace Compliance.Entities
 		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11278,
+		PDFSetting = 10257,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PersonalDocumentTemplate = 9941,
@@ -5841,46 +5862,49 @@ namespace Compliance.Entities
 		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 11284,
+		Package = 10262,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 11264,
+		Reminder = 10312,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 11265,
+		RiskAppetite = 10313,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 11266,
+		RiskAssessment = 10314,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 11261,
+		QuestionTemplate = 10309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 11262,
+		QuestionType = 10310,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 11263,
+		Recommendation = 10311,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 11267,
+		RiskAssessmentCategory = 10315,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 11271,
+		RiskAssessmentFactorTemplate = 10319,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Sector = 11272,
+		RiskAssessmentType = 10320,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme = 11273,
+		Theme = 10321,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 11268,
+		RiskAssessmentCategoryTemplate = 10316,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 11269,
+		RiskAssessmentDefinition = 10317,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 11270,
+		RiskAssessmentDefinitionTemplate = 10318,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RollupJob = 9511,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailTemplate = 2010,
@@ -5997,7 +6021,7 @@ namespace Compliance.Entities
 		Process = 4703,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
+		WorkflowBinary = 10027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		TransformationParameterMapping = 4427,
@@ -6042,22 +6066,22 @@ namespace Compliance.Entities
 		SubscriptionSynchronizationInformation = 33,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponse = 4610,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SemiannualFiscalCalendar = 2001,
+		SearchTelemetry = 10286,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageProcessingStepSecureConfiguration = 4616,
+		SemiannualFiscalCalendar = 2001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageRequest = 4609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageRequestField = 4614,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SdkMessageResponse = 4610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ServiceEndpoint = 4618,
@@ -6075,13 +6099,10 @@ namespace Compliance.Entities
 		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11244,
+		SettingDefinition = 10254,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SharePointData = 9509,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RuntimeDependency = 7200,
@@ -6090,7 +6111,7 @@ namespace Compliance.Entities
 		SavedOrganizationInsightsConfiguration = 1309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupJob = 9511,
+		View = 1039,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RollupProperties = 9510,
@@ -6099,10 +6120,10 @@ namespace Compliance.Entities
 		RoutingRuleSet = 8181,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		View = 1039,
+		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessagePair = 4613,
+		SystemChart = 1111,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageProcessingStep = 4608,
@@ -6111,13 +6132,16 @@ namespace Compliance.Entities
 		SdkMessageProcessingStepImage = 4615,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemChart = 1111,
+		SdkMessageProcessingStepSecureConfiguration = 4616,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessage = 4606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageFilter = 4607,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SdkMessagePair = 4613,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		StatusMap = 1075,
@@ -6129,13 +6153,13 @@ namespace Compliance.Entities
 		Subject = 129,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11210,
+		SolutionComponentRelationshipConfiguration = 10220,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryData = 9890,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		StageSolutionUpload = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Subscription = 29,
@@ -6180,10 +6204,10 @@ namespace Compliance.Entities
 		SocialInsightsConfiguration = 1300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionComponentDefinition = 7104,
@@ -6198,13 +6222,10 @@ namespace Compliance.Entities
 		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 11300,
+		ConversationTranscript = 10277,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
@@ -6231,13 +6252,13 @@ namespace Compliance.Entities
 		CustomControlResource = 9754,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 11296,
+		CustomAPI = 10273,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 11297,
+		CustomAPIRequestParameter = 10274,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 11298,
+		CustomAPIResponseProperty = 10275,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfile = 3005,
@@ -6249,10 +6270,10 @@ namespace Compliance.Entities
 		ChannelAccessProfileRuleItem = 9401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 11293,
+		Catalog = 10270,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 11294,
+		CatalogAssignment = 10271,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
@@ -6267,7 +6288,7 @@ namespace Compliance.Entities
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11245,
+		ConnectionReference = 10028,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelPropertyGroup = 1234,
@@ -6318,13 +6339,13 @@ namespace Compliance.Entities
 		EmailSignature = 9997,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 11290,
+		DataLakeFolderPermission = 10267,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11177,
+		DataLakeWorkspace = 10185,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11178,
+		DataLakeWorkspacePermission = 10186,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Address = 1071,
@@ -6333,7 +6354,7 @@ namespace Compliance.Entities
 		CustomerRelationship = 4502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 11289,
+		DataLakeFolder = 10266,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataPerformanceDashboard = 4450,
@@ -6357,13 +6378,13 @@ namespace Compliance.Entities
 		DependencyFeature = 7108,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 11283,
+		CascadeGrantRevokeAccessVersionTracker = 10261,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationFile = 4707,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11179,
+		ApplicationUser = 10187,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ModeldrivenApp = 9006,
@@ -6375,7 +6396,7 @@ namespace Compliance.Entities
 		AppConfigMaster = 9011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11240,
+		ModelDrivenAppElement = 10250,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleComponent = 9007,
@@ -6390,10 +6411,10 @@ namespace Compliance.Entities
 		AppModuleRoles = 9009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11241,
+		ModelDrivenAppComponentNodesEdge = 10251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11242,
+		ModelDrivenAppComponentNode = 10252,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadata = 8700,
@@ -6423,7 +6444,7 @@ namespace Compliance.Entities
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		ApiSettings = 10012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfiguration = 9012,
@@ -6459,13 +6480,13 @@ namespace Compliance.Entities
 		Calendar = 4003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11246,
+		CanvasAppExtendedMetadata = 10256,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionCardType = 9983,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 11282,
+		CascadeGrantRevokeAccessRecordsTracker = 10260,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CalendarRule = 4004,
@@ -6489,7 +6510,7 @@ namespace Compliance.Entities
 		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11243,
+		ModelDrivenAppSetting = 10253,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemJob = 4700,
@@ -6498,10 +6519,10 @@ namespace Compliance.Entities
 		AttributeMap = 4601,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 11301,
+		Chatbot = 10278,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 11302,
+		Chatbotsubcomponent = 10279,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -6516,46 +6537,46 @@ namespace Compliance.Entities
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		VirtualEntityDataSource = 85,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		AIBuilderDatasetRecord = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MobileOfflineProfileItemAssociation = 9868,
+		AIBuilderFile = 10018,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MonthlyFiscalCalendar = 2003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10014,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderDatasetFile = 10015,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIModel = 401,
+		AIBuilderFileAttachedData = 10019,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
+		AIObjectDetectionImage = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
+		AIObjectDetectionLabel = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
+		AIObjectDetectionBoundingBox = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIFormProcessingDocument = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Mailbox = 9606,
+		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MailboxStatistics = 9607,
@@ -6564,7 +6585,7 @@ namespace Compliance.Entities
 		MailboxTrackingCategory = 9609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		License = 2027,
+		MailboxAutoTrackingFolder = 9608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LocalConfigStore = 9201,
@@ -6573,10 +6594,10 @@ namespace Compliance.Entities
 		LookupMapping = 4419,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailboxAutoTrackingFolder = 9608,
+		Mailbox = 9606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GoalMetric = 9603,
+		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfile = 9866,
@@ -6585,7 +6606,7 @@ namespace Compliance.Entities
 		MobileOfflineProfileItem = 9867,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailMergeTemplate = 9106,
+		MobileOfflineProfileItemAssociation = 9868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ManagedProperty = 9812,
@@ -6594,88 +6615,88 @@ namespace Compliance.Entities
 		MetadataDifference = 4231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 11287,
+		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 11288,
+		KnowledgeSearchInsight = 10265,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11176,
+		NonRelationalDataSource = 10097,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 11308,
+		ODatav4DataSource = 10013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		KnowledgeArticleImage = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
+		KnowledgeArticleTemplate = 10011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
+		KnowledgeInteractionInsight = 10264,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
+		RichTextAttachment = 10259,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
+		SolutionComponentSummary = 10008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
+		SolutionHealthRule = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 11281,
+		SolutionHealthRuleArgument = 10035,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11174,
+		ServiceConfiguration = 10095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11175,
+		SLAKPI = 10096,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		SolutionComponentDataSource = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		AnalysisJob = 10031,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
+		AnalysisResult = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AnalysisResultDetail = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
+		AIObjectDetectionImageMapping = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
+		AnalysisComponent = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 11306,
+		ComponentLayer = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 11307,
+		KnowledgeFederatedArticleIncident = 10284,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		HelpPage = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		Searchprovider = 10285,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ComponentLayerDataSource = 10005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Dataflow = 418,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Letter = 4207,
+		KnowledgeFederatedArticle = 10283,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FieldSecurityProfile = 1200,
+		License = 2027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FileAttachment = 55,
@@ -6684,7 +6705,7 @@ namespace Compliance.Entities
 		FilterTemplate = 30,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
+		FixedMonthlyFiscalCalendar = 2004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Feedback = 9958,
@@ -6693,10 +6714,10 @@ namespace Compliance.Entities
 		FieldPermission = 1201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FixedMonthlyFiscalCalendar = 2004,
+		FieldSecurityProfile = 1200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupQuery = 9602,
+		FlowSession = 4720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchyRule = 8840,
@@ -6705,7 +6726,7 @@ namespace Compliance.Entities
 		HierarchySecurityConfiguration = 9919,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FlowSession = 4720,
+		HolidayWrapper = 9996,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		GlobalSearchConfiguration = 54,
@@ -6714,7 +6735,7 @@ namespace Compliance.Entities
 		Goal = 9600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityMap = 4600,
+		RollupQuery = 9602,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityRelationship = 9811,
@@ -6723,7 +6744,7 @@ namespace Compliance.Entities
 		EnvironmentVariableDefinition = 380,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		VirtualEntityDataSource = 85,
+		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityImageConfiguration = 432,
@@ -6732,10 +6753,10 @@ namespace Compliance.Entities
 		EntityKey = 9810,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EnvironmentVariableValue = 381,
+		EntityMap = 4600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11279,
+		ExchangeSyncIdMapping = 4120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalParty = 3008,
@@ -6744,7 +6765,7 @@ namespace Compliance.Entities
 		ExternalPartyItem = 9987,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExchangeSyncIdMapping = 4120,
+		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExpanderEvent = 4711,
@@ -6753,7 +6774,7 @@ namespace Compliance.Entities
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Article = 127,
+		ExportSolutionUpload = 10258,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ArticleComment = 1082,
@@ -6762,7 +6783,7 @@ namespace Compliance.Entities
 		ArticleTemplate = 1016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InterProcessLock = 4011,
+		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InvalidDependency = 7107,
@@ -6771,10 +6792,10 @@ namespace Compliance.Entities
 		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticle = 9953,
+		Article = 127,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchModel = 9947,
+		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Language = 9957,
@@ -6783,7 +6804,7 @@ namespace Compliance.Entities
 		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleCategory = 9960,
+		Letter = 4207,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleViews = 9955,
@@ -6792,7 +6813,7 @@ namespace Compliance.Entities
 		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportData = 4413,
+		KnowledgeSearchModel = 9947,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportEntityMapping = 4428,
@@ -6801,7 +6822,7 @@ namespace Compliance.Entities
 		ImportSourceFile = 4412,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HolidayWrapper = 9996,
+		ImportJob = 9107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageDescriptor = 1007,
@@ -6810,25 +6831,28 @@ namespace Compliance.Entities
 		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportJob = 9107,
+		ImportData = 4413,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InteractionforEmail = 9986,
+		ImportLog = 4423,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InternalAddress = 1003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 11295,
+		InternalCatalogAssignment = 10272,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportLog = 4423,
+		InterProcessLock = 4011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataMap = 4411,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		IntegrationStatus = 3000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InteractionforEmail = 9986,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -7698,7 +7722,7 @@ namespace Compliance.Entities
 		ProcessStage = 4724,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		ProcessStageParameter = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PrincipalSyncAttributeMap = 1404,
@@ -7722,7 +7746,7 @@ namespace Compliance.Entities
 		QueueItem = 2029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 11291,
+		ProvisionLanguageForUser = 10268,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Publisher = 7101,
@@ -7851,46 +7875,46 @@ namespace Compliance.Entities
 		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11252,
+		Complaint = 10299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 11253,
+		DispositionAction = 10300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 11254,
+		DispositionReason = 10301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 11249,
+		AllegationType = 10296,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 11250,
+		ChecklistResponse = 10297,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 11251,
+		ChecklistType = 10298,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
+		Event = 10302,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification = 11258,
+		Legislation = 10306,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 11259,
+		Notification = 10307,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 11260,
+		OPCPriority = 10308,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11255,
+		IndividualComplaint = 10303,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 11256,
+		Industry = 10304,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 11257,
+		Issue = 10305,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 11299,
+		BotContent = 10276,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MultiEntitySearch = 9910,
@@ -7899,7 +7923,7 @@ namespace Compliance.Entities
 		MultiSelectOptionValue = 9912,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
+		SolutionHealthRuleSet = 10036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistory = 10000,
@@ -7917,7 +7941,7 @@ namespace Compliance.Entities
 		OfflineCommandDefinition = 9870,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 11248,
+		AllegationConcern = 10295,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		NewProcess = 950,
@@ -7938,7 +7962,7 @@ namespace Compliance.Entities
 		OrganizationInsightsMetric = 9699,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 11274,
+		Topic = 10322,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OptionSet = 9809,
@@ -7953,7 +7977,7 @@ namespace Compliance.Entities
 		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11278,
+		PDFSetting = 10257,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PersonalDocumentTemplate = 9941,
@@ -7965,46 +7989,49 @@ namespace Compliance.Entities
 		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 11284,
+		Package = 10262,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 11264,
+		Reminder = 10312,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 11265,
+		RiskAppetite = 10313,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 11266,
+		RiskAssessment = 10314,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 11261,
+		QuestionTemplate = 10309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 11262,
+		QuestionType = 10310,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 11263,
+		Recommendation = 10311,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 11267,
+		RiskAssessmentCategory = 10315,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 11271,
+		RiskAssessmentFactorTemplate = 10319,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Sector = 11272,
+		RiskAssessmentType = 10320,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme = 11273,
+		Theme = 10321,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 11268,
+		RiskAssessmentCategoryTemplate = 10316,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 11269,
+		RiskAssessmentDefinition = 10317,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 11270,
+		RiskAssessmentDefinitionTemplate = 10318,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RollupJob = 9511,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailTemplate = 2010,
@@ -8121,7 +8148,7 @@ namespace Compliance.Entities
 		Process = 4703,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
+		WorkflowBinary = 10027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		TransformationParameterMapping = 4427,
@@ -8166,22 +8193,22 @@ namespace Compliance.Entities
 		SubscriptionSynchronizationInformation = 33,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponse = 4610,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SemiannualFiscalCalendar = 2001,
+		SearchTelemetry = 10286,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageProcessingStepSecureConfiguration = 4616,
+		SemiannualFiscalCalendar = 2001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageRequest = 4609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageRequestField = 4614,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SdkMessageResponse = 4610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ServiceEndpoint = 4618,
@@ -8199,13 +8226,10 @@ namespace Compliance.Entities
 		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11244,
+		SettingDefinition = 10254,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SharePointData = 9509,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RuntimeDependency = 7200,
@@ -8214,7 +8238,7 @@ namespace Compliance.Entities
 		SavedOrganizationInsightsConfiguration = 1309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupJob = 9511,
+		View = 1039,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RollupProperties = 9510,
@@ -8223,10 +8247,10 @@ namespace Compliance.Entities
 		RoutingRuleSet = 8181,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		View = 1039,
+		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessagePair = 4613,
+		SystemChart = 1111,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageProcessingStep = 4608,
@@ -8235,13 +8259,16 @@ namespace Compliance.Entities
 		SdkMessageProcessingStepImage = 4615,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemChart = 1111,
+		SdkMessageProcessingStepSecureConfiguration = 4616,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessage = 4606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageFilter = 4607,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SdkMessagePair = 4613,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		StatusMap = 1075,
@@ -8253,13 +8280,13 @@ namespace Compliance.Entities
 		Subject = 129,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11210,
+		SolutionComponentRelationshipConfiguration = 10220,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryData = 9890,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		StageSolutionUpload = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Subscription = 29,
@@ -8304,10 +8331,10 @@ namespace Compliance.Entities
 		SocialInsightsConfiguration = 1300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionComponentDefinition = 7104,
@@ -8322,13 +8349,10 @@ namespace Compliance.Entities
 		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 11300,
+		ConversationTranscript = 10277,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
@@ -8355,13 +8379,13 @@ namespace Compliance.Entities
 		CustomControlResource = 9754,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 11296,
+		CustomAPI = 10273,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 11297,
+		CustomAPIRequestParameter = 10274,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 11298,
+		CustomAPIResponseProperty = 10275,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfile = 3005,
@@ -8373,10 +8397,10 @@ namespace Compliance.Entities
 		ChannelAccessProfileRuleItem = 9401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 11293,
+		Catalog = 10270,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 11294,
+		CatalogAssignment = 10271,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
@@ -8391,7 +8415,7 @@ namespace Compliance.Entities
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11245,
+		ConnectionReference = 10028,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelPropertyGroup = 1234,
@@ -8442,13 +8466,13 @@ namespace Compliance.Entities
 		EmailSignature = 9997,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 11290,
+		DataLakeFolderPermission = 10267,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11177,
+		DataLakeWorkspace = 10185,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11178,
+		DataLakeWorkspacePermission = 10186,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Address = 1071,
@@ -8457,7 +8481,7 @@ namespace Compliance.Entities
 		CustomerRelationship = 4502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 11289,
+		DataLakeFolder = 10266,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataPerformanceDashboard = 4450,
@@ -8481,13 +8505,13 @@ namespace Compliance.Entities
 		DependencyFeature = 7108,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 11283,
+		CascadeGrantRevokeAccessVersionTracker = 10261,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationFile = 4707,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11179,
+		ApplicationUser = 10187,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ModeldrivenApp = 9006,
@@ -8499,7 +8523,7 @@ namespace Compliance.Entities
 		AppConfigMaster = 9011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11240,
+		ModelDrivenAppElement = 10250,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleComponent = 9007,
@@ -8514,10 +8538,10 @@ namespace Compliance.Entities
 		AppModuleRoles = 9009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11241,
+		ModelDrivenAppComponentNodesEdge = 10251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11242,
+		ModelDrivenAppComponentNode = 10252,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadata = 8700,
@@ -8547,7 +8571,7 @@ namespace Compliance.Entities
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		ApiSettings = 10012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfiguration = 9012,
@@ -8583,13 +8607,13 @@ namespace Compliance.Entities
 		Calendar = 4003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11246,
+		CanvasAppExtendedMetadata = 10256,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionCardType = 9983,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 11282,
+		CascadeGrantRevokeAccessRecordsTracker = 10260,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CalendarRule = 4004,
@@ -8613,7 +8637,7 @@ namespace Compliance.Entities
 		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11243,
+		ModelDrivenAppSetting = 10253,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemJob = 4700,
@@ -8622,10 +8646,10 @@ namespace Compliance.Entities
 		AttributeMap = 4601,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 11301,
+		Chatbot = 10278,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 11302,
+		Chatbotsubcomponent = 10279,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -8640,46 +8664,46 @@ namespace Compliance.Entities
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		VirtualEntityDataSource = 85,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		AIBuilderDatasetRecord = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MobileOfflineProfileItemAssociation = 9868,
+		AIBuilderFile = 10018,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MonthlyFiscalCalendar = 2003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10014,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderDatasetFile = 10015,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIModel = 401,
+		AIBuilderFileAttachedData = 10019,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
+		AIObjectDetectionImage = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
+		AIObjectDetectionLabel = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
+		AIObjectDetectionBoundingBox = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIFormProcessingDocument = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Mailbox = 9606,
+		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MailboxStatistics = 9607,
@@ -8688,7 +8712,7 @@ namespace Compliance.Entities
 		MailboxTrackingCategory = 9609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		License = 2027,
+		MailboxAutoTrackingFolder = 9608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LocalConfigStore = 9201,
@@ -8697,10 +8721,10 @@ namespace Compliance.Entities
 		LookupMapping = 4419,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailboxAutoTrackingFolder = 9608,
+		Mailbox = 9606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GoalMetric = 9603,
+		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfile = 9866,
@@ -8709,7 +8733,7 @@ namespace Compliance.Entities
 		MobileOfflineProfileItem = 9867,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailMergeTemplate = 9106,
+		MobileOfflineProfileItemAssociation = 9868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ManagedProperty = 9812,
@@ -8718,88 +8742,88 @@ namespace Compliance.Entities
 		MetadataDifference = 4231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 11287,
+		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 11288,
+		KnowledgeSearchInsight = 10265,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11176,
+		NonRelationalDataSource = 10097,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 11308,
+		ODatav4DataSource = 10013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		KnowledgeArticleImage = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
+		KnowledgeArticleTemplate = 10011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
+		KnowledgeInteractionInsight = 10264,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
+		RichTextAttachment = 10259,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
+		SolutionComponentSummary = 10008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
+		SolutionHealthRule = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 11281,
+		SolutionHealthRuleArgument = 10035,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11174,
+		ServiceConfiguration = 10095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11175,
+		SLAKPI = 10096,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		SolutionComponentDataSource = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		AnalysisJob = 10031,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
+		AnalysisResult = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AnalysisResultDetail = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
+		AIObjectDetectionImageMapping = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
+		AnalysisComponent = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 11306,
+		ComponentLayer = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 11307,
+		KnowledgeFederatedArticleIncident = 10284,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		HelpPage = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		Searchprovider = 10285,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ComponentLayerDataSource = 10005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Dataflow = 418,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Letter = 4207,
+		KnowledgeFederatedArticle = 10283,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FieldSecurityProfile = 1200,
+		License = 2027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FileAttachment = 55,
@@ -8808,7 +8832,7 @@ namespace Compliance.Entities
 		FilterTemplate = 30,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
+		FixedMonthlyFiscalCalendar = 2004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Feedback = 9958,
@@ -8817,10 +8841,10 @@ namespace Compliance.Entities
 		FieldPermission = 1201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FixedMonthlyFiscalCalendar = 2004,
+		FieldSecurityProfile = 1200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupQuery = 9602,
+		FlowSession = 4720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchyRule = 8840,
@@ -8829,7 +8853,7 @@ namespace Compliance.Entities
 		HierarchySecurityConfiguration = 9919,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FlowSession = 4720,
+		HolidayWrapper = 9996,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		GlobalSearchConfiguration = 54,
@@ -8838,7 +8862,7 @@ namespace Compliance.Entities
 		Goal = 9600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityMap = 4600,
+		RollupQuery = 9602,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityRelationship = 9811,
@@ -8847,7 +8871,7 @@ namespace Compliance.Entities
 		EnvironmentVariableDefinition = 380,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		VirtualEntityDataSource = 85,
+		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityImageConfiguration = 432,
@@ -8856,10 +8880,10 @@ namespace Compliance.Entities
 		EntityKey = 9810,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EnvironmentVariableValue = 381,
+		EntityMap = 4600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11279,
+		ExchangeSyncIdMapping = 4120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalParty = 3008,
@@ -8868,7 +8892,7 @@ namespace Compliance.Entities
 		ExternalPartyItem = 9987,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExchangeSyncIdMapping = 4120,
+		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExpanderEvent = 4711,
@@ -8877,7 +8901,7 @@ namespace Compliance.Entities
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Article = 127,
+		ExportSolutionUpload = 10258,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ArticleComment = 1082,
@@ -8886,7 +8910,7 @@ namespace Compliance.Entities
 		ArticleTemplate = 1016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InterProcessLock = 4011,
+		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InvalidDependency = 7107,
@@ -8895,10 +8919,10 @@ namespace Compliance.Entities
 		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticle = 9953,
+		Article = 127,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchModel = 9947,
+		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Language = 9957,
@@ -8907,7 +8931,7 @@ namespace Compliance.Entities
 		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleCategory = 9960,
+		Letter = 4207,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleViews = 9955,
@@ -8916,7 +8940,7 @@ namespace Compliance.Entities
 		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportData = 4413,
+		KnowledgeSearchModel = 9947,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportEntityMapping = 4428,
@@ -8925,7 +8949,7 @@ namespace Compliance.Entities
 		ImportSourceFile = 4412,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HolidayWrapper = 9996,
+		ImportJob = 9107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageDescriptor = 1007,
@@ -8934,25 +8958,28 @@ namespace Compliance.Entities
 		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportJob = 9107,
+		ImportData = 4413,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InteractionforEmail = 9986,
+		ImportLog = 4423,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InternalAddress = 1003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 11295,
+		InternalCatalogAssignment = 10272,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportLog = 4423,
+		InterProcessLock = 4011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataMap = 4411,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		IntegrationStatus = 3000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InteractionforEmail = 9986,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -10436,6 +10463,18 @@ namespace Compliance.Entities
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	public enum opc_industry_statuscode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Active = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Inactive = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
 	public enum opc_issue_statuscode
 	{
 		
@@ -10620,18 +10659,6 @@ namespace Compliance.Entities
 	[System.Runtime.Serialization.DataContractAttribute()]
 	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
 	public enum opc_riskassessmenttype_statuscode
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Active = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Inactive = 2,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_sector_statuscode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -11736,40 +11763,40 @@ namespace Compliance.Entities
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11252,
+		Task = 4212,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
+		KnowledgeArticleTemplate = 10011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
+		Email = 4202,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
+		Complaint = 10299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialActivity = 4216,
+		Event = 10302,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecurringAppointment = 4251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Email = 4202,
+		SocialActivity = 4216,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Appointment = 4201,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Activity = 4200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Letter = 4207,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticle = 9953,
@@ -12456,7 +12483,7 @@ namespace Compliance.Entities
 		ProcessStage = 4724,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		ProcessStageParameter = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PrincipalSyncAttributeMap = 1404,
@@ -12480,7 +12507,7 @@ namespace Compliance.Entities
 		QueueItem = 2029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 11291,
+		ProvisionLanguageForUser = 10268,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Publisher = 7101,
@@ -12609,46 +12636,46 @@ namespace Compliance.Entities
 		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11252,
+		Complaint = 10299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 11253,
+		DispositionAction = 10300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 11254,
+		DispositionReason = 10301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 11249,
+		AllegationType = 10296,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 11250,
+		ChecklistResponse = 10297,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 11251,
+		ChecklistType = 10298,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11280,
+		Event = 10302,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification = 11258,
+		Legislation = 10306,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 11259,
+		Notification = 10307,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 11260,
+		OPCPriority = 10308,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11255,
+		IndividualComplaint = 10303,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 11256,
+		Industry = 10304,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 11257,
+		Issue = 10305,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 11299,
+		BotContent = 10276,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MultiEntitySearch = 9910,
@@ -12657,7 +12684,7 @@ namespace Compliance.Entities
 		MultiSelectOptionValue = 9912,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
+		SolutionHealthRuleSet = 10036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistory = 10000,
@@ -12675,7 +12702,7 @@ namespace Compliance.Entities
 		OfflineCommandDefinition = 9870,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 11248,
+		AllegationConcern = 10295,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		NewProcess = 950,
@@ -12696,7 +12723,7 @@ namespace Compliance.Entities
 		OrganizationInsightsMetric = 9699,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 11274,
+		Topic = 10322,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OptionSet = 9809,
@@ -12711,7 +12738,7 @@ namespace Compliance.Entities
 		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11278,
+		PDFSetting = 10257,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PersonalDocumentTemplate = 9941,
@@ -12723,46 +12750,49 @@ namespace Compliance.Entities
 		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 11284,
+		Package = 10262,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 11264,
+		Reminder = 10312,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 11265,
+		RiskAppetite = 10313,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 11266,
+		RiskAssessment = 10314,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 11261,
+		QuestionTemplate = 10309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 11262,
+		QuestionType = 10310,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 11263,
+		Recommendation = 10311,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 11267,
+		RiskAssessmentCategory = 10315,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 11271,
+		RiskAssessmentFactorTemplate = 10319,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Sector = 11272,
+		RiskAssessmentType = 10320,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme = 11273,
+		Theme = 10321,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 11268,
+		RiskAssessmentCategoryTemplate = 10316,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 11269,
+		RiskAssessmentDefinition = 10317,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 11270,
+		RiskAssessmentDefinitionTemplate = 10318,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RollupJob = 9511,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailTemplate = 2010,
@@ -12879,7 +12909,7 @@ namespace Compliance.Entities
 		Process = 4703,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
+		WorkflowBinary = 10027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		TransformationParameterMapping = 4427,
@@ -12924,22 +12954,22 @@ namespace Compliance.Entities
 		SubscriptionSynchronizationInformation = 33,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponse = 4610,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SemiannualFiscalCalendar = 2001,
+		SearchTelemetry = 10286,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageProcessingStepSecureConfiguration = 4616,
+		SemiannualFiscalCalendar = 2001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageRequest = 4609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageRequestField = 4614,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SdkMessageResponse = 4610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ServiceEndpoint = 4618,
@@ -12957,13 +12987,10 @@ namespace Compliance.Entities
 		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11244,
+		SettingDefinition = 10254,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SharePointData = 9509,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RuntimeDependency = 7200,
@@ -12972,7 +12999,7 @@ namespace Compliance.Entities
 		SavedOrganizationInsightsConfiguration = 1309,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupJob = 9511,
+		View = 1039,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RollupProperties = 9510,
@@ -12981,10 +13008,10 @@ namespace Compliance.Entities
 		RoutingRuleSet = 8181,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		View = 1039,
+		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessagePair = 4613,
+		SystemChart = 1111,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageProcessingStep = 4608,
@@ -12993,13 +13020,16 @@ namespace Compliance.Entities
 		SdkMessageProcessingStepImage = 4615,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemChart = 1111,
+		SdkMessageProcessingStepSecureConfiguration = 4616,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessage = 4606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageFilter = 4607,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SdkMessagePair = 4613,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		StatusMap = 1075,
@@ -13011,13 +13041,13 @@ namespace Compliance.Entities
 		Subject = 129,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11210,
+		SolutionComponentRelationshipConfiguration = 10220,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryData = 9890,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		StageSolutionUpload = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Subscription = 29,
@@ -13062,10 +13092,10 @@ namespace Compliance.Entities
 		SocialInsightsConfiguration = 1300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionComponentDefinition = 7104,
@@ -13080,13 +13110,10 @@ namespace Compliance.Entities
 		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 11300,
+		ConversationTranscript = 10277,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
@@ -13113,13 +13140,13 @@ namespace Compliance.Entities
 		CustomControlResource = 9754,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 11296,
+		CustomAPI = 10273,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 11297,
+		CustomAPIRequestParameter = 10274,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 11298,
+		CustomAPIResponseProperty = 10275,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfile = 3005,
@@ -13131,10 +13158,10 @@ namespace Compliance.Entities
 		ChannelAccessProfileRuleItem = 9401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 11293,
+		Catalog = 10270,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 11294,
+		CatalogAssignment = 10271,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
@@ -13149,7 +13176,7 @@ namespace Compliance.Entities
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11245,
+		ConnectionReference = 10028,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelPropertyGroup = 1234,
@@ -13200,13 +13227,13 @@ namespace Compliance.Entities
 		EmailSignature = 9997,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 11290,
+		DataLakeFolderPermission = 10267,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11177,
+		DataLakeWorkspace = 10185,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11178,
+		DataLakeWorkspacePermission = 10186,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Address = 1071,
@@ -13215,7 +13242,7 @@ namespace Compliance.Entities
 		CustomerRelationship = 4502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 11289,
+		DataLakeFolder = 10266,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataPerformanceDashboard = 4450,
@@ -13239,13 +13266,13 @@ namespace Compliance.Entities
 		DependencyFeature = 7108,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 11283,
+		CascadeGrantRevokeAccessVersionTracker = 10261,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationFile = 4707,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11179,
+		ApplicationUser = 10187,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ModeldrivenApp = 9006,
@@ -13257,7 +13284,7 @@ namespace Compliance.Entities
 		AppConfigMaster = 9011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11240,
+		ModelDrivenAppElement = 10250,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleComponent = 9007,
@@ -13272,10 +13299,10 @@ namespace Compliance.Entities
 		AppModuleRoles = 9009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11241,
+		ModelDrivenAppComponentNodesEdge = 10251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11242,
+		ModelDrivenAppComponentNode = 10252,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadata = 8700,
@@ -13305,7 +13332,7 @@ namespace Compliance.Entities
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		ApiSettings = 10012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfiguration = 9012,
@@ -13341,13 +13368,13 @@ namespace Compliance.Entities
 		Calendar = 4003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11246,
+		CanvasAppExtendedMetadata = 10256,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionCardType = 9983,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 11282,
+		CascadeGrantRevokeAccessRecordsTracker = 10260,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CalendarRule = 4004,
@@ -13371,7 +13398,7 @@ namespace Compliance.Entities
 		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11243,
+		ModelDrivenAppSetting = 10253,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemJob = 4700,
@@ -13380,10 +13407,10 @@ namespace Compliance.Entities
 		AttributeMap = 4601,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 11301,
+		Chatbot = 10278,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 11302,
+		Chatbotsubcomponent = 10279,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -13398,46 +13425,46 @@ namespace Compliance.Entities
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		VirtualEntityDataSource = 85,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		AIBuilderDatasetRecord = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MobileOfflineProfileItemAssociation = 9868,
+		AIBuilderFile = 10018,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MonthlyFiscalCalendar = 2003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10014,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderDatasetFile = 10015,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIModel = 401,
+		AIBuilderFileAttachedData = 10019,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
+		AIObjectDetectionImage = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
+		AIObjectDetectionLabel = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
+		AIObjectDetectionBoundingBox = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIFormProcessingDocument = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Mailbox = 9606,
+		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MailboxStatistics = 9607,
@@ -13446,7 +13473,7 @@ namespace Compliance.Entities
 		MailboxTrackingCategory = 9609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		License = 2027,
+		MailboxAutoTrackingFolder = 9608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LocalConfigStore = 9201,
@@ -13455,10 +13482,10 @@ namespace Compliance.Entities
 		LookupMapping = 4419,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailboxAutoTrackingFolder = 9608,
+		Mailbox = 9606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GoalMetric = 9603,
+		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfile = 9866,
@@ -13467,7 +13494,7 @@ namespace Compliance.Entities
 		MobileOfflineProfileItem = 9867,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailMergeTemplate = 9106,
+		MobileOfflineProfileItemAssociation = 9868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ManagedProperty = 9812,
@@ -13476,88 +13503,88 @@ namespace Compliance.Entities
 		MetadataDifference = 4231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 11287,
+		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 11288,
+		KnowledgeSearchInsight = 10265,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11176,
+		NonRelationalDataSource = 10097,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 11308,
+		ODatav4DataSource = 10013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		KnowledgeArticleImage = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
+		KnowledgeArticleTemplate = 10011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
+		KnowledgeInteractionInsight = 10264,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
+		RichTextAttachment = 10259,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
+		SolutionComponentSummary = 10008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
+		SolutionHealthRule = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 11281,
+		SolutionHealthRuleArgument = 10035,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11174,
+		ServiceConfiguration = 10095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11175,
+		SLAKPI = 10096,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		SolutionComponentDataSource = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		AnalysisJob = 10031,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
+		AnalysisResult = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AnalysisResultDetail = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
+		AIObjectDetectionImageMapping = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
+		AnalysisComponent = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 11306,
+		ComponentLayer = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 11307,
+		KnowledgeFederatedArticleIncident = 10284,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		HelpPage = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		Searchprovider = 10285,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ComponentLayerDataSource = 10005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Dataflow = 418,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Letter = 4207,
+		KnowledgeFederatedArticle = 10283,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FieldSecurityProfile = 1200,
+		License = 2027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FileAttachment = 55,
@@ -13566,7 +13593,7 @@ namespace Compliance.Entities
 		FilterTemplate = 30,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
+		FixedMonthlyFiscalCalendar = 2004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Feedback = 9958,
@@ -13575,10 +13602,10 @@ namespace Compliance.Entities
 		FieldPermission = 1201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FixedMonthlyFiscalCalendar = 2004,
+		FieldSecurityProfile = 1200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupQuery = 9602,
+		FlowSession = 4720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchyRule = 8840,
@@ -13587,7 +13614,7 @@ namespace Compliance.Entities
 		HierarchySecurityConfiguration = 9919,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FlowSession = 4720,
+		HolidayWrapper = 9996,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		GlobalSearchConfiguration = 54,
@@ -13596,7 +13623,7 @@ namespace Compliance.Entities
 		Goal = 9600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityMap = 4600,
+		RollupQuery = 9602,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityRelationship = 9811,
@@ -13605,7 +13632,7 @@ namespace Compliance.Entities
 		EnvironmentVariableDefinition = 380,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		VirtualEntityDataSource = 85,
+		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityImageConfiguration = 432,
@@ -13614,10 +13641,10 @@ namespace Compliance.Entities
 		EntityKey = 9810,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EnvironmentVariableValue = 381,
+		EntityMap = 4600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11279,
+		ExchangeSyncIdMapping = 4120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalParty = 3008,
@@ -13626,7 +13653,7 @@ namespace Compliance.Entities
 		ExternalPartyItem = 9987,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExchangeSyncIdMapping = 4120,
+		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExpanderEvent = 4711,
@@ -13635,7 +13662,7 @@ namespace Compliance.Entities
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Article = 127,
+		ExportSolutionUpload = 10258,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ArticleComment = 1082,
@@ -13644,7 +13671,7 @@ namespace Compliance.Entities
 		ArticleTemplate = 1016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InterProcessLock = 4011,
+		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InvalidDependency = 7107,
@@ -13653,10 +13680,10 @@ namespace Compliance.Entities
 		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticle = 9953,
+		Article = 127,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchModel = 9947,
+		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Language = 9957,
@@ -13665,7 +13692,7 @@ namespace Compliance.Entities
 		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleCategory = 9960,
+		Letter = 4207,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleViews = 9955,
@@ -13674,7 +13701,7 @@ namespace Compliance.Entities
 		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportData = 4413,
+		KnowledgeSearchModel = 9947,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportEntityMapping = 4428,
@@ -13683,7 +13710,7 @@ namespace Compliance.Entities
 		ImportSourceFile = 4412,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HolidayWrapper = 9996,
+		ImportJob = 9107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageDescriptor = 1007,
@@ -13692,25 +13719,28 @@ namespace Compliance.Entities
 		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportJob = 9107,
+		ImportData = 4413,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InteractionforEmail = 9986,
+		ImportLog = 4423,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InternalAddress = 1003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 11295,
+		InternalCatalogAssignment = 10272,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportLog = 4423,
+		InterProcessLock = 4011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataMap = 4411,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		IntegrationStatus = 3000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InteractionforEmail = 9986,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -13947,10 +13977,7 @@ namespace Compliance.Entities
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None = 100000000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None_2 = 0,
+		None = 0,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Individual = 1,

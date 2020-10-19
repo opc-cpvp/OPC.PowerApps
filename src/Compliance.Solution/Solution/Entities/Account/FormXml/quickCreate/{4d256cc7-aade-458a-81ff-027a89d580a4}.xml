@@ -31,6 +31,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{6e361d6b-a187-4c39-a667-e7c8855cddba}" locklevel="0">
+                        <labels>
+                          <label description="Sector" languagecode="1033" />
+                        </labels>
+                        <control id="opc_sector" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_sector" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{82276376-1b6c-401c-bd95-f59510376799}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Phone" languagecode="1033" />
