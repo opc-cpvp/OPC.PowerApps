@@ -5,13 +5,13 @@ $crmSvcUtil = Get-ChildItem . -Filter "CrmSvcUtil.exe" -Recurse -ErrorAction Sil
 if ($ConnectionString) {
 	& $crmSvcUtil `
 		/connectionstring:$ConnectionString `
-		/out:"../../../Compliance.Entities/Entities.cs" `
+		/out:"../Compliance.Entities/Entities.cs" `
 		/namespace:"Compliance.Entities" `
 		/codewriterfilter:"CrmSvcUtil.Filter.GenerateEarlyBoundBoundFilter, CrmSvcUtil.Filter"
 } else {
 	& $crmSvcUtil `
 		/interactivelogin `
-		/out:"../../../Compliance.Entities/Entities.cs" `
+		/out:"../Compliance.Entities/Entities.cs" `
 		/namespace:"Compliance.Entities" `
 		/codewriterfilter:"CrmSvcUtil.Filter.GenerateEarlyBoundBoundFilter, CrmSvcUtil.Filter"
 }
