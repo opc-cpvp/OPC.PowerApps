@@ -267,8 +267,8 @@ export namespace Controls {
                 const formulaArray = /([0-9][.]?[0-9]?) ?([-+/*]) ?([0-9][.]?[0-9]?)/g.exec(formula);
 
                 // Retrieve associated fields
-                const field1 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[1])
-                const field2 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[3])
+                const field1 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[1]);
+                const field2 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[3]);
 
                 const field1Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field1.opc_checklistresponseid}`)).value;
                 const field2Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field2.opc_checklistresponseid}`)).value;
@@ -286,7 +286,6 @@ export namespace Controls {
                             // Do the Math!
                             const diffInMs = Date.parse(field1Value) - Date.parse(field2Value);
                             value = `${diffInMs / (1000 * 60 * 60 * 24)}`;
-                            console.log(value);
                         }
                         break;
                     default:
