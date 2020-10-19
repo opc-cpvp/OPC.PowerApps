@@ -45,109 +45,71 @@ namespace CrmSvcUtil.Filter
             Console.WriteLine(entitiesElement);
             foreach (XElement entityElement in entitiesElement.Elements("entity"))
             {
-                Console.WriteLine(entityElement);
-                Console.WriteLine(entityElement);
-
                 BlackListedEntity blackListedEntity = null;
                 if (entityElement.Attributes().Any(x => x.Name.LocalName.Equals("name", StringComparison.OrdinalIgnoreCase)))
                 {
-                    blackListedEntity = new BlackListedEntity() { Name = entityElement.Attributes().First(x => x.Name.LocalName.Equals("name", StringComparison.OrdinalIgnoreCase)).Value };
-
-                    Console.WriteLine($"Black listed entity: {blackListedEntity.Name}");
+                    blackListedEntity = new BlackListedEntity()
+                    {
+                        Name = entityElement.Attributes().First(x => x.Name.LocalName.Equals("name", StringComparison.OrdinalIgnoreCase)).Value
+                    };
+                    Console.WriteLine($"Black listed entity added: {blackListedEntity.Name}");
                 }
 
                 if (blackListedEntity != null)
                 {
                     foreach (XElement entityField in entityElement.Elements("field"))
                     {
-                        Console.WriteLine(entityField);
-                        var fieldValue = entityField?.Value;
-                        if (fieldValue is null)
-                        {
-                            Console.WriteLine("Null value");
-                            continue;
-                        }
-
                         if (blackListedEntity.Fields is null) blackListedEntity.Fields = new HashSet<string>();
 
                         Console.WriteLine($"Black listed field added: {entityField?.Value}");
-                        blackListedEntity.Fields.Add(entityField?.Value.ToLower());
+                        blackListedEntity.Fields.Add(entityField?.Value?.ToLower());
                     }
 
                     _blackListedEntities.Add(blackListedEntity);
                 }
             }
-
-            Console.WriteLine($"Anything?: {_blackListedEntities.Any()}");
         }
 
         /// <summary>
         /// Use the blacklist to make sure we don't generate these entities
+        /// Black listed entities with specified fields will only apply to the fields themselves
         /// </summary>
+        /// <returns>Whether we generate the entity or not</returns>
         public bool GenerateEntity(EntityMetadata entityMetadata, IServiceProvider services)
         {
-
-            //return true;
-            //return _defaultService.GenerateEntity(entityMetadata, services);
-
-            //Console.WriteLine(_blackListedEntities.Any());
-
-            // No black listed entities, transfer the decision to the default service
-            //Console.WriteLine($"Entering...");
-
-            if (_blackListedEntities is null || !_blackListedEntities.Any()) return _defaultService.GenerateEntity(entityMetadata, services);
-
-            //Console.WriteLine($"Checking...");
+            if (_blackListedEntities is null || !_blackListedEntities.Any())
+            {
+                return _defaultService.GenerateEntity(entityMetadata, services);
+            }
 
             // Check if the entity is entirely black listed (in the black list and no fields specified)
             var toBlackList = _blackListedEntities.Any(x => x.Name.Equals(entityMetadata.LogicalName, StringComparison.OrdinalIgnoreCase) && x.Fields is null);
 
-            //Console.WriteLine($"To black list: {toBlackList}");
+            if (toBlackList) return false;
 
-            if (toBlackList)
-            {
-                return false;
-            }
-            else
-            {
-                return _defaultService.GenerateEntity(entityMetadata, services);
-            }
+            return _defaultService.GenerateEntity(entityMetadata, services);
         }
 
+        /// <summary>
+        /// Generates the Attribute if it's not specified in the black list
+        /// </summary>
+        /// <returns>Whether we generate the attribute or not</returns>
         public bool GenerateAttribute(AttributeMetadata attributeMetadata, IServiceProvider services)
         {
-            // TODO: Trouble with this when calling the default behaviour (_defaultService.GenerateAttribute(attributeMetadata, services);, so for now, return true works but generates invalid code too
-            //return _defaultService.GenerateAttribute(attributeMetadata, services);
+            // No black listed entities, transfer the decision to the default service
+            if (!_blackListedEntities.Any()) _defaultService.GenerateAttribute(attributeMetadata, services);
 
-            try
+            // Check if the entity the attribute belongs to is in the blacklist
+            var blackListedEntity = _blackListedEntities
+                .FirstOrDefault(x => x.Name?.Equals(attributeMetadata?.EntityLogicalName, StringComparison.OrdinalIgnoreCase) ?? false);
+
+            // Is the current attribute blacklisted?
+            if (blackListedEntity?.Fields?.Contains(attributeMetadata?.LogicalName?.ToLower() ?? "") ?? false)
             {
-                // No black listed entities, transfer to decision to the default service
-                if (!_blackListedEntities.Any()) _defaultService.GenerateAttribute(attributeMetadata, services);//return _defaultService.GenerateAttribute(attributeMetadata, services);
-
-
-                // Check if the entity the attribute belongs to is in the blacklist
-                var blackListedEntity = _blackListedEntities.FirstOrDefault(x => x.Name?.Equals(attributeMetadata?.EntityLogicalName ?? "", StringComparison.OrdinalIgnoreCase) ?? false);
-
-                if (blackListedEntity != null)
-                {
-                    Console.WriteLine("Found black listed entity");
-                    if (blackListedEntity?.Fields?.Contains(attributeMetadata?.LogicalName?.ToLower() ?? "") ?? false)
-                    {
-                        Console.WriteLine("Found black listed FIELD");
-                        return false;
-                    }
-                }
-
-                // Check if the attribute is specified in the black listed entity, if so, don't generate it
-                //if (blackListedEntity?.Fields?.Contains(attributeMetadata?.LogicalName ?? "") ?? false) return false;
-
-                return _defaultService.GenerateAttribute(attributeMetadata, services);// _defaultService.GenerateAttribute(attributeMetadata, services);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString() + (e.InnerException?.ToString() ?? ""));
                 return false;
             }
+
+            return _defaultService.GenerateAttribute(attributeMetadata, services);
         }
 
         // All other methods just use default implementation:
