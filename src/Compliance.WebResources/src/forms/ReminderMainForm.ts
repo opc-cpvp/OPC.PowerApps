@@ -4,11 +4,11 @@ import { IPowerForm, IReminderService } from "../interfaces";
 import { i18n } from "i18next";
 import { XrmHelper } from "../helpers/XrmHelper";
 
+// @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Reminder.Forms {
-
     @injectable()
     export class MainForm implements IPowerForm<Form.opc_reminder.Main.Information> {
-
         private readonly _i18n: i18n;
         private readonly _reminderService: IReminderService;
 
@@ -23,7 +23,7 @@ export namespace Reminder.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_reminder.Main.Information, any>): void {
-            const formContext = <Form.opc_reminder.Main.Information>initializationContext.getFormContext();
+            const formContext = initializationContext.getFormContext() as Form.opc_reminder.Main.Information;
 
             // Register handlers
             formContext.data.entity.addOnSave(x => this.form_OnSave(x));
@@ -32,17 +32,19 @@ export namespace Reminder.Forms {
         }
 
         /**
-        * Handles the form OnSave event.
-        *
-        * @event OnSave
-        */
-        private async form_OnSave(context?: Xrm.SaveEventContext<Xrm.PageEntity<Form.opc_reminder.Main.Information.Attributes>>) : Promise<void> {
-            const formContext = <Form.opc_reminder.Main.Information>context.getFormContext();
+         * Handles the form OnSave event.
+         *
+         * @event OnSave
+         */
+        private async form_OnSave(
+            context?: Xrm.SaveEventContext<Xrm.PageEntity<Form.opc_reminder.Main.Information.Attributes>>
+        ): Promise<void> {
+            const formContext = context.getFormContext() as Form.opc_reminder.Main.Information;
 
             // Because we cannot hook an onChange on the grid, we are pre-clearing on the save.
             XrmHelper.clearAllNotifications(formContext);
 
-            //Get the controls and their values
+            // Get the controls and their values
             const notifyCaseOwnerControl = formContext.getControl("opc_notifycaseowner");
             const notifyReminderOwnerControl = formContext.getControl("opc_notifyme");
             const complaintIdControl = formContext.getControl("opc_complaintid");
@@ -50,33 +52,33 @@ export namespace Reminder.Forms {
             const shouldNotifyReminderOwner = notifyReminderOwnerControl.getAttribute().getValue();
             const containsComplaint = complaintIdControl.getAttribute().getValue();
 
-            //Check if at least one person is to be notified
+            // Check if at least one person is to be notified
             if (!shouldNotifyCaseOwner && !shouldNotifyReminderOwner) {
-
                 // Only query for additional user check if the two other fields are not selected to minimize API calls.
-                const hasAdditionalUsersToNotify = this._reminderService.hasAdditionalUsersToNotify(formContext.data.entity.getId());
-                if (!await hasAdditionalUsersToNotify) {
-
+                const hasAdditionalUsersToNotify = await this._reminderService.hasAdditionalUsersToNotify(formContext.data.entity.getId());
+                if (!hasAdditionalUsersToNotify) {
                     // Only setting form notifications because there does not seem to be away to set a notification for the
                     // underlaying pcf (it throws an error on SetNotification)
-                    XrmHelper.setFormNotification(formContext, "ERROR", this._i18n.t("reminder:error.nobody_selected"))
+                    XrmHelper.setFormNotification(formContext, "ERROR", this._i18n.t("reminder:error.nobody_selected"));
                     context.getEventArgs().preventDefault();
                 }
             }
 
             // Check if there is a case linked to the reminder if Notify Case Owner is checked.
             else if (shouldNotifyCaseOwner && !containsComplaint) {
-                XrmHelper.setNotification(notifyCaseOwnerControl, this._i18n.t("reminder:error.case_must_be_linked"))
+                XrmHelper.setNotification(notifyCaseOwnerControl, this._i18n.t("reminder:error.case_must_be_linked"));
                 context.getEventArgs().preventDefault();
             }
         }
 
         /**
-        * Handles changes to controls on the form to clear all error notifications and allow a save event.
-        *
-        * @event OnChanged
-        */
-        private control_OnChange_ClearAllNotifications(context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any> | Xrm.ExecutionContext<Xrm.BaseControl, any>) : void {
+         * Handles changes to controls on the form to clear all error notifications and allow a save event.
+         *
+         * @event OnChanged
+         */
+        private control_OnChange_ClearAllNotifications(
+            context?: Xrm.ExecutionContext<Xrm.Attribute<any>, any> | Xrm.ExecutionContext<Xrm.BaseControl, any>
+        ): void {
             XrmHelper.clearAllNotifications(context.getFormContext());
         }
     }

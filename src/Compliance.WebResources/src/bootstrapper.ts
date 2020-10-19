@@ -12,11 +12,13 @@ export class Bootstrapper {
     public static CommandDispatcher: ICommandDispatcher;
     public static QueryDispatcher: IQueryDispatcher;
 
-    constructor(@inject(nameof<IFormFactory>()) formFactory: IFormFactory,
+    constructor(
+        @inject(nameof<IFormFactory>()) formFactory: IFormFactory,
         @inject(nameof<IControlFactory>()) controlFactory: IControlFactory,
         @inject(nameof<IDialogFactory>()) dialogFactory: IDialogFactory,
         @inject(nameof<ICommandDispatcher>()) commandDispatcher: ICommandDispatcher,
-        @inject(nameof<IQueryDispatcher>()) queryDispatcher: IQueryDispatcher) {
+        @inject(nameof<IQueryDispatcher>()) queryDispatcher: IQueryDispatcher
+    ) {
         Bootstrapper.FormFactory = formFactory;
         Bootstrapper.ControlFactory = controlFactory;
         Bootstrapper.DialogFactory = dialogFactory;

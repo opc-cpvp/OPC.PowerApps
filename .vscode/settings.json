@@ -1,0 +1,13 @@
+{
+    "eslint.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.workingDirectories": [
+        {
+            "directory": "src/Compliance.WebResources",
+            "changeProcessCWD": true
+        }
+    ],
+    "eslint.format.enable": true
+}

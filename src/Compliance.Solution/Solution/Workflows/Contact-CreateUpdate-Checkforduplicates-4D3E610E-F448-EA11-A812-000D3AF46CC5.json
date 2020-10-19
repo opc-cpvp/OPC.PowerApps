@@ -3,7 +3,9 @@
     "connectionReferences": {
       "shared_commondataserviceforapps": {
         "runtimeSource": "embedded",
-        "connection": {},
+        "connection": {
+          "connectionReferenceLogicalName": "opc_sharedcommondataserviceforapps_3e099"
+        },
         "api": {
           "name": "shared_commondataserviceforapps"
         }

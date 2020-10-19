@@ -1,23 +1,23 @@
 import { injectable, inject } from "inversify";
-import { PowerIFrameControl, IChecklistService } from "../../interfaces";
+import { IChecklistService } from "../../interfaces";
+import { PowerIFrameControl } from "../PowerIFrameControl";
 
 export namespace Controls {
-
     @injectable()
     export class ChecklistControl extends PowerIFrameControl {
-
         private readonly _allegationId: string;
         private readonly _checklistService: IChecklistService;
 
-        private _questionTypes: { id: string, type: string }[];
-        private _visbilityToggles: { id: string, value: boolean }[] = [];
+        private _questionTypes: { id: string; type: string }[];
+        private _visbilityToggles: { id: string; value: boolean }[] = [];
         private _placeholder: HTMLElement;
-        private _isCurrentLanguageEnglish: boolean = true;
+        private _isCurrentLanguageEnglish = true;
 
         constructor(
             @inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
             @inject(nameof<Document>()) documentContext: Document,
-            @inject(nameof<IChecklistService>()) checklistService: IChecklistService) {
+            @inject(nameof<IChecklistService>()) checklistService: IChecklistService
+        ) {
             super(xrmContext, documentContext);
 
             // TODO: We should modify the model to have a checklist entity in between to have a generic implementation
@@ -29,33 +29,98 @@ export namespace Controls {
             this._isCurrentLanguageEnglish = xrmContext.userSettings.languageId === 1033;
         }
 
-        public init() {
+        public init(): void {
             // This registers an handler for the save-entity event dispatched from parent form
             super.init();
 
             // Fetch question type to cross reference later
-            const qTypesPromise = this._checklistService.getQuestionTypes()
-                .then(x => { this._questionTypes = x; })
+            const qTypesPromise = this._checklistService
+                .getQuestionTypes()
+                .then(x => {
+                    this._questionTypes = x;
+                })
                 .catch(() => console.error("error loading question types"));
 
             // Fetch checklist and create controls
-            this._checklistService.getChecklist(this._allegationId)
-                .then(async crArray => {
-
-                    // Both requests can run at the same time, but before processing results
-                    // we want to make sure to have the question types.
-                    await qTypesPromise;
-                    crArray.forEach(cr => this.addQuestion(cr));
-
-                }, reason => console.error(reason)).catch(() => console.error("error loading checklist responses"));
+            this._checklistService
+                .getChecklist(this._allegationId)
+                .then(
+                    async crArray => {
+                        // Both requests can run at the same time, but before processing results
+                        // we want to make sure to have the question types.
+                        await qTypesPromise;
+                        crArray.forEach(cr => this.addQuestion(cr));
+                    },
+                    reason => console.error(reason)
+                )
+                .catch(() => console.error("error loading checklist responses"));
         }
 
-        private addQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result): void {
+        public save(): void {
+            const dirtyInputs = this._placeholder.getElementsByClassName("dirty");
+            const doubleDirtyRadios: string[] = [];
 
+            // Iterate over all dirty elements to persist the state
+            // eslint-disable-next-line @typescript-eslint/prefer-for-of
+            for (let i = 0; i < dirtyInputs.length; i++) {
+                const id: string = dirtyInputs[i].getAttribute("data-responseid");
+                let value: string = null;
+
+                // Extract ID and Values based on type of inputs
+                switch (dirtyInputs[i].tagName.toLowerCase()) {
+                    case "input": {
+                        const input = dirtyInputs[i] as HTMLInputElement;
+                        value = input.value;
+
+                        // Skip if its radio input and not the selected one
+                        if (input.type === "radio") {
+                            // If it's radio we want to ensure:
+                            //  - We are not sending multiple updates
+                            //  - We are updating to null when both values are unselected
+                            if (!input.checked) {
+                                // If all inputs of this group are unchecked, update response to null
+                                const relatedInputs = Array.from(this.documentContext.getElementsByName(input.name));
+                                if (
+                                    relatedInputs.every(di => !(di as HTMLInputElement).checked) &&
+                                    !doubleDirtyRadios.includes(input.name)
+                                ) {
+                                    value = null;
+                                    doubleDirtyRadios.push(input.name);
+                                } else {
+                                    continue;
+                                }
+                            }
+                        }
+
+                        break;
+                    }
+                    case "textarea": {
+                        value = (dirtyInputs[i] as HTMLTextAreaElement).value;
+                        break;
+                    }
+                    default: {
+                        console.log(`unsupported element type: ${dirtyInputs[i].tagName}`);
+                        continue;
+                    }
+                }
+
+                // Send update queries to checklist service
+                this._checklistService
+                    .updateChecklistResponse(id, value)
+                    .then(() => {
+                        dirtyInputs[i].classList.remove("dirty");
+                    })
+                    .catch(e => console.error("error updating questions", e));
+            }
+        }
+
+        private addQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result): void {
             // Check if there is a parent question in visibilitytoggles array and what's the loading state
             let isVisible = false;
             const visibleTuple = this._visbilityToggles.find(p => p.id === cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid);
-            if (visibleTuple) isVisible = visibleTuple.value;
+            if (visibleTuple) {
+                isVisible = visibleTuple.value;
+            }
 
             // Create question container/wrapper
             const questionContainer = this.documentContext.createElement("div");
@@ -64,7 +129,9 @@ export namespace Controls {
             // Check whether or not the question should be conditionally visible
             if (cr.opc_questiontemplateid.opc_conditionalvisibility) {
                 // If so set respective visibility and means for "parent" control to toggle visibility
-                if (isVisible) questionContainer.classList.add("show");
+                if (isVisible) {
+                    questionContainer.classList.add("show");
+                }
                 questionContainer.classList.add("collapse", `toggledby-${cr.opc_questiontemplateid.opc_parentquestiontemplateid_guid}`);
             }
 
@@ -93,90 +160,91 @@ export namespace Controls {
             this._placeholder.appendChild(questionContainer);
         }
 
-        private addTextQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
-            const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
-            element.insertAdjacentHTML('beforeend', questionHtml);
+        private addTextQuestion(
+            element: HTMLDivElement,
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
+        ) {
+            const questionHtml = /* HTML */ `<label for="q-${cr.opc_checklistresponseid}"
+                    >${cr.opc_questiontemplateid.opc_sequence} -
+                    ${this._isCurrentLanguageEnglish
+                        ? cr.opc_questiontemplateid.opc_nameenglish
+                        : cr.opc_questiontemplateid.opc_namefrench}</label
+                >
+                <input
+                    id="q-${cr.opc_checklistresponseid}"
+                    type="text"
+                    class="form-control"
+                    value="${cr.opc_response || ""}"
+                    data-responseid="${cr.opc_checklistresponseid}"
+                />`;
+            element.insertAdjacentHTML("beforeend", questionHtml);
         }
 
-        private addTextAreaQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
-            const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                `<textarea id="q-${cr.opc_checklistresponseid}" rows="3" class="form-control" data-responseid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</textarea>`;
-            element.insertAdjacentHTML('beforeend', questionHtml);
+        private addTextAreaQuestion(
+            element: HTMLDivElement,
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
+        ) {
+            const questionHtml = /* HTML */ `<label for="q-${cr.opc_checklistresponseid}"
+                    >${cr.opc_questiontemplateid.opc_sequence} -
+                    ${this._isCurrentLanguageEnglish
+                        ? cr.opc_questiontemplateid.opc_nameenglish
+                        : cr.opc_questiontemplateid.opc_namefrench}</label
+                >
+                <textarea
+                    id="q-${cr.opc_checklistresponseid}"
+                    rows="3"
+                    class="form-control"
+                    data-responseid="${cr.opc_checklistresponseid}"
+                >
+${cr.opc_response || ""}</textarea
+                >`;
+            element.insertAdjacentHTML("beforeend", questionHtml);
         }
 
-        private addTwoOptionsQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
+        private addTwoOptionsQuestion(
+            element: HTMLDivElement,
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
+        ) {
             // We don't know if its a toggle, but just in case we add in the array
-            this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response == "1" });
+            this._visbilityToggles.push({ id: cr.opc_questiontemplateid_guid, value: cr.opc_response === "1" });
 
-            const questionHtml =
-                `<div id="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</div>` +
-                '<div class="form-check form-check-inline">' +
-                `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt1" value="1" ${cr.opc_response == "1" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
-                `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1">${this._isCurrentLanguageEnglish ? "Yes" : "Oui"}</label>` +
-                '</div>' +
-                '<div class="form-check form-check-inline">' +
-                `<input class="form-check-input" type="radio" name="q-${cr.opc_checklistresponseid}" id="q-${cr.opc_checklistresponseid}-opt2" value="0" ${cr.opc_response == "0" ? "checked" : ""} data-toggle='collapse' data-target='.toggledby-${cr.opc_questiontemplateid_guid}' data-responseid='${cr.opc_checklistresponseid}'>` +
-                `<label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2">${this._isCurrentLanguageEnglish ? "No" : "Non"}</label>` +
-                '</div>';
-            element.insertAdjacentHTML('beforeend', questionHtml);
+            const questionHtml = /* HTML */ `<div id="q-${cr.opc_checklistresponseid}">
+                    ${cr.opc_questiontemplateid.opc_sequence} -
+                    ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}
+                </div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="q-${cr.opc_checklistresponseid}"
+                        id="q-${cr.opc_checklistresponseid}-opt1"
+                        value="1"
+                        ${cr.opc_response === "1" ? "checked" : ""}
+                        data-toggle="collapse"
+                        data-target=".toggledby-${cr.opc_questiontemplateid_guid}"
+                        data-responseid="${cr.opc_checklistresponseid}"
+                    />
+                    <label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt1"
+                        >${this._isCurrentLanguageEnglish ? "Yes" : "Oui"}</label
+                    >
+                </div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="q-${cr.opc_checklistresponseid}"
+                        id="q-${cr.opc_checklistresponseid}-opt2"
+                        value="0"
+                        ${cr.opc_response === "0" ? "checked" : ""}
+                        data-toggle="collapse"
+                        data-target=".toggledby-${cr.opc_questiontemplateid_guid}"
+                        data-responseid="${cr.opc_checklistresponseid}"
+                    />
+                    <label class="form-check-label" for="q-${cr.opc_checklistresponseid}-opt2"
+                        >${this._isCurrentLanguageEnglish ? "No" : "Non"}</label
+                    >
+                </div>`;
+            element.insertAdjacentHTML("beforeend", questionHtml);
         }
-
-        public save(): void {
-
-            const dirtyInputs = this._placeholder.getElementsByClassName("dirty");
-            const doubleDirtyRadios: string[] = [];
-
-            // Iterate over all dirty elements to persist the state
-            for (let i = 0; i < dirtyInputs.length; i++) {
-                const id: string = dirtyInputs[i].getAttribute("data-responseid");
-                let value: string = null;
-
-                // Extract ID and Values based on type of inputs
-                switch (dirtyInputs[i].tagName.toLowerCase()) {
-                    case "input":
-                        const input = <HTMLInputElement>dirtyInputs[i];
-                        value = input.value;
-
-                        // Skip if its radio input and not the selected one
-                        if (input.type == "radio") {
-
-                            // If it's radio we want to ensure:
-                            //  - We are not sending multiple updates
-                            //  - We are updating to null when both values are unselected
-                            if (!input.checked) {
-
-                                // If all inputs of this group are unchecked, update response to null
-                                const relatedInputs = Array.from(this.documentContext.getElementsByName(input.name));
-                                if (relatedInputs.every(di => !(<HTMLInputElement>di).checked) && !doubleDirtyRadios.includes(input.name)) {
-                                    value = null;
-                                    doubleDirtyRadios.push(input.name);
-                                }
-                                else continue;
-
-                            }
-                        }
-
-                        break;
-                    case "textarea":
-                        value = (<HTMLTextAreaElement>dirtyInputs[i]).value;
-                        break;
-                    default:
-                        console.log("unsupported element type:" + dirtyInputs[i].tagName);
-                        continue;
-                }
-
-                // Send update queries to checklist service
-                this._checklistService.updateChecklistResponse(id, value)
-                    .then(() => {
-                        dirtyInputs[i].classList.remove("dirty");
-                    })
-                    .catch(e => console.error("error updating questions:" + e));
-            }
-
-        }
-
     }
 }

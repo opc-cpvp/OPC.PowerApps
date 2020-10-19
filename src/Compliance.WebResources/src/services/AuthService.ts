@@ -1,6 +1,6 @@
 ﻿import { injectable } from "inversify";
 import "reflect-metadata";
-import * as Msal from 'msal';
+import * as Msal from "msal";
 import { IAuthService } from "../interfaces";
 
 @injectable()
@@ -9,16 +9,20 @@ export class AuthService implements IAuthService {
         let accessToken: string;
         const msalInstance = new Msal.UserAgentApplication(msalConfig);
 
-        await msalInstance.acquireTokenSilent(tokenRequest)
-            .then((response) => {
+        await msalInstance
+            .acquireTokenSilent(tokenRequest)
+            .then(response => {
                 accessToken = response.accessToken;
-            }).catch(async error => {
-                console.log(error);
-                await msalInstance.acquireTokenPopup(tokenRequest)
-                    .then((response) => {
+            })
+            .catch(async silentError => {
+                console.log(silentError);
+                await msalInstance
+                    .acquireTokenPopup(tokenRequest)
+                    .then(response => {
                         accessToken = response.accessToken;
-                    }).catch(error => {
-                        console.log(error);
+                    })
+                    .catch(popupError => {
+                        console.log(popupError);
                     });
             });
 
