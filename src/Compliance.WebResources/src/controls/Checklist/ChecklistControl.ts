@@ -69,7 +69,7 @@ export namespace Controls {
 
             // Check whether or not the question should be hidden and managed internally
             if (cr.opc_questiontemplateid.opc_managedinternally) {
-                //questionContainer.classList.add("collapse");
+                questionContainer.classList.add("collapse");
             }
             // Check whether or not the question should be conditionally visible
             else if (cr.opc_questiontemplateid.opc_conditionalvisibility) {
@@ -104,7 +104,7 @@ export namespace Controls {
                     this.addDateQuestion(indentingContainer, cr);
                     break;
                 case this._questionTypes.find(qt => qt.type === "Number").id:
-                    this.addInputTypeQuestion(indentingContainer, cr, "number");
+                    this.addNumberTypeQuestion(indentingContainer, cr);
                     break;
                 case this._questionTypes.find(qt => qt.type === "Calculated Field").id:
                     this.addCalculatedFieldQuestion(indentingContainer, cr);
@@ -121,14 +121,15 @@ export namespace Controls {
         private addCalculatedFieldQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                `<label id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" data-additionalparameters="${cr.opc_questiontemplateid.opc_additionalparameters}" data-responseid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</label>`;
+                //`<label id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" data-additionalparameters="${cr.opc_questiontemplateid.opc_additionalparameters}" data-responseid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</label>`;
+                `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' data-additionalparameters="${cr.opc_questiontemplateid.opc_additionalparameters}" readonly />`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
-        private addInputTypeQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result, inputType: string) {
+        private addNumberTypeQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                `<input id="q-${cr.opc_checklistresponseid}" type="${inputType}" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
+                `<input id="q-${cr.opc_checklistresponseid}" type="number" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
@@ -191,6 +192,14 @@ export namespace Controls {
                 `<input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="date" class="form-control" value="${cr.opc_response || ""}">`;
 
             element.insertAdjacentHTML('beforeend', questionHtml);
+        }
+
+        private isNullOrWhiteSpace(string: string): boolean {
+            return (string === null || string.match(/^ *$/) !== null) ? true : false;
+        }
+
+        private getDateDifferenceInDays(date1: Date, date2: Date): number {
+            return (date1.valueOf() - date2.valueOf()) / (1000 * 60 * 60 * 24);
         }
 
         public save(): void {
@@ -259,12 +268,12 @@ export namespace Controls {
                 let value: string = null;
 
                 // Get the additional parameters of the question template
-                const label = <HTMLLabelElement>calculatedFields[i];
-                const formula = label.dataset.additionalparameters;
+                const input = <HTMLInputElement>calculatedFields[i];
+                const formula = input.dataset.additionalparameters;
 
                 // Split fields
                 //[0] is whole formula, [1] is first value, [2] is the operator, [3] is the second value
-                const formulaArray = /([0-9][.]?[0-9]?) ?([-+/*]) ?([0-9][.]?[0-9]?)/g.exec(formula);
+                const formulaArray = /(\d+(?:\.\d+)*)\s*([-+/\*])\s*(\d+(?:\.\d+)*)/g.exec(formula);
 
                 // Retrieve associated fields
                 const field1 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[1]);
@@ -274,25 +283,25 @@ export namespace Controls {
                 const field2Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field2.opc_checklistresponseid}`)).value;
 
                 // Check if both fields have a value
-                if (field1Value === null || field1Value.match(/^ *$/) !== null || field2Value === null || field2Value.match(/^ *$/) !== null) {
-                    return;
+                if (!this.isNullOrWhiteSpace(field1Value) && !this.isNullOrWhiteSpace(field2Value)) {
+                    // Switch-Case for the operator
+                    switch (formulaArray[2]) {
+                        case "-":
+                            // Check if both fields are dates
+                            if (!isNaN(Date.parse(field1Value)) && !isNaN(Date.parse(field2Value))) {
+                                value = this.getDateDifferenceInDays(new Date(field1Value), new Date(field2Value)).toString();
+                            }
+                            break;
+                        case "+":
+                        case "/":
+                        case "*":
+                            break
+                        default:
+                            break;
+                    }
                 }
 
-                // Switch-Case for the operator
-                switch (formulaArray[2]) {
-                    case "-":
-                        // Check if both fields are dates
-                        if (!isNaN(Date.parse(field1Value)) && !isNaN(Date.parse(field2Value))) {
-                            // Do the Math!
-                            const diffInMs = Date.parse(field1Value) - Date.parse(field2Value);
-                            value = `${diffInMs / (1000 * 60 * 60 * 24)}`;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-
-                label.innerText = value;
+                input.value = value;
 
                 // Send update queries to checklist service
                 this._checklistService.updateChecklistResponse(id, value)
