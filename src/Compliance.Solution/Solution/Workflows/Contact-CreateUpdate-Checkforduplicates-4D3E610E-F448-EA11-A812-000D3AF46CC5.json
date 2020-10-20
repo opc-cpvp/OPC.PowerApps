@@ -36,9 +36,7 @@
             "parameters": {
               "subscriptionRequest/message": 4,
               "subscriptionRequest/entityname": "contact",
-              "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "firstname,lastname,emailaddress1,telephone1,telephone2,address1_postalcode,opc_duplicatedetectionresult,statecode",
-              "subscriptionRequest/filterexpression": "statecode eq 0"
+              "subscriptionRequest/scope": 4
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -76,7 +74,7 @@
                 "parameters": {
                   "entityName": "contacts",
                   "$select": "contactid,firstname,lastname,telephone1,telephone2,address1_postalcode,emailaddress1,opc_duplicatedetectionresult",
-                  "$filter": "contactid ne '@{triggerOutputs()?['body/contactid']}' and firstname eq '@{triggerOutputs()?['body/firstname']}' and lastname eq '@{triggerOutputs()?['body/lastname']}' and statecode eq 0"
+                  "$filter": "contactid ne '@{triggerOutputs()?['body/contactid']}' and firstname eq '@{triggerOutputs()?['body/firstname']}' and lastname eq '@{triggerOutputs()?['body/lastname']}'"
                 },
                 "authentication": "@parameters('$authentication')"
               }
