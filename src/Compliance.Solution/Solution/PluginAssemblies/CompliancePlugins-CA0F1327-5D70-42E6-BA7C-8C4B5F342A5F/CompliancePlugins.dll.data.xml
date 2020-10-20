@@ -11,9 +11,6 @@
     <PluginType AssemblyQualifiedName="Compliance.Plugins.ComplaintPrefixPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="043cef86-3683-4295-851c-1eb69407025a" Name="Compliance.Plugins.ComplaintPrefixPlugin">
       <FriendlyName>678dc7c1-9b34-4e97-ac04-579b5813764a</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="Compliance.Plugins.DuplicateMergeUpdateStatusPlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="999329c6-3d8d-4b03-ac36-d6b60399594b" Name="Compliance.Plugins.DuplicateMergeUpdateStatusPlugin">
-      <FriendlyName>a1d6fbc9-06c9-4e75-b40d-c68afdb9fc98</FriendlyName>
-    </PluginType>
     <PluginType AssemblyQualifiedName="Compliance.Plugins.MultiLanguagePlugin, Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" PluginTypeId="dd55a870-8ad7-4927-8871-14d3a0dc6cd2" Name="Compliance.Plugins.MultiLanguagePlugin">
       <FriendlyName>b5b1ff05-fdbd-426c-9c9c-4c292d479008</FriendlyName>
     </PluginType>
