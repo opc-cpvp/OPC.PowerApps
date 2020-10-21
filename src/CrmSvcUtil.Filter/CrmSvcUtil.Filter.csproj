@@ -57,6 +57,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerateEarlyBoundEntities\BlackListedEntity.cs" />
     <Compile Include="GenerateEarlyBoundEntities\GenerateEarlyBoundFilter.cs" />
     <Compile Include="GenerateOptionSetEnums\CodeCustomizationsService.cs" />
     <Compile Include="GenerateOptionSetEnums\FilteringService.cs" />

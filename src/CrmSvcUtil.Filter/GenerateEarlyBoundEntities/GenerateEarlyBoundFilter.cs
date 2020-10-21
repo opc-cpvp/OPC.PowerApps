@@ -8,17 +8,10 @@ using Microsoft.Crm.Services.Utility;
 namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
 {
     /// <summary>
-    /// CodeWriterFilter for CrmSvcUtil that reads list of entities from an xml file to
-    /// determine whether or not the entity class should be generated.
+    /// CodeWriterFilter for CrmSvcUtil filters entites, attributes etc.. based on a set of custom rules
     /// </summary>
     public class GenerateEarlyBoundBoundFilter : ICodeWriterFilterService
     {
-        class BlackListedEntity
-        {
-            public string Name { get; set; }
-            public HashSet<string> Fields { get; set; }
-        }
-
         private HashSet<BlackListedEntity> _blackListedEntities = new HashSet<BlackListedEntity>();
 
         private ICodeWriterFilterService _defaultService = null;
