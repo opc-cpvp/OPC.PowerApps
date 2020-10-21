@@ -7,11 +7,11 @@ if ($ConnectionString) {
 		/connectionstring:$ConnectionString `
 		/out:"../Compliance.Entities/Entities.cs" `
 		/namespace:"Compliance.Entities" `
-		/codewriterfilter:"CrmSvcUtil.Filter.GenerateEarlyBoundBoundFilter, CrmSvcUtil.Filter"
+		/codewriterfilter:"CrmSvcUtil.Filter.GenerateEarlyBoundEntities.GenerateEarlyBoundBoundFilter, CrmSvcUtil.Filter"
 } else {
 	& $crmSvcUtil `
 		/interactivelogin `
 		/out:"../Compliance.Entities/Entities.cs" `
 		/namespace:"Compliance.Entities" `
-		/codewriterfilter:"CrmSvcUtil.Filter.GenerateEarlyBoundBoundFilter, CrmSvcUtil.Filter"
+		/codewriterfilter:"CrmSvcUtil.Filter.GenerateEarlyBoundEntities.GenerateEarlyBoundBoundFilter, CrmSvcUtil.Filter"
 }

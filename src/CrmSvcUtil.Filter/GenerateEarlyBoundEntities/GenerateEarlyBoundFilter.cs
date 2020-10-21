@@ -5,7 +5,7 @@ using Microsoft.Xrm.Sdk.Metadata;
 using System.Xml.Linq;
 using Microsoft.Crm.Services.Utility;
 
-namespace CrmSvcUtil.Filter
+namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
 {
     /// <summary>
     /// CodeWriterFilter for CrmSvcUtil that reads list of entities from an xml file to
@@ -19,19 +19,13 @@ namespace CrmSvcUtil.Filter
             public HashSet<string> Fields { get; set; }
         }
 
-        //list of entity names to generate classes for.
         private HashSet<BlackListedEntity> _blackListedEntities = new HashSet<BlackListedEntity>();
 
-        //reference to the default service.
         private ICodeWriterFilterService _defaultService = null;
 
-        /// <summary>
-        /// constructor
-        /// </summary>
-        /// <param name="defaultService">default implementation</param>
         public GenerateEarlyBoundBoundFilter(ICodeWriterFilterService defaultService)
         {
-            this._defaultService = defaultService;
+            _defaultService = defaultService;
             LoadFilterData();
         }
 
@@ -42,7 +36,7 @@ namespace CrmSvcUtil.Filter
         {
             XElement xml = XElement.Load("filter.xml");
             XElement entitiesElement = xml.Element("black-listed-entities");
-            Console.WriteLine(entitiesElement);
+
             foreach (XElement entityElement in entitiesElement.Elements("entity"))
             {
                 BlackListedEntity blackListedEntity = null;
@@ -77,13 +71,11 @@ namespace CrmSvcUtil.Filter
         /// <returns>Whether we generate the entity or not</returns>
         public bool GenerateEntity(EntityMetadata entityMetadata, IServiceProvider services)
         {
-            if (_blackListedEntities is null || !_blackListedEntities.Any())
-            {
-                return _defaultService.GenerateEntity(entityMetadata, services);
-            }
+            if (!_blackListedEntities.Any()) return _defaultService.GenerateEntity(entityMetadata, services);
 
             // Check if the entity is entirely black listed (in the black list and no fields specified)
-            var toBlackList = _blackListedEntities.Any(x => x.Name.Equals(entityMetadata.LogicalName, StringComparison.OrdinalIgnoreCase) && x.Fields is null);
+            var toBlackList = _blackListedEntities
+                .Any(x => x.Name.Equals(entityMetadata.LogicalName, StringComparison.OrdinalIgnoreCase) && x.Fields is null);
 
             if (toBlackList) return false;
 
@@ -101,7 +93,7 @@ namespace CrmSvcUtil.Filter
 
             // Check if the entity the attribute belongs to is in the blacklist
             var blackListedEntity = _blackListedEntities
-                .FirstOrDefault(x => x.Name?.Equals(attributeMetadata?.EntityLogicalName, StringComparison.OrdinalIgnoreCase) ?? false);
+                .FirstOrDefault(x => x.Name.Equals(attributeMetadata?.EntityLogicalName, StringComparison.OrdinalIgnoreCase));
 
             // Is the current attribute blacklisted?
             if (blackListedEntity?.Fields?.Contains(attributeMetadata?.LogicalName?.ToLower() ?? "") ?? false)
@@ -111,8 +103,6 @@ namespace CrmSvcUtil.Filter
 
             return _defaultService.GenerateAttribute(attributeMetadata, services);
         }
-
-        // All other methods just use default implementation:
 
         public bool GenerateOption(OptionMetadata optionMetadata, IServiceProvider services)
         {
