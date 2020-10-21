@@ -173,6 +173,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DuplicateMergeUpdateStatusPluginTests.cs" />
     <Compile Include="TimelineTransformationsTests.cs" />
     <Compile Include="CompliancePrefixPluginTests.cs" />
     <Compile Include="SharePointServiceTests.cs" />
