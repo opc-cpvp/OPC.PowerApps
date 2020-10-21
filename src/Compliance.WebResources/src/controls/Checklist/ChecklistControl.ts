@@ -273,11 +273,14 @@ export namespace Controls {
 
                 // Split fields
                 //[0] is whole formula, [1] is first value, [2] is the operator, [3] is the second value
+                //const formulaArray = /(\d+(?:\.\d+)*)\s*([-+/\*])\s*(\d+(?:\.\d+)*)(?:\s*([-+/\*])\s*(\d+(?:\.\d+)*))?/g.exec(formula);
                 const formulaArray = /(\d+(?:\.\d+)*)\s*([-+/\*])\s*(\d+(?:\.\d+)*)/g.exec(formula);
+
 
                 // Retrieve associated fields
                 const field1 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[1]);
                 const field2 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[3]);
+
 
                 const field1Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field1.opc_checklistresponseid}`)).value;
                 const field2Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field2.opc_checklistresponseid}`)).value;
