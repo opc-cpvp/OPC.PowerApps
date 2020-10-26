@@ -108,6 +108,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{8d21ec42-5707-44ba-bab8-7521b3b7ec0c}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Require Privileged Correspondence" languagecode="1033" />
+                        </labels>
+                        <control id="opc_requireprivilegedcorrespondence" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_requireprivilegedcorrespondence" disabled="false" uniqueid="{75cb8a46-65b4-993c-b1ee-7cb4476502a7}" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{b838b1ab-0f5c-44de-b7ed-e0a994bdb6a0}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Multiple Complaint Strategy" languagecode="1033" />
@@ -613,7 +621,30 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
-      <controlDescriptions />
+      <controlDescriptions>
+        <controlDescription forControl="{75cb8a46-65b4-993c-b1ee-7cb4476502a7}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_requireprivilegedcorrespondence</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_requireprivilegedcorrespondence</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_requireprivilegedcorrespondence</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FlipSwitch.FlipSwitchControl">
+            <parameters>
+              <value>opc_requireprivilegedcorrespondence</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
       <footer id="{1b435a22-b069-4097-b368-49957f96977c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
           <row>

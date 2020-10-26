@@ -97,7 +97,8 @@ describe("Complaint", () => {
             telephone1: "555-555-5555",
             telephone2: "666-666-6666",
             contactid: "1A798143-ADC2-4B0A-B8D6-92358BBD20C6",
-            emailaddress1: "test@test.com"
+            emailaddress1: "test@test.com",
+            opc_requireprivilegedcorrespondence: false
         };
 
         let getContact: any;
@@ -111,7 +112,6 @@ describe("Complaint", () => {
 
         it("it should have notifications if a duplicate contacts exists", async () => {
             // Arrange
-
             const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
             const contactsLookup = [
                 {
@@ -137,9 +137,7 @@ describe("Complaint", () => {
 
         it("it should have a potential duplicate notification if less than all checked fields match", async () => {
             // Arrange
-
             const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
-
             const contactsLookup = [
                 {
                     id: "233A4366-A101-4B59-9004-DA83CE087922",
@@ -225,9 +223,7 @@ describe("Complaint", () => {
 
         it("it should have multiple notifications if multiple duplicate contacts exist", async () => {
             // Arrange
-
             const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
-
             const contactsLookup = [
                 {
                     id: "233A4366-A101-4B59-9004-DA83CE087922",
@@ -252,9 +248,7 @@ describe("Complaint", () => {
 
         it("it should remove exsiting notifications when no duplicate status is found", async () => {
             // Arrange
-
             const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
-
             const contactsLookup = [
                 {
                     id: "233A4366-A101-4B59-9004-DA83CE087922",
@@ -290,9 +284,7 @@ describe("Complaint", () => {
 
         it("it should remove exsiting notifications when no contacts are found", async () => {
             // Arrange
-
             const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
-
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
             mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantlegalrepresentative");
@@ -310,6 +302,44 @@ describe("Complaint", () => {
             await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
             getContactDup.should.not.have.been.called;
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
+        });
+
+        describe("and it's the complainant and it requires privileges correspondence", () => {
+            it("it should display a form notification", async () => {
+                // Arrange
+                mockContext
+                    .getFormContext()
+                    .getAttribute("opc_complainant")
+                    .setValue([{ name: "opc_complainant", id: "test" }]);
+                complainant.opc_requireprivilegedcorrespondence = true;
+                sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
+
+                // Assert
+                await Promise.all([...getContact.returnValues]);
+                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
+            });
+        });
+
+        describe("and it's not the complainant but it requires privileges correspondence", () => {
+            it("it should not display a form notification", async () => {
+                // Arrange
+                mockContext
+                    .getFormContext()
+                    .getAttribute("opc_complainant")
+                    .setValue([{ name: "opc_complainant", id: "test" }]);
+                complainant.opc_requireprivilegedcorrespondence = false;
+                sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
+
+                // Assert
+                await Promise.all([...getContact.returnValues]);
+                contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
+            });
         });
     });
 
@@ -333,6 +363,32 @@ describe("Complaint", () => {
                 // Assert
                 acceptancedateControlSpy.getVisible().should.equal(true);
             });
+
+            describe("and complainant has a representative", () => {
+                it("authorization form should be mandatory", () => {
+                    // Arrange
+                    const repAuthProvidedAttributeMock = mockContext
+                        .getFormContext()
+                        .getAttribute("opc_representativeauthorizationprovided");
+                    const repAuthProvidedAttributeMockSpy = sandbox.spy(repAuthProvidedAttributeMock);
+                    const repAuthProvidedControlMockSpy = sandbox.spy(
+                        repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
+                    );
+                    mockContext
+                        .getFormContext()
+                        .getAttribute("opc_intakedisposition")
+                        .setValue(opc_intakedisposition.MovetoEarlyResolution);
+                    mockContext.getFormContext().getAttribute("opc_complainantrep").setValue(true);
+
+                    // Act
+                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                    // Assert
+                    repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("required");
+                    repAuthProvidedAttributeMockSpy.getValue().should.equal(false);
+                    repAuthProvidedControlMockSpy.getVisible().should.equal(true);
+                });
+            });
         });
 
         describe("and recommending to investigation", () => {
@@ -347,6 +403,29 @@ describe("Complaint", () => {
 
                 // Assert
                 acceptancedateControlSpy.getVisible().should.equal(true);
+            });
+
+            describe("and complainant has a representative", () => {
+                it("authorization form should be mandatory", () => {
+                    // Arrange
+                    const repAuthProvidedAttributeMock = mockContext
+                        .getFormContext()
+                        .getAttribute("opc_representativeauthorizationprovided");
+                    const repAuthProvidedAttributeMockSpy = sandbox.spy(repAuthProvidedAttributeMock);
+                    const repAuthProvidedControlMockSpy = sandbox.spy(
+                        repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
+                    );
+                    mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
+                    mockContext.getFormContext().getAttribute("opc_complainantrep").setValue(true);
+
+                    // Act
+                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+
+                    // Assert
+                    repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("required");
+                    repAuthProvidedAttributeMockSpy.getValue().should.equal(false);
+                    repAuthProvidedControlMockSpy.getVisible().should.equal(true);
+                });
             });
         });
 
@@ -530,6 +609,81 @@ describe("Complaint", () => {
 
             // Assert
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
+        });
+    });
+
+    describe("when a complainant representative is assigned", () => {
+        beforeEach(() => {
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+            sandbox.stub(contactService, "getContact").resolves();
+            sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
+        });
+
+        describe("and not recommending to ER or Investigation", () => {
+            it("authorization form provided should not be visible", () => {
+                // Arrange
+                const repAuthProvidedAttributeMock = mockContext.getFormContext().getAttribute("opc_representativeauthorizationprovided");
+                const repAuthProvidedAttributeMockSpy = sandbox.spy(repAuthProvidedAttributeMock);
+                const repAuthProvidedControlMockSpy = sandbox.spy(
+                    repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
+                );
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
+
+                // Assert
+                repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("none");
+                repAuthProvidedControlMockSpy.getVisible().should.equal(false);
+            });
+        });
+
+        describe("and recommending to ER", () => {
+            it("authorization form should be mandatory", () => {
+                // Arrange
+                const repAuthProvidedAttributeMock = mockContext.getFormContext().getAttribute("opc_representativeauthorizationprovided");
+                const repAuthProvidedAttributeMockSpy = sandbox.spy(repAuthProvidedAttributeMock);
+                const repAuthProvidedControlMockSpy = sandbox.spy(
+                    repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
+                );
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
+                mockContext
+                    .getFormContext()
+                    .getAttribute("opc_complainantrep")
+                    .setValue([{ name: "opc_complainantrep" }]);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
+
+                // Assert
+                repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("required");
+                repAuthProvidedAttributeMockSpy.getValue().should.equal(false);
+                repAuthProvidedControlMockSpy.getVisible().should.equal(true);
+            });
+        });
+
+        describe("and recommending to Investigation", () => {
+            it("authorization form should be mandatory", () => {
+                // Arrange
+                const repAuthProvidedAttributeMock = mockContext.getFormContext().getAttribute("opc_representativeauthorizationprovided");
+                const repAuthProvidedAttributeMockSpy = sandbox.spy(repAuthProvidedAttributeMock);
+                const repAuthProvidedControlMockSpy = sandbox.spy(
+                    repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
+                );
+                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
+                mockContext
+                    .getFormContext()
+                    .getAttribute("opc_complainantrep")
+                    .setValue([{ name: "opc_complainantrep" }]);
+
+                // Act
+                mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
+
+                // Assert
+                repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("required");
+                repAuthProvidedAttributeMockSpy.getValue().should.equal(false);
+                repAuthProvidedControlMockSpy.getVisible().should.equal(true);
+            });
         });
     });
 });
