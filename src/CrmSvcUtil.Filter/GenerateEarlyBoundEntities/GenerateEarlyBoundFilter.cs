@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xrm.Sdk.Metadata;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Microsoft.Crm.Services.Utility;
+using System.IO;
 
 namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
 {
     /// <summary>
     /// CodeWriterFilter for CrmSvcUtil filters entites, attributes etc.. based on a set of custom rules
     /// </summary>
-    public class GenerateEarlyBoundBoundFilter : ICodeWriterFilterService
+    public class GenerateEarlyBoundFilter : ICodeWriterFilterService
     {
-        private HashSet<BlackListedEntity> _blackListedEntities = new HashSet<BlackListedEntity>();
+        private Filter _blackList;
 
         private ICodeWriterFilterService _defaultService = null;
 
-        public GenerateEarlyBoundBoundFilter(ICodeWriterFilterService defaultService)
+        public GenerateEarlyBoundFilter(ICodeWriterFilterService defaultService)
         {
             _defaultService = defaultService;
             LoadFilterData();
@@ -27,33 +29,11 @@ namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
         /// </summary>
         private void LoadFilterData()
         {
-            XElement xml = XElement.Load("filter.xml");
-            XElement entitiesElement = xml.Element("black-listed-entities");
+            XmlSerializer serializer = new XmlSerializer(typeof(Filter));
 
-            foreach (XElement entityElement in entitiesElement.Elements("entity"))
+            using (FileStream fs = new FileStream("filter.xml", FileMode.Open))
             {
-                BlackListedEntity blackListedEntity = null;
-                if (entityElement.Attributes().Any(x => x.Name.LocalName.Equals("name", StringComparison.OrdinalIgnoreCase)))
-                {
-                    blackListedEntity = new BlackListedEntity()
-                    {
-                        Name = entityElement.Attributes().First(x => x.Name.LocalName.Equals("name", StringComparison.OrdinalIgnoreCase)).Value
-                    };
-                    Console.WriteLine($"Black listed entity added: {blackListedEntity.Name}");
-                }
-
-                if (blackListedEntity != null)
-                {
-                    foreach (XElement entityField in entityElement.Elements("field"))
-                    {
-                        if (blackListedEntity.Fields is null) blackListedEntity.Fields = new HashSet<string>();
-
-                        Console.WriteLine($"Black listed field added: {entityField?.Value}");
-                        blackListedEntity.Fields.Add(entityField?.Value?.ToLower());
-                    }
-
-                    _blackListedEntities.Add(blackListedEntity);
-                }
+                _blackList = (Filter)serializer.Deserialize(fs);
             }
         }
 
@@ -64,11 +44,12 @@ namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
         /// <returns>Whether we generate the entity or not</returns>
         public bool GenerateEntity(EntityMetadata entityMetadata, IServiceProvider services)
         {
-            if (!_blackListedEntities.Any()) return _defaultService.GenerateEntity(entityMetadata, services);
+            //Console.WriteLine($"Any?: {_blackList.BlackListedEntities.Entities.Any()}");
+            if (!_blackList.BlackListedEntities?.Entities?.Any() ?? false) return _defaultService.GenerateEntity(entityMetadata, services);
 
             // Check if the entity is entirely black listed (in the black list and no fields specified)
-            var toBlackList = _blackListedEntities
-                .Any(x => x.Name.Equals(entityMetadata.LogicalName, StringComparison.OrdinalIgnoreCase) && x.Fields is null);
+            var toBlackList = _blackList
+                .BlackListedEntities.Entities.Any(x => x.Name.Equals(entityMetadata.LogicalName, StringComparison.OrdinalIgnoreCase) && x.Fields is null);
 
             if (toBlackList) return false;
 
@@ -82,14 +63,14 @@ namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
         public bool GenerateAttribute(AttributeMetadata attributeMetadata, IServiceProvider services)
         {
             // No black listed entities, transfer the decision to the default service
-            if (!_blackListedEntities.Any()) _defaultService.GenerateAttribute(attributeMetadata, services);
+            if (!_blackList.BlackListedEntities?.Entities?.Any() ?? false) _defaultService.GenerateAttribute(attributeMetadata, services);
 
             // Check if the entity the attribute belongs to is in the blacklist
-            var blackListedEntity = _blackListedEntities
+            var blackListedEntity = _blackList.BlackListedEntities.Entities
                 .FirstOrDefault(x => x.Name.Equals(attributeMetadata?.EntityLogicalName, StringComparison.OrdinalIgnoreCase));
 
             // Is the current attribute blacklisted?
-            if (blackListedEntity?.Fields?.Contains(attributeMetadata?.LogicalName?.ToLower() ?? "") ?? false)
+            if (blackListedEntity?.Fields.FirstOrDefault(x => x.Equals(attributeMetadata?.LogicalName, StringComparison.OrdinalIgnoreCase)) != null)
             {
                 return false;
             }

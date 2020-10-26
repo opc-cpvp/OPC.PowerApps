@@ -55,9 +55,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenerateEarlyBoundEntities\BlackListedEntity.cs" />
+    <Compile Include="GenerateEarlyBoundEntities\Filter.cs" />
     <Compile Include="GenerateEarlyBoundEntities\GenerateEarlyBoundFilter.cs" />
     <Compile Include="GenerateOptionSetEnums\CodeCustomizationsService.cs" />
     <Compile Include="GenerateOptionSetEnums\FilteringService.cs" />
