@@ -14,7 +14,7 @@ namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
     /// </summary>
     public class GenerateEarlyBoundFilter : ICodeWriterFilterService
     {
-        private Filter _blackList;
+        private Filter _filter;
 
         private ICodeWriterFilterService _defaultService = null;
 
@@ -33,7 +33,7 @@ namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
 
             using (FileStream fs = new FileStream("filter.xml", FileMode.Open))
             {
-                _blackList = (Filter)serializer.Deserialize(fs);
+                _filter = (Filter)serializer.Deserialize(fs);
             }
         }
 
@@ -45,10 +45,10 @@ namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
         public bool GenerateEntity(EntityMetadata entityMetadata, IServiceProvider services)
         {
             //Console.WriteLine($"Any?: {_blackList.BlackListedEntities.Entities.Any()}");
-            if (!_blackList.BlackListedEntities?.Entities?.Any() ?? false) return _defaultService.GenerateEntity(entityMetadata, services);
+            if (!_filter.BlackListedEntities?.Entities?.Any() ?? false) return _defaultService.GenerateEntity(entityMetadata, services);
 
             // Check if the entity is entirely black listed (in the black list and no fields specified)
-            var toBlackList = _blackList
+            var toBlackList = _filter
                 .BlackListedEntities.Entities.Any(x => x.Name.Equals(entityMetadata.LogicalName, StringComparison.OrdinalIgnoreCase) && x.Fields is null);
 
             if (toBlackList) return false;
@@ -63,10 +63,10 @@ namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
         public bool GenerateAttribute(AttributeMetadata attributeMetadata, IServiceProvider services)
         {
             // No black listed entities, transfer the decision to the default service
-            if (!_blackList.BlackListedEntities?.Entities?.Any() ?? false) _defaultService.GenerateAttribute(attributeMetadata, services);
+            if (!_filter.BlackListedEntities?.Entities?.Any() ?? false) _defaultService.GenerateAttribute(attributeMetadata, services);
 
             // Check if the entity the attribute belongs to is in the blacklist
-            var blackListedEntity = _blackList.BlackListedEntities.Entities
+            var blackListedEntity = _filter.BlackListedEntities.Entities
                 .FirstOrDefault(x => x.Name.Equals(attributeMetadata?.EntityLogicalName, StringComparison.OrdinalIgnoreCase));
 
             // Is the current attribute blacklisted?
