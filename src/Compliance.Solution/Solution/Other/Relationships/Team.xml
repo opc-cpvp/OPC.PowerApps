@@ -3,7 +3,7 @@
   <EntityRelationship Name="opc_event_team_owningteam">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.459</IntroducedVersion>
+    <IntroducedVersion>1.0.436</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_event</ReferencingEntityName>
     <ReferencedEntityName>Team</ReferencedEntityName>
