@@ -7,9 +7,11 @@ if ($ConnectionString) {
 		/connectionstring:$ConnectionString `
 		/out:"../Compliance.Entities/Entities.cs" `
 		/namespace:"Compliance.Entities" `
+		/codewriterfilter:"CrmSvcUtil.Filter.GenerateEarlyBoundEntities.GenerateEarlyBoundFilter, CrmSvcUtil.Filter"
 } else {
 	& $crmSvcUtil `
 		/interactivelogin `
 		/out:"../Compliance.Entities/Entities.cs" `
-		/namespace:"Compliance.Entities"
+		/namespace:"Compliance.Entities" `
+		/codewriterfilter:"CrmSvcUtil.Filter.GenerateEarlyBoundEntities.GenerateEarlyBoundFilter, CrmSvcUtil.Filter"
 }
