@@ -159,7 +159,6 @@ describe("ChecklistControl", () => {
             updateQuestionResponseStub.should.have.been.calledWith("1");
         });
 
-
         it("it should only update textareas marked dirty", () => {
             // Arrange
             let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
@@ -173,7 +172,6 @@ describe("ChecklistControl", () => {
             updateQuestionResponseStub.should.have.been.calledOnce;
             updateQuestionResponseStub.should.have.been.calledWith("1", "update");
         });
-
 
         it("it should only update 'yes/no' input radios marked dirty", () => {
             // Arrange
@@ -219,5 +217,89 @@ describe("ChecklistControl", () => {
             updateQuestionResponseStub.should.have.been.calledWith("1", "1");
         });
 
+        it("it should only update input select marked dirty", () => {
+            // Arrange
+            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
+            formElement.insertAdjacentHTML("beforeend", '<select multiple="multiple" class="form-control select dirty" id="q-1" data-responseid="1"><option value="Opt1">Opt1</option><option value="Opt2" selected>Opt2</option><option value="Opt3">Opt3</option></select>')
+            formElement.insertAdjacentHTML("beforeend", '<select multiple="multiple" class="form-control select" id="q-2" data-responseid="2"><option value="Opt1">Opt1</option><option value="Opt2">Opt2</option><option value="Opt3">Opt3</option></select>')
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledOnce;
+            updateQuestionResponseStub.should.have.been.calledWith("1", "Opt2");
+        });
+
+        it("it should only update input select marked dirty", () => {
+            // Arrange
+            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
+            formElement.insertAdjacentHTML("beforeend", '<select multiple="multiple" class="form-control multiselect dirty" id="q-1" data-responseid="1"><option value="Opt1" selected>Opt1</option><option value="Opt2" selected>Opt2</option><option value="Opt3">Opt3</option><option value="Opt">Opt</option></select>')
+            formElement.insertAdjacentHTML("beforeend", '<select multiple="multiple" class="form-control multiselect" id="q-2" data-responseid="2"><option value="Opt1">Opt1</option><option value="Opt2">Opt2</option><option value="Opt3">Opt3</option><option value="Opt">Opt</option></select>')
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledOnce;
+            updateQuestionResponseStub.should.have.been.calledWith("1", "Opt1Opt2");
+        });
+
+        it("it should only update input date marked dirty", () => {
+            // Arrange
+            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
+
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-1" data-responseid="1" type="date" class="form-control dirty" value="2020-10-23" />')
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-2" data-responseid="2" type="date" class="form-control" value="2020-10-24" />')
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledOnce;
+            updateQuestionResponseStub.should.have.been.calledWith("1", "2020-10-23");
+        });
+
+        it("it should only update input number marked dirty", () => {
+            // Arrange
+            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
+
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-1" data-responseid="1" type="number" class="form-control dirty" value="666" />')
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-2" data-responseid="2" type="number" class="form-control" value="101" />')
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledOnce;
+            updateQuestionResponseStub.should.have.been.calledWith("1", "666");
+        });
+
+        it.skip("it should update all input calculated field", () => {
+            // Arrange
+            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
+
+            //let test = sandbox.stub(service, 'getChecklist').resolves([
+            //    { opc_questiontemplateid: { opc_sequence: "1" } },
+            //    { opc_questiontemplateid: { opc_sequence: "2" } },
+            //    { opc_questiontemplateid: { opc_sequence: "3" } }]);
+
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-1" data-responseid="1" type="date" class="form-control" value="2020-10-23" />')
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-2" data-responseid="2" type="number" class="form-control" value="3" />')
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-3" data-responseid="3" type="number" class="form-control" value="663" />')
+
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-4" data-responseid="4" type="text" class="form-control calculated-field" data-additionalparameters="" readonly />')
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-5" data-responseid="5" type="text" class="form-control calculated-field" data-additionalparameters="" readonly />')
+            formElement.insertAdjacentHTML("beforeend", '<input id="q-6" data-responseid="6" type="text" class="form-control calculated-field" data-additionalparameters="" readonly />')
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledThrice;
+            updateQuestionResponseStub.should.have.been.calledWith("4", "2020-10-20");
+            updateQuestionResponseStub.should.have.been.calledWith("5", "2020-10-26");
+            updateQuestionResponseStub.should.have.been.calledWith("6", "666");
+        });
     });
 });

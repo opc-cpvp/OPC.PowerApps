@@ -194,12 +194,70 @@ export namespace Controls {
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
 
+        private getResponseValue(sequenceNumber: string): string {
+            const field = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === sequenceNumber);
+            return (<HTMLDataElement>this.documentContext.getElementById(`q-${field.opc_checklistresponseid}`)).value;
+        }
+
         private isNullOrWhiteSpace(string: string): boolean {
             return (string === null || string.match(/^ *$/) !== null) ? true : false;
         }
 
         private getDateDifferenceInDays(date1: Date, date2: Date): number {
             return (date1.valueOf() - date2.valueOf()) / (1000 * 60 * 60 * 24);
+        }
+
+        private subtractDaysFromDate(date: Date, days: number): Date {
+            return new Date(date.valueOf() - (days * 24 * 60 * 60 * 1000));
+        }
+
+        private addDaysToDate(date: Date, days: number): Date {
+            return new Date(date.valueOf() + (days * 24 * 60 * 60 * 1000));
+        }
+
+        private calculate(firstValue: any, operator: string, secondValue: any): string {
+            let result: string = null;
+
+            firstValue = (<string>firstValue).match(/^\d{4}-\d{2}-\d{2}$/) ? new Date(firstValue) : Number.parseInt(firstValue);
+            secondValue = (<string>secondValue).match(/^\d{4}-\d{2}-\d{2}$/) ? new Date(secondValue) : Number.parseInt(secondValue);
+
+            if (isNaN(firstValue) || isNaN(secondValue)) {
+                return result;
+            }
+
+            switch (operator) {
+                case "-":
+                    if (firstValue instanceof Date && secondValue instanceof Date) {
+                        result = this.getDateDifferenceInDays(new Date(firstValue), new Date(secondValue)).toString();
+                    }
+                    else if (firstValue instanceof Date && typeof secondValue === "number") {
+                        result = this.subtractDaysFromDate(new Date(firstValue), secondValue).toISOString().split("T")[0];
+                    }
+                    else if (typeof firstValue === "number" && typeof secondValue === "number") {
+                        result = (firstValue - secondValue).toString();
+                    }
+                    break;
+                case "+":
+                    if (firstValue instanceof Date && typeof secondValue === "number") {
+                        result = this.addDaysToDate(new Date(firstValue), secondValue).toISOString().split("T")[0];
+                    }
+                    else if (typeof firstValue === "number" && typeof secondValue === "number") {
+                        result = (firstValue + secondValue).toString();
+                    }
+                case "/":
+                    if (typeof firstValue === "number" && typeof secondValue === "number") {
+                        result = (firstValue / secondValue).toString();
+                    }
+                case "*":
+                    if (typeof firstValue === "number" && typeof secondValue === "number") {
+                        result = (firstValue * secondValue).toString();
+                    }
+                    break
+                default:
+                    break;
+            }
+
+            return result;
         }
 
         public save(): void {
@@ -267,40 +325,26 @@ export namespace Controls {
                 const id: string = calculatedFields[i].getAttribute("data-responseid");
                 let value: string = null;
 
-                // Get the additional parameters of the question template
                 const input = <HTMLInputElement>calculatedFields[i];
                 const formula = input.dataset.additionalparameters;
 
-                // Split fields
-                //[0] is whole formula, [1] is first value, [2] is the operator, [3] is the second value
-                //const formulaArray = /(\d+(?:\.\d+)*)\s*([-+/\*])\s*(\d+(?:\.\d+)*)(?:\s*([-+/\*])\s*(\d+(?:\.\d+)*))?/g.exec(formula);
-                const formulaArray = /(\d+(?:\.\d+)*)\s*([-+/\*])\s*(\d+(?:\.\d+)*)/g.exec(formula);
+                const regex = /(?<operator>^|[-+/*])\s*(?<number>\d+(?:\.\d+)*)/g
+                const matches = Array.from(formula.matchAll(regex));
 
+                const field1Value = this.getResponseValue(matches[0].groups.number);
+                const field2Value = this.getResponseValue(matches[1].groups.number);
 
-                // Retrieve associated fields
-                const field1 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[1]);
-                const field2 = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === formulaArray[3]);
-
-
-                const field1Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field1.opc_checklistresponseid}`)).value;
-                const field2Value = (<HTMLDataElement>this.documentContext.getElementById(`q-${field2.opc_checklistresponseid}`)).value;
-
-                // Check if both fields have a value
+                // Check if the two first fields have a value
                 if (!this.isNullOrWhiteSpace(field1Value) && !this.isNullOrWhiteSpace(field2Value)) {
-                    // Switch-Case for the operator
-                    switch (formulaArray[2]) {
-                        case "-":
-                            // Check if both fields are dates
-                            if (!isNaN(Date.parse(field1Value)) && !isNaN(Date.parse(field2Value))) {
-                                value = this.getDateDifferenceInDays(new Date(field1Value), new Date(field2Value)).toString();
-                            }
-                            break;
-                        case "+":
-                        case "/":
-                        case "*":
-                            break
-                        default:
-                            break;
+
+                    value = this.calculate(field1Value, matches[1].groups.operator, field2Value);
+
+                    for (const match of matches.slice(2)) {
+                        const fieldValue = this.getResponseValue(match.groups.number);
+
+                        if (!this.isNullOrWhiteSpace(value) && !this.isNullOrWhiteSpace(fieldValue)) {
+                            value = this.calculate(value, match.groups.operator, fieldValue);
+                        }
                     }
                 }
 
