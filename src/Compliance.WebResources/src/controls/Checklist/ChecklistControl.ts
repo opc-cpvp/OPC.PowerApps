@@ -121,7 +121,6 @@ export namespace Controls {
         private addCalculatedFieldQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                //`<label id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" data-additionalparameters="${cr.opc_questiontemplateid.opc_additionalparameters}" data-responseid='${cr.opc_checklistresponseid}'>${cr.opc_response || ""}</label>`;
                 `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' data-additionalparameters="${cr.opc_questiontemplateid.opc_additionalparameters}" readonly />`;
             element.insertAdjacentHTML('beforeend', questionHtml);
         }
@@ -260,10 +259,47 @@ export namespace Controls {
             return result;
         }
 
+        private updateCalculatedFields(): void {
+            const calculatedFields = this._placeholder.getElementsByClassName("calculated-field");
+
+            for (let i = 0; i < calculatedFields.length; i++) {
+                const id: string = calculatedFields[i].getAttribute("data-responseid");
+                let value: string = null;
+
+                const input = <HTMLInputElement>calculatedFields[i];
+                const formula = input.dataset.additionalparameters;
+
+                const regex = /(?<operator>^|[-+/*])\s*(?<number>\d+(?:\.\d+)*)/g
+                const matches = Array.from(formula.matchAll(regex));
+
+                const field1Value = this.getResponseValue(matches[0].groups.number);
+                const field2Value = this.getResponseValue(matches[1].groups.number);
+
+                // Check if the two first fields have a value
+                if (!this.isNullOrWhiteSpace(field1Value) && !this.isNullOrWhiteSpace(field2Value)) {
+
+                    value = this.calculate(field1Value, matches[1].groups.operator, field2Value);
+
+                    for (const match of matches.slice(2)) {
+                        const fieldValue = this.getResponseValue(match.groups.number);
+
+                        if (!this.isNullOrWhiteSpace(value) && !this.isNullOrWhiteSpace(fieldValue)) {
+                            value = this.calculate(value, match.groups.operator, fieldValue);
+                        }
+                    }
+                }
+
+                input.value = value;
+
+                // Send update queries to checklist service
+                this._checklistService.updateChecklistResponse(id, value)
+                    .catch(e => console.error("error updating calculated fields:" + e));
+            }
+        }
+
         public save(): void {
 
             const dirtyInputs = this._placeholder.getElementsByClassName("dirty");
-            const calculatedFields = this._placeholder.getElementsByClassName("calculated-field");
             const doubleDirtyRadios: string[] = [];
 
             // Iterate over all dirty elements to persist the state
@@ -321,40 +357,7 @@ export namespace Controls {
                     .catch(e => console.error("error updating questions:" + e));
             }
 
-            for (let i = 0; i < calculatedFields.length; i++) {
-                const id: string = calculatedFields[i].getAttribute("data-responseid");
-                let value: string = null;
-
-                const input = <HTMLInputElement>calculatedFields[i];
-                const formula = input.dataset.additionalparameters;
-
-                const regex = /(?<operator>^|[-+/*])\s*(?<number>\d+(?:\.\d+)*)/g
-                const matches = Array.from(formula.matchAll(regex));
-
-                const field1Value = this.getResponseValue(matches[0].groups.number);
-                const field2Value = this.getResponseValue(matches[1].groups.number);
-
-                // Check if the two first fields have a value
-                if (!this.isNullOrWhiteSpace(field1Value) && !this.isNullOrWhiteSpace(field2Value)) {
-
-                    value = this.calculate(field1Value, matches[1].groups.operator, field2Value);
-
-                    for (const match of matches.slice(2)) {
-                        const fieldValue = this.getResponseValue(match.groups.number);
-
-                        if (!this.isNullOrWhiteSpace(value) && !this.isNullOrWhiteSpace(fieldValue)) {
-                            value = this.calculate(value, match.groups.operator, fieldValue);
-                        }
-                    }
-                }
-
-                input.value = value;
-
-                // Send update queries to checklist service
-                this._checklistService.updateChecklistResponse(id, value)
-                    .catch(e => console.error("error updating questions:" + e));
-            }
-
+            this.updateCalculatedFields();
         }
     }
 }
