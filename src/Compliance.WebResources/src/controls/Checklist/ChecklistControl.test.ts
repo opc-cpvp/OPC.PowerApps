@@ -46,7 +46,7 @@ describe("ChecklistControl", () => {
             const addEventListener = sandbox.stub(documentContext, "addEventListener");
             sandbox.stub(service, "getChecklist").resolves([]);
             sandbox.stub(service, "getQuestionTypes").resolves([]);
-            sandbox.stub(JQueryHelper, "initSelectElements").returns();
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             // Act
             control.init();
@@ -60,7 +60,7 @@ describe("ChecklistControl", () => {
             // Arrange
             const getQuestionTypes = sandbox.stub(service, "getQuestionTypes").resolves([]);
             sandbox.stub(service, "getChecklist").resolves([]);
-            sandbox.stub(JQueryHelper, "initSelectElements").returns();
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             // Act
             control.init();
@@ -73,7 +73,7 @@ describe("ChecklistControl", () => {
             // Arrange
             const getChecklist = sandbox.stub(service, "getChecklist").resolves([]);
             sandbox.stub(service, "getQuestionTypes").resolves([]);
-            sandbox.stub(JQueryHelper, "initSelectElements").returns();
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             // Act
             control.init();
@@ -105,7 +105,7 @@ describe("ChecklistControl", () => {
         // The reason why it doesn't work is because getChecklist doesn't finish before the assertion happens.
         it.skip("it should initialize the select/multiselect elements using the bootstrap-multiselect plugin", async () => {
             // Arrange
-            const initSelectElementsStub = sandbox.stub(JQueryHelper, "initSelectElements").returns();
+            const initSelectElementsStub = sandbox.stub(JQueryHelper, "initSelectElements");
             const checklistStub = sandbox.stub(service, 'getChecklist').resolves([]);
             sandbox.stub(service, 'getQuestionTypes').resolves([]);
 
@@ -131,7 +131,7 @@ describe("ChecklistControl", () => {
             service = new ChecklistService();
             sandbox.stub(service, "getQuestionTypes").resolves([]);
             sandbox.stub(service, "getChecklist").resolves([]);
-            sandbox.stub(JQueryHelper, "initSelectElements").returns();
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             xrmContext = new XrmContextMock();
             xrmContext.setQueryStringParameters({ id: "guid-test" }); // this is the format that is passed to the iframe
@@ -304,7 +304,7 @@ describe("ChecklistControl", () => {
         it("it should update all input calculated field", () => {
             // Arrange
             let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
-            sandbox.stub(control, 'getResponseValue').returns();
+            sandbox.stub(control, 'getResponseValue');
             sandbox.stub(control, 'isNullOrWhiteSpace').returns(false);
             sandbox.stub(control, 'calculate').returns("newValue");
 
@@ -328,7 +328,7 @@ describe("ChecklistControl", () => {
                 let calculateStub = sandbox.stub(control, 'calculate').returns("newValue");
 
                 sandbox.stub(service, 'updateChecklistResponse').resolves();
-                sandbox.stub(control, 'getResponseValue').returns();
+                sandbox.stub(control, 'getResponseValue');
                 sandbox.stub(control, 'isNullOrWhiteSpace').returns(false);
 
                 formElement.insertAdjacentHTML("beforeend", '<input id="q-6" data-responseid="6" type="text" class="form-control calculated-field" data-additionalparameters="2 + 3 - 4 * 8.2.3.4.5 / 2.1" />')

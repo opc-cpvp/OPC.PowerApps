@@ -11,7 +11,8 @@ import {
     IAuthService,
     ISharePointService,
     ComplaintWithRelationships,
-    TemplateEnvironmentVariable
+    TemplateEnvironmentVariable,
+    AllegationWithChecklistResponse
 } from "../../interfaces";
 import { DOMWindow } from "jsdom";
 
