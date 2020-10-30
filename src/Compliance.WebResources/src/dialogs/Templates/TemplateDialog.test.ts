@@ -1,18 +1,20 @@
-﻿import { XrmContextMock } from '../../../test/XrmContextMock';
-import { IComplaintService, IUserService, IEnvironmentVariableService, WindowContext, ISharePointService, IAuthService } from '../../interfaces';
-import { Dialogs } from '../../dialogs/Templates/TemplateDialog';
-import { ComplaintService } from '../../services/ComplaintService';
-import { UserService } from '../../services/UserService';
-import { EnvironmentVariableService } from '../../services/EnvironmentVariableService';
-import { AuthService } from '../../services/AuthService';
-import { SharePointService } from '../../services/SharePointService';
+﻿import { XrmContextMock } from "../../../test/XrmContextMock";
+import { IComplaintService, IUserService, IEnvironmentVariableService, ISharePointService, IAuthService } from "../../interfaces";
+import { Dialogs } from "../../dialogs/Templates/TemplateDialog";
+import { ComplaintService } from "../../services/ComplaintService";
+import { UserService } from "../../services/UserService";
+import { EnvironmentVariableService } from "../../services/EnvironmentVariableService";
+import { AuthService } from "../../services/AuthService";
+import { SharePointService } from "../../services/SharePointService";
+import * as resources from "../../resources.json";
+import { DOMWindow, JSDOM as jsdom } from "jsdom";
+import i18next from "i18next";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var jsdom = require("jsdom").JSDOM;
-var i18next = require("i18next");
-var sandbox = sinon.createSandbox();
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
+const sandbox = sinon.createSandbox();
 
 chai.should();
 chai.use(sinonChai);
@@ -24,7 +26,7 @@ describe("TemplateDialog", () => {
     let complaintService: IComplaintService;
     let authService: IAuthService;
     let sharePointService: ISharePointService;
-    let windowContext: WindowContext;
+    let windowContext: DOMWindow;
     let h1Element: HTMLElement;
     let divElement: HTMLDivElement;
     let templateDialog: Dialogs.TemplateDialog;
@@ -35,7 +37,7 @@ describe("TemplateDialog", () => {
     const environmentVariable = `{"applicationId": "", "tenantId": "", "sharePointSiteUrl": "", "templatesFolderPath": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
     const templates = [{ "Name": "templateName", "ServerRelativeUrl": "templateRelativeUrl" }];
 
-    beforeEach(function () {
+    beforeEach(() => {
         xrmContext = new XrmContextMock();
         userService = new UserService();
         environmentVariableService = new EnvironmentVariableService();
@@ -51,10 +53,26 @@ describe("TemplateDialog", () => {
         windowContext.document.body.appendChild(h1Element);
         windowContext.document.body.appendChild(divElement);
 
-        templateDialog = new Dialogs.TemplateDialog(i18next, xrmContext, windowContext, userService, environmentVariableService, complaintService, authService, sharePointService);
+        void i18next.init({
+            resources: resources.resources,
+            defaultNS: "common",
+            fallbackLng: "en",
+            lng: "en"
+        });
+
+        templateDialog = new Dialogs.TemplateDialog(
+            i18next,
+            xrmContext,
+            windowContext,
+            userService,
+            environmentVariableService,
+            complaintService,
+            authService,
+            sharePointService
+        );
     });
 
-    afterEach(function () {
+    afterEach(() => {
         sandbox.restore();
         windowContext.document.body.removeChild(windowContext.document.getElementById("dialog"));
     });
@@ -69,7 +87,7 @@ describe("TemplateDialog", () => {
         let renderSpy: any;
         let addEventListenersSpy: any;
 
-        beforeEach(function () {
+        beforeEach(() => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             getUserEmailStub = sandbox.stub(userService, "getUserEmail").resolves("");
             getComplaintWithRelationshipsStub = sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
@@ -146,18 +164,18 @@ describe("TemplateDialog", () => {
             addEventListenersSpy.should.have.been.called;
         });
     });
-    describe("when user click on \"Generate Document\"", () => {
+    describe('when user click on "Generate Document"', () => {
         let generateDocumentOnClick: any;
         let getSharePointDocumentLocation: any;
         let generateDocumentFromTemplate: any;
         let windowClose: any;
-        let xrmAPIResponse: any = {
+        const xrmAPIResponse: any = {
             ok: true,
             status: 200,
             statusText: "Ok"
         };
 
-        beforeEach(function () {
+        beforeEach(() => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
@@ -169,7 +187,9 @@ describe("TemplateDialog", () => {
 
             windowClose = sandbox.stub(templateDialog, "closePage");
             generateDocumentOnClick = sandbox.spy(templateDialog, "generateDocument_onClick");
-            getSharePointDocumentLocation = sandbox.stub(complaintService, "getSharePointDocumentLocation").resolves(sharepointDocumentLocation);
+            getSharePointDocumentLocation = sandbox
+                .stub(complaintService, "getSharePointDocumentLocation")
+                .resolves(sharepointDocumentLocation);
             generateDocumentFromTemplate = sandbox.stub(sharePointService, "generateDocumentFromTemplate").resolves(xrmAPIResponse);
         });
 
@@ -178,7 +198,7 @@ describe("TemplateDialog", () => {
             await templateDialog.init();
 
             // Act
-            const submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
             // Assert
@@ -188,7 +208,7 @@ describe("TemplateDialog", () => {
             // Arrange
             await templateDialog.init();
             // Act
-            const submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
             // Assert
@@ -199,7 +219,7 @@ describe("TemplateDialog", () => {
             await templateDialog.init();
 
             // Act
-            const submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
             await getSharePointDocumentLocation;
@@ -212,7 +232,7 @@ describe("TemplateDialog", () => {
             await templateDialog.init();
 
             // Act
-            let submitButton = <HTMLButtonElement>windowContext.document.getElementById("template-comfirm");
+            const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
             await getSharePointDocumentLocation;
@@ -222,8 +242,8 @@ describe("TemplateDialog", () => {
             windowClose.should.have.been.called;
         });
     });
-    describe("when user click on \"Cancel\"", () => {
-        beforeEach(function () {
+    describe('when user click on "Cancel"', () => {
+        beforeEach(() => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
@@ -239,7 +259,7 @@ describe("TemplateDialog", () => {
             const windowClose = sandbox.stub(templateDialog, "closePage");
 
             // Act
-            const cancelButton = <HTMLButtonElement>windowContext.document.getElementById("template-cancel");
+            const cancelButton = windowContext.document.getElementById("template-cancel") as HTMLButtonElement;
             cancelButton.click();
 
             // Assert

@@ -1,11 +1,12 @@
-import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
-import { XrmSaveEventContextMock } from '../../test/XrmSaveEventContextMock';
-import { RiskAssessment } from './RiskAssessmentMainForm';
+import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
+import { XrmSaveEventContextMock } from "../../test/XrmSaveEventContextMock";
+import { RiskAssessment } from "./RiskAssessmentMainForm";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var sandbox = sinon.createSandbox();
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
+const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
@@ -14,13 +15,13 @@ describe("RiskAssessment", () => {
     let mockContext: XrmExecutionContextMock<Form.opc_riskassessment.Main.Information, any>;
     let contextSpy: any;
 
-    beforeEach(function () {
+    beforeEach(() => {
         form = new RiskAssessment.Forms.MainForm();
         mockContext = new XrmSaveEventContextMock<Form.opc_riskassessment.Main.Information>();
         contextSpy = sandbox.spy(mockContext);
     });
 
-    afterEach(function () {
+    afterEach(() => {
         sandbox.restore();
     });
 
@@ -29,7 +30,7 @@ describe("RiskAssessment", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_bypasssuggestedriskappetite").setValue(true);
 
-            //We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
             form.initializeComponents(mockContext);
 
             // Act
@@ -44,9 +45,6 @@ describe("RiskAssessment", () => {
 
             contextSpy.getFormContext().getControl("opc_actualriskappetite").getVisible().should.equal(true);
             contextSpy.getFormContext().getAttribute("opc_actualriskappetite").getRequiredLevel().should.equal("required");
-
-
-
         });
     });
 

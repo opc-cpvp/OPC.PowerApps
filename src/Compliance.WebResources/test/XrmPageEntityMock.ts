@@ -3,11 +3,11 @@ import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 
 export class XrmPageEntityMock<T, V> implements Xrm.PageEntity<any> {
+    attributes: XrmCollectionMock<XrmAttributeMock>;
+
     private _executionContext: XrmExecutionContextMock<any, any>;
     private _id: string;
     private _onSaveHandlers: ((context?: Xrm.SaveEventContext<this>) => any)[] = [];
-
-    attributes: XrmCollectionMock<XrmAttributeMock>;
 
     constructor(executionContext: XrmExecutionContextMock<T, V>) {
         this._executionContext = executionContext;
@@ -20,9 +20,10 @@ export class XrmPageEntityMock<T, V> implements Xrm.PageEntity<any> {
     }
     /* END OF NEW MEMBERS*/
 
-    addOnSave(functionRef: (context?: Xrm.SaveEventContext<this>) => {}): void {
+    addOnSave(functionRef: (context?: Xrm.SaveEventContext<this>) => any): void {
         this._onSaveHandlers.push(functionRef);
     }
+    // eslint-disable-next-line @typescript-eslint/ban-types
     removeOnSave(functionRef: Function): void {
         this._onSaveHandlers = this._onSaveHandlers.filter(f => f !== functionRef);
     }

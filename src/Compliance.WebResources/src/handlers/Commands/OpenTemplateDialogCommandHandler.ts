@@ -5,8 +5,7 @@ import { ICommandHandler, ExtendedXrmPageBase } from "../../interfaces";
 export class OpenTemplateDialogCommandHandler implements ICommandHandler {
     private _xrmNavigation: Xrm.Navigation;
 
-    constructor(
-        @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
+    constructor(@inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
         this._xrmNavigation = xrmNavigation;
     }
 
@@ -16,9 +15,16 @@ export class OpenTemplateDialogCommandHandler implements ICommandHandler {
 
         documentsSubgrid.setFocus();
 
-        this._xrmNavigation.navigateTo({ pageType: "webresource", webresourceName: "opc_compliance/template_dialog.html", data: complaintId }, { target: 2, position: 1, width: { value: 420, unit: "px" }, height: { value: 355, unit: "px" } })
+        this._xrmNavigation
+            .navigateTo(
+                { pageType: "webresource", webresourceName: "opc_compliance/template_dialog.html", data: complaintId },
+                { target: 2, position: 1, width: { value: 420, unit: "px" }, height: { value: 355, unit: "px" } }
+            )
             .then(() => {
                 documentsSubgrid.refresh();
+            })
+            .catch(error => {
+                console.error(error);
             });
     }
 }

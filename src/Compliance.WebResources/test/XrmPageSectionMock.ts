@@ -6,11 +6,13 @@ import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
 import { XrmPageTabMock } from "./XrmPageTabMock";
 
 export class XrmPageSectionMock implements Xrm.PageSection, INamedComponent {
+    controls: XrmCollectionMock<XrmBaseControlMock>;
+
     private _context: XrmExecutionContextMock<any, any>;
     private _name: string;
     private _isVisible: boolean;
     private _parentTab: XrmPageTabMock;
-    controls: XrmCollectionMock<XrmBaseControlMock>;
+
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this._context = executionContext;
         this.controls = new XrmCollectionMock<XrmControlMock>(XrmControlMock, executionContext);
@@ -19,10 +21,11 @@ export class XrmPageSectionMock implements Xrm.PageSection, INamedComponent {
     setName(name: string): void {
         this._name = name;
     }
-    setParent(parentTab: XrmPageTabMock) {
+    setParent(parentTab: XrmPageTabMock): void {
         this._parentTab = parentTab;
     }
     /* END OF NEW MEMBERS*/
+
     getName(): string {
         return this._name;
     }

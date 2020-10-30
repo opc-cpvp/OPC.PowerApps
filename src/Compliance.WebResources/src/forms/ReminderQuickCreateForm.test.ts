@@ -1,35 +1,35 @@
-﻿import { XrmExecutionContextMock } from '../../test/XrmExecutionContextMock';
-import { XrmSaveEventContextMock } from '../../test/XrmSaveEventContextMock';
-import { Reminder } from './ReminderQuickCreateForm';
+﻿import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
+import { XrmSaveEventContextMock } from "../../test/XrmSaveEventContextMock";
+import { Reminder } from "./ReminderQuickCreateForm";
+import i18next from "i18next";
 
-var chai = require("chai");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
-var sandbox = sinon.createSandbox();
+import chai from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+
+const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
-
-var i18next = require("i18next");
 
 describe("Reminder - QuickCreate", () => {
     let form: Reminder.Forms.QuickCreate;
     let mockContext: XrmExecutionContextMock<Form.opc_reminder.QuickCreate.QuickCreate, any>;
     let contextSpy: any;
 
-    beforeEach(function () {
+    beforeEach(() => {
         form = new Reminder.Forms.QuickCreate(i18next);
         mockContext = new XrmSaveEventContextMock<Form.opc_reminder.QuickCreate.QuickCreate>();
         contextSpy = sandbox.spy(mockContext);
     });
 
-    afterEach(function () {
+    afterEach(() => {
         sandbox.restore();
     });
 
     describe("when form is saving", () => {
         let eventArgsSpy: any;
-        
-        beforeEach(function () {
+
+        beforeEach(() => {
             eventArgsSpy = sandbox.spy(mockContext.getEventArgs());
         });
 
@@ -54,7 +54,7 @@ describe("Reminder - QuickCreate", () => {
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(true);
             mockContext.getContext().setQueryStringParameters({ parentrecordtype: "opc_complaint" });
 
-            //We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
+            // We are calling initializeComponents to register the events and to be able to call save() on the entity, which will trigger the onsave event. Onsave is a private method.
             form.initializeComponents(mockContext);
 
             // Act
@@ -80,7 +80,7 @@ describe("Reminder - QuickCreate", () => {
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(3);
         });
 
-        it("it should not display notifications if the user have selected someone to be notified",  () => {
+        it("it should not display notifications if the user have selected someone to be notified", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(true);
             mockContext.getFormContext().getAttribute("opc_notifyme").setValue(true);
@@ -95,7 +95,7 @@ describe("Reminder - QuickCreate", () => {
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
 
-        it("it should cancel the save operation if the user have not selected someone to be notified", async () => {
+        it("it should cancel the save operation if the user have not selected someone to be notified", () => {
             // Arrange
             mockContext.getFormContext().getAttribute("opc_notifycaseowner").setValue(false);
             mockContext.getFormContext().getAttribute("opc_notifyme").setValue(false);

@@ -11,9 +11,8 @@ export class ControlFactory {
     }
 
     public createControl<TControl extends IPowerControl>(controlName: string): TControl {
-        let control = this._container.get<TControl>(controlName);
+        const control = this._container.get<TControl>(controlName);
         control.init();
         return control;
     }
-
 }

@@ -1,10 +1,11 @@
+/// <reference path="../@types/sinonextensions/sinonextensions.d.ts" />
 /// <reference path="../@types/xrmdefinitelytyped/xrm.d.ts" />
 /// <reference path="../@types/xrmdefinitelytyped/context.d.ts" />
 /// <reference path="../@types/xrmdefinitelytyped/dg.xrmquery.web.d.ts" />
 
 /* Global */
-import 'mocha';
-import 'jsdom-global/register';
+import "mocha";
+import "jsdom-global/register";
 
 /* Forms */
 import "./forms/ComplaintMainForm.test";
@@ -16,15 +17,15 @@ import "./forms/AllegationMainForm.test";
 import "./forms/RiskAssessmentsMainForm.test";
 
 /* Controls */
-import "./controls/Checklist/ChecklistControl.test"
-import "./controls/RiskAssessment/RiskAssessmentControl.test"
+import "./controls/Checklist/ChecklistControl.test";
+import "./controls/RiskAssessment/RiskAssessmentControl.test";
 
 /* Command Handlers */
-import "./handlers/Commands/MergeContactCommandHandler.test"
-import "./handlers/Commands/OpenTemplateDialogCommandHandler.test"
+import "./handlers/Commands/MergeContactCommandHandler.test";
+import "./handlers/Commands/OpenTemplateDialogCommandHandler.test";
 
 /* Query Handlers */
-import "./handlers/Queries/CheckDuplicatesQueryHandler.test"
+import "./handlers/Queries/CheckDuplicatesQueryHandler.test";
 
 /* Dialogs */
-import "./dialogs/Templates/TemplateDialog.test"
+import "./dialogs/Templates/TemplateDialog.test";

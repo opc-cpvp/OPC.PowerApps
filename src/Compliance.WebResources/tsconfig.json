@@ -3,21 +3,30 @@
         "allowSyntheticDefaultImports": true,
         "maxNodeModuleJsDepth": 2,
         "sourceMap": true,
-      "types": [ "reflect-metadata", "node", "ts-nameof", "jquery", "bootstrap-multiselect" ],
+        "types": [
+          "reflect-metadata",
+          "node",
+          "ts-nameof",
+          "jquery",
+          "bootstrap-multiselect"
+        ],
         "module": "commonjs",
         "target": "es5",
-        "lib": [ "es6", "dom", "ES2020" ],
+        "lib": [
+          "es6",
+          "dom",
+          "ES2020"
+        ],
+        "esModuleInterop": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "allowJs": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noEmitOnError": true,
-
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-
         "plugins": [
             {
                 "transform": "ts-nameof",

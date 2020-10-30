@@ -20,7 +20,7 @@
   <AppModules />
   <EntityDataProviders />
   <connectionreferences>
-    <connectionreference connectionreferencelogicalname="opc_sharedcommondataserviceforapps_f75fe">
+    <connectionreference connectionreferencelogicalname="opc_sharedcommondataserviceforapps_3689c">
       <connectionreferencedisplayname>Common Data Service (current environment)</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
       <iscustomizable>1</iscustomizable>
