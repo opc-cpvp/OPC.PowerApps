@@ -1,4 +1,5 @@
 ﻿import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
+import { XrmStageMock } from "../../test/XrmStageMock";
 import { Complaint } from "./ComplaintMainForm";
 import { ContactService } from "../services/ContactService";
 import { IBaseContact } from "../interfaces";
@@ -545,6 +546,46 @@ describe("Complaint", () => {
 
             // Assert
             intakeDispositionAttributeSpy.getRequiredLevel().should.equal("none");
+        });
+    });
+
+    describe("when complaint stage is modified", () => {
+        beforeEach(() => {
+            form.initializeComponents(mockContext);
+        });
+
+        afterEach(() => {
+            sandbox.restore();
+        });
+
+        it("perceived priorities should be required if stage is intake", () => {
+            // Arrange
+            const perceivedPrioritiesAttributeMock = mockContext.getFormContext().getAttribute("opc_complainantperceivedpriorities");
+            const perceivedPrioritiesAttributeSpy = sandbox.spy(perceivedPrioritiesAttributeMock);
+            const xrmIntakeStageMock = new XrmStageMock("intake", "intake");
+
+            mockContext.getFormContext().data.process.getActiveProcess().addStage(xrmIntakeStageMock);
+
+            // Act
+            mockContext.getFormContext().data.process.setActiveStage("intake");
+
+            // Assert
+            perceivedPrioritiesAttributeSpy.getRequiredLevel().should.equal("required");
+        });
+
+        it("perceived priorities should not be required if stage is triage", () => {
+            // Arrange
+            const perceivedPrioritiesAttributeMock = mockContext.getFormContext().getAttribute("opc_complainantperceivedpriorities");
+            const perceivedPrioritiesAttributeSpy = sandbox.spy(perceivedPrioritiesAttributeMock);
+            const xrmTriageStageMock = new XrmStageMock("triage", "triage");
+
+            mockContext.getFormContext().data.process.getActiveProcess().addStage(xrmTriageStageMock);
+
+            // Act
+            mockContext.getFormContext().data.process.setActiveStage("triage");
+
+            // Assert
+            perceivedPrioritiesAttributeSpy.getRequiredLevel().should.equal("none");
         });
     });
 

@@ -140,6 +140,7 @@
     <TypeScriptCompile Include="test\XrmPageTabMock.ts" />
     <TypeScriptCompile Include="test\XrmProcessMock.ts" />
     <TypeScriptCompile Include="test\XrmProcessModuleMock.ts" />
+    <TypeScriptCompile Include="test\XrmStageChangeContextMock.ts" />
     <TypeScriptCompile Include="test\XrmStageMock.ts" />
     <TypeScriptCompile Include="test\XrmUIModuleMock.ts" />
     <TypeScriptCompile Include="test\XrmUIProcessModuleMock.ts" />

@@ -93,6 +93,14 @@
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_closereason" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{70128683-b6c8-4755-8a14-7696e98785f2}" showlabel="true" visible="true" labelid="{7a6b754a-ee60-4fde-8723-9193ee6d25ab}">
+                        <labels>
+                          <label description="Respondent and Complainant Relationship" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_respondentandcomplainantrelationship" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_respondentandcomplainantrelationship" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>

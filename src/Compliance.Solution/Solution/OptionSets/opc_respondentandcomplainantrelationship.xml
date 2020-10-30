@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_respondentandcomplainantrelationship" localizedName="Respondent and Complainant Relationship" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.442</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Respondent and Complainant Relationship" languagecode="1033" />
+  </displaynames>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Employee" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Tenant" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="Customer" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950003">
+      <labels>
+        <label description="Patient" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

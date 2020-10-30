@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_perceivedpriorities" localizedName="Perceived Priorities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.442</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Perceived Priorities" languagecode="1033" />
+  </displaynames>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Apology" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Acknowledgement" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="Call to action" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950003">
+      <labels>
+        <label description="Compensation" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950004">
+      <labels>
+        <label description="Court" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950005">
+      <labels>
+        <label description="Fulfill original request / provide alleged missing documents" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950006">
+      <labels>
+        <label description="Fine or penalty" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950007">
+      <labels>
+        <label description="Reimbursement" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950008">
+      <labels>
+        <label description="Timeliness" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

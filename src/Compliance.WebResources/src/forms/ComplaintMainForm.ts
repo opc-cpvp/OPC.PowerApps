@@ -295,9 +295,12 @@ export namespace Complaint.Forms {
             switch (currentStage) {
                 case "acceptance":
                 case "triage":
+                    formContext.getAttribute("opc_complainantperceivedpriorities").setRequiredLevel("none");
+                    break;
                 case "intake":
                     formContext.ui.tabs.get("tab_issues").setVisible(false);
                     formContext.ui.tabs.get("tab_recommendations").setVisible(false);
+                    formContext.getAttribute("opc_complainantperceivedpriorities").setRequiredLevel("required");
                     break;
                 case "early resolution":
                     formContext.ui.tabs.get("tab_issues").setVisible(true);

@@ -58,6 +58,9 @@
     <steplabels id="{b5822eff-b1c5-4224-b675-ce6e3b24e81b}">
       <label languagecode="1033" description="Reason to close" />
     </steplabels>
+    <steplabels id="{70128683-b6c8-4755-8a14-7696e98785f2}">
+      <label languagecode="1033" description="Respondent and Complainant Relationship" />
+    </steplabels>
     <steplabels id="{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}">
       <label languagecode="1033" description="Acceptance" />
     </steplabels>

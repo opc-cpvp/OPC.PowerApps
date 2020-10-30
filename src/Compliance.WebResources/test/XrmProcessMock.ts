@@ -16,9 +16,9 @@ export class XrmProcessMock implements Xrm.Process {
     setStatus(status: Xrm.ProcessStatus): void {
         this._status = status;
     }
-    /* addStage(stage: XrmStageMock) {
+    addStage(stage: XrmStageMock): void {
         this._stages.collection.push(stage);
-    }*/
+    }
     /* END OF NEW MEMBERS*/
 
     getId(): string {
