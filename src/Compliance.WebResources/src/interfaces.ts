@@ -122,7 +122,8 @@ export interface TemplateEnvironmentVariable {
     authorityBaseUrl: string;
 }
 
-export type AllegationWithChecklistResponse = opc_allegation & opc_allegation_FormattedResult & { opc_allegation_checklistresponses_allegation?: opc_ChecklistResponse_Result[] };
+export type AllegationWithChecklistResponse = opc_allegation &
+    opc_allegation_FormattedResult & { opc_allegation_checklistresponses_allegation?: opc_ChecklistResponse_Result[] };
 
 // prettier-ignore
 export type ComplaintWithRelationships = opc_complaint &

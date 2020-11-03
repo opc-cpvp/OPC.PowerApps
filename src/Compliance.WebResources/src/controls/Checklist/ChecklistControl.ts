@@ -13,7 +13,7 @@ export namespace Controls {
         private _visbilityToggles: { id: string; value: boolean }[] = [];
         private _placeholder: HTMLElement;
         private _isCurrentLanguageEnglish = true;
-        private _checklist: ({ opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result)[];
+        private _checklist: ({ opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result)[];
 
         constructor(
             @inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
@@ -102,8 +102,8 @@ export namespace Controls {
                         value = (dirtyInputs[i] as HTMLTextAreaElement).value;
                         break;
                     }
-                    case "select":
-                        const options = Array.from((<HTMLSelectElement>dirtyInputs[i]).selectedOptions);
+                    case "select": {
+                        const options = Array.from((dirtyInputs[i] as HTMLSelectElement).selectedOptions);
 
                         value = "";
                         options.forEach(x => {
@@ -111,6 +111,7 @@ export namespace Controls {
                         });
 
                         break;
+                    }
                     default: {
                         console.log(`unsupported element type: ${dirtyInputs[i].tagName}`);
                         continue;
@@ -162,7 +163,7 @@ export namespace Controls {
             // Create controls based on type defined in question type entity
             switch (cr.opc_questiontemplateid.opc_questiontypeid_guid) {
                 case this._questionTypes.find(qt => qt.type === "Text").id:
-                    this.addTextQuestion(indentingContainer, cr);
+                    this.addInputQuestion(indentingContainer, cr, "text");
                     break;
                 case this._questionTypes.find(qt => qt.type === "Text Area").id:
                     this.addTextAreaQuestion(indentingContainer, cr);
@@ -177,10 +178,10 @@ export namespace Controls {
                     this.addSelectQuestion(indentingContainer, cr, "select");
                     break;
                 case this._questionTypes.find(qt => qt.type === "Date").id:
-                    this.addDateQuestion(indentingContainer, cr);
+                    this.addInputQuestion(indentingContainer, cr, "date");
                     break;
                 case this._questionTypes.find(qt => qt.type === "Number").id:
-                    this.addNumberTypeQuestion(indentingContainer, cr);
+                    this.addInputQuestion(indentingContainer, cr, "number");
                     break;
                 case this._questionTypes.find(qt => qt.type === "Calculated Field").id:
                     this.addCalculatedFieldQuestion(indentingContainer, cr);
@@ -194,9 +195,10 @@ export namespace Controls {
             this._placeholder.appendChild(questionContainer);
         }
 
-        private addTextQuestion(
+        private addInputQuestion(
             element: HTMLDivElement,
-            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result,
+            inputType: string
         ) {
             const questionHtml = /* HTML */ `<label for="q-${cr.opc_checklistresponseid}"
                     >${cr.opc_questiontemplateid.opc_sequence} -
@@ -206,7 +208,7 @@ export namespace Controls {
                 >
                 <input
                     id="q-${cr.opc_checklistresponseid}"
-                    type="text"
+                    type="${inputType}"
                     class="form-control"
                     value="${cr.opc_response || ""}"
                     data-responseid="${cr.opc_checklistresponseid}"
@@ -281,57 +283,74 @@ ${cr.opc_response || ""}</textarea
             element.insertAdjacentHTML("beforeend", questionHtml);
         }
 
-        private addSelectQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result, selectType: string) {
+        private addSelectQuestion(
+            element: HTMLDivElement,
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result,
+            selectType: string
+        ) {
             // Get the Additional Parameters string and separate the options.
             const options = cr.opc_questiontemplateid.opc_additionalparameters.split("\n");
 
-            let optionsHtml: string = "";
+            let optionsHtml = "";
 
             options.forEach(x => {
                 const bilangualOptions = x.split("|");
 
                 // I was looking if response included x before, but now I use one of the bilangual option just in case the formating of the options change over time.
-                optionsHtml = optionsHtml.concat(`<option value="${x}" ${cr.opc_response?.includes(bilangualOptions[0].trim()) ? "selected" : ""}>${this._isCurrentLanguageEnglish ? bilangualOptions[0].trim() : bilangualOptions[1].trim()}</option>`);
+                optionsHtml = optionsHtml.concat(
+                    `<option value="${x}" ${cr.opc_response?.includes(bilangualOptions[0].trim()) ? "selected" : ""}>${
+                        this._isCurrentLanguageEnglish ? bilangualOptions[0].trim() : bilangualOptions[1].trim()
+                    }</option>`
+                );
             });
 
             const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${
+                    this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench
+                }</label>` +
                 `<select multiple="multiple" class="form-control ${selectType}" id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}'>` +
                 optionsHtml +
                 `</select>`;
 
-            element.insertAdjacentHTML('beforeend', questionHtml);
+            element.insertAdjacentHTML("beforeend", questionHtml);
         }
 
-        private addDateQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
-            const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                `<input id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}' type="date" class="form-control" value="${cr.opc_response || ""}">`;
+        private addCalculatedFieldQuestion(
+            element: HTMLDivElement,
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
+        ) {
+            if (this.isISODate(cr.opc_response)) {
+                // const date = new Date(cr.opc_response)
+                // cr.opc_response = `${date.getUTCMonth()}/${date.getUTCDate()}/${date.getUTCFullYear()}`;
+                cr.opc_response = `${cr.opc_response.substring(5, 7)}/${cr.opc_response.substring(8, 10)}/${cr.opc_response.substring(
+                    0,
+                    4
+                )}`;
+            }
 
-            element.insertAdjacentHTML('beforeend', questionHtml);
-        }
-
-        private addNumberTypeQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
             const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                `<input id="q-${cr.opc_checklistresponseid}" type="number" class="form-control" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' />`;
-            element.insertAdjacentHTML('beforeend', questionHtml);
-        }
-
-        private addCalculatedFieldQuestion(element: HTMLDivElement, cr: { opc_questiontemplateid: opc_QuestionTemplate_Result; } & opc_ChecklistResponse_Result) {
-            const questionHtml =
-                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench}</label>` +
-                `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" value="${cr.opc_response || ""}" data-responseid='${cr.opc_checklistresponseid}' data-additionalparameters="${cr.opc_questiontemplateid.opc_additionalparameters}" readonly />`;
-            element.insertAdjacentHTML('beforeend', questionHtml);
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${
+                    this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench
+                }</label>` +
+                `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" value="${
+                    cr.opc_response || ""
+                }" data-responseid='${cr.opc_checklistresponseid}' data-additionalparameters="${
+                    cr.opc_questiontemplateid.opc_additionalparameters
+                }" readonly />`;
+            element.insertAdjacentHTML("beforeend", questionHtml);
         }
 
         private getResponseValue(sequenceNumber: string): string {
             const field = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === sequenceNumber);
-            return (<HTMLDataElement>this.documentContext.getElementById(`q-${field.opc_checklistresponseid}`)).value;
+            return (this.documentContext.getElementById(`q-${field.opc_checklistresponseid}`) as HTMLDataElement).value;
         }
 
         private isNullOrWhiteSpace(string: string): boolean {
-            return (string === null || string.match(/^ *$/) !== null) ? true : false;
+            return string === null || /^ *$/.exec(string) !== null;
+        }
+
+        private isISODate(dateString: string): boolean {
+            return /^\d{4}-\d{2}-\d{2}$/.exec(dateString) !== null;
         }
 
         private getDateDifferenceInDays(date1: Date, date2: Date): number {
@@ -339,51 +358,50 @@ ${cr.opc_response || ""}</textarea
         }
 
         private subtractDaysFromDate(date: Date, days: number): Date {
-            return new Date(date.valueOf() - (days * 24 * 60 * 60 * 1000));
+            return new Date(date.valueOf() - days * 24 * 60 * 60 * 1000);
         }
 
         private addDaysToDate(date: Date, days: number): Date {
-            return new Date(date.valueOf() + (days * 24 * 60 * 60 * 1000));
+            return new Date(date.valueOf() + days * 24 * 60 * 60 * 1000);
         }
 
-        private calculate(firstValue: any, operator: string, secondValue: any): string {
+        private calculate(firstValue: string, operator: string, secondValue: string): string {
             let result: string = null;
 
-            firstValue = (<string>firstValue).match(/^\d{4}-\d{2}-\d{2}$/) ? new Date(firstValue) : Number.parseInt(firstValue);
-            secondValue = (<string>secondValue).match(/^\d{4}-\d{2}-\d{2}$/) ? new Date(secondValue) : Number.parseInt(secondValue);
+            const firstValueParsed: any = this.isISODate(firstValue) ? new Date(firstValue) : Number.parseInt(firstValue);
+            const secondValueParsed: any = this.isISODate(secondValue) ? new Date(secondValue) : Number.parseInt(secondValue);
 
-            if (isNaN(firstValue) || isNaN(secondValue)) {
+            if (isNaN(firstValueParsed) || isNaN(secondValueParsed)) {
                 return result;
             }
 
             switch (operator) {
                 case "-":
-                    if (firstValue instanceof Date && secondValue instanceof Date) {
-                        result = this.getDateDifferenceInDays(new Date(firstValue), new Date(secondValue)).toString();
-                    }
-                    else if (firstValue instanceof Date && typeof secondValue === "number") {
-                        result = this.subtractDaysFromDate(new Date(firstValue), secondValue).toISOString().split("T")[0];
-                    }
-                    else if (typeof firstValue === "number" && typeof secondValue === "number") {
-                        result = (firstValue - secondValue).toString();
+                    if (firstValueParsed instanceof Date && secondValueParsed instanceof Date) {
+                        result = this.getDateDifferenceInDays(new Date(firstValueParsed), new Date(secondValueParsed)).toString();
+                    } else if (firstValueParsed instanceof Date && typeof secondValueParsed === "number") {
+                        result = this.subtractDaysFromDate(new Date(firstValueParsed), secondValueParsed).toISOString().split("T")[0];
+                    } else if (typeof firstValueParsed === "number" && typeof secondValueParsed === "number") {
+                        result = (firstValueParsed - secondValueParsed).toString();
                     }
                     break;
                 case "+":
-                    if (firstValue instanceof Date && typeof secondValue === "number") {
-                        result = this.addDaysToDate(new Date(firstValue), secondValue).toISOString().split("T")[0];
+                    if (firstValueParsed instanceof Date && typeof secondValueParsed === "number") {
+                        result = this.addDaysToDate(new Date(firstValueParsed), secondValueParsed).toISOString().split("T")[0];
+                    } else if (typeof firstValueParsed === "number" && typeof secondValueParsed === "number") {
+                        result = (firstValueParsed + secondValueParsed).toString();
                     }
-                    else if (typeof firstValue === "number" && typeof secondValue === "number") {
-                        result = (firstValue + secondValue).toString();
-                    }
+                    break;
                 case "/":
-                    if (typeof firstValue === "number" && typeof secondValue === "number") {
-                        result = (firstValue / secondValue).toString();
+                    if (typeof firstValueParsed === "number" && typeof secondValueParsed === "number") {
+                        result = (firstValueParsed / secondValueParsed).toString();
                     }
+                    break;
                 case "*":
-                    if (typeof firstValue === "number" && typeof secondValue === "number") {
-                        result = (firstValue * secondValue).toString();
+                    if (typeof firstValueParsed === "number" && typeof secondValueParsed === "number") {
+                        result = (firstValueParsed * secondValueParsed).toString();
                     }
-                    break
+                    break;
                 default:
                     break;
             }
@@ -394,14 +412,15 @@ ${cr.opc_response || ""}</textarea
         private updateCalculatedFields(): void {
             const calculatedFields = this._placeholder.getElementsByClassName("calculated-field");
 
+            // eslint-disable-next-line @typescript-eslint/prefer-for-of
             for (let i = 0; i < calculatedFields.length; i++) {
                 const id: string = calculatedFields[i].getAttribute("data-responseid");
                 let value: string = null;
 
-                const input = <HTMLInputElement>calculatedFields[i];
+                const input = calculatedFields[i] as HTMLInputElement;
                 const formula = input.dataset.additionalparameters;
 
-                const regex = /(?<operator>^|[-+/*])\s*(?<number>\d+(?:\.\d+)*)/g
+                const regex = /(?<operator>^|[-+/*])\s*(?<number>\d+(?:\.\d+)*)/g;
                 const matches = Array.from(formula.matchAll(regex));
 
                 const field1Value = this.getResponseValue(matches[0].groups.number);
@@ -409,7 +428,6 @@ ${cr.opc_response || ""}</textarea
 
                 // Check if the two first fields have a value
                 if (!this.isNullOrWhiteSpace(field1Value) && !this.isNullOrWhiteSpace(field2Value)) {
-
                     value = this.calculate(field1Value, matches[1].groups.operator, field2Value);
 
                     for (const match of matches.slice(2)) {
@@ -421,11 +439,16 @@ ${cr.opc_response || ""}</textarea
                     }
                 }
 
-                input.value = value;
+                if (this.isISODate(value)) {
+                    // const date = new Date(value)
+                    // input.value = `${date.getUTCMonth()}/${date.getUTCDate()}/${date.getUTCFullYear()}`;
+                    input.value = `${value.substring(5, 7)}/${value.substring(8, 10)}/${value.substring(0, 4)}`;
+                } else {
+                    input.value = value;
+                }
 
                 // Send update queries to checklist service
-                this._checklistService.updateChecklistResponse(id, value)
-                    .catch(e => console.error("error updating calculated fields:" + e));
+                this._checklistService.updateChecklistResponse(id, value).catch(e => console.error("error updating calculated fields", e));
             }
         }
     }

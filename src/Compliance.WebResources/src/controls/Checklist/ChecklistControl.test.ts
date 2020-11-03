@@ -1,8 +1,8 @@
-﻿import { Controls } from './ChecklistControl';
-import { XrmContextMock } from '../../../test/XrmContextMock';
-import { IChecklistService } from '../../interfaces';
-import { ChecklistService } from '../../services/ChecklistService';
-import { JQueryHelper } from '../../helpers/JQueryHelper';
+﻿import { Controls } from "./ChecklistControl";
+import { XrmContextMock } from "../../../test/XrmContextMock";
+import { IChecklistService } from "../../interfaces";
+import { ChecklistService } from "../../services/ChecklistService";
+import { JQueryHelper } from "../../helpers/JQueryHelper";
 
 import chai from "chai";
 import sinon from "sinon";
@@ -103,19 +103,21 @@ describe("ChecklistControl", () => {
         });
 
         // The reason why it doesn't work is because getChecklist doesn't finish before the assertion happens.
-        it.skip("it should initialize the select/multiselect elements using the bootstrap-multiselect plugin", async () => {
+        it("it should initialize the select/multiselect elements using the bootstrap-multiselect plugin", async () => {
             // Arrange
             const initSelectElementsStub = sandbox.stub(JQueryHelper, "initSelectElements");
-            const checklistStub = sandbox.stub(service, 'getChecklist').resolves([]);
-            sandbox.stub(service, 'getQuestionTypes').resolves([]);
+            const checklistStub = sandbox.stub(service, "getChecklist").resolves([]);
+            const getQuestionTypesStub = sandbox.stub(service, "getQuestionTypes").resolves([]);
 
             // Act
-            //control.init();
+            control.init();
+            await Promise.resolve(getQuestionTypesStub);
+            await Promise.resolve(checklistStub);
+            await Promise.resolve(initSelectElementsStub); // Very weird
 
             // Assert
-            //initSelectElementsStub.should.have.been.called;
+            initSelectElementsStub.should.have.been.called;
         });
-
     });
 
     describe("when form is saving", () => {
@@ -245,9 +247,15 @@ describe("ChecklistControl", () => {
 
         it("it should only update input select marked dirty", () => {
             // Arrange
-            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
-            formElement.insertAdjacentHTML("beforeend", '<select multiple="multiple" class="form-control select dirty" id="q-1" data-responseid="1"><option value="Opt1">Opt1</option><option value="Opt2" selected>Opt2</option><option value="Opt3">Opt3</option></select>')
-            formElement.insertAdjacentHTML("beforeend", '<select multiple="multiple" class="form-control select" id="q-2" data-responseid="2"><option value="Opt1">Opt1</option><option value="Opt2">Opt2</option><option value="Opt3">Opt3</option></select>')
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<select multiple="multiple" class="form-control select dirty" id="q-1" data-responseid="1"><option value="Opt1">Opt1</option><option value="Opt2" selected>Opt2</option><option value="Opt3">Opt3</option></select>'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<select multiple="multiple" class="form-control select" id="q-2" data-responseid="2"><option value="Opt1">Opt1</option><option value="Opt2">Opt2</option><option value="Opt3">Opt3</option></select>'
+            );
 
             // Act
             control.save();
@@ -259,9 +267,15 @@ describe("ChecklistControl", () => {
 
         it("it should only update input select marked dirty", () => {
             // Arrange
-            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
-            formElement.insertAdjacentHTML("beforeend", '<select multiple="multiple" class="form-control multiselect dirty" id="q-1" data-responseid="1"><option value="Opt1" selected>Opt1</option><option value="Opt2" selected>Opt2</option><option value="Opt3">Opt3</option><option value="Opt">Opt</option></select>')
-            formElement.insertAdjacentHTML("beforeend", '<select multiple="multiple" class="form-control multiselect" id="q-2" data-responseid="2"><option value="Opt1">Opt1</option><option value="Opt2">Opt2</option><option value="Opt3">Opt3</option><option value="Opt">Opt</option></select>')
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<select multiple="multiple" class="form-control multiselect dirty" id="q-1" data-responseid="1"><option value="Opt1" selected>Opt1</option><option value="Opt2" selected>Opt2</option><option value="Opt3">Opt3</option><option value="Opt">Opt</option></select>'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<select multiple="multiple" class="form-control multiselect" id="q-2" data-responseid="2"><option value="Opt1">Opt1</option><option value="Opt2">Opt2</option><option value="Opt3">Opt3</option><option value="Opt">Opt</option></select>'
+            );
 
             // Act
             control.save();
@@ -273,10 +287,16 @@ describe("ChecklistControl", () => {
 
         it("it should only update input date marked dirty", () => {
             // Arrange
-            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
 
-            formElement.insertAdjacentHTML("beforeend", '<input id="q-1" data-responseid="1" type="date" class="form-control dirty" value="2020-10-23" />')
-            formElement.insertAdjacentHTML("beforeend", '<input id="q-2" data-responseid="2" type="date" class="form-control" value="2020-10-24" />')
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-1" data-responseid="1" type="date" class="form-control dirty" value="2020-10-23" />'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-2" data-responseid="2" type="date" class="form-control" value="2020-10-24" />'
+            );
 
             // Act
             control.save();
@@ -288,10 +308,16 @@ describe("ChecklistControl", () => {
 
         it("it should only update input number marked dirty", () => {
             // Arrange
-            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
 
-            formElement.insertAdjacentHTML("beforeend", '<input id="q-1" data-responseid="1" type="number" class="form-control dirty" value="819" />')
-            formElement.insertAdjacentHTML("beforeend", '<input id="q-2" data-responseid="2" type="number" class="form-control" value="101" />')
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-1" data-responseid="1" type="number" class="form-control dirty" value="819" />'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-2" data-responseid="2" type="number" class="form-control" value="101" />'
+            );
 
             // Act
             control.save();
@@ -303,14 +329,23 @@ describe("ChecklistControl", () => {
 
         it("it should update all input calculated field", () => {
             // Arrange
-            let updateQuestionResponseStub = sandbox.stub(service, 'updateChecklistResponse').resolves();
-            sandbox.stub(control, 'getResponseValue');
-            sandbox.stub(control, 'isNullOrWhiteSpace').returns(false);
-            sandbox.stub(control, 'calculate').returns("newValue");
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
+            sandbox.stub(control, "getResponseValue");
+            sandbox.stub(control, "isNullOrWhiteSpace").returns(false);
+            sandbox.stub(control, "calculate").returns("newValue");
 
-            formElement.insertAdjacentHTML("beforeend", '<input id="q-4" data-responseid="4" type="text" class="form-control calculated-field" data-additionalparameters="1 - 2" />')
-            formElement.insertAdjacentHTML("beforeend", '<input id="q-5" data-responseid="5" type="text" class="form-control calculated-field" data-additionalparameters="1 + 2" />')
-            formElement.insertAdjacentHTML("beforeend", '<input id="q-6" data-responseid="6" type="text" class="form-control calculated-field" data-additionalparameters="2 + 3-4 * 8.2.3.4.5 / 2.1" />')
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-4" data-responseid="4" type="text" class="form-control calculated-field" data-additionalparameters="1 - 2" />'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-5" data-responseid="5" type="text" class="form-control calculated-field" data-additionalparameters="1 + 2" />'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-6" data-responseid="6" type="text" class="form-control calculated-field" data-additionalparameters="2 + 3-4 * 8.2.3.4.5 / 2.1" />'
+            );
 
             // Act
             control.save();
@@ -325,13 +360,16 @@ describe("ChecklistControl", () => {
         describe("and a calculated field is updated", () => {
             it("it should call calculate as much as there are operators in the formula", () => {
                 // Arrange
-                let calculateStub = sandbox.stub(control, 'calculate').returns("newValue");
+                const calculateStub = sandbox.stub(control, "calculate").returns("newValue");
 
-                sandbox.stub(service, 'updateChecklistResponse').resolves();
-                sandbox.stub(control, 'getResponseValue');
-                sandbox.stub(control, 'isNullOrWhiteSpace').returns(false);
+                sandbox.stub(service, "updateChecklistResponse").resolves();
+                sandbox.stub(control, "getResponseValue");
+                sandbox.stub(control, "isNullOrWhiteSpace").returns(false);
 
-                formElement.insertAdjacentHTML("beforeend", '<input id="q-6" data-responseid="6" type="text" class="form-control calculated-field" data-additionalparameters="2 + 3 - 4 * 8.2.3.4.5 / 2.1" />')
+                formElement.insertAdjacentHTML(
+                    "beforeend",
+                    '<input id="q-6" data-responseid="6" type="text" class="form-control calculated-field" data-additionalparameters="2 + 3 - 4 * 8.2.3.4.5 / 2.1" />'
+                );
 
                 // Act
                 control.save();

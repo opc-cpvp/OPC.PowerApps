@@ -82,11 +82,11 @@ export namespace Dialogs {
                 ];
 
                 await Promise.all(promiseArray).then(results => {
-                        this._complaint = results[0];
-                        loginHint = results[1];
-                        this._templatesEnvironmentVariable = JSON.parse(results[2]);
-                        this._allegations = results[3];
-                    });
+                    this._complaint = results[0];
+                    loginHint = results[1];
+                    this._templatesEnvironmentVariable = JSON.parse(results[2]);
+                    this._allegations = results[3];
+                });
 
                 this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
                 this._redirectUri = this._globalContext.getClientUrl();
@@ -270,71 +270,73 @@ export namespace Dialogs {
 
         private appendAllegations(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any) {
             for (let propertyName in propertyCollection) {
-                let property: any = propertyCollection[propertyName];
+                if (Object.prototype.hasOwnProperty.call(propertyCollection, propertyName)) {
+                    let property: any = propertyCollection[propertyName];
 
-                if (property &&
-                    propertyName !== "@odata.context" &&
-                    propertyName !== "@odata.etag") {
-
-                    if (property.opc_allegationtypeid_formatted !== undefined) {
-                        if (property.opc_allegationtypeid_formatted.indexOf("Access") !== -1)
-                            propertyName = "allegation_access";
-                        else if (property.opc_allegationtypeid_formatted.indexOf("Time Limit") !== -1)
-                            propertyName = "allegation_timelimit";
-                        else
-                            propertyName = "allegation";
-                    }
-
-                    if (!isNaN(Number(propertyName)))
-                        propertyName = `question_${propertyName}`;
-
-                    const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
-
-                    if (propertyName === 'opc_allegation_checklistresponses_allegation') {
-                        let checklistResponses: opc_ChecklistResponse_Result[] = property;
-
-                        checklistResponses.forEach(x => {
-                            // TODO: We need to change this because if the response is of type text but the value is 1 or 0 it won't display the right value.
-                            switch (x.opc_response) {
-                                case "0": {
-                                    x.opc_response = "No";
-                                    break;
-                                }
-                                case "1": {
-                                    x.opc_response = "Yes";
-                                    break;
-                                }
-                                case null: {
-                                    x.opc_response = "N/A";
-                                    break;
-                                }
-                                default: {
-                                    break;
-                                }
+                    if (property && propertyName !== "@odata.context" && propertyName !== "@odata.etag") {
+                        if (property.opc_allegationtypeid_formatted !== undefined) {
+                            if (property.opc_allegationtypeid_formatted.indexOf("Access") !== -1) {
+                                propertyName = "allegation_access";
+                            } else if (property.opc_allegationtypeid_formatted.indexOf("Time Limit") !== -1) {
+                                propertyName = "allegation_timelimit";
+                            } else {
+                                propertyName = "allegation";
                             }
-                        });
+                        }
 
-                        checklistResponses.sort((a, b) => {
-                            if (a.opc_name > b.opc_name)
-                                return 1
-                            else
-                                return -1
-                        });
+                        if (!isNaN(Number(propertyName))) {
+                            propertyName = `question_${propertyName}`;
+                        }
 
-                        property = checklistResponses
+                        const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
+
+                        if (propertyName === "opc_allegation_checklistresponses_allegation") {
+                            const checklistResponses: opc_ChecklistResponse_Result[] = property;
+
+                            checklistResponses.forEach(x => {
+                                // TODO: We need to change this because if the response is of type text but the value is 1 or 0 it won't display the right value.
+                                switch (x.opc_response) {
+                                    case "0": {
+                                        x.opc_response = "No";
+                                        break;
+                                    }
+                                    case "1": {
+                                        x.opc_response = "Yes";
+                                        break;
+                                    }
+                                    case null: {
+                                        x.opc_response = "N/A";
+                                        break;
+                                    }
+                                    default: {
+                                        break;
+                                    }
+                                }
+                            });
+
+                            checklistResponses.sort((a, b) => {
+                                if (a.opc_name > b.opc_name) {
+                                    return 1;
+                                } else {
+                                    return -1;
+                                }
+                            });
+
+                            property = checklistResponses;
+                        }
+
+                        if (typeof property === "object") {
+                            if (Object.prototype.toString.call(property) === "[object Date]") {
+                                propertyElement.textContent = property.toLocaleString();
+                            } else {
+                                this.appendAllegations(xmlDocument, propertyElement, property);
+                            }
+                        } else {
+                            propertyElement.textContent = property;
+                        }
+
+                        parentElement.appendChild(propertyElement);
                     }
-
-                    if (typeof property === 'object') {
-                        if (Object.prototype.toString.call(property) === "[object Date]")
-                            propertyElement.textContent = property.toLocaleString();
-                        else
-                            this.appendAllegations(xmlDocument, propertyElement, property);
-                    }
-                    else {
-                        propertyElement.textContent = property;
-                    }
-
-                    parentElement.appendChild(propertyElement);
                 }
             }
         }

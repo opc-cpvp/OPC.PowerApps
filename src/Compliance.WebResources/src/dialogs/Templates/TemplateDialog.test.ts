@@ -91,7 +91,9 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             getUserEmailStub = sandbox.stub(userService, "getUserEmail").resolves("");
             getComplaintWithRelationshipsStub = sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
-            getAllegationsWithChecklistResponsesStub = sandbox.stub(complaintService, "getAllegationsWithChecklistResponses").resolves(allegations);
+            getAllegationsWithChecklistResponsesStub = sandbox
+                .stub(complaintService, "getAllegationsWithChecklistResponses")
+                .resolves(allegations);
             getEnvironmentVariableStub = sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             getAccessTokenStub = sandbox.stub(authService, "getAccessToken").resolves("");
             getTemplatesStub = sandbox.stub(sharePointService, "getTemplates").resolves(templates);

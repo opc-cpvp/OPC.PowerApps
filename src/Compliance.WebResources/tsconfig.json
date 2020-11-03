@@ -15,7 +15,7 @@
         "lib": [
           "es6",
           "dom",
-          "ES2020"
+          "ES2020.String"
         ],
         "esModuleInterop": true,
         "moduleResolution": "node",
