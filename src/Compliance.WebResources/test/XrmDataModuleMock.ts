@@ -11,7 +11,7 @@ export class XrmDataModuleMock implements Xrm.DataModule<XrmCollectionMock<XrmAt
 
     constructor(executionContext: XrmExecutionContextMock<any, any>) {
         this.entity = new XrmPageEntityMock(executionContext);
-        this.process = new XrmProcessModuleMock();
+        this.process = new XrmProcessModuleMock(executionContext);
         this.attributes = new XrmCollectionMock<XrmAttributeMock>(XrmAttributeMock, executionContext);
     }
 

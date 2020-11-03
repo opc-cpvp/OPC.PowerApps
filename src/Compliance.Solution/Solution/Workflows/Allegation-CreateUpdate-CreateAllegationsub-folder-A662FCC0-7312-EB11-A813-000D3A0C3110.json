@@ -1,0 +1,301 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "opc_sharedcommondataserviceforapps_3e099"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "opc_sharedsharepointonline_d331a"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_an_Access_Allegation_is_created_or_updated": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "opc_allegation",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filterexpression": "_opc_allegationtypeid_value eq 9929ba43-3ac7-4869-955f-fa42bcb78c0b and opc_referencenumber ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_SharePoint_Site_variable": {
+          "runAfter": {},
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SharePoint Site",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Get_Default_SharePoint_Site": {
+          "runAfter": {
+            "Initialize_Complaint_Document_Location": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "sharepointsites",
+              "$select": "absoluteurl",
+              "$filter": "name eq 'Default Site'",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_SharePoint_Site": {
+          "foreach": "@outputs('Get_Default_SharePoint_Site')?['body/value']",
+          "actions": {
+            "Set_SharePoint_Site_variable": {
+              "runAfter": {},
+              "type": "SetVariable",
+              "inputs": {
+                "name": "SharePoint Site",
+                "value": "@items('Apply_to_each_SharePoint_Site')?['absoluteurl']"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Default_SharePoint_Site": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "Get_Parent_Document_Location": {
+          "runAfter": {
+            "Apply_to_each_SharePoint_Site": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "sharepointdocumentlocations",
+              "$select": "sharepointdocumentlocationid",
+              "$filter": "relativeurl eq 'opc_complaint' and _regardingobjectid_value eq null",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Environment_Variable_for_Documents_Structure": {
+          "runAfter": {
+            "Apply_to_each_Document_Location": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "environmentvariabledefinitions",
+              "$select": "defaultvalue",
+              "$filter": "schemaname eq 'opc_var_documentsclassification'",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_Environment_Variable": {
+          "foreach": "@outputs('Get_Environment_Variable_for_Documents_Structure')?['body/value']",
+          "actions": {
+            "Parse_JSON": {
+              "runAfter": {},
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@items('Apply_to_each_Environment_Variable')?['defaultvalue']",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "entity": {
+                        "type": "string"
+                      },
+                      "folders": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "entity",
+                      "folders"
+                    ]
+                  }
+                }
+              }
+            },
+            "Apply_to_each_JSON_item": {
+              "foreach": "@body('Parse_JSON')",
+              "actions": {
+                "Check_entity_is_Allegation": {
+                  "actions": {
+                    "Apply_to_each_folder": {
+                      "foreach": "@items('Apply_to_each_JSON_item')['folders']",
+                      "actions": {
+                        "Create_new_folder_for_Allegation": {
+                          "runAfter": {},
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_sharepointonline",
+                              "operationId": "CreateNewFolder",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                            },
+                            "parameters": {
+                              "dataset": "@variables('SharePoint Site')",
+                              "table": "Complaint",
+                              "parameters/path": "@{triggerOutputs()?['body/relativeurl']}/@{variables('Complaint Document Location')}/@{items('Apply_to_each_folder')}/@{triggerOutputs()?['body/opc_referencenumber']}"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {},
+                      "type": "Foreach"
+                    }
+                  },
+                  "runAfter": {},
+                  "expression": {
+                    "equals": [
+                      "@items('Apply_to_each_JSON_item')['entity']",
+                      "opc_allegation"
+                    ]
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "Parse_JSON": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Get_Environment_Variable_for_Documents_Structure": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "Get_Document_Location_for_Complaint": {
+          "runAfter": {
+            "Get_Parent_Document_Location": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "sharepointdocumentlocations",
+              "$select": "relativeurl",
+              "$filter": "_regardingobjectid_value eq @{triggerOutputs()?['body/_opc_complaintid_value']}",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_Complaint_Document_Location": {
+          "runAfter": {
+            "Initialize_SharePoint_Site_variable": [
+              "Succeeded"
+            ]
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Complaint Document Location",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Apply_to_each_Document_Location": {
+          "foreach": "@outputs('Get_Document_Location_for_Complaint')?['body/value']",
+          "actions": {
+            "Set_variable_for_Complaint_Document_Location": {
+              "runAfter": {},
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Complaint Document Location",
+                "value": "@items('Apply_to_each_Document_Location')?['relativeurl']"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Document_Location_for_Complaint": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}

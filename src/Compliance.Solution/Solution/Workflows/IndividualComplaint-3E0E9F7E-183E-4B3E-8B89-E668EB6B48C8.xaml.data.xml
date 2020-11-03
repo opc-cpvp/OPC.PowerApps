@@ -52,8 +52,14 @@
     <steplabels id="{b24b7467-d187-4f1c-9efa-d14341e7c48f}">
       <label languagecode="1033" description="Recommend to" />
     </steplabels>
+    <steplabels id="{d97eb2cb-d7a8-4e1e-9555-1e31c838bc30}">
+      <label languagecode="1033" description="Representative Authorization Provided" />
+    </steplabels>
     <steplabels id="{b5822eff-b1c5-4224-b675-ce6e3b24e81b}">
       <label languagecode="1033" description="Reason to close" />
+    </steplabels>
+    <steplabels id="{70128683-b6c8-4755-8a14-7696e98785f2}">
+      <label languagecode="1033" description="Respondent and Complainant Relationship" />
     </steplabels>
     <steplabels id="{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}">
       <label languagecode="1033" description="Acceptance" />

@@ -1,17 +1,21 @@
 ﻿import { XrmStageMock } from "./XrmStageMock";
 import { XrmProcessMock } from "./XrmProcessMock";
+import { XrmExecutionContextMock } from "./XrmExecutionContextMock";
+import { XrmStageChangeContextMock } from "./XrmStageChangeContextMock";
 
 export class XrmProcessModuleMock implements Xrm.ProcessModule {
     private _processes: XrmProcessMock[] = [];
     private _activeProcess: XrmProcessMock;
     private _onStageChangeHandlers: ((context?: Xrm.StageChangeContext) => any)[] = [];
+    private _context: XrmExecutionContextMock<any, any>;
 
-    constructor() {
+    constructor(executionContext: XrmExecutionContextMock<any, any>) {
         // TODO: Remove this, temp.
         const mock = new XrmProcessMock("default-mock", "default-mock");
         mock.setStatus(Xrm.ProcessStatus.Active);
         this._activeProcess = mock;
         this._processes.push(mock);
+        this._context = executionContext;
     }
 
     /* NEW MEMBERS TO HELP MOCKING */
@@ -20,7 +24,7 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
     }
     /* END OF NEW MEMBERS*/
 
-    getActiveProcess(): Xrm.Process {
+    getActiveProcess(): XrmProcessMock {
         return this._activeProcess || (this._activeProcess = this._processes.find(p => p.getStatus() === Xrm.ProcessStatus.Active));
     }
     setActiveProcess(processId: string, callback: (successOrInvalid: string) => any): void {
@@ -29,17 +33,25 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
         process.setStatus(Xrm.ProcessStatus.Active);
         this._activeProcess = process;
     }
-    getActiveStage(): Xrm.Stage {
+    getActiveStage(): XrmStageMock {
         let stage = this._activeProcess.getStages().collection.find(s => s.getStatus() === "active");
         if (!stage) {
-            stage = new XrmStageMock();
-            stage.setName("default-mock");
+            stage = new XrmStageMock("default-mock", "default-mock");
             this._activeProcess.getStages().collection.push(stage);
         }
         return stage;
     }
     setActiveStage(stageId: string, callback?: (stringVal: Xrm.ProcessStageSetAnswer) => any): void {
-        this._activeProcess.getStages().forEach(s => s.setStatus(s.getId() === stageId ? Xrm.ProcessStatus.Active : "inactive"));
+        this._activeProcess.getStages().forEach(s => {
+            if (s.getId() === stageId) {
+                s.setStatus(Xrm.ProcessStatus.Active);
+                this._onStageChangeHandlers.forEach(h => {
+                    h(new XrmStageChangeContextMock(this._context));
+                });
+            } else {
+                s.setStatus("inactive");
+            }
+        });
     }
     getActivePath(): Xrm.Collection<Xrm.Stage> {
         throw new Error("Method not implemented.");

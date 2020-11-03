@@ -159,10 +159,11 @@
                         </labels>
                         <control id="opc_multiplecomplaintstrategy" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_multiplecomplaintstrategy" disabled="false" />
                       </cell>
-                      <cell showlabel="false" locklevel="0" id="{10a4c0d3-0550-4521-84d8-7ed65e943035}">
+                      <cell id="{3f749ad9-b8cd-4a7b-8f66-2577d97adc1a}" locklevel="0">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Complainant Perceived Priorities" languagecode="1033" />
                         </labels>
+                        <control id="opc_complainantperceivedpriorities" classid="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}" datafieldname="opc_complainantperceivedpriorities" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -172,7 +173,7 @@
                         </labels>
                         <control id="opc_memberofparliamentinvolved" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_memberofparliamentinvolved" disabled="false" uniqueid="{5e7098ee-d4f5-4f5a-930b-e0787e145ed2}" />
                       </cell>
-                      <cell showlabel="false" locklevel="0" id="{25d3ddff-df65-4a02-b521-25e33dc10a4d}">
+                      <cell locklevel="0" id="{dc052a21-0aa8-4c08-b6ab-d77b0e0958fc}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -247,6 +248,19 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{afdf740a-e38e-4469-a61a-d211028d9e7e}" locklevel="0">
+                        <labels>
+                          <label description="Respondent and Complainant Relationship" languagecode="1033" />
+                        </labels>
+                        <control id="opc_respondentandcomplainantrelationship" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_respondentandcomplainantrelationship" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{cc0d8d93-edcc-46d1-8a7c-975180f16bdf}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
                       <cell locklevel="0" id="{c81d2d6c-a880-4cfe-a081-3017d15e5546}" rowspan="6" colspan="2" showlabel="false" auto="false">
                         <labels>
                           <label description="Industries" languagecode="1033" />
@@ -273,11 +287,11 @@
                         </control>
                       </cell>
                     </row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -360,8 +374,8 @@
                         <control id="subgrid_documents" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>sharepointdocument</TargetEntityType>
-                            <ViewId>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewId>
-                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewIds>
+                            <ViewId>{AD6CBEBE-6B0D-EB11-A813-000D3AF43A22}</ViewId>
+                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51},{AD6CBEBE-6B0D-EB11-A813-000D3AF43A22}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_complaint_SharePointDocuments</RelationshipName>
                           </parameters>
@@ -659,7 +673,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

@@ -124,12 +124,10 @@
     <TypeScriptCompile Include="src\utils\NotificationIcons\NotificationIcons.ts" />
     <TypeScriptCompile Include="test\INamedComponent.ts" />
     <TypeScriptCompile Include="test\XrmContextMock.ts" />
-    <TypeScriptCompile Include="test\XrmLookupAttributeMock.ts" />
     <TypeScriptCompile Include="test\XrmLookupControlMock.ts" />
     <TypeScriptCompile Include="test\XrmPageSectionMock.ts" />
     <TypeScriptCompile Include="test\XrmRoleMock.ts" />
     <TypeScriptCompile Include="test\XrmUserSettingsMock.ts" />
-    <TypeScriptCompile Include="test\XrmUtilityMock.ts" />
     <TypeScriptCompile Include="test\XrmSaveEventContextMock.ts" />
     <TypeScriptCompile Include="test\XrmNavigationMock.ts" />
     <TypeScriptCompile Include="test\XrmAttributeMock.ts" />
@@ -143,6 +141,7 @@
     <TypeScriptCompile Include="test\XrmPageTabMock.ts" />
     <TypeScriptCompile Include="test\XrmProcessMock.ts" />
     <TypeScriptCompile Include="test\XrmProcessModuleMock.ts" />
+    <TypeScriptCompile Include="test\XrmStageChangeContextMock.ts" />
     <TypeScriptCompile Include="test\XrmStageMock.ts" />
     <TypeScriptCompile Include="test\XrmUIModuleMock.ts" />
     <TypeScriptCompile Include="test\XrmUIProcessModuleMock.ts" />

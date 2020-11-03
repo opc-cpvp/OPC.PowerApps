@@ -95,13 +95,7 @@ export namespace Contact.Forms {
             const multipleComplaintStrategy = formContext.getAttribute("opc_multiplecomplaintstrategy").getValue();
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
                 // Display Notification
-                const firstName = formContext.getAttribute("firstname").getValue();
-                const lastName = formContext.getAttribute("lastname").getValue();
-                XrmHelper.setFormNotification(
-                    formContext,
-                    "INFO",
-                    this._i18n.t("contact:mcs.warning", { context: "main", fullname: (firstName ? firstName + " " : "") + lastName })
-                );
+                XrmHelper.setFormNotification(formContext, "INFO", this._i18n.t("contact:mcs.warning", { context: "contact" }));
             }
         }
 

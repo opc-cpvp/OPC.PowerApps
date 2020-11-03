@@ -34,6 +34,7 @@ export namespace Complaint.Forms {
             formContext.getAttribute("opc_recommendtoregistrar").addOnChange(x => this.recommendtoregistrar_OnChange(x));
             formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
             formContext.getAttribute("opc_multiplecomplaintstrategy").addOnChange(x => this.multipleComplaintStrategy_OnChange(x));
+            formContext.getAttribute("opc_complainantrep").addOnChange(x => this.complainantRep_OnChange(x));
 
             // Sequence matters
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
@@ -44,19 +45,19 @@ export namespace Complaint.Forms {
         }
 
         private setupDuplicateContactChecking(formContext: Form.opc_complaint.Main.Information) {
-            formContext.getAttribute("opc_complainant").addOnChange(x => this.getDuplicateStatus(x, ContactType.Complainant));
+            formContext.getAttribute("opc_complainant").addOnChange(x => this.fetchContactNotifications(x, ContactType.Complainant));
             formContext
                 .getAttribute("opc_complainantrep")
-                .addOnChange(x => this.getDuplicateStatus(x, ContactType.ComplainantRepresentative));
+                .addOnChange(x => this.fetchContactNotifications(x, ContactType.ComplainantRepresentative));
             formContext
                 .getAttribute("opc_complainantlegalrepresentative")
-                .addOnChange(x => this.getDuplicateStatus(x, ContactType.ComplainantLegalRepresentative));
+                .addOnChange(x => this.fetchContactNotifications(x, ContactType.ComplainantLegalRepresentative));
             formContext
                 .getAttribute("opc_respondentrepresentative")
-                .addOnChange(x => this.getDuplicateStatus(x, ContactType.RespondentRepresentative));
+                .addOnChange(x => this.fetchContactNotifications(x, ContactType.RespondentRepresentative));
             formContext
                 .getAttribute("opc_respondentlegalrepresentative")
-                .addOnChange(x => this.getDuplicateStatus(x, ContactType.RespondentLegalRepresentative));
+                .addOnChange(x => this.fetchContactNotifications(x, ContactType.RespondentLegalRepresentative));
 
             formContext.getAttribute("opc_complainant").fireOnChange();
             formContext.getAttribute("opc_complainantrep").fireOnChange();
@@ -84,7 +85,10 @@ export namespace Complaint.Forms {
             });
         }
 
-        private getDuplicateStatus(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, any>, contactType: ContactType): void {
+        private fetchContactNotifications(
+            context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, any>,
+            contactType: ContactType
+        ): void {
             const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
             const contactAttr = context.getEventSource();
             const contactValue = contactAttr.getValue();
@@ -101,6 +105,10 @@ export namespace Complaint.Forms {
                 this._contactService
                     .getContact(contactValue[0].id)
                     .then(contactResult => {
+                        // Show notification from contact base information
+                        this.showBaseContactNotifications(formContext, contactType, contactResult);
+
+                        // Get Potential duplicates to then show duplicate contact notifications
                         this._contactService
                             .getPotentialDuplicates(contactResult)
                             .then(x => {
@@ -111,22 +119,21 @@ export namespace Complaint.Forms {
                                     return;
                                 }
 
-                                const mostLikelyDuplicate = ContactHelper.getMostLikelyDuplicate(contactResult, x);
-
                                 // Since first and last name already match, already a potential duplicate
                                 let duplicateResult = opc_duplicatedetectionresult.Potentialduplicate;
 
                                 // 3 matches for checked fields or more and we can consider the contact a duplicate
+                                const mostLikelyDuplicate = ContactHelper.getMostLikelyDuplicate(contactResult, x);
                                 if (mostLikelyDuplicate.numberOfFieldMatches >= 3) {
                                     duplicateResult = opc_duplicatedetectionresult.Duplicatefound;
                                 }
 
                                 // Update event source attribute
-                                this.showContactDuplicateStatusNotification(contactAttr, contactType, duplicateResult);
+                                this.showContactDuplicateNotification(contactAttr, contactType, duplicateResult);
 
                                 // Update other attribute that may use the same contact
                                 otherAffectedAttributes.forEach(attr =>
-                                    this.showContactDuplicateStatusNotification(
+                                    this.showContactDuplicateNotification(
                                         attr.Attribute,
                                         attr.Type,
                                         opc_duplicatedetectionresult.Potentialduplicate
@@ -143,7 +150,19 @@ export namespace Complaint.Forms {
             formContext.ui.refreshRibbon(); // For merge ribbon buttons to re-evaluate if they should be enabled
         }
 
-        private showContactDuplicateStatusNotification(
+        private showBaseContactNotifications(
+            formContext: Form.opc_complaint.Main.Information,
+            contactType: ContactType,
+            contactResult: Contact_Result
+        ): void {
+            if (contactType === ContactType.Complainant) {
+                if (contactResult.opc_requireprivilegedcorrespondence) {
+                    XrmHelper.setFormNotification(formContext, "INFO", this._i18n.t("contact:privilegedcorrespondence.warning"));
+                }
+            }
+        }
+
+        private showContactDuplicateNotification(
             contactAttr: Xrm.LookupAttribute<"contact">,
             contactType: ContactType,
             duplicateResult: opc_duplicatedetectionresult
@@ -217,18 +236,39 @@ export namespace Complaint.Forms {
                     });
                     formContext.getAttribute("opc_closereason").setRequiredLevel("required");
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(false));
+                    formContext
+                        .getAttribute("opc_representativeauthorizationprovided")
+                        .controls.forEach(control => XrmHelper.toggleOff(control));
                     break;
                 case opc_intakedisposition.Declinetoinvestigate:
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(false));
                     formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
+                    formContext
+                        .getAttribute("opc_representativeauthorizationprovided")
+                        .controls.forEach(control => XrmHelper.toggleOff(control));
                     break;
                 case opc_intakedisposition.MovetoEarlyResolution:
                 case opc_intakedisposition.MovetoInvestigation:
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(true));
                     formContext.getAttribute("opc_closereason").controls.forEach(control => XrmHelper.toggleOff(control));
+
+                    // If there is a rep, we need to ensure we have the rep authorization signed before moving forward.
+                    if (formContext.getAttribute("opc_complainantrep").getValue()) {
+                        const repAuthAttr = formContext.getAttribute("opc_representativeauthorizationprovided");
+                        repAuthAttr.controls.forEach(control => XrmHelper.toggle(control, true));
+                        repAuthAttr.setRequiredLevel("required");
+
+                        // If no value is set, set it to false to not block the save but still block the BPF
+                        if (!repAuthAttr.getValue()) {
+                            repAuthAttr.setValue(false);
+                        }
+                    }
                     break;
                 default:
                     formContext.getAttribute("opc_acceptancedate").controls.forEach(c => c.setVisible(false));
+                    formContext
+                        .getAttribute("opc_representativeauthorizationprovided")
+                        .controls.forEach(control => XrmHelper.toggleOff(control));
                     break;
             }
         }
@@ -255,9 +295,12 @@ export namespace Complaint.Forms {
             switch (currentStage) {
                 case "acceptance":
                 case "triage":
+                    formContext.getAttribute("opc_complainantperceivedpriorities").setRequiredLevel("none");
+                    break;
                 case "intake":
                     formContext.ui.tabs.get("tab_issues").setVisible(false);
                     formContext.ui.tabs.get("tab_recommendations").setVisible(false);
+                    formContext.getAttribute("opc_complainantperceivedpriorities").setRequiredLevel("required");
                     break;
                 case "early resolution":
                     formContext.ui.tabs.get("tab_issues").setVisible(true);
@@ -281,8 +324,6 @@ export namespace Complaint.Forms {
             const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
             const multipleComplaintStrategyControl = formContext.getControl("opc_multiplecomplaintstrategy");
             const multipleComplaintStrategy = multipleComplaintStrategyControl.getAttribute().getValue();
-            const complainantEntityReference = formContext.getAttribute("opc_complainant").getValue();
-            const fullname = complainantEntityReference ? complainantEntityReference[0].name : "";
 
             // Clear Notification
             XrmHelper.clearNotification(multipleComplaintStrategyControl);
@@ -290,11 +331,26 @@ export namespace Complaint.Forms {
             // Check if Complainant is part of the Multiple Complaint Strategy
             if (multipleComplaintStrategy === opc_multiplecomplaintstrategy.Applied) {
                 // Display Notification
-                XrmHelper.setNotification(
-                    multipleComplaintStrategyControl,
-                    "INFO",
-                    this._i18n.t("contact:mcs.warning", { context: "complaint", fullname: fullname })
+                XrmHelper.setNotification(multipleComplaintStrategyControl, this._i18n.t("contact:mcs.warning"), "INFO");
+            }
+        }
+
+        private complainantRep_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"contact">, undefined>): void {
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
+            const authRequired =
+                formContext.getAttribute("opc_complainantrep").getValue() &&
+                [opc_intakedisposition.MovetoEarlyResolution, opc_intakedisposition.MovetoInvestigation].includes(
+                    formContext.getAttribute("opc_intakedisposition").getValue()
                 );
+
+            // If there is a rep, we need to ensure we have the rep authorization signed before moving forward.
+            const repAuthAttr = formContext.getAttribute("opc_representativeauthorizationprovided");
+            repAuthAttr.controls.forEach(control => XrmHelper.toggle(control, authRequired));
+            repAuthAttr.setRequiredLevel(authRequired ? "required" : "none");
+
+            // If no value is set, set it to false to not block the save but still block the BPF
+            if (!repAuthAttr.getValue()) {
+                repAuthAttr.setValue(false);
             }
         }
     }
