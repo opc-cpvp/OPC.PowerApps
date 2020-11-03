@@ -287,11 +287,11 @@
                         </control>
                       </cell>
                     </row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
-                    <row></row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -374,8 +374,8 @@
                         <control id="subgrid_documents" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
                             <TargetEntityType>sharepointdocument</TargetEntityType>
-                            <ViewId>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewId>
-                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51}</ViewIds>
+                            <ViewId>{AD6CBEBE-6B0D-EB11-A813-000D3AF43A22}</ViewId>
+                            <ViewIds>{A5B008AC-07D9-4554-8509-2C05767BFF51},{AD6CBEBE-6B0D-EB11-A813-000D3AF43A22}</ViewIds>
                             <EnableViewPicker>false</EnableViewPicker>
                             <RelationshipName>opc_complaint_SharePointDocuments</RelationshipName>
                           </parameters>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{ad6cbebe-6b0d-eb11-a813-000d3af43a22}</savedqueryid>
+    <layoutxml>
+      <grid name="sharepointdocument" jump="fullname" select="1" icon="0" preview="1">
+        <row name="sharepointdocument" id="sharepointdocumentid">
+          <cell name="fullname" width="300" imageproviderfunctionname="DocumentManagement.FileTypeIcon.loadSharePointFileTypeIcon" imageproviderwebresource="$webresource:SharePoint_main_system_library.js" />
+          <cell name="modified" width="150" />
+          <cell name="sharepointmodifiedby" width="150" />
+          <cell name="locationname" width="150" />
+          <cell name="relativelocation" width="200" />
+          <cell name="servicetype" width="90" />
+          <cell name="documentid" ishidden="1" />
+          <cell name="title" ishidden="1" />
+          <cell name="author" ishidden="1" />
+          <cell name="sharepointcreatedon" ishidden="1" />
+          <cell name="sharepointdocumentid" ishidden="1" />
+          <cell name="filetype" ishidden="1" />
+          <cell name="readurl" ishidden="1" />
+          <cell name="editurl" ishidden="1" />
+          <cell name="ischeckedout" ishidden="1" />
+          <cell name="absoluteurl" ishidden="1" />
+          <cell name="locationid" ishidden="1" />
+          <cell name="iconclassname" ishidden="1" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch distinct="false" mapping="logical">
+        <entity name="sharepointdocument">
+          <attribute name="documentid" />
+          <attribute name="fullname" />
+          <attribute name="relativelocation" />
+          <attribute name="sharepointcreatedon" />
+          <attribute name="ischeckedout" />
+          <attribute name="filetype" />
+          <attribute name="modified" />
+          <attribute name="sharepointmodifiedby" />
+          <attribute name="servicetype" />
+          <attribute name="absoluteurl" />
+          <attribute name="title" />
+          <attribute name="author" />
+          <attribute name="sharepointdocumentid" />
+          <attribute name="readurl" />
+          <attribute name="editurl" />
+          <attribute name="locationid" />
+          <attribute name="iconclassname" />
+          <attribute name="locationname" />
+          <order attribute="relativelocation" descending="false" />
+          <filter>
+            <condition attribute="isrecursivefetch" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All SharePoint Documents Grid" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Displays information about related SharePoint documents in the detail form of any entity record." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

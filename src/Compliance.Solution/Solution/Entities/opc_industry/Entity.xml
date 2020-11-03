@@ -551,8 +551,8 @@
           <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
-          <MaxLength>109</MaxLength>
-          <Length>218</Length>
+          <MaxLength>254</MaxLength>
+          <Length>508</Length>
           <displaynames>
             <displayname description="Name" languagecode="1033" />
           </displaynames>
@@ -591,7 +591,7 @@
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
-          <MaxLength>250</MaxLength>
+          <MaxLength>125</MaxLength>
           <Length>500</Length>
           <displaynames>
             <displayname description="English Name" languagecode="1033" />
@@ -631,7 +631,7 @@
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>text</Format>
-          <MaxLength>250</MaxLength>
+          <MaxLength>125</MaxLength>
           <Length>500</Length>
           <displaynames>
             <displayname description="French Name" languagecode="1033" />

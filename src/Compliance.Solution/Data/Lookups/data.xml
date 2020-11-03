@@ -2415,35 +2415,35 @@
         <field name="statuscode" value="1" />
       </record>
       <record id="3bce1176-3908-eb11-a812-000d3a0c2ab4">
-        <field name="opc_nameenglish" value="31-Manufacturing" />
+        <field name="opc_nameenglish" value="Manufacturing" />
         <field name="opc_descriptionenglish" value="The Sector as a Whole&#xA;&#xA;The Manufacturing sector comprises establishments engaged in the mechanical, physical, or chemical transformation of materials, substances, or components into new products.  The assembling of component parts of manufactured products is considered manufacturing, except in cases where the activity is appropriately classified in Sector 23, Construction.&#xA;&#xA;Establishments in the Manufacturing sector are often described as plants, factories, or mills and characteristically use power-driven machines and material handling equipment.  However, establishments that transform materials or substances into new products by hand or in the worker&amp;#39;s home and those engaged in selling to the general public products made on the same premises from which they are sold, such as bakeries, candy stores, and custom tailors, may also be included in this sector.  Manufacturing establishments may process materials or may contract with other establishments to process their materials for them.  Both types of establishments are included in manufacturing.&#xA;&#xA;The materials, substances, or components transformed by manufacturing establishments are raw materials that are products of agriculture, forestry, fishing, mining, or quarrying as well as products of other manufacturing establishments.  The materials used may be purchased directly from producers, obtained through customary trade channels, or secured without recourse to the market by transferring the product from one establishment to another, under the same ownership.&#xA;&#xA;The new product of a manufacturing establishment may be finished in the sense that it is ready for utilization or consumption, or it may be semi-finished to become an input for an establishment engaged in further manufacturing.  For example, the product of the alumina refinery is the input used in the primary production of aluminum; primary aluminum is the input to an aluminum wire drawing plant; and aluminum wire is the input for a fabricated wire product manufacturing establishment.&#xA;&#xA;The subsectors in the Manufacturing sector generally reflect distinct production processes related to material inputs, production equipment, and employee skills. In the machinery area, where assembling is a key activity, parts and accessories for manufactured products are classified in the industry of the finished manufactured item when they are made for separate sale.  For example, a replacement refrigerator door would be classified with refrigerators and an attachment for a piece of metalworking machinery would be classified with metalworking machinery.  However, components, input from other manufacturing establishments, are classified based on the production function of the component manufacturer.  For example, electronic components are classified in Subsector 334, Computer and Electronic Product Manufacturing, and stampings are classified in Subsector 332, Fabricated Metal Product Manufacturing.&#xA;&#xA;Manufacturing establishments often perform one or more activities that are classified outside the Manufacturing sector of NAICS.  For instance, almost all manufacturing has some captive research and development or administrative operations, such as accounting, payroll, or management.  These captive services are treated the same as captive manufacturing activities.  When the services are provided by separate establishments, they are classified in the NAICS sector where such services are primary, not in manufacturing. &#xA;&#xA;The boundaries of manufacturing and the other sectors of the classification system can be somewhat blurry.  The establishments in the Manufacturing sector are engaged in the transformation of materials into new products.  Their output is a new product.  However, the definition of what constitutes a new product can be somewhat subjective.  As clarification, the following activities are considered manufacturing in NAICS:&#xA;&amp;lt;table width=100%&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Milk bottling and pasteurizing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Water bottling and processing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fresh fish packaging (oyster shucking,&amp;lt;br/&amp;gt; fish filleting);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Apparel jobbing (assigning materials&amp;lt;br/&amp;gt; to contract factories or shops for&amp;lt;br/&amp;gt; fabrication or other contract operations)&amp;lt;br/&amp;gt; as well as contracting on materials owned by others;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Printing and related activities;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ready-mix concrete production;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Leather converting;&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Grinding lenses to prescription;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Wood preserving;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Electroplating, plating, metal heat&amp;lt;br/&amp;gt; treating, and polishing for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Lapidary work for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fabricating signs and advertising displays;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Rebuilding or remanufacturing&amp;lt;br/&amp;gt; machinery (i.e., automotive parts);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ship repair and renovation;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Machine shops; and&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Tire retreading.&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&#xA;Conversely, there are activities that are sometimes considered manufacturing, but which for NAICS are classified in another sector (i.e., not classified as manufacturing). They include:&#xA;&#xA;1. Logging, classified in Sector 11, Agriculture, Forestry, Fishing and Hunting, is considered a harvesting operation;&#xA;2. Beneficiating ores and other minerals, classified in Sector 21, Mining, Quarrying, and Oil and Gas Extraction, is considered part of the activity of mining;&#xA;3. Constructing structures and fabricating at the construction site by contractors are classified in Sector 23, Construction;&#xA;4. Breaking bulk and redistributing in smaller lots, including packaging, repackaging, or bottling products, such as liquors or chemicals; assembling computers on a custom basis; sorting scrap; mixing paints to customer order; and cutting metals to customer order, classified in Sector 42, Wholesale Trade, or Sector 44-45, Retail Trade, produce a modified version of the same product, not a new product; and&#xA;5. Publishing and the combined activity of publishing and printing, classified in Sector 51, Information, transform information into a product for which the value to the consumer lies in the information content, not in the format in which it is distributed (i.e., the book or software compact disc).&#xA;" />
         <field name="opc_descriptionfrench" value="The Sector as a Whole&#xA;&#xA;The Manufacturing sector comprises establishments engaged in the mechanical, physical, or chemical transformation of materials, substances, or components into new products.  The assembling of component parts of manufactured products is considered manufacturing, except in cases where the activity is appropriately classified in Sector 23, Construction.&#xA;&#xA;Establishments in the Manufacturing sector are often described as plants, factories, or mills and characteristically use power-driven machines and material handling equipment.  However, establishments that transform materials or substances into new products by hand or in the worker&amp;#39;s home and those engaged in selling to the general public products made on the same premises from which they are sold, such as bakeries, candy stores, and custom tailors, may also be included in this sector.  Manufacturing establishments may process materials or may contract with other establishments to process their materials for them.  Both types of establishments are included in manufacturing.&#xA;&#xA;The materials, substances, or components transformed by manufacturing establishments are raw materials that are products of agriculture, forestry, fishing, mining, or quarrying as well as products of other manufacturing establishments.  The materials used may be purchased directly from producers, obtained through customary trade channels, or secured without recourse to the market by transferring the product from one establishment to another, under the same ownership.&#xA;&#xA;The new product of a manufacturing establishment may be finished in the sense that it is ready for utilization or consumption, or it may be semi-finished to become an input for an establishment engaged in further manufacturing.  For example, the product of the alumina refinery is the input used in the primary production of aluminum; primary aluminum is the input to an aluminum wire drawing plant; and aluminum wire is the input for a fabricated wire product manufacturing establishment.&#xA;&#xA;The subsectors in the Manufacturing sector generally reflect distinct production processes related to material inputs, production equipment, and employee skills. In the machinery area, where assembling is a key activity, parts and accessories for manufactured products are classified in the industry of the finished manufactured item when they are made for separate sale.  For example, a replacement refrigerator door would be classified with refrigerators and an attachment for a piece of metalworking machinery would be classified with metalworking machinery.  However, components, input from other manufacturing establishments, are classified based on the production function of the component manufacturer.  For example, electronic components are classified in Subsector 334, Computer and Electronic Product Manufacturing, and stampings are classified in Subsector 332, Fabricated Metal Product Manufacturing.&#xA;&#xA;Manufacturing establishments often perform one or more activities that are classified outside the Manufacturing sector of NAICS.  For instance, almost all manufacturing has some captive research and development or administrative operations, such as accounting, payroll, or management.  These captive services are treated the same as captive manufacturing activities.  When the services are provided by separate establishments, they are classified in the NAICS sector where such services are primary, not in manufacturing. &#xA;&#xA;The boundaries of manufacturing and the other sectors of the classification system can be somewhat blurry.  The establishments in the Manufacturing sector are engaged in the transformation of materials into new products.  Their output is a new product.  However, the definition of what constitutes a new product can be somewhat subjective.  As clarification, the following activities are considered manufacturing in NAICS:&#xA;&amp;lt;table width=100%&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Milk bottling and pasteurizing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Water bottling and processing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fresh fish packaging (oyster shucking,&amp;lt;br/&amp;gt; fish filleting);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Apparel jobbing (assigning materials&amp;lt;br/&amp;gt; to contract factories or shops for&amp;lt;br/&amp;gt; fabrication or other contract operations)&amp;lt;br/&amp;gt; as well as contracting on materials owned by others;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Printing and related activities;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ready-mix concrete production;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Leather converting;&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Grinding lenses to prescription;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Wood preserving;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Electroplating, plating, metal heat&amp;lt;br/&amp;gt; treating, and polishing for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Lapidary work for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fabricating signs and advertising displays;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Rebuilding or remanufacturing&amp;lt;br/&amp;gt; machinery (i.e., automotive parts);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ship repair and renovation;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Machine shops; and&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Tire retreading.&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&#xA;Conversely, there are activities that are sometimes considered manufacturing, but which for NAICS are classified in another sector (i.e., not classified as manufacturing). They include:&#xA;&#xA;1. Logging, classified in Sector 11, Agriculture, Forestry, Fishing and Hunting, is considered a harvesting operation;&#xA;2. Beneficiating ores and other minerals, classified in Sector 21, Mining, Quarrying, and Oil and Gas Extraction, is considered part of the activity of mining;&#xA;3. Constructing structures and fabricating at the construction site by contractors are classified in Sector 23, Construction;&#xA;4. Breaking bulk and redistributing in smaller lots, including packaging, repackaging, or bottling products, such as liquors or chemicals; assembling computers on a custom basis; sorting scrap; mixing paints to customer order; and cutting metals to customer order, classified in Sector 42, Wholesale Trade, or Sector 44-45, Retail Trade, produce a modified version of the same product, not a new product; and&#xA;5. Publishing and the combined activity of publishing and printing, classified in Sector 51, Information, transform information into a product for which the value to the consumer lies in the information content, not in the format in which it is distributed (i.e., the book or software compact disc).&#xA;" />
-        <field name="opc_namefrench" value="31-Manufacturing" />
+        <field name="opc_namefrench" value="Manufacturing" />
         <field name="opc_industryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" />
         <field name="opc_naicsnumber" value="31" />
-        <field name="opc_name" value="31-Manufacturing" />
+        <field name="opc_name" value="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="3dce1176-3908-eb11-a812-000d3a0c2ab4">
-        <field name="opc_nameenglish" value="32-Manufacturing" />
+        <field name="opc_nameenglish" value="Manufacturing" />
         <field name="opc_descriptionenglish" value="The Sector as a Whole&#xA;&#xA;The Manufacturing sector comprises establishments engaged in the mechanical, physical, or chemical transformation of materials, substances, or components into new products.  The assembling of component parts of manufactured products is considered manufacturing, except in cases where the activity is appropriately classified in Sector 23, Construction.&#xA;&#xA;Establishments in the Manufacturing sector are often described as plants, factories, or mills and characteristically use power-driven machines and material handling equipment.  However, establishments that transform materials or substances into new products by hand or in the worker&amp;#39;s home and those engaged in selling to the general public products made on the same premises from which they are sold, such as bakeries, candy stores, and custom tailors, may also be included in this sector.  Manufacturing establishments may process materials or may contract with other establishments to process their materials for them.  Both types of establishments are included in manufacturing.&#xA;&#xA;The materials, substances, or components transformed by manufacturing establishments are raw materials that are products of agriculture, forestry, fishing, mining, or quarrying as well as products of other manufacturing establishments.  The materials used may be purchased directly from producers, obtained through customary trade channels, or secured without recourse to the market by transferring the product from one establishment to another, under the same ownership.&#xA;&#xA;The new product of a manufacturing establishment may be finished in the sense that it is ready for utilization or consumption, or it may be semi-finished to become an input for an establishment engaged in further manufacturing.  For example, the product of the alumina refinery is the input used in the primary production of aluminum; primary aluminum is the input to an aluminum wire drawing plant; and aluminum wire is the input for a fabricated wire product manufacturing establishment.&#xA;&#xA;The subsectors in the Manufacturing sector generally reflect distinct production processes related to material inputs, production equipment, and employee skills. In the machinery area, where assembling is a key activity, parts and accessories for manufactured products are classified in the industry of the finished manufactured item when they are made for separate sale.  For example, a replacement refrigerator door would be classified with refrigerators and an attachment for a piece of metalworking machinery would be classified with metalworking machinery.  However, components, input from other manufacturing establishments, are classified based on the production function of the component manufacturer.  For example, electronic components are classified in Subsector 334, Computer and Electronic Product Manufacturing, and stampings are classified in Subsector 332, Fabricated Metal Product Manufacturing.&#xA;&#xA;Manufacturing establishments often perform one or more activities that are classified outside the Manufacturing sector of NAICS.  For instance, almost all manufacturing has some captive research and development or administrative operations, such as accounting, payroll, or management.  These captive services are treated the same as captive manufacturing activities.  When the services are provided by separate establishments, they are classified in the NAICS sector where such services are primary, not in manufacturing. &#xA;&#xA;The boundaries of manufacturing and the other sectors of the classification system can be somewhat blurry.  The establishments in the Manufacturing sector are engaged in the transformation of materials into new products.  Their output is a new product.  However, the definition of what constitutes a new product can be somewhat subjective.  As clarification, the following activities are considered manufacturing in NAICS:&#xA;&amp;lt;table width=100%&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Milk bottling and pasteurizing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Water bottling and processing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fresh fish packaging (oyster shucking,&amp;lt;br/&amp;gt; fish filleting);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Apparel jobbing (assigning materials&amp;lt;br/&amp;gt; to contract factories or shops for&amp;lt;br/&amp;gt; fabrication or other contract operations)&amp;lt;br/&amp;gt; as well as contracting on materials owned by others;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Printing and related activities;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ready-mix concrete production;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Leather converting;&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Grinding lenses to prescription;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Wood preserving;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Electroplating, plating, metal heat&amp;lt;br/&amp;gt; treating, and polishing for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Lapidary work for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fabricating signs and advertising displays;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Rebuilding or remanufacturing&amp;lt;br/&amp;gt; machinery (i.e., automotive parts);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ship repair and renovation;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Machine shops; and&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Tire retreading.&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&#xA;Conversely, there are activities that are sometimes considered manufacturing, but which for NAICS are classified in another sector (i.e., not classified as manufacturing). They include:&#xA;&#xA;1. Logging, classified in Sector 11, Agriculture, Forestry, Fishing and Hunting, is considered a harvesting operation;&#xA;2. Beneficiating ores and other minerals, classified in Sector 21, Mining, Quarrying, and Oil and Gas Extraction, is considered part of the activity of mining;&#xA;3. Constructing structures and fabricating at the construction site by contractors are classified in Sector 23, Construction;&#xA;4. Breaking bulk and redistributing in smaller lots, including packaging, repackaging, or bottling products, such as liquors or chemicals; assembling computers on a custom basis; sorting scrap; mixing paints to customer order; and cutting metals to customer order, classified in Sector 42, Wholesale Trade, or Sector 44-45, Retail Trade, produce a modified version of the same product, not a new product; and&#xA;5. Publishing and the combined activity of publishing and printing, classified in Sector 51, Information, transform information into a product for which the value to the consumer lies in the information content, not in the format in which it is distributed (i.e., the book or software compact disc).&#xA;" />
         <field name="opc_descriptionfrench" value="The Sector as a Whole&#xA;&#xA;The Manufacturing sector comprises establishments engaged in the mechanical, physical, or chemical transformation of materials, substances, or components into new products.  The assembling of component parts of manufactured products is considered manufacturing, except in cases where the activity is appropriately classified in Sector 23, Construction.&#xA;&#xA;Establishments in the Manufacturing sector are often described as plants, factories, or mills and characteristically use power-driven machines and material handling equipment.  However, establishments that transform materials or substances into new products by hand or in the worker&amp;#39;s home and those engaged in selling to the general public products made on the same premises from which they are sold, such as bakeries, candy stores, and custom tailors, may also be included in this sector.  Manufacturing establishments may process materials or may contract with other establishments to process their materials for them.  Both types of establishments are included in manufacturing.&#xA;&#xA;The materials, substances, or components transformed by manufacturing establishments are raw materials that are products of agriculture, forestry, fishing, mining, or quarrying as well as products of other manufacturing establishments.  The materials used may be purchased directly from producers, obtained through customary trade channels, or secured without recourse to the market by transferring the product from one establishment to another, under the same ownership.&#xA;&#xA;The new product of a manufacturing establishment may be finished in the sense that it is ready for utilization or consumption, or it may be semi-finished to become an input for an establishment engaged in further manufacturing.  For example, the product of the alumina refinery is the input used in the primary production of aluminum; primary aluminum is the input to an aluminum wire drawing plant; and aluminum wire is the input for a fabricated wire product manufacturing establishment.&#xA;&#xA;The subsectors in the Manufacturing sector generally reflect distinct production processes related to material inputs, production equipment, and employee skills. In the machinery area, where assembling is a key activity, parts and accessories for manufactured products are classified in the industry of the finished manufactured item when they are made for separate sale.  For example, a replacement refrigerator door would be classified with refrigerators and an attachment for a piece of metalworking machinery would be classified with metalworking machinery.  However, components, input from other manufacturing establishments, are classified based on the production function of the component manufacturer.  For example, electronic components are classified in Subsector 334, Computer and Electronic Product Manufacturing, and stampings are classified in Subsector 332, Fabricated Metal Product Manufacturing.&#xA;&#xA;Manufacturing establishments often perform one or more activities that are classified outside the Manufacturing sector of NAICS.  For instance, almost all manufacturing has some captive research and development or administrative operations, such as accounting, payroll, or management.  These captive services are treated the same as captive manufacturing activities.  When the services are provided by separate establishments, they are classified in the NAICS sector where such services are primary, not in manufacturing. &#xA;&#xA;The boundaries of manufacturing and the other sectors of the classification system can be somewhat blurry.  The establishments in the Manufacturing sector are engaged in the transformation of materials into new products.  Their output is a new product.  However, the definition of what constitutes a new product can be somewhat subjective.  As clarification, the following activities are considered manufacturing in NAICS:&#xA;&amp;lt;table width=100%&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Milk bottling and pasteurizing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Water bottling and processing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fresh fish packaging (oyster shucking,&amp;lt;br/&amp;gt; fish filleting);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Apparel jobbing (assigning materials&amp;lt;br/&amp;gt; to contract factories or shops for&amp;lt;br/&amp;gt; fabrication or other contract operations)&amp;lt;br/&amp;gt; as well as contracting on materials owned by others;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Printing and related activities;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ready-mix concrete production;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Leather converting;&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Grinding lenses to prescription;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Wood preserving;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Electroplating, plating, metal heat&amp;lt;br/&amp;gt; treating, and polishing for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Lapidary work for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fabricating signs and advertising displays;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Rebuilding or remanufacturing&amp;lt;br/&amp;gt; machinery (i.e., automotive parts);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ship repair and renovation;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Machine shops; and&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Tire retreading.&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&#xA;Conversely, there are activities that are sometimes considered manufacturing, but which for NAICS are classified in another sector (i.e., not classified as manufacturing). They include:&#xA;&#xA;1. Logging, classified in Sector 11, Agriculture, Forestry, Fishing and Hunting, is considered a harvesting operation;&#xA;2. Beneficiating ores and other minerals, classified in Sector 21, Mining, Quarrying, and Oil and Gas Extraction, is considered part of the activity of mining;&#xA;3. Constructing structures and fabricating at the construction site by contractors are classified in Sector 23, Construction;&#xA;4. Breaking bulk and redistributing in smaller lots, including packaging, repackaging, or bottling products, such as liquors or chemicals; assembling computers on a custom basis; sorting scrap; mixing paints to customer order; and cutting metals to customer order, classified in Sector 42, Wholesale Trade, or Sector 44-45, Retail Trade, produce a modified version of the same product, not a new product; and&#xA;5. Publishing and the combined activity of publishing and printing, classified in Sector 51, Information, transform information into a product for which the value to the consumer lies in the information content, not in the format in which it is distributed (i.e., the book or software compact disc).&#xA;" />
-        <field name="opc_namefrench" value="32-Manufacturing" />
+        <field name="opc_namefrench" value="Manufacturing" />
         <field name="opc_industryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" />
         <field name="opc_naicsnumber" value="32" />
-        <field name="opc_name" value="32-Manufacturing" />
+        <field name="opc_name" value="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="3fce1176-3908-eb11-a812-000d3a0c2ab4">
-        <field name="opc_nameenglish" value="33-Manufacturing" />
+        <field name="opc_nameenglish" value="Manufacturing" />
         <field name="opc_descriptionenglish" value="The Sector as a Whole&#xA;&#xA;The Manufacturing sector comprises establishments engaged in the mechanical, physical, or chemical transformation of materials, substances, or components into new products.  The assembling of component parts of manufactured products is considered manufacturing, except in cases where the activity is appropriately classified in Sector 23, Construction.&#xA;&#xA;Establishments in the Manufacturing sector are often described as plants, factories, or mills and characteristically use power-driven machines and material handling equipment.  However, establishments that transform materials or substances into new products by hand or in the worker&amp;#39;s home and those engaged in selling to the general public products made on the same premises from which they are sold, such as bakeries, candy stores, and custom tailors, may also be included in this sector.  Manufacturing establishments may process materials or may contract with other establishments to process their materials for them.  Both types of establishments are included in manufacturing.&#xA;&#xA;The materials, substances, or components transformed by manufacturing establishments are raw materials that are products of agriculture, forestry, fishing, mining, or quarrying as well as products of other manufacturing establishments.  The materials used may be purchased directly from producers, obtained through customary trade channels, or secured without recourse to the market by transferring the product from one establishment to another, under the same ownership.&#xA;&#xA;The new product of a manufacturing establishment may be finished in the sense that it is ready for utilization or consumption, or it may be semi-finished to become an input for an establishment engaged in further manufacturing.  For example, the product of the alumina refinery is the input used in the primary production of aluminum; primary aluminum is the input to an aluminum wire drawing plant; and aluminum wire is the input for a fabricated wire product manufacturing establishment.&#xA;&#xA;The subsectors in the Manufacturing sector generally reflect distinct production processes related to material inputs, production equipment, and employee skills. In the machinery area, where assembling is a key activity, parts and accessories for manufactured products are classified in the industry of the finished manufactured item when they are made for separate sale.  For example, a replacement refrigerator door would be classified with refrigerators and an attachment for a piece of metalworking machinery would be classified with metalworking machinery.  However, components, input from other manufacturing establishments, are classified based on the production function of the component manufacturer.  For example, electronic components are classified in Subsector 334, Computer and Electronic Product Manufacturing, and stampings are classified in Subsector 332, Fabricated Metal Product Manufacturing.&#xA;&#xA;Manufacturing establishments often perform one or more activities that are classified outside the Manufacturing sector of NAICS.  For instance, almost all manufacturing has some captive research and development or administrative operations, such as accounting, payroll, or management.  These captive services are treated the same as captive manufacturing activities.  When the services are provided by separate establishments, they are classified in the NAICS sector where such services are primary, not in manufacturing. &#xA;&#xA;The boundaries of manufacturing and the other sectors of the classification system can be somewhat blurry.  The establishments in the Manufacturing sector are engaged in the transformation of materials into new products.  Their output is a new product.  However, the definition of what constitutes a new product can be somewhat subjective.  As clarification, the following activities are considered manufacturing in NAICS:&#xA;&amp;lt;table width=100%&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Milk bottling and pasteurizing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Water bottling and processing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fresh fish packaging (oyster shucking,&amp;lt;br/&amp;gt; fish filleting);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Apparel jobbing (assigning materials&amp;lt;br/&amp;gt; to contract factories or shops for&amp;lt;br/&amp;gt; fabrication or other contract operations)&amp;lt;br/&amp;gt; as well as contracting on materials owned by others;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Printing and related activities;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ready-mix concrete production;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Leather converting;&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Grinding lenses to prescription;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Wood preserving;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Electroplating, plating, metal heat&amp;lt;br/&amp;gt; treating, and polishing for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Lapidary work for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fabricating signs and advertising displays;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Rebuilding or remanufacturing&amp;lt;br/&amp;gt; machinery (i.e., automotive parts);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ship repair and renovation;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Machine shops; and&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Tire retreading.&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&#xA;Conversely, there are activities that are sometimes considered manufacturing, but which for NAICS are classified in another sector (i.e., not classified as manufacturing). They include:&#xA;&#xA;1. Logging, classified in Sector 11, Agriculture, Forestry, Fishing and Hunting, is considered a harvesting operation;&#xA;2. Beneficiating ores and other minerals, classified in Sector 21, Mining, Quarrying, and Oil and Gas Extraction, is considered part of the activity of mining;&#xA;3. Constructing structures and fabricating at the construction site by contractors are classified in Sector 23, Construction;&#xA;4. Breaking bulk and redistributing in smaller lots, including packaging, repackaging, or bottling products, such as liquors or chemicals; assembling computers on a custom basis; sorting scrap; mixing paints to customer order; and cutting metals to customer order, classified in Sector 42, Wholesale Trade, or Sector 44-45, Retail Trade, produce a modified version of the same product, not a new product; and&#xA;5. Publishing and the combined activity of publishing and printing, classified in Sector 51, Information, transform information into a product for which the value to the consumer lies in the information content, not in the format in which it is distributed (i.e., the book or software compact disc).&#xA;" />
         <field name="opc_descriptionfrench" value="The Sector as a Whole&#xA;&#xA;The Manufacturing sector comprises establishments engaged in the mechanical, physical, or chemical transformation of materials, substances, or components into new products.  The assembling of component parts of manufactured products is considered manufacturing, except in cases where the activity is appropriately classified in Sector 23, Construction.&#xA;&#xA;Establishments in the Manufacturing sector are often described as plants, factories, or mills and characteristically use power-driven machines and material handling equipment.  However, establishments that transform materials or substances into new products by hand or in the worker&amp;#39;s home and those engaged in selling to the general public products made on the same premises from which they are sold, such as bakeries, candy stores, and custom tailors, may also be included in this sector.  Manufacturing establishments may process materials or may contract with other establishments to process their materials for them.  Both types of establishments are included in manufacturing.&#xA;&#xA;The materials, substances, or components transformed by manufacturing establishments are raw materials that are products of agriculture, forestry, fishing, mining, or quarrying as well as products of other manufacturing establishments.  The materials used may be purchased directly from producers, obtained through customary trade channels, or secured without recourse to the market by transferring the product from one establishment to another, under the same ownership.&#xA;&#xA;The new product of a manufacturing establishment may be finished in the sense that it is ready for utilization or consumption, or it may be semi-finished to become an input for an establishment engaged in further manufacturing.  For example, the product of the alumina refinery is the input used in the primary production of aluminum; primary aluminum is the input to an aluminum wire drawing plant; and aluminum wire is the input for a fabricated wire product manufacturing establishment.&#xA;&#xA;The subsectors in the Manufacturing sector generally reflect distinct production processes related to material inputs, production equipment, and employee skills. In the machinery area, where assembling is a key activity, parts and accessories for manufactured products are classified in the industry of the finished manufactured item when they are made for separate sale.  For example, a replacement refrigerator door would be classified with refrigerators and an attachment for a piece of metalworking machinery would be classified with metalworking machinery.  However, components, input from other manufacturing establishments, are classified based on the production function of the component manufacturer.  For example, electronic components are classified in Subsector 334, Computer and Electronic Product Manufacturing, and stampings are classified in Subsector 332, Fabricated Metal Product Manufacturing.&#xA;&#xA;Manufacturing establishments often perform one or more activities that are classified outside the Manufacturing sector of NAICS.  For instance, almost all manufacturing has some captive research and development or administrative operations, such as accounting, payroll, or management.  These captive services are treated the same as captive manufacturing activities.  When the services are provided by separate establishments, they are classified in the NAICS sector where such services are primary, not in manufacturing. &#xA;&#xA;The boundaries of manufacturing and the other sectors of the classification system can be somewhat blurry.  The establishments in the Manufacturing sector are engaged in the transformation of materials into new products.  Their output is a new product.  However, the definition of what constitutes a new product can be somewhat subjective.  As clarification, the following activities are considered manufacturing in NAICS:&#xA;&amp;lt;table width=100%&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Milk bottling and pasteurizing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Water bottling and processing;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fresh fish packaging (oyster shucking,&amp;lt;br/&amp;gt; fish filleting);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Apparel jobbing (assigning materials&amp;lt;br/&amp;gt; to contract factories or shops for&amp;lt;br/&amp;gt; fabrication or other contract operations)&amp;lt;br/&amp;gt; as well as contracting on materials owned by others;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Printing and related activities;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ready-mix concrete production;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Leather converting;&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Grinding lenses to prescription;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Wood preserving;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Electroplating, plating, metal heat&amp;lt;br/&amp;gt; treating, and polishing for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Lapidary work for the trade;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Fabricating signs and advertising displays;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Rebuilding or remanufacturing&amp;lt;br/&amp;gt; machinery (i.e., automotive parts);&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Ship repair and renovation;&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Machine shops; and&amp;lt;/dt&amp;gt;&amp;lt;dt style=&amp;#39;padding-left: 10px; text-indent: -10px;&amp;#39;&amp;gt;Tire retreading.&amp;lt;/dt&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td width=10%&amp;gt; &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&#xA;Conversely, there are activities that are sometimes considered manufacturing, but which for NAICS are classified in another sector (i.e., not classified as manufacturing). They include:&#xA;&#xA;1. Logging, classified in Sector 11, Agriculture, Forestry, Fishing and Hunting, is considered a harvesting operation;&#xA;2. Beneficiating ores and other minerals, classified in Sector 21, Mining, Quarrying, and Oil and Gas Extraction, is considered part of the activity of mining;&#xA;3. Constructing structures and fabricating at the construction site by contractors are classified in Sector 23, Construction;&#xA;4. Breaking bulk and redistributing in smaller lots, including packaging, repackaging, or bottling products, such as liquors or chemicals; assembling computers on a custom basis; sorting scrap; mixing paints to customer order; and cutting metals to customer order, classified in Sector 42, Wholesale Trade, or Sector 44-45, Retail Trade, produce a modified version of the same product, not a new product; and&#xA;5. Publishing and the combined activity of publishing and printing, classified in Sector 51, Information, transform information into a product for which the value to the consumer lies in the information content, not in the format in which it is distributed (i.e., the book or software compact disc).&#xA;" />
-        <field name="opc_namefrench" value="33-Manufacturing" />
+        <field name="opc_namefrench" value="Manufacturing" />
         <field name="opc_industryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" />
         <field name="opc_naicsnumber" value="33" />
-        <field name="opc_name" value="33-Manufacturing" />
+        <field name="opc_name" value="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -2459,46 +2459,46 @@
         <field name="statuscode" value="1" />
       </record>
       <record id="15cf1176-3908-eb11-a812-000d3a0c2ab4">
-        <field name="opc_nameenglish" value="44-Retail Trade" />
+        <field name="opc_nameenglish" value="Retail Trade" />
         <field name="opc_descriptionenglish" value="The Sector as a Whole&#xA;&#xA;The Retail Trade sector comprises establishments engaged in retailing merchandise, generally without transformation, and rendering services incidental to the sale of merchandise.&#xA;&#xA;The retailing process is the final step in the distribution of merchandise; retailers are, therefore, organized to sell merchandise in small quantities to the general public.  This sector comprises two main types of retailers: store and nonstore retailers.&#xA;&#xA;1.   Store retailers operate fixed point-of-sale locations, located and designed to attract a high volume of walk-in customers.  In general, retail stores have extensive displays of merchandise and use mass-media advertising to attract customers.  They typically sell merchandise to the general public for personal or household consumption, but some also serve business and institutional clients.  These include office supply stores, computer and software stores, building materials dealers, plumbing supply stores, and electrical supply stores.  Catalog showrooms, gasoline stations, automotive dealers, and mobile home dealers are treated as store retailers.&#xA;&#xA;In addition to retailing merchandise, some types of store retailers are also engaged in the provision of after-sales services, such as repair and installation.  For example, new automobile dealers, electronics and appliance stores, and musical instrument and supplies stores often provide repair services.  As a general rule, establishments engaged in retailing merchandise and providing after-sales services are classified in this sector.&#xA;&#xA;The first eleven subsectors of retail trade are store retailers.  The establishments are grouped into industries and industry groups typically based on one or more of the following criteria:&#xA;&#xA;(a) The merchandise line or lines carried by the store; for example, specialty stores are distinguished from general-line stores.&#xA;&#xA;(b) The usual trade designation of the establishments.  This criterion applies in cases where a store type is well recognized by the industry and the public, but difficult to define strictly in terms of merchandise lines carried; for example, pharmacies, hardware stores, and department stores.&#xA;&#xA;(c) Capital requirements in terms of display equipment; for example, food stores have equipment requirements not found in other retail industries.&#xA;&#xA;(d) Human resource requirements in terms of expertise; for example, the staff of an automobile dealer requires knowledge in financing, registering, and licensing issues that are not necessary in other retail industries.&#xA;&#xA;2.   Nonstore retailers, like store retailers, are organized to serve the general public, but their retailing methods differ.  The establishments of this subsector reach customers and market merchandise with methods, such as the broadcasting of &amp;quot;infomercials,&amp;quot; the broadcasting and publishing of direct-response advertising, the publishing of paper and electronic catalogs, door-to-door solicitation, in-home demonstration, selling from portable stalls (street vendors, except food), and distribution through vending machines.  Establishments engaged in the direct sale (nonstore) of products, such as home heating oil dealers and home delivery newspaper routes, are included here.&#xA;&#xA;The buying of goods for resale is a characteristic of retail trade establishments that particularly distinguishes them from establishments in the agriculture, manufacturing, and construction industries.  For example, farms that sell their products at or from the point of production are not classified in retail, but rather in agriculture.  Similarly, establishments that both manufacture and sell their products to the general public are not classified in retail, but rather in manufacturing.  However, establishments that engage in processing activities incidental to retailing are classified in retail.  This includes optical goods stores that do in-store grinding of lenses, and meat and seafood markets.&#xA;&#xA;Wholesalers also engage in the buying of goods for resale, but they are not usually organized to serve the general public.  They typically operate from a warehouse or office, and neither the design nor the location of these premises is intended to solicit a high volume of walk-in traffic.  Wholesalers supply institutional, industrial, wholesale, and retail clients; their operations are, therefore, generally organized to purchase, sell, and deliver merchandise in larger quantities.  However, dealers of durable nonconsumer goods, such as farm machinery and heavy-duty trucks, are included in wholesale trade even if they often sell these products in single units.&#xA;" />
         <field name="opc_descriptionfrench" value="The Sector as a Whole&#xA;&#xA;The Retail Trade sector comprises establishments engaged in retailing merchandise, generally without transformation, and rendering services incidental to the sale of merchandise.&#xA;&#xA;The retailing process is the final step in the distribution of merchandise; retailers are, therefore, organized to sell merchandise in small quantities to the general public.  This sector comprises two main types of retailers: store and nonstore retailers.&#xA;&#xA;1.   Store retailers operate fixed point-of-sale locations, located and designed to attract a high volume of walk-in customers.  In general, retail stores have extensive displays of merchandise and use mass-media advertising to attract customers.  They typically sell merchandise to the general public for personal or household consumption, but some also serve business and institutional clients.  These include office supply stores, computer and software stores, building materials dealers, plumbing supply stores, and electrical supply stores.  Catalog showrooms, gasoline stations, automotive dealers, and mobile home dealers are treated as store retailers.&#xA;&#xA;In addition to retailing merchandise, some types of store retailers are also engaged in the provision of after-sales services, such as repair and installation.  For example, new automobile dealers, electronics and appliance stores, and musical instrument and supplies stores often provide repair services.  As a general rule, establishments engaged in retailing merchandise and providing after-sales services are classified in this sector.&#xA;&#xA;The first eleven subsectors of retail trade are store retailers.  The establishments are grouped into industries and industry groups typically based on one or more of the following criteria:&#xA;&#xA;(a) The merchandise line or lines carried by the store; for example, specialty stores are distinguished from general-line stores.&#xA;&#xA;(b) The usual trade designation of the establishments.  This criterion applies in cases where a store type is well recognized by the industry and the public, but difficult to define strictly in terms of merchandise lines carried; for example, pharmacies, hardware stores, and department stores.&#xA;&#xA;(c) Capital requirements in terms of display equipment; for example, food stores have equipment requirements not found in other retail industries.&#xA;&#xA;(d) Human resource requirements in terms of expertise; for example, the staff of an automobile dealer requires knowledge in financing, registering, and licensing issues that are not necessary in other retail industries.&#xA;&#xA;2.   Nonstore retailers, like store retailers, are organized to serve the general public, but their retailing methods differ.  The establishments of this subsector reach customers and market merchandise with methods, such as the broadcasting of &amp;quot;infomercials,&amp;quot; the broadcasting and publishing of direct-response advertising, the publishing of paper and electronic catalogs, door-to-door solicitation, in-home demonstration, selling from portable stalls (street vendors, except food), and distribution through vending machines.  Establishments engaged in the direct sale (nonstore) of products, such as home heating oil dealers and home delivery newspaper routes, are included here.&#xA;&#xA;The buying of goods for resale is a characteristic of retail trade establishments that particularly distinguishes them from establishments in the agriculture, manufacturing, and construction industries.  For example, farms that sell their products at or from the point of production are not classified in retail, but rather in agriculture.  Similarly, establishments that both manufacture and sell their products to the general public are not classified in retail, but rather in manufacturing.  However, establishments that engage in processing activities incidental to retailing are classified in retail.  This includes optical goods stores that do in-store grinding of lenses, and meat and seafood markets.&#xA;&#xA;Wholesalers also engage in the buying of goods for resale, but they are not usually organized to serve the general public.  They typically operate from a warehouse or office, and neither the design nor the location of these premises is intended to solicit a high volume of walk-in traffic.  Wholesalers supply institutional, industrial, wholesale, and retail clients; their operations are, therefore, generally organized to purchase, sell, and deliver merchandise in larger quantities.  However, dealers of durable nonconsumer goods, such as farm machinery and heavy-duty trucks, are included in wholesale trade even if they often sell these products in single units.&#xA;" />
-        <field name="opc_namefrench" value="44-Retail Trade" />
+        <field name="opc_namefrench" value="Retail Trade" />
         <field name="opc_industryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" />
         <field name="opc_naicsnumber" value="44" />
-        <field name="opc_name" value="44-Retail Trade" />
+        <field name="opc_name" value="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="17cf1176-3908-eb11-a812-000d3a0c2ab4">
-        <field name="opc_nameenglish" value="45-Retail Trade" />
+        <field name="opc_nameenglish" value="Retail Trade" />
         <field name="opc_descriptionenglish" value="The Sector as a Whole&#xA;&#xA;The Retail Trade sector comprises establishments engaged in retailing merchandise, generally without transformation, and rendering services incidental to the sale of merchandise.&#xA;&#xA;The retailing process is the final step in the distribution of merchandise; retailers are, therefore, organized to sell merchandise in small quantities to the general public.  This sector comprises two main types of retailers: store and nonstore retailers.&#xA;&#xA;1.   Store retailers operate fixed point-of-sale locations, located and designed to attract a high volume of walk-in customers.  In general, retail stores have extensive displays of merchandise and use mass-media advertising to attract customers.  They typically sell merchandise to the general public for personal or household consumption, but some also serve business and institutional clients.  These include office supply stores, computer and software stores, building materials dealers, plumbing supply stores, and electrical supply stores.  Catalog showrooms, gasoline stations, automotive dealers, and mobile home dealers are treated as store retailers.&#xA;&#xA;In addition to retailing merchandise, some types of store retailers are also engaged in the provision of after-sales services, such as repair and installation.  For example, new automobile dealers, electronics and appliance stores, and musical instrument and supplies stores often provide repair services.  As a general rule, establishments engaged in retailing merchandise and providing after-sales services are classified in this sector.&#xA;&#xA;The first eleven subsectors of retail trade are store retailers.  The establishments are grouped into industries and industry groups typically based on one or more of the following criteria:&#xA;&#xA;(a) The merchandise line or lines carried by the store; for example, specialty stores are distinguished from general-line stores.&#xA;&#xA;(b) The usual trade designation of the establishments.  This criterion applies in cases where a store type is well recognized by the industry and the public, but difficult to define strictly in terms of merchandise lines carried; for example, pharmacies, hardware stores, and department stores.&#xA;&#xA;(c) Capital requirements in terms of display equipment; for example, food stores have equipment requirements not found in other retail industries.&#xA;&#xA;(d) Human resource requirements in terms of expertise; for example, the staff of an automobile dealer requires knowledge in financing, registering, and licensing issues that are not necessary in other retail industries.&#xA;&#xA;2.   Nonstore retailers, like store retailers, are organized to serve the general public, but their retailing methods differ.  The establishments of this subsector reach customers and market merchandise with methods, such as the broadcasting of &amp;quot;infomercials,&amp;quot; the broadcasting and publishing of direct-response advertising, the publishing of paper and electronic catalogs, door-to-door solicitation, in-home demonstration, selling from portable stalls (street vendors, except food), and distribution through vending machines.  Establishments engaged in the direct sale (nonstore) of products, such as home heating oil dealers and home delivery newspaper routes, are included here.&#xA;&#xA;The buying of goods for resale is a characteristic of retail trade establishments that particularly distinguishes them from establishments in the agriculture, manufacturing, and construction industries.  For example, farms that sell their products at or from the point of production are not classified in retail, but rather in agriculture.  Similarly, establishments that both manufacture and sell their products to the general public are not classified in retail, but rather in manufacturing.  However, establishments that engage in processing activities incidental to retailing are classified in retail.  This includes optical goods stores that do in-store grinding of lenses, and meat and seafood markets.&#xA;&#xA;Wholesalers also engage in the buying of goods for resale, but they are not usually organized to serve the general public.  They typically operate from a warehouse or office, and neither the design nor the location of these premises is intended to solicit a high volume of walk-in traffic.  Wholesalers supply institutional, industrial, wholesale, and retail clients; their operations are, therefore, generally organized to purchase, sell, and deliver merchandise in larger quantities.  However, dealers of durable nonconsumer goods, such as farm machinery and heavy-duty trucks, are included in wholesale trade even if they often sell these products in single units.&#xA;" />
         <field name="opc_descriptionfrench" value="The Sector as a Whole&#xA;&#xA;The Retail Trade sector comprises establishments engaged in retailing merchandise, generally without transformation, and rendering services incidental to the sale of merchandise.&#xA;&#xA;The retailing process is the final step in the distribution of merchandise; retailers are, therefore, organized to sell merchandise in small quantities to the general public.  This sector comprises two main types of retailers: store and nonstore retailers.&#xA;&#xA;1.   Store retailers operate fixed point-of-sale locations, located and designed to attract a high volume of walk-in customers.  In general, retail stores have extensive displays of merchandise and use mass-media advertising to attract customers.  They typically sell merchandise to the general public for personal or household consumption, but some also serve business and institutional clients.  These include office supply stores, computer and software stores, building materials dealers, plumbing supply stores, and electrical supply stores.  Catalog showrooms, gasoline stations, automotive dealers, and mobile home dealers are treated as store retailers.&#xA;&#xA;In addition to retailing merchandise, some types of store retailers are also engaged in the provision of after-sales services, such as repair and installation.  For example, new automobile dealers, electronics and appliance stores, and musical instrument and supplies stores often provide repair services.  As a general rule, establishments engaged in retailing merchandise and providing after-sales services are classified in this sector.&#xA;&#xA;The first eleven subsectors of retail trade are store retailers.  The establishments are grouped into industries and industry groups typically based on one or more of the following criteria:&#xA;&#xA;(a) The merchandise line or lines carried by the store; for example, specialty stores are distinguished from general-line stores.&#xA;&#xA;(b) The usual trade designation of the establishments.  This criterion applies in cases where a store type is well recognized by the industry and the public, but difficult to define strictly in terms of merchandise lines carried; for example, pharmacies, hardware stores, and department stores.&#xA;&#xA;(c) Capital requirements in terms of display equipment; for example, food stores have equipment requirements not found in other retail industries.&#xA;&#xA;(d) Human resource requirements in terms of expertise; for example, the staff of an automobile dealer requires knowledge in financing, registering, and licensing issues that are not necessary in other retail industries.&#xA;&#xA;2.   Nonstore retailers, like store retailers, are organized to serve the general public, but their retailing methods differ.  The establishments of this subsector reach customers and market merchandise with methods, such as the broadcasting of &amp;quot;infomercials,&amp;quot; the broadcasting and publishing of direct-response advertising, the publishing of paper and electronic catalogs, door-to-door solicitation, in-home demonstration, selling from portable stalls (street vendors, except food), and distribution through vending machines.  Establishments engaged in the direct sale (nonstore) of products, such as home heating oil dealers and home delivery newspaper routes, are included here.&#xA;&#xA;The buying of goods for resale is a characteristic of retail trade establishments that particularly distinguishes them from establishments in the agriculture, manufacturing, and construction industries.  For example, farms that sell their products at or from the point of production are not classified in retail, but rather in agriculture.  Similarly, establishments that both manufacture and sell their products to the general public are not classified in retail, but rather in manufacturing.  However, establishments that engage in processing activities incidental to retailing are classified in retail.  This includes optical goods stores that do in-store grinding of lenses, and meat and seafood markets.&#xA;&#xA;Wholesalers also engage in the buying of goods for resale, but they are not usually organized to serve the general public.  They typically operate from a warehouse or office, and neither the design nor the location of these premises is intended to solicit a high volume of walk-in traffic.  Wholesalers supply institutional, industrial, wholesale, and retail clients; their operations are, therefore, generally organized to purchase, sell, and deliver merchandise in larger quantities.  However, dealers of durable nonconsumer goods, such as farm machinery and heavy-duty trucks, are included in wholesale trade even if they often sell these products in single units.&#xA;" />
-        <field name="opc_namefrench" value="45-Retail Trade" />
+        <field name="opc_namefrench" value="Retail Trade" />
         <field name="opc_industryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" />
         <field name="opc_naicsnumber" value="45" />
-        <field name="opc_name" value="45-Retail Trade" />
+        <field name="opc_name" value="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="4fcf1176-3908-eb11-a812-000d3a0c2ab4">
-        <field name="opc_nameenglish" value="48-Transportation and Warehousing" />
+        <field name="opc_nameenglish" value="Transportation and Warehousing" />
         <field name="opc_descriptionenglish" value="The Sector as a Whole&#xA;&#xA;The Transportation and Warehousing sector includes industries providing transportation of passengers and cargo, warehousing and storage for goods, scenic and sightseeing transportation, and support activities related to modes of transportation.  Establishments in these industries use transportation equipment or transportation related facilities as a productive asset.  The type of equipment depends on the mode of transportation.  The modes of transportation are air, rail, water, road, and pipeline.&#xA;&#xA;The Transportation and Warehousing sector distinguishes three basic types of activities: subsectors for each mode of transportation, a subsector for warehousing and storage, and a subsector for establishments providing support activities for transportation.  In addition, there are subsectors for establishments that provide passenger transportation for scenic and sightseeing purposes, postal services, and courier services.&#xA;&#xA;A separate subsector for support activities is established in the sector because, first, support activities for transportation are inherently multimodal, such as freight transportation arrangement, or have multimodal aspects.  Secondly, there are production process similarities among the support activity industries.&#xA;&#xA;One of the support activities identified in the Support Activities for Transportation subsector is the routine repair and maintenance of transportation equipment (e.g., aircraft at an airport, railroad rolling stock at a railroad terminal, or ships at a harbor or port facility).  Such establishments do not perform complete overhauling or rebuilding of transportation equipment (i.e., periodic restoration of transportation equipment to original design specifications) or transportation equipment conversion (i.e., major modification to systems).  An establishment that primarily performs factory (or shipyard) overhauls, rebuilding, or conversions of aircraft, railroad rolling stock, or ships is classified in Subsector 336, Transportation Equipment Manufacturing, according to the type of equipment.&#xA;&#xA;Many of the establishments in this sector often operate on networks, with physical facilities, labor forces, and equipment spread over an extensive geographic area.&#xA;&#xA;Warehousing establishments in this sector are distinguished from merchant wholesaling in that the warehouse establishments do not sell the goods.&#xA;&#xA;Excluded from this sector are establishments primarily engaged in providing travel agent services that support transportation and other establishments, such as hotels, businesses, and government agencies.  These establishments are classified in Sector 56, Administrative and Support and Waste Management and Remediation Services.  Also, establishments primarily engaged in providing rental and leasing of transportation equipment without operator are classified in Subsector 532, Rental and Leasing Services.&#xA;" />
         <field name="opc_descriptionfrench" value="The Sector as a Whole&#xA;&#xA;The Transportation and Warehousing sector includes industries providing transportation of passengers and cargo, warehousing and storage for goods, scenic and sightseeing transportation, and support activities related to modes of transportation.  Establishments in these industries use transportation equipment or transportation related facilities as a productive asset.  The type of equipment depends on the mode of transportation.  The modes of transportation are air, rail, water, road, and pipeline.&#xA;&#xA;The Transportation and Warehousing sector distinguishes three basic types of activities: subsectors for each mode of transportation, a subsector for warehousing and storage, and a subsector for establishments providing support activities for transportation.  In addition, there are subsectors for establishments that provide passenger transportation for scenic and sightseeing purposes, postal services, and courier services.&#xA;&#xA;A separate subsector for support activities is established in the sector because, first, support activities for transportation are inherently multimodal, such as freight transportation arrangement, or have multimodal aspects.  Secondly, there are production process similarities among the support activity industries.&#xA;&#xA;One of the support activities identified in the Support Activities for Transportation subsector is the routine repair and maintenance of transportation equipment (e.g., aircraft at an airport, railroad rolling stock at a railroad terminal, or ships at a harbor or port facility).  Such establishments do not perform complete overhauling or rebuilding of transportation equipment (i.e., periodic restoration of transportation equipment to original design specifications) or transportation equipment conversion (i.e., major modification to systems).  An establishment that primarily performs factory (or shipyard) overhauls, rebuilding, or conversions of aircraft, railroad rolling stock, or ships is classified in Subsector 336, Transportation Equipment Manufacturing, according to the type of equipment.&#xA;&#xA;Many of the establishments in this sector often operate on networks, with physical facilities, labor forces, and equipment spread over an extensive geographic area.&#xA;&#xA;Warehousing establishments in this sector are distinguished from merchant wholesaling in that the warehouse establishments do not sell the goods.&#xA;&#xA;Excluded from this sector are establishments primarily engaged in providing travel agent services that support transportation and other establishments, such as hotels, businesses, and government agencies.  These establishments are classified in Sector 56, Administrative and Support and Waste Management and Remediation Services.  Also, establishments primarily engaged in providing rental and leasing of transportation equipment without operator are classified in Subsector 532, Rental and Leasing Services.&#xA;" />
-        <field name="opc_namefrench" value="48-Transportation and Warehousing" />
+        <field name="opc_namefrench" value="Transportation and Warehousing" />
         <field name="opc_industryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" />
         <field name="opc_naicsnumber" value="48" />
-        <field name="opc_name" value="48-Transportation and Warehousing" />
+        <field name="opc_name" value="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="51cf1176-3908-eb11-a812-000d3a0c2ab4">
-        <field name="opc_nameenglish" value="49-Transportation and Warehousing" />
+        <field name="opc_nameenglish" value="Transportation and Warehousing" />
         <field name="opc_descriptionenglish" value="The Sector as a Whole&#xA;&#xA;The Transportation and Warehousing sector includes industries providing transportation of passengers and cargo, warehousing and storage for goods, scenic and sightseeing transportation, and support activities related to modes of transportation.  Establishments in these industries use transportation equipment or transportation related facilities as a productive asset.  The type of equipment depends on the mode of transportation.  The modes of transportation are air, rail, water, road, and pipeline.&#xA;&#xA;The Transportation and Warehousing sector distinguishes three basic types of activities: subsectors for each mode of transportation, a subsector for warehousing and storage, and a subsector for establishments providing support activities for transportation.  In addition, there are subsectors for establishments that provide passenger transportation for scenic and sightseeing purposes, postal services, and courier services.&#xA;&#xA;A separate subsector for support activities is established in the sector because, first, support activities for transportation are inherently multimodal, such as freight transportation arrangement, or have multimodal aspects.  Secondly, there are production process similarities among the support activity industries.&#xA;&#xA;One of the support activities identified in the Support Activities for Transportation subsector is the routine repair and maintenance of transportation equipment (e.g., aircraft at an airport, railroad rolling stock at a railroad terminal, or ships at a harbor or port facility).  Such establishments do not perform complete overhauling or rebuilding of transportation equipment (i.e., periodic restoration of transportation equipment to original design specifications) or transportation equipment conversion (i.e., major modification to systems).  An establishment that primarily performs factory (or shipyard) overhauls, rebuilding, or conversions of aircraft, railroad rolling stock, or ships is classified in Subsector 336, Transportation Equipment Manufacturing, according to the type of equipment.&#xA;&#xA;Many of the establishments in this sector often operate on networks, with physical facilities, labor forces, and equipment spread over an extensive geographic area.&#xA;&#xA;Warehousing establishments in this sector are distinguished from merchant wholesaling in that the warehouse establishments do not sell the goods.&#xA;&#xA;Excluded from this sector are establishments primarily engaged in providing travel agent services that support transportation and other establishments, such as hotels, businesses, and government agencies.  These establishments are classified in Sector 56, Administrative and Support and Waste Management and Remediation Services.  Also, establishments primarily engaged in providing rental and leasing of transportation equipment without operator are classified in Subsector 532, Rental and Leasing Services.&#xA;" />
         <field name="opc_descriptionfrench" value="The Sector as a Whole&#xA;&#xA;The Transportation and Warehousing sector includes industries providing transportation of passengers and cargo, warehousing and storage for goods, scenic and sightseeing transportation, and support activities related to modes of transportation.  Establishments in these industries use transportation equipment or transportation related facilities as a productive asset.  The type of equipment depends on the mode of transportation.  The modes of transportation are air, rail, water, road, and pipeline.&#xA;&#xA;The Transportation and Warehousing sector distinguishes three basic types of activities: subsectors for each mode of transportation, a subsector for warehousing and storage, and a subsector for establishments providing support activities for transportation.  In addition, there are subsectors for establishments that provide passenger transportation for scenic and sightseeing purposes, postal services, and courier services.&#xA;&#xA;A separate subsector for support activities is established in the sector because, first, support activities for transportation are inherently multimodal, such as freight transportation arrangement, or have multimodal aspects.  Secondly, there are production process similarities among the support activity industries.&#xA;&#xA;One of the support activities identified in the Support Activities for Transportation subsector is the routine repair and maintenance of transportation equipment (e.g., aircraft at an airport, railroad rolling stock at a railroad terminal, or ships at a harbor or port facility).  Such establishments do not perform complete overhauling or rebuilding of transportation equipment (i.e., periodic restoration of transportation equipment to original design specifications) or transportation equipment conversion (i.e., major modification to systems).  An establishment that primarily performs factory (or shipyard) overhauls, rebuilding, or conversions of aircraft, railroad rolling stock, or ships is classified in Subsector 336, Transportation Equipment Manufacturing, according to the type of equipment.&#xA;&#xA;Many of the establishments in this sector often operate on networks, with physical facilities, labor forces, and equipment spread over an extensive geographic area.&#xA;&#xA;Warehousing establishments in this sector are distinguished from merchant wholesaling in that the warehouse establishments do not sell the goods.&#xA;&#xA;Excluded from this sector are establishments primarily engaged in providing travel agent services that support transportation and other establishments, such as hotels, businesses, and government agencies.  These establishments are classified in Sector 56, Administrative and Support and Waste Management and Remediation Services.  Also, establishments primarily engaged in providing rental and leasing of transportation equipment without operator are classified in Subsector 532, Rental and Leasing Services.&#xA;" />
-        <field name="opc_namefrench" value="49-Transportation and Warehousing" />
+        <field name="opc_namefrench" value="Transportation and Warehousing" />
         <field name="opc_industryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" />
         <field name="opc_naicsnumber" value="49" />
-        <field name="opc_name" value="49-Transportation and Warehousing" />
+        <field name="opc_name" value="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -2997,7 +2997,7 @@
         <field name="opc_namefrench" value="Animal Food Manufacturing" />
         <field name="opc_industryid" value="ad9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3111" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3008,7 +3008,7 @@
         <field name="opc_namefrench" value="Grain and Oilseed Milling" />
         <field name="opc_industryid" value="af9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3112" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3019,7 +3019,7 @@
         <field name="opc_namefrench" value="Sugar and Confectionery Product Manufacturing" />
         <field name="opc_industryid" value="b19f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3113" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3030,7 +3030,7 @@
         <field name="opc_namefrench" value="Fruit and Vegetable Preserving and Specialty Food Manufacturing" />
         <field name="opc_industryid" value="b39f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3114" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3041,7 +3041,7 @@
         <field name="opc_namefrench" value="Dairy Product Manufacturing" />
         <field name="opc_industryid" value="b59f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3115" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3050,7 +3050,7 @@
         <field name="opc_namefrench" value="Animal Slaughtering and Processing" />
         <field name="opc_industryid" value="b79f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3116" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3059,7 +3059,7 @@
         <field name="opc_namefrench" value="Seafood Product Preparation and Packaging" />
         <field name="opc_industryid" value="b99f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3117" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3070,7 +3070,7 @@
         <field name="opc_namefrench" value="Bakeries and Tortilla Manufacturing" />
         <field name="opc_industryid" value="bb9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3118" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3081,7 +3081,7 @@
         <field name="opc_namefrench" value="Other Food Manufacturing" />
         <field name="opc_industryid" value="bd9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3119" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3092,7 +3092,7 @@
         <field name="opc_namefrench" value="Beverage Manufacturing" />
         <field name="opc_industryid" value="bf9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3121" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3101,7 +3101,7 @@
         <field name="opc_namefrench" value="Tobacco Manufacturing" />
         <field name="opc_industryid" value="c19f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3122" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3110,7 +3110,7 @@
         <field name="opc_namefrench" value="Fiber, Yarn, and Thread Mills" />
         <field name="opc_industryid" value="c39f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3131" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3121,7 +3121,7 @@
         <field name="opc_namefrench" value="Fabric Mills" />
         <field name="opc_industryid" value="c59f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3132" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3132,7 +3132,7 @@
         <field name="opc_namefrench" value="Textile and Fabric Finishing and Fabric Coating Mills" />
         <field name="opc_industryid" value="c79f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3133" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3143,7 +3143,7 @@
         <field name="opc_namefrench" value="Textile Furnishings Mills" />
         <field name="opc_industryid" value="c99f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3141" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3154,7 +3154,7 @@
         <field name="opc_namefrench" value="Other Textile Product Mills" />
         <field name="opc_industryid" value="cb9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3149" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3165,7 +3165,7 @@
         <field name="opc_namefrench" value="Apparel Knitting Mills" />
         <field name="opc_industryid" value="cd9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3151" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3176,7 +3176,7 @@
         <field name="opc_namefrench" value="Cut and Sew Apparel Manufacturing" />
         <field name="opc_industryid" value="cf9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3152" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3185,7 +3185,7 @@
         <field name="opc_namefrench" value="Apparel Accessories and Other Apparel Manufacturing" />
         <field name="opc_industryid" value="d19f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3159" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3194,7 +3194,7 @@
         <field name="opc_namefrench" value="Leather and Hide Tanning and Finishing" />
         <field name="opc_industryid" value="d39f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3161" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3203,7 +3203,7 @@
         <field name="opc_namefrench" value="Footwear Manufacturing" />
         <field name="opc_industryid" value="d59f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3162" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3212,7 +3212,7 @@
         <field name="opc_namefrench" value="Other Leather and Allied Product Manufacturing" />
         <field name="opc_industryid" value="d79f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3169" />
-        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="31-Manufacturing" />
+        <field name="opc_parentindustryid" value="3bce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3221,7 +3221,7 @@
         <field name="opc_namefrench" value="Sawmills and Wood Preservation" />
         <field name="opc_industryid" value="d99f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3211" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3230,7 +3230,7 @@
         <field name="opc_namefrench" value="Veneer, Plywood, and Engineered Wood Product Manufacturing" />
         <field name="opc_industryid" value="db9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3212" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3241,7 +3241,7 @@
         <field name="opc_namefrench" value="Other Wood Product Manufacturing" />
         <field name="opc_industryid" value="dd9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3219" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3252,7 +3252,7 @@
         <field name="opc_namefrench" value="Pulp, Paper, and Paperboard Mills" />
         <field name="opc_industryid" value="df9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3221" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3263,7 +3263,7 @@
         <field name="opc_namefrench" value="Converted Paper Product Manufacturing" />
         <field name="opc_industryid" value="e19f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3222" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3272,7 +3272,7 @@
         <field name="opc_namefrench" value="Printing and Related Support Activities" />
         <field name="opc_industryid" value="e39f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3231" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3281,7 +3281,7 @@
         <field name="opc_namefrench" value="Petroleum and Coal Products Manufacturing" />
         <field name="opc_industryid" value="e59f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3241" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3292,7 +3292,7 @@
         <field name="opc_namefrench" value="Basic Chemical Manufacturing" />
         <field name="opc_industryid" value="e79f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3251" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3303,7 +3303,7 @@
         <field name="opc_namefrench" value="Resin, Synthetic Rubber, and Artificial and Synthetic Fibers and Filaments Manufacturing" />
         <field name="opc_industryid" value="e99f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3252" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3314,7 +3314,7 @@
         <field name="opc_namefrench" value="Pesticide, Fertilizer, and Other Agricultural Chemical Manufacturing" />
         <field name="opc_industryid" value="eb9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3253" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3323,7 +3323,7 @@
         <field name="opc_namefrench" value="Pharmaceutical and Medicine Manufacturing" />
         <field name="opc_industryid" value="ed9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3254" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3334,7 +3334,7 @@
         <field name="opc_namefrench" value="Paint, Coating, and Adhesive Manufacturing" />
         <field name="opc_industryid" value="ef9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3255" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3345,7 +3345,7 @@
         <field name="opc_namefrench" value="Soap, Cleaning Compound, and Toilet Preparation Manufacturing" />
         <field name="opc_industryid" value="f19f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3256" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3356,7 +3356,7 @@
         <field name="opc_namefrench" value="Other Chemical Product and Preparation Manufacturing" />
         <field name="opc_industryid" value="f39f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3259" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3367,7 +3367,7 @@
         <field name="opc_namefrench" value="Plastics Product Manufacturing" />
         <field name="opc_industryid" value="f59f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3261" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3378,7 +3378,7 @@
         <field name="opc_namefrench" value="Rubber Product Manufacturing" />
         <field name="opc_industryid" value="f79f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3262" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3389,7 +3389,7 @@
         <field name="opc_namefrench" value="Clay Product and Refractory Manufacturing" />
         <field name="opc_industryid" value="f99f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3271" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3398,7 +3398,7 @@
         <field name="opc_namefrench" value="Glass and Glass Product Manufacturing" />
         <field name="opc_industryid" value="fb9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3272" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3409,7 +3409,7 @@
         <field name="opc_namefrench" value="Cement and Concrete Product Manufacturing" />
         <field name="opc_industryid" value="fd9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3273" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3420,7 +3420,7 @@
         <field name="opc_namefrench" value="Lime and Gypsum Product Manufacturing" />
         <field name="opc_industryid" value="ff9f10f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3274" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3431,7 +3431,7 @@
         <field name="opc_namefrench" value="Other Nonmetallic Mineral Product Manufacturing" />
         <field name="opc_industryid" value="01a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3279" />
-        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="32-Manufacturing" />
+        <field name="opc_parentindustryid" value="3dce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3440,7 +3440,7 @@
         <field name="opc_namefrench" value="Iron and Steel Mills and Ferroalloy Manufacturing" />
         <field name="opc_industryid" value="03a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3311" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3451,7 +3451,7 @@
         <field name="opc_namefrench" value="Steel Product Manufacturing from Purchased Steel" />
         <field name="opc_industryid" value="05a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3312" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3460,7 +3460,7 @@
         <field name="opc_namefrench" value="Alumina and Aluminum Production and Processing" />
         <field name="opc_industryid" value="07a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3313" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3471,7 +3471,7 @@
         <field name="opc_namefrench" value="Nonferrous Metal (except Aluminum) Production and Processing" />
         <field name="opc_industryid" value="09a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3314" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3482,7 +3482,7 @@
         <field name="opc_namefrench" value="Foundries" />
         <field name="opc_industryid" value="0ba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3315" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3491,7 +3491,7 @@
         <field name="opc_namefrench" value="Forging and Stamping" />
         <field name="opc_industryid" value="0da010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3321" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3500,7 +3500,7 @@
         <field name="opc_namefrench" value="Cutlery and Handtool Manufacturing" />
         <field name="opc_industryid" value="0fa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3322" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3511,7 +3511,7 @@
         <field name="opc_namefrench" value="Architectural and Structural Metals Manufacturing" />
         <field name="opc_industryid" value="11a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3323" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3522,7 +3522,7 @@
         <field name="opc_namefrench" value="Boiler, Tank, and Shipping Container Manufacturing" />
         <field name="opc_industryid" value="13a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3324" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3531,7 +3531,7 @@
         <field name="opc_namefrench" value="Hardware Manufacturing" />
         <field name="opc_industryid" value="15a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3325" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3540,7 +3540,7 @@
         <field name="opc_namefrench" value="Spring and Wire Product Manufacturing" />
         <field name="opc_industryid" value="17a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3326" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3551,7 +3551,7 @@
         <field name="opc_namefrench" value="Machine Shops; Turned Product; and Screw, Nut, and Bolt Manufacturing" />
         <field name="opc_industryid" value="19a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3327" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3560,7 +3560,7 @@
         <field name="opc_namefrench" value="Coating, Engraving, Heat Treating, and Allied Activities" />
         <field name="opc_industryid" value="1ba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3328" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3571,7 +3571,7 @@
         <field name="opc_namefrench" value="Other Fabricated Metal Product Manufacturing" />
         <field name="opc_industryid" value="1da010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3329" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3582,7 +3582,7 @@
         <field name="opc_namefrench" value="Agriculture, Construction, and Mining Machinery Manufacturing" />
         <field name="opc_industryid" value="1fa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3331" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3591,7 +3591,7 @@
         <field name="opc_namefrench" value="Industrial Machinery Manufacturing" />
         <field name="opc_industryid" value="21a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3332" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3600,7 +3600,7 @@
         <field name="opc_namefrench" value="Commercial and Service Industry Machinery Manufacturing" />
         <field name="opc_industryid" value="23a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3333" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3609,7 +3609,7 @@
         <field name="opc_namefrench" value="Ventilation, Heating, Air-Conditioning, and Commercial Refrigeration Equipment Manufacturing" />
         <field name="opc_industryid" value="25a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3334" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3618,7 +3618,7 @@
         <field name="opc_namefrench" value="Metalworking Machinery Manufacturing" />
         <field name="opc_industryid" value="27a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3335" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3627,7 +3627,7 @@
         <field name="opc_namefrench" value="Engine, Turbine, and Power Transmission Equipment Manufacturing" />
         <field name="opc_industryid" value="29a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3336" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3638,7 +3638,7 @@
         <field name="opc_namefrench" value="Other General Purpose Machinery Manufacturing" />
         <field name="opc_industryid" value="2ba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3339" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3647,7 +3647,7 @@
         <field name="opc_namefrench" value="Computer and Peripheral Equipment Manufacturing" />
         <field name="opc_industryid" value="2da010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3341" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3658,7 +3658,7 @@
         <field name="opc_namefrench" value="Communications Equipment Manufacturing" />
         <field name="opc_industryid" value="2fa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3342" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3667,7 +3667,7 @@
         <field name="opc_namefrench" value="Audio and Video Equipment Manufacturing" />
         <field name="opc_industryid" value="31a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3343" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3676,7 +3676,7 @@
         <field name="opc_namefrench" value="Semiconductor and Other Electronic Component Manufacturing" />
         <field name="opc_industryid" value="33a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3344" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3685,7 +3685,7 @@
         <field name="opc_namefrench" value="Navigational, Measuring, Electromedical, and Control Instruments Manufacturing" />
         <field name="opc_industryid" value="35a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3345" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3694,7 +3694,7 @@
         <field name="opc_namefrench" value="Manufacturing and Reproducing Magnetic and Optical Media" />
         <field name="opc_industryid" value="37a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3346" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3705,7 +3705,7 @@
         <field name="opc_namefrench" value="Electric Lighting Equipment Manufacturing" />
         <field name="opc_industryid" value="39a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3351" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3716,7 +3716,7 @@
         <field name="opc_namefrench" value="Household Appliance Manufacturing" />
         <field name="opc_industryid" value="3ba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3352" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3725,7 +3725,7 @@
         <field name="opc_namefrench" value="Electrical Equipment Manufacturing" />
         <field name="opc_industryid" value="3da010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3353" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3736,7 +3736,7 @@
         <field name="opc_namefrench" value="Other Electrical Equipment and Component Manufacturing" />
         <field name="opc_industryid" value="3fa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3359" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3747,7 +3747,7 @@
         <field name="opc_namefrench" value="Motor Vehicle Manufacturing" />
         <field name="opc_industryid" value="41a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3361" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3756,7 +3756,7 @@
         <field name="opc_namefrench" value="Motor Vehicle Body and Trailer Manufacturing" />
         <field name="opc_industryid" value="43a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3362" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3767,7 +3767,7 @@
         <field name="opc_namefrench" value="Motor Vehicle Parts Manufacturing" />
         <field name="opc_industryid" value="45a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3363" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3776,7 +3776,7 @@
         <field name="opc_namefrench" value="Aerospace Product and Parts Manufacturing" />
         <field name="opc_industryid" value="47a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3364" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3785,7 +3785,7 @@
         <field name="opc_namefrench" value="Railroad Rolling Stock Manufacturing" />
         <field name="opc_industryid" value="49a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3365" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3794,7 +3794,7 @@
         <field name="opc_namefrench" value="Ship and Boat Building" />
         <field name="opc_industryid" value="4ba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3366" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3803,7 +3803,7 @@
         <field name="opc_namefrench" value="Other Transportation Equipment Manufacturing" />
         <field name="opc_industryid" value="4da010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3369" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3814,7 +3814,7 @@
         <field name="opc_namefrench" value="Household and Institutional Furniture and Kitchen Cabinet Manufacturing" />
         <field name="opc_industryid" value="4fa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3371" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3823,7 +3823,7 @@
         <field name="opc_namefrench" value="Office Furniture (including Fixtures) Manufacturing" />
         <field name="opc_industryid" value="51a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3372" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3834,7 +3834,7 @@
         <field name="opc_namefrench" value="Other Furniture Related Product Manufacturing" />
         <field name="opc_industryid" value="53a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3379" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3843,7 +3843,7 @@
         <field name="opc_namefrench" value="Medical Equipment and Supplies Manufacturing" />
         <field name="opc_industryid" value="55a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3391" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -3854,7 +3854,7 @@
         <field name="opc_namefrench" value="Other Miscellaneous Manufacturing" />
         <field name="opc_industryid" value="57a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="3399" />
-        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="33-Manufacturing" />
+        <field name="opc_parentindustryid" value="3fce1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Manufacturing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4070,7 +4070,7 @@
         <field name="opc_namefrench" value="Automobile Dealers" />
         <field name="opc_industryid" value="7fa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4411" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4081,7 +4081,7 @@
         <field name="opc_namefrench" value="Other Motor Vehicle Dealers" />
         <field name="opc_industryid" value="81a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4412" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4092,7 +4092,7 @@
         <field name="opc_namefrench" value="Automotive Parts, Accessories, and Tire Stores" />
         <field name="opc_industryid" value="83a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4413" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4101,7 +4101,7 @@
         <field name="opc_namefrench" value="Furniture Stores" />
         <field name="opc_industryid" value="85a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4421" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4112,7 +4112,7 @@
         <field name="opc_namefrench" value="Home Furnishings Stores" />
         <field name="opc_industryid" value="87a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4422" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4121,7 +4121,7 @@
         <field name="opc_namefrench" value="Electronics and Appliance Stores" />
         <field name="opc_industryid" value="89a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4431" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4132,7 +4132,7 @@
         <field name="opc_namefrench" value="Building Material and Supplies Dealers" />
         <field name="opc_industryid" value="8ba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4441" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4143,7 +4143,7 @@
         <field name="opc_namefrench" value="Lawn and Garden Equipment and Supplies Stores" />
         <field name="opc_industryid" value="8da010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4442" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4154,7 +4154,7 @@
         <field name="opc_namefrench" value="Grocery Stores" />
         <field name="opc_industryid" value="8fa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4451" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4165,7 +4165,7 @@
         <field name="opc_namefrench" value="Specialty Food Stores" />
         <field name="opc_industryid" value="91a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4452" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4174,7 +4174,7 @@
         <field name="opc_namefrench" value="Beer, Wine, and Liquor Stores" />
         <field name="opc_industryid" value="93a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4453" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4183,7 +4183,7 @@
         <field name="opc_namefrench" value="Health and Personal Care Stores" />
         <field name="opc_industryid" value="95a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4461" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4192,7 +4192,7 @@
         <field name="opc_namefrench" value="Gasoline Stations" />
         <field name="opc_industryid" value="97a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4471" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4203,7 +4203,7 @@
         <field name="opc_namefrench" value="Clothing Stores" />
         <field name="opc_industryid" value="99a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4481" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4212,7 +4212,7 @@
         <field name="opc_namefrench" value="Shoe Stores" />
         <field name="opc_industryid" value="9ba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4482" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4223,7 +4223,7 @@
         <field name="opc_namefrench" value="Jewelry, Luggage, and Leather Goods Stores" />
         <field name="opc_industryid" value="9da010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4483" />
-        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="44-Retail Trade" />
+        <field name="opc_parentindustryid" value="15cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4234,7 +4234,7 @@
         <field name="opc_namefrench" value="Sporting Goods, Hobby, and Musical Instrument Stores" />
         <field name="opc_industryid" value="9fa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4511" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4243,7 +4243,7 @@
         <field name="opc_namefrench" value="Book Stores and News Dealers" />
         <field name="opc_industryid" value="a1a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4512" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4252,7 +4252,7 @@
         <field name="opc_namefrench" value="Department Stores" />
         <field name="opc_industryid" value="a3a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4522" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4261,7 +4261,7 @@
         <field name="opc_namefrench" value="General Merchandise Stores, including Warehouse Clubs and Supercenters" />
         <field name="opc_industryid" value="a5a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4523" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4270,7 +4270,7 @@
         <field name="opc_namefrench" value="Florists" />
         <field name="opc_industryid" value="a7a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4531" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4281,7 +4281,7 @@
         <field name="opc_namefrench" value="Office Supplies, Stationery, and Gift Stores" />
         <field name="opc_industryid" value="a9a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4532" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4290,7 +4290,7 @@
         <field name="opc_namefrench" value="Used Merchandise Stores" />
         <field name="opc_industryid" value="aba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4533" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4301,7 +4301,7 @@
         <field name="opc_namefrench" value="Other Miscellaneous Store Retailers" />
         <field name="opc_industryid" value="ada010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4539" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4310,7 +4310,7 @@
         <field name="opc_namefrench" value="Electronic Shopping and Mail-Order Houses" />
         <field name="opc_industryid" value="afa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4541" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4319,7 +4319,7 @@
         <field name="opc_namefrench" value="Vending Machine Operators" />
         <field name="opc_industryid" value="b1a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4542" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4330,7 +4330,7 @@
         <field name="opc_namefrench" value="Direct Selling Establishments" />
         <field name="opc_industryid" value="b3a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4543" />
-        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="45-Retail Trade" />
+        <field name="opc_parentindustryid" value="17cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Retail Trade" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4339,7 +4339,7 @@
         <field name="opc_namefrench" value="Scheduled Air Transportation" />
         <field name="opc_industryid" value="b5a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4811" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4348,7 +4348,7 @@
         <field name="opc_namefrench" value="Nonscheduled Air Transportation" />
         <field name="opc_industryid" value="b7a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4812" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4357,7 +4357,7 @@
         <field name="opc_namefrench" value="Rail Transportation" />
         <field name="opc_industryid" value="b9a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4821" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4366,7 +4366,7 @@
         <field name="opc_namefrench" value="Deep Sea, Coastal, and Great Lakes Water Transportation" />
         <field name="opc_industryid" value="bba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4831" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4375,7 +4375,7 @@
         <field name="opc_namefrench" value="Inland Water Transportation" />
         <field name="opc_industryid" value="bda010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4832" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4386,7 +4386,7 @@
         <field name="opc_namefrench" value="General Freight Trucking" />
         <field name="opc_industryid" value="bfa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4841" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4397,7 +4397,7 @@
         <field name="opc_namefrench" value="Specialized Freight Trucking" />
         <field name="opc_industryid" value="c1a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4842" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4406,7 +4406,7 @@
         <field name="opc_namefrench" value="Urban Transit Systems" />
         <field name="opc_industryid" value="c3a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4851" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4415,7 +4415,7 @@
         <field name="opc_namefrench" value="Interurban and Rural Bus Transportation" />
         <field name="opc_industryid" value="c5a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4852" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4426,7 +4426,7 @@
         <field name="opc_namefrench" value="Taxi and Limousine Service" />
         <field name="opc_industryid" value="c7a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4853" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4435,7 +4435,7 @@
         <field name="opc_namefrench" value="School and Employee Bus Transportation" />
         <field name="opc_industryid" value="c9a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4854" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4444,7 +4444,7 @@
         <field name="opc_namefrench" value="Charter Bus Industry" />
         <field name="opc_industryid" value="cba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4855" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4453,7 +4453,7 @@
         <field name="opc_namefrench" value="Other Transit and Ground Passenger Transportation" />
         <field name="opc_industryid" value="cda010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4859" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4462,7 +4462,7 @@
         <field name="opc_namefrench" value="Pipeline Transportation of Crude Oil" />
         <field name="opc_industryid" value="cfa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4861" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4471,7 +4471,7 @@
         <field name="opc_namefrench" value="Pipeline Transportation of Natural Gas" />
         <field name="opc_industryid" value="d1a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4862" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4482,7 +4482,7 @@
         <field name="opc_namefrench" value="Other Pipeline Transportation" />
         <field name="opc_industryid" value="d3a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4869" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4491,7 +4491,7 @@
         <field name="opc_namefrench" value="Scenic and Sightseeing Transportation, Land" />
         <field name="opc_industryid" value="d5a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4871" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4500,7 +4500,7 @@
         <field name="opc_namefrench" value="Scenic and Sightseeing Transportation, Water" />
         <field name="opc_industryid" value="d7a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4872" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4509,7 +4509,7 @@
         <field name="opc_namefrench" value="Scenic and Sightseeing Transportation, Other" />
         <field name="opc_industryid" value="d9a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4879" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4520,7 +4520,7 @@
         <field name="opc_namefrench" value="Support Activities for Air Transportation" />
         <field name="opc_industryid" value="dba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4881" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4529,7 +4529,7 @@
         <field name="opc_namefrench" value="Support Activities for Rail Transportation" />
         <field name="opc_industryid" value="dda010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4882" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4540,7 +4540,7 @@
         <field name="opc_namefrench" value="Support Activities for Water Transportation" />
         <field name="opc_industryid" value="dfa010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4883" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4551,7 +4551,7 @@
         <field name="opc_namefrench" value="Support Activities for Road Transportation" />
         <field name="opc_industryid" value="e1a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4884" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4560,7 +4560,7 @@
         <field name="opc_namefrench" value="Freight Transportation Arrangement" />
         <field name="opc_industryid" value="e3a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4885" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4569,7 +4569,7 @@
         <field name="opc_namefrench" value="Other Support Activities for Transportation" />
         <field name="opc_industryid" value="e5a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4889" />
-        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="48-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="4fcf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4578,7 +4578,7 @@
         <field name="opc_namefrench" value="Postal Service" />
         <field name="opc_industryid" value="e7a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4911" />
-        <field name="opc_parentindustryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="49-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4587,7 +4587,7 @@
         <field name="opc_namefrench" value="Couriers and Express Delivery Services" />
         <field name="opc_industryid" value="e9a010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4921" />
-        <field name="opc_parentindustryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="49-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4596,7 +4596,7 @@
         <field name="opc_namefrench" value="Local Messengers and Local Delivery" />
         <field name="opc_industryid" value="eba010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4922" />
-        <field name="opc_parentindustryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="49-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -4605,7 +4605,7 @@
         <field name="opc_namefrench" value="Warehousing and Storage" />
         <field name="opc_industryid" value="eda010f9-3d08-eb11-a812-000d3a0c2c46" />
         <field name="opc_naicsnumber" value="4931" />
-        <field name="opc_parentindustryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="49-Transportation and Warehousing" />
+        <field name="opc_parentindustryid" value="51cf1176-3908-eb11-a812-000d3a0c2ab4" lookupentity="opc_industry" lookupentityname="Transportation and Warehousing" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
