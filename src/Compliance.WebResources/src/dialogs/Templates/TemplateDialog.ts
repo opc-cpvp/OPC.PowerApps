@@ -15,6 +15,7 @@ import {
     AllegationWithChecklistResponse
 } from "../../interfaces";
 import { DOMWindow } from "jsdom";
+import { QuestionTypes } from "../../enums";
 
 // TODO: Add a notification for the user when there is an error?
 // TODO: Change the display of the template choices.
@@ -294,7 +295,10 @@ export namespace Dialogs {
                             const checklistResponses: opc_ChecklistResponse_Result[] = property;
 
                             checklistResponses.forEach(x => {
-                                // TODO: We need to change this because if the response is of type text but the value is 1 or 0 it won't display the right value.
+                                if (x.opc_questiontemplateid_guid !== QuestionTypes.TwoOptions) {
+                                    return;
+                                }
+
                                 switch (x.opc_response) {
                                     case "0": {
                                         x.opc_response = "No";

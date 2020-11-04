@@ -26,3 +26,15 @@ export enum ContactType {
     RespondentRepresentative = "respondentrepresentative",
     RespondentLegalRepresentative = "respondentlegalrepresentative"
 }
+
+export enum QuestionTypes {
+    Text = "e0c9e88d-1157-ea11-a811-000d3af46cc5",
+    TextArea = "30c8e88d-1157-ea11-a811-000d3af46cc5",
+    TwoOptions = "7815fa86-1157-ea11-a811-000d3af46cc5",
+    // TODO: Fill those up when the seed data is created.
+    Select = "",
+    MultiSelect = "",
+    Number = "",
+    Date = "",
+    CalculatedField = ""
+}
