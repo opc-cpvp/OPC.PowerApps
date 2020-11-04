@@ -322,12 +322,8 @@ ${cr.opc_response || ""}</textarea
             cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
         ) {
             if (this.isISODate(cr.opc_response)) {
-                // const date = new Date(cr.opc_response)
-                // cr.opc_response = `${date.getUTCMonth()}/${date.getUTCDate()}/${date.getUTCFullYear()}`;
-                cr.opc_response = `${cr.opc_response.substring(5, 7)}/${cr.opc_response.substring(8, 10)}/${cr.opc_response.substring(
-                    0,
-                    4
-                )}`;
+                const dateValues = /^(?<year>\d{4})-(?<month>\d{2})-(?<date>\d{2})$/.exec(cr.opc_response);
+                cr.opc_response = `${dateValues.groups.month}/${dateValues.groups.date}/${dateValues.groups.year}`;
             }
 
             const questionHtml =
@@ -442,9 +438,8 @@ ${cr.opc_response || ""}</textarea
                 }
 
                 if (this.isISODate(value)) {
-                    // const date = new Date(value)
-                    // input.value = `${date.getUTCMonth()}/${date.getUTCDate()}/${date.getUTCFullYear()}`;
-                    input.value = `${value.substring(5, 7)}/${value.substring(8, 10)}/${value.substring(0, 4)}`;
+                    const dateValues = /^(?<year>\d{4})-(?<month>\d{2})-(?<date>\d{2})$/.exec(value);
+                    input.value = `${dateValues.groups.month}/${dateValues.groups.date}/${dateValues.groups.year}`;
                 } else {
                     input.value = value;
                 }
