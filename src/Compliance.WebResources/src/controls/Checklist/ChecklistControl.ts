@@ -107,8 +107,10 @@ export namespace Controls {
 
                         value = "";
                         options.forEach(x => {
-                            value = value.concat(x.value);
+                            value = value.concat(`${x.value}; `);
                         });
+
+                        value = value.trim();
 
                         break;
                     }

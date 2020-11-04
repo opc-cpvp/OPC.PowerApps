@@ -262,10 +262,10 @@ describe("ChecklistControl", () => {
 
             // Assert
             updateQuestionResponseStub.should.have.been.calledOnce;
-            updateQuestionResponseStub.should.have.been.calledWith("1", "Opt2");
+            updateQuestionResponseStub.should.have.been.calledWith("1", "Opt2;");
         });
 
-        it("it should only update input select marked dirty", () => {
+        it("it should only update input multiselect marked dirty", () => {
             // Arrange
             const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
             formElement.insertAdjacentHTML(
@@ -282,7 +282,7 @@ describe("ChecklistControl", () => {
 
             // Assert
             updateQuestionResponseStub.should.have.been.calledOnce;
-            updateQuestionResponseStub.should.have.been.calledWith("1", "Opt1Opt2");
+            updateQuestionResponseStub.should.have.been.calledWith("1", "Opt1; Opt2;");
         });
 
         it("it should only update input date marked dirty", () => {
