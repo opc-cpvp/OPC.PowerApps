@@ -78,7 +78,7 @@ export namespace Dialogs {
                 const promiseArray: [Promise<ComplaintWithRelationships>, Promise<string>, Promise<string>, Promise<any>] = [
                     this._complaintService.getComplaintWithRelationships(this._complaintId),
                     this._userService.getUserEmail(this._globalContext.userSettings.userId),
-                    this._environmentVariableService.getEnvironmentVariable("opc_templatesapplication"),
+                    this._environmentVariableService.getEnvironmentVariable("opc_var_templatesapplication"),
                     this._complaintService.getAllegationsWithChecklistResponses(this._complaintId)
                 ];
 
