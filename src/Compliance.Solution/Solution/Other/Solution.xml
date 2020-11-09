@@ -256,7 +256,7 @@
       <RootComponent type="92" id="{e7c47fba-4c12-eb11-a813-000d3a0c26f9}" behavior="0" />
       <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
       <RootComponent type="92" id="{e96fbbec-4e0f-eb11-a813-000d3a0c26f9}" behavior="0" />
-      <RootComponent type="380" schemaName="opc_templatesapplication" behavior="0" />
+      <RootComponent type="380" schemaName="opc_var_templatesapplication" behavior="0" />
       <RootComponent type="380" schemaName="opc_var_documentsclassification" behavior="0" />
       <RootComponent type="381" id="{4710a2e7-53cc-ea11-a812-000d3af46489}" behavior="0" />
     </RootComponents>
