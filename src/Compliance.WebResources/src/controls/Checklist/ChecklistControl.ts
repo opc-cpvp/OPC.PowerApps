@@ -307,6 +307,7 @@ ${cr.opc_response || ""}</textarea
             });
 
             const questionHtml =
+                /* HTML */
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${
                     this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench
                 }</label>` +
@@ -327,6 +328,7 @@ ${cr.opc_response || ""}</textarea
             }
 
             const questionHtml =
+                /* HTML */
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${
                     this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench
                 }</label>` +
