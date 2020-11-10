@@ -322,17 +322,14 @@ ${cr.opc_response || ""}</textarea
             element: HTMLDivElement,
             cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
         ) {
-            if (this.isISODate(cr.opc_response)) {
-                const date = new Date(cr.opc_response);
-                cr.opc_response = date.toLocaleDateString("default", { timeZone: "UTC" });
-            }
+            const questionType = this.isISODate(cr.opc_response) ? "date" : "text";
 
             const questionHtml =
                 /* HTML */
                 `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${
                     this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench
                 }</label>` +
-                `<input id="q-${cr.opc_checklistresponseid}" type="text" class="form-control calculated-field" value="${
+                `<input id="q-${cr.opc_checklistresponseid}" type="${questionType}" class="form-control calculated-field" value="${
                     cr.opc_response || ""
                 }" data-responseid='${cr.opc_checklistresponseid}' data-additionalparameters="${
                     cr.opc_questiontemplateid.opc_additionalparameters
@@ -439,12 +436,7 @@ ${cr.opc_response || ""}</textarea
                     }
                 }
 
-                if (this.isISODate(value)) {
-                    const date = new Date(value);
-                    input.value = date.toLocaleDateString("default", { timeZone: "UTC" });
-                } else {
-                    input.value = value;
-                }
+                input.value = value;
 
                 // Send update queries to checklist service
                 this._checklistService.updateChecklistResponse(id, value).catch(e => console.error("error updating calculated fields", e));
