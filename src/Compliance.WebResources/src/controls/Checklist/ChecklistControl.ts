@@ -323,8 +323,8 @@ ${cr.opc_response || ""}</textarea
             cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
         ) {
             if (this.isISODate(cr.opc_response)) {
-                const dateValues = /^(?<year>\d{4})-(?<month>\d{2})-(?<date>\d{2})$/.exec(cr.opc_response);
-                cr.opc_response = `${dateValues.groups.month}/${dateValues.groups.date}/${dateValues.groups.year}`;
+                const date = new Date(cr.opc_response);
+                cr.opc_response = date.toLocaleDateString("default", { timeZone: "UTC" });
             }
 
             const questionHtml =
@@ -440,8 +440,8 @@ ${cr.opc_response || ""}</textarea
                 }
 
                 if (this.isISODate(value)) {
-                    const dateValues = /^(?<year>\d{4})-(?<month>\d{2})-(?<date>\d{2})$/.exec(value);
-                    input.value = `${dateValues.groups.month}/${dateValues.groups.date}/${dateValues.groups.year}`;
+                    const date = new Date(value);
+                    input.value = date.toLocaleDateString("default", { timeZone: "UTC" });
                 } else {
                     input.value = value;
                 }
