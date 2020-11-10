@@ -39,8 +39,7 @@
 
         // :input should cover all form field types
         $(document).on("change", ":input", function (e) {
-            if (e.target.tagName === "OPTION") return;
-            if (e.target.parentNode?.parentNode?.parentNode?.className.includes("select-option")) return;
+            if ($(e.target).parents().hasClass("select-option")) return;
             if (!e.target.className.includes("dirty")) e.target.className += ' dirty';
         });
     </script>

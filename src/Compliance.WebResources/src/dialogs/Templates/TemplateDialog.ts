@@ -75,7 +75,12 @@ export namespace Dialogs {
                 this._placeholder = this._documentContext.getElementById("dialog") as HTMLDivElement;
                 this._complaintId = this.getDataParameter();
 
-                const promiseArray: [Promise<ComplaintWithRelationships>, Promise<string>, Promise<string>, Promise<any>] = [
+                const promiseArray: [
+                    Promise<ComplaintWithRelationships>,
+                    Promise<string>,
+                    Promise<string>,
+                    Promise<AllegationWithChecklistResponse[]>
+                ] = [
                     this._complaintService.getComplaintWithRelationships(this._complaintId),
                     this._userService.getUserEmail(this._globalContext.userSettings.userId),
                     this._environmentVariableService.getEnvironmentVariable("opc_var_templatesapplication"),
