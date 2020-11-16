@@ -340,7 +340,7 @@
             <displayname description="Additional Parameters" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Additional parameters to pass to the Checklist plugin." languagecode="1033" />
+            <Description description="Additional parameters to pass to the Checklist webresource component." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_checklisttypeid">
@@ -562,7 +562,7 @@
             <displayname description="Managed Internally" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="This field determines if the question should be hidden and managed internally." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_Name">
