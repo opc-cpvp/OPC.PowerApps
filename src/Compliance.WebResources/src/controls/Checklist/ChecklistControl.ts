@@ -339,11 +339,11 @@ ${cr.opc_response || ""}</textarea
 
         private getResponseValue(sequenceNumber: string): string {
             const field = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === sequenceNumber);
-            return (this.documentContext.getElementById(`q-${field.opc_checklistresponseid}`) as HTMLDataElement).value;
+            return field ? (this.documentContext.getElementById(`q-${field.opc_checklistresponseid}`) as HTMLDataElement).value : "";
         }
 
         private isNullOrWhiteSpace(string: string): boolean {
-            return string === null || /^ *$/.exec(string) !== null;
+            return string === null || /^\s*$/.exec(string) !== null;
         }
 
         private isISODate(dateString: string): boolean {
@@ -407,6 +407,7 @@ ${cr.opc_response || ""}</textarea
         }
 
         private updateCalculatedFields(): void {
+            // Retrieve all the calculated fields in the checklist
             const calculatedFields = this._placeholder.getElementsByClassName("calculated-field");
 
             // eslint-disable-next-line @typescript-eslint/prefer-for-of
@@ -414,16 +415,19 @@ ${cr.opc_response || ""}</textarea
                 const id: string = calculatedFields[i].getAttribute("data-responseid");
                 let value: string = null;
 
+                // Retrieve the formula that has been stored in the custom "data-additionalparameter" attribute of the field
+                // The formula consist of the sequence numbers of the responses to use and the operator(s) that separates them
                 const input = calculatedFields[i] as HTMLInputElement;
                 const formula = input.dataset.additionalparameters;
 
                 const regex = /(?<operator>^|[-+/*])\s*(?<number>\d+(?:\.\d+)*)/g;
                 const matches = Array.from(formula.matchAll(regex));
 
-                const field1Value = this.getResponseValue(matches[0].groups.number);
-                const field2Value = this.getResponseValue(matches[1].groups.number);
+                // Retrieve the responses values using the sequence numbers of the questions
+                const field1Value = this.getResponseValue(matches[0]?.groups?.number);
+                const field2Value = this.getResponseValue(matches[1]?.groups?.number);
 
-                // Check if the two first fields have a value
+                // If the two first fields have a value, start doing the calculations
                 if (!this.isNullOrWhiteSpace(field1Value) && !this.isNullOrWhiteSpace(field2Value)) {
                     value = this.calculate(field1Value, matches[1].groups.operator, field2Value);
 
@@ -436,6 +440,7 @@ ${cr.opc_response || ""}</textarea
                     }
                 }
 
+                // Change the displayed value in the checklist
                 input.value = value;
 
                 // Send update queries to checklist service

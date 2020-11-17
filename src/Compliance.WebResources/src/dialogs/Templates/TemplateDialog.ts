@@ -274,11 +274,15 @@ export namespace Dialogs {
             }
         }
 
+        // This method is used to go through all the allegations linked to a complaint and append them and their checklist to the document xml
         private appendAllegations(xmlDocument: Document, parentElement: HTMLElement, propertyCollection: any) {
             for (let propertyName in propertyCollection) {
                 if (Object.prototype.hasOwnProperty.call(propertyCollection, propertyName)) {
                     let property: any = propertyCollection[propertyName];
 
+                    // Since there can be multiple allegations, those allegations come in an array and their property name are index numbers
+                    // If the property is an allegation(opc_allegationtypeid_formatted !== undefined), change the property name to the type of allegation
+                    // The reason why we have different names for the different allegation types is because the questions are not the same and they need to be hard coded in the base template
                     if (property && propertyName !== "@odata.context" && propertyName !== "@odata.etag") {
                         if (property.opc_allegationtypeid_formatted !== undefined) {
                             if (property.opc_allegationtypeid_formatted.indexOf("Access") !== -1) {
@@ -290,15 +294,18 @@ export namespace Dialogs {
                             }
                         }
 
+                        // If the property name is still a number, it means that it is not an allegation but a checklist response.
                         if (!isNaN(Number(propertyName))) {
                             propertyName = `question_${propertyName}`;
                         }
 
                         const propertyElement: HTMLElement = xmlDocument.createElement(propertyName);
 
+                        // If the property is the checklist responses array, we need to make some changes to it.
                         if (propertyName === "opc_allegation_checklistresponses_allegation") {
                             const checklistResponses: opc_ChecklistResponse_Result[] = property;
 
+                            // For each question of type Two Options, change the numeral values to something easier to understand.
                             checklistResponses.forEach(x => {
                                 if (x.opc_questiontemplateid_guid !== QuestionTypes.TwoOptions) {
                                     return;
@@ -313,16 +320,14 @@ export namespace Dialogs {
                                         x.opc_response = "Yes";
                                         break;
                                     }
-                                    case null: {
-                                        x.opc_response = "N/A";
-                                        break;
-                                    }
                                     default: {
+                                        x.opc_response = "N/A";
                                         break;
                                     }
                                 }
                             });
 
+                            // The responses are not in order so we need to sort them by their names since it starts with the sequence number of the question.
                             checklistResponses.sort((a, b) => {
                                 if (a.opc_name > b.opc_name) {
                                     return 1;
@@ -335,9 +340,12 @@ export namespace Dialogs {
                         }
 
                         if (typeof property === "object") {
+                            // If the property is a date, simply put it to locale string.
                             if (Object.prototype.toString.call(property) === "[object Date]") {
                                 propertyElement.textContent = property.toLocaleString();
                             } else {
+                                // If the property is an object, send it back to appendAllegation to go through all of its properties.
+                                // This is for the checklist responses.
                                 this.appendAllegations(xmlDocument, propertyElement, property);
                             }
                         } else {
