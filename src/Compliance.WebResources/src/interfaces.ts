@@ -4,7 +4,6 @@ export interface IComplaintService {
     getComplaint(id: string): Promise<opc_complaint>;
     getComplaintWithRelationships(id: string): Promise<ComplaintWithRelationships>;
     getSharePointDocumentLocation(id: string): Promise<SharePointDocumentLocation>;
-    getAllegationsWithChecklistResponses(id: string): Promise<AllegationWithChecklistResponse[]>;
 }
 
 export interface IAllegationService {
@@ -48,6 +47,11 @@ export interface IRiskAssessmentService {
     )[]>;
     updateRiskAssessmentDefinition(definitionid: string, value: boolean): Promise<undefined>;
     updateSuggestedRisk(riskassessmentid: string, riskappetiteid: string | null): Promise<undefined>;
+}
+
+export interface ITemplateService {
+    getAllegationsWithChecklistResponses(complaintId: string): Promise<AllegationWithChecklistResponse[]>;
+    getAllQuestionTemplates(): Promise<QuestionTemplateWithQuestionTypeId[]>;
 }
 
 export interface IUserService {
@@ -124,6 +128,8 @@ export interface TemplateEnvironmentVariable {
 
 export type AllegationWithChecklistResponse = opc_allegation &
     opc_allegation_FormattedResult & { opc_allegation_checklistresponses_allegation?: opc_ChecklistResponse_Result[] };
+
+export type QuestionTemplateWithQuestionTypeId = opc_QuestionTemplate & { opc_questiontypeid_guid: string };
 
 // prettier-ignore
 export type ComplaintWithRelationships = opc_complaint &

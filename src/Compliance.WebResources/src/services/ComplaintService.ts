@@ -1,6 +1,6 @@
 ﻿import { injectable } from "inversify";
 import "reflect-metadata";
-import { ComplaintWithRelationships, IComplaintService, AllegationWithChecklistResponse } from ".././interfaces";
+import { ComplaintWithRelationships, IComplaintService } from ".././interfaces";
 
 @injectable()
 export class ComplaintService implements IComplaintService {
@@ -78,19 +78,5 @@ export class ComplaintService implements IComplaintService {
             id,
             x => x.opc_complaint_SharePointDocumentLocations
         ).promiseFirst();
-    }
-    getAllegationsWithChecklistResponses(id: string): Promise<AllegationWithChecklistResponse[]> {
-        return XrmQuery.retrieveRelatedMultiple(
-            x => x.opc_complaints,
-            id,
-            x => x.opc_complaint_allegations_complaint
-        )
-            .expand(
-                x => x.opc_allegation_checklistresponses_allegation,
-                x => [x.opc_name, x.opc_response]
-            )
-            .select(x => [x.opc_allegationtypeid_guid, x.opc_disposition, x.opc_referencenumber])
-            .includeFormattedValues()
-            .promise();
     }
 }

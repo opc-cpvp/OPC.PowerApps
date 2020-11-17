@@ -1,7 +1,15 @@
 ﻿import { XrmContextMock } from "../../../test/XrmContextMock";
-import { IComplaintService, IUserService, IEnvironmentVariableService, ISharePointService, IAuthService } from "../../interfaces";
+import {
+    IComplaintService,
+    ITemplateService,
+    IUserService,
+    IEnvironmentVariableService,
+    ISharePointService,
+    IAuthService
+} from "../../interfaces";
 import { Dialogs } from "../../dialogs/Templates/TemplateDialog";
 import { ComplaintService } from "../../services/ComplaintService";
+import { TemplateService } from "../../services/TemplateService";
 import { UserService } from "../../services/UserService";
 import { EnvironmentVariableService } from "../../services/EnvironmentVariableService";
 import { AuthService } from "../../services/AuthService";
@@ -24,6 +32,7 @@ describe("TemplateDialog", () => {
     let userService: IUserService;
     let environmentVariableService: IEnvironmentVariableService;
     let complaintService: IComplaintService;
+    let templateService: ITemplateService;
     let authService: IAuthService;
     let sharePointService: ISharePointService;
     let windowContext: DOMWindow;
@@ -34,6 +43,7 @@ describe("TemplateDialog", () => {
     const sharepointDocumentLocation: SharePointDocumentLocation = { "relativeurl": "" };
     const complaint = { "opc_legislation": { "opc_acronym": "" } };
     const allegations = [{}];
+    const questionTemplates = [{}];
     const environmentVariable = `{"applicationId": "", "tenantId": "", "sharePointSiteUrl": "", "templatesFolderPath": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
     const templates = [{ "Name": "templateName", "ServerRelativeUrl": "templateRelativeUrl" }];
 
@@ -42,6 +52,7 @@ describe("TemplateDialog", () => {
         userService = new UserService();
         environmentVariableService = new EnvironmentVariableService();
         complaintService = new ComplaintService();
+        templateService = new TemplateService();
         authService = new AuthService();
         sharePointService = new SharePointService();
         windowContext = new jsdom().window;
@@ -67,6 +78,7 @@ describe("TemplateDialog", () => {
             userService,
             environmentVariableService,
             complaintService,
+            templateService,
             authService,
             sharePointService
         );
@@ -83,6 +95,7 @@ describe("TemplateDialog", () => {
         let getTemplatesStub: any;
         let getComplaintWithRelationshipsStub: any;
         let getAllegationsWithChecklistResponsesStub: any;
+        let getAllQuestionTemplatesStub: any;
         let getEnvironmentVariableStub: any;
         let renderSpy: any;
         let addEventListenersSpy: any;
@@ -92,8 +105,9 @@ describe("TemplateDialog", () => {
             getUserEmailStub = sandbox.stub(userService, "getUserEmail").resolves("");
             getComplaintWithRelationshipsStub = sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
             getAllegationsWithChecklistResponsesStub = sandbox
-                .stub(complaintService, "getAllegationsWithChecklistResponses")
+                .stub(templateService, "getAllegationsWithChecklistResponses")
                 .resolves(allegations);
+            getAllQuestionTemplatesStub = sandbox.stub(templateService, "getAllQuestionTemplates").resolves(questionTemplates);
             getEnvironmentVariableStub = sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             getAccessTokenStub = sandbox.stub(authService, "getAccessToken").resolves("");
             getTemplatesStub = sandbox.stub(sharePointService, "getTemplates").resolves(templates);
@@ -116,6 +130,14 @@ describe("TemplateDialog", () => {
 
             // Assert
             getAllegationsWithChecklistResponsesStub.should.have.been.calledOnce;
+        });
+        it("it should retrieve all question templates", async () => {
+            // Arrange
+            // Act
+            await templateDialog.init();
+
+            // Assert
+            getAllQuestionTemplatesStub.should.have.been.calledOnce;
         });
         it("it should retrieve the user's email", async () => {
             // Arrange
@@ -181,7 +203,8 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
-            sandbox.stub(complaintService, "getAllegationsWithChecklistResponses").resolves(allegations);
+            sandbox.stub(templateService, "getAllegationsWithChecklistResponses").resolves(allegations);
+            sandbox.stub(templateService, "getAllQuestionTemplates").resolves(questionTemplates);
             sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             sandbox.stub(authService, "getAccessToken").resolves("");
             sandbox.stub(sharePointService, "getTemplates").resolves(templates);
@@ -249,7 +272,8 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
-            sandbox.stub(complaintService, "getAllegationsWithChecklistResponses").resolves(allegations);
+            sandbox.stub(templateService, "getAllegationsWithChecklistResponses").resolves(allegations);
+            sandbox.stub(templateService, "getAllQuestionTemplates").resolves(questionTemplates);
             sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             sandbox.stub(authService, "getAccessToken").resolves("");
             sandbox.stub(sharePointService, "getTemplates").resolves(templates);

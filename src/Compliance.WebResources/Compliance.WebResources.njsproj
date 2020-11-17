@@ -103,7 +103,9 @@
     <TypeScriptCompile Include="src\handlers\Commands\MergeContactCommandHandler.test.ts" />
     <TypeScriptCompile Include="src\helpers\ContactHelper.ts" />
     <TypeScriptCompile Include="src\forms\ReminderQuickCreateForm.ts" />
+    <TypeScriptCompile Include="src\helpers\DateHelper.ts" />
     <TypeScriptCompile Include="src\helpers\JQueryHelper.ts" />
+    <TypeScriptCompile Include="src\helpers\StringHelper.ts" />
     <TypeScriptCompile Include="src\helpers\XrmHelper.ts" />
     <TypeScriptCompile Include="src\resources.json" />
     <TypeScriptCompile Include="src\index.ts" />
@@ -119,6 +121,7 @@
     <TypeScriptCompile Include="src\services\ReminderService.ts" />
     <TypeScriptCompile Include="src\services\RiskAssessmentService.ts" />
     <TypeScriptCompile Include="src\services\AuthService.ts" />
+    <TypeScriptCompile Include="src\services\TemplateService.ts" />
     <TypeScriptCompile Include="src\services\UserService.ts" />
     <TypeScriptCompile Include="src\tests.ts" />
     <TypeScriptCompile Include="src\utils\NotificationIcons\NotificationIcons.ts" />

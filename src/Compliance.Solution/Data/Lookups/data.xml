@@ -1903,7 +1903,7 @@
         <field name="statuscode" value="1" />
         <field name="ownerid" value="98274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Jonathan Thomassin" />
         <field name="opc_additionalparameters" value="2.1 - 1" />
-        <field name="opc_managedinternally" value="False" />
+        <field name="opc_managedinternally" value="True" />
       </record>
       <record id="ee86205d-5c23-eb11-a813-000d3af45a96">
         <field name="opc_checklisttypeid" value="e12ce0eb-5a23-eb11-a813-000d3af45a96" lookupentity="opc_checklisttype" lookupentityname="Intake - Time Limit" />
@@ -1996,7 +1996,7 @@
         <field name="statuscode" value="1" />
         <field name="ownerid" value="98274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Jonathan Thomassin" />
         <field name="opc_additionalparameters" value="6 - 1" />
-        <field name="opc_managedinternally" value="False" />
+        <field name="opc_managedinternally" value="True" />
       </record>
     </records>
     <m2mrelationships />

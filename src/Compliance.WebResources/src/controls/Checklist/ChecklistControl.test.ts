@@ -331,7 +331,6 @@ describe("ChecklistControl", () => {
             // Arrange
             const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
             sandbox.stub(control, "getResponseValue");
-            sandbox.stub(control, "isNullOrWhiteSpace").returns(false);
             sandbox.stub(control, "calculate").returns("newValue");
 
             formElement.insertAdjacentHTML(
@@ -364,7 +363,6 @@ describe("ChecklistControl", () => {
 
                 sandbox.stub(service, "updateChecklistResponse").resolves();
                 sandbox.stub(control, "getResponseValue");
-                sandbox.stub(control, "isNullOrWhiteSpace").returns(false);
 
                 formElement.insertAdjacentHTML(
                     "beforeend",

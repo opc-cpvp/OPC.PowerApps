@@ -17,6 +17,7 @@ import { RiskAssessmentService } from "./services/RiskAssessmentService";
 import { EnvironmentVariableService } from "./services/EnvironmentVariableService";
 import { AuthService } from "./services/AuthService";
 import { SharePointService } from "./services/SharePointService";
+import { TemplateService } from "./services/TemplateService";
 
 // Forms
 import ComplaintMainForm = require("./forms/ComplaintMainForm");
@@ -69,6 +70,7 @@ container.bind<i.IUserService>(nameof<i.IUserService>()).to(UserService);
 container.bind<i.IEnvironmentVariableService>(nameof<i.IEnvironmentVariableService>()).to(EnvironmentVariableService);
 container.bind<i.IAuthService>(nameof<i.IAuthService>()).to(AuthService);
 container.bind<i.ISharePointService>(nameof<i.ISharePointService>()).to(SharePointService);
+container.bind<i.ITemplateService>(nameof<i.ITemplateService>()).to(TemplateService);
 
 // Register Forms
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);

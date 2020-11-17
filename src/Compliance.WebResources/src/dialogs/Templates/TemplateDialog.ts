@@ -8,11 +8,13 @@ import {
     IUserService,
     IEnvironmentVariableService,
     IComplaintService,
+    ITemplateService,
     IAuthService,
     ISharePointService,
     ComplaintWithRelationships,
     TemplateEnvironmentVariable,
-    AllegationWithChecklistResponse
+    AllegationWithChecklistResponse,
+    QuestionTemplateWithQuestionTypeId
 } from "../../interfaces";
 import { DOMWindow } from "jsdom";
 import { QuestionTypes } from "../../enums";
@@ -29,11 +31,13 @@ export namespace Dialogs {
         private readonly _userService: IUserService;
         private readonly _environmentVariableService: IEnvironmentVariableService;
         private readonly _complaintService: IComplaintService;
+        private readonly _templateService: ITemplateService;
         private readonly _authService: IAuthService;
         private readonly _sharePointService: ISharePointService;
         private _placeholder: HTMLDivElement;
         private _complaint: ComplaintWithRelationships;
         private _allegations: AllegationWithChecklistResponse[];
+        private _questionTemplates: QuestionTemplateWithQuestionTypeId[];
         private _dialogSelect: HTMLSelectElement;
         private _globalContext: Xrm.context;
         private _windowContext: DOMWindow;
@@ -52,6 +56,7 @@ export namespace Dialogs {
             @inject(nameof<IUserService>()) userService: IUserService,
             @inject(nameof<IEnvironmentVariableService>()) environmentVariableService: IEnvironmentVariableService,
             @inject(nameof<IComplaintService>()) complaintService: IComplaintService,
+            @inject(nameof<ITemplateService>()) templateService: ITemplateService,
             @inject(nameof<IAuthService>()) authService: IAuthService,
             @inject(nameof<ISharePointService>()) sharePointService: ISharePointService
         ) {
@@ -60,6 +65,7 @@ export namespace Dialogs {
             this._userService = userService;
             this._environmentVariableService = environmentVariableService;
             this._complaintService = complaintService;
+            this._templateService = templateService;
             this._authService = authService;
             this._sharePointService = sharePointService;
             this._windowContext = windowContext;
@@ -79,12 +85,14 @@ export namespace Dialogs {
                     Promise<ComplaintWithRelationships>,
                     Promise<string>,
                     Promise<string>,
-                    Promise<AllegationWithChecklistResponse[]>
+                    Promise<AllegationWithChecklistResponse[]>,
+                    Promise<QuestionTemplateWithQuestionTypeId[]>
                 ] = [
                     this._complaintService.getComplaintWithRelationships(this._complaintId),
                     this._userService.getUserEmail(this._globalContext.userSettings.userId),
                     this._environmentVariableService.getEnvironmentVariable("opc_var_templatesapplication"),
-                    this._complaintService.getAllegationsWithChecklistResponses(this._complaintId)
+                    this._templateService.getAllegationsWithChecklistResponses(this._complaintId),
+                    this._templateService.getAllQuestionTemplates()
                 ];
 
                 await Promise.all(promiseArray).then(results => {
@@ -92,6 +100,7 @@ export namespace Dialogs {
                     loginHint = results[1];
                     this._templatesEnvironmentVariable = JSON.parse(results[2]);
                     this._allegations = results[3];
+                    this._questionTemplates = results[4];
                 });
 
                 this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
@@ -168,7 +177,7 @@ export namespace Dialogs {
             const serializedXML = xmlSerializer.serializeToString(this.generateComplaintXml());
 
             await this._complaintService.getSharePointDocumentLocation(this._complaintId).then(documentLocation => {
-                this._caseDocumentsLocationRelativeUrl = `/sites/PowerAppsSandbox/opc_complaint/${documentLocation.relativeurl}`;
+                this._caseDocumentsLocationRelativeUrl = `/sites/PowerAppsSandbox/opc_complaint/${documentLocation.relativeurl}/Letter drafts`;
                 this._sharePointService
                     .generateDocumentFromTemplate(
                         this._accessToken,
@@ -307,21 +316,24 @@ export namespace Dialogs {
 
                             // For each question of type Two Options, change the numeral values to something easier to understand.
                             checklistResponses.forEach(x => {
-                                if (x.opc_questiontemplateid_guid !== QuestionTypes.TwoOptions) {
+                                if (
+                                    this._questionTemplates.find(y => y.opc_questiontemplateid === x.opc_questiontemplateid_guid)
+                                        .opc_questiontypeid_guid !== QuestionTypes.TwoOptions
+                                ) {
                                     return;
                                 }
 
                                 switch (x.opc_response) {
                                     case "0": {
-                                        x.opc_response = "No";
+                                        x.opc_response = this._i18n.t("template:two_options.no");
                                         break;
                                     }
                                     case "1": {
-                                        x.opc_response = "Yes";
+                                        x.opc_response = this._i18n.t("template:two_options.yes");
                                         break;
                                     }
                                     default: {
-                                        x.opc_response = "N/A";
+                                        x.opc_response = this._i18n.t("template:two_options.na");
                                         break;
                                     }
                                 }
