@@ -3,6 +3,7 @@ import { XrmContextMock } from "../../../test/XrmContextMock";
 import { IChecklistService } from "../../interfaces";
 import { ChecklistService } from "../../services/ChecklistService";
 import { JQueryHelper } from "../../helpers/JQueryHelper";
+import { StringCalculator } from "../../helpers/StringCalculator";
 
 import chai from "chai";
 import sinon from "sinon";
@@ -331,7 +332,7 @@ describe("ChecklistControl", () => {
             // Arrange
             const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
             sandbox.stub(control, "getResponseValue");
-            sandbox.stub(control, "calculate").returns("newValue");
+            sandbox.stub(StringCalculator, "calculate").returns("newValue");
 
             formElement.insertAdjacentHTML(
                 "beforeend",
@@ -359,7 +360,7 @@ describe("ChecklistControl", () => {
         describe("and a calculated field is updated", () => {
             it("it should call calculate as much as there are operators in the formula", () => {
                 // Arrange
-                const calculateStub = sandbox.stub(control, "calculate").returns("newValue");
+                const calculateStub = sandbox.stub(StringCalculator, "calculate").returns("newValue");
 
                 sandbox.stub(service, "updateChecklistResponse").resolves();
                 sandbox.stub(control, "getResponseValue");
