@@ -4,6 +4,7 @@ import { PowerIFrameControl } from "../PowerIFrameControl";
 import { JQueryHelper } from "../../helpers/JQueryHelper";
 import { DateHelper } from "../../helpers/DateHelper";
 import { StringHelper } from "../../helpers/StringHelper";
+import { StringCalculator } from "../../helpers/StringCalculator";
 
 export namespace Controls {
     @injectable()
@@ -344,50 +345,6 @@ ${cr.opc_response || ""}</textarea
             return field ? (this.documentContext.getElementById(`q-${field.opc_checklistresponseid}`) as HTMLDataElement).value : "";
         }
 
-        private calculate(firstValue: string, operator: string, secondValue: string): string {
-            let result: string = null;
-
-            const firstValueParsed: any = DateHelper.isISODate(firstValue) ? new Date(firstValue) : Number.parseInt(firstValue);
-            const secondValueParsed: any = DateHelper.isISODate(secondValue) ? new Date(secondValue) : Number.parseInt(secondValue);
-
-            if (isNaN(firstValueParsed) || isNaN(secondValueParsed)) {
-                return result;
-            }
-
-            switch (operator) {
-                case "-":
-                    if (firstValueParsed instanceof Date && secondValueParsed instanceof Date) {
-                        result = DateHelper.getDateDifferenceInDays(new Date(firstValueParsed), new Date(secondValueParsed)).toString();
-                    } else if (firstValueParsed instanceof Date && typeof secondValueParsed === "number") {
-                        result = DateHelper.subtractDaysFromDate(new Date(firstValueParsed), secondValueParsed).toISOString().split("T")[0];
-                    } else if (typeof firstValueParsed === "number" && typeof secondValueParsed === "number") {
-                        result = (firstValueParsed - secondValueParsed).toString();
-                    }
-                    break;
-                case "+":
-                    if (firstValueParsed instanceof Date && typeof secondValueParsed === "number") {
-                        result = DateHelper.addDaysToDate(new Date(firstValueParsed), secondValueParsed).toISOString().split("T")[0];
-                    } else if (typeof firstValueParsed === "number" && typeof secondValueParsed === "number") {
-                        result = (firstValueParsed + secondValueParsed).toString();
-                    }
-                    break;
-                case "/":
-                    if (typeof firstValueParsed === "number" && typeof secondValueParsed === "number") {
-                        result = (firstValueParsed / secondValueParsed).toString();
-                    }
-                    break;
-                case "*":
-                    if (typeof firstValueParsed === "number" && typeof secondValueParsed === "number") {
-                        result = (firstValueParsed * secondValueParsed).toString();
-                    }
-                    break;
-                default:
-                    break;
-            }
-
-            return result;
-        }
-
         private updateCalculatedFields(): void {
             // Retrieve all the calculated fields in the checklist
             const calculatedFields = this._placeholder.getElementsByClassName("calculated-field");
@@ -411,15 +368,19 @@ ${cr.opc_response || ""}</textarea
 
                 // If the two first fields have a value, start doing the calculations
                 if (!StringHelper.isNullOrWhiteSpace(field1Value) && !StringHelper.isNullOrWhiteSpace(field2Value)) {
-                    value = this.calculate(field1Value, matches[1].groups.operator, field2Value);
+                    value = StringCalculator.calculate(field1Value, matches[1].groups.operator, field2Value);
 
                     for (const match of matches.slice(2)) {
                         const fieldValue = this.getResponseValue(match.groups.number);
 
                         if (!StringHelper.isNullOrWhiteSpace(value) && !StringHelper.isNullOrWhiteSpace(fieldValue)) {
-                            value = this.calculate(value, match.groups.operator, fieldValue);
+                            value = StringCalculator.calculate(value, match.groups.operator, fieldValue);
                         }
                     }
+                }
+
+                if (DateHelper.isISODate(value)) {
+                    input.type = "date";
                 }
 
                 // Change the displayed value in the checklist

@@ -105,6 +105,7 @@
     <TypeScriptCompile Include="src\forms\ReminderQuickCreateForm.ts" />
     <TypeScriptCompile Include="src\helpers\DateHelper.ts" />
     <TypeScriptCompile Include="src\helpers\JQueryHelper.ts" />
+    <TypeScriptCompile Include="src\helpers\StringCalculator.ts" />
     <TypeScriptCompile Include="src\helpers\StringHelper.ts" />
     <TypeScriptCompile Include="src\helpers\XrmHelper.ts" />
     <TypeScriptCompile Include="src\resources.json" />
