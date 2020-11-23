@@ -1,0 +1,178 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "opc_sharedcommondataserviceforapps_3e099"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Every_day": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "Eastern Standard Time",
+            "schedule": {
+              "hours": [
+                "4"
+              ],
+              "minutes": [
+                0
+              ]
+            }
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Get_Complaints_with_ER_Officer_and_SLA_Date_equal_to_today": {
+          "runAfter": {
+            "Apply_to_each_User_on_ER_Manager_team": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "opc_complaints",
+              "$select": "opc_complaintid,opc_number",
+              "$filter": "(statecode eq 0 and opc_lastmilestone eq 924340002 and Microsoft.Dynamics.CRM.Between(PropertyName='opc_sladate',PropertyValues=['@{formatDateTime(utcNow(), 'yyyy-MM-dd')}','@{formatDateTime(utcNow(), 'yyyy-MM-dd')} 23:59:59']))"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_Complaint": {
+          "foreach": "@outputs('Get_Complaints_with_ER_Officer_and_SLA_Date_equal_to_today')?['body/value']",
+          "actions": {
+            "Apply_to_each_User_in_ER_Managers_variable": {
+              "foreach": "@variables('ER Managers')",
+              "actions": {
+                "Create_Notification_for_Complaint": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "opc_notifications",
+                      "item/opc_notifybyemail": false,
+                      "item/opc_name": "Complaint is taking longer than expected",
+                      "item/opc_complaintid@odata.bind": "opc_complaints(@{items('Apply_to_each_Complaint')?['opc_complaintid']})",
+                      "item/ownerid@odata.bind": "systemusers(@{items('Apply_to_each_User_in_ER_Managers_variable')})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Get_Complaints_with_ER_Officer_and_SLA_Date_equal_to_today": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "Get_Users_on_ER_Manager_team": {
+          "runAfter": {
+            "Initialize_ER_Managers_variable": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teammemberships",
+              "$select": "systemuserid",
+              "$filter": "teamid eq @{variables('ER Manager Team GUID')}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_ER_Managers_variable": {
+          "runAfter": {
+            "Initialize_ER_Manager_Team_GUID_variable": [
+              "Succeeded"
+            ]
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ER Managers",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Apply_to_each_User_on_ER_Manager_team": {
+          "foreach": "@outputs('Get_Users_on_ER_Manager_team')?['body/value']",
+          "actions": {
+            "Add_User_to_ER_Managers_variable": {
+              "runAfter": {},
+              "type": "AppendToArrayVariable",
+              "inputs": {
+                "name": "ER Managers",
+                "value": "@items('Apply_to_each_User_on_ER_Manager_team')?['systemuserid']"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Users_on_ER_Manager_team": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "Initialize_ER_Manager_Team_GUID_variable": {
+          "runAfter": {},
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ER Manager Team GUID",
+                "type": "string",
+                "value": "602fc116-341e-eb11-a813-000d3a0c26f9"
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}

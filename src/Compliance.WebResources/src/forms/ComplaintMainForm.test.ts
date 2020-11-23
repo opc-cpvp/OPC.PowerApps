@@ -68,6 +68,19 @@ describe("Complaint", () => {
             await Promise.all(getDuplicateDup.returnValues);
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
+
+        describe("and creating a new complaint", () => {
+            it("it should set date received to today's date", () => {
+                // Arrange
+                mockContext.getFormContext().ui.setFormType(Xrm.FormType.Create);
+
+                // Act
+                form.initializeComponents(mockContext);
+
+                // Assert
+                contextSpy.getFormContext().getAttribute("opc_complaintreceiveddate").getValue().should.not.equal(null);
+            });
+        });
     });
 
     describe("when contact is modified", () => {

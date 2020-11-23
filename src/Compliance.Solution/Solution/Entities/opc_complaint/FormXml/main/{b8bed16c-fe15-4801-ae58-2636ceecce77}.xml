@@ -54,6 +54,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{ec3e4a06-1f02-41f8-b49e-faaf02e34a90}" locklevel="0">
+                        <labels>
+                          <label description="Source" languagecode="1033" />
+                        </labels>
+                        <control id="opc_source" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_source" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1550082f-2393-4470-baeb-5bca2ecc2405}" locklevel="0">
+                        <labels>
+                          <label description="Complaint Received Date" languagecode="1033" />
+                        </labels>
+                        <control id="opc_complaintreceiveddate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_complaintreceiveddate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell showlabel="false" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
                         <labels>
                           <label description="Topics" languagecode="1033" />
@@ -617,11 +633,23 @@
               </labels>
               <control id="header_opc_intakeofficer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_intakeofficer" disabled="true" />
             </cell>
+            <cell id="{064e17b4-bfe1-4c20-b69e-981019608f55}" locklevel="0">
+              <labels>
+                <label description="ER Officer" languagecode="1033" />
+              </labels>
+              <control id="header_opc_erofficer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_erofficer" disabled="false" />
+            </cell>
             <cell id="{9a1af0ed-0bac-45b9-84ea-dd4285d4ac7d}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Last Milestone" languagecode="1033" />
               </labels>
               <control id="header_opc_lastmilestone" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_lastmilestone" disabled="false" />
+            </cell>
+            <cell id="{25dd8c2e-4b70-4b13-b17f-fb16f4076e57}" locklevel="0">
+              <labels>
+                <label description="SLA Date" languagecode="1033" />
+              </labels>
+              <control id="header_opc_sladate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_sladate" disabled="true" />
             </cell>
             <cell id="{e461ae48-d330-4ab6-909b-840280ea0d1b}" showlabel="true" locklevel="0">
               <labels>
