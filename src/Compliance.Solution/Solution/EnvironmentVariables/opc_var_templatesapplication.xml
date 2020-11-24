@@ -3,7 +3,7 @@
   <SchemaName>opc_var_templatesapplication</SchemaName>
   <IsRequired>0</IsRequired>
   <Type>100000003</Type>
-  <DefaultValue>{"applicationId": "00000000-0000-0000-000000000000", "tenantId": "00000000-0000-0000-000000000000", "sharePointSiteUrl": "", "templatesFolderPath": "", "tokenScope": [], "authorityBaseUrl": ""}</DefaultValue>
+  <DefaultValue>{"applicationId": "00000000-0000-0000-000000000000", "tenantId": "00000000-0000-0000-000000000000", "templatesSharePointFolderAbsoluteUrl": "", "tokenScope": [], "authorityBaseUrl": ""}</DefaultValue>
   <DisplayName>
     <LocalizedNames>
       <LocalizedName description="Templates Application" languagecode="1033" />
