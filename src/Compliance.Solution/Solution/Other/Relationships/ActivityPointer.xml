@@ -3,7 +3,7 @@
   <EntityRelationship Name="activity_pointer_opc_event">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.501</IntroducedVersion>
+    <IntroducedVersion>1.0.500</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_event</ReferencingEntityName>
     <ReferencedEntityName>ActivityPointer</ReferencedEntityName>

@@ -18,12 +18,6 @@ declare const enum account_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
-declare const enum account_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
 declare const enum account_accountcategorycode {
   PreferredCustomer = 1,
   Standard = 2,
@@ -31,6 +25,10 @@ declare const enum account_accountcategorycode {
 declare const enum account_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum account_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum account_address1_freighttermscode {
   FOB = 1,
@@ -47,19 +45,8 @@ declare const enum account_preferredappointmenttimecode {
 declare const enum account_accountclassificationcode {
   DefaultValue = 1,
 }
-declare const enum account_customertypecode {
-  Competitor = 1,
-  Consultant = 2,
-  Customer = 3,
-  Investor = 4,
-  Partner = 5,
-  Influencer = 6,
-  Press = 7,
-  Prospect = 8,
-  Reseller = 9,
-  Supplier = 10,
-  Vendor = 11,
-  Other = 12,
+declare const enum account_customersizecode {
+  DefaultValue = 1,
 }
 declare const enum account_ownershipcode {
   Public = 1,
@@ -67,15 +54,15 @@ declare const enum account_ownershipcode {
   Subsidiary = 3,
   Other = 4,
 }
+declare const enum account_address2_freighttermscode {
+  DefaultValue = 1,
+}
 declare const enum account_preferredcontactmethodcode {
   Any = 1,
   Email = 2,
   Phone = 3,
   Fax = 4,
   Mail = 5,
-}
-declare const enum account_territorycode {
-  DefaultValue = 1,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -118,11 +105,28 @@ declare const enum account_businesstypecode {
 declare const enum account_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum account_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
 declare const enum account_address2_addresstypecode {
   DefaultValue = 1,
 }
-declare const enum account_customersizecode {
-  DefaultValue = 1,
+declare const enum account_customertypecode {
+  Competitor = 1,
+  Consultant = 2,
+  Customer = 3,
+  Investor = 4,
+  Partner = 5,
+  Influencer = 6,
+  Press = 7,
+  Prospect = 8,
+  Reseller = 9,
+  Supplier = 10,
+  Vendor = 11,
+  Other = 12,
 }
 declare const enum account_address2_shippingmethodcode {
   DefaultValue = 1,
@@ -136,12 +140,8 @@ declare const enum account_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum account_address2_freighttermscode {
+declare const enum account_territorycode {
   DefaultValue = 1,
-}
-declare const enum account_statecode {
-  Active = 0,
-  Inactive = 1,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -172,10 +172,6 @@ declare const enum contact_address1_addresstypecode {
   Primary = 3,
   Other = 4,
 }
-declare const enum contact_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
 declare const enum contact_address1_shippingmethodcode {
   Airborne = 1,
   DHL = 2,
@@ -184,12 +180,6 @@ declare const enum contact_address1_shippingmethodcode {
   PostalMail = 5,
   FullLoad = 6,
   WillCall = 7,
-}
-declare const enum contact_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
 }
 declare const enum contact_gendercode {
   Male = 1,
@@ -205,14 +195,31 @@ declare const enum contact_preferredappointmenttimecode {
   Afternoon = 2,
   Evening = 3,
 }
+declare const enum contact_customersizecode {
+  DefaultValue = 1,
+}
 declare const enum contact_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum contact_customertypecode {
+declare const enum contact_address2_freighttermscode {
   DefaultValue = 1,
 }
-declare const enum contact_customersizecode {
+declare const enum contact_educationcode {
+  DefaultValue = 1,
+}
+declare const enum contact_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
+declare const enum contact_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum contact_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -222,16 +229,16 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
-declare const enum contact_address2_freighttermscode {
-  DefaultValue = 1,
+declare const enum contact_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
 }
-declare const enum contact_educationcode {
+declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum contact_address3_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum contact_address3_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_accountrolecode {
@@ -239,18 +246,14 @@ declare const enum contact_accountrolecode {
   Employee = 2,
   Influencer = 3,
 }
+declare const enum contact_address2_addresstypecode {
+  DefaultValue = 1,
+}
 declare const enum opc_multiplecomplaintstrategy {
   NotApplied = 924340000,
   Proposed = 924340001,
   Applied = 924340002,
   Former = 924340003,
-}
-declare const enum contact_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum contact_address2_addresstypecode {
-  DefaultValue = 1,
 }
 declare const enum contact_preferredappointmentdaycode {
   Sunday = 0,
@@ -260,6 +263,9 @@ declare const enum contact_preferredappointmentdaycode {
   Thursday = 4,
   Friday = 5,
   Saturday = 6,
+}
+declare const enum contact_customertypecode {
+  DefaultValue = 1,
 }
 declare const enum opc_preferredlanguage {
   English = 924340000,
@@ -274,21 +280,20 @@ declare const enum contact_familystatuscode {
   Divorced = 3,
   Widowed = 4,
 }
+declare const enum contact_address3_shippingmethodcode {
+  DefaultValue = 1,
+}
 declare const enum contact_address2_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
-declare const enum contact_shippingmethodcode {
-  DefaultValue = 1,
-}
-declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum duplicaterule_statecode {
   Inactive = 0,
   Active = 1,
+}
+declare const enum duplicaterule_statuscode {
+  Unpublished = 0,
+  Publishing = 1,
+  Published = 2,
 }
 declare const enum duplicaterule_baseentitytypecode {
   Account = 1,
@@ -614,112 +619,108 @@ declare const enum duplicaterule_baseentitytypecode {
   EmailSignature = 9997,
   SolutionHistory = 10000,
   SolutionHistoryDataSource = 10001,
-  SolutionComponentAttributeConfiguration = 10002,
-  SolutionComponentConfiguration = 10003,
-  SolutionComponentRelationshipConfiguration = 10004,
-  ComponentLayer = 10005,
-  ComponentLayerDataSource = 10006,
-  Package = 10007,
-  StageSolutionUpload = 10009,
-  ExportSolutionUpload = 10010,
-  SolutionComponentSummary = 10011,
-  SolutionComponentDataSource = 10012,
-  ProvisionLanguageForUser = 10013,
-  CascadeGrantRevokeAccessRecordsTracker = 10014,
-  CascadeGrantRevokeAccessVersionTracker = 10015,
-  ApplicationUser = 10017,
-  ModelDrivenAppElement = 10020,
-  ModelDrivenAppComponentNodesEdge = 10021,
-  ModelDrivenAppComponentNode = 10022,
-  ModelDrivenAppSetting = 10023,
-  SettingDefinition = 10024,
-  CanvasAppExtendedMetadata = 10025,
-  ODatav4DataSource = 10026,
-  ProcessStageParameter = 10027,
-  WorkflowBinary = 10028,
-  ConnectionReference = 10029,
-  HelpPage = 10030,
-  BotContent = 10031,
-  ConversationTranscript = 10032,
-  Chatbot = 10033,
-  Chatbotsubcomponent = 10034,
-  PDFSetting = 10038,
-  ServiceConfiguration = 10039,
-  SLAKPI = 10040,
-  KnowledgeFederatedArticle = 10041,
-  KnowledgeFederatedArticleIncident = 10042,
-  Searchprovider = 10043,
-  KnowledgeArticleImage = 10044,
-  KnowledgeInteractionInsight = 10045,
-  KnowledgeSearchInsight = 10046,
-  KnowledgeArticleTemplate = 10047,
-  Catalog = 10048,
-  CatalogAssignment = 10049,
-  InternalCatalogAssignment = 10050,
-  CustomAPI = 10051,
-  CustomAPIRequestParameter = 10052,
-  CustomAPIResponseProperty = 10053,
-  TeamMobileOfflineProfileMembership = 10054,
-  UserMobileOfflineProfileMembership = 10055,
-  DataLakeFolder = 10056,
-  DataLakeFolderPermission = 10057,
-  DataLakeWorkspace = 10058,
-  DataLakeWorkspacePermission = 10059,
-  RichTextAttachment = 10060,
-  NonRelationalDataSource = 10061,
-  SearchTelemetry = 10062,
-  AIBuilderDataset = 10063,
-  AIBuilderDatasetFile = 10064,
-  AIBuilderDatasetRecord = 10065,
-  AIBuilderDatasetsContainer = 10066,
-  AIBuilderFile = 10067,
-  AIBuilderFileAttachedData = 10068,
-  AIFormProcessingDocument = 10069,
-  AIObjectDetectionImage = 10070,
-  AIObjectDetectionLabel = 10071,
-  AIObjectDetectionBoundingBox = 10072,
-  AIObjectDetectionImageMapping = 10073,
-  AnalysisComponent = 10075,
-  AnalysisJob = 10076,
-  AnalysisResult = 10077,
-  AnalysisResultDetail = 10078,
-  SolutionHealthRule = 10079,
-  SolutionHealthRuleArgument = 10080,
-  SolutionHealthRuleSet = 10081,
-  AllegationConcern = 10156,
-  AllegationType = 10157,
-  ChecklistResponse = 10158,
-  ChecklistType = 10159,
-  Complaint = 10160,
-  DispositionAction = 10161,
-  DispositionReason = 10162,
-  Event = 10163,
-  IndividualComplaint = 10164,
-  Industry = 10165,
-  Issue = 10166,
-  Legislation = 10167,
-  Notification = 10168,
-  OPCPriority = 10169,
-  QuestionTemplate = 10170,
-  QuestionType = 10171,
-  Recommendation = 10172,
-  Reminder = 10173,
-  RiskAppetite = 10174,
-  RiskAssessment = 10175,
-  RiskAssessmentCategory = 10176,
-  RiskAssessmentCategoryTemplate = 10177,
-  RiskAssessmentDefinition = 10178,
-  RiskAssessmentDefinitionTemplate = 10179,
-  RiskAssessmentFactorTemplate = 10180,
-  RiskAssessmentType = 10181,
-  Theme = 10182,
-  Topic = 10183,
-  RevokeInheritedAccessRecordsTracker = 90001,
-}
-declare const enum duplicaterule_statuscode {
-  Unpublished = 0,
-  Publishing = 1,
-  Published = 2,
+  ComponentLayer = 10002,
+  ComponentLayerDataSource = 10003,
+  SolutionComponentSummary = 10004,
+  SolutionComponentDataSource = 10005,
+  KnowledgeArticleImage = 10006,
+  KnowledgeArticleTemplate = 10007,
+  ODatav4DataSource = 10008,
+  AIFormProcessingDocument = 10009,
+  AIObjectDetectionImage = 10010,
+  AIObjectDetectionLabel = 10011,
+  AIObjectDetectionBoundingBox = 10012,
+  AIObjectDetectionImageMapping = 10013,
+  WorkflowBinary = 10015,
+  HelpPage = 10016,
+  AnalysisComponent = 10029,
+  AnalysisJob = 10030,
+  AnalysisResult = 10031,
+  AnalysisResultDetail = 10032,
+  SolutionHealthRule = 10033,
+  SolutionHealthRuleArgument = 10034,
+  SolutionHealthRuleSet = 10035,
+  ApiSettings = 10049,
+  SolutionComponentAttributeConfiguration = 10056,
+  AIBuilderDataset = 10468,
+  AIBuilderDatasetFile = 10469,
+  AIBuilderDatasetsContainer = 10470,
+  AIBuilderFile = 10471,
+  AIBuilderFileAttachedData = 10472,
+  SolutionComponentConfiguration = 10494,
+  StageSolutionUpload = 10600,
+  ProcessStageParameter = 10626,
+  AIBuilderDatasetRecord = 10762,
+  ServiceConfiguration = 11402,
+  SLAKPI = 11403,
+  NonRelationalDataSource = 11404,
+  DataLakeWorkspace = 11405,
+  DataLakeWorkspacePermission = 11406,
+  ApplicationUser = 11407,
+  SolutionComponentRelationshipConfiguration = 11409,
+  ModelDrivenAppElement = 11410,
+  ModelDrivenAppComponentNodesEdge = 11411,
+  ModelDrivenAppComponentNode = 11412,
+  ModelDrivenAppSetting = 11413,
+  SettingDefinition = 11414,
+  ConnectionReference = 11415,
+  CanvasAppExtendedMetadata = 11416,
+  PDFSetting = 11452,
+  ExportSolutionUpload = 11633,
+  RichTextAttachment = 11665,
+  CascadeGrantRevokeAccessRecordsTracker = 11697,
+  CascadeGrantRevokeAccessVersionTracker = 11698,
+  Package = 11699,
+  KnowledgeInteractionInsight = 11701,
+  KnowledgeSearchInsight = 11702,
+  DataLakeFolder = 11765,
+  DataLakeFolderPermission = 11766,
+  ProvisionLanguageForUser = 11767,
+  Catalog = 11769,
+  CatalogAssignment = 11770,
+  InternalCatalogAssignment = 11771,
+  CustomAPI = 11772,
+  CustomAPIRequestParameter = 11773,
+  CustomAPIResponseProperty = 11774,
+  BotContent = 11778,
+  ConversationTranscript = 11779,
+  Chatbot = 11780,
+  Chatbotsubcomponent = 11781,
+  KnowledgeFederatedArticle = 11785,
+  KnowledgeFederatedArticleIncident = 11786,
+  Searchprovider = 11787,
+  SearchTelemetry = 11821,
+  TeamMobileOfflineProfileMembership = 11822,
+  UserMobileOfflineProfileMembership = 11823,
+  RevokeInheritedAccessRecordsTracker = 11857,
+  AllegationConcern = 11965,
+  AllegationType = 11966,
+  ChecklistResponse = 11967,
+  ChecklistType = 11968,
+  Complaint = 11969,
+  DispositionAction = 11970,
+  DispositionReason = 11971,
+  Event = 11972,
+  IndividualComplaint = 11973,
+  Industry = 11974,
+  Issue = 11975,
+  Legislation = 11976,
+  Notification = 11977,
+  OPCPriority = 11978,
+  QuestionTemplate = 11979,
+  QuestionType = 11980,
+  Recommendation = 11981,
+  Reminder = 11982,
+  RiskAppetite = 11983,
+  RiskAssessment = 11984,
+  RiskAssessmentCategory = 11985,
+  RiskAssessmentCategoryTemplate = 11986,
+  RiskAssessmentDefinition = 11987,
+  RiskAssessmentDefinitionTemplate = 11988,
+  RiskAssessmentFactorTemplate = 11989,
+  RiskAssessmentType = 11990,
+  Theme = 11991,
+  Topic = 11992,
 }
 declare const enum duplicaterule_matchingentitytypecode {
   Account = 1,
@@ -1045,107 +1046,108 @@ declare const enum duplicaterule_matchingentitytypecode {
   EmailSignature = 9997,
   SolutionHistory = 10000,
   SolutionHistoryDataSource = 10001,
-  SolutionComponentAttributeConfiguration = 10002,
-  SolutionComponentConfiguration = 10003,
-  SolutionComponentRelationshipConfiguration = 10004,
-  ComponentLayer = 10005,
-  ComponentLayerDataSource = 10006,
-  Package = 10007,
-  StageSolutionUpload = 10009,
-  ExportSolutionUpload = 10010,
-  SolutionComponentSummary = 10011,
-  SolutionComponentDataSource = 10012,
-  ProvisionLanguageForUser = 10013,
-  CascadeGrantRevokeAccessRecordsTracker = 10014,
-  CascadeGrantRevokeAccessVersionTracker = 10015,
-  ApplicationUser = 10017,
-  ModelDrivenAppElement = 10020,
-  ModelDrivenAppComponentNodesEdge = 10021,
-  ModelDrivenAppComponentNode = 10022,
-  ModelDrivenAppSetting = 10023,
-  SettingDefinition = 10024,
-  CanvasAppExtendedMetadata = 10025,
-  ODatav4DataSource = 10026,
-  ProcessStageParameter = 10027,
-  WorkflowBinary = 10028,
-  ConnectionReference = 10029,
-  HelpPage = 10030,
-  BotContent = 10031,
-  ConversationTranscript = 10032,
-  Chatbot = 10033,
-  Chatbotsubcomponent = 10034,
-  PDFSetting = 10038,
-  ServiceConfiguration = 10039,
-  SLAKPI = 10040,
-  KnowledgeFederatedArticle = 10041,
-  KnowledgeFederatedArticleIncident = 10042,
-  Searchprovider = 10043,
-  KnowledgeArticleImage = 10044,
-  KnowledgeInteractionInsight = 10045,
-  KnowledgeSearchInsight = 10046,
-  KnowledgeArticleTemplate = 10047,
-  Catalog = 10048,
-  CatalogAssignment = 10049,
-  InternalCatalogAssignment = 10050,
-  CustomAPI = 10051,
-  CustomAPIRequestParameter = 10052,
-  CustomAPIResponseProperty = 10053,
-  TeamMobileOfflineProfileMembership = 10054,
-  UserMobileOfflineProfileMembership = 10055,
-  DataLakeFolder = 10056,
-  DataLakeFolderPermission = 10057,
-  DataLakeWorkspace = 10058,
-  DataLakeWorkspacePermission = 10059,
-  RichTextAttachment = 10060,
-  NonRelationalDataSource = 10061,
-  SearchTelemetry = 10062,
-  AIBuilderDataset = 10063,
-  AIBuilderDatasetFile = 10064,
-  AIBuilderDatasetRecord = 10065,
-  AIBuilderDatasetsContainer = 10066,
-  AIBuilderFile = 10067,
-  AIBuilderFileAttachedData = 10068,
-  AIFormProcessingDocument = 10069,
-  AIObjectDetectionImage = 10070,
-  AIObjectDetectionLabel = 10071,
-  AIObjectDetectionBoundingBox = 10072,
-  AIObjectDetectionImageMapping = 10073,
-  AnalysisComponent = 10075,
-  AnalysisJob = 10076,
-  AnalysisResult = 10077,
-  AnalysisResultDetail = 10078,
-  SolutionHealthRule = 10079,
-  SolutionHealthRuleArgument = 10080,
-  SolutionHealthRuleSet = 10081,
-  AllegationConcern = 10156,
-  AllegationType = 10157,
-  ChecklistResponse = 10158,
-  ChecklistType = 10159,
-  Complaint = 10160,
-  DispositionAction = 10161,
-  DispositionReason = 10162,
-  Event = 10163,
-  IndividualComplaint = 10164,
-  Industry = 10165,
-  Issue = 10166,
-  Legislation = 10167,
-  Notification = 10168,
-  OPCPriority = 10169,
-  QuestionTemplate = 10170,
-  QuestionType = 10171,
-  Recommendation = 10172,
-  Reminder = 10173,
-  RiskAppetite = 10174,
-  RiskAssessment = 10175,
-  RiskAssessmentCategory = 10176,
-  RiskAssessmentCategoryTemplate = 10177,
-  RiskAssessmentDefinition = 10178,
-  RiskAssessmentDefinitionTemplate = 10179,
-  RiskAssessmentFactorTemplate = 10180,
-  RiskAssessmentType = 10181,
-  Theme = 10182,
-  Topic = 10183,
-  RevokeInheritedAccessRecordsTracker = 90001,
+  ComponentLayer = 10002,
+  ComponentLayerDataSource = 10003,
+  SolutionComponentSummary = 10004,
+  SolutionComponentDataSource = 10005,
+  KnowledgeArticleImage = 10006,
+  KnowledgeArticleTemplate = 10007,
+  ODatav4DataSource = 10008,
+  AIFormProcessingDocument = 10009,
+  AIObjectDetectionImage = 10010,
+  AIObjectDetectionLabel = 10011,
+  AIObjectDetectionBoundingBox = 10012,
+  AIObjectDetectionImageMapping = 10013,
+  WorkflowBinary = 10015,
+  HelpPage = 10016,
+  AnalysisComponent = 10029,
+  AnalysisJob = 10030,
+  AnalysisResult = 10031,
+  AnalysisResultDetail = 10032,
+  SolutionHealthRule = 10033,
+  SolutionHealthRuleArgument = 10034,
+  SolutionHealthRuleSet = 10035,
+  ApiSettings = 10049,
+  SolutionComponentAttributeConfiguration = 10056,
+  AIBuilderDataset = 10468,
+  AIBuilderDatasetFile = 10469,
+  AIBuilderDatasetsContainer = 10470,
+  AIBuilderFile = 10471,
+  AIBuilderFileAttachedData = 10472,
+  SolutionComponentConfiguration = 10494,
+  StageSolutionUpload = 10600,
+  ProcessStageParameter = 10626,
+  AIBuilderDatasetRecord = 10762,
+  ServiceConfiguration = 11402,
+  SLAKPI = 11403,
+  NonRelationalDataSource = 11404,
+  DataLakeWorkspace = 11405,
+  DataLakeWorkspacePermission = 11406,
+  ApplicationUser = 11407,
+  SolutionComponentRelationshipConfiguration = 11409,
+  ModelDrivenAppElement = 11410,
+  ModelDrivenAppComponentNodesEdge = 11411,
+  ModelDrivenAppComponentNode = 11412,
+  ModelDrivenAppSetting = 11413,
+  SettingDefinition = 11414,
+  ConnectionReference = 11415,
+  CanvasAppExtendedMetadata = 11416,
+  PDFSetting = 11452,
+  ExportSolutionUpload = 11633,
+  RichTextAttachment = 11665,
+  CascadeGrantRevokeAccessRecordsTracker = 11697,
+  CascadeGrantRevokeAccessVersionTracker = 11698,
+  Package = 11699,
+  KnowledgeInteractionInsight = 11701,
+  KnowledgeSearchInsight = 11702,
+  DataLakeFolder = 11765,
+  DataLakeFolderPermission = 11766,
+  ProvisionLanguageForUser = 11767,
+  Catalog = 11769,
+  CatalogAssignment = 11770,
+  InternalCatalogAssignment = 11771,
+  CustomAPI = 11772,
+  CustomAPIRequestParameter = 11773,
+  CustomAPIResponseProperty = 11774,
+  BotContent = 11778,
+  ConversationTranscript = 11779,
+  Chatbot = 11780,
+  Chatbotsubcomponent = 11781,
+  KnowledgeFederatedArticle = 11785,
+  KnowledgeFederatedArticleIncident = 11786,
+  Searchprovider = 11787,
+  SearchTelemetry = 11821,
+  TeamMobileOfflineProfileMembership = 11822,
+  UserMobileOfflineProfileMembership = 11823,
+  RevokeInheritedAccessRecordsTracker = 11857,
+  AllegationConcern = 11965,
+  AllegationType = 11966,
+  ChecklistResponse = 11967,
+  ChecklistType = 11968,
+  Complaint = 11969,
+  DispositionAction = 11970,
+  DispositionReason = 11971,
+  Event = 11972,
+  IndividualComplaint = 11973,
+  Industry = 11974,
+  Issue = 11975,
+  Legislation = 11976,
+  Notification = 11977,
+  OPCPriority = 11978,
+  QuestionTemplate = 11979,
+  QuestionType = 11980,
+  Recommendation = 11981,
+  Reminder = 11982,
+  RiskAppetite = 11983,
+  RiskAssessment = 11984,
+  RiskAssessmentCategory = 11985,
+  RiskAssessmentCategoryTemplate = 11986,
+  RiskAssessmentDefinition = 11987,
+  RiskAssessmentDefinitionTemplate = 11988,
+  RiskAssessmentFactorTemplate = 11989,
+  RiskAssessmentType = 11990,
+  Theme = 11991,
+  Topic = 11992,
 }
 declare const enum duplicaterulecondition_operatorcode {
   ExactMatch = 0,
@@ -1358,7 +1360,7 @@ declare const enum activitypointer_activitytypecode {
   PhoneCall = 4210,
   Task = 4212,
   RecurringAppointment = 4251,
-  Event = 10163,
+  Event = 11972,
 }
 declare const enum opc_event_statuscode {
   Open = 1,
@@ -1543,22 +1545,22 @@ declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum queue_queuetypecode {
+  DefaultValue = 1,
+}
 declare const enum queue_outgoingemaildeliverymethod {
   None = 0,
   ServerSideSynchronizationorEmailRouter = 2,
+}
+declare const enum queue_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queue_emailrouteraccessapproval {
   Empty = 0,
   Approved = 1,
   PendingApproval = 2,
   Rejected = 3,
-}
-declare const enum queue_queuetypecode {
-  DefaultValue = 1,
-}
-declare const enum queue_statecode {
-  Active = 0,
-  Inactive = 1,
 }
 declare const enum queue_queueviewtype {
   Public = 0,
@@ -1599,9 +1601,9 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10047,
-  Complaint = 10160,
-  Event = 10163,
+  KnowledgeArticleTemplate = 10007,
+  Complaint = 11969,
+  Event = 11972,
 }
 declare const enum sharepointsite_servicetype {
   SharePoint = 0,
@@ -1621,14 +1623,62 @@ declare const enum sharepointdocumentlocation_statuscode {
   Active = 1,
   Inactive = 2,
 }
+declare const enum sharepoint_validationstatus {
+  NotValidated = 1,
+  InProgress = 2,
+  Invalid = 3,
+  Valid = 4,
+  Couldnotvalidate = 5,
+}
+declare const enum sharepointsite_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum sharepointsite_folderstructureentity {
+  None = 0,
+  Account = 1,
+  Contact = 2,
+}
+declare const enum sharepointsite_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum sharepoint_validationstatusreason {
+  ThisrecordsURLhasnotbeenvalidated = 1,
+  ThisrecordsURLisvalid = 2,
+  ThisrecordsURLisnotvalid = 3,
+  TheURLschemesofMicrosoftDynamics365andSharePointaredifferent = 4,
+  TheURLcouldnotbeaccessedbecauseofInternetExplorersecuritysettings = 5,
+  Authenticationfailure = 6,
+  Invalidcertificates = 7,
+}
 declare const enum systemuser_address1_addresstypecode {
   DefaultValue = 1,
 }
 declare const enum systemuser_address1_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum systemuser_invitestatuscode {
+  InvitationNotSent = 0,
+  Invited = 1,
+  InvitationNearExpired = 2,
+  InvitationExpired = 3,
+  InvitationAccepted = 4,
+  InvitationRejected = 5,
+  InvitationRevoked = 6,
+}
+declare const enum systemuser_preferredaddresscode {
+  MailingAddress = 1,
+  OtherAddress = 2,
+}
 declare const enum systemuser_preferredemailcode {
   DefaultValue = 1,
+}
+declare const enum systemuser_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
 }
 declare const enum systemuser_outgoingemaildeliverymethod {
   None = 0,
@@ -1640,16 +1690,6 @@ declare const enum systemuser_preferredphonecode {
   OtherPhone = 2,
   HomePhone = 3,
   MobilePhone = 4,
-}
-declare const enum systemuser_emailrouteraccessapproval {
-  Empty = 0,
-  Approved = 1,
-  PendingApproval = 2,
-  Rejected = 3,
-}
-declare const enum systemuser_preferredaddresscode {
-  MailingAddress = 1,
-  OtherAddress = 2,
 }
 declare const enum systemuser_incomingemaildeliverymethod {
   None = 0,
@@ -1683,15 +1723,6 @@ declare const enum systemuser_caltype {
 declare const enum systemuser_address2_addresstypecode {
   DefaultValue = 1,
 }
-declare const enum systemuser_invitestatuscode {
-  InvitationNotSent = 0,
-  Invited = 1,
-  InvitationNearExpired = 2,
-  InvitationExpired = 3,
-  InvitationAccepted = 4,
-  InvitationRejected = 5,
-  InvitationRevoked = 6,
-}
 declare const enum systemuser_address2_shippingmethodcode {
   DefaultValue = 1,
 }
@@ -1701,43 +1732,11 @@ declare const enum team_type {
   AADSecurityGroup = 2,
   AADOfficeGroup = 3,
 }
-declare const enum team_membershiptype {
+declare const enum _team_membershiptype {
   Membersandguests = 0,
   Members = 1,
   Owners = 2,
   Guests = 3,
-}
-declare const enum connection_record2objecttypecode {
-  Account = 1,
-  Contact = 2,
-  User = 8,
-  Team = 9,
-  Position = 50,
-  SocialProfile = 99,
-  Territory = 2013,
-  Activity = 4200,
-  Appointment = 4201,
-  Email = 4202,
-  Fax = 4204,
-  Letter = 4207,
-  PhoneCall = 4210,
-  Task = 4212,
-  SocialActivity = 4216,
-  RecurringAppointment = 4251,
-  ProcessSession = 4710,
-  ChannelAccessProfileRule = 9400,
-  Goal = 9600,
-  KnowledgeBaseRecord = 9930,
-  KnowledgeArticle = 9953,
-  Event = 10163,
-}
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum connection_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum connection_record1objecttypecode {
   Account = 1,
@@ -1761,7 +1760,39 @@ declare const enum connection_record1objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-  Event = 10163,
+  Event = 11972,
+}
+declare const enum connection_record2objecttypecode {
+  Account = 1,
+  Contact = 2,
+  User = 8,
+  Team = 9,
+  Position = 50,
+  SocialProfile = 99,
+  Territory = 2013,
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  RecurringAppointment = 4251,
+  ProcessSession = 4710,
+  ChannelAccessProfileRule = 9400,
+  Goal = 9600,
+  KnowledgeBaseRecord = 9930,
+  KnowledgeArticle = 9953,
+  Event = 11972,
+}
+declare const enum connection_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare namespace Form.account.QuickCreate {
   namespace QuickCreate {
@@ -8786,6 +8817,94 @@ declare namespace Form.sharepointdocumentlocation.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.sharepointsite.Main {
+  namespace Information {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "section 1"): Xrm.PageSection;
+        get(name: "url option"): Xrm.PageSection;
+        get(name: "url validation"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "absoluteurl"): Xrm.Attribute<string>;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "isgridpresent"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "ispowerbisite"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "lastvalidated"): Xrm.DateAttribute;
+      get(name: "name"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "parentsite"): Xrm.LookupAttribute<"sharepointsite">;
+      get(name: "relativeurl"): Xrm.Attribute<string>;
+      get(name: "statecode"): Xrm.OptionSetAttribute<sharepointsite_statecode>;
+      get(name: "validationstatus"): Xrm.OptionSetAttribute<sharepoint_validationstatus>;
+      get(name: "validationstatuserrorcode"): Xrm.OptionSetAttribute<sharepoint_validationstatusreason>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "absoluteurl"): Xrm.StringControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "footer_statecode"): Xrm.OptionSetControl<sharepointsite_statecode>;
+      get(name: "isgridpresent"): Xrm.OptionSetControl<boolean>;
+      get(name: "ispowerbisite"): Xrm.OptionSetControl<boolean>;
+      get(name: "lastvalidated"): Xrm.DateControl;
+      get(name: "name"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "parentsite"): Xrm.LookupControl<"sharepointsite">;
+      get(name: "relativeurl"): Xrm.StringControl;
+      get(name: "urloption"): Xrm.OptionSetControl<number>;
+      get(name: "validationstatus"): Xrm.OptionSetControl<sharepoint_validationstatus>;
+      get(name: "validationstatuserrorcode"): Xrm.OptionSetControl<sharepoint_validationstatusreason>;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "absoluteurl"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "isgridpresent"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "ispowerbisite"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "lastvalidated"): Xrm.DateAttribute;
+    getAttribute(attributeName: "name"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "parentsite"): Xrm.LookupAttribute<"sharepointsite">;
+    getAttribute(attributeName: "relativeurl"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<sharepointsite_statecode>;
+    getAttribute(attributeName: "validationstatus"): Xrm.OptionSetAttribute<sharepoint_validationstatus>;
+    getAttribute(attributeName: "validationstatuserrorcode"): Xrm.OptionSetAttribute<sharepoint_validationstatusreason>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "absoluteurl"): Xrm.StringControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "footer_statecode"): Xrm.OptionSetControl<sharepointsite_statecode>;
+    getControl(controlName: "isgridpresent"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "ispowerbisite"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "lastvalidated"): Xrm.DateControl;
+    getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "parentsite"): Xrm.LookupControl<"sharepointsite">;
+    getControl(controlName: "relativeurl"): Xrm.StringControl;
+    getControl(controlName: "urloption"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "validationstatus"): Xrm.OptionSetControl<sharepoint_validationstatus>;
+    getControl(controlName: "validationstatuserrorcode"): Xrm.OptionSetControl<sharepoint_validationstatusreason>;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.systemuser.Main {
   namespace User {
     namespace Tabs {
@@ -9475,7 +9594,7 @@ declare namespace Form.team.Main {
       get(name: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
       get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
       get(name: "description"): Xrm.Attribute<string>;
-      get(name: "membershiptype"): Xrm.OptionSetAttribute<team_membershiptype>;
+      get(name: "membershiptype"): Xrm.OptionSetAttribute<_team_membershiptype>;
       get(name: "name"): Xrm.Attribute<string>;
       get(name: "queueid"): Xrm.LookupAttribute<"queue">;
       get(name: "teamtype"): Xrm.OptionSetAttribute<team_type>;
@@ -9491,7 +9610,7 @@ declare namespace Form.team.Main {
       get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
       get(name: "description"): Xrm.StringControl;
       get(name: "header_queueid"): Xrm.LookupControl<"queue">;
-      get(name: "membershiptype"): Xrm.OptionSetControl<team_membershiptype>;
+      get(name: "membershiptype"): Xrm.OptionSetControl<_team_membershiptype>;
       get(name: "name"): Xrm.StringControl;
       get(name: "teamtype"): Xrm.OptionSetControl<team_type>;
       get(name: string): undefined;
@@ -9512,7 +9631,7 @@ declare namespace Form.team.Main {
     getAttribute(attributeName: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
     getAttribute(attributeName: "description"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "membershiptype"): Xrm.OptionSetAttribute<team_membershiptype>;
+    getAttribute(attributeName: "membershiptype"): Xrm.OptionSetAttribute<_team_membershiptype>;
     getAttribute(attributeName: "name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
     getAttribute(attributeName: "teamtype"): Xrm.OptionSetAttribute<team_type>;
@@ -9523,7 +9642,7 @@ declare namespace Form.team.Main {
     getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
     getControl(controlName: "description"): Xrm.StringControl;
     getControl(controlName: "header_queueid"): Xrm.LookupControl<"queue">;
-    getControl(controlName: "membershiptype"): Xrm.OptionSetControl<team_membershiptype>;
+    getControl(controlName: "membershiptype"): Xrm.OptionSetControl<_team_membershiptype>;
     getControl(controlName: "name"): Xrm.StringControl;
     getControl(controlName: "teamtype"): Xrm.OptionSetControl<team_type>;
     getControl(controlName: string): undefined;
@@ -10664,6 +10783,29 @@ interface SharePointDocumentLocation_Filter {
 interface SharePointDocumentLocation_Create extends SharePointDocumentLocation {
 }
 interface SharePointDocumentLocation_Update extends SharePointDocumentLocation {
+}
+interface SharePointSite_Base extends WebEntity {
+}
+interface SharePointSite_Fixed extends WebEntity_Fixed {
+  sharepointsiteid: string;
+}
+interface SharePointSite extends SharePointSite_Base, SharePointSite_Relationships {
+}
+interface SharePointSite_Relationships {
+}
+interface SharePointSite_Result extends SharePointSite_Base, SharePointSite_Relationships {
+}
+interface SharePointSite_FormattedResult {
+}
+interface SharePointSite_Select {
+}
+interface SharePointSite_Expand {
+}
+interface SharePointSite_Filter {
+}
+interface SharePointSite_Create extends SharePointSite {
+}
+interface SharePointSite_Update extends SharePointSite {
 }
 interface SystemUser_Base extends WebEntity {
 }
@@ -18120,6 +18262,7 @@ interface SharePointDocumentLocation_Base extends WebEntity {
 }
 interface SharePointDocumentLocation_Relationships {
   parentsiteorlocation_sharepointdocumentlocation?: SharePointDocumentLocation_Result | null;
+  parentsiteorlocation_sharepointsite?: SharePointSite_Result | null;
   regardingobjectid_account?: Account_Result | null;
   regardingobjectid_opc_complaint?: opc_complaint_Result | null;
   sharepointdocumentlocation_parent_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
@@ -18212,6 +18355,7 @@ interface SharePointDocumentLocation_Expand {
   owningteam: WebExpand<SharePointDocumentLocation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<SharePointDocumentLocation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
   parentsiteorlocation_sharepointdocumentlocation: WebExpand<SharePointDocumentLocation_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { parentsiteorlocation_sharepointdocumentlocation: SharePointDocumentLocation_Result }>;
+  parentsiteorlocation_sharepointsite: WebExpand<SharePointDocumentLocation_Expand, SharePointSite_Select, SharePointSite_Filter, { parentsiteorlocation_sharepointsite: SharePointSite_Result }>;
   regardingobjectid_account: WebExpand<SharePointDocumentLocation_Expand, Account_Select, Account_Filter, { regardingobjectid_account: Account_Result }>;
   regardingobjectid_opc_complaint: WebExpand<SharePointDocumentLocation_Expand, opc_complaint_Select, opc_complaint_Filter, { regardingobjectid_opc_complaint: opc_complaint_Result }>;
   sharepointdocumentlocation_parent_sharepointdocumentlocation: WebExpand<SharePointDocumentLocation_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { sharepointdocumentlocation_parent_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
@@ -18259,6 +18403,7 @@ interface SharePointDocumentLocation_RelatedOne {
   owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   parentsiteorlocation_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  parentsiteorlocation_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
   regardingobjectid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   regardingobjectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
@@ -18273,6 +18418,189 @@ interface WebEntitiesRelated {
 }
 interface WebEntitiesCUDA {
   sharepointdocumentlocations: WebMappingCUDA<SharePointDocumentLocation_Create,SharePointDocumentLocation_Update,SharePointDocumentLocation_Select>;
+}
+interface SharePointSite_Base extends WebEntity {
+  absoluteurl?: string | null;
+  createdon?: Date | null;
+  description?: string | null;
+  exchangerate?: number | null;
+  folderstructureentity?: string | null;
+  importsequencenumber?: number | null;
+  isdefault?: boolean | null;
+  isgridpresent?: boolean | null;
+  ispowerbisite?: boolean | null;
+  lastvalidated?: Date | null;
+  modifiedon?: Date | null;
+  name?: string | null;
+  overriddencreatedon?: Date | null;
+  relativeurl?: string | null;
+  servicetype?: sharepointsite_servicetype | null;
+  sharepointsiteid?: string | null;
+  sitecollectionid?: string | null;
+  statecode?: sharepointsite_statecode | null;
+  statuscode?: sharepointsite_statuscode | null;
+  timezoneruleversionnumber?: number | null;
+  userid?: string | null;
+  utcconversiontimezonecode?: number | null;
+  validationstatus?: sharepoint_validationstatus | null;
+  validationstatuserrorcode?: sharepoint_validationstatusreason | null;
+  versionnumber?: number | null;
+}
+interface SharePointSite_Relationships {
+  sharepointdocumentlocation_parent_sharepointsite?: SharePointDocumentLocation_Result[] | null;
+  sharepointsite_parentsite_sharepointsite?: SharePointSite_Result[] | null;
+}
+interface SharePointSite extends SharePointSite_Base, SharePointSite_Relationships {
+  ownerid_bind$systemusers?: string | null;
+  ownerid_bind$teams?: string | null;
+  parentsite_bind$sharepointsites?: string | null;
+}
+interface SharePointSite_Create extends SharePointSite {
+}
+interface SharePointSite_Update extends SharePointSite {
+}
+interface SharePointSite_Select {
+  absoluteurl: WebAttribute<SharePointSite_Select, { absoluteurl: string | null }, {  }>;
+  createdby_guid: WebAttribute<SharePointSite_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<SharePointSite_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<SharePointSite_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  description: WebAttribute<SharePointSite_Select, { description: string | null }, {  }>;
+  exchangerate: WebAttribute<SharePointSite_Select, { exchangerate: number | null }, {  }>;
+  folderstructureentity: WebAttribute<SharePointSite_Select, { folderstructureentity: string | null }, {  }>;
+  importsequencenumber: WebAttribute<SharePointSite_Select, { importsequencenumber: number | null }, {  }>;
+  isdefault: WebAttribute<SharePointSite_Select, { isdefault: boolean | null }, {  }>;
+  isgridpresent: WebAttribute<SharePointSite_Select, { isgridpresent: boolean | null }, {  }>;
+  ispowerbisite: WebAttribute<SharePointSite_Select, { ispowerbisite: boolean | null }, {  }>;
+  lastvalidated: WebAttribute<SharePointSite_Select, { lastvalidated: Date | null }, { lastvalidated_formatted?: string }>;
+  modifiedby_guid: WebAttribute<SharePointSite_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<SharePointSite_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<SharePointSite_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  name: WebAttribute<SharePointSite_Select, { name: string | null }, {  }>;
+  overriddencreatedon: WebAttribute<SharePointSite_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<SharePointSite_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<SharePointSite_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<SharePointSite_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<SharePointSite_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  parentsite_guid: WebAttribute<SharePointSite_Select, { parentsite_guid: string | null }, { parentsite_formatted?: string }>;
+  relativeurl: WebAttribute<SharePointSite_Select, { relativeurl: string | null }, {  }>;
+  servicetype: WebAttribute<SharePointSite_Select, { servicetype: sharepointsite_servicetype | null }, { servicetype_formatted?: string }>;
+  sharepointsiteid: WebAttribute<SharePointSite_Select, { sharepointsiteid: string | null }, {  }>;
+  sitecollectionid: WebAttribute<SharePointSite_Select, { sitecollectionid: string | null }, {  }>;
+  statecode: WebAttribute<SharePointSite_Select, { statecode: sharepointsite_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<SharePointSite_Select, { statuscode: sharepointsite_statuscode | null }, { statuscode_formatted?: string }>;
+  timezoneruleversionnumber: WebAttribute<SharePointSite_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  transactioncurrencyid_guid: WebAttribute<SharePointSite_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  userid: WebAttribute<SharePointSite_Select, { userid: string | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<SharePointSite_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  validationstatus: WebAttribute<SharePointSite_Select, { validationstatus: sharepoint_validationstatus | null }, { validationstatus_formatted?: string }>;
+  validationstatuserrorcode: WebAttribute<SharePointSite_Select, { validationstatuserrorcode: sharepoint_validationstatusreason | null }, { validationstatuserrorcode_formatted?: string }>;
+  versionnumber: WebAttribute<SharePointSite_Select, { versionnumber: number | null }, {  }>;
+}
+interface SharePointSite_Filter {
+  absoluteurl: string;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  description: string;
+  exchangerate: any;
+  folderstructureentity: string;
+  importsequencenumber: number;
+  isdefault: boolean;
+  isgridpresent: boolean;
+  ispowerbisite: boolean;
+  lastvalidated: Date;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  name: string;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  parentsite_guid: XQW.Guid;
+  relativeurl: string;
+  servicetype: sharepointsite_servicetype;
+  sharepointsiteid: XQW.Guid;
+  sitecollectionid: XQW.Guid;
+  statecode: sharepointsite_statecode;
+  statuscode: sharepointsite_statuscode;
+  timezoneruleversionnumber: number;
+  transactioncurrencyid_guid: XQW.Guid;
+  userid: XQW.Guid;
+  utcconversiontimezonecode: number;
+  validationstatus: sharepoint_validationstatus;
+  validationstatuserrorcode: sharepoint_validationstatusreason;
+  versionnumber: number;
+}
+interface SharePointSite_Expand {
+  createdby: WebExpand<SharePointSite_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<SharePointSite_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<SharePointSite_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<SharePointSite_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  ownerid: WebExpand<SharePointSite_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
+  owningteam: WebExpand<SharePointSite_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
+  owninguser: WebExpand<SharePointSite_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
+  parentsite: WebExpand<SharePointSite_Expand, SharePointSite_Select, SharePointSite_Filter, { parentsite: SharePointSite_Result }>;
+  sharepointdocumentlocation_parent_sharepointsite: WebExpand<SharePointSite_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { sharepointdocumentlocation_parent_sharepointsite: SharePointDocumentLocation_Result[] }>;
+  sharepointsite_parentsite_sharepointsite: WebExpand<SharePointSite_Expand, SharePointSite_Select, SharePointSite_Filter, { sharepointsite_parentsite_sharepointsite: SharePointSite_Result[] }>;
+}
+interface SharePointSite_FormattedResult {
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  lastvalidated_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  parentsite_formatted?: string;
+  servicetype_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+  validationstatus_formatted?: string;
+  validationstatuserrorcode_formatted?: string;
+}
+interface SharePointSite_Result extends SharePointSite_Base, SharePointSite_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+  parentsite_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface SharePointSite_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  parentsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+}
+interface SharePointSite_RelatedMany {
+  sharepointdocumentlocation_parent_sharepointsite: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  sharepointsite_parentsite_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  sharepointsites: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  sharepointsites: WebMappingRelated<SharePointSite_RelatedOne,SharePointSite_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  sharepointsites: WebMappingCUDA<SharePointSite_Create,SharePointSite_Update,SharePointSite_Select>;
 }
 interface SystemUser_Base extends WebEntity {
   accessmode?: systemuser_accessmode | null;
@@ -18541,6 +18869,10 @@ interface SystemUser_Relationships {
   lk_sharepointdocumentlocationbase_createdonbehalfby?: SharePointDocumentLocation_Result[] | null;
   lk_sharepointdocumentlocationbase_modifiedby?: SharePointDocumentLocation_Result[] | null;
   lk_sharepointdocumentlocationbase_modifiedonbehalfby?: SharePointDocumentLocation_Result[] | null;
+  lk_sharepointsitebase_createdby?: SharePointSite_Result[] | null;
+  lk_sharepointsitebase_createdonbehalfby?: SharePointSite_Result[] | null;
+  lk_sharepointsitebase_modifiedby?: SharePointSite_Result[] | null;
+  lk_sharepointsitebase_modifiedonbehalfby?: SharePointSite_Result[] | null;
   lk_systemuser_createdonbehalfby?: SystemUser_Result[] | null;
   lk_systemuser_modifiedonbehalfby?: SystemUser_Result[] | null;
   lk_systemuserbase_createdby?: SystemUser_Result[] | null;
@@ -18599,6 +18931,7 @@ interface SystemUser_Relationships {
   user_opc_topic?: opc_topic_Result[] | null;
   user_parent_user?: SystemUser_Result[] | null;
   user_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
+  user_sharepointsite?: SharePointSite_Result[] | null;
 }
 interface SystemUser extends SystemUser_Base, SystemUser_Relationships {
   businessunitid_bind$businessunits?: string | null;
@@ -19022,6 +19355,10 @@ interface SystemUser_Expand {
   lk_sharepointdocumentlocationbase_createdonbehalfby: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { lk_sharepointdocumentlocationbase_createdonbehalfby: SharePointDocumentLocation_Result[] }>;
   lk_sharepointdocumentlocationbase_modifiedby: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { lk_sharepointdocumentlocationbase_modifiedby: SharePointDocumentLocation_Result[] }>;
   lk_sharepointdocumentlocationbase_modifiedonbehalfby: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { lk_sharepointdocumentlocationbase_modifiedonbehalfby: SharePointDocumentLocation_Result[] }>;
+  lk_sharepointsitebase_createdby: WebExpand<SystemUser_Expand, SharePointSite_Select, SharePointSite_Filter, { lk_sharepointsitebase_createdby: SharePointSite_Result[] }>;
+  lk_sharepointsitebase_createdonbehalfby: WebExpand<SystemUser_Expand, SharePointSite_Select, SharePointSite_Filter, { lk_sharepointsitebase_createdonbehalfby: SharePointSite_Result[] }>;
+  lk_sharepointsitebase_modifiedby: WebExpand<SystemUser_Expand, SharePointSite_Select, SharePointSite_Filter, { lk_sharepointsitebase_modifiedby: SharePointSite_Result[] }>;
+  lk_sharepointsitebase_modifiedonbehalfby: WebExpand<SystemUser_Expand, SharePointSite_Select, SharePointSite_Filter, { lk_sharepointsitebase_modifiedonbehalfby: SharePointSite_Result[] }>;
   lk_systemuser_createdonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_createdonbehalfby: SystemUser_Result[] }>;
   lk_systemuser_modifiedonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_modifiedonbehalfby: SystemUser_Result[] }>;
   lk_systemuserbase_createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_createdby: SystemUser_Result[] }>;
@@ -19084,6 +19421,7 @@ interface SystemUser_Expand {
   user_opc_topic: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { user_opc_topic: opc_topic_Result[] }>;
   user_parent_user: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { user_parent_user: SystemUser_Result[] }>;
   user_sharepointdocumentlocation: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { user_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
+  user_sharepointsite: WebExpand<SystemUser_Expand, SharePointSite_Select, SharePointSite_Filter, { user_sharepointsite: SharePointSite_Result[] }>;
 }
 interface SystemUser_FormattedResult {
   accessmode_formatted?: string;
@@ -19296,6 +19634,10 @@ interface SystemUser_RelatedMany {
   lk_sharepointdocumentlocationbase_createdonbehalfby: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   lk_sharepointdocumentlocationbase_modifiedby: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   lk_sharepointdocumentlocationbase_modifiedonbehalfby: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  lk_sharepointsitebase_createdby: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+  lk_sharepointsitebase_createdonbehalfby: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+  lk_sharepointsitebase_modifiedby: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+  lk_sharepointsitebase_modifiedonbehalfby: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
   lk_systemuser_createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuser_modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuserbase_createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
@@ -19354,6 +19696,7 @@ interface SystemUser_RelatedMany {
   user_opc_topic: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
   user_parent_user: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   user_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  user_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   systemusers: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
@@ -19372,7 +19715,7 @@ interface Team_Base extends WebEntity {
   exchangerate?: number | null;
   importsequencenumber?: number | null;
   isdefault?: boolean | null;
-  membershiptype?: team_membershiptype | null;
+  membershiptype?: _team_membershiptype | null;
   modifiedon?: Date | null;
   name?: string | null;
   organizationid?: string | null;
@@ -19422,6 +19765,7 @@ interface Team_Relationships {
   team_opc_topic?: opc_topic_Result[] | null;
   team_queueitembase_workerid?: QueueItem_Result[] | null;
   team_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
+  team_sharepointsite?: SharePointSite_Result[] | null;
   teammembership_association?: SystemUser_Result[] | null;
 }
 interface Team extends Team_Base, Team_Relationships {
@@ -19449,7 +19793,7 @@ interface Team_Select {
   exchangerate: WebAttribute<Team_Select, { exchangerate: number | null }, {  }>;
   importsequencenumber: WebAttribute<Team_Select, { importsequencenumber: number | null }, {  }>;
   isdefault: WebAttribute<Team_Select, { isdefault: boolean | null }, {  }>;
-  membershiptype: WebAttribute<Team_Select, { membershiptype: team_membershiptype | null }, { membershiptype_formatted?: string }>;
+  membershiptype: WebAttribute<Team_Select, { membershiptype: _team_membershiptype | null }, { membershiptype_formatted?: string }>;
   modifiedby_guid: WebAttribute<Team_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<Team_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<Team_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
@@ -19480,7 +19824,7 @@ interface Team_Filter {
   exchangerate: any;
   importsequencenumber: number;
   isdefault: boolean;
-  membershiptype: team_membershiptype;
+  membershiptype: _team_membershiptype;
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
@@ -19542,6 +19886,7 @@ interface Team_Expand {
   team_opc_topic: WebExpand<Team_Expand, opc_topic_Select, opc_topic_Filter, { team_opc_topic: opc_topic_Result[] }>;
   team_queueitembase_workerid: WebExpand<Team_Expand, QueueItem_Select, QueueItem_Filter, { team_queueitembase_workerid: QueueItem_Result[] }>;
   team_sharepointdocumentlocation: WebExpand<Team_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { team_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
+  team_sharepointsite: WebExpand<Team_Expand, SharePointSite_Select, SharePointSite_Filter, { team_sharepointsite: SharePointSite_Result[] }>;
   teammembership_association: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { teammembership_association: SystemUser_Result[] }>;
 }
 interface Team_FormattedResult {
@@ -19619,6 +19964,7 @@ interface Team_RelatedMany {
   team_opc_topic: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
   team_queueitembase_workerid: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   team_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  team_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
   teammembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
