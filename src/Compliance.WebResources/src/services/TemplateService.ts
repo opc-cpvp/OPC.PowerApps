@@ -22,4 +22,9 @@ export class TemplateService implements ITemplateService {
             .select(x => [x.opc_questiontypeid_guid])
             .promise();
     }
+    getSharePointSite(id: string): Promise<SharePointSite> {
+        return XrmQuery.retrieve(x => x.sharepointsites, id)
+            .select(x => [x.absoluteurl])
+            .promise();
+    }
 }

@@ -59,6 +59,10 @@ export class ComplaintService implements IComplaintService {
                 x => x.opc_complaints_industries_relatedindustries,
                 x => [x.opc_industryid, x.opc_name, x.opc_industryid]
             )
+            .expand(
+                x => x.opc_complaint_SharePointDocumentLocations,
+                x => [x.relativeurl, x.sitecollectionid]
+            )
             .expand(x => x.opc_accountid, accountAttributes)
             .expand(x => x.opc_intakeofficer, userAttributes)
             .expand(x => x.owninguser, userAttributes)
@@ -71,12 +75,5 @@ export class ComplaintService implements IComplaintService {
             .expand(x => x.opc_respondentlegalrepresentativefirm, accountAttributes)
             .includeFormattedValues()
             .promise();
-    }
-    getSharePointDocumentLocation(id: string): Promise<SharePointDocumentLocation> {
-        return XrmQuery.retrieveRelatedMultiple(
-            x => x.opc_complaints,
-            id,
-            x => x.opc_complaint_SharePointDocumentLocations
-        ).promiseFirst();
     }
 }

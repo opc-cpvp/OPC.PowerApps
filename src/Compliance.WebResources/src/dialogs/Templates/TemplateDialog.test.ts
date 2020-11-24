@@ -42,7 +42,7 @@ describe("TemplateDialog", () => {
 
     const sharepointDocumentLocation: SharePointDocumentLocation = { "relativeurl": "" };
     const complaint = { "opc_legislation": { "opc_acronym": "" } };
-    const environmentVariable = `{"applicationId": "", "tenantId": "", "sharePointSiteUrl": "", "templatesFolderPath": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
+    const environmentVariable = `{"applicationId": "", "tenantId": "", "templatesSharePointFolderAbsoluteUrl": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
     const templates = [{ "Name": "templateName", "ServerRelativeUrl": "templateRelativeUrl" }];
 
     beforeEach(() => {

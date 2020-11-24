@@ -38,6 +38,7 @@ export namespace Dialogs {
         private _complaint: ComplaintWithRelationships;
         private _allegations: AllegationWithChecklistResponse[];
         private _questionTemplates: QuestionTemplateWithQuestionTypeId[];
+        private _sharepointSite: SharePointSite;
         private _dialogSelect: HTMLSelectElement;
         private _globalContext: Xrm.context;
         private _windowContext: DOMWindow;
@@ -97,6 +98,7 @@ export namespace Dialogs {
 
                 await Promise.all(promiseArray).then(results => {
                     this._complaint = results[0];
+                    console.log(this._complaint);
                     loginHint = results[1];
                     this._templatesEnvironmentVariable = JSON.parse(results[2]);
                     this._allegations = results[3];
@@ -106,8 +108,14 @@ export namespace Dialogs {
                 this._sharePointTemplatesSubFolderLocation = this._complaint.opc_legislation.opc_acronym;
                 this._redirectUri = this._globalContext.getClientUrl();
 
-                await this.getAccessToken(loginHint).then(async response => {
-                    this._accessToken = response;
+                const promiseArray2: [Promise<string>, Promise<SharePointSite>] = [
+                    this.getAccessToken(loginHint),
+                    this._templateService.getSharePointSite(this._complaint.opc_complaint_SharePointDocumentLocations[0].sitecollectionid)
+                ];
+
+                await Promise.all(promiseArray2).then(async results => {
+                    this._accessToken = results[0];
+                    this._sharepointSite = results[1];
                     await this.initializeHTMLSelectElement();
                 });
 
@@ -176,35 +184,35 @@ export namespace Dialogs {
             const xmlSerializer: XMLSerializer = new this._windowContext.XMLSerializer();
             const serializedXML = xmlSerializer.serializeToString(this.generateComplaintXml());
 
-            await this._complaintService.getSharePointDocumentLocation(this._complaintId).then(documentLocation => {
-                this._caseDocumentsLocationRelativeUrl = `/sites/PowerAppsSandbox/opc_complaint/${documentLocation.relativeurl}/Letter drafts`;
-                this._sharePointService
-                    .generateDocumentFromTemplate(
-                        this._accessToken,
-                        this._caseDocumentsLocationRelativeUrl,
-                        selectElement.value,
-                        serializedXML,
-                        inputElement.value,
-                        this._templatesEnvironmentVariable.sharePointSiteUrl
-                    )
-                    .then(
-                        result => {
-                            if (result.ok) {
-                                this.closePage();
-                            }
-                        },
-                        error => {
-                            const message = "There was an error while calling action GenerateDocumentFromTemplate";
-                            if (error instanceof Error) {
-                                console.log(`${message}: ${error.message} \n${error.stack}`);
-                            } else {
-                                console.log(message, error);
-                            }
-
+            this._caseDocumentsLocationRelativeUrl = `${/^https:\/\/.+?(\/.+)/.exec(this._sharepointSite.absoluteurl)[1]}/opc_complaint/${
+                this._complaint.opc_complaint_SharePointDocumentLocations[0].relativeurl
+            }/Letter drafts`;
+            await this._sharePointService
+                .generateDocumentFromTemplate(
+                    this._accessToken,
+                    this._caseDocumentsLocationRelativeUrl,
+                    selectElement.value,
+                    serializedXML,
+                    inputElement.value,
+                    `${this._sharepointSite.absoluteurl}/`
+                )
+                .then(
+                    result => {
+                        if (result.ok) {
                             this.closePage();
                         }
-                    );
-            });
+                    },
+                    error => {
+                        const message = "There was an error while calling action GenerateDocumentFromTemplate";
+                        if (error instanceof Error) {
+                            console.log(`${message}: ${error.message} \n${error.stack}`);
+                        } else {
+                            console.log(message, error);
+                        }
+
+                        this.closePage();
+                    }
+                );
         }
 
         private closePage(): void {
@@ -221,8 +229,7 @@ export namespace Dialogs {
 
         private async initializeHTMLSelectElement() {
             const templatesArray = await this._sharePointService.getTemplates(
-                this._templatesEnvironmentVariable.sharePointSiteUrl,
-                `${this._templatesEnvironmentVariable.templatesFolderPath}${this._sharePointTemplatesSubFolderLocation}`,
+                `${this._templatesEnvironmentVariable.templatesSharePointFolderAbsoluteUrl}${this._sharePointTemplatesSubFolderLocation}`,
                 this._accessToken
             );
 
