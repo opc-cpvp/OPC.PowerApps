@@ -42,6 +42,11 @@ export namespace Complaint.Forms {
             formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
 
             this.setupDuplicateContactChecking(formContext);
+
+            // If in create mode, default to today's date
+            if (formContext.ui.getFormType() === Xrm.FormType.Create) {
+                formContext.getAttribute("opc_complaintreceiveddate").setValue(new Date());
+            }
         }
 
         private setupDuplicateContactChecking(formContext: Form.opc_complaint.Main.Information) {

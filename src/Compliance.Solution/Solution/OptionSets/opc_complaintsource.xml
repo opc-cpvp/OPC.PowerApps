@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_complaintsource" localizedName="Complaint Source" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.498</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Complaint Source" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Online correspondence" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Letter" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

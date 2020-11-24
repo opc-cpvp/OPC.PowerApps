@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{45af6c83-33e1-44bf-b7a7-d08b177bd4d9}" Name="Complaint - Check Complainant Requires Privileged Correspondence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/Complaint-CheckComplainantRequiresPrivilegedCorres-45AF6C83-33E1-44BF-B7A7-D08B177BD4D9.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>3</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <CreateStage>40</CreateStage>
+  <RunAs>1</RunAs>
+  <SdkMessageId>{9259f8af-7e23-eb11-a813-000d3a0c26f9}</SdkMessageId>
+  <UniqueName>complaintcheckcomplainantrequiresprivilegedcorrespondence</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.1</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <FormId>{00000000-0000-0000-0000-000000000000}</FormId>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <PrimaryEntity>opc_complaint</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Complaint - Check Complainant Requires Privileged Correspondence" />
+  </LocalizedNames>
+</Workflow>

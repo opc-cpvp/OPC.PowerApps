@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.1.0.24638" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.1.0.25832" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Compliance</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.489</Version>
+    <Version>1.0.501</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -122,6 +122,7 @@
       <RootComponent type="9" schemaName="opc_closereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintmilestone" behavior="0" />
+      <RootComponent type="9" schemaName="opc_complaintsource" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintstage" behavior="0" />
       <RootComponent type="9" schemaName="opc_declinereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_duplicatedetectionresult" behavior="0" />
@@ -152,17 +153,21 @@
       <RootComponent type="20" id="{f1200996-362e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="20" id="{f488af4a-362e-ea11-a810-000d3af46757}" behavior="0" />
       <RootComponent type="20" id="{fbdf0f44-362e-ea11-a810-000d3af46757}" behavior="0" />
+      <RootComponent type="29" id="{0234e456-30f3-45bd-9625-4c47b4b6ce1d}" behavior="0" />
       <RootComponent type="29" id="{0b8ac528-6e5d-ea11-a811-000d3af464f8}" behavior="0" />
       <RootComponent type="29" id="{0e1f06c2-102a-4264-ae27-e8367c257ac4}" behavior="0" />
       <RootComponent type="29" id="{11109486-2e83-453a-9080-b21689eb8a2e}" behavior="0" />
       <RootComponent type="29" id="{32d219f1-f0bc-40b4-bcb0-daffeb1f1f9e}" behavior="0" />
       <RootComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" behavior="0" />
+      <RootComponent type="29" id="{45af6c83-33e1-44bf-b7a7-d08b177bd4d9}" behavior="0" />
+      <RootComponent type="29" id="{4c5469ba-e771-49f5-8d53-44eee631e859}" behavior="0" />
       <RootComponent type="29" id="{4d3e610e-f448-ea11-a812-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{58495b10-245e-ea11-a811-000d3af464f8}" behavior="0" />
       <RootComponent type="29" id="{5d69364a-d857-ea11-a811-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{663c0e6a-9046-ea11-a812-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{66c9ed60-1da2-425e-a7ff-cd0df39467b5}" behavior="0" />
       <RootComponent type="29" id="{66ef3f32-9ddc-4b79-9acd-685cb6dd07fa}" behavior="0" />
+      <RootComponent type="29" id="{74ba29ad-5823-eb11-a813-000d3a0c26f9}" behavior="0" />
       <RootComponent type="29" id="{785b43fc-8414-eb11-a813-000d3a0c2524}" behavior="0" />
       <RootComponent type="29" id="{7eab9db6-db42-ea11-a812-000d3af46757}" behavior="0" />
       <RootComponent type="29" id="{8c9652fc-7828-4199-8cc0-4d4dc89619ee}" behavior="0" />
@@ -173,6 +178,8 @@
       <RootComponent type="29" id="{a662fcc0-7312-eb11-a813-000d3a0c3110}" behavior="0" />
       <RootComponent type="29" id="{b07acb09-5247-ea11-a812-000d3af46b49}" behavior="0" />
       <RootComponent type="29" id="{b6e92153-ffc3-41bc-a222-336ab86a4635}" behavior="0" />
+      <RootComponent type="29" id="{b7906125-7fc3-4f32-bb24-e2764c3fca04}" behavior="0" />
+      <RootComponent type="29" id="{c19140c4-4429-eb11-a813-000d3a0c26f9}" behavior="0" />
       <RootComponent type="29" id="{c66cad64-fe4d-4177-9ad4-be1f87424d8d}" behavior="0" />
       <RootComponent type="29" id="{c72d1463-3d95-ea11-a812-000d3af46b49}" behavior="0" />
       <RootComponent type="29" id="{d6d1971e-4f0d-eb11-a813-000d3af43a22}" behavior="0" />
@@ -256,9 +263,6 @@
       <RootComponent type="92" id="{e7c47fba-4c12-eb11-a813-000d3a0c26f9}" behavior="0" />
       <RootComponent type="92" id="{e960b879-1816-ea11-a811-000d3af46489}" behavior="0" />
       <RootComponent type="92" id="{e96fbbec-4e0f-eb11-a813-000d3a0c26f9}" behavior="0" />
-      <RootComponent type="380" schemaName="opc_var_templatesapplication" behavior="0" />
-      <RootComponent type="380" schemaName="opc_var_documentsclassification" behavior="0" />
-      <RootComponent type="381" id="{4710a2e7-53cc-ea11-a812-000d3af46489}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
@@ -290,7 +294,7 @@
         <Dependent key="29" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="19" type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.2009.4004)" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
+        <Required key="19" type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.2011.1003)" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
         <Dependent key="29" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
@@ -306,63 +310,63 @@
         <Dependent key="29" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="24" type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.47)" />
+        <Required key="24" type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.50)" />
         <Dependent key="4" type="29" displayName="Allegation - Create/Update - Create Allegation sub-folder in Complaint document location" id="{a662fcc0-7312-eb11-a813-000d3a0c3110}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="24" type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.47)" />
+        <Required key="24" type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.50)" />
         <Dependent key="5" type="29" displayName="Complaint - Create - Create Complaint document location" id="{d6d1971e-4f0d-eb11-a813-000d3af43a22}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="24" type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.47)" />
+        <Required key="24" type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2.50)" />
         <Dependent key="24" type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="25" type="1" schemaName="environmentvariablevalue" displayName="Environment Variable Value" solution="EnvironmentVariables (1.0.2.47)" />
+        <Required key="25" type="1" schemaName="environmentvariablevalue" displayName="Environment Variable Value" solution="EnvironmentVariables (1.0.2.50)" />
         <Dependent key="25" type="1" schemaName="environmentvariablevalue" displayName="Environment Variable Value" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="7" type="60" displayName="ComplianceContact" parentDisplayName="Contact" id="{e04a2da4-a478-4dfe-a3e9-3f83b55ef1a4}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="12" type="60" displayName="Information" parentDisplayName="Risk Assessment Definition" id="{1cbf8f5e-c678-490d-b775-2aa77928d800}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="14" type="60" displayName="Information" parentDisplayName="Risk Assessment" id="{5c6e33a5-3afb-42ae-b102-21c0cf47b549}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="15" type="60" displayName="Information" parentDisplayName="Question Template" id="{a8ac78cc-ec09-47ef-a856-9765e462d603}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="16" type="60" displayName="Information" parentDisplayName="Reminder" id="{b88d6488-5bc0-4fd9-8c60-58b2ff0860d6}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="17" type="60" displayName="Information" parentDisplayName="Complaint" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="18" type="60" displayName="Information" parentDisplayName="Risk Assessment Category" id="{d99b07af-7b87-491f-a7d6-89a9d6a717ce}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="20" type="60" displayName="QuickCreate" parentDisplayName="Risk Assessment Definition" id="{9e608d8d-4439-ea11-a813-000d3af46489}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.24638)" />
+        <Required key="26" type="66" schemaName="MscrmControls.FlipSwitch.FlipSwitchControl" displayName="MscrmControls.FlipSwitch.FlipSwitchControl" solution="CustomControlsCore (9.1.0000.25832)" />
         <Dependent key="21" type="60" displayName="QuickCreate" parentDisplayName="Reminder" id="{a97b9687-d18b-ea11-a811-000d3af45c52}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="27" type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2010.2011)" />
+        <Required key="27" type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2011.2007)" />
         <Dependent key="11" type="60" displayName="Information" parentDisplayName="Risk Assessment Factor Template" id="{176743e5-611a-495f-afae-e42a55fa8baa}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="27" type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2010.2011)" />
+        <Required key="27" type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2011.2007)" />
         <Dependent key="13" type="60" displayName="Information" parentDisplayName="Risk Assessment Category Template" id="{5200ec5e-a417-47e0-9e61-114659c14b77}" />
       </MissingDependency>
       <MissingDependency>

@@ -171,6 +171,30 @@
                             </parameters>
                           </control>
                         </cell>
+                        <cell id="{a16686d0-88a8-de20-3697-0064bc6418c1}" showlabel="false" colspan="1" auto="false" rowspan="12">
+                          <labels>
+                            <label description="Complaint" languagecode="1033" />
+                          </labels>
+                          <control id="chart_complaints_by_sla_date_and_last_milestone" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{86436e36-13d1-0631-a0cb-3dd3e40990c3}">
+                            <parameters>
+                              <ViewId>{9BFE35AE-732A-EB11-A813-000D3A0C26F9}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <RelationshipName />
+                              <TargetEntityType>opc_complaint</TargetEntityType>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <ViewIds>{E640FF92-C6A9-4540-A8DC-DA16140CEEB0}</ViewIds>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <VisualizationId>{97273FD6-722A-EB11-A813-000D3A0C26F9}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            </parameters>
+                          </control>
+                        </cell>
                         <cell id="{129d771d-826b-e0c7-b63b-a102550d9952}" showlabel="false" colspan="1" auto="false" rowspan="12">
                           <labels>
                             <label description="Allegation/Concern" languagecode="1033" />
@@ -195,89 +219,18 @@
                             </parameters>
                           </control>
                         </cell>
-                        <cell id="{10673228-733a-b966-dca3-c2548a089b3a}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
                       </row>
-                      <row>
-                        <cell id="{831372b0-078c-e7cc-9b65-29ac176b0b98}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{5e35a417-5eb6-858b-4ba6-d2d2e3e57448}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{0e0e991b-cacc-4899-b22b-3e0a5ab444bc}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{6613298a-0c65-a264-2c61-bda6aeab7349}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{a8e9c57d-2735-1741-4666-c95e63e8944d}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{57746a38-651a-a426-1973-57d867cabc0d}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{92c7a91a-9012-2032-5485-4db2a53569b5}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{aa407362-2103-1ec3-064b-60aa38b8b79c}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{42201074-3a1e-c1c0-4391-bad237e66e69}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{9cbd3404-7c1c-2c2d-6469-3e8284213d83}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
-                      <row>
-                        <cell id="{eaa6e842-b736-72d8-de4a-93ee53d46e94}" showlabel="false">
-                          <labels>
-                            <label description="" languagecode="1033" />
-                          </labels>
-                        </cell>
-                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
                     </rows>
                   </section>
                 </sections>

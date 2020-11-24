@@ -1,0 +1,230 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "opc_sharedcommondataserviceforapps_3e099"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_Complaint_is_created_or_Source_is_updated_(Triage_and_Intake)": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "opc_complaint",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "opc_source,opc_lastmilestone,opc_complaintreceiveddate",
+              "subscriptionRequest/filterexpression": "opc_lastmilestone eq 924340000 or opc_lastmilestone eq 924340001"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Determine_Complaint_Source": {
+          "runAfter": {
+            "Initialize_number_of_days_for_SLA": [
+              "Succeeded"
+            ]
+          },
+          "cases": {
+            "Online_correspondence": {
+              "case": 533950000,
+              "actions": {
+                "Set_number_of_days_for_SLA_to_14_(online_correspondence)": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Number of days for SLA",
+                    "value": 14
+                  }
+                }
+              }
+            },
+            "Letter": {
+              "case": 533950001,
+              "actions": {
+                "Set_number_of_days_for_SLA_to_28_(letter)": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Number of days for SLA",
+                    "value": 28
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "actions": {}
+          },
+          "expression": "@triggerOutputs()?['body/opc_source']",
+          "type": "Switch"
+        },
+        "Initialize_number_of_days_for_SLA": {
+          "runAfter": {},
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Number of days for SLA",
+                "type": "integer"
+              }
+            ]
+          }
+        },
+        "Check_Number_of_days_for_SLA_variable_has_a_value": {
+          "actions": {
+            "Update_SLA_Date_on_Complaint": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "opc_complaints",
+                  "recordId": "@triggerOutputs()?['body/opc_complaintid']",
+                  "item/opc_sladate": "@addDays(triggerOutputs()?['body/opc_complaintreceiveddate'],variables('Number of days for SLA'))"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Complainant_requires_privileged_correspondence": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@variables('Number of days for SLA')",
+                "@null"
+              ]
+            }
+          },
+          "type": "If"
+        },
+        "Check_Complainant_email_addresses": {
+          "runAfter": {
+            "Determine_Complaint_Source": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "PerformBoundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "opc_complaints",
+              "actionName": "Microsoft.Dynamics.CRM.opc_complaintcheckcomplainantemailaddresses",
+              "recordId": "@triggerOutputs()?['body/opc_complaintid']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Complainant_or_representatives_have_email_addresses": {
+          "actions": {
+            "Set_number_of_days_for_SLA_to_14_(email_on_file)": {
+              "runAfter": {},
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Number of days for SLA",
+                "value": 14
+              }
+            }
+          },
+          "runAfter": {
+            "Check_Complainant_email_addresses": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@outputs('Check_Complainant_email_addresses')?['body/HasEmail']",
+              "@true"
+            ]
+          },
+          "type": "If"
+        },
+        "Check_Complainant_requires_privileged_correspondence": {
+          "runAfter": {
+            "Complainant_or_representatives_have_email_addresses": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "PerformBoundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "opc_complaints",
+              "actionName": "Microsoft.Dynamics.CRM.opc_complaintcheckcomplainantrequiresprivilegedcorrespondence",
+              "recordId": "@triggerOutputs()?['body/opc_complaintid']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Complainant_requires_privileged_correspondence": {
+          "actions": {
+            "Set_Number_of_days_for_SLA_to_42_(privileged_correspondence)": {
+              "runAfter": {},
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Number of days for SLA",
+                "value": 42
+              }
+            }
+          },
+          "runAfter": {
+            "Check_Complainant_requires_privileged_correspondence": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@outputs('Check_Complainant_requires_privileged_correspondence')?['body/RequiresPrivilegedCorrespondence']",
+              "@true"
+            ]
+          },
+          "type": "If"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
