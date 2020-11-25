@@ -46,7 +46,7 @@ describe("TemplateDialog", () => {
     };
     const environmentVariable = `{"applicationId": "", "tenantId": "", "templatesSharePointFolderAbsoluteUrl": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
     const templates = [{ "Name": "templateName", "ServerRelativeUrl": "templateRelativeUrl" }];
-    const sharepointSite = { "absoluteurl": "https://something.com/sites/Test/Test/Et/ReTest" };
+    const sharepointSite = { "absoluteurl": "https://something.com/sites/test" };
 
     beforeEach(() => {
         xrmContext = new XrmContextMock();
