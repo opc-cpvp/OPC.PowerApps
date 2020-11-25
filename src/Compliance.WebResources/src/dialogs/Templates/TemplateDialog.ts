@@ -98,7 +98,6 @@ export namespace Dialogs {
 
                 await Promise.all(promiseArray).then(results => {
                     this._complaint = results[0];
-                    console.log(this._complaint);
                     loginHint = results[1];
                     this._templatesEnvironmentVariable = JSON.parse(results[2]);
                     this._allegations = results[3];
