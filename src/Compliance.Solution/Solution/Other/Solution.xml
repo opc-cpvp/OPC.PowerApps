@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.505</Version>
+    <Version>1.0.510</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -250,6 +250,7 @@
       <RootComponent type="62" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="80" schemaName="opc_compliance" behavior="0" />
       <RootComponent type="91" id="{ca0f1327-5d70-42e6-ba7c-8c4b5f342a5f}" schemaName="Compliance.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da10840344fb2548" behavior="0" />
+      <RootComponent type="92" id="{0ef87fcc-e334-eb11-a813-000d3af43253}" behavior="0" />
       <RootComponent type="92" id="{2453917b-a5ac-ea11-a812-000d3af46fff}" behavior="0" />
       <RootComponent type="92" id="{27ff97f2-3815-ea11-a811-000d3af46489}" behavior="0" />
       <RootComponent type="92" id="{3e9b2995-4c12-eb11-a813-000d3a0c26f9}" behavior="0" />
