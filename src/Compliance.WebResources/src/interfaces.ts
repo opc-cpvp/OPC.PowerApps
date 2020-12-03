@@ -3,7 +3,6 @@
 export interface IComplaintService {
     getComplaint(id: string): Promise<opc_complaint>;
     getComplaintWithRelationships(id: string): Promise<ComplaintWithRelationships>;
-    getSharePointDocumentLocation(id: string): Promise<SharePointDocumentLocation>;
 }
 
 export interface IAllegationService {
@@ -49,6 +48,12 @@ export interface IRiskAssessmentService {
     updateSuggestedRisk(riskassessmentid: string, riskappetiteid: string | null): Promise<undefined>;
 }
 
+export interface ITemplateService {
+    getAllegationsWithChecklistResponses(complaintId: string): Promise<AllegationWithChecklistResponse[]>;
+    getAllQuestionTemplates(): Promise<QuestionTemplateWithQuestionTypeId[]>;
+    getSharePointSite(id: string): Promise<SharePointSite>;
+}
+
 export interface IUserService {
     hasIntakeManagerPermissions(userSecurityRoles: Xrm.Collection<Xrm.Role>): boolean;
     getUserEmail(id: string): Promise<string>;
@@ -59,7 +64,7 @@ export interface IEnvironmentVariableService {
 }
 
 export interface ISharePointService {
-    getTemplates(sharePointSiteUrl: string, templatesFolderPath: string, accessToken: string): Promise<SharePointFile[]>;
+    getTemplates(templatesSharePointFolderAbsoluteUrl: string, accessToken: string): Promise<SharePointFile[]>;
     generateDocumentFromTemplate(
         accessToken: string,
         caseFolderPath: string,
@@ -115,17 +120,22 @@ export interface SharePointFile {
 export interface TemplateEnvironmentVariable {
     applicationId: string;
     tenantId: string;
-    sharePointSiteUrl: string;
-    templatesFolderPath: string;
+    templatesSharePointFolderAbsoluteUrl: string;
     tokenScope: string[];
     authorityBaseUrl: string;
 }
+
+export type AllegationWithChecklistResponse = opc_allegation &
+    opc_allegation_FormattedResult & { opc_allegation_checklistresponses_allegation?: opc_ChecklistResponse_Result[] };
+
+export type QuestionTemplateWithQuestionTypeId = opc_QuestionTemplate & { opc_questiontypeid_guid: string };
 
 // prettier-ignore
 export type ComplaintWithRelationships = opc_complaint &
 { opc_legislation: opc_legislation_Result } &
 { opc_opcpriorityid: opc_opcpriority_Result } &
 { opc_complaints_industries_relatedindustries: opc_industry_Result[] } &
+{ opc_complaint_SharePointDocumentLocations: SharePointDocumentLocation_Result[] } &
 { opc_intakeofficer: SystemUser_Result } &
 { owninguser: SystemUser_Result } &
 { opc_complainant: Contact_Result } &

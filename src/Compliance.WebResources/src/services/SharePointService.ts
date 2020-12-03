@@ -4,9 +4,11 @@ import { ISharePointService, SharePointFile } from "../interfaces";
 
 @injectable()
 export class SharePointService implements ISharePointService {
-    async getTemplates(sharePointSiteUrl: string, templatesFolderPath: string, accessToken: string): Promise<SharePointFile[]> {
+    async getTemplates(templatesSharePointFolderAbsoluteUrl: string, accessToken: string): Promise<SharePointFile[]> {
         let results: SharePointFile[];
-        const request = new Request(`${sharePointSiteUrl}_api/web/GetFolderByServerRelativeUrl('${templatesFolderPath}')/Files`, {
+        const regexResultArray = /(?=(https:\/\/.+?\/.+?\/.+?\/))(?=https:\/\/.+?(\/.+))/.exec(templatesSharePointFolderAbsoluteUrl);
+
+        const request = new Request(`${regexResultArray[1]}_api/web/GetFolderByServerRelativeUrl('${regexResultArray[2]}')/Files`, {
             method: "GET",
             headers: new Headers({
                 "Accept": "application/json; odata=verbose",

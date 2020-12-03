@@ -26,3 +26,14 @@ export enum ContactType {
     RespondentRepresentative = "respondentrepresentative",
     RespondentLegalRepresentative = "respondentlegalrepresentative"
 }
+
+export enum QuestionTypes {
+    Text = "e0c9e88d-1157-ea11-a811-000d3af46cc5",
+    TextArea = "30c8e88d-1157-ea11-a811-000d3af46cc5",
+    TwoOptions = "7815fa86-1157-ea11-a811-000d3af46cc5",
+    Select = "f244c11c-5b23-eb11-a813-000d3af45a96",
+    MultiSelect = "2d950523-5b23-eb11-a813-000d3af45a96",
+    Number = "e7ea8d3b-5b23-eb11-a813-000d3af45a96",
+    Date = "7f638642-5b23-eb11-a813-000d3af45a96",
+    CalculatedField = "c8f19848-5b23-eb11-a813-000d3af45a96"
+}

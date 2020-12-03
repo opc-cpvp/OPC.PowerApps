@@ -2,6 +2,8 @@
 import { XrmContextMock } from "../../../test/XrmContextMock";
 import { IChecklistService } from "../../interfaces";
 import { ChecklistService } from "../../services/ChecklistService";
+import { JQueryHelper } from "../../helpers/JQueryHelper";
+import { StringCalculator } from "../../helpers/StringCalculator";
 
 import chai from "chai";
 import sinon from "sinon";
@@ -45,6 +47,7 @@ describe("ChecklistControl", () => {
             const addEventListener = sandbox.stub(documentContext, "addEventListener");
             sandbox.stub(service, "getChecklist").resolves([]);
             sandbox.stub(service, "getQuestionTypes").resolves([]);
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             // Act
             control.init();
@@ -58,6 +61,7 @@ describe("ChecklistControl", () => {
             // Arrange
             const getQuestionTypes = sandbox.stub(service, "getQuestionTypes").resolves([]);
             sandbox.stub(service, "getChecklist").resolves([]);
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             // Act
             control.init();
@@ -70,6 +74,7 @@ describe("ChecklistControl", () => {
             // Arrange
             const getChecklist = sandbox.stub(service, "getChecklist").resolves([]);
             sandbox.stub(service, "getQuestionTypes").resolves([]);
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             // Act
             control.init();
@@ -97,6 +102,23 @@ describe("ChecklistControl", () => {
             clock.tick(15);
             forEachFake.should.have.been.called;
         });
+
+        // The reason why it doesn't work is because getChecklist doesn't finish before the assertion happens.
+        it("it should initialize the select/multiselect elements using the bootstrap-multiselect plugin", async () => {
+            // Arrange
+            const initSelectElementsStub = sandbox.stub(JQueryHelper, "initSelectElements");
+            const checklistStub = sandbox.stub(service, "getChecklist").resolves([]);
+            const getQuestionTypesStub = sandbox.stub(service, "getQuestionTypes").resolves([]);
+
+            // Act
+            control.init();
+            await Promise.resolve(getQuestionTypesStub);
+            await Promise.resolve(checklistStub);
+            await Promise.resolve(initSelectElementsStub); // Very weird
+
+            // Assert
+            initSelectElementsStub.should.have.been.called;
+        });
     });
 
     describe("when form is saving", () => {
@@ -112,6 +134,7 @@ describe("ChecklistControl", () => {
             service = new ChecklistService();
             sandbox.stub(service, "getQuestionTypes").resolves([]);
             sandbox.stub(service, "getChecklist").resolves([]);
+            sandbox.stub(JQueryHelper, "initSelectElements");
 
             xrmContext = new XrmContextMock();
             xrmContext.setQueryStringParameters({ id: "guid-test" }); // this is the format that is passed to the iframe
@@ -221,6 +244,138 @@ describe("ChecklistControl", () => {
             // Assert
             updateQuestionResponseStub.should.have.been.calledOnce;
             updateQuestionResponseStub.should.have.been.calledWith("1", "1");
+        });
+
+        it("it should only update input select marked dirty", () => {
+            // Arrange
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<select multiple="multiple" class="form-control select dirty" id="q-1" data-responseid="1"><option value="Opt1">Opt1</option><option value="Opt2" selected>Opt2</option><option value="Opt3">Opt3</option></select>'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<select multiple="multiple" class="form-control select" id="q-2" data-responseid="2"><option value="Opt1">Opt1</option><option value="Opt2">Opt2</option><option value="Opt3">Opt3</option></select>'
+            );
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledOnce;
+            updateQuestionResponseStub.should.have.been.calledWith("1", "Opt2;");
+        });
+
+        it("it should only update input multiselect marked dirty", () => {
+            // Arrange
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<select multiple="multiple" class="form-control multiselect dirty" id="q-1" data-responseid="1"><option value="Opt1" selected>Opt1</option><option value="Opt2" selected>Opt2</option><option value="Opt3">Opt3</option><option value="Opt">Opt</option></select>'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<select multiple="multiple" class="form-control multiselect" id="q-2" data-responseid="2"><option value="Opt1">Opt1</option><option value="Opt2">Opt2</option><option value="Opt3">Opt3</option><option value="Opt">Opt</option></select>'
+            );
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledOnce;
+            updateQuestionResponseStub.should.have.been.calledWith("1", "Opt1; Opt2;");
+        });
+
+        it("it should only update input date marked dirty", () => {
+            // Arrange
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
+
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-1" data-responseid="1" type="date" class="form-control dirty" value="2020-10-23" />'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-2" data-responseid="2" type="date" class="form-control" value="2020-10-24" />'
+            );
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledOnce;
+            updateQuestionResponseStub.should.have.been.calledWith("1", "2020-10-23");
+        });
+
+        it("it should only update input number marked dirty", () => {
+            // Arrange
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
+
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-1" data-responseid="1" type="number" class="form-control dirty" value="819" />'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-2" data-responseid="2" type="number" class="form-control" value="101" />'
+            );
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledOnce;
+            updateQuestionResponseStub.should.have.been.calledWith("1", "819");
+        });
+
+        it("it should update all input calculated field", () => {
+            // Arrange
+            const updateQuestionResponseStub = sandbox.stub(service, "updateChecklistResponse").resolves();
+            sandbox.stub(control, "getResponseValue");
+            sandbox.stub(StringCalculator, "calculate").returns("newValue");
+
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-4" data-responseid="4" type="text" class="form-control calculated-field" data-additionalparameters="1 - 2" />'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-5" data-responseid="5" type="text" class="form-control calculated-field" data-additionalparameters="1 + 2" />'
+            );
+            formElement.insertAdjacentHTML(
+                "beforeend",
+                '<input id="q-6" data-responseid="6" type="text" class="form-control calculated-field" data-additionalparameters="2 + 3-4 * 8.2.3.4.5 / 2.1" />'
+            );
+
+            // Act
+            control.save();
+
+            // Assert
+            updateQuestionResponseStub.should.have.been.calledThrice;
+            updateQuestionResponseStub.should.have.been.calledWith("4", "newValue");
+            updateQuestionResponseStub.should.have.been.calledWith("5", "newValue");
+            updateQuestionResponseStub.should.have.been.calledWith("6", "newValue");
+        });
+
+        describe("and a calculated field is updated", () => {
+            it("it should call calculate as much as there are operators in the formula", () => {
+                // Arrange
+                const calculateStub = sandbox.stub(StringCalculator, "calculate").returns("newValue");
+
+                sandbox.stub(service, "updateChecklistResponse").resolves();
+                sandbox.stub(control, "getResponseValue");
+
+                formElement.insertAdjacentHTML(
+                    "beforeend",
+                    '<input id="q-6" data-responseid="6" type="text" class="form-control calculated-field" data-additionalparameters="2 + 3 - 4 * 8.2.3.4.5 / 2.1" />'
+                );
+
+                // Act
+                control.save();
+
+                // Assert
+                calculateStub.should.have.been.callCount(4);
+            });
         });
     });
 });

@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" integrity="sha512-EvvoSMXERW4Pe9LjDN9XDzHd66p8Z49gcrB7LCUplh0GcEHiV816gXGwIhir6PJiwl0ew8GFM2QaIg2TW02B9A==" crossorigin="anonymous" />
 </head>
 <body onload="compliance.Bootstrapper.ControlFactory.createControl('ChecklistControl')">
     <form id="checklist" class="mx-1" onsubmit="return false;">
@@ -14,8 +15,9 @@
     <script type="text/javascript" src="/WebResources/clientGlobalcontext.js.aspx"></script>
     <script type="text/javascript" src="/WebResources/opc_compliance/js/compliance.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js" integrity="sha512-aFvi2oPv3NjnjQv1Y/hmKD7RNMendo4CZ2DwQqMWzoURKxcqAoktj0nNG4LU8m23+Ws9X5uVDD4OXLqpUVXD5Q==" crossorigin="anonymous"></script>
     <script>
         // Kept outside of typescript library because late event binding is simpler with jQuery and did not want to introduce a depency on jquery in the framework.
         $(document).on('hide.bs.collapse', function (e) {
@@ -24,19 +26,20 @@
             if ($srcElement.val() == 1) e.preventDefault();
 
             // Clear all values on hide
-            $(e.target).find("input:text, textarea").val("").trigger("change");
+            $(e.target).find('input:text, textarea, input[type="date"]').val("").trigger("change");
             $(e.target).find(":checked").prop("checked", false).trigger("change");
             $(e.target).find(":selected").prop("selected", false).trigger("change");
         });
 
         $(document).on('show.bs.collapse', function (e) {
             var srcElementTarget = e.target.className.match(/toggledby-[a-z0-9-]+/i);
-            var $srcElement =  $("input:checked[data-target='." + srcElementTarget + "']");
+            var $srcElement = $("input:checked[data-target='." + srcElementTarget + "']");
             if ($srcElement.val() == 0) e.preventDefault();
         });
 
         // :input should cover all form field types
         $(document).on("change", ":input", function (e) {
+            if ($(e.target).parents().hasClass("select-option")) return;
             if (!e.target.className.includes("dirty")) e.target.className += ' dirty';
         });
     </script>

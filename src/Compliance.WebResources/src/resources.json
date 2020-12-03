@@ -46,6 +46,11 @@
             "file_name": "File name:",
             "button_confirm": "Generate Document",
             "button_cancel": "Cancel"
+          },
+          "two_options": {
+            "yes": "Yes",
+            "no": "No",
+            "na": "N/A"
           }
         }
       },
@@ -97,6 +102,11 @@
             "file_name": "Nom du fichier:",
             "button_confirm": "Générer Document",
             "button_cancel": "Annuler"
+          },
+          "two_options": {
+            "yes": "Oui",
+            "no": "Non",
+            "na": "ND"
           }
         }
       }
