@@ -4,15 +4,18 @@
         "maxNodeModuleJsDepth": 2,
         "sourceMap": true,
         "types": [
-            "reflect-metadata",
-            "node",
-            "ts-nameof"
+          "reflect-metadata",
+          "node",
+          "ts-nameof",
+          "jquery",
+          "bootstrap-multiselect"
         ],
         "module": "commonjs",
         "target": "es5",
         "lib": [
-            "es6",
-            "dom"
+          "es6",
+          "dom",
+          "ES2020.String"
         ],
         "esModuleInterop": true,
         "moduleResolution": "node",

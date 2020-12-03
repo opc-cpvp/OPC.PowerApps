@@ -1,6 +1,10 @@
 import { injectable, inject } from "inversify";
 import { IChecklistService } from "../../interfaces";
 import { PowerIFrameControl } from "../PowerIFrameControl";
+import { JQueryHelper } from "../../helpers/JQueryHelper";
+import { DateHelper } from "../../helpers/DateHelper";
+import { StringHelper } from "../../helpers/StringHelper";
+import { StringCalculator } from "../../helpers/StringCalculator";
 
 export namespace Controls {
     @injectable()
@@ -12,6 +16,7 @@ export namespace Controls {
         private _visbilityToggles: { id: string; value: boolean }[] = [];
         private _placeholder: HTMLElement;
         private _isCurrentLanguageEnglish = true;
+        private _checklist: ({ opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result)[];
 
         constructor(
             @inject(nameof<Xrm.context>()) xrmContext: Xrm.context,
@@ -50,6 +55,8 @@ export namespace Controls {
                         // we want to make sure to have the question types.
                         await qTypesPromise;
                         crArray.forEach(cr => this.addQuestion(cr));
+                        this._checklist = crArray;
+                        JQueryHelper.initSelectElements();
                     },
                     reason => console.error(reason)
                 )
@@ -98,6 +105,18 @@ export namespace Controls {
                         value = (dirtyInputs[i] as HTMLTextAreaElement).value;
                         break;
                     }
+                    case "select": {
+                        const options = Array.from((dirtyInputs[i] as HTMLSelectElement).selectedOptions);
+
+                        value = "";
+                        options.forEach(x => {
+                            value = value.concat(`${x.value}; `);
+                        });
+
+                        value = value.trim();
+
+                        break;
+                    }
                     default: {
                         console.log(`unsupported element type: ${dirtyInputs[i].tagName}`);
                         continue;
@@ -112,6 +131,8 @@ export namespace Controls {
                     })
                     .catch(e => console.error("error updating questions", e));
             }
+
+            this.updateCalculatedFields();
         }
 
         private addQuestion(cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result): void {
@@ -126,8 +147,12 @@ export namespace Controls {
             const questionContainer = this.documentContext.createElement("div");
             questionContainer.classList.add("form-group", "border-bottom", "pb-4");
 
+            // Check whether or not the question should be hidden and managed internally
+            if (cr.opc_questiontemplateid.opc_managedinternally) {
+                questionContainer.classList.add("collapse");
+            }
             // Check whether or not the question should be conditionally visible
-            if (cr.opc_questiontemplateid.opc_conditionalvisibility) {
+            else if (cr.opc_questiontemplateid.opc_conditionalvisibility) {
                 // If so set respective visibility and means for "parent" control to toggle visibility
                 if (isVisible) {
                     questionContainer.classList.add("show");
@@ -143,13 +168,28 @@ export namespace Controls {
             // Create controls based on type defined in question type entity
             switch (cr.opc_questiontemplateid.opc_questiontypeid_guid) {
                 case this._questionTypes.find(qt => qt.type === "Text").id:
-                    this.addTextQuestion(indentingContainer, cr);
+                    this.addInputQuestion(indentingContainer, cr, "text");
                     break;
                 case this._questionTypes.find(qt => qt.type === "Text Area").id:
                     this.addTextAreaQuestion(indentingContainer, cr);
                     break;
                 case this._questionTypes.find(qt => qt.type === "Two Options").id:
                     this.addTwoOptionsQuestion(indentingContainer, cr);
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Multiselect").id:
+                    this.addSelectQuestion(indentingContainer, cr, "multiselect");
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Select").id:
+                    this.addSelectQuestion(indentingContainer, cr, "select");
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Date").id:
+                    this.addInputQuestion(indentingContainer, cr, "date");
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Number").id:
+                    this.addInputQuestion(indentingContainer, cr, "number");
+                    break;
+                case this._questionTypes.find(qt => qt.type === "Calculated Field").id:
+                    this.addCalculatedFieldQuestion(indentingContainer, cr);
                     break;
                 default:
                     console.log("control type not supported - not adding control");
@@ -160,9 +200,10 @@ export namespace Controls {
             this._placeholder.appendChild(questionContainer);
         }
 
-        private addTextQuestion(
+        private addInputQuestion(
             element: HTMLDivElement,
-            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result,
+            inputType: string
         ) {
             const questionHtml = /* HTML */ `<label for="q-${cr.opc_checklistresponseid}"
                     >${cr.opc_questiontemplateid.opc_sequence} -
@@ -172,7 +213,7 @@ export namespace Controls {
                 >
                 <input
                     id="q-${cr.opc_checklistresponseid}"
-                    type="text"
+                    type="${inputType}"
                     class="form-control"
                     value="${cr.opc_response || ""}"
                     data-responseid="${cr.opc_checklistresponseid}"
@@ -245,6 +286,109 @@ ${cr.opc_response || ""}</textarea
                     >
                 </div>`;
             element.insertAdjacentHTML("beforeend", questionHtml);
+        }
+
+        private addSelectQuestion(
+            element: HTMLDivElement,
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result,
+            selectType: string
+        ) {
+            // Get the Additional Parameters string and separate the options.
+            const options = cr.opc_questiontemplateid.opc_additionalparameters.split("\n");
+
+            let optionsHtml = "";
+
+            options.forEach(x => {
+                const bilangualOptions = x.split("|");
+
+                // I was looking if response included x before, but now I use one of the bilangual option just in case the formating of the options change over time.
+                optionsHtml = optionsHtml.concat(
+                    `<option value="${x}" ${cr.opc_response?.includes(bilangualOptions[0].trim()) ? "selected" : ""}>${
+                        this._isCurrentLanguageEnglish ? bilangualOptions[0].trim() : bilangualOptions[1].trim()
+                    }</option>`
+                );
+            });
+
+            const questionHtml =
+                /* HTML */
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${
+                    this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench
+                }</label>` +
+                `<select multiple="multiple" class="form-control ${selectType}" id="q-${cr.opc_checklistresponseid}" data-responseid='${cr.opc_checklistresponseid}'>` +
+                optionsHtml +
+                `</select>`;
+
+            element.insertAdjacentHTML("beforeend", questionHtml);
+        }
+
+        private addCalculatedFieldQuestion(
+            element: HTMLDivElement,
+            cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result
+        ) {
+            const questionType = DateHelper.isISODate(cr.opc_response) ? "date" : "text";
+
+            const questionHtml =
+                /* HTML */
+                `<label for="q-${cr.opc_checklistresponseid}">${cr.opc_questiontemplateid.opc_sequence} - ${
+                    this._isCurrentLanguageEnglish ? cr.opc_questiontemplateid.opc_nameenglish : cr.opc_questiontemplateid.opc_namefrench
+                }</label>` +
+                `<input id="q-${cr.opc_checklistresponseid}" type="${questionType}" class="form-control calculated-field" value="${
+                    cr.opc_response || ""
+                }" data-responseid='${cr.opc_checklistresponseid}' data-additionalparameters="${
+                    cr.opc_questiontemplateid.opc_additionalparameters
+                }" readonly />`;
+            element.insertAdjacentHTML("beforeend", questionHtml);
+        }
+
+        private getResponseValue(sequenceNumber: string): string {
+            const field = this._checklist.find(x => x.opc_questiontemplateid.opc_sequence === sequenceNumber);
+            return field ? (this.documentContext.getElementById(`q-${field.opc_checklistresponseid}`) as HTMLDataElement).value : "";
+        }
+
+        private updateCalculatedFields(): void {
+            // Retrieve all the calculated fields in the checklist
+            const calculatedFields = this._placeholder.getElementsByClassName("calculated-field");
+
+            // eslint-disable-next-line @typescript-eslint/prefer-for-of
+            for (let i = 0; i < calculatedFields.length; i++) {
+                const id: string = calculatedFields[i].getAttribute("data-responseid");
+                let value: string = null;
+
+                // Retrieve the formula that has been stored in the custom "data-additionalparameter" attribute of the field
+                // The formula consist of the sequence numbers of the responses to use and the operator(s) that separates them
+                const input = calculatedFields[i] as HTMLInputElement;
+                const formula = input.dataset.additionalparameters;
+
+                const regex = /(?<operator>^|[-+/*])\s*(?<number>\d+(?:\.\d+)*)/g;
+                const matches = Array.from(formula.matchAll(regex));
+
+                // Retrieve the responses values using the sequence numbers of the questions
+                const field1Value = this.getResponseValue(matches[0]?.groups?.number);
+                const field2Value = this.getResponseValue(matches[1]?.groups?.number);
+
+                // If the two first fields have a value, start doing the calculations
+                if (!StringHelper.isNullOrWhiteSpace(field1Value) && !StringHelper.isNullOrWhiteSpace(field2Value)) {
+                    value = StringCalculator.calculate(field1Value, matches[1].groups.operator, field2Value);
+
+                    for (const match of matches.slice(2)) {
+                        const fieldValue = this.getResponseValue(match.groups.number);
+
+                        if (!StringHelper.isNullOrWhiteSpace(value) && !StringHelper.isNullOrWhiteSpace(fieldValue)) {
+                            value = StringCalculator.calculate(value, match.groups.operator, fieldValue);
+                        }
+                    }
+                }
+
+                if (DateHelper.isISODate(value)) {
+                    input.type = "date";
+                }
+
+                // Change the displayed value in the checklist
+                input.value = value;
+
+                // Send update queries to checklist service
+                this._checklistService.updateChecklistResponse(id, value).catch(e => console.error("error updating calculated fields", e));
+            }
         }
     }
 }

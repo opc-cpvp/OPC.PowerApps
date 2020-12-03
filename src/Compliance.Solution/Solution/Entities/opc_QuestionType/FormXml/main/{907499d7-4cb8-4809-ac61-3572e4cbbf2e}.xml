@@ -28,11 +28,6 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
                       </cell>
-                      <cell id="{03d526a4-65be-1210-e7da-9d5e181bd18b}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{e18df337-a52e-4033-98c0-dcc58a40eaaa}" showlabel="true" locklevel="0">
@@ -40,11 +35,6 @@
                           <label description="Name English" languagecode="1033" />
                         </labels>
                         <control id="opc_nameenglish" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_nameenglish" disabled="false" />
-                      </cell>
-                      <cell id="{1b2bea9d-113c-7c95-772b-b79cc862516a}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -54,7 +44,14 @@
                         </labels>
                         <control id="opc_namefrench" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_namefrench" disabled="false" />
                       </cell>
-                      <cell id="{1c262ad0-b244-d40e-bd25-842d1b967a57}" showlabel="false">
+                    </row>
+                    <row>
+                      <cell id="{e739c2d5-9221-be83-8d71-c0c5c4e33e2c}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{66d9eb6c-fff4-4ebb-b843-e3ecb62a4a13}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -133,7 +130,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -162,6 +159,7 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <controlDescriptions />
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

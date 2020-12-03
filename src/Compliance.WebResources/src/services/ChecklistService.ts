@@ -27,7 +27,9 @@ export class ChecklistService implements IChecklistService {
                         x.opc_questiontypeid_guid,
                         x.opc_parentquestiontemplateid_guid,
                         x.opc_nameenglish,
-                        x.opc_namefrench
+                        x.opc_namefrench,
+                        x.opc_additionalparameters,
+                        x.opc_managedinternally
                     ]
                 )
                 .filter(x => Filter.equals(x.opc_allegationid_guid, Filter.makeGuid(XQW.stripGUID(id))))

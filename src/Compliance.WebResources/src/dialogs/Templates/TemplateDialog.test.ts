@@ -1,7 +1,15 @@
 ﻿import { XrmContextMock } from "../../../test/XrmContextMock";
-import { IComplaintService, IUserService, IEnvironmentVariableService, ISharePointService, IAuthService } from "../../interfaces";
+import {
+    IComplaintService,
+    ITemplateService,
+    IUserService,
+    IEnvironmentVariableService,
+    ISharePointService,
+    IAuthService
+} from "../../interfaces";
 import { Dialogs } from "../../dialogs/Templates/TemplateDialog";
 import { ComplaintService } from "../../services/ComplaintService";
+import { TemplateService } from "../../services/TemplateService";
 import { UserService } from "../../services/UserService";
 import { EnvironmentVariableService } from "../../services/EnvironmentVariableService";
 import { AuthService } from "../../services/AuthService";
@@ -24,6 +32,7 @@ describe("TemplateDialog", () => {
     let userService: IUserService;
     let environmentVariableService: IEnvironmentVariableService;
     let complaintService: IComplaintService;
+    let templateService: ITemplateService;
     let authService: IAuthService;
     let sharePointService: ISharePointService;
     let windowContext: DOMWindow;
@@ -31,16 +40,20 @@ describe("TemplateDialog", () => {
     let divElement: HTMLDivElement;
     let templateDialog: Dialogs.TemplateDialog;
 
-    const sharepointDocumentLocation: SharePointDocumentLocation = { "relativeurl": "" };
-    const complaint = { "opc_legislation": { "opc_acronym": "" } };
-    const environmentVariable = `{"applicationId": "", "tenantId": "", "sharePointSiteUrl": "", "templatesFolderPath": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
+    const complaint = {
+        "opc_legislation": { "opc_acronym": "" },
+        "opc_complaint_SharePointDocumentLocations": [{ "relativeUrl": "", "sitecollectionid": "" }]
+    };
+    const environmentVariable = `{"applicationId": "", "tenantId": "", "templatesSharePointFolderAbsoluteUrl": "", "tokenScope": [""], "authorityBaseUrl": ""}`;
     const templates = [{ "Name": "templateName", "ServerRelativeUrl": "templateRelativeUrl" }];
+    const sharepointSite = { "absoluteurl": "https://something.com/sites/test" };
 
     beforeEach(() => {
         xrmContext = new XrmContextMock();
         userService = new UserService();
         environmentVariableService = new EnvironmentVariableService();
         complaintService = new ComplaintService();
+        templateService = new TemplateService();
         authService = new AuthService();
         sharePointService = new SharePointService();
         windowContext = new jsdom().window;
@@ -66,6 +79,7 @@ describe("TemplateDialog", () => {
             userService,
             environmentVariableService,
             complaintService,
+            templateService,
             authService,
             sharePointService
         );
@@ -80,7 +94,10 @@ describe("TemplateDialog", () => {
         let getUserEmailStub: any;
         let getAccessTokenStub: any;
         let getTemplatesStub: any;
+        let getSharePointSiteStub: any;
         let getComplaintWithRelationshipsStub: any;
+        let getAllegationsWithChecklistResponsesStub: any;
+        let getAllQuestionTemplatesStub: any;
         let getEnvironmentVariableStub: any;
         let renderSpy: any;
         let addEventListenersSpy: any;
@@ -89,9 +106,12 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             getUserEmailStub = sandbox.stub(userService, "getUserEmail").resolves("");
             getComplaintWithRelationshipsStub = sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
+            getAllegationsWithChecklistResponsesStub = sandbox.stub(templateService, "getAllegationsWithChecklistResponses").resolves();
+            getAllQuestionTemplatesStub = sandbox.stub(templateService, "getAllQuestionTemplates").resolves();
             getEnvironmentVariableStub = sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             getAccessTokenStub = sandbox.stub(authService, "getAccessToken").resolves("");
             getTemplatesStub = sandbox.stub(sharePointService, "getTemplates").resolves(templates);
+            getSharePointSiteStub = sandbox.stub(templateService, "getSharePointSite").resolves(sharepointSite);
             renderSpy = sandbox.spy(templateDialog, "render");
             addEventListenersSpy = sandbox.spy(templateDialog, "addEventListeners");
         });
@@ -103,6 +123,22 @@ describe("TemplateDialog", () => {
 
             // Assert
             getComplaintWithRelationshipsStub.should.have.been.calledOnce;
+        });
+        it("it should retrieve the complaint's allegations and their checklist responses", async () => {
+            // Arrange
+            // Act
+            await templateDialog.init();
+
+            // Assert
+            getAllegationsWithChecklistResponsesStub.should.have.been.calledOnce;
+        });
+        it("it should retrieve all question templates", async () => {
+            // Arrange
+            // Act
+            await templateDialog.init();
+
+            // Assert
+            getAllQuestionTemplatesStub.should.have.been.calledOnce;
         });
         it("it should retrieve the user's email", async () => {
             // Arrange
@@ -136,6 +172,14 @@ describe("TemplateDialog", () => {
             // Assert
             getTemplatesStub.should.have.been.called;
         });
+        it("it should retrieve the sharepoint site associated to the case's document location", async () => {
+            // Arrange
+            // Act
+            await templateDialog.init();
+
+            // Assert
+            getSharePointSiteStub.should.have.been.called;
+        });
         it("it should render the modal dialog on the page.", async () => {
             // Arrange
             // Act
@@ -155,8 +199,8 @@ describe("TemplateDialog", () => {
     });
     describe('when user click on "Generate Document"', () => {
         let generateDocumentOnClick: any;
-        let getSharePointDocumentLocation: any;
         let generateDocumentFromTemplate: any;
+        let getSharePointSiteStub: any;
         let windowClose: any;
         const xrmAPIResponse: any = {
             ok: true,
@@ -168,16 +212,16 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
+            sandbox.stub(templateService, "getAllegationsWithChecklistResponses").resolves();
+            sandbox.stub(templateService, "getAllQuestionTemplates").resolves();
             sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             sandbox.stub(authService, "getAccessToken").resolves("");
             sandbox.stub(sharePointService, "getTemplates").resolves(templates);
             sandbox.stub(console, "log");
 
+            getSharePointSiteStub = sandbox.stub(templateService, "getSharePointSite").resolves(sharepointSite);
             windowClose = sandbox.stub(templateDialog, "closePage");
             generateDocumentOnClick = sandbox.spy(templateDialog, "generateDocument_onClick");
-            getSharePointDocumentLocation = sandbox
-                .stub(complaintService, "getSharePointDocumentLocation")
-                .resolves(sharepointDocumentLocation);
             generateDocumentFromTemplate = sandbox.stub(sharePointService, "generateDocumentFromTemplate").resolves(xrmAPIResponse);
         });
 
@@ -192,7 +236,7 @@ describe("TemplateDialog", () => {
             // Assert
             generateDocumentOnClick.should.have.been.called;
         });
-        it("it should retrieve the complaint's SharePoint Document Location", async () => {
+        it("it should retrieve the SharePoint Site associated to the complaint's document location", async () => {
             // Arrange
             await templateDialog.init();
             // Act
@@ -200,7 +244,7 @@ describe("TemplateDialog", () => {
             submitButton.click();
 
             // Assert
-            getSharePointDocumentLocation.should.have.been.called;
+            getSharePointSiteStub.should.have.been.called;
         });
         it("it should send a request to XRM Web API to trigger an action to generate a document", async () => {
             // Arrange
@@ -209,8 +253,6 @@ describe("TemplateDialog", () => {
             // Act
             const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
-
-            await getSharePointDocumentLocation;
 
             // Assert
             generateDocumentFromTemplate.should.have.been.called;
@@ -223,7 +265,6 @@ describe("TemplateDialog", () => {
             const submitButton = windowContext.document.getElementById("template-comfirm") as HTMLButtonElement;
             submitButton.click();
 
-            await getSharePointDocumentLocation;
             await generateDocumentFromTemplate;
 
             // Assert
@@ -235,9 +276,12 @@ describe("TemplateDialog", () => {
             sandbox.stub(xrmContext, "getClientUrl").returns("");
             sandbox.stub(userService, "getUserEmail").resolves("");
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves(complaint);
+            sandbox.stub(templateService, "getAllegationsWithChecklistResponses").resolves();
+            sandbox.stub(templateService, "getAllQuestionTemplates").resolves();
             sandbox.stub(environmentVariableService, "getEnvironmentVariable").resolves(environmentVariable);
             sandbox.stub(authService, "getAccessToken").resolves("");
             sandbox.stub(sharePointService, "getTemplates").resolves(templates);
+            sandbox.stub(templateService, "getSharePointSite").resolves(sharepointSite);
         });
 
         it("it should close the dialog", async () => {
