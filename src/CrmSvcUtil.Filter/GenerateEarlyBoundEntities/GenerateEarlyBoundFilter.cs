@@ -49,7 +49,7 @@ namespace CrmSvcUtil.Filter.GenerateEarlyBoundEntities
 
             // Check if the entity is entirely black listed (in the black list and no fields specified)
             var toBlackList = _filter
-                .BlackListedEntities.Entities.Any(x => x.Name.Equals(entityMetadata.LogicalName, StringComparison.OrdinalIgnoreCase) && x.Fields is null);
+                .BlackListedEntities.Entities.Any(x => x.Name.Equals(entityMetadata.LogicalName, StringComparison.OrdinalIgnoreCase) && (x.Fields is null || !x.Fields.Any()));
 
             if (toBlackList) return false;
 
