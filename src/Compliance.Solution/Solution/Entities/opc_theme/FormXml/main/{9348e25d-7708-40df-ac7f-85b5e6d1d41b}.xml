@@ -10,7 +10,6 @@
         <tab verticallayout="true" id="{12ab4562-a294-45fe-ada8-b41ce33f68e2}" IsUserDefined="1" name="tab_general">
           <labels>
             <label description="General" languagecode="1033" />
-            <label description="Général" languagecode="1036" />
           </labels>
           <columns>
             <column width="100%">
@@ -18,7 +17,6 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{c4f21b15-e050-48de-9c6d-833ab12ed56a}" columns="11" name="section_general">
                   <labels>
                     <label description="General" languagecode="1033" />
-                    <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
@@ -106,7 +104,6 @@
             <cell id="{c47467a6-5785-deb8-eb8e-eccc85a22c7b}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
             </cell>
@@ -171,11 +168,9 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName description="Information" languagecode="1033" />
-      <LocalizedName description="Information" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="A form for this entity." languagecode="1033" />
-      <Description description="A form for this entity." languagecode="1036" />
     </Descriptions>
   </systemform>
 </forms>

@@ -50,7 +50,6 @@
                         <cell id="{79ee104a-3589-cbe9-51d5-e07102cb7d2b}" showlabel="false" colspan="1" auto="false" rowspan="12">
                           <labels>
                             <label description="Queue Item" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{228b1305-ca37-b20a-4094-48675bc8c1ba}">
                             <parameters>
@@ -112,7 +111,6 @@
                         <cell id="{dbe318ed-3432-6ab5-68ac-ad7066c88c50}" showlabel="false" colspan="1" auto="false" rowspan="12">
                           <labels>
                             <label description="Queue Item" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_by_resource" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{931ce0c4-1c70-9e91-6e07-bb0b383336b5}">
                             <parameters>

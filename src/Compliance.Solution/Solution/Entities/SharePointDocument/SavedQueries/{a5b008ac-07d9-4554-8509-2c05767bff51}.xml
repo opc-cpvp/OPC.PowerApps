@@ -56,11 +56,9 @@
     <IntroducedVersion>6.1.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="All SharePoint Document" languagecode="1033" />
-      <LocalizedName description="Tous les documents SharePoint" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="All SharePoint Document" languagecode="1033" />
-      <Description description="Tous les documents SharePoint" languagecode="1036" />
     </Descriptions>
   </savedquery>
 </savedqueries>

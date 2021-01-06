@@ -10,7 +10,6 @@
         <tab verticallayout="true" id="{1daf0956-c07b-4643-96c9-0ab3968e4c12}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
             <label description="General" languagecode="1033" />
-            <label description="Général" languagecode="1036" />
           </labels>
           <columns>
             <column width="100%">
@@ -18,7 +17,6 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{771f5a01-89fd-421e-827f-0765761601f4}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
-                    <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
@@ -83,7 +81,6 @@
             <cell id="{92163f01-c97b-4ea3-9fa2-43572d2cac0a}">
               <labels>
                 <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>

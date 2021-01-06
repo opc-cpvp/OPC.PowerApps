@@ -4,11 +4,6 @@ declare const enum account_address1_addresstypecode {
   Primary = 3,
   Other = 4,
 }
-declare const enum opc_sector {
-  Private = 533950000,
-  Public = 533950001,
-  Civil = 533950002,
-}
 declare const enum account_address1_shippingmethodcode {
   Airborne = 1,
   DHL = 2,
@@ -21,10 +16,6 @@ declare const enum account_address1_shippingmethodcode {
 declare const enum account_accountcategorycode {
   PreferredCustomer = 1,
   Standard = 2,
-}
-declare const enum account_statuscode {
-  Active = 1,
-  Inactive = 2,
 }
 declare const enum account_statecode {
   Active = 0,
@@ -48,6 +39,10 @@ declare const enum account_accountclassificationcode {
 declare const enum account_customersizecode {
   DefaultValue = 1,
 }
+declare const enum account_statuscode {
+  Active = 1,
+  Inactive = 2,
+}
 declare const enum account_ownershipcode {
   Public = 1,
   Private = 2,
@@ -56,6 +51,11 @@ declare const enum account_ownershipcode {
 }
 declare const enum account_address2_freighttermscode {
   DefaultValue = 1,
+}
+declare const enum opc_sector {
+  Private = 533950000,
+  Public = 533950001,
+  Civil = 533950002,
 }
 declare const enum account_preferredcontactmethodcode {
   Any = 1,
@@ -172,6 +172,14 @@ declare const enum contact_address1_addresstypecode {
   Primary = 3,
   Other = 4,
 }
+declare const enum contact_address1_freighttermscode {
+  FOB = 1,
+  NoCharge = 2,
+}
+declare const enum contact_gendercode {
+  Male = 1,
+  Female = 2,
+}
 declare const enum contact_address1_shippingmethodcode {
   Airborne = 1,
   DHL = 2,
@@ -180,10 +188,6 @@ declare const enum contact_address1_shippingmethodcode {
   PostalMail = 5,
   FullLoad = 6,
   WillCall = 7,
-}
-declare const enum contact_gendercode {
-  Male = 1,
-  Female = 2,
 }
 declare const enum opc_duplicatedetectionresult {
   None = 924340000,
@@ -215,10 +219,6 @@ declare const enum contact_statecode {
 declare const enum contact_leadsourcecode {
   DefaultValue = 1,
 }
-declare const enum contact_address1_freighttermscode {
-  FOB = 1,
-  NoCharge = 2,
-}
 declare const enum contact_shippingmethodcode {
   DefaultValue = 1,
 }
@@ -249,12 +249,6 @@ declare const enum contact_accountrolecode {
 declare const enum contact_address2_addresstypecode {
   DefaultValue = 1,
 }
-declare const enum opc_multiplecomplaintstrategy {
-  NotApplied = 924340000,
-  Proposed = 924340001,
-  Applied = 924340002,
-  Former = 924340003,
-}
 declare const enum contact_preferredappointmentdaycode {
   Sunday = 0,
   Monday = 1,
@@ -263,6 +257,12 @@ declare const enum contact_preferredappointmentdaycode {
   Thursday = 4,
   Friday = 5,
   Saturday = 6,
+}
+declare const enum opc_multiplecomplaintstrategy {
+  NotApplied = 924340000,
+  Proposed = 924340001,
+  Applied = 924340002,
+  Former = 924340003,
 }
 declare const enum contact_customertypecode {
   DefaultValue = 1,
@@ -619,108 +619,107 @@ declare const enum duplicaterule_baseentitytypecode {
   EmailSignature = 9997,
   SolutionHistory = 10000,
   SolutionHistoryDataSource = 10001,
-  ComponentLayer = 10002,
-  ComponentLayerDataSource = 10003,
-  SolutionComponentSummary = 10004,
-  SolutionComponentDataSource = 10005,
-  KnowledgeArticleImage = 10006,
-  KnowledgeArticleTemplate = 10007,
-  ODatav4DataSource = 10008,
-  AIFormProcessingDocument = 10009,
-  AIObjectDetectionImage = 10010,
-  AIObjectDetectionLabel = 10011,
-  AIObjectDetectionBoundingBox = 10012,
-  AIObjectDetectionImageMapping = 10013,
-  WorkflowBinary = 10015,
-  HelpPage = 10016,
-  AnalysisComponent = 10029,
-  AnalysisJob = 10030,
-  AnalysisResult = 10031,
-  AnalysisResultDetail = 10032,
-  SolutionHealthRule = 10033,
-  SolutionHealthRuleArgument = 10034,
-  SolutionHealthRuleSet = 10035,
-  ApiSettings = 10049,
-  SolutionComponentAttributeConfiguration = 10056,
-  AIBuilderDataset = 10468,
-  AIBuilderDatasetFile = 10469,
-  AIBuilderDatasetsContainer = 10470,
-  AIBuilderFile = 10471,
-  AIBuilderFileAttachedData = 10472,
-  SolutionComponentConfiguration = 10494,
-  StageSolutionUpload = 10600,
-  ProcessStageParameter = 10626,
-  AIBuilderDatasetRecord = 10762,
-  ServiceConfiguration = 11402,
-  SLAKPI = 11403,
-  NonRelationalDataSource = 11404,
-  DataLakeWorkspace = 11405,
-  DataLakeWorkspacePermission = 11406,
-  ApplicationUser = 11407,
-  SolutionComponentRelationshipConfiguration = 11409,
-  ModelDrivenAppElement = 11410,
-  ModelDrivenAppComponentNodesEdge = 11411,
-  ModelDrivenAppComponentNode = 11412,
-  ModelDrivenAppSetting = 11413,
-  SettingDefinition = 11414,
-  ConnectionReference = 11415,
-  CanvasAppExtendedMetadata = 11416,
-  PDFSetting = 11452,
-  ExportSolutionUpload = 11633,
-  RichTextAttachment = 11665,
-  CascadeGrantRevokeAccessRecordsTracker = 11697,
-  CascadeGrantRevokeAccessVersionTracker = 11698,
-  Package = 11699,
-  KnowledgeInteractionInsight = 11701,
-  KnowledgeSearchInsight = 11702,
-  DataLakeFolder = 11765,
-  DataLakeFolderPermission = 11766,
-  ProvisionLanguageForUser = 11767,
-  Catalog = 11769,
-  CatalogAssignment = 11770,
-  InternalCatalogAssignment = 11771,
-  CustomAPI = 11772,
-  CustomAPIRequestParameter = 11773,
-  CustomAPIResponseProperty = 11774,
-  BotContent = 11778,
-  ConversationTranscript = 11779,
-  Chatbot = 11780,
-  Chatbotsubcomponent = 11781,
-  KnowledgeFederatedArticle = 11785,
-  KnowledgeFederatedArticleIncident = 11786,
-  Searchprovider = 11787,
-  SearchTelemetry = 11821,
-  TeamMobileOfflineProfileMembership = 11822,
-  UserMobileOfflineProfileMembership = 11823,
-  RevokeInheritedAccessRecordsTracker = 11857,
-  AllegationConcern = 11965,
-  AllegationType = 11966,
-  ChecklistResponse = 11967,
-  ChecklistType = 11968,
-  Complaint = 11969,
-  DispositionAction = 11970,
-  DispositionReason = 11971,
-  Event = 11972,
-  IndividualComplaint = 11973,
-  Industry = 11974,
-  Issue = 11975,
-  Legislation = 11976,
-  Notification = 11977,
-  OPCPriority = 11978,
-  QuestionTemplate = 11979,
-  QuestionType = 11980,
-  Recommendation = 11981,
-  Reminder = 11982,
-  RiskAppetite = 11983,
-  RiskAssessment = 11984,
-  RiskAssessmentCategory = 11985,
-  RiskAssessmentCategoryTemplate = 11986,
-  RiskAssessmentDefinition = 11987,
-  RiskAssessmentDefinitionTemplate = 11988,
-  RiskAssessmentFactorTemplate = 11989,
-  RiskAssessmentType = 11990,
-  Theme = 11991,
-  Topic = 11992,
+  SolutionComponentAttributeConfiguration = 10002,
+  SolutionComponentConfiguration = 10003,
+  SolutionComponentRelationshipConfiguration = 10004,
+  ComponentLayer = 10005,
+  ComponentLayerDataSource = 10006,
+  Package = 10007,
+  StageSolutionUpload = 10009,
+  ExportSolutionUpload = 10010,
+  SolutionComponentSummary = 10011,
+  SolutionComponentDataSource = 10012,
+  ProvisionLanguageForUser = 10013,
+  CascadeGrantRevokeAccessRecordsTracker = 10014,
+  CascadeGrantRevokeAccessVersionTracker = 10015,
+  ApplicationUser = 10017,
+  ModelDrivenAppElement = 10020,
+  ModelDrivenAppComponentNodesEdge = 10021,
+  ModelDrivenAppComponentNode = 10022,
+  ModelDrivenAppSetting = 10023,
+  SettingDefinition = 10024,
+  CanvasAppExtendedMetadata = 10025,
+  ODatav4DataSource = 10026,
+  ProcessStageParameter = 10027,
+  WorkflowBinary = 10028,
+  ConnectionReference = 10029,
+  HelpPage = 10030,
+  BotContent = 10031,
+  ConversationTranscript = 10032,
+  Chatbot = 10033,
+  Chatbotsubcomponent = 10034,
+  PDFSetting = 10038,
+  ServiceConfiguration = 10039,
+  SLAKPI = 10040,
+  KnowledgeFederatedArticle = 10041,
+  KnowledgeFederatedArticleIncident = 10042,
+  Searchprovider = 10043,
+  KnowledgeArticleImage = 10044,
+  KnowledgeInteractionInsight = 10045,
+  KnowledgeSearchInsight = 10046,
+  KnowledgeArticleTemplate = 10047,
+  Catalog = 10048,
+  CatalogAssignment = 10049,
+  InternalCatalogAssignment = 10050,
+  CustomAPI = 10051,
+  CustomAPIRequestParameter = 10052,
+  CustomAPIResponseProperty = 10053,
+  TeamMobileOfflineProfileMembership = 10054,
+  UserMobileOfflineProfileMembership = 10055,
+  DataLakeFolder = 10056,
+  DataLakeFolderPermission = 10057,
+  DataLakeWorkspace = 10058,
+  DataLakeWorkspacePermission = 10059,
+  RichTextAttachment = 10060,
+  NonRelationalDataSource = 10061,
+  SearchTelemetry = 10062,
+  AIBuilderDataset = 10063,
+  AIBuilderDatasetFile = 10064,
+  AIBuilderDatasetRecord = 10065,
+  AIBuilderDatasetsContainer = 10066,
+  AIBuilderFile = 10067,
+  AIBuilderFileAttachedData = 10068,
+  AIFormProcessingDocument = 10069,
+  AIObjectDetectionImage = 10070,
+  AIObjectDetectionLabel = 10071,
+  AIObjectDetectionBoundingBox = 10072,
+  AIObjectDetectionImageMapping = 10073,
+  AnalysisComponent = 10075,
+  AnalysisJob = 10076,
+  AnalysisResult = 10077,
+  AnalysisResultDetail = 10078,
+  SolutionHealthRule = 10079,
+  SolutionHealthRuleArgument = 10080,
+  SolutionHealthRuleSet = 10081,
+  AllegationConcern = 10082,
+  AllegationType = 10083,
+  ChecklistResponse = 10084,
+  ChecklistType = 10085,
+  Complaint = 10086,
+  DispositionAction = 10087,
+  DispositionReason = 10088,
+  Event = 10089,
+  IndividualComplaint = 10090,
+  Industry = 10091,
+  Issue = 10092,
+  Legislation = 10093,
+  Notification = 10094,
+  OPCPriority = 10095,
+  QuestionTemplate = 10096,
+  QuestionType = 10097,
+  Recommendation = 10098,
+  Reminder = 10099,
+  RiskAppetite = 10100,
+  RiskAssessment = 10101,
+  RiskAssessmentCategory = 10102,
+  RiskAssessmentCategoryTemplate = 10103,
+  RiskAssessmentDefinition = 10104,
+  RiskAssessmentDefinitionTemplate = 10105,
+  RiskAssessmentFactorTemplate = 10106,
+  RiskAssessmentType = 10107,
+  Theme = 10108,
+  Topic = 10109,
+  RevokeInheritedAccessRecordsTracker = 90001,
 }
 declare const enum duplicaterule_matchingentitytypecode {
   Account = 1,
@@ -1046,108 +1045,107 @@ declare const enum duplicaterule_matchingentitytypecode {
   EmailSignature = 9997,
   SolutionHistory = 10000,
   SolutionHistoryDataSource = 10001,
-  ComponentLayer = 10002,
-  ComponentLayerDataSource = 10003,
-  SolutionComponentSummary = 10004,
-  SolutionComponentDataSource = 10005,
-  KnowledgeArticleImage = 10006,
-  KnowledgeArticleTemplate = 10007,
-  ODatav4DataSource = 10008,
-  AIFormProcessingDocument = 10009,
-  AIObjectDetectionImage = 10010,
-  AIObjectDetectionLabel = 10011,
-  AIObjectDetectionBoundingBox = 10012,
-  AIObjectDetectionImageMapping = 10013,
-  WorkflowBinary = 10015,
-  HelpPage = 10016,
-  AnalysisComponent = 10029,
-  AnalysisJob = 10030,
-  AnalysisResult = 10031,
-  AnalysisResultDetail = 10032,
-  SolutionHealthRule = 10033,
-  SolutionHealthRuleArgument = 10034,
-  SolutionHealthRuleSet = 10035,
-  ApiSettings = 10049,
-  SolutionComponentAttributeConfiguration = 10056,
-  AIBuilderDataset = 10468,
-  AIBuilderDatasetFile = 10469,
-  AIBuilderDatasetsContainer = 10470,
-  AIBuilderFile = 10471,
-  AIBuilderFileAttachedData = 10472,
-  SolutionComponentConfiguration = 10494,
-  StageSolutionUpload = 10600,
-  ProcessStageParameter = 10626,
-  AIBuilderDatasetRecord = 10762,
-  ServiceConfiguration = 11402,
-  SLAKPI = 11403,
-  NonRelationalDataSource = 11404,
-  DataLakeWorkspace = 11405,
-  DataLakeWorkspacePermission = 11406,
-  ApplicationUser = 11407,
-  SolutionComponentRelationshipConfiguration = 11409,
-  ModelDrivenAppElement = 11410,
-  ModelDrivenAppComponentNodesEdge = 11411,
-  ModelDrivenAppComponentNode = 11412,
-  ModelDrivenAppSetting = 11413,
-  SettingDefinition = 11414,
-  ConnectionReference = 11415,
-  CanvasAppExtendedMetadata = 11416,
-  PDFSetting = 11452,
-  ExportSolutionUpload = 11633,
-  RichTextAttachment = 11665,
-  CascadeGrantRevokeAccessRecordsTracker = 11697,
-  CascadeGrantRevokeAccessVersionTracker = 11698,
-  Package = 11699,
-  KnowledgeInteractionInsight = 11701,
-  KnowledgeSearchInsight = 11702,
-  DataLakeFolder = 11765,
-  DataLakeFolderPermission = 11766,
-  ProvisionLanguageForUser = 11767,
-  Catalog = 11769,
-  CatalogAssignment = 11770,
-  InternalCatalogAssignment = 11771,
-  CustomAPI = 11772,
-  CustomAPIRequestParameter = 11773,
-  CustomAPIResponseProperty = 11774,
-  BotContent = 11778,
-  ConversationTranscript = 11779,
-  Chatbot = 11780,
-  Chatbotsubcomponent = 11781,
-  KnowledgeFederatedArticle = 11785,
-  KnowledgeFederatedArticleIncident = 11786,
-  Searchprovider = 11787,
-  SearchTelemetry = 11821,
-  TeamMobileOfflineProfileMembership = 11822,
-  UserMobileOfflineProfileMembership = 11823,
-  RevokeInheritedAccessRecordsTracker = 11857,
-  AllegationConcern = 11965,
-  AllegationType = 11966,
-  ChecklistResponse = 11967,
-  ChecklistType = 11968,
-  Complaint = 11969,
-  DispositionAction = 11970,
-  DispositionReason = 11971,
-  Event = 11972,
-  IndividualComplaint = 11973,
-  Industry = 11974,
-  Issue = 11975,
-  Legislation = 11976,
-  Notification = 11977,
-  OPCPriority = 11978,
-  QuestionTemplate = 11979,
-  QuestionType = 11980,
-  Recommendation = 11981,
-  Reminder = 11982,
-  RiskAppetite = 11983,
-  RiskAssessment = 11984,
-  RiskAssessmentCategory = 11985,
-  RiskAssessmentCategoryTemplate = 11986,
-  RiskAssessmentDefinition = 11987,
-  RiskAssessmentDefinitionTemplate = 11988,
-  RiskAssessmentFactorTemplate = 11989,
-  RiskAssessmentType = 11990,
-  Theme = 11991,
-  Topic = 11992,
+  SolutionComponentAttributeConfiguration = 10002,
+  SolutionComponentConfiguration = 10003,
+  SolutionComponentRelationshipConfiguration = 10004,
+  ComponentLayer = 10005,
+  ComponentLayerDataSource = 10006,
+  Package = 10007,
+  StageSolutionUpload = 10009,
+  ExportSolutionUpload = 10010,
+  SolutionComponentSummary = 10011,
+  SolutionComponentDataSource = 10012,
+  ProvisionLanguageForUser = 10013,
+  CascadeGrantRevokeAccessRecordsTracker = 10014,
+  CascadeGrantRevokeAccessVersionTracker = 10015,
+  ApplicationUser = 10017,
+  ModelDrivenAppElement = 10020,
+  ModelDrivenAppComponentNodesEdge = 10021,
+  ModelDrivenAppComponentNode = 10022,
+  ModelDrivenAppSetting = 10023,
+  SettingDefinition = 10024,
+  CanvasAppExtendedMetadata = 10025,
+  ODatav4DataSource = 10026,
+  ProcessStageParameter = 10027,
+  WorkflowBinary = 10028,
+  ConnectionReference = 10029,
+  HelpPage = 10030,
+  BotContent = 10031,
+  ConversationTranscript = 10032,
+  Chatbot = 10033,
+  Chatbotsubcomponent = 10034,
+  PDFSetting = 10038,
+  ServiceConfiguration = 10039,
+  SLAKPI = 10040,
+  KnowledgeFederatedArticle = 10041,
+  KnowledgeFederatedArticleIncident = 10042,
+  Searchprovider = 10043,
+  KnowledgeArticleImage = 10044,
+  KnowledgeInteractionInsight = 10045,
+  KnowledgeSearchInsight = 10046,
+  KnowledgeArticleTemplate = 10047,
+  Catalog = 10048,
+  CatalogAssignment = 10049,
+  InternalCatalogAssignment = 10050,
+  CustomAPI = 10051,
+  CustomAPIRequestParameter = 10052,
+  CustomAPIResponseProperty = 10053,
+  TeamMobileOfflineProfileMembership = 10054,
+  UserMobileOfflineProfileMembership = 10055,
+  DataLakeFolder = 10056,
+  DataLakeFolderPermission = 10057,
+  DataLakeWorkspace = 10058,
+  DataLakeWorkspacePermission = 10059,
+  RichTextAttachment = 10060,
+  NonRelationalDataSource = 10061,
+  SearchTelemetry = 10062,
+  AIBuilderDataset = 10063,
+  AIBuilderDatasetFile = 10064,
+  AIBuilderDatasetRecord = 10065,
+  AIBuilderDatasetsContainer = 10066,
+  AIBuilderFile = 10067,
+  AIBuilderFileAttachedData = 10068,
+  AIFormProcessingDocument = 10069,
+  AIObjectDetectionImage = 10070,
+  AIObjectDetectionLabel = 10071,
+  AIObjectDetectionBoundingBox = 10072,
+  AIObjectDetectionImageMapping = 10073,
+  AnalysisComponent = 10075,
+  AnalysisJob = 10076,
+  AnalysisResult = 10077,
+  AnalysisResultDetail = 10078,
+  SolutionHealthRule = 10079,
+  SolutionHealthRuleArgument = 10080,
+  SolutionHealthRuleSet = 10081,
+  AllegationConcern = 10082,
+  AllegationType = 10083,
+  ChecklistResponse = 10084,
+  ChecklistType = 10085,
+  Complaint = 10086,
+  DispositionAction = 10087,
+  DispositionReason = 10088,
+  Event = 10089,
+  IndividualComplaint = 10090,
+  Industry = 10091,
+  Issue = 10092,
+  Legislation = 10093,
+  Notification = 10094,
+  OPCPriority = 10095,
+  QuestionTemplate = 10096,
+  QuestionType = 10097,
+  Recommendation = 10098,
+  Reminder = 10099,
+  RiskAppetite = 10100,
+  RiskAssessment = 10101,
+  RiskAssessmentCategory = 10102,
+  RiskAssessmentCategoryTemplate = 10103,
+  RiskAssessmentDefinition = 10104,
+  RiskAssessmentDefinitionTemplate = 10105,
+  RiskAssessmentFactorTemplate = 10106,
+  RiskAssessmentType = 10107,
+  Theme = 10108,
+  Topic = 10109,
+  RevokeInheritedAccessRecordsTracker = 90001,
 }
 declare const enum duplicaterulecondition_operatorcode {
   ExactMatch = 0,
@@ -1162,12 +1160,6 @@ declare const enum environmentvariabledefinition_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum componentstate {
-  Published = 0,
-  Unpublished = 1,
-  Deleted = 2,
-  DeletedUnpublished = 3,
-}
 declare const enum environmentvariabledefinition_statuscode {
   Active = 1,
   Inactive = 2,
@@ -1178,6 +1170,12 @@ declare const enum environmentvariabledefinition_type {
   Boolean = 100000002,
   JSON = 100000003,
   DataSource = 100000004,
+}
+declare const enum componentstate {
+  Published = 0,
+  Unpublished = 1,
+  Deleted = 2,
+  DeletedUnpublished = 3,
 }
 declare const enum environmentvariablevalue_statecode {
   Active = 0,
@@ -1201,13 +1199,13 @@ declare const enum opc_allegation_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_allegationtype_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_allegationtype_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_allegationtype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_checklistresponse_statecode {
   Active = 0,
@@ -1217,56 +1215,22 @@ declare const enum opc_checklistresponse_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_checklisttype_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_checklisttype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_complaintstage {
   Intake = 924340000,
 }
-declare const enum opc_checklisttype_statuscode {
-  Active = 1,
-  Inactive = 2,
+declare const enum opc_checklisttype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_respondentandcomplainantrelationship {
   Employee = 533950000,
   Tenant = 533950001,
   Customer = 533950002,
   Patient = 533950003,
-}
-declare const enum opc_nextstep {
-  Transfertoinvestigations = 924340000,
-  Resolved = 924340001,
-  Withdrawn = 924340002,
-  Settled = 924340003,
-  Discontinued = 924340004,
-}
-declare const enum opc_complaintmilestone {
-  Triage = 924340000,
-  Intake = 924340001,
-  EarlyResolution = 924340002,
-  Investigation = 924340003,
-}
-declare const enum opc_complaint_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
-}
-declare const enum opc_closereason {
-  Redirection = 924340000,
-  Duplicate = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
-  Createdinerror = 924340004,
 }
 declare const enum opc_yesorno {
   Yes = 924340000,
@@ -1283,15 +1247,42 @@ declare const enum opc_perceivedpriorities {
   Reimbursement = 533950007,
   Timeliness = 533950008,
 }
-declare const enum opc_complaintsource {
-  Onlinecorrespondence = 533950000,
-  Letter = 533950001,
-}
 declare const enum opc_intakedisposition {
   MovetoEarlyResolution = 924340000,
   MovetoInvestigation = 924340001,
   Declinetoinvestigate = 924340002,
   Close = 924340003,
+}
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
+}
+declare const enum opc_complaint_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_complaintsource {
+  Onlinecorrespondence = 533950000,
+  Letter = 533950001,
+}
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
 }
 declare const enum opc_complaint_statuscode {
   Declined = 924340001,
@@ -1308,15 +1299,18 @@ declare const enum opc_complaint_statuscode {
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
 }
-declare const enum opc_dispositionaction_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_nextstep {
+  Transfertoinvestigations = 924340000,
+  Resolved = 924340001,
+  Withdrawn = 924340002,
+  Settled = 924340003,
+  Discontinued = 924340004,
 }
 declare const enum opc_dispositionaction_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionreason_statecode {
+declare const enum opc_dispositionaction_statecode {
   Active = 0,
   Inactive = 1,
 }
@@ -1324,12 +1318,9 @@ declare const enum opc_dispositionreason_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_event_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
+declare const enum opc_dispositionreason_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_event_prioritycode {
   Low = 0,
@@ -1360,7 +1351,14 @@ declare const enum activitypointer_activitytypecode {
   PhoneCall = 4210,
   Task = 4212,
   RecurringAppointment = 4251,
-  Event = 11972,
+  Event = 10089,
+}
+declare const enum opc_event_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
 }
 declare const enum opc_event_statuscode {
   Open = 1,
@@ -1425,13 +1423,13 @@ declare const enum opc_notification_statuscode {
   Inactive = 2,
   Read = 924340000,
 }
-declare const enum opc_opcpriority_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_opcpriority_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_opcpriority_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_questiontemplate_statecode {
   Active = 0,
@@ -1441,13 +1439,13 @@ declare const enum opc_questiontemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_questiontype_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_questiontype_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_questiontype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_recommendation_statecode {
   Active = 0,
@@ -1481,13 +1479,13 @@ declare const enum opc_riskassessment_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentcategory_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_riskassessmentcategory_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_riskassessmentcategory_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_riskassessmentcategorytemplate_statecode {
   Active = 0,
@@ -1529,21 +1527,21 @@ declare const enum opc_riskassessmenttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_theme_statecode {
-  Active = 0,
-  Inactive = 1,
-}
 declare const enum opc_theme_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_topic_statecode {
+declare const enum opc_theme_statecode {
   Active = 0,
   Inactive = 1,
 }
 declare const enum opc_topic_statuscode {
   Active = 1,
   Inactive = 2,
+}
+declare const enum opc_topic_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queue_queuetypecode {
   DefaultValue = 1,
@@ -1601,9 +1599,9 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10007,
-  Complaint = 11969,
-  Event = 11972,
+  KnowledgeArticleTemplate = 10047,
+  Complaint = 10086,
+  Event = 10089,
 }
 declare const enum sharepointsite_servicetype {
   SharePoint = 0,
@@ -1658,6 +1656,21 @@ declare const enum systemuser_address1_addresstypecode {
 declare const enum systemuser_address1_shippingmethodcode {
   DefaultValue = 1,
 }
+declare const enum systemuser_caltype {
+  Professional = 0,
+  Administrative = 1,
+  Basic = 2,
+  DeviceProfessional = 3,
+  DeviceBasic = 4,
+  Essential = 5,
+  DeviceEssential = 6,
+  Enterprise = 7,
+  DeviceEnterprise = 8,
+  Sales = 9,
+  Service = 10,
+  FieldService = 11,
+  ProjectService = 12,
+}
 declare const enum systemuser_invitestatuscode {
   InvitationNotSent = 0,
   Invited = 1,
@@ -1705,26 +1718,35 @@ declare const enum systemuser_accessmode {
   Noninteractive = 4,
   DelegatedAdmin = 5,
 }
-declare const enum systemuser_caltype {
-  Professional = 0,
-  Administrative = 1,
-  Basic = 2,
-  DeviceProfessional = 3,
-  DeviceBasic = 4,
-  Essential = 5,
-  DeviceEssential = 6,
-  Enterprise = 7,
-  DeviceEnterprise = 8,
-  Sales = 9,
-  Service = 10,
-  FieldService = 11,
-  ProjectService = 12,
-}
 declare const enum systemuser_address2_addresstypecode {
   DefaultValue = 1,
 }
 declare const enum systemuser_address2_shippingmethodcode {
   DefaultValue = 1,
+}
+declare const enum opc_tasktype {
+  Personal = 1,
+  Required = 2,
+  Situational = 3,
+  Analytical = 4,
+}
+declare const enum task_prioritycode {
+  Low = 0,
+  Normal = 1,
+  High = 2,
+}
+declare const enum task_statecode {
+  Open = 0,
+  Completed = 1,
+  Canceled = 2,
+}
+declare const enum task_statuscode {
+  NotStarted = 2,
+  InProgress = 3,
+  Waitingonsomeoneelse = 4,
+  Completed = 5,
+  Canceled = 6,
+  Deferred = 7,
 }
 declare const enum team_type {
   Owner = 0,
@@ -1732,7 +1754,7 @@ declare const enum team_type {
   AADSecurityGroup = 2,
   AADOfficeGroup = 3,
 }
-declare const enum _team_membershiptype {
+declare const enum team_membershiptype {
   Membersandguests = 0,
   Members = 1,
   Owners = 2,
@@ -1760,7 +1782,7 @@ declare const enum connection_record1objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-  Event = 11972,
+  Event = 10089,
 }
 declare const enum connection_record2objecttypecode {
   Account = 1,
@@ -1784,7 +1806,7 @@ declare const enum connection_record2objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-  Event = 11972,
+  Event = 10089,
 }
 declare const enum connection_statuscode {
   Active = 1,
@@ -5397,6 +5419,7 @@ declare namespace Form.opc_complaint.Main {
         get(name: "section_general"): Xrm.PageSection;
         get(name: "section_notes_activities"): Xrm.PageSection;
         get(name: "section_respondent"): Xrm.PageSection;
+        get(name: "section_tasks"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -5521,6 +5544,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "subgrid_industries"): Xrm.BaseControl;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
       get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
+      get(name: "subgrid_tasks"): Xrm.SubGridControl<"task">;
       get(name: "subgrid_topics"): Xrm.BaseControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -5626,6 +5650,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "subgrid_industries"): Xrm.BaseControl;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
     getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
+    getControl(controlName: "subgrid_tasks"): Xrm.SubGridControl<"task">;
     getControl(controlName: "subgrid_topics"): Xrm.BaseControl;
     getControl(controlName: string): undefined;
   }
@@ -9516,6 +9541,345 @@ declare namespace Form.systemuser.Main {
     getControl(controlName: string): undefined;
   }
 }
+declare namespace Form.task.Quick {
+  namespace TaskReferencePanel {
+    namespace Tabs {
+      interface tab_1 extends Xrm.SectionCollectionBase {
+        get(name: "tab_1_column_1_section_1"): Xrm.PageSection;
+        get(name: "tab_1_section_2"): Xrm.PageSection;
+        get(name: "tab_1_section_3"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "actualdurationminutes"): Xrm.NumberAttribute;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "scheduledend"): Xrm.DateAttribute;
+      get(name: "statecode"): Xrm.OptionSetAttribute<task_statecode>;
+      get(name: "subject"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "actualdurationminutes"): Xrm.NumberControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "prioritycode"): Xrm.OptionSetControl<task_prioritycode>;
+      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "scheduledend"): Xrm.DateControl;
+      get(name: "statecode"): Xrm.OptionSetControl<task_statecode>;
+      get(name: "subject"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_1"): Xrm.PageTab<Tabs.tab_1>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface TaskReferencePanel extends Xrm.PageBase<TaskReferencePanel.Attributes,TaskReferencePanel.Tabs,TaskReferencePanel.Controls> {
+    getAttribute(attributeName: "actualdurationminutes"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getAttribute(attributeName: "scheduledend"): Xrm.DateAttribute;
+    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<task_statecode>;
+    getAttribute(attributeName: "subject"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "actualdurationminutes"): Xrm.NumberControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "prioritycode"): Xrm.OptionSetControl<task_prioritycode>;
+    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getControl(controlName: "scheduledend"): Xrm.DateControl;
+    getControl(controlName: "statecode"): Xrm.OptionSetControl<task_statecode>;
+    getControl(controlName: "subject"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.task.QuickCreate {
+  namespace Taskquickcreateform {
+    namespace Tabs {
+      interface createtask extends Xrm.SectionCollectionBase {
+        get(name: "task"): Xrm.PageSection;
+        get(name: "task_2"): Xrm.PageSection;
+        get(name: "task_3"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "actualdurationminutes"): Xrm.NumberAttribute;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "opc_type"): Xrm.OptionSetAttribute<opc_tasktype>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "scheduledend"): Xrm.DateAttribute;
+      get(name: "subject"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "actualdurationminutes"): Xrm.NumberControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "opc_type"): Xrm.OptionSetControl<opc_tasktype>;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "prioritycode"): Xrm.OptionSetControl<task_prioritycode>;
+      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "scheduledend"): Xrm.DateControl;
+      get(name: "subject"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "createtask"): Xrm.PageTab<Tabs.createtask>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Taskquickcreateform extends Xrm.PageBase<Taskquickcreateform.Attributes,Taskquickcreateform.Tabs,Taskquickcreateform.Controls> {
+    getAttribute(attributeName: "actualdurationminutes"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_type"): Xrm.OptionSetAttribute<opc_tasktype>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getAttribute(attributeName: "scheduledend"): Xrm.DateAttribute;
+    getAttribute(attributeName: "subject"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "actualdurationminutes"): Xrm.NumberControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "opc_type"): Xrm.OptionSetControl<opc_tasktype>;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "prioritycode"): Xrm.OptionSetControl<task_prioritycode>;
+    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getControl(controlName: "scheduledend"): Xrm.DateControl;
+    getControl(controlName: "subject"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.task.Quick {
+  namespace QuickForm {
+    namespace Tabs {
+      interface general extends Xrm.SectionCollectionBase {
+        get(name: "information"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+      get(name: "scheduledend"): Xrm.DateAttribute;
+      get(name: "subject"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "description"): Xrm.StringControl;
+      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "prioritycode"): Xrm.OptionSetControl<task_prioritycode>;
+      get(name: "scheduledend"): Xrm.DateControl;
+      get(name: "subject"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "general"): Xrm.PageTab<Tabs.general>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface QuickForm extends Xrm.PageBase<QuickForm.Attributes,QuickForm.Tabs,QuickForm.Controls> {
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+    getAttribute(attributeName: "scheduledend"): Xrm.DateAttribute;
+    getAttribute(attributeName: "subject"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "prioritycode"): Xrm.OptionSetControl<task_prioritycode>;
+    getControl(controlName: "scheduledend"): Xrm.DateControl;
+    getControl(controlName: "subject"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.task.Main {
+  namespace TaskforInteractiveexperience {
+    namespace Tabs {
+      interface tab_4 extends Xrm.SectionCollectionBase {
+        get(name: "tab_3_section_3"): Xrm.PageSection;
+        get(name: "tab_4_section_2"): Xrm.PageSection;
+        get(name: "tab_4_section_4"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "actualdurationminutes"): Xrm.NumberAttribute;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "scheduledend"): Xrm.DateAttribute;
+      get(name: "statecode"): Xrm.OptionSetAttribute<task_statecode>;
+      get(name: "subject"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "actualdurationminutes"): Xrm.NumberControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "header_prioritycode"): Xrm.OptionSetControl<task_prioritycode>;
+      get(name: "header_scheduledend"): Xrm.DateControl;
+      get(name: "header_statecode"): Xrm.OptionSetControl<task_statecode>;
+      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "regardingobjectid1"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "subject"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "tab_4"): Xrm.PageTab<Tabs.tab_4>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface TaskforInteractiveexperience extends Xrm.PageBase<TaskforInteractiveexperience.Attributes,TaskforInteractiveexperience.Tabs,TaskforInteractiveexperience.Controls> {
+    getAttribute(attributeName: "actualdurationminutes"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getAttribute(attributeName: "scheduledend"): Xrm.DateAttribute;
+    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<task_statecode>;
+    getAttribute(attributeName: "subject"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "actualdurationminutes"): Xrm.NumberControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "header_prioritycode"): Xrm.OptionSetControl<task_prioritycode>;
+    getControl(controlName: "header_scheduledend"): Xrm.DateControl;
+    getControl(controlName: "header_statecode"): Xrm.OptionSetControl<task_statecode>;
+    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getControl(controlName: "regardingobjectid1"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getControl(controlName: "subject"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
+declare namespace Form.task.Main {
+  namespace Task {
+    namespace Tabs {
+      interface TASK_TAB extends Xrm.SectionCollectionBase {
+        get(name: "Description"): Xrm.PageSection;
+        get(name: "TASK"): Xrm.PageSection;
+        get(name: "tab_2_section_2"): Xrm.PageSection;
+        get(name: "task details"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+    }
+    interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "actualdurationminutes"): Xrm.NumberAttribute;
+      get(name: "description"): Xrm.Attribute<string>;
+      get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+      get(name: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "scheduledend"): Xrm.DateAttribute;
+      get(name: "statecode"): Xrm.OptionSetAttribute<task_statecode>;
+      get(name: "subject"): Xrm.Attribute<string>;
+      get(name: string): undefined;
+      get(): Xrm.Attribute<any>[];
+      get(index: number): Xrm.Attribute<any>;
+      get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
+    }
+    interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "actualdurationminutes"): Xrm.NumberControl;
+      get(name: "description"): Xrm.StringControl;
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "header_priority"): Xrm.OptionSetControl<task_prioritycode>;
+      get(name: "header_scheduledend"): Xrm.DateControl;
+      get(name: "header_statecode"): Xrm.OptionSetControl<task_statecode>;
+      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "subject"): Xrm.StringControl;
+      get(name: string): undefined;
+      get(): Xrm.BaseControl[];
+      get(index: number): Xrm.BaseControl;
+      get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
+    }
+    interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "TASK_TAB"): Xrm.PageTab<Tabs.TASK_TAB>;
+      get(name: string): undefined;
+      get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+      get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
+      get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
+    }
+  }
+  interface Task extends Xrm.PageBase<Task.Attributes,Task.Tabs,Task.Controls> {
+    getAttribute(attributeName: "actualdurationminutes"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "description"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
+    getAttribute(attributeName: "prioritycode"): Xrm.OptionSetAttribute<task_prioritycode>;
+    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getAttribute(attributeName: "scheduledend"): Xrm.DateAttribute;
+    getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<task_statecode>;
+    getAttribute(attributeName: "subject"): Xrm.Attribute<string>;
+    getAttribute(attributeName: string): undefined;
+    getControl(controlName: "actualdurationminutes"): Xrm.NumberControl;
+    getControl(controlName: "description"): Xrm.StringControl;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "header_priority"): Xrm.OptionSetControl<task_prioritycode>;
+    getControl(controlName: "header_scheduledend"): Xrm.DateControl;
+    getControl(controlName: "header_statecode"): Xrm.OptionSetControl<task_statecode>;
+    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getControl(controlName: "subject"): Xrm.StringControl;
+    getControl(controlName: string): undefined;
+  }
+}
 declare namespace Form.team.Main {
   namespace TeamformBusiness {
     namespace Tabs {
@@ -9594,7 +9958,7 @@ declare namespace Form.team.Main {
       get(name: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
       get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
       get(name: "description"): Xrm.Attribute<string>;
-      get(name: "membershiptype"): Xrm.OptionSetAttribute<_team_membershiptype>;
+      get(name: "membershiptype"): Xrm.OptionSetAttribute<team_membershiptype>;
       get(name: "name"): Xrm.Attribute<string>;
       get(name: "queueid"): Xrm.LookupAttribute<"queue">;
       get(name: "teamtype"): Xrm.OptionSetAttribute<team_type>;
@@ -9610,7 +9974,7 @@ declare namespace Form.team.Main {
       get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
       get(name: "description"): Xrm.StringControl;
       get(name: "header_queueid"): Xrm.LookupControl<"queue">;
-      get(name: "membershiptype"): Xrm.OptionSetControl<_team_membershiptype>;
+      get(name: "membershiptype"): Xrm.OptionSetControl<team_membershiptype>;
       get(name: "name"): Xrm.StringControl;
       get(name: "teamtype"): Xrm.OptionSetControl<team_type>;
       get(name: string): undefined;
@@ -9631,7 +9995,7 @@ declare namespace Form.team.Main {
     getAttribute(attributeName: "azureactivedirectoryobjectid"): Xrm.Attribute<string>;
     getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
     getAttribute(attributeName: "description"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "membershiptype"): Xrm.OptionSetAttribute<_team_membershiptype>;
+    getAttribute(attributeName: "membershiptype"): Xrm.OptionSetAttribute<team_membershiptype>;
     getAttribute(attributeName: "name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
     getAttribute(attributeName: "teamtype"): Xrm.OptionSetAttribute<team_type>;
@@ -9642,7 +10006,7 @@ declare namespace Form.team.Main {
     getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
     getControl(controlName: "description"): Xrm.StringControl;
     getControl(controlName: "header_queueid"): Xrm.LookupControl<"queue">;
-    getControl(controlName: "membershiptype"): Xrm.OptionSetControl<_team_membershiptype>;
+    getControl(controlName: "membershiptype"): Xrm.OptionSetControl<team_membershiptype>;
     getControl(controlName: "name"): Xrm.StringControl;
     getControl(controlName: "teamtype"): Xrm.OptionSetControl<team_type>;
     getControl(controlName: string): undefined;
@@ -9736,7 +10100,6 @@ type WebResourceImage = "opc_compliance/imgs/icon64x64_read_notification.png"
   | "opc_compliance/imgs/icon64x64_unread_notification.png"
 declare const enum LCID {
   English = 1033,
-  French = 1036,
 }
 interface WebMappingRetrieve<ISelect, IExpand, IFilter, IFixed, Result, FormattedResult> {
 }
@@ -10830,6 +11193,29 @@ interface SystemUser_Create extends SystemUser {
 }
 interface SystemUser_Update extends SystemUser {
 }
+interface Task_Base extends WebEntity {
+}
+interface Task_Fixed extends WebEntity_Fixed {
+  activityid: string;
+}
+interface Task extends Task_Base, Task_Relationships {
+}
+interface Task_Relationships {
+}
+interface Task_Result extends Task_Base, Task_Relationships {
+}
+interface Task_FormattedResult {
+}
+interface Task_Select {
+}
+interface Task_Expand {
+}
+interface Task_Filter {
+}
+interface Task_Create extends Task {
+}
+interface Task_Update extends Task {
+}
 interface Team_Base extends WebEntity {
 }
 interface Team_Fixed extends WebEntity_Fixed {
@@ -11031,6 +11417,7 @@ interface Account_Base extends WebEntity {
 interface Account_Relationships {
   Account_SharepointDocument?: SharePointDocument_Result[] | null;
   Account_SharepointDocumentLocation?: SharePointDocumentLocation_Result[] | null;
+  Account_Tasks?: Task_Result[] | null;
   account_activity_parties?: ActivityParty_Result[] | null;
   account_connections1?: Connection_Result[] | null;
   account_connections2?: Connection_Result[] | null;
@@ -11350,6 +11737,7 @@ interface Account_Filter {
 interface Account_Expand {
   Account_SharepointDocument: WebExpand<Account_Expand, SharePointDocument_Select, SharePointDocument_Filter, { Account_SharepointDocument: SharePointDocument_Result[] }>;
   Account_SharepointDocumentLocation: WebExpand<Account_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { Account_SharepointDocumentLocation: SharePointDocumentLocation_Result[] }>;
+  Account_Tasks: WebExpand<Account_Expand, Task_Select, Task_Filter, { Account_Tasks: Task_Result[] }>;
   account_activity_parties: WebExpand<Account_Expand, ActivityParty_Select, ActivityParty_Filter, { account_activity_parties: ActivityParty_Result[] }>;
   account_connections1: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections1: Connection_Result[] }>;
   account_connections2: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections2: Connection_Result[] }>;
@@ -11468,6 +11856,7 @@ interface Account_RelatedOne {
 interface Account_RelatedMany {
   Account_SharepointDocument: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   Account_SharepointDocumentLocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  Account_Tasks: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   account_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   account_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   account_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
@@ -11510,6 +11899,7 @@ interface ActivityParty_Base extends WebEntity {
 }
 interface ActivityParty_Relationships {
   activityid_opc_event_activityparty?: opc_event_Result | null;
+  activityid_task?: Task_Result | null;
   partyid_account?: Account_Result | null;
   partyid_contact?: Contact_Result | null;
   partyid_queue?: Queue_Result | null;
@@ -11582,6 +11972,7 @@ interface ActivityParty_Filter {
 }
 interface ActivityParty_Expand {
   activityid_opc_event_activityparty: WebExpand<ActivityParty_Expand, opc_event_Select, opc_event_Filter, { activityid_opc_event_activityparty: opc_event_Result }>;
+  activityid_task: WebExpand<ActivityParty_Expand, Task_Select, Task_Filter, { activityid_task: Task_Result }>;
   partyid_account: WebExpand<ActivityParty_Expand, Account_Select, Account_Filter, { partyid_account: Account_Result }>;
   partyid_contact: WebExpand<ActivityParty_Expand, Contact_Select, Contact_Filter, { partyid_contact: Contact_Result }>;
   partyid_queue: WebExpand<ActivityParty_Expand, Queue_Select, Queue_Filter, { partyid_queue: Queue_Result }>;
@@ -11604,6 +11995,7 @@ interface ActivityParty_Result extends ActivityParty_Base, ActivityParty_Relatio
 }
 interface ActivityParty_RelatedOne {
   activityid_opc_event_activityparty: WebMappingRetrieve<opc_event_Select,opc_event_Expand,opc_event_Filter,opc_event_Fixed,opc_event_Result,opc_event_FormattedResult>;
+  activityid_task: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   partyid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   partyid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   partyid_queue: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
@@ -11796,6 +12188,7 @@ interface Contact_Base extends WebEntity {
   websiteurl?: string | null;
 }
 interface Contact_Relationships {
+  Contact_Tasks?: Task_Result[] | null;
   account_primary_contact?: Account_Result[] | null;
   contact_activity_parties?: ActivityParty_Result[] | null;
   contact_connections1?: Connection_Result[] | null;
@@ -12210,6 +12603,7 @@ interface Contact_Filter {
   websiteurl: string;
 }
 interface Contact_Expand {
+  Contact_Tasks: WebExpand<Contact_Expand, Task_Select, Task_Filter, { Contact_Tasks: Task_Result[] }>;
   account_primary_contact: WebExpand<Contact_Expand, Account_Select, Account_Filter, { account_primary_contact: Account_Result[] }>;
   contact_activity_parties: WebExpand<Contact_Expand, ActivityParty_Select, ActivityParty_Filter, { contact_activity_parties: ActivityParty_Result[] }>;
   contact_connections1: WebExpand<Contact_Expand, Connection_Select, Connection_Filter, { contact_connections1: Connection_Result[] }>;
@@ -12334,6 +12728,7 @@ interface Contact_RelatedOne {
   preferredsystemuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface Contact_RelatedMany {
+  Contact_Tasks: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   account_primary_contact: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   contact_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   contact_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
@@ -13624,6 +14019,7 @@ interface opc_complaint_Relationships {
   opc_complaint_QueueItems?: QueueItem_Result[] | null;
   opc_complaint_SharePointDocumentLocations?: SharePointDocumentLocation_Result[] | null;
   opc_complaint_SharePointDocuments?: SharePointDocument_Result[] | null;
+  opc_complaint_Tasks?: Task_Result[] | null;
   opc_complaint_allegations_complaint?: opc_allegation_Result[] | null;
   opc_complaint_issues_complaint?: opc_issue_Result[] | null;
   opc_complaint_notifications_complaint?: opc_notification_Result[] | null;
@@ -13785,6 +14181,7 @@ interface opc_complaint_Expand {
   opc_complaint_QueueItems: WebExpand<opc_complaint_Expand, QueueItem_Select, QueueItem_Filter, { opc_complaint_QueueItems: QueueItem_Result[] }>;
   opc_complaint_SharePointDocumentLocations: WebExpand<opc_complaint_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { opc_complaint_SharePointDocumentLocations: SharePointDocumentLocation_Result[] }>;
   opc_complaint_SharePointDocuments: WebExpand<opc_complaint_Expand, SharePointDocument_Select, SharePointDocument_Filter, { opc_complaint_SharePointDocuments: SharePointDocument_Result[] }>;
+  opc_complaint_Tasks: WebExpand<opc_complaint_Expand, Task_Select, Task_Filter, { opc_complaint_Tasks: Task_Result[] }>;
   opc_complaint_allegations_complaint: WebExpand<opc_complaint_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_complaint_allegations_complaint: opc_allegation_Result[] }>;
   opc_complaint_issues_complaint: WebExpand<opc_complaint_Expand, opc_issue_Select, opc_issue_Filter, { opc_complaint_issues_complaint: opc_issue_Result[] }>;
   opc_complaint_notifications_complaint: WebExpand<opc_complaint_Expand, opc_notification_Select, opc_notification_Filter, { opc_complaint_notifications_complaint: opc_notification_Result[] }>;
@@ -13896,6 +14293,7 @@ interface opc_complaint_RelatedMany {
   opc_complaint_QueueItems: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   opc_complaint_SharePointDocumentLocations: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   opc_complaint_SharePointDocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+  opc_complaint_Tasks: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   opc_complaint_allegations_complaint: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_complaint_issues_complaint: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
   opc_complaint_notifications_complaint: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
@@ -17804,6 +18202,7 @@ interface QueueItem_Base extends WebEntity {
 interface QueueItem_Relationships {
   objectid_opc_complaint?: opc_complaint_Result | null;
   objectid_opc_event?: opc_event_Result | null;
+  objectid_task?: Task_Result | null;
   workerid_systemuser?: SystemUser_Result | null;
   workerid_team?: Team_Result | null;
 }
@@ -17907,6 +18306,7 @@ interface QueueItem_Expand {
   modifiedonbehalfby: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   objectid_opc_complaint: WebExpand<QueueItem_Expand, opc_complaint_Select, opc_complaint_Filter, { objectid_opc_complaint: opc_complaint_Result }>;
   objectid_opc_event: WebExpand<QueueItem_Expand, opc_event_Select, opc_event_Filter, { objectid_opc_event: opc_event_Result }>;
+  objectid_task: WebExpand<QueueItem_Expand, Task_Select, Task_Filter, { objectid_task: Task_Result }>;
   queueid: WebExpand<QueueItem_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
   workerid_systemuser: WebExpand<QueueItem_Expand, SystemUser_Select, SystemUser_Filter, { workerid_systemuser: SystemUser_Result }>;
   workerid_team: WebExpand<QueueItem_Expand, Team_Select, Team_Filter, { workerid_team: Team_Result }>;
@@ -17955,6 +18355,7 @@ interface QueueItem_RelatedOne {
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   objectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   objectid_opc_event: WebMappingRetrieve<opc_event_Select,opc_event_Expand,opc_event_Filter,opc_event_Fixed,opc_event_Result,opc_event_FormattedResult>;
+  objectid_task: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   workerid_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   workerid_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
@@ -18877,6 +19278,10 @@ interface SystemUser_Relationships {
   lk_systemuser_modifiedonbehalfby?: SystemUser_Result[] | null;
   lk_systemuserbase_createdby?: SystemUser_Result[] | null;
   lk_systemuserbase_modifiedby?: SystemUser_Result[] | null;
+  lk_task_createdby?: Task_Result[] | null;
+  lk_task_createdonbehalfby?: Task_Result[] | null;
+  lk_task_modifiedby?: Task_Result[] | null;
+  lk_task_modifiedonbehalfby?: Task_Result[] | null;
   lk_team_createdonbehalfby?: Team_Result[] | null;
   lk_team_modifiedonbehalfby?: Team_Result[] | null;
   lk_teambase_administratorid?: Team_Result[] | null;
@@ -18932,6 +19337,7 @@ interface SystemUser_Relationships {
   user_parent_user?: SystemUser_Result[] | null;
   user_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
   user_sharepointsite?: SharePointSite_Result[] | null;
+  user_task?: Task_Result[] | null;
 }
 interface SystemUser extends SystemUser_Base, SystemUser_Relationships {
   businessunitid_bind$businessunits?: string | null;
@@ -19363,6 +19769,10 @@ interface SystemUser_Expand {
   lk_systemuser_modifiedonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuser_modifiedonbehalfby: SystemUser_Result[] }>;
   lk_systemuserbase_createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_createdby: SystemUser_Result[] }>;
   lk_systemuserbase_modifiedby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { lk_systemuserbase_modifiedby: SystemUser_Result[] }>;
+  lk_task_createdby: WebExpand<SystemUser_Expand, Task_Select, Task_Filter, { lk_task_createdby: Task_Result[] }>;
+  lk_task_createdonbehalfby: WebExpand<SystemUser_Expand, Task_Select, Task_Filter, { lk_task_createdonbehalfby: Task_Result[] }>;
+  lk_task_modifiedby: WebExpand<SystemUser_Expand, Task_Select, Task_Filter, { lk_task_modifiedby: Task_Result[] }>;
+  lk_task_modifiedonbehalfby: WebExpand<SystemUser_Expand, Task_Select, Task_Filter, { lk_task_modifiedonbehalfby: Task_Result[] }>;
   lk_team_createdonbehalfby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_team_createdonbehalfby: Team_Result[] }>;
   lk_team_modifiedonbehalfby: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_team_modifiedonbehalfby: Team_Result[] }>;
   lk_teambase_administratorid: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { lk_teambase_administratorid: Team_Result[] }>;
@@ -19422,6 +19832,7 @@ interface SystemUser_Expand {
   user_parent_user: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { user_parent_user: SystemUser_Result[] }>;
   user_sharepointdocumentlocation: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { user_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
   user_sharepointsite: WebExpand<SystemUser_Expand, SharePointSite_Select, SharePointSite_Filter, { user_sharepointsite: SharePointSite_Result[] }>;
+  user_task: WebExpand<SystemUser_Expand, Task_Select, Task_Filter, { user_task: Task_Result[] }>;
 }
 interface SystemUser_FormattedResult {
   accessmode_formatted?: string;
@@ -19642,6 +20053,10 @@ interface SystemUser_RelatedMany {
   lk_systemuser_modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuserbase_createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   lk_systemuserbase_modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  lk_task_createdby: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
+  lk_task_createdonbehalfby: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
+  lk_task_modifiedby: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
+  lk_task_modifiedonbehalfby: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   lk_team_createdonbehalfby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   lk_team_modifiedonbehalfby: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   lk_teambase_administratorid: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
@@ -19697,6 +20112,7 @@ interface SystemUser_RelatedMany {
   user_parent_user: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   user_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   user_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+  user_task: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   systemusers: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
@@ -19707,6 +20123,267 @@ interface WebEntitiesRelated {
 interface WebEntitiesCUDA {
   systemusers: WebMappingCUDA<SystemUser_Create,SystemUser_Update,SystemUser_Select>;
 }
+interface Task_Base extends WebEntity {
+  activityadditionalparams?: string | null;
+  activityid?: string | null;
+  activitytypecode?: string | null;
+  actualdurationminutes?: number | null;
+  actualend?: Date | null;
+  actualstart?: Date | null;
+  category?: string | null;
+  createdon?: Date | null;
+  crmtaskassigneduniqueid?: string | null;
+  description?: string | null;
+  exchangerate?: number | null;
+  importsequencenumber?: number | null;
+  isbilled?: boolean | null;
+  isregularactivity?: boolean | null;
+  isworkflowcreated?: boolean | null;
+  lastonholdtime?: Date | null;
+  modifiedon?: Date | null;
+  onholdtime?: number | null;
+  opc_type?: opc_tasktype | null;
+  overriddencreatedon?: Date | null;
+  percentcomplete?: number | null;
+  prioritycode?: task_prioritycode | null;
+  processid?: string | null;
+  scheduleddurationminutes?: number | null;
+  scheduledend?: Date | null;
+  scheduledstart?: Date | null;
+  sortdate?: Date | null;
+  stageid?: string | null;
+  statecode?: task_statecode | null;
+  statuscode?: task_statuscode | null;
+  subcategory?: string | null;
+  subject?: string | null;
+  subscriptionid?: string | null;
+  timezoneruleversionnumber?: number | null;
+  traversedpath?: string | null;
+  utcconversiontimezonecode?: number | null;
+  versionnumber?: number | null;
+}
+interface Task_Relationships {
+  Task_QueueItem?: QueueItem_Result[] | null;
+  createdby_task?: SystemUser_Result | null;
+  createdonbehalfby_task?: SystemUser_Result | null;
+  modifiedby_task?: SystemUser_Result | null;
+  modifiedonbehalfby_task?: SystemUser_Result | null;
+  ownerid_task?: Team_Result | null;
+  ownerid_task1?: SystemUser_Result | null;
+  owningteam_task?: Team_Result | null;
+  owninguser_task?: SystemUser_Result | null;
+  regardingobjectid_account_task?: Account_Result | null;
+  regardingobjectid_contact_task?: Contact_Result | null;
+  regardingobjectid_opc_complaint_task?: opc_complaint_Result | null;
+  task_activity_parties?: ActivityParty_Result[] | null;
+  task_connections1?: Connection_Result[] | null;
+  task_connections2?: Connection_Result[] | null;
+}
+interface Task extends Task_Base, Task_Relationships {
+  ownerid_task_bind$systemusers?: string | null;
+  ownerid_task_bind$teams?: string | null;
+  regardingobjectid_account_task_bind$accounts?: string | null;
+  regardingobjectid_contact_task_bind$contacts?: string | null;
+  regardingobjectid_knowledgearticle_task_bind$knowledgearticles?: string | null;
+  regardingobjectid_knowledgebaserecord_task_bind$knowledgebaserecords?: string | null;
+  regardingobjectid_opc_complaint_task_bind$opc_complaints?: string | null;
+  sla_task_sla_bind$slas?: string | null;
+  stageid_processstage_bind$processstages?: string | null;
+  transactioncurrencyid_task_bind$transactioncurrencies?: string | null;
+}
+interface Task_Create extends Task {
+  activityid_activitypointer_bind$activitypointers?: string | null;
+}
+interface Task_Update extends Task {
+}
+interface Task_Select {
+  activityadditionalparams: WebAttribute<Task_Select, { activityadditionalparams: string | null }, {  }>;
+  activityid: WebAttribute<Task_Select, { activityid: string | null }, {  }>;
+  activitytypecode: WebAttribute<Task_Select, { activitytypecode: string | null }, {  }>;
+  actualdurationminutes: WebAttribute<Task_Select, { actualdurationminutes: number | null }, {  }>;
+  actualend: WebAttribute<Task_Select, { actualend: Date | null }, { actualend_formatted?: string }>;
+  actualstart: WebAttribute<Task_Select, { actualstart: Date | null }, { actualstart_formatted?: string }>;
+  category: WebAttribute<Task_Select, { category: string | null }, {  }>;
+  createdby_guid: WebAttribute<Task_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
+  createdon: WebAttribute<Task_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
+  createdonbehalfby_guid: WebAttribute<Task_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
+  crmtaskassigneduniqueid: WebAttribute<Task_Select, { crmtaskassigneduniqueid: string | null }, {  }>;
+  description: WebAttribute<Task_Select, { description: string | null }, {  }>;
+  exchangerate: WebAttribute<Task_Select, { exchangerate: number | null }, {  }>;
+  importsequencenumber: WebAttribute<Task_Select, { importsequencenumber: number | null }, {  }>;
+  isbilled: WebAttribute<Task_Select, { isbilled: boolean | null }, {  }>;
+  isregularactivity: WebAttribute<Task_Select, { isregularactivity: boolean | null }, {  }>;
+  isworkflowcreated: WebAttribute<Task_Select, { isworkflowcreated: boolean | null }, {  }>;
+  lastonholdtime: WebAttribute<Task_Select, { lastonholdtime: Date | null }, { lastonholdtime_formatted?: string }>;
+  modifiedby_guid: WebAttribute<Task_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
+  modifiedon: WebAttribute<Task_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
+  modifiedonbehalfby_guid: WebAttribute<Task_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
+  onholdtime: WebAttribute<Task_Select, { onholdtime: number | null }, {  }>;
+  opc_type: WebAttribute<Task_Select, { opc_type: opc_tasktype | null }, { opc_type_formatted?: string }>;
+  overriddencreatedon: WebAttribute<Task_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
+  ownerid_guid: WebAttribute<Task_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
+  owningbusinessunit_guid: WebAttribute<Task_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
+  owningteam_guid: WebAttribute<Task_Select, { owningteam_guid: string | null }, { owningteam_formatted?: string }>;
+  owninguser_guid: WebAttribute<Task_Select, { owninguser_guid: string | null }, { owninguser_formatted?: string }>;
+  percentcomplete: WebAttribute<Task_Select, { percentcomplete: number | null }, {  }>;
+  prioritycode: WebAttribute<Task_Select, { prioritycode: task_prioritycode | null }, { prioritycode_formatted?: string }>;
+  processid: WebAttribute<Task_Select, { processid: string | null }, {  }>;
+  regardingobjectid_guid: WebAttribute<Task_Select, { regardingobjectid_guid: string | null }, { regardingobjectid_formatted?: string }>;
+  scheduleddurationminutes: WebAttribute<Task_Select, { scheduleddurationminutes: number | null }, {  }>;
+  scheduledend: WebAttribute<Task_Select, { scheduledend: Date | null }, { scheduledend_formatted?: string }>;
+  scheduledstart: WebAttribute<Task_Select, { scheduledstart: Date | null }, { scheduledstart_formatted?: string }>;
+  slaid_guid: WebAttribute<Task_Select, { slaid_guid: string | null }, { slaid_formatted?: string }>;
+  slainvokedid_guid: WebAttribute<Task_Select, { slainvokedid_guid: string | null }, { slainvokedid_formatted?: string }>;
+  sortdate: WebAttribute<Task_Select, { sortdate: Date | null }, { sortdate_formatted?: string }>;
+  stageid: WebAttribute<Task_Select, { stageid: string | null }, {  }>;
+  statecode: WebAttribute<Task_Select, { statecode: task_statecode | null }, { statecode_formatted?: string }>;
+  statuscode: WebAttribute<Task_Select, { statuscode: task_statuscode | null }, { statuscode_formatted?: string }>;
+  subcategory: WebAttribute<Task_Select, { subcategory: string | null }, {  }>;
+  subject: WebAttribute<Task_Select, { subject: string | null }, {  }>;
+  subscriptionid: WebAttribute<Task_Select, { subscriptionid: string | null }, {  }>;
+  timezoneruleversionnumber: WebAttribute<Task_Select, { timezoneruleversionnumber: number | null }, {  }>;
+  transactioncurrencyid_guid: WebAttribute<Task_Select, { transactioncurrencyid_guid: string | null }, { transactioncurrencyid_formatted?: string }>;
+  traversedpath: WebAttribute<Task_Select, { traversedpath: string | null }, {  }>;
+  utcconversiontimezonecode: WebAttribute<Task_Select, { utcconversiontimezonecode: number | null }, {  }>;
+  versionnumber: WebAttribute<Task_Select, { versionnumber: number | null }, {  }>;
+}
+interface Task_Filter {
+  activityadditionalparams: string;
+  activityid: XQW.Guid;
+  activitytypecode: string;
+  actualdurationminutes: number;
+  actualend: Date;
+  actualstart: Date;
+  category: string;
+  createdby_guid: XQW.Guid;
+  createdon: Date;
+  createdonbehalfby_guid: XQW.Guid;
+  crmtaskassigneduniqueid: XQW.Guid;
+  description: string;
+  exchangerate: any;
+  importsequencenumber: number;
+  isbilled: boolean;
+  isregularactivity: boolean;
+  isworkflowcreated: boolean;
+  lastonholdtime: Date;
+  modifiedby_guid: XQW.Guid;
+  modifiedon: Date;
+  modifiedonbehalfby_guid: XQW.Guid;
+  onholdtime: number;
+  opc_type: opc_tasktype;
+  overriddencreatedon: Date;
+  ownerid_guid: XQW.Guid;
+  owningbusinessunit_guid: XQW.Guid;
+  owningteam_guid: XQW.Guid;
+  owninguser_guid: XQW.Guid;
+  percentcomplete: number;
+  prioritycode: task_prioritycode;
+  processid: XQW.Guid;
+  regardingobjectid_guid: XQW.Guid;
+  scheduleddurationminutes: number;
+  scheduledend: Date;
+  scheduledstart: Date;
+  slaid_guid: XQW.Guid;
+  slainvokedid_guid: XQW.Guid;
+  sortdate: Date;
+  stageid: XQW.Guid;
+  statecode: task_statecode;
+  statuscode: task_statuscode;
+  subcategory: string;
+  subject: string;
+  subscriptionid: XQW.Guid;
+  timezoneruleversionnumber: number;
+  transactioncurrencyid_guid: XQW.Guid;
+  traversedpath: string;
+  utcconversiontimezonecode: number;
+  versionnumber: number;
+}
+interface Task_Expand {
+  Task_QueueItem: WebExpand<Task_Expand, QueueItem_Select, QueueItem_Filter, { Task_QueueItem: QueueItem_Result[] }>;
+  createdby_task: WebExpand<Task_Expand, SystemUser_Select, SystemUser_Filter, { createdby_task: SystemUser_Result }>;
+  createdonbehalfby_task: WebExpand<Task_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby_task: SystemUser_Result }>;
+  modifiedby_task: WebExpand<Task_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby_task: SystemUser_Result }>;
+  modifiedonbehalfby_task: WebExpand<Task_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby_task: SystemUser_Result }>;
+  ownerid_task: WebExpand<Task_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid_task: SystemUser_Result } & { ownerid_task: Team_Result }>;
+  owningteam_task: WebExpand<Task_Expand, Team_Select, Team_Filter, { owningteam_task: Team_Result }>;
+  owninguser_task: WebExpand<Task_Expand, SystemUser_Select, SystemUser_Filter, { owninguser_task: SystemUser_Result }>;
+  regardingobjectid_account_task: WebExpand<Task_Expand, Account_Select, Account_Filter, { regardingobjectid_account_task: Account_Result }>;
+  regardingobjectid_contact_task: WebExpand<Task_Expand, Contact_Select, Contact_Filter, { regardingobjectid_contact_task: Contact_Result }>;
+  regardingobjectid_opc_complaint_task: WebExpand<Task_Expand, opc_complaint_Select, opc_complaint_Filter, { regardingobjectid_opc_complaint_task: opc_complaint_Result }>;
+  task_activity_parties: WebExpand<Task_Expand, ActivityParty_Select, ActivityParty_Filter, { task_activity_parties: ActivityParty_Result[] }>;
+  task_connections1: WebExpand<Task_Expand, Connection_Select, Connection_Filter, { task_connections1: Connection_Result[] }>;
+  task_connections2: WebExpand<Task_Expand, Connection_Select, Connection_Filter, { task_connections2: Connection_Result[] }>;
+}
+interface Task_FormattedResult {
+  actualend_formatted?: string;
+  actualstart_formatted?: string;
+  createdby_formatted?: string;
+  createdon_formatted?: string;
+  createdonbehalfby_formatted?: string;
+  lastonholdtime_formatted?: string;
+  modifiedby_formatted?: string;
+  modifiedon_formatted?: string;
+  modifiedonbehalfby_formatted?: string;
+  opc_type_formatted?: string;
+  overriddencreatedon_formatted?: string;
+  ownerid_formatted?: string;
+  owningbusinessunit_formatted?: string;
+  owningteam_formatted?: string;
+  owninguser_formatted?: string;
+  prioritycode_formatted?: string;
+  regardingobjectid_formatted?: string;
+  scheduledend_formatted?: string;
+  scheduledstart_formatted?: string;
+  slaid_formatted?: string;
+  slainvokedid_formatted?: string;
+  sortdate_formatted?: string;
+  statecode_formatted?: string;
+  statuscode_formatted?: string;
+  transactioncurrencyid_formatted?: string;
+}
+interface Task_Result extends Task_Base, Task_Relationships {
+  "@odata.etag": string;
+  createdby_guid: string | null;
+  createdonbehalfby_guid: string | null;
+  modifiedby_guid: string | null;
+  modifiedonbehalfby_guid: string | null;
+  ownerid_guid: string | null;
+  owningbusinessunit_guid: string | null;
+  owningteam_guid: string | null;
+  owninguser_guid: string | null;
+  regardingobjectid_guid: string | null;
+  slaid_guid: string | null;
+  slainvokedid_guid: string | null;
+  transactioncurrencyid_guid: string | null;
+}
+interface Task_RelatedOne {
+  createdby_task: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby_task: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby_task: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby_task: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  ownerid_task: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  ownerid_task1: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  owningteam_task: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  owninguser_task: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  regardingobjectid_account_task: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  regardingobjectid_contact_task: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  regardingobjectid_opc_complaint_task: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+}
+interface Task_RelatedMany {
+  Task_QueueItem: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
+  task_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
+  task_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  task_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  tasks: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  tasks: WebMappingRelated<Task_RelatedOne,Task_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  tasks: WebMappingCUDA<Task_Create,Task_Update,Task_Select>;
+}
 interface Team_Base extends WebEntity {
   azureactivedirectoryobjectid?: string | null;
   createdon?: Date | null;
@@ -19715,7 +20392,7 @@ interface Team_Base extends WebEntity {
   exchangerate?: number | null;
   importsequencenumber?: number | null;
   isdefault?: boolean | null;
-  membershiptype?: _team_membershiptype | null;
+  membershiptype?: team_membershiptype | null;
   modifiedon?: Date | null;
   name?: string | null;
   organizationid?: string | null;
@@ -19766,6 +20443,7 @@ interface Team_Relationships {
   team_queueitembase_workerid?: QueueItem_Result[] | null;
   team_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
   team_sharepointsite?: SharePointSite_Result[] | null;
+  team_task?: Task_Result[] | null;
   teammembership_association?: SystemUser_Result[] | null;
 }
 interface Team extends Team_Base, Team_Relationships {
@@ -19793,7 +20471,7 @@ interface Team_Select {
   exchangerate: WebAttribute<Team_Select, { exchangerate: number | null }, {  }>;
   importsequencenumber: WebAttribute<Team_Select, { importsequencenumber: number | null }, {  }>;
   isdefault: WebAttribute<Team_Select, { isdefault: boolean | null }, {  }>;
-  membershiptype: WebAttribute<Team_Select, { membershiptype: _team_membershiptype | null }, { membershiptype_formatted?: string }>;
+  membershiptype: WebAttribute<Team_Select, { membershiptype: team_membershiptype | null }, { membershiptype_formatted?: string }>;
   modifiedby_guid: WebAttribute<Team_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<Team_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<Team_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
@@ -19824,7 +20502,7 @@ interface Team_Filter {
   exchangerate: any;
   importsequencenumber: number;
   isdefault: boolean;
-  membershiptype: _team_membershiptype;
+  membershiptype: team_membershiptype;
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
@@ -19887,6 +20565,7 @@ interface Team_Expand {
   team_queueitembase_workerid: WebExpand<Team_Expand, QueueItem_Select, QueueItem_Filter, { team_queueitembase_workerid: QueueItem_Result[] }>;
   team_sharepointdocumentlocation: WebExpand<Team_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { team_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
   team_sharepointsite: WebExpand<Team_Expand, SharePointSite_Select, SharePointSite_Filter, { team_sharepointsite: SharePointSite_Result[] }>;
+  team_task: WebExpand<Team_Expand, Task_Select, Task_Filter, { team_task: Task_Result[] }>;
   teammembership_association: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { teammembership_association: SystemUser_Result[] }>;
 }
 interface Team_FormattedResult {
@@ -19965,6 +20644,7 @@ interface Team_RelatedMany {
   team_queueitembase_workerid: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   team_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   team_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+  team_task: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   teammembership_association: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
@@ -20050,11 +20730,13 @@ interface Connection_Relationships {
   record1id_contact?: Contact_Result | null;
   record1id_opc_event?: opc_event_Result | null;
   record1id_systemuser?: SystemUser_Result | null;
+  record1id_task?: Task_Result | null;
   record1id_team?: Team_Result | null;
   record2id_account?: Account_Result | null;
   record2id_contact?: Contact_Result | null;
   record2id_opc_event?: opc_event_Result | null;
   record2id_systemuser?: SystemUser_Result | null;
+  record2id_task?: Task_Result | null;
   record2id_team?: Team_Result | null;
 }
 interface Connection extends Connection_Base, Connection_Relationships {
@@ -20189,11 +20871,13 @@ interface Connection_Expand {
   record1id_contact: WebExpand<Connection_Expand, Contact_Select, Contact_Filter, { record1id_contact: Contact_Result }>;
   record1id_opc_event: WebExpand<Connection_Expand, opc_event_Select, opc_event_Filter, { record1id_opc_event: opc_event_Result }>;
   record1id_systemuser: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { record1id_systemuser: SystemUser_Result }>;
+  record1id_task: WebExpand<Connection_Expand, Task_Select, Task_Filter, { record1id_task: Task_Result }>;
   record1id_team: WebExpand<Connection_Expand, Team_Select, Team_Filter, { record1id_team: Team_Result }>;
   record2id_account: WebExpand<Connection_Expand, Account_Select, Account_Filter, { record2id_account: Account_Result }>;
   record2id_contact: WebExpand<Connection_Expand, Contact_Select, Contact_Filter, { record2id_contact: Contact_Result }>;
   record2id_opc_event: WebExpand<Connection_Expand, opc_event_Select, opc_event_Filter, { record2id_opc_event: opc_event_Result }>;
   record2id_systemuser: WebExpand<Connection_Expand, SystemUser_Select, SystemUser_Filter, { record2id_systemuser: SystemUser_Result }>;
+  record2id_task: WebExpand<Connection_Expand, Task_Select, Task_Filter, { record2id_task: Task_Result }>;
   record2id_team: WebExpand<Connection_Expand, Team_Select, Team_Filter, { record2id_team: Team_Result }>;
   relatedconnectionid: WebExpand<Connection_Expand, Connection_Select, Connection_Filter, { relatedconnectionid: Connection_Result }>;
 }
@@ -20249,11 +20933,13 @@ interface Connection_RelatedOne {
   record1id_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   record1id_opc_event: WebMappingRetrieve<opc_event_Select,opc_event_Expand,opc_event_Filter,opc_event_Fixed,opc_event_Result,opc_event_FormattedResult>;
   record1id_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  record1id_task: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   record1id_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   record2id_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   record2id_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   record2id_opc_event: WebMappingRetrieve<opc_event_Select,opc_event_Expand,opc_event_Filter,opc_event_Fixed,opc_event_Result,opc_event_FormattedResult>;
   record2id_systemuser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  record2id_task: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
   record2id_team: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   relatedconnectionid: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
 }

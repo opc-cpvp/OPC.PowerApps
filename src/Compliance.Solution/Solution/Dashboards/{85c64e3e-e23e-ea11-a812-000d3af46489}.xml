@@ -26,7 +26,6 @@
                         <cell colspan="2" rowspan="15" showlabel="true" id="{3f2a7d26-e665-482e-a51e-fe220fa9967b}" auto="false">
                           <labels>
                             <label description="Notifications" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="grid_notifications" uniqueid="{659c1434-5679-ac17-4356-6bd2b1a5522c}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -51,7 +50,6 @@
                         <cell colspan="2" rowspan="9" showlabel="true" id="{e20fc9d6-1373-47b5-b429-1d18c9d5db43}" auto="false">
                           <labels>
                             <label description="My Complaints" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="grid_my_complaints" uniqueid="{8c717716-3666-51ec-7a40-8cd9655b9012}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -86,7 +84,6 @@
                         <cell id="{e90bdb91-507e-6eea-e089-81e1446a7c76}" showlabel="true" colspan="2" auto="false" rowspan="9">
                           <labels>
                             <label description="Available Complaints" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="grid_available_complaints" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{7ae07285-ada8-e00d-9cc8-1eca9a624ea0}">
                             <parameters>
@@ -118,7 +115,6 @@
                         <cell id="{93d07d65-3eed-ec50-d187-748487cedc93}" showlabel="false" colspan="1" auto="false" rowspan="9">
                           <labels>
                             <label description="Complaint" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_transferred" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{015ba329-7851-cb76-012a-104c14de81db}">
                             <parameters>
@@ -143,7 +139,6 @@
                         <cell id="{d919c825-172b-5963-dd76-e3a4699dd6ea}" showlabel="false" colspan="1" auto="false" rowspan="9">
                           <labels>
                             <label description="Complaint" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_closed_intake" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{d4b6a7be-e596-b83a-d524-08344a56adb7}">
                             <parameters>
@@ -172,7 +167,6 @@
                         <cell id="{787da257-a67b-6088-1223-3319dbdb2e97}" showlabel="false" colspan="2" auto="false" rowspan="9">
                           <labels>
                             <label description="Individual Complaint" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_by_duration_in_stage" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{e3c11c5d-c902-6680-4bbb-9a4d7615690b}">
                             <parameters>
@@ -204,7 +198,6 @@
                         <cell id="{736270eb-4cd3-c138-d078-e86630ae9784}" showlabel="false" colspan="1" auto="false" rowspan="9">
                           <labels>
                             <label description="Queue Item" languagecode="1033" />
-                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_by_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{5e16aa3c-ccd6-8e70-9e4d-a66c9ebb5a76}">
                             <parameters>

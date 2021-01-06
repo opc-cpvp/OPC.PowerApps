@@ -33,7 +33,6 @@
     <IntroducedVersion>9.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="All Contacts" languagecode="1033" />
-      <LocalizedName description="Tous les contacts" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

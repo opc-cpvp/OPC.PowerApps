@@ -73,7 +73,6 @@
                       <cell showlabel="false" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
                         <labels>
                           <label description="Topics" languagecode="1033" />
-                          <label description="Sujets" languagecode="1036" />
                         </labels>
                         <control id="subgrid_topics" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{02d24ec3-7b03-209d-7d59-7e772a904cb3}">
                           <parameters>
@@ -189,7 +188,7 @@
                         </labels>
                         <control id="opc_memberofparliamentinvolved" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_memberofparliamentinvolved" disabled="false" uniqueid="{5e7098ee-d4f5-4f5a-930b-e0787e145ed2}" />
                       </cell>
-                      <cell locklevel="0" id="{dc052a21-0aa8-4c08-b6ab-d77b0e0958fc}">
+                      <cell locklevel="0" id="{dc052a21-0aa8-4c08-b6ab-d77b0e0958fc}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -270,7 +269,7 @@
                         </labels>
                         <control id="opc_respondentandcomplainantrelationship" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_respondentandcomplainantrelationship" disabled="false" />
                       </cell>
-                      <cell locklevel="0" id="{cc0d8d93-edcc-46d1-8a7c-975180f16bdf}">
+                      <cell locklevel="0" id="{cc0d8d93-edcc-46d1-8a7c-975180f16bdf}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -314,6 +313,42 @@
             </column>
             <column width="40%">
               <sections>
+                <section name="section_tasks" showlabel="false" showbar="false" locklevel="0" id="{45821390-b1b2-0dcb-07e7-8bb82b3c2c31}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                  <labels>
+                    <label description="Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{830ce500-6cad-70d7-4b36-7bd4e794e5e9}" showlabel="false" colspan="1" auto="true" rowspan="4">
+                        <labels>
+                          <label description="Tasks (Regarding)" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_tasks" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <ViewId>{6C272503-AB4E-EB11-A812-000D3A84AB5F}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>opc_complaint_Tasks</RelationshipName>
+                            <TargetEntityType>task</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{6CF285AA-EB20-4277-925A-3E9735411FF0},{6C272503-AB4E-EB11-A812-000D3A84AB5F}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <VisualizationId>{9E6A8B06-6D14-46E6-BBF5-95C388C6EB7A}</VisualizationId>
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <RecordsPerPage>25</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row height="auto" />
+                  </rows>
+                </section>
                 <section name="section_notes_activities" showlabel="false" showbar="false" locklevel="0" id="{514ceab0-a4d7-4a3e-ad92-79ab50160162}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="Notes &amp; Activities" languagecode="1033" />
@@ -344,7 +379,8 @@
                             <ShowArticleTab>false</ShowArticleTab>
                             <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
                             <UClientEnableWhatsNewFilter>false</UClientEnableWhatsNewFilter>
-                            <UClientActivityCardMap>appointment:4201:,email:4202:,fax:4204:,letter:4207:,phonecall:4210:,task:4212:,opc_event:11280:4196a63e-0f60-458b-902c-74d0ac883f22</UClientActivityCardMap>
+                            <UClientActivityCardMap>appointment:4201:,email:4202:,fax:4204:,letter:4207:,phonecall:4210:,task:4212:,opc_event:10089:4196a63e-0f60-458b-902c-74d0ac883f22</UClientActivityCardMap>
+                            <UClientActivities>appointment,email,fax,letter,phonecall,recurringappointmentmaster,socialactivity,opc_event</UClientActivities>
                           </parameters>
                         </control>
                       </cell>
@@ -385,7 +421,6 @@
                       <cell showlabel="false" locklevel="0" id="{95d4334c-142a-47b3-b668-d8bf53172c29}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Documents" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_documents" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -420,7 +455,6 @@
                       <cell showlabel="false" locklevel="0" id="{2e494c6d-e843-4d34-9f9e-b02680202c89}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Allegations" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_allegations" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -455,7 +489,6 @@
                       <cell showlabel="false" locklevel="0" id="{4974057c-71c4-4cc9-a75a-6af4762adee1}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Issues" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455352989" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -490,7 +523,6 @@
                       <cell showlabel="false" locklevel="0" id="{9c2c4e8a-6b4c-4b64-bc1c-5e13e1272a99}" rowspan="1" colspan="1">
                         <labels>
                           <label description="New SG control 1570455487438" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="SubgridControl1570455487438" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -533,7 +565,6 @@
                       <cell showlabel="false" locklevel="0" id="{a37cc6b7-373c-4e49-b6c7-21fd43b3bc29}" rowspan="6" colspan="1" auto="false">
                         <labels>
                           <label description="Risk Assessments" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_risk_assessments" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{76ae94c4-30a5-54ea-bb55-98b13d049b64}">
                           <parameters>
@@ -583,7 +614,6 @@
                       <cell showlabel="false" locklevel="0" id="{374495f1-afba-4c51-af12-cc59aac0baad}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Reminders" languagecode="1033" />
-                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_reminders" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -654,14 +684,12 @@
             <cell id="{e461ae48-d330-4ab6-909b-840280ea0d1b}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Status Reason" languagecode="1033" />
-                <label description="Raison du statut" languagecode="1036" />
               </labels>
               <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
             </cell>
             <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}" showlabel="true" locklevel="1" colspan="1">
               <labels>
                 <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{9b16320b-5e25-7005-203a-488178664a0a}" disabled="false">
                 <parameters>
@@ -701,7 +729,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

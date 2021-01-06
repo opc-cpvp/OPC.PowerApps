@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a1c8a6dc-8804-4019-9c78-7dbe86560ea1}</formid>
+    <IntroducedVersion>9.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="false" hasmargin="false">
+      <ancestor id="{1fac7e2e-0b1c-4b6c-ab92-8af0f92dbdbc}" />
+      <hiddencontrols>
+        <data id="modifiedby" datafieldname="modifiedby" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      </hiddencontrols>
+      <tabs>
+        <tab name="createtask" verticallayout="true" id="{C0134778-AB51-40B0-BE85-CD3F1163DC66}" IsUserDefined="0" locklevel="0" expanded="true" showlabel="false">
+          <labels>
+            <label description="Create Task" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section name="task" showlabel="false" showbar="false" locklevel="0" id="{9F244862-47BB-4FD7-8740-FFABA14E607A}" IsUserDefined="0" layout="varheight" labelwidth="115" celllabelposition="Left">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f3d6698a-924b-45ca-8304-ae0247b3c3f9}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8AE5310B-53DF-47F1-B2B9-56F10F2F067E}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Subject" languagecode="1033" />
+                        </labels>
+                        <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{F6078AC5-21F9-44C2-A8EF-BC6F173AB541}" showlabel="true" locklevel="4">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ec984c5e-67f2-4f82-9829-18eebb5d67c0}" locklevel="0">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="opc_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_type" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section name="task_2" showlabel="false" showbar="false" locklevel="0" id="{9F244862-47BB-4FD7-8740-FFABA14E608A}" IsUserDefined="0" layout="varheight" labelwidth="115" celllabelposition="Left">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{D2F8E46F-02CB-4EBB-B9B7-5235C075D67C}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Due" languagecode="1033" />
+                        </labels>
+                        <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell auto="false" showlabel="true" locklevel="0" rowspan="1" id="{3AC8F567-C41C-402F-8ECF-DD4F72C85ECB}">
+                        <labels>
+                          <label description="Regarding" languagecode="1033" />
+                        </labels>
+                        <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section name="task_3" showlabel="false" showbar="false" locklevel="0" id="{9F244862-47BB-4FD7-8740-FFABA14E609A}" IsUserDefined="0" layout="varheight" labelwidth="115" celllabelposition="Left">
+                  <labels>
+                    <label description="" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="true" id="{0d010380-cc98-4803-bb2e-67c6954dc9a6}">
+                        <labels>
+                          <label description="Duration" languagecode="1033" />
+                        </labels>
+                        <control id="actualdurationminutes" classid="{AA987274-CE4E-4271-A803-66164311A958}" datafieldname="actualdurationminutes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{B2DD0089-4428-48EB-BA64-D7ABC66B1E14}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Priority" languagecode="1033" />
+                        </labels>
+                        <control id="prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions FallbackForm="true" Order="2">
+        <Everyone />
+      </DisplayConditions>
+      <events>
+        <event name="onload" application="true" active="true">
+          <InternalHandlers>
+            <Handler functionName="Activities.Task.Form_onload" libraryName="Activities/SystemLibraries/Task_main_system_library.js" handlerUniqueId="8c67102c-53fc-45fb-ae2a-bcc92f7c05f1" enabled="true" parameters="" passExecutionContext="true" />
+          </InternalHandlers>
+        </event>
+      </events>
+      <clientresources>
+        <internalresources>
+          <clientincludes>
+            <internaljscriptfile src="$webresource:Activities/SystemLibraries/Task_main_system_library.js" />
+          </clientincludes>
+        </internalresources>
+      </clientresources>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Task quick create form." languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Task quick create form." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -22,11 +22,9 @@
     <IntroducedVersion>1.0.14</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="My Themes" languagecode="1033" />
-      <LocalizedName description="My Themes" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Active Themes owned by me" languagecode="1033" />
-      <Description description="Active Themes owned by me" languagecode="1036" />
     </Descriptions>
   </savedquery>
 </savedqueries>

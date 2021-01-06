@@ -17,7 +17,6 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{fd277f44-61e0-41c5-b4e7-8c49c8409530}">
                   <labels>
                     <label description="GENERAL" languagecode="1033" />
-                    <label description="GÉNÉRAL" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
@@ -32,7 +31,6 @@
                       <cell id="{b9c30369-2920-424a-835f-e605d973dbb6}">
                         <labels>
                           <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>

@@ -15,7 +15,6 @@
         <tab name="general" verticallayout="true" id="{26ee6844-370e-41e0-97f4-66afd3d838b9}" IsUserDefined="0">
           <labels>
             <label description="Summary" languagecode="1033" />
-            <label description="Résumé" languagecode="1036" />
           </labels>
           <columns>
             <column width="34%">
@@ -23,14 +22,12 @@
                 <section name="queue information" showlabel="true" showbar="false" id="{6a5f6485-f4fb-4809-a27c-1bec47ea232f}" IsUserDefined="0">
                   <labels>
                     <label description="SUMMARY" languagecode="1033" />
-                    <label description="RÉSUMÉ" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell colspan="2" id="{c41a3cfb-87c1-4a3f-ae79-9e4969338ef4}">
                         <labels>
                           <label description="Name" languagecode="1033" />
-                          <label description="Nom" languagecode="1036" />
                         </labels>
                         <control id="name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="name" />
                       </cell>
@@ -39,7 +36,6 @@
                       <cell colspan="2" id="{a5cccf27-97b5-49c6-b1bc-9fdf037804f7}">
                         <labels>
                           <label description="Type" languagecode="1033" />
-                          <label description="Type" languagecode="1036" />
                         </labels>
                         <control id="queueviewtype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="queueviewtype" />
                       </cell>
@@ -48,7 +44,6 @@
                       <cell colspan="2" id="{0ae52dec-4a09-4af3-a2da-e0046e088913}">
                         <labels>
                           <label description="Incoming Email" languagecode="1033" />
-                          <label description="Courrier électronique entrant" languagecode="1036" />
                         </labels>
                         <control id="emailaddress" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress" />
                       </cell>
@@ -57,7 +52,6 @@
                       <cell colspan="2" id="{dc16fa25-d252-4ed3-b0bc-38054a643069}">
                         <labels>
                           <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
@@ -66,7 +60,6 @@
                       <cell colspan="2" showlabel="true" rowspan="3" id="{d69d808e-6aad-4db5-b772-6693cf7ce512}">
                         <labels>
                           <label description="Description" languagecode="1033" />
-                          <label description="Description" languagecode="1036" />
                         </labels>
                         <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" />
                       </cell>
@@ -78,14 +71,12 @@
                 <section name="incoming email" showlabel="true" showbar="false" locklevel="0" id="{90b8dd85-867b-4aca-8d30-7c00117e693a}" IsUserDefined="0" labelwidth="200">
                   <labels>
                     <label description="EMAIL SETTINGS" languagecode="1033" />
-                    <label description="PARAMÈTRES DE COURRIER ÉLECTRONIQUE" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
                       <cell id="{46b89973-7949-4e41-83b9-baeba8ccde64}">
                         <labels>
                           <label description="Convert Incoming Email To Activities" languagecode="1033" />
-                          <label description="Convertir les messages entrants en activités" languagecode="1036" />
                         </labels>
                         <control id="incomingemailfilteringmethod" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="incomingemailfilteringmethod" disabled="false" />
                       </cell>
@@ -94,7 +85,6 @@
                       <cell id="{a24c5251-56c3-4b8f-824a-fc013d4b4534}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Mailbox" languagecode="1033" />
-                          <label description="Boîte aux lettres" languagecode="1036" />
                         </labels>
                         <control id="defaultmailbox" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="defaultmailbox" disabled="false" />
                       </cell>
@@ -110,7 +100,6 @@
                       <cell id="{658057aa-312e-43c5-9982-83af40fa3dc1}" showlabel="true" colspan="1" auto="false" rowspan="12">
                         <labels>
                           <label description="RECORD CREATION AND UPDATE RULES" languagecode="1033" />
-                          <label description="RÈGLES DE MISE À JOUR ET DE CRÉATION D'ENREGISTREMENTS" languagecode="1036" />
                         </labels>
                         <control id="RecordCreationAndUpdateRuleGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
                           <parameters>
@@ -156,7 +145,6 @@
                       <cell id="{50f3cc95-b7ff-4eba-8afd-ad71d56e4182}" showlabel="true" colspan="1" auto="false" rowspan="6">
                         <labels>
                           <label description="QUEUE ITEMS" languagecode="1033" />
-                          <label description="ÉLÉMENTS DE FILE D'ATTENTE" languagecode="1036" />
                         </labels>
                         <control id="QueueItemsGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
                           <parameters>
@@ -191,7 +179,6 @@
                       <cell id="{FAFA5CA5-9147-497D-81D1-BC2EC61D5D3C}" showlabel="true" colspan="1" auto="false" rowspan="12">
                         <labels>
                           <label description="MEMBERS" languagecode="1033" />
-                          <label description="MEMBRES" languagecode="1036" />
                         </labels>
                         <control id="queuemembersgrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{e6334c83-050a-8103-ed2a-e376aa116259}">
                           <parameters>
@@ -231,7 +218,6 @@
                 <section name="QueueMembersNoRecord" showlabel="true" showbar="false" id="{5D36D820-65C5-4F55-B084-33388D7202A9}" IsUserDefined="0" locklevel="0" labelwidth="250" visible="false">
                   <labels>
                     <label description="Members" languagecode="1033" />
-                    <label description="Membres" languagecode="1036" />
                   </labels>
                   <rows />
                 </section>
@@ -244,7 +230,6 @@
                       <cell id="{a69e6858-5956-36d3-c837-c3cc00b5b09e}" showlabel="true" colspan="1" auto="false" rowspan="7">
                         <labels>
                           <label description="Teams" languagecode="1033" />
-                          <label description="Équipes" languagecode="1036" />
                         </labels>
                         <control id="subgrid_teams" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{993ac262-b403-e338-5e53-09b013cc5dad}">
                           <parameters>
@@ -357,11 +342,9 @@
     </form>
     <LocalizedNames>
       <LocalizedName description="Queue" languagecode="1033" />
-      <LocalizedName description="File d'attente" languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Updated default Queue form." languagecode="1033" />
-      <Description description="Formulaire de file d'attente par défaut mis à jour." languagecode="1036" />
     </Descriptions>
   </systemform>
 </forms>

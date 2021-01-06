@@ -43,7 +43,6 @@
     <IntroducedVersion>5.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Contacts Lookup View" languagecode="1033" />
-      <LocalizedName description="Vue Recherche de contacts" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

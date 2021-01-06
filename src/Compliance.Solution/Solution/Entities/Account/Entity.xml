@@ -5,15 +5,12 @@
     <entity Name="Account">
       <LocalizedNames>
         <LocalizedName description="Account" languagecode="1033" />
-        <LocalizedName description="Compte" languagecode="1036" />
       </LocalizedNames>
       <LocalizedCollectionNames>
         <LocalizedCollectionName description="Accounts" languagecode="1033" />
-        <LocalizedCollectionName description="Comptes" languagecode="1036" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="Business that represents a customer or potential customer. The company that is billed in business transactions." languagecode="1033" />
-        <Description description="Entité commerciale qui représente un client ou un prospect. Société facturée dans les transactions professionnelles." languagecode="1036" />
       </Descriptions>
       <attributes>
         <attribute PhysicalName="Address1_City">
@@ -45,11 +42,9 @@
           <Length>160</Length>
           <displaynames>
             <displayname description="City" languagecode="1033" />
-            <displayname description="Adresse 1 : Ville" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the city for the primary address." languagecode="1033" />
-            <Description description="Tapez la ville de l'adresse principale." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Address1_Country">
@@ -81,11 +76,9 @@
           <Length>160</Length>
           <displaynames>
             <displayname description="Country" languagecode="1033" />
-            <displayname description="Adresse 1 : Pays/région" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the country or region for the primary address." languagecode="1033" />
-            <Description description="Tapez le pays ou la région de l'adresse principale." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Address1_Line1">
@@ -117,11 +110,9 @@
           <Length>500</Length>
           <displaynames>
             <displayname description="Street 1" languagecode="1033" />
-            <displayname description="Adresse 1 : Rue 1" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the first line of the primary address." languagecode="1033" />
-            <Description description="Tapez la première ligne de l'adresse principale." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Address1_Line2">
@@ -153,11 +144,9 @@
           <Length>500</Length>
           <displaynames>
             <displayname description="Street 2" languagecode="1033" />
-            <displayname description="Adresse 1 : Rue 2" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the second line of the primary address." languagecode="1033" />
-            <Description description="Tapez la deuxième ligne de l'adresse principale." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Address1_Line3">
@@ -189,11 +178,9 @@
           <Length>500</Length>
           <displaynames>
             <displayname description="Street 3" languagecode="1033" />
-            <displayname description="Adresse 1 : Rue 3" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the third line of the primary address." languagecode="1033" />
-            <Description description="Tapez la troisième ligne de l'adresse principale." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Address1_PostalCode">
@@ -225,11 +212,9 @@
           <Length>40</Length>
           <displaynames>
             <displayname description="Postal Code" languagecode="1033" />
-            <displayname description="Adresse 1 : Code postal" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the ZIP Code or postal code for the primary address." languagecode="1033" />
-            <Description description="Tapez le code postal de l'adresse principale." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Address1_StateOrProvince">
@@ -261,11 +246,9 @@
           <Length>100</Length>
           <displaynames>
             <displayname description="Province" languagecode="1033" />
-            <displayname description="Adresse 1 : Département/province" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the state or province of the primary address." languagecode="1033" />
-            <Description description="Tapez l'état ou la province de l'adresse principale." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_sector">
@@ -335,11 +318,9 @@
           <Length>100</Length>
           <displaynames>
             <displayname description="Phone" languagecode="1033" />
-            <displayname description="Téléphone principal" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type the main phone number for this account." languagecode="1033" />
-            <Description description="Tapez le numéro de téléphone principal pour ce compte." languagecode="1036" />
           </Descriptions>
         </attribute>
       </attributes>

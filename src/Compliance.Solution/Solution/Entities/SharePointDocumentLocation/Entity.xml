@@ -30,11 +30,9 @@
           <LookupStyle>single</LookupStyle>
           <displaynames>
             <displayname description="Regarding" languagecode="1033" />
-            <displayname description="Concernant" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the object with which the SharePoint document location record is associated." languagecode="1033" />
-            <Description description="Identificateur unique de l’objet auquel l’emplacement du document SharePoint est associé." languagecode="1036" />
           </Descriptions>
         </attribute>
       </attributes>

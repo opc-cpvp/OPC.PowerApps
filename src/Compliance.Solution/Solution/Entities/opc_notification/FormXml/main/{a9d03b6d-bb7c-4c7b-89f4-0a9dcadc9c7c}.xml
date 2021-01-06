@@ -10,7 +10,6 @@
         <tab verticallayout="true" id="{2090ef38-2636-4d60-9e29-6de47dc3fb11}" IsUserDefined="1" name="tab_general" locklevel="0" expanded="true" showlabel="true">
           <labels>
             <label description="General" languagecode="1033" />
-            <label description="Général" languagecode="1036" />
           </labels>
           <columns>
             <column width="100%">
@@ -18,7 +17,6 @@
                 <section showlabel="false" showbar="false" IsUserDefined="0" id="{d6760bc2-e185-4f4d-8d8e-9faf0aa3ddac}" name="section_general" columns="11" locklevel="0" labelwidth="130" celllabelalignment="Left" celllabelposition="Left">
                   <labels>
                     <label description="General" languagecode="1033" />
-                    <label description="Général" languagecode="1036" />
                   </labels>
                   <rows>
                     <row>
@@ -97,21 +95,18 @@
             <cell id="{6f327651-93b7-47b3-9e53-7d5ee6aa0568}" showlabel="true" locklevel="0" visible="false">
               <labels>
                 <label description="Status" languagecode="1033" />
-                <label description="Statut" languagecode="1036" />
               </labels>
               <control id="header_statecode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
             </cell>
             <cell id="{bb68453e-13db-4fc0-9837-57a162f2860d}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Status Reason" languagecode="1033" />
-                <label description="Raison du statut" languagecode="1036" />
               </labels>
               <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
             </cell>
             <cell id="{e170efc0-5675-42c3-b296-bf027d3ab313}">
               <labels>
                 <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{0581060e-41a2-3994-1c86-1bcc74ce648e}" />
             </cell>

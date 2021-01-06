@@ -157,7 +157,6 @@
                       <cell id="{2d52e04d-5524-4a53-9050-8f5c6668a4af}" showlabel="true" visible="true" labelid="{5fe2e5a5-5551-45e2-907b-0e15d4d65689}">
                         <labels>
                           <label description="Next Step" languagecode="1033" />
-                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_nextstep" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
                       </cell>
@@ -210,7 +209,6 @@
                       <cell id="{93a9b62e-8b9f-4698-ae4a-e04c9d83b36a}" showlabel="true" visible="true" labelid="{1f772166-c47a-494c-b786-18babf97d620}">
                         <labels>
                           <label description="Next Step" languagecode="1033" />
-                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_nextstep" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
                       </cell>
@@ -237,7 +235,6 @@
                       <cell id="{f86e9237-da9a-4cc6-95b5-74b5c96d7955}" showlabel="true" visible="true" labelid="{d19e3b29-5078-4c51-97a7-5b698203326d}">
                         <labels>
                           <label description="Next Step" languagecode="1033" />
-                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_nextstep" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
                       </cell>
@@ -298,7 +295,6 @@
                       <cell id="{f269bee4-98e8-4bd7-98e4-94dd19bfe148}" showlabel="true" visible="true" labelid="{06bf1424-154e-4b34-b347-6e1e7ee0e798}">
                         <labels>
                           <label description="Reason to close" languagecode="1033" />
-                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_closereason" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
@@ -333,7 +329,6 @@
                       <cell id="{643f9c47-d5f5-4201-91de-31470ced9c0c}" showlabel="true" visible="true" labelid="{33386a01-756b-4c96-86b7-72217c1014e8}">
                         <labels>
                           <label description="Reason to close" languagecode="1033" />
-                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_closereason" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
                       </cell>
