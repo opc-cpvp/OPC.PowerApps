@@ -91,6 +91,10 @@
     <AppModuleComponent type="1" schemaName="opc_riskassessmenttype" />
     <AppModuleComponent type="1" schemaName="sharepointdocument" />
     <AppModuleComponent type="26" id="{a5b008ac-07d9-4554-8509-2c05767bff51}" />
+    <AppModuleComponent type="1" schemaName="task" />
+    <AppModuleComponent type="60" id="{1fac7e2e-0b1c-4b6c-ab92-8af0f92dbdbc}" />
+    <AppModuleComponent type="60" id="{a1c8a6dc-8804-4019-9c78-7dbe86560ea1}" />
+    <AppModuleComponent type="26" id="{6c272503-ab4e-eb11-a812-000d3a84ab5f}" />
     <AppModuleComponent type="1" schemaName="opc_theme" />
     <AppModuleComponent type="1" schemaName="opc_topic" />
   </AppModuleComponents>

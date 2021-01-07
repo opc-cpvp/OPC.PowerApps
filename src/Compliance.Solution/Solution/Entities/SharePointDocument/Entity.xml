@@ -30,9 +30,11 @@
           <LookupStyle>single</LookupStyle>
           <displaynames>
             <displayname description="Regarding" languagecode="1033" />
+            <displayname description="Concernant" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Choose the parent record that the SharePoint document record is associated with." languagecode="1033" />
+            <Description description="Sélectionnez l'enregistrement parent auquel l'enregistrement de document SharePoint est associé." languagecode="1036" />
           </Descriptions>
         </attribute>
       </attributes>

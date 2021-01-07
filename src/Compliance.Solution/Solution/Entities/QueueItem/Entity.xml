@@ -5,12 +5,15 @@
     <entity Name="QueueItem">
       <LocalizedNames>
         <LocalizedName description="Queue Item" languagecode="1033" />
+        <LocalizedName description="Élément de file d’attente" languagecode="1036" />
       </LocalizedNames>
       <LocalizedCollectionNames>
         <LocalizedCollectionName description="Queue Items" languagecode="1033" />
+        <LocalizedCollectionName description="Éléments de file d'attente" languagecode="1036" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="A specific item in a queue, such as a case record or an activity record." languagecode="1033" />
+        <Description description="Élément d’une file d’attente indiquant un incident ou une activité." languagecode="1036" />
       </Descriptions>
       <attributes>
         <attribute PhysicalName="opc_priorityscore">

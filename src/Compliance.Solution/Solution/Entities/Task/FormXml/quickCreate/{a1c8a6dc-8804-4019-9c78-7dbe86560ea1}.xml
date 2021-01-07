@@ -14,6 +14,7 @@
         <tab name="createtask" verticallayout="true" id="{C0134778-AB51-40B0-BE85-CD3F1163DC66}" IsUserDefined="0" locklevel="0" expanded="true" showlabel="false">
           <labels>
             <label description="Create Task" languagecode="1033" />
+            <label description="Créer une tâche" languagecode="1036" />
           </labels>
           <columns>
             <column width="33%">
@@ -27,6 +28,7 @@
                       <cell id="{f3d6698a-924b-45ca-8304-ae0247b3c3f9}">
                         <labels>
                           <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
@@ -35,6 +37,7 @@
                       <cell id="{8AE5310B-53DF-47F1-B2B9-56F10F2F067E}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Subject" languagecode="1033" />
+                          <label description="Sujet" languagecode="1036" />
                         </labels>
                         <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
                       </cell>
@@ -43,6 +46,7 @@
                       <cell id="{F6078AC5-21F9-44C2-A8EF-BC6F173AB541}" showlabel="true" locklevel="4">
                         <labels>
                           <label description="Description" languagecode="1033" />
+                          <label description="Description" languagecode="1036" />
                         </labels>
                         <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" />
                       </cell>
@@ -70,6 +74,7 @@
                       <cell id="{D2F8E46F-02CB-4EBB-B9B7-5235C075D67C}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Due" languagecode="1033" />
+                          <label description="Échéance" languagecode="1036" />
                         </labels>
                         <control id="scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
                       </cell>
@@ -78,6 +83,7 @@
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" id="{3AC8F567-C41C-402F-8ECF-DD4F72C85ECB}">
                         <labels>
                           <label description="Regarding" languagecode="1033" />
+                          <label description="Concernant" languagecode="1036" />
                         </labels>
                         <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false">
                           <parameters>
@@ -101,6 +107,7 @@
                       <cell showlabel="true" id="{0d010380-cc98-4803-bb2e-67c6954dc9a6}">
                         <labels>
                           <label description="Duration" languagecode="1033" />
+                          <label description="Durée" languagecode="1036" />
                         </labels>
                         <control id="actualdurationminutes" classid="{AA987274-CE4E-4271-A803-66164311A958}" datafieldname="actualdurationminutes" disabled="false" />
                       </cell>
@@ -109,6 +116,7 @@
                       <cell id="{B2DD0089-4428-48EB-BA64-D7ABC66B1E14}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Priority" languagecode="1033" />
+                          <label description="Priorité" languagecode="1036" />
                         </labels>
                         <control id="prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
                       </cell>
@@ -140,9 +148,11 @@
     </form>
     <LocalizedNames>
       <LocalizedName description="Task quick create form." languagecode="1033" />
+      <LocalizedName description="Formulaire de création rapide de tâche." languagecode="1036" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Task quick create form." languagecode="1033" />
+      <Description description="Task quick create form." languagecode="1036" />
     </Descriptions>
   </systemform>
 </forms>

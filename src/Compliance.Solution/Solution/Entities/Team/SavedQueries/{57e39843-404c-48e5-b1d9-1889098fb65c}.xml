@@ -31,6 +31,7 @@
     <IntroducedVersion>5.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Teams Lookup View" languagecode="1033" />
+      <LocalizedName description="Vue Recherche d'équipes" languagecode="1036" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

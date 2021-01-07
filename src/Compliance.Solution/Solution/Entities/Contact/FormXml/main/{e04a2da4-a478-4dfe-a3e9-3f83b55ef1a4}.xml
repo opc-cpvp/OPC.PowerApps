@@ -29,6 +29,7 @@
                       <cell id="{542e581d-cca1-5e40-e6d9-d67a9d1468b4}" showlabel="true" locklevel="0" labelid="{810c54e4-ac0e-449d-9912-6d7bad6a9280}">
                         <labels>
                           <label description="Full Name" languagecode="1033" />
+                          <label description="Nom complet" languagecode="1036" />
                         </labels>
                         <control id="fullname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="fullname" disabled="false" />
                       </cell>
@@ -37,6 +38,7 @@
                       <cell id="{07326cde-7529-ddc0-e421-c0bcddd07b8a}" showlabel="true" labelid="{a104bd0c-d57a-48c2-8269-18e6995f166f}">
                         <labels>
                           <label description="Job Title" languagecode="1033" />
+                          <label description="Fonction" languagecode="1036" />
                         </labels>
                         <control id="jobtitle" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="jobtitle" disabled="false" />
                       </cell>
@@ -45,6 +47,7 @@
                       <cell id="{a54c19c9-4722-ce25-60c5-2bb9452680d2}" showlabel="true" locklevel="0" labelid="{4485d10d-6ff8-45f2-b049-514fb14b1c8a}">
                         <labels>
                           <label description="Account Name" languagecode="1033" />
+                          <label description="Nom de la société" languagecode="1036" />
                         </labels>
                         <control id="parentcustomerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentcustomerid" disabled="false" />
                       </cell>
@@ -53,6 +56,7 @@
                       <cell id="{7d538a97-98eb-b438-72de-57a808b9a308}" showlabel="true" labelid="{92facb94-7b07-4818-994e-1bfca431a2f7}">
                         <labels>
                           <label description="Email" languagecode="1033" />
+                          <label description="Courrier électronique" languagecode="1036" />
                         </labels>
                         <control id="emailaddress1" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress1" disabled="false" />
                       </cell>
@@ -61,6 +65,7 @@
                       <cell id="{5d6c940e-cab2-41ec-b42a-e47fea58865e}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Primary Phone" languagecode="1033" />
+                          <label description="Téléphone professionel" languagecode="1036" />
                         </labels>
                         <control id="telephone1" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="telephone1" disabled="false" />
                       </cell>
@@ -69,6 +74,7 @@
                       <cell id="{f35dd164-29e5-499d-b1e7-78c0b5c43b99}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Secondary Phone" languagecode="1033" />
+                          <label description="Téléphone personnel" languagecode="1036" />
                         </labels>
                         <control id="telephone2" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="telephone2" disabled="false" />
                       </cell>
@@ -77,6 +83,7 @@
                       <cell id="{1b54cdb3-1582-c29e-cc9e-9d4bc2a5700b}" showlabel="true" labelid="{8f4bb913-e0c9-4405-9072-8e43bd24f2ad}">
                         <labels>
                           <label description="Fax" languagecode="1033" />
+                          <label description="Télécopie" languagecode="1036" />
                         </labels>
                         <control id="fax" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="fax" disabled="false" />
                       </cell>
@@ -85,6 +92,7 @@
                       <cell id="{408dda0b-48a7-c05c-e29a-56a93eb97172}" showlabel="true" labelid="{47abf7c0-a4bd-45c1-ab20-454435942037}">
                         <labels>
                           <label description="Preferred Method of Contact" languagecode="1033" />
+                          <label description="Mode de communication privilégié" languagecode="1036" />
                         </labels>
                         <control id="preferredcontactmethodcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="preferredcontactmethodcode" disabled="false" />
                       </cell>
@@ -128,6 +136,7 @@
                       <cell id="{e9708092-9627-bc93-7096-70748d09896b}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address 1: Street 1" languagecode="1033" />
+                          <label description="Adresse 1 : Rue 1" languagecode="1036" />
                         </labels>
                         <control id="address1_line1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_line1" disabled="false" />
                       </cell>
@@ -136,6 +145,7 @@
                       <cell id="{36d88905-6d9b-b4eb-58d1-40659d335718}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address 1: Street 2" languagecode="1033" />
+                          <label description="Adresse 1 : Rue 2" languagecode="1036" />
                         </labels>
                         <control id="address1_line2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_line2" disabled="false" />
                       </cell>
@@ -144,6 +154,7 @@
                       <cell id="{3351b051-83e3-b939-8185-e72c6b2ed6d8}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address 1: Street 3" languagecode="1033" />
+                          <label description="Adresse 1 : Rue 3" languagecode="1036" />
                         </labels>
                         <control id="address1_line3" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_line3" disabled="false" />
                       </cell>
@@ -152,6 +163,7 @@
                       <cell id="{571a40ae-5584-3465-11c5-0564e4d96693}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address 1: City" languagecode="1033" />
+                          <label description="Adresse 1 : Ville" languagecode="1036" />
                         </labels>
                         <control id="address1_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_city" disabled="false" />
                       </cell>
@@ -160,6 +172,7 @@
                       <cell id="{85579c78-18a6-a00b-b381-60d26a95bc43}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address 1: State/Province" languagecode="1033" />
+                          <label description="Adresse 1 : Département/province" languagecode="1036" />
                         </labels>
                         <control id="address1_stateorprovince" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_stateorprovince" disabled="false" />
                       </cell>
@@ -168,6 +181,7 @@
                       <cell id="{056804e0-e719-2c7c-7177-8add29a7a549}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address 1: ZIP/Postal Code" languagecode="1033" />
+                          <label description="Adresse 1 : Code postal" languagecode="1036" />
                         </labels>
                         <control id="address1_postalcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_postalcode" disabled="false" />
                       </cell>
@@ -176,6 +190,7 @@
                       <cell id="{57ba0ba8-1481-7687-7e2b-993c2d6162b5}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Address 1: Country/Region" languagecode="1033" />
+                          <label description="Adresse 1 : Pays/région" languagecode="1036" />
                         </labels>
                         <control id="address1_country" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_country" disabled="false" />
                       </cell>
@@ -294,6 +309,7 @@
             <cell id="{24be01cc-16a6-8eea-8916-42d20a1097ae}" showlabel="true" locklevel="1" labelid="{58141e3e-cfd6-4e4a-825a-90cbce7ed85b}">
               <labels>
                 <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>

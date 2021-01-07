@@ -23,6 +23,7 @@
                       <cell id="{2b850c8a-aa08-4d90-85e9-a6e7325272b3}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Status Reason" languagecode="1033" />
+                          <label description="Raison du statut" languagecode="1036" />
                         </labels>
                         <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
                       </cell>
@@ -42,12 +43,14 @@
                       <cell id="{a8c5edde-c0e2-62b3-25b0-a701192c7d73}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Created By (Delegate)" languagecode="1033" />
+                          <label description="Créé par (délégué)" languagecode="1036" />
                         </labels>
                         <control id="createdonbehalfby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdonbehalfby" disabled="false" />
                       </cell>
                       <cell id="{9e4a26d2-e616-4ea8-a695-4bcc0c534463}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Date Created" languagecode="1033" />
+                          <label description="Date de création" languagecode="1036" />
                         </labels>
                         <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
                       </cell>
@@ -68,6 +71,7 @@
                       <cell id="{f2462ea8-cfb5-448d-8d25-1b22f348c100}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Subject" languagecode="1033" />
+                          <label description="Sujet" languagecode="1036" />
                         </labels>
                         <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
                       </cell>
@@ -91,18 +95,21 @@
                       <cell id="{810cbef1-9758-42b7-b739-131a1b5350d2}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
                       </cell>
                       <cell id="{d3e8440b-9b3e-40a8-9937-3d87f5340acc}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Regarding" languagecode="1033" />
+                          <label description="Concernant" languagecode="1036" />
                         </labels>
                         <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="false" />
                       </cell>
                       <cell id="{62918bac-130e-3985-4b18-7891a5a63e71}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Created By" languagecode="1033" />
+                          <label description="Créé par" languagecode="1036" />
                         </labels>
                         <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
                       </cell>

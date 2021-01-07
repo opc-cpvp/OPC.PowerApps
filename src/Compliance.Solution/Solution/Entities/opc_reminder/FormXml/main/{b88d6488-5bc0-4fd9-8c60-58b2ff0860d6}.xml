@@ -123,6 +123,7 @@
                       <cell id="{e7d81d90-ddbc-7626-9a6c-cc35b0e7e656}" showlabel="false" colspan="1" auto="false" rowspan="6">
                         <labels>
                           <label description="Additional Users to Notify" languagecode="1033" />
+                          <label description="Utilisateurs" languagecode="1036" />
                         </labels>
                         <control id="grid_additionalusers" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{db139d33-e56e-3cde-0131-e606cc01319c}">
                           <parameters>
@@ -304,18 +305,21 @@
             <cell id="{6343521a-aaa7-921c-d42c-996cda5b24a4}" showlabel="true" locklevel="0" visible="false">
               <labels>
                 <label description="Status" languagecode="1033" />
+                <label description="Statut" languagecode="1036" />
               </labels>
               <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
             </cell>
             <cell id="{8336edca-f159-4555-b852-251fef746e6d}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Status Reason" languagecode="1033" />
+                <label description="Raison du statut" languagecode="1036" />
               </labels>
               <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="false" />
             </cell>
             <cell id="{c0523d05-bc29-d2bb-e2a3-4706c86e2c17}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
             </cell>

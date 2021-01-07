@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.514</Version>
+    <Version>1.0.516</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -221,7 +221,7 @@
       <RootComponent type="60" id="{907499d7-4cb8-4809-ac61-3572e4cbbf2e}" behavior="0" />
       <RootComponent type="60" id="{9348e25d-7708-40df-ac7f-85b5e6d1d41b}" behavior="0" />
       <RootComponent type="60" id="{9e608d8d-4439-ea11-a813-000d3af46489}" behavior="0" />
-      <RootComponent type="60" id="{a1c8a6dc-8804-4019-9c78-7dbe86560ea1}" />
+      <RootComponent type="60" id="{a1c8a6dc-8804-4019-9c78-7dbe86560ea1}" behavior="0" />
       <RootComponent type="60" id="{a5ed2946-9ea9-428b-90bc-fe602e071a05}" behavior="0" />
       <RootComponent type="60" id="{a8ac78cc-ec09-47ef-a856-9765e462d603}" behavior="0" />
       <RootComponent type="60" id="{a97b9687-d18b-ea11-a811-000d3af45c52}" behavior="0" />
@@ -383,23 +383,23 @@
         <Dependent key="30" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="31" type="66" schemaName="opc_opc.pcf.TagPickerComponent" displayName="opc_opc.pcf.TagPickerComponent" solution="opc_OPCPowerAppsPCFControls (1.0.42)" />
+        <Required key="31" type="66" schemaName="opc_opc.pcf.TagPickerComponent" displayName="opc_opc.pcf.TagPickerComponent" solution="opc_OPCPowerAppsPCFControls (1.0.71)" />
         <Dependent key="21" type="60" displayName="QuickCreate" parentDisplayName="Reminder" id="{a97b9687-d18b-ea11-a811-000d3af45c52}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="32" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.42)" />
+        <Required key="32" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.71)" />
         <Dependent key="6" type="60" displayName="ComplianceAccount" parentDisplayName="Account" id="{d7ea7bb0-e0d9-49f9-8409-7df03ad34691}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="32" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.42)" />
+        <Required key="32" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.71)" />
         <Dependent key="16" type="60" displayName="Information" parentDisplayName="Reminder" id="{b88d6488-5bc0-4fd9-8c60-58b2ff0860d6}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="32" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.42)" />
+        <Required key="32" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.71)" />
         <Dependent key="17" type="60" displayName="Information" parentDisplayName="Complaint" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="33" type="59" schemaName="Tasks by Month Due" displayName="Tasks by Month Due" parentSchemaName="task" parentDisplayName="Task" solution="msdynce_AppCommon (9.0.4.0066)" id="{9e6a8b06-6d14-46e6-bbf5-95c388c6eb7a}" />
+        <Required key="33" type="66" schemaName="opc_opc.pcf.TaskManagerComponent" displayName="opc_opc.pcf.TaskManagerComponent" solution="opc_OPCPowerAppsPCFControls (1.0.71)" />
         <Dependent key="17" type="60" displayName="Information" parentDisplayName="Complaint" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" />
       </MissingDependency>
     </MissingDependencies>

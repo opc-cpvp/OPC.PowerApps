@@ -322,8 +322,9 @@
                       <cell id="{830ce500-6cad-70d7-4b36-7bd4e794e5e9}" showlabel="false" colspan="1" auto="true" rowspan="4">
                         <labels>
                           <label description="Tasks (Regarding)" languagecode="1033" />
+                          <label description="Tâches" languagecode="1036" />
                         </labels>
-                        <control id="subgrid_tasks" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <control id="subgrid_tasks" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{756d131c-3a0d-dd1e-bb02-22227c4a78ae}">
                           <parameters>
                             <ViewId>{6C272503-AB4E-EB11-A812-000D3A84AB5F}</ViewId>
                             <IsUserView>false</IsUserView>
@@ -421,6 +422,7 @@
                       <cell showlabel="false" locklevel="0" id="{95d4334c-142a-47b3-b668-d8bf53172c29}" rowspan="1" colspan="1">
                         <labels>
                           <label description="Documents" languagecode="1033" />
+                          <label description="Documents" languagecode="1036" />
                         </labels>
                         <control id="subgrid_documents" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                           <parameters>
@@ -684,12 +686,14 @@
             <cell id="{e461ae48-d330-4ab6-909b-840280ea0d1b}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Status Reason" languagecode="1033" />
+                <label description="Raison du statut" languagecode="1036" />
               </labels>
               <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
             </cell>
             <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}" showlabel="true" locklevel="1" colspan="1">
               <labels>
                 <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{9b16320b-5e25-7005-203a-488178664a0a}" disabled="false">
                 <parameters>
@@ -907,6 +911,66 @@
               <relationshipName static="true" type="SingleLine.Text">opc_complaints_industries_relatedindustries</relationshipName>
               <relationshipEntity static="true" type="SingleLine.Text">opc_complaintsrelatedindustries</relationshipEntity>
               <labelText static="true" type="SingleLine.Text">en=Industries|fr=Industries</labelText>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{756d131c-3a0d-dd1e-bb02-22227c4a78ae}">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{6C272503-AB4E-EB11-A812-000D3A84AB5F}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>opc_complaint_Tasks</RelationshipName>
+              <TargetEntityType>task</TargetEntityType>
+              <AutoExpand>Auto</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{6CF285AA-EB20-4277-925A-3E9735411FF0},{6C272503-AB4E-EB11-A812-000D3A84AB5F}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>Grid</ChartGridMode>
+              <VisualizationId>{9E6A8B06-6D14-46E6-BBF5-95C388C6EB7A}</VisualizationId>
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>false</EnableChartPicker>
+              <RecordsPerPage>25</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="opc_opc.pcf.TaskManagerComponent">
+            <parameters>
+              <data-set name="tasks">
+                <ViewId>{6C272503-AB4E-EB11-A812-000D3A84AB5F}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_complaint_Tasks</RelationshipName>
+                <TargetEntityType>task</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{6CF285AA-EB20-4277-925A-3E9735411FF0},{6C272503-AB4E-EB11-A812-000D3A84AB5F}</FilteredViewIds>
+              </data-set>
+              <badgeConfig static="true" type="SingleLine.Text">[ { "name": "statuscode", "keys": [ 5, 6 ] }, { "name": "opc_type", "keys": [1,2,3,4]}]</badgeConfig>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="opc_opc.pcf.TaskManagerComponent">
+            <parameters>
+              <data-set name="tasks">
+                <ViewId>{6C272503-AB4E-EB11-A812-000D3A84AB5F}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_complaint_Tasks</RelationshipName>
+                <TargetEntityType>task</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{6CF285AA-EB20-4277-925A-3E9735411FF0},{6C272503-AB4E-EB11-A812-000D3A84AB5F}</FilteredViewIds>
+              </data-set>
+              <badgeConfig static="true" type="SingleLine.Text">[ { "name": "statuscode", "keys": [ 5, 6 ] }, { "name": "opc_type", "keys": [1,2,3,4]}]</badgeConfig>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="opc_opc.pcf.TaskManagerComponent">
+            <parameters>
+              <data-set name="tasks">
+                <ViewId>{6C272503-AB4E-EB11-A812-000D3A84AB5F}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_complaint_Tasks</RelationshipName>
+                <TargetEntityType>task</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{6CF285AA-EB20-4277-925A-3E9735411FF0},{6C272503-AB4E-EB11-A812-000D3A84AB5F}</FilteredViewIds>
+              </data-set>
+              <badgeConfig static="true" type="SingleLine.Text">[ { "name": "statuscode", "keys": [ 5, 6 ] }, { "name": "opc_type", "keys": [1,2,3,4]}]</badgeConfig>
             </parameters>
           </customControl>
         </controlDescription>

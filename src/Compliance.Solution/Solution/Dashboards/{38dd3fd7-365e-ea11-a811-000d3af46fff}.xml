@@ -26,6 +26,7 @@
                         <cell colspan="3" rowspan="12" showlabel="true" id="{ce29b870-19f7-4f7b-8bc1-7ed4a304bbd1}" auto="false">
                           <labels>
                             <label description="Complaints in Triage Queue" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="grid_complaints_triage_queue" uniqueid="{07e3642c-26ce-4841-dd5e-03a9b0ea4c25}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -50,6 +51,7 @@
                         <cell colspan="1" rowspan="12" showlabel="false" id="{29cb2d7b-2e9a-43a0-a157-0f3f7699d5e4}" auto="false">
                           <labels>
                             <label description="Queue Item" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_triage_queue" uniqueid="{5abb2a29-79b2-a738-cb54-ced56886a1e0}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -87,6 +89,7 @@
                         <cell colspan="3" rowspan="12" showlabel="true" id="{8d2a9a64-a514-4ca3-b037-98d1a64422d9}" auto="false">
                           <labels>
                             <label description="Complaints in Backlog Queue" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="grid_complaints_backlog_queue" uniqueid="{d3242547-ac03-7dbd-b04d-c2417c928109}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -111,6 +114,7 @@
                         <cell colspan="1" rowspan="12" showlabel="false" id="{654f1980-7d9a-49c4-8374-d68176dc728d}" auto="false">
                           <labels>
                             <label description="Queue Item" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_backlog_queue" uniqueid="{06561898-6c9a-e144-70a0-7657e1040971}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
                             <parameters>
@@ -148,6 +152,7 @@
                         <cell id="{7020ec48-3864-061b-b27a-28501c248b49}" showlabel="true" colspan="3" auto="false" rowspan="12">
                           <labels>
                             <label description="Complaints in Review Queue" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="grid_complaints_review_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{a2c3c640-58ac-e929-b4e2-d51ec4884e67}">
                             <parameters>
@@ -172,6 +177,7 @@
                         <cell id="{13951e4d-bcc3-96a0-9c38-635e77137168}" showlabel="false" colspan="1" auto="false" rowspan="12">
                           <labels>
                             <label description="Queue Item" languagecode="1033" />
+                            <label description="Éléments de file d'attente" languagecode="1036" />
                           </labels>
                           <control id="chart_complaints_review_queue" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{28ed3b11-c56a-3e50-5874-151acc1dd577}">
                             <parameters>

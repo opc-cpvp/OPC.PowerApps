@@ -16,6 +16,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificateur unique de l'organisation" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -35,6 +36,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier for the organization" languagecode="1033" />
+        <Description description="Identificateur unique de l'organisation" languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>

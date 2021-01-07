@@ -139,7 +139,7 @@
   <EntityRelationship Name="opc_complaint_opc_events">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.514</IntroducedVersion>
+    <IntroducedVersion>1.0.516</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_event</ReferencingEntityName>
     <ReferencedEntityName>opc_complaint</ReferencedEntityName>
@@ -152,6 +152,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier of the object with which the activity is associated." languagecode="1033" />
+        <Description description="Identificateur unique de l'objet auquel l'activité est associée." languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -239,6 +240,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Unique identifier of the object with which the SharePoint document location record is associated." languagecode="1033" />
+        <Description description="Identificateur unique de l’objet auquel l’emplacement du document SharePoint est associé." languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -258,6 +260,7 @@
     <RelationshipDescription>
       <Descriptions>
         <Description description="Choose the parent record that the SharePoint document record is associated with." languagecode="1033" />
+        <Description description="Sélectionnez l'enregistrement parent auquel l'enregistrement de document SharePoint est associé." languagecode="1036" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

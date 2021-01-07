@@ -47,9 +47,11 @@
           <MaxLength>8192</MaxLength>
           <displaynames>
             <displayname description="Activity Additional Parameters" languagecode="1033" />
+            <displayname description="Autres paramètres d'activité" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Additional information provided by the external application as JSON. For internal use only." languagecode="1033" />
+            <Description description="Informations supplémentaires fournies par l'application externe comme JSON. Utilisation interne uniquement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ActivityId">
@@ -84,9 +86,11 @@
           <IsLocalizable>0</IsLocalizable>
           <displaynames>
             <displayname description="Activity" languagecode="1033" />
+            <displayname description="Activité" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the activity." languagecode="1033" />
+            <Description description="Identificateur unique de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ActivityTypeCode">
@@ -123,9 +127,11 @@
           <OptionSetName>activitypointer_activitytypecode</OptionSetName>
           <displaynames>
             <displayname description="Activity Type" languagecode="1033" />
+            <displayname description="Type d'activité" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type of activity." languagecode="1033" />
+            <Description description="Type d'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ActualDurationMinutes">
@@ -163,9 +169,11 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="Actual Duration" languagecode="1033" />
+            <displayname description="Durée réelle" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Actual duration of the activity in minutes." languagecode="1033" />
+            <Description description="Durée réelle de l'activité en minutes." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ActualEnd">
@@ -203,9 +211,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Actual End" languagecode="1033" />
+            <displayname description="Fin réelle" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Actual end time of the activity." languagecode="1033" />
+            <Description description="Heure de fin réelle de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ActualStart">
@@ -243,9 +253,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Actual Start" languagecode="1033" />
+            <displayname description="Début réel" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Actual start time of the activity." languagecode="1033" />
+            <Description description="Heure de début réelle de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="BCC">
@@ -287,9 +299,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="BCC" languagecode="1033" />
+            <displayname description="Cci" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Blind Carbon-copy (bcc) recipients of the activity." languagecode="1033" />
+            <Description description="Destinataires de l'activité en copie carbone invisible (Cci)." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CC">
@@ -331,9 +345,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="CC" languagecode="1033" />
+            <displayname description="Cc" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Carbon-copy (cc) recipients of the activity." languagecode="1033" />
+            <Description description="Destinataires de l'activité en copie carbone (Cc)." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Community">
@@ -370,9 +386,11 @@
           <OptionSetName>socialprofile_community</OptionSetName>
           <displaynames>
             <displayname description="Social Channel" languagecode="1033" />
+            <displayname description="Canal social" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Shows how contact about the social activity originated, such as from Twitter or Facebook. This field is read-only." languagecode="1033" />
+            <Description description="Affiche l'origine du contact au sujet de l'activité sociale, comme Twitter ou Facebook. Ce champ est en lecture seule." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedBy">
@@ -411,9 +429,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Created By" languagecode="1033" />
+            <displayname description="Créé par" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user who created the activity." languagecode="1033" />
+            <Description description="Identificateur unique de l'utilisateur qui a créé l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedOn">
@@ -451,9 +471,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Date Created" languagecode="1033" />
+            <displayname description="Date de création" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the activity was created." languagecode="1033" />
+            <Description description="Date et heure de la création de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="CreatedOnBehalfBy">
@@ -492,9 +514,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Created On Behalf Of" languagecode="1033" />
+            <displayname description="Créé par (délégué)" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the delegate user who created the activitypointer." languagecode="1033" />
+            <Description description="Identificateur unique de l’utilisateur délégué qui a créé le pointeur d’activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Customers">
@@ -535,9 +559,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Customers" languagecode="1033" />
+            <displayname description="Clients" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Customer with which the activity is associated." languagecode="1033" />
+            <Description description="Client auquel est associée l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="DeliveryLastAttemptedOn">
@@ -575,9 +601,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Date Delivery Last Attempted" languagecode="1033" />
+            <displayname description="Date de dernière tentative de livraison" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the delivery of the activity was last attempted." languagecode="1033" />
+            <Description description="Date et heure de la dernière tentative de livraison de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="DeliveryPriorityCode">
@@ -614,9 +642,11 @@
           <OptionSetName>activitypointer_deliveryprioritycode</OptionSetName>
           <displaynames>
             <displayname description="Delivery Priority" languagecode="1033" />
+            <displayname description="Priorité de livraison" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Priority of delivery of the activity to the email server." languagecode="1033" />
+            <Description description="Priorité de livraison de l'activité au serveur de messagerie." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Description">
@@ -653,9 +683,11 @@
           <MaxLength>2000</MaxLength>
           <displaynames>
             <displayname description="Description" languagecode="1033" />
+            <displayname description="Description" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Description of the activity." languagecode="1033" />
+            <Description description="Description de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ExchangeItemId">
@@ -693,9 +725,11 @@
           <Length>400</Length>
           <displaynames>
             <displayname description="Exchange Item ID" languagecode="1033" />
+            <displayname description="ID d'élément Exchange" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="The message id of activity which is returned from Exchange Server." languagecode="1033" />
+            <Description description="ID de message de l'activité retournée par Exchange Server." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ExchangeWebLink">
@@ -733,9 +767,11 @@
           <Length>2500</Length>
           <displaynames>
             <displayname description="Exchange WebLink" languagecode="1033" />
+            <displayname description="WebLink Exchange" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Shows the web link of Activity of type email." languagecode="1033" />
+            <Description description="Affiche le lien Web de l'activité de type Courrier électronique." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="From">
@@ -777,9 +813,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="From" languagecode="1033" />
+            <displayname description="De" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Person who the activity is from." languagecode="1033" />
+            <Description description="Personne dont provient l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ImportSequenceNumber">
@@ -817,9 +855,11 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="Import Sequence Number" languagecode="1033" />
+            <displayname description="Numéro séquentiel d’importation" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Sequence number of the import that created this record." languagecode="1033" />
+            <Description description="Numéro séquentiel de l'importation ayant créé cet enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="InstanceTypeCode">
@@ -855,13 +895,15 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_instancetypecode">
             <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>1.0.514</IntroducedVersion>
+            <IntroducedVersion>1.0.516</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Appointment Type" languagecode="1033" />
+              <displayname description="Type de rendez-vous" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Type of instance of a recurring series." languagecode="1033" />
+              <Description description="Type d’instance d’une série périodique." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
@@ -893,9 +935,11 @@
           </optionset>
           <displaynames>
             <displayname description="Recurring Instance Type" languagecode="1033" />
+            <displayname description="Type d’instance périodique" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Type of instance of a recurring series." languagecode="1033" />
+            <Description description="Type d’instance d’une série périodique." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="IsBilled">
@@ -931,13 +975,15 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_isbilled">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.514</IntroducedVersion>
+            <IntroducedVersion>1.0.516</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Is Billed" languagecode="1033" />
+              <displayname description="Est facturé" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Information regarding whether the activity was billed as part of resolving a case." languagecode="1033" />
+              <Description description="Information indiquant si l'activité a été facturée dans le cadre de la résolution d'un incident." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
@@ -954,9 +1000,11 @@
           </optionset>
           <displaynames>
             <displayname description="Is Billed" languagecode="1033" />
+            <displayname description="Est facturé" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Information regarding whether the activity was billed as part of resolving a case." languagecode="1033" />
+            <Description description="Information indiquant si l'activité a été facturée dans le cadre de la résolution d'un incident." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="IsMapiPrivate">
@@ -991,13 +1039,15 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_ismapiprivate">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.514</IntroducedVersion>
+            <IntroducedVersion>1.0.516</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Is Private" languagecode="1033" />
+              <displayname description="Est privé" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="For internal use only." languagecode="1033" />
+              <Description description="Utilisation interne uniquement." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
@@ -1014,9 +1064,11 @@
           </optionset>
           <displaynames>
             <displayname description="Is Private" languagecode="1033" />
+            <displayname description="Est privé" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="For internal use only." languagecode="1033" />
+            <Description description="Utilisation interne uniquement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="IsRegularActivity">
@@ -1053,9 +1105,11 @@
           <OptionSetName>activitypointer_isregularactivity</OptionSetName>
           <displaynames>
             <displayname description="Is Regular Activity" languagecode="1033" />
+            <displayname description="Est une activité régulière" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Information regarding whether the activity is a regular activity type or event type." languagecode="1033" />
+            <Description description="Information indiquant si l’activité est régulière ou de type événement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="IsWorkflowCreated">
@@ -1091,13 +1145,15 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_isworkflowcreated">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.514</IntroducedVersion>
+            <IntroducedVersion>1.0.516</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Is Workflow Created" languagecode="1033" />
+              <displayname description="Est créé(e) par le workflow" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Information regarding whether the activity was created from a workflow rule." languagecode="1033" />
+              <Description description="Information indiquant si l'activité a été créée à partir d'une règle de workflow." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
@@ -1114,9 +1170,11 @@
           </optionset>
           <displaynames>
             <displayname description="Is Workflow Created" languagecode="1033" />
+            <displayname description="Est créé(e) par le workflow" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Information regarding whether the activity was created from a workflow rule." languagecode="1033" />
+            <Description description="Information indiquant si l'activité a été créée à partir d'une règle de workflow." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="LastOnHoldTime">
@@ -1154,9 +1212,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Last On Hold Time" languagecode="1033" />
+            <displayname description="Dernière durée de suspension" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Contains the date and time stamp of the last on hold time." languagecode="1033" />
+            <Description description="Contient l'horodatage de la dernière durée de suspension." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="LeftVoiceMail">
@@ -1192,13 +1252,15 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_leftvoicemail">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.514</IntroducedVersion>
+            <IntroducedVersion>1.0.516</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Left Voice Mail" languagecode="1033" />
+              <displayname description="Message vocal laissé" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Left Voice Mail." languagecode="1033" />
+              <Description description="Message vocal laissé." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
@@ -1215,9 +1277,11 @@
           </optionset>
           <displaynames>
             <displayname description="Left Voice Mail" languagecode="1033" />
+            <displayname description="Message vocal laissé" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Left the voice mail" languagecode="1033" />
+            <Description description="Quitté la messagerie vocale" languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedBy">
@@ -1256,9 +1320,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Modified By" languagecode="1033" />
+            <displayname description="Modifié par" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of user who last modified the activity." languagecode="1033" />
+            <Description description="Identificateur unique de l'utilisateur qui a modifié l'activité pour la dernière fois." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedOn">
@@ -1296,9 +1362,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Last Updated" languagecode="1033" />
+            <displayname description="Dernière mise à jour" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when activity was last modified." languagecode="1033" />
+            <Description description="Date et heure de la dernière modification de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ModifiedOnBehalfBy">
@@ -1337,9 +1405,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Modified By (Delegate)" languagecode="1033" />
+            <displayname description="Modifié par (délégué)" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the delegate user who last modified the activitypointer." languagecode="1033" />
+            <Description description="Identificateur unique de l’utilisateur délégué qui a modifié le pointeur d’activité pour la dernière fois." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OnHoldTime">
@@ -1377,9 +1447,11 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="On Hold Time (Minutes)" languagecode="1033" />
+            <displayname description="Durée de la suspension (minutes)" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Shows how long, in minutes, that the record was on hold." languagecode="1033" />
+            <Description description="Affiche la durée, en minutes, de la suspension de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_islocalizable">
@@ -1597,9 +1669,11 @@
           <LookupStyle>multi</LookupStyle>
           <displaynames>
             <displayname description="Optional Attendees" languagecode="1033" />
+            <displayname description="Participants facultatifs" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="List of optional attendees for the activity." languagecode="1033" />
+            <Description description="Liste des participants facultatifs pour l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Organizer">
@@ -1639,9 +1713,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Organizer" languagecode="1033" />
+            <displayname description="Organisateur" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Person who organized the activity." languagecode="1033" />
+            <Description description="Personne ayant organisé l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OverriddenCreatedOn">
@@ -1679,9 +1755,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Record Created On" languagecode="1033" />
+            <displayname description="Enregistrement créé le" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time that the record was migrated." languagecode="1033" />
+            <Description description="Date et heure de migration de l'enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwnerId">
@@ -1721,9 +1799,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Owner" languagecode="1033" />
+            <displayname description="Propriétaire" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user or team who owns the activity." languagecode="1033" />
+            <Description description="Identificateur unique de l’utilisateur ou de l’équipe propriétaire de l’activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwningBusinessUnit">
@@ -1761,9 +1841,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Owning Business Unit" languagecode="1033" />
+            <displayname description="Division propriétaire" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the business unit that owns the activity." languagecode="1033" />
+            <Description description="Identificateur unique de la division propriétaire de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwningTeam">
@@ -1802,9 +1884,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Owning Team" languagecode="1033" />
+            <displayname description="Équipe propriétaire" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the team that owns the activity." languagecode="1033" />
+            <Description description="Identificateur unique de l’équipe propriétaire de l’activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="OwningUser">
@@ -1843,9 +1927,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Owning User" languagecode="1033" />
+            <displayname description="Utilisateur propriétaire" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the user that owns the activity." languagecode="1033" />
+            <Description description="Identificateur unique de l’utilisateur propriétaire de l’activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Partners">
@@ -1886,9 +1972,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Outsource Vendors" languagecode="1033" />
+            <displayname description="Fournisseurs externes" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Outsource vendor with which activity is associated." languagecode="1033" />
+            <Description description="Fournisseur externe auquel est associée l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="PostponeActivityProcessingUntil">
@@ -1925,9 +2013,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Delay activity processing until" languagecode="1033" />
+            <displayname description="Postposer le traitement de l'activité à" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="For internal use only." languagecode="1033" />
+            <Description description="Utilisation interne uniquement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="PriorityCode">
@@ -1963,13 +2053,15 @@
           <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="opc_event_prioritycode">
             <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>1.0.514</IntroducedVersion>
+            <IntroducedVersion>1.0.516</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Priority" languagecode="1033" />
+              <displayname description="Priorité" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Priority of the activity." languagecode="1033" />
+              <Description description="Priorité de l'activité." languagecode="1036" />
             </Descriptions>
             <options>
               <option value="0">
@@ -1991,9 +2083,11 @@
           </optionset>
           <displaynames>
             <displayname description="Priority" languagecode="1033" />
+            <displayname description="Priorité" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Priority of the activity." languagecode="1033" />
+            <Description description="Priorité de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ProcessId">
@@ -2027,9 +2121,11 @@
           <IsLocalizable>0</IsLocalizable>
           <displaynames>
             <displayname description="Process" languagecode="1033" />
+            <displayname description="Processus" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the Process." languagecode="1033" />
+            <Description description="Identificateur unique du processus." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="RegardingObjectId">
@@ -2065,9 +2161,11 @@
           <LookupStyle>single</LookupStyle>
           <displaynames>
             <displayname description="Regarding" languagecode="1033" />
+            <displayname description="Concernant" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the object with which the activity is associated." languagecode="1033" />
+            <Description description="Identificateur unique de l'objet auquel l'activité est associée." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="RequiredAttendees">
@@ -2104,9 +2202,11 @@
           <LookupStyle>multi</LookupStyle>
           <displaynames>
             <displayname description="Required Attendees" languagecode="1033" />
+            <displayname description="Participants obligatoires" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="List of required attendees for the activity." languagecode="1033" />
+            <Description description="Liste des participants requis pour l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Resources">
@@ -2146,9 +2246,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Resources" languagecode="1033" />
+            <displayname description="Ressources" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Users or facility/equipment that are required for the activity." languagecode="1033" />
+            <Description description="Utilisateurs ou installation/équipement nécessaires pour l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ScheduledDurationMinutes">
@@ -2186,9 +2288,11 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="Scheduled Duration" languagecode="1033" />
+            <displayname description="Durée planifiée" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Scheduled duration of the activity, specified in minutes." languagecode="1033" />
+            <Description description="Durée planifiée de l'activité, en minutes." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ScheduledEnd">
@@ -2226,9 +2330,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Due Date" languagecode="1033" />
+            <displayname description="Date d’échéance" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Scheduled end time of the activity." languagecode="1033" />
+            <Description description="Heure de fin planifiée de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ScheduledStart">
@@ -2266,9 +2372,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Start Date" languagecode="1033" />
+            <displayname description="Date de début" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Scheduled start time of the activity." languagecode="1033" />
+            <Description description="Heure de début planifiée de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="SenderMailboxId">
@@ -2306,9 +2414,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Sender's Mailbox" languagecode="1033" />
+            <displayname description="Boîte aux lettres de l'expéditeur" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the mailbox associated with the sender of the email message." languagecode="1033" />
+            <Description description="Identificateur unique de la boîte aux lettres associée à l'expéditeur du message électronique." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="SentOn">
@@ -2346,9 +2456,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Date Sent" languagecode="1033" />
+            <displayname description="Date d'envoi" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Date and time when the activity was sent." languagecode="1033" />
+            <Description description="Date et heure d'envoi de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="SeriesId">
@@ -2382,9 +2494,11 @@
           <IsLocalizable>0</IsLocalizable>
           <displaynames>
             <displayname description="Series Id" languagecode="1033" />
+            <displayname description="ID de la série" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Uniqueidentifier specifying the id of recurring series of an instance." languagecode="1033" />
+            <Description description="Identificateur unique spécifiant l’ID de série périodique d’une instance." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="SLAId">
@@ -2423,9 +2537,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="SLA" languagecode="1033" />
+            <displayname description="Contrat SLA" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Choose the service level agreement (SLA) that you want to apply to the case record." languagecode="1033" />
+            <Description description="Choisissez le contrat de niveau de service (contrat SLA) que vous voulez appliquer à l'enregistrement d'incident." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="SLAInvokedId">
@@ -2463,9 +2579,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="Last SLA applied" languagecode="1033" />
+            <displayname description="Dernier contrat SLA appliqué" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Last SLA that was applied to this case. This field is for internal use only." languagecode="1033" />
+            <Description description="Dernier contrat SLA ayant été appliqué à cet incident. Ce champ est destiné à une utilisation interne uniquement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="SortDate">
@@ -2503,9 +2621,11 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Sort Date" languagecode="1033" />
+            <displayname description="Date de tri" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Shows the date and time by which the activities are sorted." languagecode="1033" />
+            <Description description="Affiche la date et l'heure de tri des activités." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="StageId">
@@ -2540,9 +2660,11 @@
           <IsLocalizable>0</IsLocalizable>
           <displaynames>
             <displayname description="(Deprecated) Process Stage" languagecode="1033" />
+            <displayname description="(Déconseillé) Phase du processus" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier of the Stage." languagecode="1033" />
+            <Description description="Identificateur unique de la phase." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="StateCode">
@@ -2577,13 +2699,15 @@
           <IsLocalizable>0</IsLocalizable>
           <optionset Name="opc_event_statecode">
             <OptionSetType>state</OptionSetType>
-            <IntroducedVersion>1.0.514</IntroducedVersion>
+            <IntroducedVersion>1.0.516</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Activity Status" languagecode="1033" />
+              <displayname description="Statut d'activité" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Status of the activity." languagecode="1033" />
+              <Description description="Statut de l'activité." languagecode="1036" />
             </Descriptions>
             <states>
               <state value="0" defaultstatus="1" invariantname="Open">
@@ -2610,9 +2734,11 @@
           </optionset>
           <displaynames>
             <displayname description="Activity Status" languagecode="1033" />
+            <displayname description="Statut d'activité" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Status of the activity." languagecode="1033" />
+            <Description description="Statut de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="StatusCode">
@@ -2647,13 +2773,15 @@
           <IsLocalizable>0</IsLocalizable>
           <optionset Name="opc_event_statuscode">
             <OptionSetType>status</OptionSetType>
-            <IntroducedVersion>1.0.514</IntroducedVersion>
+            <IntroducedVersion>1.0.516</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Status Reason" languagecode="1033" />
+              <displayname description="Raison du statut" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Reason for the status of the activity." languagecode="1033" />
+              <Description description="Raison du statut de l'activité." languagecode="1036" />
             </Descriptions>
             <statuses>
               <status value="1" state="0">
@@ -2680,9 +2808,11 @@
           </optionset>
           <displaynames>
             <displayname description="Status Reason" languagecode="1033" />
+            <displayname description="Raison du statut" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Reason for the status of the activity." languagecode="1033" />
+            <Description description="Raison du statut de l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="Subject">
@@ -2720,9 +2850,11 @@
           <Length>800</Length>
           <displaynames>
             <displayname description="Subject" languagecode="1033" />
+            <displayname description="Sujet" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Subject associated with the activity." languagecode="1033" />
+            <Description description="Sujet associé à l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="TimeZoneRuleVersionNumber">
@@ -2759,9 +2891,11 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="Time Zone Rule Version Number" languagecode="1033" />
+            <displayname description="Numéro de version de la règle du fuseau horaire" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="For internal use only." languagecode="1033" />
+            <Description description="Utilisation interne uniquement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="To">
@@ -2803,9 +2937,11 @@
           </LookupTypes>
           <displaynames>
             <displayname description="To" languagecode="1033" />
+            <displayname description="À" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Person who is the receiver of the activity." languagecode="1033" />
+            <Description description="Personne qui reçoit l'activité." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="TraversedPath">
@@ -2842,9 +2978,11 @@
           <Length>2500</Length>
           <displaynames>
             <displayname description="(Deprecated) Traversed Path" languagecode="1033" />
+            <displayname description="(Déconseillé) Chemin d’accès traversé" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="For internal use only." languagecode="1033" />
+            <Description description="Utilisation interne uniquement." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="UTCConversionTimeZoneCode">
@@ -2881,9 +3019,11 @@
           <MaxValue>2147483647</MaxValue>
           <displaynames>
             <displayname description="UTC Conversion Time Zone Code" languagecode="1033" />
+            <displayname description="Code de fuseau horaire pour la conversion UTC" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Time zone code that was in use when the record was created." languagecode="1033" />
+            <Description description="Code de fuseau horaire utilisé à la création de l’enregistrement." languagecode="1036" />
           </Descriptions>
         </attribute>
       </attributes>

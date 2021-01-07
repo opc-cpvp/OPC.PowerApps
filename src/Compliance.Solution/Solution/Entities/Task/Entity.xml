@@ -34,7 +34,7 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>533950000</AppDefaultValue>
+          <AppDefaultValue>1</AppDefaultValue>
           <OptionSetName>opc_tasktype</OptionSetName>
           <displaynames>
             <displayname description="Type" languagecode="1033" />
@@ -71,33 +71,40 @@
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
               <displayname description="Activity Status" languagecode="1033" />
+              <displayname description="Statut d'activité" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Status of the task." languagecode="1033" />
+              <Description description="Statut de la tâche." languagecode="1036" />
             </Descriptions>
             <states>
               <state value="0" defaultstatus="2" invariantname="Open">
                 <labels>
                   <label description="Open" languagecode="1033" />
+                  <label description="Ouvert" languagecode="1036" />
                 </labels>
               </state>
               <state value="1" defaultstatus="5" invariantname="Completed">
                 <labels>
                   <label description="Completed" languagecode="1033" />
+                  <label description="Terminé" languagecode="1036" />
                 </labels>
               </state>
               <state value="2" defaultstatus="6" invariantname="Canceled">
                 <labels>
                   <label description="Canceled" languagecode="1033" />
+                  <label description="Annulé" languagecode="1036" />
                 </labels>
               </state>
             </states>
           </optionset>
           <displaynames>
             <displayname description="Activity Status" languagecode="1033" />
+            <displayname description="Statut d'activité" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Shows whether the task is open, completed, or canceled. Completed and canceled tasks are read-only and can't be edited." languagecode="1033" />
+            <Description description="Indique si la tâche est ouverte, terminée ou annulée. Les tâches terminées et annulées sont en lecture seule et ne peuvent pas être modifiées." languagecode="1036" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="StatusCode">
@@ -128,48 +135,58 @@
             <IntroducedVersion>5.0.0.0</IntroducedVersion>
             <displaynames>
               <displayname description="Status Reason" languagecode="1033" />
+              <displayname description="Raison du statut" languagecode="1036" />
             </displaynames>
             <Descriptions>
               <Description description="Reason for the status of the task." languagecode="1033" />
+              <Description description="Raison du statut de l'activité de tâche." languagecode="1036" />
             </Descriptions>
             <statuses>
               <status value="2" state="0" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="Not Started" languagecode="1033" />
+                  <label description="Non commencé" languagecode="1036" />
                 </labels>
               </status>
               <status value="3" state="0" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="In Progress" languagecode="1033" />
+                  <label description="En cours" languagecode="1036" />
                 </labels>
               </status>
               <status value="4" state="0" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="Waiting on someone else" languagecode="1033" />
+                  <label description="Attente après quelqu'un" languagecode="1036" />
                 </labels>
               </status>
               <status value="7" state="0" TransitionData="" Color="#0000ff">
                 <labels>
                   <label description="Deferred" languagecode="1033" />
+                  <label description="Différé" languagecode="1036" />
                 </labels>
               </status>
               <status value="5" state="1" TransitionData="" Color="#29b510">
                 <labels>
                   <label description="Completed" languagecode="1033" />
+                  <label description="Terminé" languagecode="1036" />
                 </labels>
               </status>
               <status value="6" state="2" TransitionData="" Color="#a3a2a0">
                 <labels>
                   <label description="Canceled" languagecode="1033" />
+                  <label description="Annulé" languagecode="1036" />
                 </labels>
               </status>
             </statuses>
           </optionset>
           <displaynames>
             <displayname description="Status Reason" languagecode="1033" />
+            <displayname description="Raison du statut" languagecode="1036" />
           </displaynames>
           <Descriptions>
             <Description description="Select the task's status." languagecode="1033" />
+            <Description description="Sélectionnez le statut de la tâche." languagecode="1036" />
           </Descriptions>
         </attribute>
       </attributes>

@@ -4,6 +4,11 @@ declare const enum account_address1_addresstypecode {
   Primary = 3,
   Other = 4,
 }
+declare const enum opc_sector {
+  Private = 533950000,
+  Public = 533950001,
+  Civil = 533950002,
+}
 declare const enum account_address1_shippingmethodcode {
   Airborne = 1,
   DHL = 2,
@@ -13,13 +18,15 @@ declare const enum account_address1_shippingmethodcode {
   FullLoad = 6,
   WillCall = 7,
 }
+declare const enum account_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
 declare const enum account_accountcategorycode {
   PreferredCustomer = 1,
   Standard = 2,
-}
-declare const enum account_statecode {
-  Active = 0,
-  Inactive = 1,
 }
 declare const enum account_address1_freighttermscode {
   FOB = 1,
@@ -36,8 +43,19 @@ declare const enum account_preferredappointmenttimecode {
 declare const enum account_accountclassificationcode {
   DefaultValue = 1,
 }
-declare const enum account_customersizecode {
-  DefaultValue = 1,
+declare const enum account_customertypecode {
+  Competitor = 1,
+  Consultant = 2,
+  Customer = 3,
+  Investor = 4,
+  Partner = 5,
+  Influencer = 6,
+  Press = 7,
+  Prospect = 8,
+  Reseller = 9,
+  Supplier = 10,
+  Vendor = 11,
+  Other = 12,
 }
 declare const enum account_statuscode {
   Active = 1,
@@ -49,20 +67,15 @@ declare const enum account_ownershipcode {
   Subsidiary = 3,
   Other = 4,
 }
-declare const enum account_address2_freighttermscode {
-  DefaultValue = 1,
-}
-declare const enum opc_sector {
-  Private = 533950000,
-  Public = 533950001,
-  Civil = 533950002,
-}
 declare const enum account_preferredcontactmethodcode {
   Any = 1,
   Email = 2,
   Phone = 3,
   Fax = 4,
   Mail = 5,
+}
+declare const enum account_territorycode {
+  DefaultValue = 1,
 }
 declare const enum account_industrycode {
   Accounting = 1,
@@ -105,28 +118,11 @@ declare const enum account_businesstypecode {
 declare const enum account_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum account_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
-}
 declare const enum account_address2_addresstypecode {
   DefaultValue = 1,
 }
-declare const enum account_customertypecode {
-  Competitor = 1,
-  Consultant = 2,
-  Customer = 3,
-  Investor = 4,
-  Partner = 5,
-  Influencer = 6,
-  Press = 7,
-  Prospect = 8,
-  Reseller = 9,
-  Supplier = 10,
-  Vendor = 11,
-  Other = 12,
+declare const enum account_customersizecode {
+  DefaultValue = 1,
 }
 declare const enum account_address2_shippingmethodcode {
   DefaultValue = 1,
@@ -140,8 +136,12 @@ declare const enum account_preferredappointmentdaycode {
   Friday = 5,
   Saturday = 6,
 }
-declare const enum account_territorycode {
+declare const enum account_address2_freighttermscode {
   DefaultValue = 1,
+}
+declare const enum account_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum activityparty_participationtypemask {
   Sender = 1,
@@ -176,10 +176,6 @@ declare const enum contact_address1_freighttermscode {
   FOB = 1,
   NoCharge = 2,
 }
-declare const enum contact_gendercode {
-  Male = 1,
-  Female = 2,
-}
 declare const enum contact_address1_shippingmethodcode {
   Airborne = 1,
   DHL = 2,
@@ -188,6 +184,16 @@ declare const enum contact_address1_shippingmethodcode {
   PostalMail = 5,
   FullLoad = 6,
   WillCall = 7,
+}
+declare const enum contact_paymenttermscode {
+  Net30 = 1,
+  _210Net30 = 2,
+  Net45 = 3,
+  Net60 = 4,
+}
+declare const enum contact_gendercode {
+  Male = 1,
+  Female = 2,
 }
 declare const enum opc_duplicatedetectionresult {
   None = 924340000,
@@ -199,27 +205,14 @@ declare const enum contact_preferredappointmenttimecode {
   Afternoon = 2,
   Evening = 3,
 }
-declare const enum contact_customersizecode {
-  DefaultValue = 1,
-}
 declare const enum contact_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum contact_address2_freighttermscode {
+declare const enum contact_customertypecode {
   DefaultValue = 1,
 }
-declare const enum contact_educationcode {
-  DefaultValue = 1,
-}
-declare const enum contact_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum contact_leadsourcecode {
-  DefaultValue = 1,
-}
-declare const enum contact_shippingmethodcode {
+declare const enum contact_customersizecode {
   DefaultValue = 1,
 }
 declare const enum contact_preferredcontactmethodcode {
@@ -229,22 +222,32 @@ declare const enum contact_preferredcontactmethodcode {
   Fax = 4,
   Mail = 5,
 }
-declare const enum contact_paymenttermscode {
-  Net30 = 1,
-  _210Net30 = 2,
-  Net45 = 3,
-  Net60 = 4,
+declare const enum contact_address2_freighttermscode {
+  DefaultValue = 1,
 }
-declare const enum contact_territorycode {
+declare const enum contact_educationcode {
   DefaultValue = 1,
 }
 declare const enum contact_address3_freighttermscode {
+  DefaultValue = 1,
+}
+declare const enum contact_address3_shippingmethodcode {
   DefaultValue = 1,
 }
 declare const enum contact_accountrolecode {
   DecisionMaker = 1,
   Employee = 2,
   Influencer = 3,
+}
+declare const enum opc_multiplecomplaintstrategy {
+  NotApplied = 924340000,
+  Proposed = 924340001,
+  Applied = 924340002,
+  Former = 924340003,
+}
+declare const enum contact_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum contact_address2_addresstypecode {
   DefaultValue = 1,
@@ -257,15 +260,6 @@ declare const enum contact_preferredappointmentdaycode {
   Thursday = 4,
   Friday = 5,
   Saturday = 6,
-}
-declare const enum opc_multiplecomplaintstrategy {
-  NotApplied = 924340000,
-  Proposed = 924340001,
-  Applied = 924340002,
-  Former = 924340003,
-}
-declare const enum contact_customertypecode {
-  DefaultValue = 1,
 }
 declare const enum opc_preferredlanguage {
   English = 924340000,
@@ -280,20 +274,21 @@ declare const enum contact_familystatuscode {
   Divorced = 3,
   Widowed = 4,
 }
-declare const enum contact_address3_shippingmethodcode {
+declare const enum contact_address2_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum contact_address2_shippingmethodcode {
+declare const enum contact_leadsourcecode {
+  DefaultValue = 1,
+}
+declare const enum contact_shippingmethodcode {
+  DefaultValue = 1,
+}
+declare const enum contact_territorycode {
   DefaultValue = 1,
 }
 declare const enum duplicaterule_statecode {
   Inactive = 0,
   Active = 1,
-}
-declare const enum duplicaterule_statuscode {
-  Unpublished = 0,
-  Publishing = 1,
-  Published = 2,
 }
 declare const enum duplicaterule_baseentitytypecode {
   Account = 1,
@@ -421,7 +416,7 @@ declare const enum duplicaterule_baseentitytypecode {
   EmailHash = 4023,
   DisplayStringMap = 4101,
   DisplayString = 4102,
-  Notification_2 = 4110,
+  Notification = 4110,
   ExchangeSyncIdMapping = 4120,
   Activity = 4200,
   Appointment = 4201,
@@ -703,7 +698,7 @@ declare const enum duplicaterule_baseentitytypecode {
   Industry = 10091,
   Issue = 10092,
   Legislation = 10093,
-  Notification = 10094,
+  Notification_2 = 10094,
   OPCPriority = 10095,
   QuestionTemplate = 10096,
   QuestionType = 10097,
@@ -720,6 +715,11 @@ declare const enum duplicaterule_baseentitytypecode {
   Theme = 10108,
   Topic = 10109,
   RevokeInheritedAccessRecordsTracker = 90001,
+}
+declare const enum duplicaterule_statuscode {
+  Unpublished = 0,
+  Publishing = 1,
+  Published = 2,
 }
 declare const enum duplicaterule_matchingentitytypecode {
   Account = 1,
@@ -847,7 +847,7 @@ declare const enum duplicaterule_matchingentitytypecode {
   EmailHash = 4023,
   DisplayStringMap = 4101,
   DisplayString = 4102,
-  Notification_2 = 4110,
+  Notification = 4110,
   ExchangeSyncIdMapping = 4120,
   Activity = 4200,
   Appointment = 4201,
@@ -1129,7 +1129,7 @@ declare const enum duplicaterule_matchingentitytypecode {
   Industry = 10091,
   Issue = 10092,
   Legislation = 10093,
-  Notification = 10094,
+  Notification_2 = 10094,
   OPCPriority = 10095,
   QuestionTemplate = 10096,
   QuestionType = 10097,
@@ -1160,6 +1160,12 @@ declare const enum environmentvariabledefinition_statecode {
   Active = 0,
   Inactive = 1,
 }
+declare const enum componentstate {
+  Published = 0,
+  Unpublished = 1,
+  Deleted = 2,
+  DeletedUnpublished = 3,
+}
 declare const enum environmentvariabledefinition_statuscode {
   Active = 1,
   Inactive = 2,
@@ -1170,12 +1176,6 @@ declare const enum environmentvariabledefinition_type {
   Boolean = 100000002,
   JSON = 100000003,
   DataSource = 100000004,
-}
-declare const enum componentstate {
-  Published = 0,
-  Unpublished = 1,
-  Deleted = 2,
-  DeletedUnpublished = 3,
 }
 declare const enum environmentvariablevalue_statecode {
   Active = 0,
@@ -1199,13 +1199,13 @@ declare const enum opc_allegation_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_allegationtype_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_allegationtype_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_allegationtype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_checklistresponse_statecode {
   Active = 0,
@@ -1215,22 +1215,56 @@ declare const enum opc_checklistresponse_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_checklisttype_statuscode {
-  Active = 1,
-  Inactive = 2,
+declare const enum opc_checklisttype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_complaintstage {
   Intake = 924340000,
 }
-declare const enum opc_checklisttype_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_checklisttype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_respondentandcomplainantrelationship {
   Employee = 533950000,
   Tenant = 533950001,
   Customer = 533950002,
   Patient = 533950003,
+}
+declare const enum opc_nextstep {
+  Transfertoinvestigations = 924340000,
+  Resolved = 924340001,
+  Withdrawn = 924340002,
+  Settled = 924340003,
+  Discontinued = 924340004,
+}
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
+}
+declare const enum opc_complaint_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
+}
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
 }
 declare const enum opc_yesorno {
   Yes = 924340000,
@@ -1247,42 +1281,15 @@ declare const enum opc_perceivedpriorities {
   Reimbursement = 533950007,
   Timeliness = 533950008,
 }
+declare const enum opc_complaintsource {
+  Onlinecorrespondence = 533950000,
+  Letter = 533950001,
+}
 declare const enum opc_intakedisposition {
   MovetoEarlyResolution = 924340000,
   MovetoInvestigation = 924340001,
   Declinetoinvestigate = 924340002,
   Close = 924340003,
-}
-declare const enum opc_complaintmilestone {
-  Triage = 924340000,
-  Intake = 924340001,
-  EarlyResolution = 924340002,
-  Investigation = 924340003,
-}
-declare const enum opc_complaint_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_complaintsource {
-  Onlinecorrespondence = 533950000,
-  Letter = 533950001,
-}
-declare const enum opc_closereason {
-  Redirection = 924340000,
-  Duplicate = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
-  Createdinerror = 924340004,
-}
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
 }
 declare const enum opc_complaint_statuscode {
   Declined = 924340001,
@@ -1299,18 +1306,15 @@ declare const enum opc_complaint_statuscode {
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
 }
-declare const enum opc_nextstep {
-  Transfertoinvestigations = 924340000,
-  Resolved = 924340001,
-  Withdrawn = 924340002,
-  Settled = 924340003,
-  Discontinued = 924340004,
+declare const enum opc_dispositionaction_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_dispositionaction_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionaction_statecode {
+declare const enum opc_dispositionreason_statecode {
   Active = 0,
   Inactive = 1,
 }
@@ -1318,9 +1322,12 @@ declare const enum opc_dispositionreason_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionreason_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_event_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
 }
 declare const enum opc_event_prioritycode {
   Low = 0,
@@ -1352,13 +1359,6 @@ declare const enum activitypointer_activitytypecode {
   Task = 4212,
   RecurringAppointment = 4251,
   Event = 10089,
-}
-declare const enum opc_event_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
 }
 declare const enum opc_event_statuscode {
   Open = 1,
@@ -1423,13 +1423,13 @@ declare const enum opc_notification_statuscode {
   Inactive = 2,
   Read = 924340000,
 }
-declare const enum opc_opcpriority_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_opcpriority_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_opcpriority_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_questiontemplate_statecode {
   Active = 0,
@@ -1439,13 +1439,13 @@ declare const enum opc_questiontemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_questiontype_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_questiontype_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_questiontype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_recommendation_statecode {
   Active = 0,
@@ -1479,13 +1479,13 @@ declare const enum opc_riskassessment_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentcategory_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_riskassessmentcategory_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_riskassessmentcategory_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_riskassessmentcategorytemplate_statecode {
   Active = 0,
@@ -1527,15 +1527,11 @@ declare const enum opc_riskassessmenttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_theme_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_theme_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_topic_statuscode {
+declare const enum opc_theme_statuscode {
   Active = 1,
   Inactive = 2,
 }
@@ -1543,22 +1539,26 @@ declare const enum opc_topic_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum queue_queuetypecode {
-  DefaultValue = 1,
+declare const enum opc_topic_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum queue_outgoingemaildeliverymethod {
   None = 0,
   ServerSideSynchronizationorEmailRouter = 2,
-}
-declare const enum queue_statecode {
-  Active = 0,
-  Inactive = 1,
 }
 declare const enum queue_emailrouteraccessapproval {
   Empty = 0,
   Approved = 1,
   PendingApproval = 2,
   Rejected = 3,
+}
+declare const enum queue_queuetypecode {
+  DefaultValue = 1,
+}
+declare const enum queue_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum queue_queueviewtype {
   Public = 0,
@@ -1656,42 +1656,8 @@ declare const enum systemuser_address1_addresstypecode {
 declare const enum systemuser_address1_shippingmethodcode {
   DefaultValue = 1,
 }
-declare const enum systemuser_caltype {
-  Professional = 0,
-  Administrative = 1,
-  Basic = 2,
-  DeviceProfessional = 3,
-  DeviceBasic = 4,
-  Essential = 5,
-  DeviceEssential = 6,
-  Enterprise = 7,
-  DeviceEnterprise = 8,
-  Sales = 9,
-  Service = 10,
-  FieldService = 11,
-  ProjectService = 12,
-}
-declare const enum systemuser_invitestatuscode {
-  InvitationNotSent = 0,
-  Invited = 1,
-  InvitationNearExpired = 2,
-  InvitationExpired = 3,
-  InvitationAccepted = 4,
-  InvitationRejected = 5,
-  InvitationRevoked = 6,
-}
-declare const enum systemuser_preferredaddresscode {
-  MailingAddress = 1,
-  OtherAddress = 2,
-}
 declare const enum systemuser_preferredemailcode {
   DefaultValue = 1,
-}
-declare const enum systemuser_emailrouteraccessapproval {
-  Empty = 0,
-  Approved = 1,
-  PendingApproval = 2,
-  Rejected = 3,
 }
 declare const enum systemuser_outgoingemaildeliverymethod {
   None = 0,
@@ -1703,6 +1669,16 @@ declare const enum systemuser_preferredphonecode {
   OtherPhone = 2,
   HomePhone = 3,
   MobilePhone = 4,
+}
+declare const enum systemuser_emailrouteraccessapproval {
+  Empty = 0,
+  Approved = 1,
+  PendingApproval = 2,
+  Rejected = 3,
+}
+declare const enum systemuser_preferredaddresscode {
+  MailingAddress = 1,
+  OtherAddress = 2,
 }
 declare const enum systemuser_incomingemaildeliverymethod {
   None = 0,
@@ -1718,8 +1694,32 @@ declare const enum systemuser_accessmode {
   Noninteractive = 4,
   DelegatedAdmin = 5,
 }
+declare const enum systemuser_caltype {
+  Professional = 0,
+  Administrative = 1,
+  Basic = 2,
+  DeviceProfessional = 3,
+  DeviceBasic = 4,
+  Essential = 5,
+  DeviceEssential = 6,
+  Enterprise = 7,
+  DeviceEnterprise = 8,
+  Sales = 9,
+  Service = 10,
+  FieldService = 11,
+  ProjectService = 12,
+}
 declare const enum systemuser_address2_addresstypecode {
   DefaultValue = 1,
+}
+declare const enum systemuser_invitestatuscode {
+  InvitationNotSent = 0,
+  Invited = 1,
+  InvitationNearExpired = 2,
+  InvitationExpired = 3,
+  InvitationAccepted = 4,
+  InvitationRejected = 5,
+  InvitationRevoked = 6,
 }
 declare const enum systemuser_address2_shippingmethodcode {
   DefaultValue = 1,
@@ -1760,30 +1760,6 @@ declare const enum team_membershiptype {
   Owners = 2,
   Guests = 3,
 }
-declare const enum connection_record1objecttypecode {
-  Account = 1,
-  Contact = 2,
-  User = 8,
-  Team = 9,
-  Position = 50,
-  SocialProfile = 99,
-  Territory = 2013,
-  Activity = 4200,
-  Appointment = 4201,
-  Email = 4202,
-  Fax = 4204,
-  Letter = 4207,
-  PhoneCall = 4210,
-  Task = 4212,
-  SocialActivity = 4216,
-  RecurringAppointment = 4251,
-  ProcessSession = 4710,
-  ChannelAccessProfileRule = 9400,
-  Goal = 9600,
-  KnowledgeBaseRecord = 9930,
-  KnowledgeArticle = 9953,
-  Event = 10089,
-}
 declare const enum connection_record2objecttypecode {
   Account = 1,
   Contact = 2,
@@ -1808,13 +1784,37 @@ declare const enum connection_record2objecttypecode {
   KnowledgeArticle = 9953,
   Event = 10089,
 }
+declare const enum connection_statecode {
+  Active = 0,
+  Inactive = 1,
+}
 declare const enum connection_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum connection_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum connection_record1objecttypecode {
+  Account = 1,
+  Contact = 2,
+  User = 8,
+  Team = 9,
+  Position = 50,
+  SocialProfile = 99,
+  Territory = 2013,
+  Activity = 4200,
+  Appointment = 4201,
+  Email = 4202,
+  Fax = 4204,
+  Letter = 4207,
+  PhoneCall = 4210,
+  Task = 4212,
+  SocialActivity = 4216,
+  RecurringAppointment = 4251,
+  ProcessSession = 4710,
+  ChannelAccessProfileRule = 9400,
+  Goal = 9600,
+  KnowledgeBaseRecord = 9930,
+  KnowledgeArticle = 9953,
+  Event = 10089,
 }
 declare namespace Form.account.QuickCreate {
   namespace QuickCreate {
@@ -5544,7 +5544,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "subgrid_industries"): Xrm.BaseControl;
       get(name: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
       get(name: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
-      get(name: "subgrid_tasks"): Xrm.SubGridControl<"task">;
+      get(name: "subgrid_tasks"): Xrm.BaseControl;
       get(name: "subgrid_topics"): Xrm.BaseControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -5650,7 +5650,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "subgrid_industries"): Xrm.BaseControl;
     getControl(controlName: "subgrid_reminders"): Xrm.SubGridControl<"opc_reminder">;
     getControl(controlName: "subgrid_risk_assessments"): Xrm.SubGridControl<"opc_riskassessment">;
-    getControl(controlName: "subgrid_tasks"): Xrm.SubGridControl<"task">;
+    getControl(controlName: "subgrid_tasks"): Xrm.BaseControl;
     getControl(controlName: "subgrid_topics"): Xrm.BaseControl;
     getControl(controlName: string): undefined;
   }
@@ -10100,6 +10100,7 @@ type WebResourceImage = "opc_compliance/imgs/icon64x64_read_notification.png"
   | "opc_compliance/imgs/icon64x64_unread_notification.png"
 declare const enum LCID {
   English = 1033,
+  French = 1036,
 }
 interface WebMappingRetrieve<ISelect, IExpand, IFilter, IFixed, Result, FormattedResult> {
 }

@@ -23,6 +23,7 @@
                       <cell id="{71b383c7-1846-447d-8b55-db242a568b2a}" showlabel="true" visible="false">
                         <labels>
                           <label description="Subject" languagecode="1033" />
+                          <label description="Sujet" languagecode="1036" />
                         </labels>
                         <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="true" />
                       </cell>
@@ -55,6 +56,7 @@
                       <cell id="{32e913f1-f459-47fc-adc4-d55abb310b45}">
                         <labels>
                           <label description="Owner" languagecode="1033" />
+                          <label description="Propriétaire" languagecode="1036" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
@@ -63,6 +65,7 @@
                       <cell id="{102b8cc4-68eb-4e7d-9548-55757b9d7b40}">
                         <labels>
                           <label description="Regarding" languagecode="1033" />
+                          <label description="Concernant" languagecode="1036" />
                         </labels>
                         <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" />
                       </cell>
@@ -117,24 +120,28 @@
             <cell id="{4a203e40-a04c-4c7c-a0a8-e2c41c31ca54}">
               <labels>
                 <label description="Priority" languagecode="1033" />
+                <label description="Priorité" languagecode="1036" />
               </labels>
               <control id="header_prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
             </cell>
             <cell id="{d8f07f01-c6c8-42bf-ad9f-8d8b7724fa0f}">
               <labels>
                 <label description="Due Date" languagecode="1033" />
+                <label description="Date d’échéance" languagecode="1036" />
               </labels>
               <control id="header_scheduledend" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="scheduledend" disabled="false" />
             </cell>
             <cell id="{a5d6107d-1e4d-4db2-b5c5-7bbb32384215}">
               <labels>
                 <label description="Activity Status" languagecode="1033" />
+                <label description="Statut d'activité" languagecode="1036" />
               </labels>
               <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
             </cell>
             <cell id="{6a632e07-44a4-4ba3-9b0c-f440075b12d8}">
               <labels>
                 <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
             </cell>
