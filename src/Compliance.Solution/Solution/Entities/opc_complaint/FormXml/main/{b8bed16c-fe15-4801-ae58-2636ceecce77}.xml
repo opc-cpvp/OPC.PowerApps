@@ -944,7 +944,7 @@
                 <EnableViewPicker>false</EnableViewPicker>
                 <FilteredViewIds>{6CF285AA-EB20-4277-925A-3E9735411FF0},{6C272503-AB4E-EB11-A812-000D3A84AB5F}</FilteredViewIds>
               </data-set>
-              <badgeConfig static="true" type="SingleLine.Text">[ { "name": "statuscode", "keys": [ 5, 6 ] }, { "name": "opc_type", "keys": [1,2,3,4]}]</badgeConfig>
+              <badgeConfig static="true" type="SingleLine.Text">[{"name":"statuscode","keys":[5,6,100]},{"name":"opc_type","keys":[1,2,3,4]}]</badgeConfig>
             </parameters>
           </customControl>
           <customControl formFactor="1" name="opc_opc.pcf.TaskManagerComponent">
