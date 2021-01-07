@@ -178,6 +178,12 @@
                   <label description="Annulé" languagecode="1036" />
                 </labels>
               </status>
+              <status value="100" state="2" TransitionData="" Color="#a3a2a0">
+                <labels>
+                  <label description="Skipped" languagecode="1033" />
+                  <label description="Ignoré" languagecode="1036" />
+                </labels>
+              </status>
             </statuses>
           </optionset>
           <displaynames>
