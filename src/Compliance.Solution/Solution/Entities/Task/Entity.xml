@@ -180,7 +180,7 @@
               </status>
               <status value="100" state="2" TransitionData="" Color="#a3a2a0">
                 <labels>
-                  <label description="Skipped" languagecode="1033" />
+                  <label description="Skipped" languagecode="1033" />git push
                   <label description="Ignoré" languagecode="1036" />
                 </labels>
               </status>
