@@ -6,24 +6,29 @@ import { XrmPageBaseMock } from "../../test/XrmPageBaseMock";
 import chai from "chai";
 import sinon from "sinon";
 import sinonChai from "sinon-chai";
+import { AllegationType } from "../enums";
 
 const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
 // SAMPLE TEST
-describe("Allegation", () => {
-    describe("when form is loading", () => {
-        let service: AllegationService;
-        let form: Allegation.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.opc_allegation.Main.Information, any>;
-        let formContext: XrmPageBaseMock<Form.opc_allegation.Main.Information, undefined>;
+describe("Allegation - Main", () => {
+    let allegationService: AllegationService;
+    let mockContext: XrmExecutionContextMock<Form.opc_allegation.Main.Information, any>;
+    let formContext: XrmPageBaseMock<Form.opc_allegation.Main.Information, undefined>;
+    let form: Allegation.Forms.MainForm;
 
+    function initializeMock() {
+        allegationService = new AllegationService();
+        mockContext = new XrmExecutionContextMock<Form.opc_allegation.Main.Information, any>();
+        form = new Allegation.Forms.MainForm(allegationService);
+        formContext = mockContext.getFormContext();
+    }
+
+    describe("when form is loading", () => {
         beforeEach(() => {
-            service = new AllegationService();
-            mockContext = new XrmExecutionContextMock<Form.opc_allegation.Main.Information, any>();
-            form = new Allegation.Forms.MainForm(service);
-            formContext = mockContext.getFormContext();
+            initializeMock();
         });
 
         afterEach(() => {
@@ -83,18 +88,50 @@ describe("Allegation", () => {
         });
     });
 
-    describe("when disposition is changed", () => {
-        let service: AllegationService;
-        let form: Allegation.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.opc_allegation.Main.Information, undefined>;
-        let formContext: XrmPageBaseMock<Form.opc_allegation.Main.Information, undefined>;
-
+    describe("when allegation type ", () => {
         beforeEach(() => {
-            service = new AllegationService();
-            mockContext = new XrmExecutionContextMock<Form.opc_allegation.Main.Information, undefined>();
-            form = new Allegation.Forms.MainForm(service);
+            initializeMock();
+        });
+
+        afterEach(() => {
+            sandbox.restore();
+        });
+
+        it("is changed to 'Access', it should SHOW access request number", () => {
+            // Arrange
+            formContext.getAttribute("opc_allegationtypeid").setValue([{ id: AllegationType.Access }]);
+
+            // Act
             form.initializeComponents(mockContext);
-            formContext = mockContext.getFormContext();
+
+            // Assert
+            formContext.getAttribute("opc_referencenumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), true));
+        });
+
+        it("is changed to value other than 'Access', it should HIDE access request number", () => {
+            // Arrange
+            formContext.getAttribute("opc_allegationtypeid").setValue([{ id: "Test" }]);
+
+            // Act
+            form.initializeComponents(mockContext);
+
+            // Assert
+            formContext.getAttribute("opc_referencenumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), false));
+        });
+
+        it("has no value, it should HIDE access request number", () => {
+            // Act
+            form.initializeComponents(mockContext);
+
+            // Assert
+            formContext.getAttribute("opc_referencenumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), false));
+        });
+    });
+
+    describe("when disposition is changed", () => {
+        beforeEach(() => {
+            initializeMock();
+            form.initializeComponents(mockContext);
         });
 
         afterEach(() => {
@@ -174,17 +211,9 @@ describe("Allegation", () => {
     });
 
     describe("when disposition reason is changed", () => {
-        let service: AllegationService;
-        let form: Allegation.Forms.MainForm;
-        let mockContext: XrmExecutionContextMock<Form.opc_allegation.Main.Information, undefined>;
-        let formContext: XrmPageBaseMock<Form.opc_allegation.Main.Information, undefined>;
-
         beforeEach(() => {
-            service = new AllegationService();
-            mockContext = new XrmExecutionContextMock<Form.opc_allegation.Main.Information, undefined>();
-            form = new Allegation.Forms.MainForm(service);
+            initializeMock();
             form.initializeComponents(mockContext);
-            formContext = mockContext.getFormContext();
         });
 
         afterEach(() => {

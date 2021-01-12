@@ -32,6 +32,45 @@
                         </labels>
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{207e4a32-a533-4697-a1a1-945cf7e86c79}" locklevel="0">
+                        <labels>
+                          <label description="Allegation Type" languagecode="1033" />
+                        </labels>
+                        <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{6d7f8602-dcc7-49cb-8350-c02efa30bd11}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{81c03006-e970-49d3-a515-8f75c6fadbd6}" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Access Request Number" languagecode="1033" />
+                        </labels>
+                        <control id="opc_accessrequestnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_accessrequestnumber" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{aa065188-eee6-42b3-a31d-2c8e704531c2}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a3718b3e-a52b-434f-a617-5e59a4a5bc2f}" locklevel="0">
+                        <labels>
+                          <label description="Contact" languagecode="1033" />
+                        </labels>
+                        <control id="opc_contact" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_contact" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{08b3aeaa-8cdb-44a2-84a9-a0052d60df22}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -95,7 +134,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -124,6 +163,16 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{7395e242-80cd-e567-8e35-0c65ccda77b6}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{a5c67c79-b717-e404-bc12-945480e6a2cd}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

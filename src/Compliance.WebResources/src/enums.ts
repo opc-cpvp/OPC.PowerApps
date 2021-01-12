@@ -37,3 +37,7 @@ export enum QuestionTypes {
     Date = "7f638642-5b23-eb11-a813-000d3af45a96",
     CalculatedField = "c8f19848-5b23-eb11-a813-000d3af45a96"
 }
+
+export enum AllegationType {
+    Access = "{9929BA43-3AC7-4869-955F-FA42BCB78C0B}"
+}

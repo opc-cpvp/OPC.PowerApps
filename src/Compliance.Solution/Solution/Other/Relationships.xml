@@ -94,6 +94,7 @@
   <EntityRelationship Name="opc_accounts_industries_relatedindustries" />
   <EntityRelationship Name="opc_allegation_checklistresponses_allegation" />
   <EntityRelationship Name="opc_allegationtype_allegations_allegationtype" />
+  <EntityRelationship Name="opc_allegationtype_issues_allegationtype" />
   <EntityRelationship Name="opc_checklisttype_allegationtypes_checklistty" />
   <EntityRelationship Name="opc_checklisttype_questiontemplates_checklist" />
   <EntityRelationship Name="opc_complaint_allegations_complaint" />
@@ -112,6 +113,7 @@
   <EntityRelationship Name="opc_contact_complaints_complainantreps" />
   <EntityRelationship Name="opc_contact_complaints_repondentrep" />
   <EntityRelationship Name="opc_contact_complaints_respondentlegalrep" />
+  <EntityRelationship Name="opc_contact_issues_contact" />
   <EntityRelationship Name="opc_dispositionaction_allegations_action" />
   <EntityRelationship Name="opc_dispositionreason_allegations_reason" />
   <EntityRelationship Name="opc_dispositionreason_dispositionactions_reas" />

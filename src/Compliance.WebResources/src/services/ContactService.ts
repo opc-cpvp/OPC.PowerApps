@@ -33,4 +33,8 @@ export class ContactService implements IContactService {
             .andFilter(x => Filter.notEquals(x.contactid, Filter.makeGuid(XQW.stripGUID(contact.contactid))))
             .promise();
     }
+
+    getRespondentContactsFilter(accountId: string): string {
+        return `<filter type="and"><condition attribute="parentcustomerid" operator="eq" value="${accountId}" /></filter>`;
+    }
 }
