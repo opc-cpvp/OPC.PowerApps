@@ -23,7 +23,8 @@ export class ComplaintService implements IComplaintService {
             x.address1_city,
             x.address1_stateorprovince,
             x.address1_postalcode,
-            x.address1_country
+            x.address1_country,
+            x.opc_requireprivilegedcorrespondence
         ];
         const accountAttributes = (x: Account_Select): WebAttribute<Account_Select, any, any>[] => [
             x.name,
@@ -46,7 +47,8 @@ export class ComplaintService implements IComplaintService {
             x.domainname,
             x.internalemailaddress,
             x.address1_telephone1,
-            x.mobilephone
+            x.mobilephone,
+            x.parentsystemuserid_guid
         ];
 
         return XrmQuery.retrieve(x => x.opc_complaints, id)

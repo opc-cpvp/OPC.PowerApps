@@ -255,7 +255,6 @@ export namespace Dialogs {
             complaintElement.appendChild(allegationsElement);
             opcElement.appendChild(complaintElement);
             xmlDocument.appendChild(opcElement);
-
             return xmlDocument;
         }
 
@@ -322,6 +321,11 @@ export namespace Dialogs {
 
                             // For each question of type Two Options, change the numeral values to something easier to understand.
                             checklistResponses.forEach(x => {
+                                if (x.opc_response === null) {
+                                    const index = x.opc_name.indexOf("-");
+                                    x.opc_response = `{Response ${x.opc_name.substring(0, index).trim()}}`;
+                                }
+
                                 if (
                                     this._questionTemplates.find(y => y.opc_questiontemplateid === x.opc_questiontemplateid_guid)
                                         .opc_questiontypeid_guid !== QuestionTypes.TwoOptions
