@@ -24,6 +24,12 @@ import ComplaintMainForm = require("./forms/ComplaintMainForm");
 import Complaint = ComplaintMainForm.Complaint;
 import AllegationMainForm = require("./forms/AllegationMainForm");
 import Allegation = AllegationMainForm.Allegation;
+import AllegationQuickCreateForm = require("./forms/AllegationQuickCreateForm");
+import AllegationQuickCreate = AllegationQuickCreateForm.Allegation;
+import IssueMainForm = require("./forms/IssueMainForm");
+import Issue = IssueMainForm.Issue;
+import IssueQuickCreateForm = require("./forms/IssueQuickCreateForm");
+import IssueQuickCreate = IssueQuickCreateForm.Issue;
 import ReminderMainForm = require("./forms/ReminderMainForm");
 import Reminder = ReminderMainForm.Reminder;
 import ReminderQuickCreateForm = require("./forms/ReminderQuickCreateForm");
@@ -75,6 +81,9 @@ container.bind<i.ITemplateService>(nameof<i.ITemplateService>()).to(TemplateServ
 // Register Forms
 container.bind<i.IPowerForm<Form.opc_complaint.Main.Information>>("opc_complaint_information").to(Complaint.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_allegation.Main.Information>>("opc_allegation_information").to(Allegation.Forms.MainForm);
+container
+    .bind<i.IPowerForm<Form.opc_allegation.QuickCreate.QuickCreate>>("opc_allegation_quickcreate")
+    .to(AllegationQuickCreate.Forms.QuickCreate);
 container.bind<i.IPowerForm<Form.opc_reminder.Main.Information>>("opc_reminder_information").to(Reminder.Forms.MainForm);
 container
     .bind<i.IPowerForm<Form.opc_reminder.QuickCreate.QuickCreate>>("opc_reminder_quickcreate")
@@ -82,6 +91,8 @@ container
 container.bind<i.IPowerForm<Form.opc_notification.Main.Information>>("opc_notification_information").to(Notification.Forms.MainForm);
 container.bind<i.IPowerForm<Form.contact.Main.ComplianceContact>>("contact_compliancecontact").to(Contact.Forms.MainForm);
 container.bind<i.IPowerForm<Form.opc_riskassessment.Main.Information>>("opc_riskassessment_information").to(RiskAssessment.Forms.MainForm);
+container.bind<i.IPowerForm<Form.opc_issue.Main.Information>>("opc_issue_information").to(Issue.Forms.MainForm);
+container.bind<i.IPowerForm<Form.opc_issue.QuickCreate.QuickCreate>>("opc_issue_quickcreate").to(IssueQuickCreate.Forms.QuickCreate);
 
 // Register controls
 container.bind<ChecklistCtrl.ChecklistControl>(nameof<ChecklistCtrl.ChecklistControl>()).to(ChecklistCtrl.ChecklistControl);

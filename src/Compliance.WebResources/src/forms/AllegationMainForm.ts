@@ -3,6 +3,7 @@ import "reflect-metadata";
 import { IAllegationService } from "../interfaces";
 import { PowerForm } from "./PowerForm";
 import { XrmHelper } from "../helpers/XrmHelper";
+import { AllegationType } from "../enums";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -38,6 +39,9 @@ export namespace Allegation.Forms {
             formContext.getAttribute("opc_dispositionreasonid").addOnChange(x => this.dispositionreason_OnChange(x));
             formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
 
+            formContext.getAttribute("opc_allegationtypeid").addOnChange(x => this.allegationtype_OnChange(x));
+            formContext.getAttribute("opc_allegationtypeid").fireOnChange();
+
             formContext
                 .getAttribute("opc_dispositionreasonid")
                 .controls.forEach(x => x.addPreSearch(() => this.dispositionreason_PreSearch(formContext)));
@@ -59,6 +63,15 @@ export namespace Allegation.Forms {
             } else {
                 formContext.getAttribute("opc_dispositionactionid").controls.forEach(c => XrmHelper.toggleOff(c));
             }
+        }
+
+        private allegationtype_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_allegationtype">, undefined>) {
+            const formContext = context.getFormContext() as Form.opc_allegation.Main.Information;
+
+            const allegationTypeValue = formContext.getAttribute("opc_allegationtypeid").getValue();
+            const isReferenceNumberVisible = allegationTypeValue && allegationTypeValue[0].id === AllegationType.Access;
+
+            formContext.getAttribute("opc_referencenumber").controls.forEach(c => XrmHelper.toggle(c, isReferenceNumberVisible));
         }
 
         private disposition_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_allegationdisposition>, undefined>): void {

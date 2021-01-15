@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.271</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form maxWidth="1920">
       <tabs>
         <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{f37ddbe1-4b55-4a4a-8820-73e4aafd37b0}">
           <labels>
@@ -28,7 +28,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{52d5d9e6-61c6-49b5-b250-4808657518cc}" locklevel="0">
+                      <cell id="{52d5d9e6-61c6-49b5-b250-4808657518cc}" locklevel="0" visible="false">
                         <labels>
                           <label description="Reference Number" languagecode="1033" />
                         </labels>
@@ -47,7 +47,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{7e29c51a-18b0-4ad3-9253-beb953d67c05}">
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{7e29c51a-18b0-4ad3-9253-beb953d67c05}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -65,7 +65,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{9b2dc93c-8e18-451d-bbc7-5c8cf77c108b}">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{9b2dc93c-8e18-451d-bbc7-5c8cf77c108b}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -78,6 +78,16 @@
           </columns>
         </tab>
       </tabs>
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{237deb97-3060-07ab-b4ba-519dd1bdc90b}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{de06b133-1821-e675-c2c7-506091770b2b}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true">
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />

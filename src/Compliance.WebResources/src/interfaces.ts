@@ -22,6 +22,7 @@ export interface IContactService {
     getContact(id: string): Promise<Contact_Result>;
     getDuplicateStatus(id: string): Promise<Contact_Fixed & { opc_duplicatedetectionresult: opc_duplicatedetectionresult }>;
     getPotentialDuplicates(contact: Contact_Result): Promise<IBaseContact[]>;
+    getRespondentContactsFilter(accountId: string): string;
 }
 
 export interface IChecklistService {

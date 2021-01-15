@@ -14,7 +14,10 @@ import "./forms/NotificationMainForm.test";
 import "./forms/ReminderMainForm.test";
 import "./forms/ReminderQuickCreateForm.test";
 import "./forms/AllegationMainForm.test";
+import "./forms/AllegationQuickCreateForm.test";
 import "./forms/RiskAssessmentsMainForm.test";
+import "./forms/IssueMainForm.test";
+import "./forms/IssueQuickCreateForm.test";
 
 /* Controls */
 import "./controls/Checklist/ChecklistControl.test";

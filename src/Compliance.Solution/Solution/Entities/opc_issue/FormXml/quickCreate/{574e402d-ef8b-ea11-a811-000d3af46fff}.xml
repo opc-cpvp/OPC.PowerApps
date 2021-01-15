@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0.271</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form maxWidth="1920">
       <tabs>
         <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{e92b4802-bfc4-4c95-b63a-cc5b558efcd6}">
           <labels>
@@ -27,6 +27,22 @@
                         <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{7c2d9a4b-0f8c-4f12-a6a0-3a604aab3f1e}" locklevel="0">
+                        <labels>
+                          <label description="Allegation Type" languagecode="1033" />
+                        </labels>
+                        <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f53ab29f-8265-4a3d-baa5-2656e7e054a8}" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Access Request Number" languagecode="1033" />
+                        </labels>
+                        <control id="opc_accessrequestnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_accessrequestnumber" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -39,7 +55,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{44ce4fdc-8323-4502-a165-ecc030bd773e}">
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{44ce4fdc-8323-4502-a165-ecc030bd773e}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -57,7 +73,7 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{1a3a23fe-ce7f-4664-86fe-56e96e4c0a67}">
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{1a3a23fe-ce7f-4664-86fe-56e96e4c0a67}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -70,6 +86,16 @@
           </columns>
         </tab>
       </tabs>
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{7b553118-0aa3-bbd6-9822-877562c293a5}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{94a173dc-b1ca-1a1c-49ac-0b8c24ad958d}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true">
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />

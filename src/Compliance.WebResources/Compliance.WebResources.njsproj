@@ -84,14 +84,20 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\AllegationQuickCreateForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\AllegationQuickCreateForm.ts" />
     <TypeScriptCompile Include="src\forms\ContactMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ContactMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\IssueMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\IssueQuickCreateForm.test.ts" /> 
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\IssueMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\IssueQuickCreateForm.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.ts" />
     <TypeScriptCompile Include="src\forms\RiskAssessmentMainForm.ts" />

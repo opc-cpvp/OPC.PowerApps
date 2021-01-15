@@ -13,7 +13,7 @@ namespace Compliance.Entities
 	
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum goal_fiscalperiod
 	{
 		
@@ -115,7 +115,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum goal_fiscalyear
 	{
 		
@@ -328,7 +328,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum metric_goaltype
 	{
 		
@@ -343,7 +343,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum componentstate
 	{
 		
@@ -361,28 +361,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_nextstep
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Transfertoinvestigations = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Resolved = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Withdrawn = 924340002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Settled = 924340003,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Discontinued = 924340004,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum workflowlog_objecttypecode
 	{
 		
@@ -397,43 +376,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_allegationdisposition
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Resolved = 924340005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Acceptable = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Unacceptable = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Withdrawn = 924340002,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_respondentandcomplainantrelationship
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Employee = 533950000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Tenant = 533950001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Customer = 533950002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Patient = 533950003,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum connectionrole_category
 	{
 		
@@ -463,7 +406,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum isinherited
 	{
 		
@@ -475,16 +418,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_declinereason
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Nojurisdiction = 924340000,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum orginsightsconfiguration_plotoption
 	{
 		
@@ -523,22 +457,19 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum bulkemail_recipients
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum msdynce_contentstate
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Selectedrecordsoncurrentpage = 1,
+		Released = 0,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Allrecordsoncurrentpage = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Allrecordsonallpages = 3,
+		Draft = 1,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum sharepointdocumentlocation_locationtype
 	{
 		
@@ -550,7 +481,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum activitypointer_deliveryprioritycode
 	{
 		
@@ -565,34 +496,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum botsharingroletypes
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotmanager = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotauthor = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotreviewer = 3,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum delete_recurringappointmentmaster
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Allinstances = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theseriesleavepastappointments = 2,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum componenttype
 	{
 		
@@ -868,7 +772,394 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum activitypointer_activitytypecode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Fax = 4204,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Email = 4202,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Letter = 4207,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Appointment = 4201,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Task = 4212,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringAppointment = 4251,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10122,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum workflow_runas
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Owner = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CallingUser = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum botsharingroletypes
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotmanager = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotauthor = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Chatbotreviewer = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum orginsightsconfiguration_lookback
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_2H = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_48H = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_7D = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_30D = 4,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum sharepoint_validationstatus
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotValidated = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InProgress = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Invalid = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Valid = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Couldnotvalidate = 5,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum emailserverprofile_authenticationprotocol
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AutoDetect = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Negotiate = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NTLM = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Basic = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OAuth = 4,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum sharepointsite_servicetype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SharePoint = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OneDrive = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Sharedwithme = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MSTeams = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum officedocument_documenttype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MicrosoftExcel = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MicrosoftWord = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum delete_recurringappointmentmaster
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Allinstances = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theseriesleavepastappointments = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum mobileofflineenabledentities
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Account = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Contact = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Note = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Team = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Attachment = 1001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Queue = 2020,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItem = 2029,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Appointment = 4201,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Email = 4202,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Task = 4212,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SLAKPIInstance = 9752,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ImageDescriptor = 1007,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10122,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IndividualComplaint = 10123,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum convertrule_channelactivity
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Email = 4202,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Appointment = 4201,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Task = 4212,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SocialActivity = 4216,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10122,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum knowledgearticle_expirationstate
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Expired = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Published = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Archived = 5,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum socialactivity_postmessagetype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PublicMessage = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrivateMessage = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum syncattributemapping_syncdirection
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		None = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ToExchange = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ToCRM = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Bidirectional = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum workflow_stage
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Preoperation = 20,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Postoperation = 40,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum dependencytype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		None = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionInternal = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Published = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Unpublished = 4,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum socialprofile_community
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Facebook = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Twitter = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Other = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum bulkemail_recipients
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Selectedrecordsoncurrentpage = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Allrecordsoncurrentpage = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Allrecordsonallpages = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum field_security_permission_type
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotAllowed = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Allowed = 4,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum photo_resolution
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DeviceDefault = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_640x480 = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_1024x768 = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_1600x1200 = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_2048x1536 = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		_2592x1936 = 5,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum flipswitch_options
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Off = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		On = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum chatbotlanguage
 	{
 		
@@ -934,571 +1225,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum activitypointer_activitytypecode
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Email = 4202,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Letter = 4207,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurringAppointment = 4251,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum customapifieldtype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Boolean = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DateTime = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Decimal = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Entity = 3,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityCollection = 4,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityReference = 5,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Float = 6,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Integer = 7,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Money = 8,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Picklist = 9,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		String = 10,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StringArray = 11,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Guid = 12,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum workflow_runas
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Owner = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CallingUser = 1,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum orginsightsconfiguration_lookback
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_2H = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_48H = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_7D = 3,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_30D = 4,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum sharepoint_validationstatus
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NotValidated = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InProgress = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Invalid = 3,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Valid = 4,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Couldnotvalidate = 5,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum emailserverprofile_authenticationprotocol
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AutoDetect = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Negotiate = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NTLM = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Basic = 3,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OAuth = 4,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum sharepointsite_servicetype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharePoint = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OneDrive = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Sharedwithme = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MSTeams = 3,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_complaintstage
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Intake = 924340000,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum officedocument_documenttype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MicrosoftExcel = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MicrosoftWord = 2,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_multiplecomplaintstrategy
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NotApplied = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Proposed = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Applied = 924340002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Former = 924340003,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum mobileofflineenabledentities
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Account = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Contact = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Note = 5,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Team = 9,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Attachment = 1001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Queue = 2020,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItem = 2029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Email = 4202,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPIInstance = 9752,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Descripteurdimage = 1007,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11973,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum convertrule_channelactivity
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Email = 4202,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialActivity = 4216,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum knowledgearticle_expirationstate
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Expired = 4,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Published = 3,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Archived = 5,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum socialactivity_postmessagetype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PublicMessage = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrivateMessage = 1,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum msdynce_contentstate
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Released = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Draft = 1,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum syncattributemapping_syncdirection
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ToExchange = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ToCRM = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Bidirectional = 3,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_preferredlanguage
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		English = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		French = 924340001,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum workflow_stage
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Preoperation = 20,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Postoperation = 40,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_complaintmilestone
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Triage = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Intake = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EarlyResolution = 924340002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Investigation = 924340003,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_yesorno
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Yes = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		No = 924340001,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_perceivedpriorities
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Apology = 533950000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Acknowledgement = 533950001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Calltoaction = 533950002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Compensation = 533950003,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Court = 533950004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fulfilloriginalrequestprovideallegedmissingdocuments = 533950005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fineorpenalty = 533950006,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reimbursement = 533950007,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Timeliness = 533950008,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum dependencytype
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionInternal = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Published = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Unpublished = 4,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_complaintdisposition
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Discontinued = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Investigationcompleted = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Nojurisidiction = 924340002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Resolvedatearlyresolution = 924340003,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Resolvedatintake = 924340004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Settled = 924340005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Unresponsiveinquirer = 924340006,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Withdrawn = 924340007,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum socialprofile_community
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Facebook = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Twitter = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Other = 0,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum field_security_permission_type
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NotAllowed = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Allowed = 4,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_intakedisposition
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MovetoEarlyResolution = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MovetoInvestigation = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Declinetoinvestigate = 924340002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Close = 924340003,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum photo_resolution
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DeviceDefault = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_640x480 = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_1024x768 = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_1600x1200 = 3,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_2048x1536 = 4,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		_2592x1936 = 5,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum flipswitch_options
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Off = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		On = 1,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_duplicatedetectionresult
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None = 924340000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Potentialduplicate = 924340001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Duplicatefound = 924340002,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum processstage_category
 	{
 		
@@ -1543,22 +1270,52 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_sector
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum customapifieldtype
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Private = 533950000,
+		Boolean = 0,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Public = 533950001,
+		DateTime = 1,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Civil = 533950002,
+		Decimal = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Entity = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityCollection = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EntityReference = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Float = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Integer = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Money = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Picklist = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		String = 10,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		StringArray = 11,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Guid = 12,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum sharepoint_validationstatusreason
 	{
 		
@@ -1585,7 +1342,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum recurrencerule_monthofyear
 	{
 		
@@ -1630,7 +1387,229 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum connectortype
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CustomConnector = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotSpecified = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum principalsyncattributemapping_syncdirection
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		None = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ToExchange = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ToCRM = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Bidirectional = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_complaintdisposition
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Discontinued = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Investigationcompleted = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Nojurisidiction = 924340002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Resolvedatearlyresolution = 924340003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Resolvedatintake = 924340004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Settled = 924340005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Unresponsiveinquirer = 924340006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Withdrawn = 924340007,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_nextstep
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Transfertoinvestigations = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Resolved = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Withdrawn = 924340002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Settled = 924340003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Discontinued = 924340004,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_allegationdisposition
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Resolved = 924340005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Acceptable = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Unacceptable = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Withdrawn = 924340002,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_complaintmilestone
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Triage = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Intake = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EarlyResolution = 924340002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Investigation = 924340003,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_perceivedpriorities
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Apology = 533950000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Acknowledgement = 533950001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Calltoaction = 533950002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Compensation = 533950003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Court = 533950004,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Fulfilloriginalrequestprovideallegedmissingdocuments = 533950005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Fineorpenalty = 533950006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reimbursement = 533950007,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Timeliness = 533950008,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_complaintsource
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Onlinecorrespondence = 533950000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Letter = 533950001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_yesorno
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Yes = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		No = 924340001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_multiplecomplaintstrategy
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NotApplied = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Proposed = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Applied = 924340002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Former = 924340003,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_preferredlanguage
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		English = 924340000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		French = 924340001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_respondentandcomplainantrelationship
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Employee = 533950000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Tenant = 533950001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Customer = 533950002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Patient = 533950003,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_closereason
 	{
 		
@@ -1651,49 +1630,73 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum principalsyncattributemapping_syncdirection
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_sector
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None = 0,
+		Private = 533950000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ToExchange = 1,
+		Public = 533950001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ToCRM = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Bidirectional = 3,
+		Civil = 533950002,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum connectortype
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_intakedisposition
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomConnector = 1,
+		MovetoEarlyResolution = 924340000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NotSpecified = 0,
+		MovetoInvestigation = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Declinetoinvestigate = 924340002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Close = 924340003,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum opc_complaintsource
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_duplicatedetectionresult
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Onlinecorrespondence = 533950000,
+		None = 924340000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Letter = 533950001,
+		Potentialduplicate = 924340001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Duplicatefound = 924340002,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_declinereason
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Nojurisdiction = 924340000,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum opc_complaintstage
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Intake = 924340000,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAccountCategoryCode
 	{
 		
@@ -1705,7 +1708,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAccountClassificationCode
 	{
 		
@@ -1714,7 +1717,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAccountRatingCode
 	{
 		
@@ -1723,7 +1726,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAddress1_AddressTypeCode
 	{
 		
@@ -1741,7 +1744,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAddress1_FreightTermsCode
 	{
 		
@@ -1753,7 +1756,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAddress1_ShippingMethodCode
 	{
 		
@@ -1780,7 +1783,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAddress2_AddressTypeCode
 	{
 		
@@ -1789,7 +1792,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAddress2_FreightTermsCode
 	{
 		
@@ -1798,7 +1801,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountAddress2_ShippingMethodCode
 	{
 		
@@ -1807,7 +1810,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountBusinessTypeCode
 	{
 		
@@ -1816,7 +1819,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountCustomerSizeCode
 	{
 		
@@ -1825,7 +1828,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountCustomerTypeCode
 	{
 		
@@ -1867,7 +1870,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountIndustryCode
 	{
 		
@@ -1972,7 +1975,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountOwnershipCode
 	{
 		
@@ -1990,7 +1993,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountPaymentTermsCode
 	{
 		
@@ -2008,7 +2011,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountPreferredAppointmentDayCode
 	{
 		
@@ -2035,7 +2038,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountPreferredAppointmentTimeCode
 	{
 		
@@ -2050,7 +2053,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountPreferredContactMethodCode
 	{
 		
@@ -2071,7 +2074,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountShippingMethodCode
 	{
 		
@@ -2080,7 +2083,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum account_statuscode
 	{
 		
@@ -2092,7 +2095,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AccountTerritoryCode
 	{
 		
@@ -2101,7 +2104,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum aciviewmapper_statuscode
 	{
 		
@@ -2113,7 +2116,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ActionCardSource
 	{
 		
@@ -2125,7 +2128,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ActionCardState
 	{
 		
@@ -2140,7 +2143,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ActionCardUserStateState
 	{
 		
@@ -2155,7 +2158,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ActivityPartyInstanceTypeCode
 	{
 		
@@ -2176,7 +2179,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ActivityPartyParticipationTypeMask
 	{
 		
@@ -2215,7 +2218,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ActivityPointerInstanceTypeCode
 	{
 		
@@ -2236,7 +2239,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ActivityPointerPriorityCode
 	{
 		
@@ -2251,7 +2254,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum activitypointer_statuscode
 	{
 		
@@ -2269,7 +2272,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AdvancedSimilarityRuleFilterResultByStatus
 	{
 		
@@ -2281,7 +2284,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum advancedsimilarityrule_statuscode
 	{
 		
@@ -2293,34 +2296,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum apisettingsBulkApiExecutionMode
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Disabled = 0,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EnableAllPlugins = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DisableCustomPlugins = 2,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum apisettings_statuscode
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Active = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Inactive = 2,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum appconfig_statuscode
 	{
 		
@@ -2332,7 +2308,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum appelement_statuscode
 	{
 		
@@ -2344,7 +2320,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ApplicationUserApplicationType
 	{
 		
@@ -2359,7 +2335,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum applicationuser_statuscode
 	{
 		
@@ -2371,7 +2347,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AppModuleNavigationType
 	{
 		
@@ -2383,8 +2359,8 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum _appmodule_statuscode
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
+	public enum appmodule_statuscode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -2398,7 +2374,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AppModuleComponentComponentType
 	{
 		
@@ -2425,7 +2401,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AppModuleComponentRootComponentBehavior
 	{
 		
@@ -2440,7 +2416,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum appmodulecomponentedge_statuscode
 	{
 		
@@ -2452,7 +2428,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum appmodulecomponentnode_statuscode
 	{
 		
@@ -2464,7 +2440,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AppModuleComponentNodeValidationStatus
 	{
 		
@@ -2476,7 +2452,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AppointmentAttachmentErrors
 	{
 		
@@ -2488,7 +2464,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AppointmentInstanceTypeCode
 	{
 		
@@ -2509,7 +2485,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AppointmentPriorityCode
 	{
 		
@@ -2524,7 +2500,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum appointment_statuscode
 	{
 		
@@ -2548,7 +2524,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum appsetting_statuscode
 	{
 		
@@ -2560,7 +2536,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AsyncOperationOperationType
 	{
 		
@@ -2775,6 +2751,12 @@ namespace Compliance.Entities
 		RevokeInheritedAccess = 96,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Provisionlanguageforuser = 201,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CreateOrRefreshVirtualEntity = 98,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CascadeGrantorRevokeAccessVersionTrackingAsyncOperation = 12801,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -2782,16 +2764,10 @@ namespace Compliance.Entities
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIBuilderPredictionEvents = 190690092,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Provisionlanguageforuser = 201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CreateOrRefreshVirtualEntity = 98,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum asyncoperation_statuscode
 	{
 		
@@ -2821,7 +2797,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AuditAction
 	{
 		
@@ -3049,7 +3025,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AuditOperation
 	{
 		
@@ -3067,7 +3043,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AzureServiceConnectionConnectionType
 	{
 		
@@ -3079,7 +3055,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum AzureServiceConnectionLastConnectionStatusCode
 	{
 		
@@ -3091,7 +3067,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum azureserviceconnection_statuscode
 	{
 		
@@ -3103,7 +3079,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum botaccesscontrolpolicy
 	{
 		
@@ -3118,7 +3094,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum botauthenticationmode
 	{
 		
@@ -3139,7 +3115,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum botauthenticationtrigger
 	{
 		
@@ -3151,7 +3127,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum botLanguage
 	{
 		
@@ -3217,7 +3193,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum bot_statuscode
 	{
 		
@@ -3238,7 +3214,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum botcomponentComponentType
 	{
 		
@@ -3268,7 +3244,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum botcomponent_statuscode
 	{
 		
@@ -3280,7 +3256,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum bulkdeleteoperation_statuscode
 	{
 		
@@ -3316,7 +3292,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum businessprocessflowinstance_statuscode
 	{
 		
@@ -3331,7 +3307,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum BusinessUnitAddress1_AddressTypeCode
 	{
 		
@@ -3340,7 +3316,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum BusinessUnitAddress1_ShippingMethodCode
 	{
 		
@@ -3349,7 +3325,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum BusinessUnitAddress2_AddressTypeCode
 	{
 		
@@ -3358,7 +3334,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum BusinessUnitAddress2_ShippingMethodCode
 	{
 		
@@ -3367,7 +3343,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum BusinessUnitNewsArticleArticleTypeCode
 	{
 		
@@ -3382,7 +3358,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CalendarType
 	{
 		
@@ -3400,7 +3376,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CallbackRegistrationMessage
 	{
 		
@@ -3427,7 +3403,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CallbackRegistrationRunAs
 	{
 		
@@ -3442,7 +3418,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CallbackRegistrationScope
 	{
 		
@@ -3460,7 +3436,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CallbackRegistrationVersion
 	{
 		
@@ -3475,7 +3451,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CanvasAppCanvasAppType
 	{
 		
@@ -3493,7 +3469,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum canvasappextendedmetadata_statuscode
 	{
 		
@@ -3505,7 +3481,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CardTypeClientAvailability
 	{
 		
@@ -3520,7 +3496,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum catalog_statuscode
 	{
 		
@@ -3532,7 +3508,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum catalogassignment_statuscode
 	{
 		
@@ -3544,7 +3520,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum channelaccessprofile_statuscode
 	{
 		
@@ -3556,7 +3532,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum profilerule_statuscode
 	{
 		
@@ -3568,7 +3544,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ChannelPropertyDataType
 	{
 		
@@ -3583,7 +3559,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum channelproperty_statuscode
 	{
 		
@@ -3595,7 +3571,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum channelpropertygroup_statuscode
 	{
 		
@@ -3607,7 +3583,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ColumnMappingProcessCode
 	{
 		
@@ -3622,7 +3598,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum columnmapping_statuscode
 	{
 		
@@ -3631,30 +3607,30 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ConnectionRecord1ObjectTypeCode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Team = 9,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialActivity = 4216,
+		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Letter = 4207,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessSession = 4710,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
+		Event = 10122,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Territory = 2013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
+		Activity = 4200,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Team = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Task = 4212,
@@ -3663,88 +3639,88 @@ namespace Compliance.Entities
 		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
+		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecurringAppointment = 4251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Account = 1,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		User = 8,
+		Goal = 9600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Email = 4202,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
+		Position = 50,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Goal = 9600,
+		ProcessSession = 4710,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SocialProfile = 99,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Account = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeArticle = 9953,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SocialActivity = 4216,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Position = 50,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Activity = 4200,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfileRule = 9400,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticle = 9953,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ConnectionRecord2ObjectTypeCode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
+		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ProcessSession = 4710,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeBaseRecord = 9930,
+		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
+		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Contact = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Team = 9,
+		Task = 4212,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Territory = 2013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Fax = 4204,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelAccessProfileRule = 9400,
+		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Account = 1,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChannelAccessProfileRule = 9400,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Position = 50,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Goal = 9600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticle = 9953,
+		Team = 9,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecurringAppointment = 4251,
@@ -3756,13 +3732,10 @@ namespace Compliance.Entities
 		Letter = 4207,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
+		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
+		SocialActivity = 4216,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		User = 8,
@@ -3771,11 +3744,14 @@ namespace Compliance.Entities
 		Email = 4202,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialActivity = 4216,
+		SocialProfile = 99,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10122,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum connection_statuscode
 	{
 		
@@ -3787,7 +3763,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum connectionreference_statuscode
 	{
 		
@@ -3799,7 +3775,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum connectionrole_statuscode
 	{
 		
@@ -3811,7 +3787,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum connector_statuscode
 	{
 		
@@ -3823,7 +3799,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAccountRoleCode
 	{
 		
@@ -3838,7 +3814,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress1_AddressTypeCode
 	{
 		
@@ -3856,7 +3832,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress1_FreightTermsCode
 	{
 		
@@ -3868,7 +3844,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress1_ShippingMethodCode
 	{
 		
@@ -3895,7 +3871,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress2_AddressTypeCode
 	{
 		
@@ -3904,7 +3880,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress2_FreightTermsCode
 	{
 		
@@ -3913,7 +3889,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress2_ShippingMethodCode
 	{
 		
@@ -3922,7 +3898,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress3_AddressTypeCode
 	{
 		
@@ -3931,7 +3907,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress3_FreightTermsCode
 	{
 		
@@ -3940,7 +3916,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactAddress3_ShippingMethodCode
 	{
 		
@@ -3949,7 +3925,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactCustomerSizeCode
 	{
 		
@@ -3958,7 +3934,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactCustomerTypeCode
 	{
 		
@@ -3967,7 +3943,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactEducationCode
 	{
 		
@@ -3976,7 +3952,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactFamilyStatusCode
 	{
 		
@@ -3994,7 +3970,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactGenderCode
 	{
 		
@@ -4006,7 +3982,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactHasChildrenCode
 	{
 		
@@ -4015,7 +3991,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactLeadSourceCode
 	{
 		
@@ -4024,7 +4000,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactPaymentTermsCode
 	{
 		
@@ -4042,7 +4018,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactPreferredAppointmentDayCode
 	{
 		
@@ -4069,7 +4045,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactPreferredAppointmentTimeCode
 	{
 		
@@ -4084,7 +4060,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactPreferredContactMethodCode
 	{
 		
@@ -4105,7 +4081,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactShippingMethodCode
 	{
 		
@@ -4114,7 +4090,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum contact_statuscode
 	{
 		
@@ -4126,7 +4102,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ContactTerritoryCode
 	{
 		
@@ -4135,7 +4111,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum conversationtranscript_statuscode
 	{
 		
@@ -4147,7 +4123,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ConvertRuleSourceTypeCode
 	{
 		
@@ -4159,7 +4135,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum convertrule_statuscode
 	{
 		
@@ -4171,7 +4147,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CustomAPIAllowedCustomProcessingStepType
 	{
 		
@@ -4186,7 +4162,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CustomAPIBindingType
 	{
 		
@@ -4201,7 +4177,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum customapi_statuscode
 	{
 		
@@ -4213,7 +4189,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum customapirequestparameter_statuscode
 	{
 		
@@ -4225,7 +4201,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum customapiresponseproperty_statuscode
 	{
 		
@@ -4237,7 +4213,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CustomerAddressAddressTypeCode
 	{
 		
@@ -4255,7 +4231,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CustomerAddressFreightTermsCode
 	{
 		
@@ -4267,7 +4243,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum CustomerAddressShippingMethodCode
 	{
 		
@@ -4294,7 +4270,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum datalakefolder_statuscode
 	{
 		
@@ -4306,7 +4282,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum datalakefolderpermission_statuscode
 	{
 		
@@ -4318,7 +4294,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum datalakeworkspace_statuscode
 	{
 		
@@ -4330,7 +4306,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum datalakeworkspacepermission_statuscode
 	{
 		
@@ -4342,7 +4318,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum DelveActionHubCardType
 	{
 		
@@ -4360,7 +4336,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum delveactionhub_statuscode
 	{
 		
@@ -4375,7 +4351,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum DocumentIndexDocumentTypeCode
 	{
 		
@@ -4384,90 +4360,21 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum DuplicateRuleBaseEntityTypeCode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		RibbonMetadataToProcess = 9880,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessTrigger = 4712,
+		RibbonRule = 1117,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 11767,
+		RibbonTabToCommandMapping = 1113,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrivilegeObjectTypeCode = 31,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessSession = 4710,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStage = 4724,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Publisher = 7101,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItem = 2029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItemCount = 2023,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueMemberCount = 2024,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PublisherAddress = 7102,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuarterlyFiscalCalendar = 2002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Queue = 2020,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Position = 50,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Post = 8000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Comment = 8005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginTraceLog = 4619,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginType = 4602,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginTypeStatistic = 4603,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Follow = 8003,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FieldSharing = 44,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrincipalSyncAttributeMap = 1404,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Privilege = 1023,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Like = 8006,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PostRegarding = 8002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PostRole = 8001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DocumentSuggestions = 1189,
+		RibbonContextGroup = 1115,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationRibbons = 1120,
@@ -4476,19 +4383,19 @@ namespace Compliance.Entities
 		RibbonDifference = 1130,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonMetadataToProcess = 9880,
+		SecurityRole = 1036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonClientMetadata = 4579,
+		RollupProperties = 9510,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonCommand = 1116,
+		RoutingRuleSet = 8181,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonContextGroup = 1115,
+		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonRule = 1117,
+		RoleTemplate = 1037,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RollupField = 9604,
@@ -4497,16 +4404,16 @@ namespace Compliance.Entities
 		RollupJob = 9511,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupProperties = 9510,
+		RelationshipRoleMap = 4501,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonTabToCommandMapping = 1113,
+		ReplicationBacklog = 1140,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SecurityRole = 1036,
+		Report = 9100,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RoleTemplate = 1037,
+		RelationshipEntity = 9813,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RelationshipAttribute = 9814,
@@ -4515,19 +4422,19 @@ namespace Compliance.Entities
 		RelationshipRole = 4500,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelationshipRoleMap = 4501,
+		ReportRelatedCategory = 9102,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurrenceRule = 4250,
+		RevokeInheritedAccessRecordsTracker = 90001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurringAppointment = 4251,
+		RibbonClientMetadata = 4579,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelationshipEntity = 9813,
+		RibbonCommand = 1116,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReplicationBacklog = 1140,
+		ReportRelatedEntity = 9101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ReportLink = 9104,
@@ -4536,337 +4443,19 @@ namespace Compliance.Entities
 		ReportVisibility = 9103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RevokeInheritedAccessRecordsTracker = 11857,
+		RuntimeDependency = 7200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Report = 9100,
+		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReportRelatedCategory = 9102,
+		SettingDefinition = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReportRelatedEntity = 9101,
+		SharePointData = 9509,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 11971,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11973,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 11968,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11969,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 11970,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Industry = 11974,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 11978,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 11979,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 11980,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 11975,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 11976,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification = 11977,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MultiSelectOptionValue = 9912,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NavigationSetting = 9900,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NewProcess = 950,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistoryDataSource = 10001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 11778,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MultiEntitySearch = 9910,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification_2 = 4110,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 11965,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 11966,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 11967,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfficeDocument = 4490,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfficeGraphDocument = 9950,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfflineCommandDefinition = 9870,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 11981,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationInsightsNotification = 9690,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Owner = 7,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OwnerMapping = 4420,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationStatistic = 4708,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationUI = 1021,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationInsightsMetric = 9699,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 11699,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ListValueMapping = 4418,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginAssembly = 4605,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PartnerApplication = 1095,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11452,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PersonalDocumentTemplate = 9941,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 11985,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 11986,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 11987,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 11982,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 11983,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 11984,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 11988,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 11992,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OptionSet = 9809,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Organization = 1019,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 11989,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 11990,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme = 11991,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailTemplate = 2010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Territory = 2013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TextAnalyticsEntityMapping = 9945,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamProfiles = 1203,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamSyncAttributeMappingProfiles = 1403,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Teamtemplate = 92,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme_2 = 2015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneRule = 4811,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TraceAssociation = 8051,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Trace = 8050,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeStampDateMapping = 9932,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneDefinition = 4810,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneLocalizedName = 4812,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncError = 9869,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemApplicationMetadata = 7000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemForm = 1030,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SuggestionCardTemplate = 1190,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncAttributeMapping = 1401,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncAttributeMappingProfile = 1400,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		User = 8,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Team = 9,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamMobileOfflineProfileMembership = 11822,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserBusinessUnitEntityMap = 42,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserManagerMap = 51,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserPrincipal = 14,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TraceRegarding = 8052,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserSettings = 150,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebResource = 9333,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebWizard = 4800,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SavedView = 4230,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserChart = 1112,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserSearchFacet = 52,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebWizardAccessPrivilege = 4803,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessDependency = 4704,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessLog = 4706,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowWaitSubscription = 4702,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WizardPage = 4802,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Process = 4703,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TranslationProcess = 951,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UnresolvedAddress = 2012,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UntrackedEmail = 4220,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Currency = 9105,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TransformationMapping = 4426,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TransformationParameterMapping = 4427,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserApplicationMetadata = 7001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserDashboard = 1031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMapping = 2016,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMobileOfflineProfileMembership = 11823,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserEntityInstanceData = 2501,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserEntityUISettings = 2500,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserFiscalCalendar = 1086,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SearchTelemetry = 11821,
+		SearchTelemetry = 10062,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SemiannualFiscalCalendar = 2001,
@@ -4875,16 +4464,16 @@ namespace Compliance.Entities
 		ServiceEndpoint = 4618,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageRequestField = 4614,
+		SharepointDocument = 9507,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponse = 4610,
+		SiteMap = 4709,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponseField = 4611,
+		SLA = 9750,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServicePlan = 101,
+		SLAItem = 9751,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DocumentLocation = 9508,
@@ -4896,13 +4485,13 @@ namespace Compliance.Entities
 		SimilarityRule = 9951,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11414,
+		SdkMessage = 4606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharePointData = 9509,
+		SdkMessageFilter = 4607,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharepointDocument = 9507,
+		SdkMessagePair = 4613,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SavedOrganizationInsightsConfiguration = 1309,
@@ -4914,16 +4503,16 @@ namespace Compliance.Entities
 		SystemChart = 1111,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RoutingRuleSet = 8181,
+		SdkMessageProcessingStep = 4608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuleItem = 8199,
+		SdkMessageRequestField = 4614,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuntimeDependency = 7200,
+		SdkMessageResponse = 4610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessage = 4606,
+		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageProcessingStepImage = 4615,
@@ -4935,16 +4524,334 @@ namespace Compliance.Entities
 		SdkMessageRequest = 4609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageFilter = 4607,
+		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessagePair = 4613,
+		Package = 10007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageProcessingStep = 4608,
+		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SiteMap = 4709,
+		OrganizationInsightsMetric = 9699,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationInsightsNotification = 9690,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Owner = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PDFSetting = 10038,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginAssembly = 4605,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginTraceLog = 4619,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginType = 4602,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PersonalDocumentTemplate = 9941,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ListValueMapping = 4418,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NavigationSetting = 9900,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NewProcess = 950,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification = 4110,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		BotContent = 10031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MultiEntitySearch = 9910,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MultiSelectOptionValue = 9912,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfficeDocument = 4490,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Organization = 1019,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationStatistic = 4708,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationUI = 1021,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfficeGraphDocument = 9950,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfflineCommandDefinition = 9870,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OptionSet = 9809,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginTypeStatistic = 4603,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Publisher = 7101,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PublisherAddress = 7102,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuarterlyFiscalCalendar = 2002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessStageParameter = 10027,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessTrigger = 4712,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProvisionLanguageForUser = 10013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Queue = 2020,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DocumentSuggestions = 1189,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurrenceRule = 4250,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringAppointment = 4251,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItem = 2029,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItemCount = 2023,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueMemberCount = 2024,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Follow = 8003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Like = 8006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PostRegarding = 8002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Position = 50,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Post = 8000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Comment = 8005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PostRole = 8001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrivilegeObjectTypeCode = 31,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessSession = 4710,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessStage = 4724,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		FieldSharing = 44,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrincipalSyncAttributeMap = 1404,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Privilege = 1023,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebResource = 9333,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebWizard = 4800,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebWizardAccessPrivilege = 4803,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserChart = 1112,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserSearchFacet = 52,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserSettings = 150,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WizardPage = 4802,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessLog = 4706,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WorkflowWaitSubscription = 4702,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AllegationConcern = 10115,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Process = 4703,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WorkflowBinary = 10028,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessDependency = 4704,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UnresolvedAddress = 2012,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UntrackedEmail = 4220,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserApplicationMetadata = 7001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TransformationMapping = 4426,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TransformationParameterMapping = 4427,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TranslationProcess = 951,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserEntityInstanceData = 2501,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserMapping = 2016,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserMobileOfflineProfileMembership = 10055,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SavedView = 4230,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserEntityUISettings = 2500,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserFiscalCalendar = 1086,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserDashboard = 1031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AllegationType = 10116,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAppetite = 10133,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessment = 10134,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentCategory = 10135,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuestionType = 10130,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Recommendation = 10131,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reminder = 10132,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentCategoryTemplate = 10136,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentType = 10140,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theme = 10141,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Topic = 10142,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentDefinition = 10137,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentDefinitionTemplate = 10138,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentFactorTemplate = 10139,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DispositionAction = 10120,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DispositionReason = 10121,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10122,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChecklistResponse = 10117,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChecklistType = 10118,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Complaint = 10119,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IndividualComplaint = 10123,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification_2 = 10127,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OPCPriority = 10128,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuestionTemplate = 10129,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Industry = 10124,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Issue = 10125,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Legislation = 10126,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionClients = 1072,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionManuallyTrackedObject = 37,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionStatisticOffline = 45,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		StringMap = 1043,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Subject = 129,
@@ -4953,19 +4860,19 @@ namespace Compliance.Entities
 		Subscription = 29,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionClients = 1072,
+		SubscriptionStatisticOutlook = 46,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		Trackinginformationfordeletedentities = 35,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StatusMap = 1075,
+		SuggestionCardTemplate = 1190,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StringMap = 1043,
+		SyncAttributeMapping = 1401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionManuallyTrackedObject = 37,
+		SubscriptionSyncEntryOffline = 47,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SubscriptionSyncEntryOutlook = 48,
@@ -4974,16 +4881,16 @@ namespace Compliance.Entities
 		SubscriptionSynchronizationInformation = 33,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Trackinginformationfordeletedentities = 35,
+		SocialProfile = 99,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionStatisticOffline = 45,
+		Solution = 7100,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionStatisticOutlook = 46,
+		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionSyncEntryOffline = 47,
+		SLAKPIInstance = 9752,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SocialActivity = 4216,
@@ -4992,52 +4899,118 @@ namespace Compliance.Entities
 		SocialInsightsConfiguration = 1300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLA = 9750,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAItem = 9751,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPIInstance = 9752,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Solution = 7100,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDefinition = 7104,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11409,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryData = 9890,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponent = 7103,
+		StageSolutionUpload = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		StatusMap = 1075,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistory = 10000,
+		SolutionComponentDefinition = 7104,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Contact = 2,
+		SolutionComponentRelationshipConfiguration = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 11779,
+		SyncAttributeMappingProfile = 1400,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TextAnalyticsEntityMapping = 9945,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theme_2 = 2015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeStampDateMapping = 9932,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Teamtemplate = 92,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EmailTemplate = 2010,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Territory = 2013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneDefinition = 4810,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Trace = 8050,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TraceRegarding = 8052,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Currency = 9105,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneLocalizedName = 4812,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneRule = 4811,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TraceAssociation = 8051,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserAuthorizationChangeTracker = 60,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserBusinessUnitEntityMap = 42,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SyncError = 9869,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemApplicationMetadata = 7000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemForm = 1030,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserManagerMap = 51,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamMobileOfflineProfileMembership = 10054,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamProfiles = 1203,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamSyncAttributeMappingProfiles = 1403,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserPrincipal = 14,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Task = 4212,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Team = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHistoryDataSource = 10001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ConversationTranscript = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionRole = 3231,
+		RecordCreationandUpdateRuleItem = 9301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ConnectionRoleObjectTypeCode = 3233,
@@ -5046,10 +5019,10 @@ namespace Compliance.Entities
 		Connector = 372,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecordCreationandUpdateRuleItem = 9301,
+		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomControl = 9753,
+		CustomAPI = 10051,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CustomControlDefaultConfig = 9755,
@@ -5058,16 +5031,16 @@ namespace Compliance.Entities
 		CustomControlResource = 9754,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 11772,
+		Address = 1071,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 11773,
+		CustomAPIRequestParameter = 10052,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 11774,
+		CustomAPIResponseProperty = 10053,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelAccessProfile = 3005,
+		CustomControl = 9753,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfileRule = 9400,
@@ -5076,28 +5049,28 @@ namespace Compliance.Entities
 		ChannelAccessProfileRuleItem = 9401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 11769,
+		ChannelProperty = 1236,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 11770,
+		CatalogAssignment = 10049,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelProperty = 1236,
+		ChannelAccessProfile = 3005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessConfiguration = 9650,
+		ChannelPropertyGroup = 1234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11415,
+		ConnectionReference = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelPropertyGroup = 1234,
+		ConnectionRole = 3231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Clientupdate = 36,
@@ -5106,10 +5079,10 @@ namespace Compliance.Entities
 		ColumnMapping = 4417,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Address = 1071,
+		ProcessConfiguration = 9650,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DuplicateRuleCondition = 4416,
+		CustomerRelationship = 4502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Email = 4202,
@@ -5118,7 +5091,7 @@ namespace Compliance.Entities
 		EmailHash = 4023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DocumentTemplate = 9940,
+		EmailSearch = 4299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DuplicateRecord = 4415,
@@ -5127,10 +5100,10 @@ namespace Compliance.Entities
 		DuplicateDetectionRule = 4414,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailSearch = 4299,
+		DuplicateRuleCondition = 4416,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityAnalyticsConfig = 430,
+		EmailServerProfile = 9605,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		VirtualEntityDataProvider = 78,
@@ -5139,7 +5112,7 @@ namespace Compliance.Entities
 		VirtualEntityDataSource = 85,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailServerProfile = 9605,
+		EntityImageConfiguration = 432,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailSignature = 9997,
@@ -5148,28 +5121,28 @@ namespace Compliance.Entities
 		Entity = 9800,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11405,
+		EntityAnalyticsConfig = 430,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11406,
+		DataLakeWorkspacePermission = 10059,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataPerformanceDashboard = 4450,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomerRelationship = 4502,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 11765,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 11766,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DelveActionHub = 9961,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DisplayString = 4102,
+		DataLakeFolder = 10056,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DataLakeFolderPermission = 10057,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DataLakeWorkspace = 10058,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dependency = 7105,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DisplayStringMap = 4101,
@@ -5178,7 +5151,7 @@ namespace Compliance.Entities
 		IndexedArticle = 126,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Dependency = 7105,
+		DocumentTemplate = 9940,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DependencyFeature = 7108,
@@ -5187,28 +5160,28 @@ namespace Compliance.Entities
 		DependencyNode = 7106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationFile = 4707,
+		DisplayString = 4102,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11407,
+		ApplicationUser = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ModeldrivenApp = 9006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppConfigurationInstance = 9013,
+		AppModuleComponent = 9007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfigMaster = 9011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11410,
+		ModelDrivenAppElement = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppModuleComponent = 9007,
+		ApplicationFile = 4707,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppModuleMetadataDependency = 8701,
+		ModelDrivenAppComponentNodesEdge = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadataAsyncOperation = 8702,
@@ -5217,13 +5190,16 @@ namespace Compliance.Entities
 		AppModuleRoles = 9009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11411,
+		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11412,
+		ModelDrivenAppComponentNode = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadata = 8700,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AppModuleMetadataDependency = 8701,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionCardUserSettings = 9973,
@@ -5250,10 +5226,10 @@ namespace Compliance.Entities
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		AppConfiguration = 9012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppConfiguration = 9012,
+		AppConfigurationInstance = 9013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Activity = 4200,
@@ -5265,10 +5241,7 @@ namespace Compliance.Entities
 		Note = 5,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BusinessUnitMap = 6,
+		ModelDrivenAppSetting = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Announcement = 132,
@@ -5277,7 +5250,7 @@ namespace Compliance.Entities
 		Calendar = 4003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BusinessDataLocalizedLabel = 4232,
+		CalendarRule = 4004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BusinessProcessFlowInstance = 4725,
@@ -5286,28 +5259,28 @@ namespace Compliance.Entities
 		BusinessUnit = 10,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CalendarRule = 4004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ActionCardType = 9983,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 11697,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 11698,
+		BusinessUnitMap = 6,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CallbackRegistration = 301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CascadeGrantRevokeAccessRecordsTracker = 10014,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CascadeGrantRevokeAccessVersionTracker = 10015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Catalog = 10048,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CanvasApp = 300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11416,
+		CanvasAppExtendedMetadata = 10025,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Attribute = 9808,
+		ActionCardType = 9983,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageAttributeConfiguration = 431,
@@ -5316,7 +5289,7 @@ namespace Compliance.Entities
 		AttributeMap = 4601,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11413,
+		Auditing = 4567,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemJob = 4700,
@@ -5325,10 +5298,10 @@ namespace Compliance.Entities
 		Attachment_2 = 1002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Auditing = 4567,
+		Attribute = 9808,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 11781,
+		AuthorizationServer = 1094,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -5337,55 +5310,55 @@ namespace Compliance.Entities
 		BulkDeleteOperation = 4424,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AuthorizationServer = 1094,
+		BusinessDataLocalizedLabel = 4232,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 11780,
+		Chatbot = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		Chatbotsubcomponent = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10066,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderFile = 10067,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MonthlyFiscalCalendar = 2003,
+		AIBuilderFileAttachedData = 10068,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10063,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		AIBuilderDatasetFile = 10064,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AIBuilderDatasetRecord = 10065,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIObjectDetectionLabel = 10071,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIObjectDetectionBoundingBox = 10072,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIObjectDetectionImageMapping = 10073,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIFormProcessingDocument = 10069,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailboxStatistics = 9607,
+		AIObjectDetectionImage = 10070,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MailboxTrackingCategory = 9609,
@@ -5394,7 +5367,7 @@ namespace Compliance.Entities
 		MailboxAutoTrackingFolder = 9608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LocalConfigStore = 9201,
+		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LookupMapping = 4419,
@@ -5403,10 +5376,10 @@ namespace Compliance.Entities
 		Mailbox = 9606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailMergeTemplate = 9106,
+		MailboxStatistics = 9607,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MobileOfflineProfile = 9866,
+		ManagedProperty = 9812,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfileItem = 9867,
@@ -5415,7 +5388,7 @@ namespace Compliance.Entities
 		MobileOfflineProfileItemAssociation = 9868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManagedProperty = 9812,
+		MonthlyFiscalCalendar = 2003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MetadataDifference = 4231,
@@ -5424,88 +5397,88 @@ namespace Compliance.Entities
 		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11404,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 11665,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 11701,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 11702,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11402,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11403,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		MobileOfflineProfile = 9866,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		ODatav4DataSource = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		RichTextAttachment = 10060,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ServiceConfiguration = 10039,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		KnowledgeInteractionInsight = 10045,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 11787,
+		KnowledgeSearchInsight = 10046,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		NonRelationalDataSource = 10061,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SLAKPI = 10040,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRuleArgument = 10080,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRuleSet = 10081,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHistory = 10000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionComponentDataSource = 10012,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionComponentSummary = 10011,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRule = 10079,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisResultDetail = 10078,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ComponentLayer = 10005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ComponentLayerDataSource = 10006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisComponent = 10075,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisJob = 10076,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisResult = 10077,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Dataflow = 418,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 11785,
+		Searchprovider = 10043,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 11786,
+		KnowledgeArticleImage = 10044,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FileAttachment = 55,
+		KnowledgeArticleTemplate = 10047,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeFederatedArticle = 10041,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeFederatedArticleIncident = 10042,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		HelpPage = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FilterTemplate = 30,
@@ -5514,7 +5487,7 @@ namespace Compliance.Entities
 		FixedMonthlyFiscalCalendar = 2004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Feedback = 9958,
+		FlowSession = 4720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FieldPermission = 1201,
@@ -5523,10 +5496,10 @@ namespace Compliance.Entities
 		FieldSecurityProfile = 1200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FlowSession = 4720,
+		FileAttachment = 55,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HierarchyRule = 8840,
+		GlobalSearchConfiguration = 54,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchySecurityConfiguration = 9919,
@@ -5535,7 +5508,7 @@ namespace Compliance.Entities
 		HolidayWrapper = 9996,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GlobalSearchConfiguration = 54,
+		ImageDescriptor = 1007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Goal = 9600,
@@ -5544,7 +5517,7 @@ namespace Compliance.Entities
 		RollupQuery = 9602,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityRelationship = 9811,
+		HierarchyRule = 8840,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EnvironmentVariableDefinition = 380,
@@ -5553,7 +5526,7 @@ namespace Compliance.Entities
 		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityImageConfiguration = 432,
+		ExchangeSyncIdMapping = 4120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityKey = 9810,
@@ -5562,10 +5535,10 @@ namespace Compliance.Entities
 		EntityMap = 4600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExchangeSyncIdMapping = 4120,
+		EntityRelationship = 9811,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExternalParty = 3008,
+		ExpanderEvent = 4711,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalPartyItem = 9987,
@@ -5574,19 +5547,19 @@ namespace Compliance.Entities
 		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExpanderEvent = 4711,
+		Feedback = 9958,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11633,
+		ExportSolutionUpload = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImageDescriptor = 1007,
+		ExternalParty = 3008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ArticleTemplate = 1016,
+		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticle = 9953,
@@ -5595,7 +5568,7 @@ namespace Compliance.Entities
 		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ISVConfig = 4705,
+		KnowledgeArticleViews = 9955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Article = 127,
@@ -5604,10 +5577,10 @@ namespace Compliance.Entities
 		ArticleComment = 1082,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleViews = 9955,
+		ArticleTemplate = 1016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LanguageProvisioningState = 9875,
+		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Letter = 4207,
@@ -5616,7 +5589,7 @@ namespace Compliance.Entities
 		License = 2027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeBaseRecord = 9930,
+		LocalConfigStore = 9201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeSearchModel = 9947,
@@ -5625,7 +5598,7 @@ namespace Compliance.Entities
 		Language = 9957,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportSourceFile = 4412,
+		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportJob = 9107,
@@ -5634,7 +5607,7 @@ namespace Compliance.Entities
 		ImportLog = 4423,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataImport = 4410,
+		DataMap = 4411,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportData = 4413,
@@ -5643,10 +5616,10 @@ namespace Compliance.Entities
 		ImportEntityMapping = 4428,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataMap = 4411,
+		ImportSourceFile = 4412,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 11771,
+		IntegrationStatus = 3000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InterProcessLock = 4011,
@@ -5655,100 +5628,34 @@ namespace Compliance.Entities
 		InvalidDependency = 7107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IntegrationStatus = 3000,
+		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InteractionforEmail = 9986,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InternalAddress = 1003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InternalCatalogAssignment = 10050,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum DuplicateRuleMatchingEntityTypeCode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		RibbonMetadataToProcess = 9880,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessTrigger = 4712,
+		RibbonRule = 1117,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 11767,
+		RibbonTabToCommandMapping = 1113,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrivilegeObjectTypeCode = 31,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessSession = 4710,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStage = 4724,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Publisher = 7101,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItem = 2029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItemCount = 2023,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueMemberCount = 2024,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PublisherAddress = 7102,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuarterlyFiscalCalendar = 2002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Queue = 2020,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Position = 50,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Post = 8000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Comment = 8005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginTraceLog = 4619,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginType = 4602,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginTypeStatistic = 4603,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Follow = 8003,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FieldSharing = 44,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrincipalSyncAttributeMap = 1404,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Privilege = 1023,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Like = 8006,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PostRegarding = 8002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PostRole = 8001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DocumentSuggestions = 1189,
+		RibbonContextGroup = 1115,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationRibbons = 1120,
@@ -5757,19 +5664,19 @@ namespace Compliance.Entities
 		RibbonDifference = 1130,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonMetadataToProcess = 9880,
+		SecurityRole = 1036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonClientMetadata = 4579,
+		RollupProperties = 9510,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonCommand = 1116,
+		RoutingRuleSet = 8181,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonContextGroup = 1115,
+		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonRule = 1117,
+		RoleTemplate = 1037,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RollupField = 9604,
@@ -5778,16 +5685,16 @@ namespace Compliance.Entities
 		RollupJob = 9511,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupProperties = 9510,
+		RelationshipRoleMap = 4501,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonTabToCommandMapping = 1113,
+		ReplicationBacklog = 1140,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SecurityRole = 1036,
+		Report = 9100,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RoleTemplate = 1037,
+		RelationshipEntity = 9813,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RelationshipAttribute = 9814,
@@ -5796,19 +5703,19 @@ namespace Compliance.Entities
 		RelationshipRole = 4500,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelationshipRoleMap = 4501,
+		ReportRelatedCategory = 9102,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurrenceRule = 4250,
+		RevokeInheritedAccessRecordsTracker = 90001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurringAppointment = 4251,
+		RibbonClientMetadata = 4579,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelationshipEntity = 9813,
+		RibbonCommand = 1116,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReplicationBacklog = 1140,
+		ReportRelatedEntity = 9101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ReportLink = 9104,
@@ -5817,337 +5724,19 @@ namespace Compliance.Entities
 		ReportVisibility = 9103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RevokeInheritedAccessRecordsTracker = 11857,
+		RuntimeDependency = 7200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Report = 9100,
+		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReportRelatedCategory = 9102,
+		SettingDefinition = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReportRelatedEntity = 9101,
+		SharePointData = 9509,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 11971,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11973,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 11968,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11969,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 11970,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Industry = 11974,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 11978,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 11979,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 11980,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 11975,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 11976,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification = 11977,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MultiSelectOptionValue = 9912,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NavigationSetting = 9900,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NewProcess = 950,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistoryDataSource = 10001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 11778,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MultiEntitySearch = 9910,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification_2 = 4110,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 11965,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 11966,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 11967,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfficeDocument = 4490,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfficeGraphDocument = 9950,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfflineCommandDefinition = 9870,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 11981,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationInsightsNotification = 9690,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Owner = 7,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OwnerMapping = 4420,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationStatistic = 4708,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationUI = 1021,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationInsightsMetric = 9699,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 11699,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ListValueMapping = 4418,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginAssembly = 4605,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PartnerApplication = 1095,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11452,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PersonalDocumentTemplate = 9941,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 11985,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 11986,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 11987,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 11982,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 11983,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 11984,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 11988,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 11992,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OptionSet = 9809,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Organization = 1019,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 11989,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 11990,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme = 11991,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailTemplate = 2010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Territory = 2013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TextAnalyticsEntityMapping = 9945,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamProfiles = 1203,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamSyncAttributeMappingProfiles = 1403,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Teamtemplate = 92,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme_2 = 2015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneRule = 4811,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TraceAssociation = 8051,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Trace = 8050,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeStampDateMapping = 9932,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneDefinition = 4810,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneLocalizedName = 4812,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncError = 9869,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemApplicationMetadata = 7000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemForm = 1030,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SuggestionCardTemplate = 1190,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncAttributeMapping = 1401,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncAttributeMappingProfile = 1400,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		User = 8,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Team = 9,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamMobileOfflineProfileMembership = 11822,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserBusinessUnitEntityMap = 42,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserManagerMap = 51,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserPrincipal = 14,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TraceRegarding = 8052,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserSettings = 150,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebResource = 9333,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebWizard = 4800,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SavedView = 4230,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserChart = 1112,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserSearchFacet = 52,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebWizardAccessPrivilege = 4803,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessDependency = 4704,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessLog = 4706,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowWaitSubscription = 4702,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WizardPage = 4802,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Process = 4703,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TranslationProcess = 951,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UnresolvedAddress = 2012,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UntrackedEmail = 4220,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Currency = 9105,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TransformationMapping = 4426,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TransformationParameterMapping = 4427,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserApplicationMetadata = 7001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserDashboard = 1031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMapping = 2016,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMobileOfflineProfileMembership = 11823,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserEntityInstanceData = 2501,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserEntityUISettings = 2500,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserFiscalCalendar = 1086,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SearchTelemetry = 11821,
+		SearchTelemetry = 10062,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SemiannualFiscalCalendar = 2001,
@@ -6156,16 +5745,16 @@ namespace Compliance.Entities
 		ServiceEndpoint = 4618,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageRequestField = 4614,
+		SharepointDocument = 9507,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponse = 4610,
+		SiteMap = 4709,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponseField = 4611,
+		SLA = 9750,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServicePlan = 101,
+		SLAItem = 9751,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DocumentLocation = 9508,
@@ -6177,13 +5766,13 @@ namespace Compliance.Entities
 		SimilarityRule = 9951,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11414,
+		SdkMessage = 4606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharePointData = 9509,
+		SdkMessageFilter = 4607,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharepointDocument = 9507,
+		SdkMessagePair = 4613,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SavedOrganizationInsightsConfiguration = 1309,
@@ -6195,16 +5784,16 @@ namespace Compliance.Entities
 		SystemChart = 1111,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RoutingRuleSet = 8181,
+		SdkMessageProcessingStep = 4608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuleItem = 8199,
+		SdkMessageRequestField = 4614,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuntimeDependency = 7200,
+		SdkMessageResponse = 4610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessage = 4606,
+		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageProcessingStepImage = 4615,
@@ -6216,16 +5805,334 @@ namespace Compliance.Entities
 		SdkMessageRequest = 4609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageFilter = 4607,
+		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessagePair = 4613,
+		Package = 10007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageProcessingStep = 4608,
+		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SiteMap = 4709,
+		OrganizationInsightsMetric = 9699,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationInsightsNotification = 9690,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Owner = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PDFSetting = 10038,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginAssembly = 4605,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginTraceLog = 4619,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginType = 4602,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PersonalDocumentTemplate = 9941,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ListValueMapping = 4418,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NavigationSetting = 9900,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NewProcess = 950,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification = 4110,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		BotContent = 10031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MultiEntitySearch = 9910,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MultiSelectOptionValue = 9912,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfficeDocument = 4490,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Organization = 1019,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationStatistic = 4708,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationUI = 1021,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfficeGraphDocument = 9950,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfflineCommandDefinition = 9870,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OptionSet = 9809,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginTypeStatistic = 4603,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Publisher = 7101,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PublisherAddress = 7102,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuarterlyFiscalCalendar = 2002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessStageParameter = 10027,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessTrigger = 4712,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProvisionLanguageForUser = 10013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Queue = 2020,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DocumentSuggestions = 1189,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurrenceRule = 4250,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringAppointment = 4251,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItem = 2029,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItemCount = 2023,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueMemberCount = 2024,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Follow = 8003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Like = 8006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PostRegarding = 8002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Position = 50,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Post = 8000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Comment = 8005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PostRole = 8001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrivilegeObjectTypeCode = 31,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessSession = 4710,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessStage = 4724,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		FieldSharing = 44,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrincipalSyncAttributeMap = 1404,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Privilege = 1023,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebResource = 9333,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebWizard = 4800,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebWizardAccessPrivilege = 4803,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserChart = 1112,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserSearchFacet = 52,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserSettings = 150,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WizardPage = 4802,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessLog = 4706,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WorkflowWaitSubscription = 4702,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AllegationConcern = 10115,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Process = 4703,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WorkflowBinary = 10028,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessDependency = 4704,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UnresolvedAddress = 2012,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UntrackedEmail = 4220,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserApplicationMetadata = 7001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TransformationMapping = 4426,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TransformationParameterMapping = 4427,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TranslationProcess = 951,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserEntityInstanceData = 2501,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserMapping = 2016,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserMobileOfflineProfileMembership = 10055,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SavedView = 4230,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserEntityUISettings = 2500,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserFiscalCalendar = 1086,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserDashboard = 1031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AllegationType = 10116,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAppetite = 10133,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessment = 10134,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentCategory = 10135,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuestionType = 10130,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Recommendation = 10131,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reminder = 10132,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentCategoryTemplate = 10136,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentType = 10140,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theme = 10141,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Topic = 10142,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentDefinition = 10137,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentDefinitionTemplate = 10138,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentFactorTemplate = 10139,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DispositionAction = 10120,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DispositionReason = 10121,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10122,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChecklistResponse = 10117,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChecklistType = 10118,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Complaint = 10119,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IndividualComplaint = 10123,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification_2 = 10127,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OPCPriority = 10128,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuestionTemplate = 10129,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Industry = 10124,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Issue = 10125,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Legislation = 10126,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionClients = 1072,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionManuallyTrackedObject = 37,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionStatisticOffline = 45,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		StringMap = 1043,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Subject = 129,
@@ -6234,19 +6141,19 @@ namespace Compliance.Entities
 		Subscription = 29,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionClients = 1072,
+		SubscriptionStatisticOutlook = 46,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		Trackinginformationfordeletedentities = 35,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StatusMap = 1075,
+		SuggestionCardTemplate = 1190,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StringMap = 1043,
+		SyncAttributeMapping = 1401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionManuallyTrackedObject = 37,
+		SubscriptionSyncEntryOffline = 47,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SubscriptionSyncEntryOutlook = 48,
@@ -6255,16 +6162,16 @@ namespace Compliance.Entities
 		SubscriptionSynchronizationInformation = 33,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Trackinginformationfordeletedentities = 35,
+		SocialProfile = 99,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionStatisticOffline = 45,
+		Solution = 7100,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionStatisticOutlook = 46,
+		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionSyncEntryOffline = 47,
+		SLAKPIInstance = 9752,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SocialActivity = 4216,
@@ -6273,52 +6180,118 @@ namespace Compliance.Entities
 		SocialInsightsConfiguration = 1300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLA = 9750,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAItem = 9751,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPIInstance = 9752,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Solution = 7100,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDefinition = 7104,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11409,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryData = 9890,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponent = 7103,
+		StageSolutionUpload = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		StatusMap = 1075,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistory = 10000,
+		SolutionComponentDefinition = 7104,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Contact = 2,
+		SolutionComponentRelationshipConfiguration = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 11779,
+		SyncAttributeMappingProfile = 1400,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TextAnalyticsEntityMapping = 9945,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theme_2 = 2015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeStampDateMapping = 9932,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Teamtemplate = 92,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EmailTemplate = 2010,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Territory = 2013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneDefinition = 4810,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Trace = 8050,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TraceRegarding = 8052,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Currency = 9105,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneLocalizedName = 4812,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneRule = 4811,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TraceAssociation = 8051,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserAuthorizationChangeTracker = 60,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserBusinessUnitEntityMap = 42,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SyncError = 9869,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemApplicationMetadata = 7000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemForm = 1030,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserManagerMap = 51,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamMobileOfflineProfileMembership = 10054,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamProfiles = 1203,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamSyncAttributeMappingProfiles = 1403,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserPrincipal = 14,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Task = 4212,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Team = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHistoryDataSource = 10001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ConversationTranscript = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionRole = 3231,
+		RecordCreationandUpdateRuleItem = 9301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ConnectionRoleObjectTypeCode = 3233,
@@ -6327,10 +6300,10 @@ namespace Compliance.Entities
 		Connector = 372,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecordCreationandUpdateRuleItem = 9301,
+		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomControl = 9753,
+		CustomAPI = 10051,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CustomControlDefaultConfig = 9755,
@@ -6339,16 +6312,16 @@ namespace Compliance.Entities
 		CustomControlResource = 9754,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 11772,
+		Address = 1071,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 11773,
+		CustomAPIRequestParameter = 10052,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 11774,
+		CustomAPIResponseProperty = 10053,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelAccessProfile = 3005,
+		CustomControl = 9753,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfileRule = 9400,
@@ -6357,28 +6330,28 @@ namespace Compliance.Entities
 		ChannelAccessProfileRuleItem = 9401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 11769,
+		ChannelProperty = 1236,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 11770,
+		CatalogAssignment = 10049,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelProperty = 1236,
+		ChannelAccessProfile = 3005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessConfiguration = 9650,
+		ChannelPropertyGroup = 1234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11415,
+		ConnectionReference = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelPropertyGroup = 1234,
+		ConnectionRole = 3231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Clientupdate = 36,
@@ -6387,10 +6360,10 @@ namespace Compliance.Entities
 		ColumnMapping = 4417,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Address = 1071,
+		ProcessConfiguration = 9650,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DuplicateRuleCondition = 4416,
+		CustomerRelationship = 4502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Email = 4202,
@@ -6399,7 +6372,7 @@ namespace Compliance.Entities
 		EmailHash = 4023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DocumentTemplate = 9940,
+		EmailSearch = 4299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DuplicateRecord = 4415,
@@ -6408,10 +6381,10 @@ namespace Compliance.Entities
 		DuplicateDetectionRule = 4414,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailSearch = 4299,
+		DuplicateRuleCondition = 4416,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityAnalyticsConfig = 430,
+		EmailServerProfile = 9605,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		VirtualEntityDataProvider = 78,
@@ -6420,7 +6393,7 @@ namespace Compliance.Entities
 		VirtualEntityDataSource = 85,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailServerProfile = 9605,
+		EntityImageConfiguration = 432,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailSignature = 9997,
@@ -6429,28 +6402,28 @@ namespace Compliance.Entities
 		Entity = 9800,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11405,
+		EntityAnalyticsConfig = 430,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11406,
+		DataLakeWorkspacePermission = 10059,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataPerformanceDashboard = 4450,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomerRelationship = 4502,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 11765,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 11766,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DelveActionHub = 9961,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DisplayString = 4102,
+		DataLakeFolder = 10056,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DataLakeFolderPermission = 10057,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DataLakeWorkspace = 10058,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dependency = 7105,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DisplayStringMap = 4101,
@@ -6459,7 +6432,7 @@ namespace Compliance.Entities
 		IndexedArticle = 126,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Dependency = 7105,
+		DocumentTemplate = 9940,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DependencyFeature = 7108,
@@ -6468,28 +6441,28 @@ namespace Compliance.Entities
 		DependencyNode = 7106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationFile = 4707,
+		DisplayString = 4102,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11407,
+		ApplicationUser = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ModeldrivenApp = 9006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppConfigurationInstance = 9013,
+		AppModuleComponent = 9007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfigMaster = 9011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11410,
+		ModelDrivenAppElement = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppModuleComponent = 9007,
+		ApplicationFile = 4707,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppModuleMetadataDependency = 8701,
+		ModelDrivenAppComponentNodesEdge = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadataAsyncOperation = 8702,
@@ -6498,13 +6471,16 @@ namespace Compliance.Entities
 		AppModuleRoles = 9009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11411,
+		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11412,
+		ModelDrivenAppComponentNode = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadata = 8700,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AppModuleMetadataDependency = 8701,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionCardUserSettings = 9973,
@@ -6531,10 +6507,10 @@ namespace Compliance.Entities
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		AppConfiguration = 9012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppConfiguration = 9012,
+		AppConfigurationInstance = 9013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Activity = 4200,
@@ -6546,10 +6522,7 @@ namespace Compliance.Entities
 		Note = 5,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BusinessUnitMap = 6,
+		ModelDrivenAppSetting = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Announcement = 132,
@@ -6558,7 +6531,7 @@ namespace Compliance.Entities
 		Calendar = 4003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BusinessDataLocalizedLabel = 4232,
+		CalendarRule = 4004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BusinessProcessFlowInstance = 4725,
@@ -6567,28 +6540,28 @@ namespace Compliance.Entities
 		BusinessUnit = 10,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CalendarRule = 4004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ActionCardType = 9983,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 11697,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 11698,
+		BusinessUnitMap = 6,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CallbackRegistration = 301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CascadeGrantRevokeAccessRecordsTracker = 10014,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CascadeGrantRevokeAccessVersionTracker = 10015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Catalog = 10048,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CanvasApp = 300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11416,
+		CanvasAppExtendedMetadata = 10025,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Attribute = 9808,
+		ActionCardType = 9983,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageAttributeConfiguration = 431,
@@ -6597,7 +6570,7 @@ namespace Compliance.Entities
 		AttributeMap = 4601,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11413,
+		Auditing = 4567,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemJob = 4700,
@@ -6606,10 +6579,10 @@ namespace Compliance.Entities
 		Attachment_2 = 1002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Auditing = 4567,
+		Attribute = 9808,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 11781,
+		AuthorizationServer = 1094,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -6618,55 +6591,55 @@ namespace Compliance.Entities
 		BulkDeleteOperation = 4424,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AuthorizationServer = 1094,
+		BusinessDataLocalizedLabel = 4232,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 11780,
+		Chatbot = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		Chatbotsubcomponent = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10066,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderFile = 10067,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MonthlyFiscalCalendar = 2003,
+		AIBuilderFileAttachedData = 10068,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10063,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		AIBuilderDatasetFile = 10064,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AIBuilderDatasetRecord = 10065,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIObjectDetectionLabel = 10071,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIObjectDetectionBoundingBox = 10072,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIObjectDetectionImageMapping = 10073,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIFormProcessingDocument = 10069,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailboxStatistics = 9607,
+		AIObjectDetectionImage = 10070,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MailboxTrackingCategory = 9609,
@@ -6675,7 +6648,7 @@ namespace Compliance.Entities
 		MailboxAutoTrackingFolder = 9608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LocalConfigStore = 9201,
+		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LookupMapping = 4419,
@@ -6684,10 +6657,10 @@ namespace Compliance.Entities
 		Mailbox = 9606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailMergeTemplate = 9106,
+		MailboxStatistics = 9607,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MobileOfflineProfile = 9866,
+		ManagedProperty = 9812,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfileItem = 9867,
@@ -6696,7 +6669,7 @@ namespace Compliance.Entities
 		MobileOfflineProfileItemAssociation = 9868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManagedProperty = 9812,
+		MonthlyFiscalCalendar = 2003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MetadataDifference = 4231,
@@ -6705,88 +6678,88 @@ namespace Compliance.Entities
 		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11404,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 11665,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 11701,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 11702,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11402,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11403,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		MobileOfflineProfile = 9866,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		ODatav4DataSource = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		RichTextAttachment = 10060,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ServiceConfiguration = 10039,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		KnowledgeInteractionInsight = 10045,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 11787,
+		KnowledgeSearchInsight = 10046,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		NonRelationalDataSource = 10061,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SLAKPI = 10040,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRuleArgument = 10080,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRuleSet = 10081,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHistory = 10000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionComponentDataSource = 10012,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionComponentSummary = 10011,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRule = 10079,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisResultDetail = 10078,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ComponentLayer = 10005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ComponentLayerDataSource = 10006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisComponent = 10075,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisJob = 10076,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisResult = 10077,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Dataflow = 418,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 11785,
+		Searchprovider = 10043,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 11786,
+		KnowledgeArticleImage = 10044,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FileAttachment = 55,
+		KnowledgeArticleTemplate = 10047,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeFederatedArticle = 10041,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeFederatedArticleIncident = 10042,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		HelpPage = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FilterTemplate = 30,
@@ -6795,7 +6768,7 @@ namespace Compliance.Entities
 		FixedMonthlyFiscalCalendar = 2004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Feedback = 9958,
+		FlowSession = 4720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FieldPermission = 1201,
@@ -6804,10 +6777,10 @@ namespace Compliance.Entities
 		FieldSecurityProfile = 1200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FlowSession = 4720,
+		FileAttachment = 55,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HierarchyRule = 8840,
+		GlobalSearchConfiguration = 54,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchySecurityConfiguration = 9919,
@@ -6816,7 +6789,7 @@ namespace Compliance.Entities
 		HolidayWrapper = 9996,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GlobalSearchConfiguration = 54,
+		ImageDescriptor = 1007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Goal = 9600,
@@ -6825,7 +6798,7 @@ namespace Compliance.Entities
 		RollupQuery = 9602,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityRelationship = 9811,
+		HierarchyRule = 8840,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EnvironmentVariableDefinition = 380,
@@ -6834,7 +6807,7 @@ namespace Compliance.Entities
 		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityImageConfiguration = 432,
+		ExchangeSyncIdMapping = 4120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityKey = 9810,
@@ -6843,10 +6816,10 @@ namespace Compliance.Entities
 		EntityMap = 4600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExchangeSyncIdMapping = 4120,
+		EntityRelationship = 9811,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExternalParty = 3008,
+		ExpanderEvent = 4711,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalPartyItem = 9987,
@@ -6855,19 +6828,19 @@ namespace Compliance.Entities
 		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExpanderEvent = 4711,
+		Feedback = 9958,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11633,
+		ExportSolutionUpload = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImageDescriptor = 1007,
+		ExternalParty = 3008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ArticleTemplate = 1016,
+		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticle = 9953,
@@ -6876,7 +6849,7 @@ namespace Compliance.Entities
 		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ISVConfig = 4705,
+		KnowledgeArticleViews = 9955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Article = 127,
@@ -6885,10 +6858,10 @@ namespace Compliance.Entities
 		ArticleComment = 1082,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleViews = 9955,
+		ArticleTemplate = 1016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LanguageProvisioningState = 9875,
+		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Letter = 4207,
@@ -6897,7 +6870,7 @@ namespace Compliance.Entities
 		License = 2027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeBaseRecord = 9930,
+		LocalConfigStore = 9201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeSearchModel = 9947,
@@ -6906,7 +6879,7 @@ namespace Compliance.Entities
 		Language = 9957,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportSourceFile = 4412,
+		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportJob = 9107,
@@ -6915,7 +6888,7 @@ namespace Compliance.Entities
 		ImportLog = 4423,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataImport = 4410,
+		DataMap = 4411,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportData = 4413,
@@ -6924,10 +6897,10 @@ namespace Compliance.Entities
 		ImportEntityMapping = 4428,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataMap = 4411,
+		ImportSourceFile = 4412,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 11771,
+		IntegrationStatus = 3000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InterProcessLock = 4011,
@@ -6936,17 +6909,20 @@ namespace Compliance.Entities
 		InvalidDependency = 7107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IntegrationStatus = 3000,
+		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InteractionforEmail = 9986,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InternalAddress = 1003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InternalCatalogAssignment = 10050,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum duplicaterule_statuscode
 	{
 		
@@ -6961,7 +6937,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum DuplicateRuleConditionOperatorCode
 	{
 		
@@ -6988,7 +6964,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailCorrelationMethod
 	{
 		
@@ -7018,7 +6994,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailEmailReminderStatus
 	{
 		
@@ -7036,7 +7012,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailEmailReminderType
 	{
 		
@@ -7051,7 +7027,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailNotifications
 	{
 		
@@ -7066,7 +7042,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailPriorityCode
 	{
 		
@@ -7081,7 +7057,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum email_statuscode
 	{
 		
@@ -7111,7 +7087,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailServerProfileExchangeVersion
 	{
 		
@@ -7135,7 +7111,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailServerProfileIncomingCredentialRetrieval
 	{
 		
@@ -7159,7 +7135,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailServerProfileLastAuthorizationStatus
 	{
 		
@@ -7171,7 +7147,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailServerProfileLastTestExecutionStatus
 	{
 		
@@ -7186,7 +7162,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailServerProfileLastTestValidationStatus
 	{
 		
@@ -7198,7 +7174,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailServerProfileOutgoingCredentialRetrieval
 	{
 		
@@ -7222,7 +7198,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EmailServerProfileServerType
 	{
 		
@@ -7243,7 +7219,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum emailserverprofile_statuscode
 	{
 		
@@ -7255,7 +7231,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum environmentvariabledefinition_statuscode
 	{
 		
@@ -7267,7 +7243,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum EnvironmentVariableDefinitionType
 	{
 		
@@ -7288,7 +7264,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum environmentvariablevalue_statuscode
 	{
 		
@@ -7300,7 +7276,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum expiredprocess_statuscode
 	{
 		
@@ -7315,7 +7291,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum exportsolutionupload_statuscode
 	{
 		
@@ -7327,7 +7303,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum externalparty_statuscode
 	{
 		
@@ -7339,7 +7315,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum externalpartyitem_status_code
 	{
 		
@@ -7351,7 +7327,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum FaxPriorityCode
 	{
 		
@@ -7366,7 +7342,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum fax_statuscode
 	{
 		
@@ -7387,7 +7363,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum FeedbackSource
 	{
 		
@@ -7399,7 +7375,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum feedback_statuscode
 	{
 		
@@ -7417,7 +7393,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum flowsession_statuscode
 	{
 		
@@ -7468,7 +7444,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum goal_statuscode
 	{
 		
@@ -7483,7 +7459,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum goalrollupquery_statuscode
 	{
 		
@@ -7495,7 +7471,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportModeCode
 	{
 		
@@ -7507,7 +7483,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum import_statuscode
 	{
 		
@@ -7531,7 +7507,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportEntityMappingDeDupe
 	{
 		
@@ -7543,7 +7519,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportEntityMappingProcessCode
 	{
 		
@@ -7558,7 +7534,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum importentitymapping_statuscode
 	{
 		
@@ -7567,7 +7543,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportFileDataDelimiterCode
 	{
 		
@@ -7582,7 +7558,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportFileFieldDelimiterCode
 	{
 		
@@ -7600,7 +7576,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportFileFileTypeCode
 	{
 		
@@ -7618,7 +7594,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportFileProcessCode
 	{
 		
@@ -7633,7 +7609,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportFileProcessingStatus
 	{
 		
@@ -7675,7 +7651,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum importfile_statuscode
 	{
 		
@@ -7699,7 +7675,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportFileUpsertModeCode
 	{
 		
@@ -7714,7 +7690,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportLogLogPhaseCode
 	{
 		
@@ -7732,7 +7708,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum importlog_statuscode
 	{
 		
@@ -7741,7 +7717,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportMapEntitiesPerFile
 	{
 		
@@ -7753,7 +7729,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportMapImportMapType
 	{
 		
@@ -7768,7 +7744,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportMapSourceType
 	{
 		
@@ -7789,7 +7765,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum importmap_statuscode
 	{
 		
@@ -7801,90 +7777,21 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ImportMapTargetEntity
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		RibbonMetadataToProcess = 9880,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessTrigger = 4712,
+		RibbonRule = 1117,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 11767,
+		RibbonTabToCommandMapping = 1113,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrivilegeObjectTypeCode = 31,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessSession = 4710,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStage = 4724,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Publisher = 7101,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItem = 2029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItemCount = 2023,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueMemberCount = 2024,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PublisherAddress = 7102,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuarterlyFiscalCalendar = 2002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Queue = 2020,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Position = 50,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Post = 8000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Comment = 8005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginTraceLog = 4619,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginType = 4602,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginTypeStatistic = 4603,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Follow = 8003,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FieldSharing = 44,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrincipalSyncAttributeMap = 1404,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Privilege = 1023,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Like = 8006,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PostRegarding = 8002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PostRole = 8001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DocumentSuggestions = 1189,
+		RibbonContextGroup = 1115,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationRibbons = 1120,
@@ -7893,19 +7800,19 @@ namespace Compliance.Entities
 		RibbonDifference = 1130,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonMetadataToProcess = 9880,
+		SecurityRole = 1036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonClientMetadata = 4579,
+		RollupProperties = 9510,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonCommand = 1116,
+		RoutingRuleSet = 8181,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonContextGroup = 1115,
+		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonRule = 1117,
+		RoleTemplate = 1037,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RollupField = 9604,
@@ -7914,16 +7821,16 @@ namespace Compliance.Entities
 		RollupJob = 9511,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupProperties = 9510,
+		RelationshipRoleMap = 4501,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonTabToCommandMapping = 1113,
+		ReplicationBacklog = 1140,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SecurityRole = 1036,
+		Report = 9100,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RoleTemplate = 1037,
+		RelationshipEntity = 9813,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RelationshipAttribute = 9814,
@@ -7932,19 +7839,19 @@ namespace Compliance.Entities
 		RelationshipRole = 4500,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelationshipRoleMap = 4501,
+		ReportRelatedCategory = 9102,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurrenceRule = 4250,
+		RevokeInheritedAccessRecordsTracker = 90001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurringAppointment = 4251,
+		RibbonClientMetadata = 4579,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelationshipEntity = 9813,
+		RibbonCommand = 1116,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReplicationBacklog = 1140,
+		ReportRelatedEntity = 9101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ReportLink = 9104,
@@ -7953,337 +7860,19 @@ namespace Compliance.Entities
 		ReportVisibility = 9103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RevokeInheritedAccessRecordsTracker = 11857,
+		RuntimeDependency = 7200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Report = 9100,
+		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReportRelatedCategory = 9102,
+		SettingDefinition = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReportRelatedEntity = 9101,
+		SharePointData = 9509,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 11971,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11973,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 11968,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11969,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 11970,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Industry = 11974,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 11978,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 11979,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 11980,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 11975,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 11976,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification = 11977,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MultiSelectOptionValue = 9912,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NavigationSetting = 9900,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NewProcess = 950,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistoryDataSource = 10001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 11778,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MultiEntitySearch = 9910,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification_2 = 4110,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 11965,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 11966,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 11967,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfficeDocument = 4490,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfficeGraphDocument = 9950,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfflineCommandDefinition = 9870,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 11981,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationInsightsNotification = 9690,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Owner = 7,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OwnerMapping = 4420,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationStatistic = 4708,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationUI = 1021,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationInsightsMetric = 9699,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 11699,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ListValueMapping = 4418,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginAssembly = 4605,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PartnerApplication = 1095,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11452,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PersonalDocumentTemplate = 9941,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 11985,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 11986,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 11987,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 11982,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 11983,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 11984,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 11988,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 11992,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OptionSet = 9809,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Organization = 1019,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 11989,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 11990,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme = 11991,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailTemplate = 2010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Territory = 2013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TextAnalyticsEntityMapping = 9945,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamProfiles = 1203,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamSyncAttributeMappingProfiles = 1403,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Teamtemplate = 92,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme_2 = 2015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneRule = 4811,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TraceAssociation = 8051,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Trace = 8050,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeStampDateMapping = 9932,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneDefinition = 4810,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneLocalizedName = 4812,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncError = 9869,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemApplicationMetadata = 7000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemForm = 1030,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SuggestionCardTemplate = 1190,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncAttributeMapping = 1401,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncAttributeMappingProfile = 1400,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		User = 8,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Team = 9,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamMobileOfflineProfileMembership = 11822,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserBusinessUnitEntityMap = 42,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserManagerMap = 51,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserPrincipal = 14,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TraceRegarding = 8052,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserSettings = 150,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebResource = 9333,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebWizard = 4800,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SavedView = 4230,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserChart = 1112,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserSearchFacet = 52,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebWizardAccessPrivilege = 4803,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessDependency = 4704,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessLog = 4706,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowWaitSubscription = 4702,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WizardPage = 4802,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Process = 4703,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TranslationProcess = 951,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UnresolvedAddress = 2012,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UntrackedEmail = 4220,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Currency = 9105,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TransformationMapping = 4426,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TransformationParameterMapping = 4427,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserApplicationMetadata = 7001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserDashboard = 1031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMapping = 2016,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMobileOfflineProfileMembership = 11823,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserEntityInstanceData = 2501,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserEntityUISettings = 2500,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserFiscalCalendar = 1086,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SearchTelemetry = 11821,
+		SearchTelemetry = 10062,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SemiannualFiscalCalendar = 2001,
@@ -8292,16 +7881,16 @@ namespace Compliance.Entities
 		ServiceEndpoint = 4618,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageRequestField = 4614,
+		SharepointDocument = 9507,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponse = 4610,
+		SiteMap = 4709,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponseField = 4611,
+		SLA = 9750,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServicePlan = 101,
+		SLAItem = 9751,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DocumentLocation = 9508,
@@ -8313,13 +7902,13 @@ namespace Compliance.Entities
 		SimilarityRule = 9951,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11414,
+		SdkMessage = 4606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharePointData = 9509,
+		SdkMessageFilter = 4607,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharepointDocument = 9507,
+		SdkMessagePair = 4613,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SavedOrganizationInsightsConfiguration = 1309,
@@ -8331,16 +7920,16 @@ namespace Compliance.Entities
 		SystemChart = 1111,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RoutingRuleSet = 8181,
+		SdkMessageProcessingStep = 4608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuleItem = 8199,
+		SdkMessageRequestField = 4614,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuntimeDependency = 7200,
+		SdkMessageResponse = 4610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessage = 4606,
+		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageProcessingStepImage = 4615,
@@ -8352,16 +7941,334 @@ namespace Compliance.Entities
 		SdkMessageRequest = 4609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageFilter = 4607,
+		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessagePair = 4613,
+		Package = 10007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageProcessingStep = 4608,
+		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SiteMap = 4709,
+		OrganizationInsightsMetric = 9699,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationInsightsNotification = 9690,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Owner = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PDFSetting = 10038,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginAssembly = 4605,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginTraceLog = 4619,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginType = 4602,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PersonalDocumentTemplate = 9941,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ListValueMapping = 4418,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NavigationSetting = 9900,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NewProcess = 950,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification = 4110,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		BotContent = 10031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MultiEntitySearch = 9910,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MultiSelectOptionValue = 9912,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfficeDocument = 4490,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Organization = 1019,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationStatistic = 4708,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationUI = 1021,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfficeGraphDocument = 9950,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfflineCommandDefinition = 9870,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OptionSet = 9809,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginTypeStatistic = 4603,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Publisher = 7101,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PublisherAddress = 7102,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuarterlyFiscalCalendar = 2002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessStageParameter = 10027,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessTrigger = 4712,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProvisionLanguageForUser = 10013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Queue = 2020,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DocumentSuggestions = 1189,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurrenceRule = 4250,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringAppointment = 4251,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItem = 2029,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItemCount = 2023,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueMemberCount = 2024,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Follow = 8003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Like = 8006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PostRegarding = 8002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Position = 50,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Post = 8000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Comment = 8005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PostRole = 8001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrivilegeObjectTypeCode = 31,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessSession = 4710,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessStage = 4724,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		FieldSharing = 44,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrincipalSyncAttributeMap = 1404,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Privilege = 1023,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebResource = 9333,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebWizard = 4800,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebWizardAccessPrivilege = 4803,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserChart = 1112,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserSearchFacet = 52,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserSettings = 150,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WizardPage = 4802,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessLog = 4706,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WorkflowWaitSubscription = 4702,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AllegationConcern = 10115,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Process = 4703,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WorkflowBinary = 10028,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessDependency = 4704,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UnresolvedAddress = 2012,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UntrackedEmail = 4220,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserApplicationMetadata = 7001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TransformationMapping = 4426,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TransformationParameterMapping = 4427,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TranslationProcess = 951,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserEntityInstanceData = 2501,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserMapping = 2016,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserMobileOfflineProfileMembership = 10055,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SavedView = 4230,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserEntityUISettings = 2500,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserFiscalCalendar = 1086,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserDashboard = 1031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AllegationType = 10116,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAppetite = 10133,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessment = 10134,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentCategory = 10135,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuestionType = 10130,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Recommendation = 10131,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reminder = 10132,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentCategoryTemplate = 10136,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentType = 10140,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theme = 10141,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Topic = 10142,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentDefinition = 10137,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentDefinitionTemplate = 10138,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentFactorTemplate = 10139,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DispositionAction = 10120,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DispositionReason = 10121,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10122,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChecklistResponse = 10117,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChecklistType = 10118,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Complaint = 10119,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IndividualComplaint = 10123,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification_2 = 10127,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OPCPriority = 10128,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuestionTemplate = 10129,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Industry = 10124,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Issue = 10125,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Legislation = 10126,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionClients = 1072,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionManuallyTrackedObject = 37,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionStatisticOffline = 45,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		StringMap = 1043,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Subject = 129,
@@ -8370,19 +8277,19 @@ namespace Compliance.Entities
 		Subscription = 29,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionClients = 1072,
+		SubscriptionStatisticOutlook = 46,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		Trackinginformationfordeletedentities = 35,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StatusMap = 1075,
+		SuggestionCardTemplate = 1190,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StringMap = 1043,
+		SyncAttributeMapping = 1401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionManuallyTrackedObject = 37,
+		SubscriptionSyncEntryOffline = 47,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SubscriptionSyncEntryOutlook = 48,
@@ -8391,16 +8298,16 @@ namespace Compliance.Entities
 		SubscriptionSynchronizationInformation = 33,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Trackinginformationfordeletedentities = 35,
+		SocialProfile = 99,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionStatisticOffline = 45,
+		Solution = 7100,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionStatisticOutlook = 46,
+		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionSyncEntryOffline = 47,
+		SLAKPIInstance = 9752,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SocialActivity = 4216,
@@ -8409,52 +8316,118 @@ namespace Compliance.Entities
 		SocialInsightsConfiguration = 1300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLA = 9750,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAItem = 9751,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPIInstance = 9752,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Solution = 7100,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDefinition = 7104,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11409,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryData = 9890,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponent = 7103,
+		StageSolutionUpload = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		StatusMap = 1075,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistory = 10000,
+		SolutionComponentDefinition = 7104,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Contact = 2,
+		SolutionComponentRelationshipConfiguration = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 11779,
+		SyncAttributeMappingProfile = 1400,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TextAnalyticsEntityMapping = 9945,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theme_2 = 2015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeStampDateMapping = 9932,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Teamtemplate = 92,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EmailTemplate = 2010,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Territory = 2013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneDefinition = 4810,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Trace = 8050,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TraceRegarding = 8052,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Currency = 9105,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneLocalizedName = 4812,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneRule = 4811,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TraceAssociation = 8051,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserAuthorizationChangeTracker = 60,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserBusinessUnitEntityMap = 42,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SyncError = 9869,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemApplicationMetadata = 7000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemForm = 1030,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserManagerMap = 51,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamMobileOfflineProfileMembership = 10054,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamProfiles = 1203,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamSyncAttributeMappingProfiles = 1403,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserPrincipal = 14,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Task = 4212,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Team = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHistoryDataSource = 10001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ConversationTranscript = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionRole = 3231,
+		RecordCreationandUpdateRuleItem = 9301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ConnectionRoleObjectTypeCode = 3233,
@@ -8463,10 +8436,10 @@ namespace Compliance.Entities
 		Connector = 372,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecordCreationandUpdateRuleItem = 9301,
+		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomControl = 9753,
+		CustomAPI = 10051,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CustomControlDefaultConfig = 9755,
@@ -8475,16 +8448,16 @@ namespace Compliance.Entities
 		CustomControlResource = 9754,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 11772,
+		Address = 1071,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 11773,
+		CustomAPIRequestParameter = 10052,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 11774,
+		CustomAPIResponseProperty = 10053,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelAccessProfile = 3005,
+		CustomControl = 9753,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfileRule = 9400,
@@ -8493,28 +8466,28 @@ namespace Compliance.Entities
 		ChannelAccessProfileRuleItem = 9401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 11769,
+		ChannelProperty = 1236,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 11770,
+		CatalogAssignment = 10049,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelProperty = 1236,
+		ChannelAccessProfile = 3005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessConfiguration = 9650,
+		ChannelPropertyGroup = 1234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11415,
+		ConnectionReference = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelPropertyGroup = 1234,
+		ConnectionRole = 3231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Clientupdate = 36,
@@ -8523,10 +8496,10 @@ namespace Compliance.Entities
 		ColumnMapping = 4417,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Address = 1071,
+		ProcessConfiguration = 9650,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DuplicateRuleCondition = 4416,
+		CustomerRelationship = 4502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Email = 4202,
@@ -8535,7 +8508,7 @@ namespace Compliance.Entities
 		EmailHash = 4023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DocumentTemplate = 9940,
+		EmailSearch = 4299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DuplicateRecord = 4415,
@@ -8544,10 +8517,10 @@ namespace Compliance.Entities
 		DuplicateDetectionRule = 4414,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailSearch = 4299,
+		DuplicateRuleCondition = 4416,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityAnalyticsConfig = 430,
+		EmailServerProfile = 9605,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		VirtualEntityDataProvider = 78,
@@ -8556,7 +8529,7 @@ namespace Compliance.Entities
 		VirtualEntityDataSource = 85,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailServerProfile = 9605,
+		EntityImageConfiguration = 432,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailSignature = 9997,
@@ -8565,28 +8538,28 @@ namespace Compliance.Entities
 		Entity = 9800,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11405,
+		EntityAnalyticsConfig = 430,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11406,
+		DataLakeWorkspacePermission = 10059,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataPerformanceDashboard = 4450,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomerRelationship = 4502,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 11765,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 11766,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DelveActionHub = 9961,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DisplayString = 4102,
+		DataLakeFolder = 10056,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DataLakeFolderPermission = 10057,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DataLakeWorkspace = 10058,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dependency = 7105,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DisplayStringMap = 4101,
@@ -8595,7 +8568,7 @@ namespace Compliance.Entities
 		IndexedArticle = 126,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Dependency = 7105,
+		DocumentTemplate = 9940,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DependencyFeature = 7108,
@@ -8604,28 +8577,28 @@ namespace Compliance.Entities
 		DependencyNode = 7106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationFile = 4707,
+		DisplayString = 4102,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11407,
+		ApplicationUser = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ModeldrivenApp = 9006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppConfigurationInstance = 9013,
+		AppModuleComponent = 9007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfigMaster = 9011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11410,
+		ModelDrivenAppElement = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppModuleComponent = 9007,
+		ApplicationFile = 4707,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppModuleMetadataDependency = 8701,
+		ModelDrivenAppComponentNodesEdge = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadataAsyncOperation = 8702,
@@ -8634,13 +8607,16 @@ namespace Compliance.Entities
 		AppModuleRoles = 9009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11411,
+		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11412,
+		ModelDrivenAppComponentNode = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadata = 8700,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AppModuleMetadataDependency = 8701,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionCardUserSettings = 9973,
@@ -8667,10 +8643,10 @@ namespace Compliance.Entities
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		AppConfiguration = 9012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppConfiguration = 9012,
+		AppConfigurationInstance = 9013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Activity = 4200,
@@ -8682,10 +8658,7 @@ namespace Compliance.Entities
 		Note = 5,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BusinessUnitMap = 6,
+		ModelDrivenAppSetting = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Announcement = 132,
@@ -8694,7 +8667,7 @@ namespace Compliance.Entities
 		Calendar = 4003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BusinessDataLocalizedLabel = 4232,
+		CalendarRule = 4004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BusinessProcessFlowInstance = 4725,
@@ -8703,28 +8676,28 @@ namespace Compliance.Entities
 		BusinessUnit = 10,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CalendarRule = 4004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ActionCardType = 9983,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 11697,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 11698,
+		BusinessUnitMap = 6,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CallbackRegistration = 301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CascadeGrantRevokeAccessRecordsTracker = 10014,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CascadeGrantRevokeAccessVersionTracker = 10015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Catalog = 10048,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CanvasApp = 300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11416,
+		CanvasAppExtendedMetadata = 10025,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Attribute = 9808,
+		ActionCardType = 9983,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageAttributeConfiguration = 431,
@@ -8733,7 +8706,7 @@ namespace Compliance.Entities
 		AttributeMap = 4601,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11413,
+		Auditing = 4567,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemJob = 4700,
@@ -8742,10 +8715,10 @@ namespace Compliance.Entities
 		Attachment_2 = 1002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Auditing = 4567,
+		Attribute = 9808,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 11781,
+		AuthorizationServer = 1094,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -8754,55 +8727,55 @@ namespace Compliance.Entities
 		BulkDeleteOperation = 4424,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AuthorizationServer = 1094,
+		BusinessDataLocalizedLabel = 4232,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 11780,
+		Chatbot = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		Chatbotsubcomponent = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10066,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderFile = 10067,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MonthlyFiscalCalendar = 2003,
+		AIBuilderFileAttachedData = 10068,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10063,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		AIBuilderDatasetFile = 10064,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AIBuilderDatasetRecord = 10065,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIObjectDetectionLabel = 10071,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIObjectDetectionBoundingBox = 10072,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIObjectDetectionImageMapping = 10073,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIFormProcessingDocument = 10069,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailboxStatistics = 9607,
+		AIObjectDetectionImage = 10070,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MailboxTrackingCategory = 9609,
@@ -8811,7 +8784,7 @@ namespace Compliance.Entities
 		MailboxAutoTrackingFolder = 9608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LocalConfigStore = 9201,
+		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LookupMapping = 4419,
@@ -8820,10 +8793,10 @@ namespace Compliance.Entities
 		Mailbox = 9606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailMergeTemplate = 9106,
+		MailboxStatistics = 9607,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MobileOfflineProfile = 9866,
+		ManagedProperty = 9812,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfileItem = 9867,
@@ -8832,7 +8805,7 @@ namespace Compliance.Entities
 		MobileOfflineProfileItemAssociation = 9868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManagedProperty = 9812,
+		MonthlyFiscalCalendar = 2003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MetadataDifference = 4231,
@@ -8841,88 +8814,88 @@ namespace Compliance.Entities
 		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11404,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 11665,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 11701,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 11702,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11402,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11403,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		MobileOfflineProfile = 9866,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		ODatav4DataSource = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		RichTextAttachment = 10060,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ServiceConfiguration = 10039,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		KnowledgeInteractionInsight = 10045,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 11787,
+		KnowledgeSearchInsight = 10046,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		NonRelationalDataSource = 10061,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SLAKPI = 10040,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRuleArgument = 10080,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRuleSet = 10081,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHistory = 10000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionComponentDataSource = 10012,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionComponentSummary = 10011,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRule = 10079,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisResultDetail = 10078,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ComponentLayer = 10005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ComponentLayerDataSource = 10006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisComponent = 10075,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisJob = 10076,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisResult = 10077,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Dataflow = 418,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 11785,
+		Searchprovider = 10043,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 11786,
+		KnowledgeArticleImage = 10044,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FileAttachment = 55,
+		KnowledgeArticleTemplate = 10047,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeFederatedArticle = 10041,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeFederatedArticleIncident = 10042,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		HelpPage = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FilterTemplate = 30,
@@ -8931,7 +8904,7 @@ namespace Compliance.Entities
 		FixedMonthlyFiscalCalendar = 2004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Feedback = 9958,
+		FlowSession = 4720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FieldPermission = 1201,
@@ -8940,10 +8913,10 @@ namespace Compliance.Entities
 		FieldSecurityProfile = 1200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FlowSession = 4720,
+		FileAttachment = 55,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HierarchyRule = 8840,
+		GlobalSearchConfiguration = 54,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchySecurityConfiguration = 9919,
@@ -8952,7 +8925,7 @@ namespace Compliance.Entities
 		HolidayWrapper = 9996,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GlobalSearchConfiguration = 54,
+		ImageDescriptor = 1007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Goal = 9600,
@@ -8961,7 +8934,7 @@ namespace Compliance.Entities
 		RollupQuery = 9602,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityRelationship = 9811,
+		HierarchyRule = 8840,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EnvironmentVariableDefinition = 380,
@@ -8970,7 +8943,7 @@ namespace Compliance.Entities
 		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityImageConfiguration = 432,
+		ExchangeSyncIdMapping = 4120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityKey = 9810,
@@ -8979,10 +8952,10 @@ namespace Compliance.Entities
 		EntityMap = 4600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExchangeSyncIdMapping = 4120,
+		EntityRelationship = 9811,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExternalParty = 3008,
+		ExpanderEvent = 4711,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalPartyItem = 9987,
@@ -8991,19 +8964,19 @@ namespace Compliance.Entities
 		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExpanderEvent = 4711,
+		Feedback = 9958,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11633,
+		ExportSolutionUpload = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImageDescriptor = 1007,
+		ExternalParty = 3008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ArticleTemplate = 1016,
+		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticle = 9953,
@@ -9012,7 +8985,7 @@ namespace Compliance.Entities
 		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ISVConfig = 4705,
+		KnowledgeArticleViews = 9955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Article = 127,
@@ -9021,10 +8994,10 @@ namespace Compliance.Entities
 		ArticleComment = 1082,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleViews = 9955,
+		ArticleTemplate = 1016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LanguageProvisioningState = 9875,
+		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Letter = 4207,
@@ -9033,7 +9006,7 @@ namespace Compliance.Entities
 		License = 2027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeBaseRecord = 9930,
+		LocalConfigStore = 9201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeSearchModel = 9947,
@@ -9042,7 +9015,7 @@ namespace Compliance.Entities
 		Language = 9957,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportSourceFile = 4412,
+		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportJob = 9107,
@@ -9051,7 +9024,7 @@ namespace Compliance.Entities
 		ImportLog = 4423,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataImport = 4410,
+		DataMap = 4411,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportData = 4413,
@@ -9060,10 +9033,10 @@ namespace Compliance.Entities
 		ImportEntityMapping = 4428,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataMap = 4411,
+		ImportSourceFile = 4412,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 11771,
+		IntegrationStatus = 3000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InterProcessLock = 4011,
@@ -9072,17 +9045,20 @@ namespace Compliance.Entities
 		InvalidDependency = 7107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IntegrationStatus = 3000,
+		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InteractionforEmail = 9986,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InternalAddress = 1003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InternalCatalogAssignment = 10050,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum InteractionForEmailInteractionType
 	{
 		
@@ -9100,7 +9076,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum interactionforemail_statuscode
 	{
 		
@@ -9112,7 +9088,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum internalcatalogassignment_statuscode
 	{
 		
@@ -9124,7 +9100,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum kbarticle_statuscode
 	{
 		
@@ -9139,7 +9115,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum KnowledgeArticleExpiredReviewOptions
 	{
 		
@@ -9154,7 +9130,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum KnowledgeArticleReview
 	{
 		
@@ -9166,7 +9142,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum knowledgearticle_statuscode
 	{
 		
@@ -9214,7 +9190,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum KnowledgeArticleViewsLocation
 	{
 		
@@ -9226,7 +9202,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum knowledgearticleviews_statuscode
 	{
 		
@@ -9238,7 +9214,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum knowledgesearchmodel_statuscode
 	{
 		
@@ -9250,7 +9226,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum languagelocale_statuscode
 	{
 		
@@ -9262,7 +9238,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum LetterPriorityCode
 	{
 		
@@ -9277,7 +9253,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum letter_statuscode
 	{
 		
@@ -9298,7 +9274,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum LookUpMappingLookUpSourceCode
 	{
 		
@@ -9310,7 +9286,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum LookUpMappingProcessCode
 	{
 		
@@ -9325,7 +9301,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum lookupmapping_statuscode
 	{
 		
@@ -9334,7 +9310,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxACTDeliveryMethod
 	{
 		
@@ -9349,7 +9325,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxACTStatus
 	{
 		
@@ -9364,7 +9340,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxEmailRouterAccessApproval
 	{
 		
@@ -9382,7 +9358,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxExchangeContactsImportStatus
 	{
 		
@@ -9397,7 +9373,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxIncomingEmailDeliveryMethod
 	{
 		
@@ -9415,7 +9391,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxIncomingEmailStatus
 	{
 		
@@ -9430,7 +9406,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxMailboxStatus
 	{
 		
@@ -9445,7 +9421,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxOfficeAppsDeploymentStatus
 	{
 		
@@ -9466,7 +9442,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxOutgoingEmailDeliveryMethod
 	{
 		
@@ -9481,7 +9457,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxOutgoingEmailStatus
 	{
 		
@@ -9496,7 +9472,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum mailbox_statuscode
 	{
 		
@@ -9508,7 +9484,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailboxStatisticsOperationTypeId
 	{
 		
@@ -9523,7 +9499,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailMergeTemplateDocumentFormat
 	{
 		
@@ -9535,7 +9511,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MailMergeTemplateMailMergeType
 	{
 		
@@ -9559,7 +9535,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum mailmergetemplate_statuscode
 	{
 		
@@ -9571,7 +9547,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum metric_statuscode
 	{
 		
@@ -9583,7 +9559,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum MobileOfflineProfileItemRecordDistributionCriteria
 	{
 		
@@ -9601,7 +9577,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aibdataset_statuscode
 	{
 		
@@ -9613,7 +9589,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aibdatasetfile_statuscode
 	{
 		
@@ -9625,7 +9601,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_AIBDatasetRecordmsdyn_RecordType
 	{
 		
@@ -9637,7 +9613,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aibdatasetrecord_statuscode
 	{
 		
@@ -9649,7 +9625,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aibdatasetscontainer_statuscode
 	{
 		
@@ -9661,7 +9637,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aibfile_statuscode
 	{
 		
@@ -9673,7 +9649,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aibfileattacheddata_statuscode
 	{
 		
@@ -9685,7 +9661,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_AIConfigurationmsdyn_Type
 	{
 		
@@ -9697,7 +9673,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aiconfiguration_statuscode
 	{
 		
@@ -9748,7 +9724,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aifptrainingdocument_statuscode
 	{
 		
@@ -9760,7 +9736,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aimodel_statuscode
 	{
 		
@@ -9772,7 +9748,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aiodimage_statuscode
 	{
 		
@@ -9784,7 +9760,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aiodlabel_statuscode
 	{
 		
@@ -9796,7 +9772,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aiodtrainingboundingbox_statuscode
 	{
 		
@@ -9808,7 +9784,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aiodtrainingimage_statuscode
 	{
 		
@@ -9820,7 +9796,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_aitemplate_statuscode
 	{
 		
@@ -9832,7 +9808,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysiscomponentmsdyn_AnalysisComponentType
 	{
 		
@@ -9844,7 +9820,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysiscomponentmsdyn_ComponentType
 	{
 		
@@ -9868,7 +9844,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysiscomponent_statuscode
 	{
 		
@@ -9892,7 +9868,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisjob_statuscode
 	{
 		
@@ -9916,7 +9892,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisresultmsdyn_AnalysisComponentType
 	{
 		
@@ -9928,7 +9904,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisresultmsdyn_Category
 	{
 		
@@ -9961,7 +9937,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisresultmsdyn_ComponentType
 	{
 		
@@ -9976,7 +9952,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisresultmsdyn_Level
 	{
 		
@@ -9988,7 +9964,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisresultmsdyn_ReturnStatus
 	{
 		
@@ -10012,7 +9988,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisresultmsdyn_Severity
 	{
 		
@@ -10030,7 +10006,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisresult_statuscode
 	{
 		
@@ -10042,7 +10018,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_analysisresultdetail_statuscode
 	{
 		
@@ -10054,7 +10030,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_dataflow_statuscode
 	{
 		
@@ -10066,7 +10042,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_federatedarticle_statuscode
 	{
 		
@@ -10078,7 +10054,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_federatedarticleincident_statuscode
 	{
 		
@@ -10090,7 +10066,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_helppage_statuscode
 	{
 		
@@ -10102,7 +10078,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_kmfederatedsearchconfigSearchType
 	{
 		
@@ -10117,7 +10093,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_kmfederatedsearchconfig_statuscode
 	{
 		
@@ -10129,7 +10105,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_knowledgearticleimage_statuscode
 	{
 		
@@ -10141,7 +10117,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_knowledgearticletemplate_statuscode
 	{
 		
@@ -10153,7 +10129,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_knowledgeinteractioninsight_statuscode
 	{
 		
@@ -10165,7 +10141,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_knowledgesearchinsight_statuscode
 	{
 		
@@ -10177,7 +10153,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_odatav4dsmsdyn_paginationtype
 	{
 		
@@ -10189,7 +10165,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_richtextfile_statuscode
 	{
 		
@@ -10201,7 +10177,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_serviceconfiguration_statuscode
 	{
 		
@@ -10213,7 +10189,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_slakpi_statuscode
 	{
 		
@@ -10225,7 +10201,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_solutionhealthrule_statuscode
 	{
 		
@@ -10237,7 +10213,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_solutionhealthruleargument_statuscode
 	{
 		
@@ -10249,7 +10225,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_solutionhealthruleset_statuscode
 	{
 		
@@ -10261,7 +10237,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_solutionhistorymsdyn_operation
 	{
 		
@@ -10297,7 +10273,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_solutionhistorymsdyn_status
 	{
 		
@@ -10309,7 +10285,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdyn_solutionhistorymsdyn_suboperation
 	{
 		
@@ -10330,7 +10306,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum msdynce_botcontent_statuscode
 	{
 		
@@ -10342,7 +10318,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum NavigationSettingSettingType
 	{
 		
@@ -10360,7 +10336,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum newprocess_statuscode
 	{
 		
@@ -10375,7 +10351,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_allegation_statuscode
 	{
 		
@@ -10387,7 +10363,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_allegationtype_statuscode
 	{
 		
@@ -10399,7 +10375,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_checklistresponse_statuscode
 	{
 		
@@ -10411,7 +10387,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_checklisttype_statuscode
 	{
 		
@@ -10423,7 +10399,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_complaint_statuscode
 	{
 		
@@ -10468,7 +10444,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_dispositionaction_statuscode
 	{
 		
@@ -10480,7 +10456,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_dispositionreason_statuscode
 	{
 		
@@ -10492,7 +10468,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_eventInstanceTypeCode
 	{
 		
@@ -10513,7 +10489,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_eventPriorityCode
 	{
 		
@@ -10528,7 +10504,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_event_statuscode
 	{
 		
@@ -10546,7 +10522,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_individualcomplaint_bp_statuscode
 	{
 		
@@ -10561,7 +10537,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_industry_statuscode
 	{
 		
@@ -10573,7 +10549,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_issue_statuscode
 	{
 		
@@ -10585,7 +10561,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_legislation_statuscode
 	{
 		
@@ -10597,7 +10573,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_notification_statuscode
 	{
 		
@@ -10612,7 +10588,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_opcpriority_statuscode
 	{
 		
@@ -10624,7 +10600,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_questiontemplate_statuscode
 	{
 		
@@ -10636,7 +10612,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_questiontype_statuscode
 	{
 		
@@ -10648,7 +10624,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_recommendation_statuscode
 	{
 		
@@ -10660,7 +10636,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_reminder_statuscode
 	{
 		
@@ -10672,7 +10648,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_riskappetite_statuscode
 	{
 		
@@ -10684,7 +10660,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_riskassessment_statuscode
 	{
 		
@@ -10696,7 +10672,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_riskassessmentcategory_statuscode
 	{
 		
@@ -10708,7 +10684,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_riskassessmentcategorytemplate_statuscode
 	{
 		
@@ -10720,7 +10696,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_riskassessmentdefinition_statuscode
 	{
 		
@@ -10732,7 +10708,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_riskassessmentdefinitiontemplate_statuscode
 	{
 		
@@ -10744,7 +10720,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_riskassessmentfactortemplate_statuscode
 	{
 		
@@ -10756,7 +10732,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_riskassessmenttype_statuscode
 	{
 		
@@ -10768,7 +10744,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_theme_statuscode
 	{
 		
@@ -10780,7 +10756,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum opc_topic_statuscode
 	{
 		
@@ -10792,7 +10768,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationCurrencyDisplayOption
 	{
 		
@@ -10804,7 +10780,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationCurrencyFormatCode
 	{
 		
@@ -10822,7 +10798,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationDefaultRecurrenceEndRangeType
 	{
 		
@@ -10837,7 +10813,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationDiscountCalculationMethod
 	{
 		
@@ -10849,7 +10825,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationEmailConnectionChannel
 	{
 		
@@ -10861,7 +10837,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationFiscalPeriodFormatPeriod
 	{
 		
@@ -10888,7 +10864,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationFiscalYearFormatPrefix
 	{
 		
@@ -10900,7 +10876,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationFiscalYearFormatSuffix
 	{
 		
@@ -10915,7 +10891,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationFiscalYearFormatYear
 	{
 		
@@ -10930,7 +10906,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationFullNameConventionCode
 	{
 		
@@ -10960,7 +10936,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationISVIntegrationCode
 	{
 		
@@ -10990,7 +10966,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationNegativeFormatCode
 	{
 		
@@ -11011,7 +10987,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationOrganizationState
 	{
 		
@@ -11029,7 +11005,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationPluginTraceLogSetting
 	{
 		
@@ -11044,7 +11020,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationReportScriptErrors
 	{
 		
@@ -11062,7 +11038,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationSharePointDeploymentType
 	{
 		
@@ -11074,7 +11050,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationSyncOptInSelectionStatus
 	{
 		
@@ -11089,7 +11065,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrganizationYammerPostMethod
 	{
 		
@@ -11101,7 +11077,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OrgInsightsMetricMetricType
 	{
 		
@@ -11113,7 +11089,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum OwnerMappingProcessCode
 	{
 		
@@ -11128,7 +11104,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ownermapping_statuscode
 	{
 		
@@ -11137,7 +11113,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum package_statuscode
 	{
 		
@@ -11149,7 +11125,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum pdfsetting_statuscode
 	{
 		
@@ -11161,7 +11137,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PhoneCallPriorityCode
 	{
 		
@@ -11176,7 +11152,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum phonecall_statuscode
 	{
 		
@@ -11194,7 +11170,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PickListMappingProcessCode
 	{
 		
@@ -11212,7 +11188,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum picklistmapping_statuscode
 	{
 		
@@ -11221,7 +11197,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PluginAssemblyAuthType
 	{
 		
@@ -11230,7 +11206,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PluginAssemblyIsolationMode
 	{
 		
@@ -11245,7 +11221,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PluginAssemblySourceType
 	{
 		
@@ -11263,7 +11239,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PluginTraceLogMode
 	{
 		
@@ -11275,7 +11251,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PluginTraceLogOperationType
 	{
 		
@@ -11290,7 +11266,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum position_statuscode
 	{
 		
@@ -11302,7 +11278,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PostSource
 	{
 		
@@ -11317,7 +11293,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PostType
 	{
 		
@@ -11344,7 +11320,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum processsession_statuscode
 	{
 		
@@ -11368,7 +11344,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ProcessStageOperationKind
 	{
 		
@@ -11449,7 +11425,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ProcessStageOperationType
 	{
 		
@@ -11614,7 +11590,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum processstageparameter_statuscode
 	{
 		
@@ -11626,7 +11602,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ProcessTriggerControlType
 	{
 		
@@ -11638,7 +11614,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ProcessTriggerPipelineStage
 	{
 		
@@ -11653,7 +11629,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ProcessTriggerScope
 	{
 		
@@ -11665,7 +11641,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ProvisionLanguageForUserOperationStatus
 	{
 		
@@ -11683,7 +11659,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PublisherAddress1_AddressTypeCode
 	{
 		
@@ -11692,7 +11668,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PublisherAddress1_ShippingMethodCode
 	{
 		
@@ -11701,7 +11677,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PublisherAddress2_AddressTypeCode
 	{
 		
@@ -11710,7 +11686,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PublisherAddress2_ShippingMethodCode
 	{
 		
@@ -11719,7 +11695,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PublisherAddressAddressTypeCode
 	{
 		
@@ -11737,7 +11713,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PublisherAddressFreightTermsCode
 	{
 		
@@ -11749,7 +11725,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum PublisherAddressShippingMethodCode
 	{
 		
@@ -11758,7 +11734,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum QueueEmailRouterAccessApproval
 	{
 		
@@ -11776,7 +11752,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum QueueIncomingEmailDeliveryMethod
 	{
 		
@@ -11791,7 +11767,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum QueueIncomingEmailFilteringMethod
 	{
 		
@@ -11812,7 +11788,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum QueueOutgoingEmailDeliveryMethod
 	{
 		
@@ -11824,7 +11800,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum QueueQueueTypeCode
 	{
 		
@@ -11833,7 +11809,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum QueueQueueViewType
 	{
 		
@@ -11845,7 +11821,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum queue_statuscode
 	{
 		
@@ -11857,39 +11833,30 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum QueueItemObjectTypeCode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Email = 4202,
+		KnowledgeArticleTemplate = 10047,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
+		Complaint = 10119,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Letter = 4207,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
+		Event = 10122,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Fax = 4204,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialActivity = 4216,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Activity = 4200,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecurringAppointment = 4251,
@@ -11898,11 +11865,20 @@ namespace Compliance.Entities
 		Task = 4212,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11969,
+		Appointment = 4201,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Email = 4202,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Activity = 4200,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SocialActivity = 4216,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum queueitem_statuscode
 	{
 		
@@ -11914,7 +11890,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurrenceRuleInstance
 	{
 		
@@ -11935,7 +11911,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurrenceRulePatternEndType
 	{
 		
@@ -11950,7 +11926,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurrenceRuleRecurrencePatternType
 	{
 		
@@ -11968,7 +11944,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurringAppointmentMasterExpansionStateCode
 	{
 		
@@ -11983,7 +11959,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurringAppointmentMasterInstance
 	{
 		
@@ -12004,7 +11980,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurringAppointmentMasterInstanceTypeCode
 	{
 		
@@ -12025,7 +12001,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurringAppointmentMasterPatternEndType
 	{
 		
@@ -12040,7 +12016,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurringAppointmentMasterPriorityCode
 	{
 		
@@ -12055,7 +12031,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum RecurringAppointmentMasterRecurrencePatternType
 	{
 		
@@ -12073,7 +12049,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum recurringappointmentmaster_statuscode
 	{
 		
@@ -12097,7 +12073,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum relationshiprole_statuscode
 	{
 		
@@ -12109,7 +12085,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ReportReportTypeCode
 	{
 		
@@ -12124,7 +12100,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ReportCategoryCategoryCode
 	{
 		
@@ -12142,7 +12118,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ReportLinkLinkTypeCode
 	{
 		
@@ -12157,7 +12133,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ReportVisibilityVisibilityCode
 	{
 		
@@ -12172,7 +12148,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum revokeinheritedaccessrecordstracker_statuscode
 	{
 		
@@ -12184,7 +12160,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum routingrule_statuscode
 	{
 		
@@ -12196,7 +12172,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SavedOrgInsightsConfigurationMetricType
 	{
 		
@@ -12208,7 +12184,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum savedquery_statuscode
 	{
 		
@@ -12220,7 +12196,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SavedQueryVisualizationChartType
 	{
 		
@@ -12232,7 +12208,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SavedQueryVisualizationType
 	{
 		
@@ -12244,7 +12220,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SdkMessageProcessingStepInvocationSource
 	{
 		
@@ -12259,7 +12235,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SdkMessageProcessingStepMode
 	{
 		
@@ -12271,7 +12247,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SdkMessageProcessingStepStage
 	{
 		
@@ -12316,7 +12292,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum sdkmessageprocessingstep_statuscode
 	{
 		
@@ -12328,7 +12304,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SdkMessageProcessingStepSupportedDeployment
 	{
 		
@@ -12343,7 +12319,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SdkMessageProcessingStepImageImageType
 	{
 		
@@ -12358,7 +12334,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ServiceEndpointAuthType
 	{
 		
@@ -12382,7 +12358,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ServiceEndpointConnectionMode
 	{
 		
@@ -12394,7 +12370,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ServiceEndpointContract
 	{
 		
@@ -12424,7 +12400,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ServiceEndpointMessageFormat
 	{
 		
@@ -12439,7 +12415,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ServiceEndpointNamespaceFormat
 	{
 		
@@ -12451,7 +12427,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ServiceEndpointUserClaim
 	{
 		
@@ -12466,7 +12442,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum ServicePlanAccessMode
 	{
 		
@@ -12487,7 +12463,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SettingDefinitionDataType
 	{
 		
@@ -12502,16 +12478,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
-	public enum SettingDefinitionScope
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenApp = 0,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum settingdefinition_statuscode
 	{
 		
@@ -12523,7 +12490,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum sharepointdocumentlocation_statuscode
 	{
 		
@@ -12535,7 +12502,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum sharepointsite_statuscode
 	{
 		
@@ -12547,7 +12514,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SLAApplicableFromPickList
 	{
 		
@@ -12559,90 +12526,21 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SLAObjectTypeCode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		RibbonMetadataToProcess = 9880,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessTrigger = 4712,
+		RibbonRule = 1117,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 11767,
+		RibbonTabToCommandMapping = 1113,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrivilegeObjectTypeCode = 31,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessSession = 4710,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStage = 4724,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Publisher = 7101,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItem = 2029,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueItemCount = 2023,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QueueMemberCount = 2024,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PublisherAddress = 7102,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuarterlyFiscalCalendar = 2002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Queue = 2020,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Position = 50,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Post = 8000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Comment = 8005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginTraceLog = 4619,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginType = 4602,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginTypeStatistic = 4603,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Follow = 8003,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FieldSharing = 44,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PrincipalSyncAttributeMap = 1404,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Privilege = 1023,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Like = 8006,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PostRegarding = 8002,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PostRole = 8001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DocumentSuggestions = 1189,
+		RibbonContextGroup = 1115,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ApplicationRibbons = 1120,
@@ -12651,19 +12549,19 @@ namespace Compliance.Entities
 		RibbonDifference = 1130,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonMetadataToProcess = 9880,
+		SecurityRole = 1036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonClientMetadata = 4579,
+		RollupProperties = 9510,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonCommand = 1116,
+		RoutingRuleSet = 8181,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonContextGroup = 1115,
+		RuleItem = 8199,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonRule = 1117,
+		RoleTemplate = 1037,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RollupField = 9604,
@@ -12672,16 +12570,16 @@ namespace Compliance.Entities
 		RollupJob = 9511,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RollupProperties = 9510,
+		RelationshipRoleMap = 4501,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RibbonTabToCommandMapping = 1113,
+		ReplicationBacklog = 1140,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SecurityRole = 1036,
+		Report = 9100,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RoleTemplate = 1037,
+		RelationshipEntity = 9813,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RelationshipAttribute = 9814,
@@ -12690,19 +12588,19 @@ namespace Compliance.Entities
 		RelationshipRole = 4500,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelationshipRoleMap = 4501,
+		ReportRelatedCategory = 9102,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurrenceRule = 4250,
+		RevokeInheritedAccessRecordsTracker = 90001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecurringAppointment = 4251,
+		RibbonClientMetadata = 4579,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RelationshipEntity = 9813,
+		RibbonCommand = 1116,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReplicationBacklog = 1140,
+		ReportRelatedEntity = 9101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ReportLink = 9104,
@@ -12711,337 +12609,19 @@ namespace Compliance.Entities
 		ReportVisibility = 9103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RevokeInheritedAccessRecordsTracker = 11857,
+		RuntimeDependency = 7200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Report = 9100,
+		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReportRelatedCategory = 9102,
+		SettingDefinition = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ReportRelatedEntity = 9101,
+		SharePointData = 9509,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 11971,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 11972,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 11973,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 11968,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 11969,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 11970,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Industry = 11974,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 11978,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 11979,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 11980,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 11975,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 11976,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification = 11977,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MultiSelectOptionValue = 9912,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NavigationSetting = 9900,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NewProcess = 950,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistoryDataSource = 10001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 11778,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MultiEntitySearch = 9910,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification_2 = 4110,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 11965,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 11966,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 11967,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfficeDocument = 4490,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfficeGraphDocument = 9950,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OfflineCommandDefinition = 9870,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 11981,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationInsightsNotification = 9690,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Owner = 7,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OwnerMapping = 4420,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationStatistic = 4708,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationUI = 1021,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationInsightsMetric = 9699,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 11699,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PhoneCall = 4210,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ListValueMapping = 4418,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PluginAssembly = 4605,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PartnerApplication = 1095,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11452,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PersonalDocumentTemplate = 9941,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 11985,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 11986,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 11987,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 11982,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 11983,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 11984,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 11988,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 11992,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OptionSet = 9809,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Organization = 1019,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 11989,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 11990,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme = 11991,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailTemplate = 2010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Territory = 2013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TextAnalyticsEntityMapping = 9945,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamProfiles = 1203,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamSyncAttributeMappingProfiles = 1403,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Teamtemplate = 92,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme_2 = 2015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneRule = 4811,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TraceAssociation = 8051,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Trace = 8050,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeStampDateMapping = 9932,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneDefinition = 4810,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TimeZoneLocalizedName = 4812,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncError = 9869,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemApplicationMetadata = 7000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemForm = 1030,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SuggestionCardTemplate = 1190,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncAttributeMapping = 1401,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SyncAttributeMappingProfile = 1400,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		User = 8,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Task = 4212,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Team = 9,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamMobileOfflineProfileMembership = 11822,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserBusinessUnitEntityMap = 42,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserManagerMap = 51,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserPrincipal = 14,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TraceRegarding = 8052,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserSettings = 150,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebResource = 9333,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebWizard = 4800,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SavedView = 4230,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserChart = 1112,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserSearchFacet = 52,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WebWizardAccessPrivilege = 4803,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessDependency = 4704,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessLog = 4706,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowWaitSubscription = 4702,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WizardPage = 4802,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Process = 4703,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TranslationProcess = 951,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UnresolvedAddress = 2012,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UntrackedEmail = 4220,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Currency = 9105,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TransformationMapping = 4426,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TransformationParameterMapping = 4427,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserApplicationMetadata = 7001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserDashboard = 1031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMapping = 2016,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMobileOfflineProfileMembership = 11823,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserEntityInstanceData = 2501,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserEntityUISettings = 2500,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserFiscalCalendar = 1086,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SearchTelemetry = 11821,
+		SearchTelemetry = 10062,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SemiannualFiscalCalendar = 2001,
@@ -13050,16 +12630,16 @@ namespace Compliance.Entities
 		ServiceEndpoint = 4618,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageRequestField = 4614,
+		SharepointDocument = 9507,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponse = 4610,
+		SiteMap = 4709,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageResponseField = 4611,
+		SLA = 9750,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServicePlan = 101,
+		SLAItem = 9751,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DocumentLocation = 9508,
@@ -13071,13 +12651,13 @@ namespace Compliance.Entities
 		SimilarityRule = 9951,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11414,
+		SdkMessage = 4606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharePointData = 9509,
+		SdkMessageFilter = 4607,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SharepointDocument = 9507,
+		SdkMessagePair = 4613,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SavedOrganizationInsightsConfiguration = 1309,
@@ -13089,16 +12669,16 @@ namespace Compliance.Entities
 		SystemChart = 1111,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RoutingRuleSet = 8181,
+		SdkMessageProcessingStep = 4608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuleItem = 8199,
+		SdkMessageRequestField = 4614,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RuntimeDependency = 7200,
+		SdkMessageResponse = 4610,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessage = 4606,
+		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SdkMessageProcessingStepImage = 4615,
@@ -13110,16 +12690,334 @@ namespace Compliance.Entities
 		SdkMessageRequest = 4609,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageFilter = 4607,
+		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessagePair = 4613,
+		Package = 10007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SdkMessageProcessingStep = 4608,
+		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SiteMap = 4709,
+		OrganizationInsightsMetric = 9699,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationInsightsNotification = 9690,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Owner = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PDFSetting = 10038,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginAssembly = 4605,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginTraceLog = 4619,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginType = 4602,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PersonalDocumentTemplate = 9941,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PhoneCall = 4210,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ListValueMapping = 4418,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NavigationSetting = 9900,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		NewProcess = 950,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification = 4110,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		BotContent = 10031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MultiEntitySearch = 9910,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		MultiSelectOptionValue = 9912,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfficeDocument = 4490,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Organization = 1019,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationStatistic = 4708,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OrganizationUI = 1021,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfficeGraphDocument = 9950,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OfflineCommandDefinition = 9870,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OptionSet = 9809,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PluginTypeStatistic = 4603,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Publisher = 7101,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PublisherAddress = 7102,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuarterlyFiscalCalendar = 2002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessStageParameter = 10027,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessTrigger = 4712,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProvisionLanguageForUser = 10013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Queue = 2020,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DocumentSuggestions = 1189,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurrenceRule = 4250,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RecurringAppointment = 4251,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItem = 2029,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueItemCount = 2023,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QueueMemberCount = 2024,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Follow = 8003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Like = 8006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PostRegarding = 8002,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Position = 50,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Post = 8000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Comment = 8005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PostRole = 8001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrivilegeObjectTypeCode = 31,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessSession = 4710,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessStage = 4724,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		FieldSharing = 44,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		PrincipalSyncAttributeMap = 1404,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Privilege = 1023,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebResource = 9333,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebWizard = 4800,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WebWizardAccessPrivilege = 4803,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserChart = 1112,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserSearchFacet = 52,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserSettings = 150,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WizardPage = 4802,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessLog = 4706,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WorkflowWaitSubscription = 4702,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AllegationConcern = 10115,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Process = 4703,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		WorkflowBinary = 10028,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ProcessDependency = 4704,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UnresolvedAddress = 2012,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UntrackedEmail = 4220,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserApplicationMetadata = 7001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TransformationMapping = 4426,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TransformationParameterMapping = 4427,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TranslationProcess = 951,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserEntityInstanceData = 2501,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserMapping = 2016,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserMobileOfflineProfileMembership = 10055,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SavedView = 4230,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserEntityUISettings = 2500,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserFiscalCalendar = 1086,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		UserDashboard = 1031,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AllegationType = 10116,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAppetite = 10133,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessment = 10134,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentCategory = 10135,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuestionType = 10130,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Recommendation = 10131,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Reminder = 10132,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentCategoryTemplate = 10136,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentType = 10140,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theme = 10141,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Topic = 10142,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentDefinition = 10137,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentDefinitionTemplate = 10138,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		RiskAssessmentFactorTemplate = 10139,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DispositionAction = 10120,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DispositionReason = 10121,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Event = 10122,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChecklistResponse = 10117,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ChecklistType = 10118,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Complaint = 10119,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		IndividualComplaint = 10123,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification_2 = 10127,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		OPCPriority = 10128,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		QuestionTemplate = 10129,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Industry = 10124,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Issue = 10125,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Legislation = 10126,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionClients = 1072,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionManuallyTrackedObject = 37,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SubscriptionStatisticOffline = 45,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		StringMap = 1043,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Subject = 129,
@@ -13128,19 +13026,19 @@ namespace Compliance.Entities
 		Subscription = 29,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionClients = 1072,
+		SubscriptionStatisticOutlook = 46,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		Trackinginformationfordeletedentities = 35,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StatusMap = 1075,
+		SuggestionCardTemplate = 1190,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StringMap = 1043,
+		SyncAttributeMapping = 1401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionManuallyTrackedObject = 37,
+		SubscriptionSyncEntryOffline = 47,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SubscriptionSyncEntryOutlook = 48,
@@ -13149,16 +13047,16 @@ namespace Compliance.Entities
 		SubscriptionSynchronizationInformation = 33,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Trackinginformationfordeletedentities = 35,
+		SocialProfile = 99,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionStatisticOffline = 45,
+		Solution = 7100,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionStatisticOutlook = 46,
+		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SubscriptionSyncEntryOffline = 47,
+		SLAKPIInstance = 9752,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SocialActivity = 4216,
@@ -13167,52 +13065,118 @@ namespace Compliance.Entities
 		SocialInsightsConfiguration = 1300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SocialProfile = 99,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLA = 9750,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAItem = 9751,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPIInstance = 9752,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Solution = 7100,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDefinition = 7104,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11409,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistoryData = 9890,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponent = 7103,
+		StageSolutionUpload = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		StatusMap = 1075,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHistory = 10000,
+		SolutionComponentDefinition = 7104,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Contact = 2,
+		SolutionComponentRelationshipConfiguration = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 11779,
+		SyncAttributeMappingProfile = 1400,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TextAnalyticsEntityMapping = 9945,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Theme_2 = 2015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeStampDateMapping = 9932,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Teamtemplate = 92,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		EmailTemplate = 2010,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Territory = 2013,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneDefinition = 4810,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Trace = 8050,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TraceRegarding = 8052,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Currency = 9105,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneLocalizedName = 4812,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TimeZoneRule = 4811,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TraceAssociation = 8051,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		User = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserAuthorizationChangeTracker = 60,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserBusinessUnitEntityMap = 42,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SyncError = 9869,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemApplicationMetadata = 7000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemForm = 1030,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserManagerMap = 51,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamMobileOfflineProfileMembership = 10054,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamProfiles = 1203,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		TeamSyncAttributeMappingProfiles = 1403,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SystemUserPrincipal = 14,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Task = 4212,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Team = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHistoryDataSource = 10001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ConversationTranscript = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionRole = 3231,
+		RecordCreationandUpdateRuleItem = 9301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ConnectionRoleObjectTypeCode = 3233,
@@ -13221,10 +13185,10 @@ namespace Compliance.Entities
 		Connector = 372,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RecordCreationandUpdateRuleItem = 9301,
+		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomControl = 9753,
+		CustomAPI = 10051,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CustomControlDefaultConfig = 9755,
@@ -13233,16 +13197,16 @@ namespace Compliance.Entities
 		CustomControlResource = 9754,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 11772,
+		Address = 1071,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 11773,
+		CustomAPIRequestParameter = 10052,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 11774,
+		CustomAPIResponseProperty = 10053,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelAccessProfile = 3005,
+		CustomControl = 9753,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ChannelAccessProfileRule = 9400,
@@ -13251,28 +13215,28 @@ namespace Compliance.Entities
 		ChannelAccessProfileRuleItem = 9401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 11769,
+		ChannelProperty = 1236,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 11770,
+		CatalogAssignment = 10049,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelProperty = 1236,
+		ChannelAccessProfile = 3005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessConfiguration = 9650,
+		ChannelPropertyGroup = 1234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11415,
+		ConnectionReference = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChannelPropertyGroup = 1234,
+		ConnectionRole = 3231,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Clientupdate = 36,
@@ -13281,10 +13245,10 @@ namespace Compliance.Entities
 		ColumnMapping = 4417,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Address = 1071,
+		ProcessConfiguration = 9650,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DuplicateRuleCondition = 4416,
+		CustomerRelationship = 4502,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Email = 4202,
@@ -13293,7 +13257,7 @@ namespace Compliance.Entities
 		EmailHash = 4023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DocumentTemplate = 9940,
+		EmailSearch = 4299,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DuplicateRecord = 4415,
@@ -13302,10 +13266,10 @@ namespace Compliance.Entities
 		DuplicateDetectionRule = 4414,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailSearch = 4299,
+		DuplicateRuleCondition = 4416,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityAnalyticsConfig = 430,
+		EmailServerProfile = 9605,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		VirtualEntityDataProvider = 78,
@@ -13314,7 +13278,7 @@ namespace Compliance.Entities
 		VirtualEntityDataSource = 85,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EmailServerProfile = 9605,
+		EntityImageConfiguration = 432,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EmailSignature = 9997,
@@ -13323,28 +13287,28 @@ namespace Compliance.Entities
 		Entity = 9800,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11405,
+		EntityAnalyticsConfig = 430,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11406,
+		DataLakeWorkspacePermission = 10059,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataPerformanceDashboard = 4450,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomerRelationship = 4502,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 11765,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 11766,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DelveActionHub = 9961,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DisplayString = 4102,
+		DataLakeFolder = 10056,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DataLakeFolderPermission = 10057,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		DataLakeWorkspace = 10058,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Dependency = 7105,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DisplayStringMap = 4101,
@@ -13353,7 +13317,7 @@ namespace Compliance.Entities
 		IndexedArticle = 126,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Dependency = 7105,
+		DocumentTemplate = 9940,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DependencyFeature = 7108,
@@ -13362,28 +13326,28 @@ namespace Compliance.Entities
 		DependencyNode = 7106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationFile = 4707,
+		DisplayString = 4102,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11407,
+		ApplicationUser = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ModeldrivenApp = 9006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppConfigurationInstance = 9013,
+		AppModuleComponent = 9007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfigMaster = 9011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11410,
+		ModelDrivenAppElement = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppModuleComponent = 9007,
+		ApplicationFile = 4707,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppModuleMetadataDependency = 8701,
+		ModelDrivenAppComponentNodesEdge = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadataAsyncOperation = 8702,
@@ -13392,13 +13356,16 @@ namespace Compliance.Entities
 		AppModuleRoles = 9009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11411,
+		Appointment = 4201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11412,
+		ModelDrivenAppComponentNode = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleMetadata = 8700,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AppModuleMetadataDependency = 8701,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ActionCardUserSettings = 9973,
@@ -13425,10 +13392,10 @@ namespace Compliance.Entities
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		AppConfiguration = 9012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AppConfiguration = 9012,
+		AppConfigurationInstance = 9013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Activity = 4200,
@@ -13440,10 +13407,7 @@ namespace Compliance.Entities
 		Note = 5,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Appointment = 4201,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BusinessUnitMap = 6,
+		ModelDrivenAppSetting = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Announcement = 132,
@@ -13452,7 +13416,7 @@ namespace Compliance.Entities
 		Calendar = 4003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BusinessDataLocalizedLabel = 4232,
+		CalendarRule = 4004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BusinessProcessFlowInstance = 4725,
@@ -13461,28 +13425,28 @@ namespace Compliance.Entities
 		BusinessUnit = 10,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CalendarRule = 4004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ActionCardType = 9983,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 11697,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 11698,
+		BusinessUnitMap = 6,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CallbackRegistration = 301,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CascadeGrantRevokeAccessRecordsTracker = 10014,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		CascadeGrantRevokeAccessVersionTracker = 10015,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Catalog = 10048,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CanvasApp = 300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11416,
+		CanvasAppExtendedMetadata = 10025,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Attribute = 9808,
+		ActionCardType = 9983,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImageAttributeConfiguration = 431,
@@ -13491,7 +13455,7 @@ namespace Compliance.Entities
 		AttributeMap = 4601,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11413,
+		Auditing = 4567,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemJob = 4700,
@@ -13500,10 +13464,10 @@ namespace Compliance.Entities
 		Attachment_2 = 1002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Auditing = 4567,
+		Attribute = 9808,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 11781,
+		AuthorizationServer = 1094,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -13512,55 +13476,55 @@ namespace Compliance.Entities
 		BulkDeleteOperation = 4424,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AuthorizationServer = 1094,
+		BusinessDataLocalizedLabel = 4232,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 11780,
+		Chatbot = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		Chatbotsubcomponent = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10066,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderFile = 10067,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MonthlyFiscalCalendar = 2003,
+		AIBuilderFileAttachedData = 10068,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10063,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		AIBuilderDatasetFile = 10064,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AIBuilderDatasetRecord = 10065,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIObjectDetectionLabel = 10071,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIObjectDetectionBoundingBox = 10072,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIObjectDetectionImageMapping = 10073,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AIFormProcessingDocument = 10069,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailboxStatistics = 9607,
+		AIObjectDetectionImage = 10070,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MailboxTrackingCategory = 9609,
@@ -13569,7 +13533,7 @@ namespace Compliance.Entities
 		MailboxAutoTrackingFolder = 9608,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LocalConfigStore = 9201,
+		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		LookupMapping = 4419,
@@ -13578,10 +13542,10 @@ namespace Compliance.Entities
 		Mailbox = 9606,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MailMergeTemplate = 9106,
+		MailboxStatistics = 9607,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		MobileOfflineProfile = 9866,
+		ManagedProperty = 9812,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MobileOfflineProfileItem = 9867,
@@ -13590,7 +13554,7 @@ namespace Compliance.Entities
 		MobileOfflineProfileItemAssociation = 9868,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ManagedProperty = 9812,
+		MonthlyFiscalCalendar = 2003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MetadataDifference = 4231,
@@ -13599,88 +13563,88 @@ namespace Compliance.Entities
 		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11404,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 11665,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 11701,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 11702,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11402,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11403,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		MobileOfflineProfile = 9866,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		ODatav4DataSource = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		RichTextAttachment = 10060,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ServiceConfiguration = 10039,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		KnowledgeInteractionInsight = 10045,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 11787,
+		KnowledgeSearchInsight = 10046,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		NonRelationalDataSource = 10061,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SLAKPI = 10040,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRuleArgument = 10080,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRuleSet = 10081,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHistory = 10000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionComponentDataSource = 10012,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionComponentSummary = 10011,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		SolutionHealthRule = 10079,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisResultDetail = 10078,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ComponentLayer = 10005,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ComponentLayerDataSource = 10006,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisComponent = 10075,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisJob = 10076,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		AnalysisResult = 10077,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Dataflow = 418,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 11785,
+		Searchprovider = 10043,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 11786,
+		KnowledgeArticleImage = 10044,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FileAttachment = 55,
+		KnowledgeArticleTemplate = 10047,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeFederatedArticle = 10041,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KnowledgeFederatedArticleIncident = 10042,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		HelpPage = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FilterTemplate = 30,
@@ -13689,7 +13653,7 @@ namespace Compliance.Entities
 		FixedMonthlyFiscalCalendar = 2004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Feedback = 9958,
+		FlowSession = 4720,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		FieldPermission = 1201,
@@ -13698,10 +13662,10 @@ namespace Compliance.Entities
 		FieldSecurityProfile = 1200,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		FlowSession = 4720,
+		FileAttachment = 55,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HierarchyRule = 8840,
+		GlobalSearchConfiguration = 54,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchySecurityConfiguration = 9919,
@@ -13710,7 +13674,7 @@ namespace Compliance.Entities
 		HolidayWrapper = 9996,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		GlobalSearchConfiguration = 54,
+		ImageDescriptor = 1007,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Goal = 9600,
@@ -13719,7 +13683,7 @@ namespace Compliance.Entities
 		RollupQuery = 9602,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityRelationship = 9811,
+		HierarchyRule = 8840,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EnvironmentVariableDefinition = 380,
@@ -13728,7 +13692,7 @@ namespace Compliance.Entities
 		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		EntityImageConfiguration = 432,
+		ExchangeSyncIdMapping = 4120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		EntityKey = 9810,
@@ -13737,10 +13701,10 @@ namespace Compliance.Entities
 		EntityMap = 4600,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExchangeSyncIdMapping = 4120,
+		EntityRelationship = 9811,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExternalParty = 3008,
+		ExpanderEvent = 4711,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalPartyItem = 9987,
@@ -13749,19 +13713,19 @@ namespace Compliance.Entities
 		Fax = 4204,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExpanderEvent = 4711,
+		Feedback = 9958,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11633,
+		ExportSolutionUpload = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImageDescriptor = 1007,
+		ExternalParty = 3008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ArticleTemplate = 1016,
+		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticle = 9953,
@@ -13770,7 +13734,7 @@ namespace Compliance.Entities
 		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ISVConfig = 4705,
+		KnowledgeArticleViews = 9955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Article = 127,
@@ -13779,10 +13743,10 @@ namespace Compliance.Entities
 		ArticleComment = 1082,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleViews = 9955,
+		ArticleTemplate = 1016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		LanguageProvisioningState = 9875,
+		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Letter = 4207,
@@ -13791,7 +13755,7 @@ namespace Compliance.Entities
 		License = 2027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeBaseRecord = 9930,
+		LocalConfigStore = 9201,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeSearchModel = 9947,
@@ -13800,7 +13764,7 @@ namespace Compliance.Entities
 		Language = 9957,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ImportSourceFile = 4412,
+		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportJob = 9107,
@@ -13809,7 +13773,7 @@ namespace Compliance.Entities
 		ImportLog = 4423,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataImport = 4410,
+		DataMap = 4411,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ImportData = 4413,
@@ -13818,10 +13782,10 @@ namespace Compliance.Entities
 		ImportEntityMapping = 4428,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataMap = 4411,
+		ImportSourceFile = 4412,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 11771,
+		IntegrationStatus = 3000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InterProcessLock = 4011,
@@ -13830,17 +13794,20 @@ namespace Compliance.Entities
 		InvalidDependency = 7107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IntegrationStatus = 3000,
+		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InteractionforEmail = 9986,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InternalAddress = 1003,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		InternalCatalogAssignment = 10050,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SLASLAType
 	{
 		
@@ -13852,7 +13819,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SLAslaversion
 	{
 		
@@ -13864,7 +13831,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum sla_statuscode
 	{
 		
@@ -13876,7 +13843,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SLAKPIInstancemsdyn_ActionExecutionStatus
 	{
 		
@@ -13891,7 +13858,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SLAKPIInstanceStatus
 	{
 		
@@ -13915,7 +13882,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SLAKPIInstanceWarningTimeReached
 	{
 		
@@ -13927,7 +13894,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SocialActivityPriorityCode
 	{
 		
@@ -13942,7 +13909,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum socialactivity_statuscode
 	{
 		
@@ -13963,7 +13930,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SocialInsightsConfigurationFormTypeCode
 	{
 		
@@ -13975,7 +13942,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SocialInsightsConfigurationSocialDataItemType
 	{
 		
@@ -13987,7 +13954,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum socialprofile_statuscode
 	{
 		
@@ -13999,7 +13966,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SolutionSolutionType
 	{
 		
@@ -14014,7 +13981,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SolutionComponentRootComponentBehavior
 	{
 		
@@ -14029,7 +13996,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum solutioncomponentattributeconfigurationEncodingFormat
 	{
 		
@@ -14044,7 +14011,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum solutioncomponentattributeconfiguration_statuscode
 	{
 		
@@ -14056,7 +14023,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum solutioncomponentconfigurationFileFormat
 	{
 		
@@ -14068,15 +14035,12 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum solutioncomponentconfigurationFileScope
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None = 100000000,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		None_2 = 0,
+		None = 0,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Individual = 1,
@@ -14086,7 +14050,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum solutioncomponentconfiguration_statuscode
 	{
 		
@@ -14098,7 +14062,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SolutionComponentDefinitionRemoveActiveCustomizationsBehavior
 	{
 		
@@ -14113,7 +14077,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum solutioncomponentrelationshipconfigurationPrimaryEntityDependencyType
 	{
 		
@@ -14125,7 +14089,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum solutioncomponentrelationshipconfigurationSecondaryEntityDependencyType
 	{
 		
@@ -14137,7 +14101,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum solutioncomponentrelationshipconfiguration_statuscode
 	{
 		
@@ -14149,7 +14113,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SolutionHistoryDataOperation
 	{
 		
@@ -14164,7 +14128,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SolutionHistoryDataStatus
 	{
 		
@@ -14176,7 +14140,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SolutionHistoryDataSubOperation
 	{
 		
@@ -14197,7 +14161,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum stagesolutionupload_statuscode
 	{
 		
@@ -14209,7 +14173,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SyncErrorErrorType
 	{
 		
@@ -14227,7 +14191,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum syncerror_statuscode
 	{
 		
@@ -14239,7 +14203,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemFormFormActivationState
 	{
 		
@@ -14251,7 +14215,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemFormFormPresentation
 	{
 		
@@ -14266,7 +14230,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemFormType
 	{
 		
@@ -14326,7 +14290,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserAccessMode
 	{
 		
@@ -14350,7 +14314,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserAddress1_AddressTypeCode
 	{
 		
@@ -14359,7 +14323,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserAddress1_ShippingMethodCode
 	{
 		
@@ -14368,7 +14332,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserAddress2_AddressTypeCode
 	{
 		
@@ -14377,7 +14341,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserAddress2_ShippingMethodCode
 	{
 		
@@ -14386,7 +14350,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserCALType
 	{
 		
@@ -14431,7 +14395,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserEmailRouterAccessApproval
 	{
 		
@@ -14449,7 +14413,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserIncomingEmailDeliveryMethod
 	{
 		
@@ -14467,7 +14431,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserInviteStatusCode
 	{
 		
@@ -14494,7 +14458,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserOutgoingEmailDeliveryMethod
 	{
 		
@@ -14509,7 +14473,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserPreferredAddressCode
 	{
 		
@@ -14521,7 +14485,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserPreferredEmailCode
 	{
 		
@@ -14530,7 +14494,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum SystemUserPreferredPhoneCode
 	{
 		
@@ -14548,7 +14512,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TaskPriorityCode
 	{
 		
@@ -14563,7 +14527,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum task_statuscode
 	{
 		
@@ -14587,7 +14551,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TeamMembershipType
 	{
 		
@@ -14605,7 +14569,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TeamTeamType
 	{
 		
@@ -14623,7 +14587,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TextAnalyticsEntityMappingEntityPickList
 	{
 		
@@ -14635,7 +14599,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TextAnalyticsEntityMappingFieldPickList
 	{
 		
@@ -14647,7 +14611,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum theme_statuscode
 	{
 		
@@ -14659,7 +14623,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TraceLogLevel
 	{
 		
@@ -14674,7 +14638,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum transactioncurrency_statuscode
 	{
 		
@@ -14686,7 +14650,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TransformationMappingProcessCode
 	{
 		
@@ -14701,7 +14665,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum transformationmapping_statuscode
 	{
 		
@@ -14710,7 +14674,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TransformationParameterMappingDataTypeCode
 	{
 		
@@ -14722,7 +14686,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum TransformationParameterMappingParameterTypeCode
 	{
 		
@@ -14734,7 +14698,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum translationprocess_statuscode
 	{
 		
@@ -14749,7 +14713,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserFormType
 	{
 		
@@ -14761,7 +14725,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserMappingPartnerApplicationType
 	{
 		
@@ -14773,7 +14737,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum userquery_statuscode
 	{
 		
@@ -14788,7 +14752,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserQueryVisualizationChartType
 	{
 		
@@ -14800,7 +14764,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserSettingsDataValidationModeForExportToExcel
 	{
 		
@@ -14812,7 +14776,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserSettingsDefaultSearchExperience
 	{
 		
@@ -14830,7 +14794,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserSettingsEntityFormMode
 	{
 		
@@ -14845,7 +14809,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserSettingsIncomingEmailFilteringMethod
 	{
 		
@@ -14866,7 +14830,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserSettingsReportScriptErrors
 	{
 		
@@ -14881,7 +14845,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum UserSettingsVisualizationPaneLayout
 	{
 		
@@ -14893,7 +14857,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WebResourceWebResourceType
 	{
 		
@@ -14935,7 +14899,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowBusinessProcessType
 	{
 		
@@ -14947,7 +14911,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowCategory
 	{
 		
@@ -14970,11 +14934,11 @@ namespace Compliance.Entities
 		ModernFlow = 5,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reserved = 6,
+		DesktopFlow = 6,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowMode
 	{
 		
@@ -14986,7 +14950,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowProcessTriggerScope
 	{
 		
@@ -14998,7 +14962,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowScope
 	{
 		
@@ -15016,7 +14980,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum workflow_statuscode
 	{
 		
@@ -15028,7 +14992,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowType
 	{
 		
@@ -15043,22 +15007,22 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowUIFlowType
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Desktop = 0,
+		Windowsrecorder_V1 = 0,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SeleniumIDE = 1,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PowerShell = 2,
+		PowerAutomateDesktop = 2,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum workflowbinary_statuscode
 	{
 		
@@ -15070,7 +15034,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowDependencyType
 	{
 		
@@ -15103,7 +15067,7 @@ namespace Compliance.Entities
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.54")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.67")]
 	public enum WorkflowLogStatus
 	{
 		

@@ -8,5 +8,6 @@
     <Entity Name="CustomAPIResponseProperty">
       <Field>EntityLogicalName</Field>
     </Entity>
+    <Entity Name="rollupjob" />
   </BlackListedEntities>
 </Filter>
