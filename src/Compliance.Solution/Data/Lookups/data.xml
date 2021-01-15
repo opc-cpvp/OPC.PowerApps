@@ -1995,7 +1995,7 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
         <field name="ownerid" value="98274fa3-c407-ea11-a811-000d3af40c1d" lookupentity="systemuser" lookupentityname="Jonathan Thomassin" />
-        <field name="opc_additionalparameters" value="6 - 1" />
+        <field name="opc_additionalparameters" value="6 - 1 - 3.1" />
         <field name="opc_managedinternally" value="True" />
       </record>
     </records>
