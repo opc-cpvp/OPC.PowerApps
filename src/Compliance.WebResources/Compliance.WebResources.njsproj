@@ -89,8 +89,10 @@
     <TypeScriptCompile Include="src\forms\ContactMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ContactMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\IndustryMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\IndustryMainForm.ts" />
     <TypeScriptCompile Include="src\forms\IssueMainForm.test.ts" />
-    <TypeScriptCompile Include="src\forms\IssueQuickCreateForm.test.ts" /> 
+    <TypeScriptCompile Include="src\forms\IssueQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />

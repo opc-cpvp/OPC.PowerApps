@@ -5,6 +5,20 @@ import { IPowerForm } from "../interfaces";
 export abstract class PowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>>
     implements IPowerForm<TForm> {
     public initializeComponents(context: Xrm.ExecutionContext<TForm, any>): void {
+        const queryStringParam = context.getContext().getQueryStringParameters();
+
+        if (queryStringParam.parentrecordid) {
+            context.getFormContext().ui.controls.forEach(x => {
+                if (x.getEntityTypes?.()?.[0] === queryStringParam.parentrecordtype) {
+                    const attribute: Xrm.Attribute<any> = x.getAttribute();
+                    const attributeValue = attribute.getValue();
+
+                    attributeValue[0].name = queryStringParam.parentrecordname;
+                    attribute.setValue(attributeValue);
+                }
+            });
+        }
+
         // Automatically wire-up save event dispatching to iframes
         context.getFormContext().data.entity.addOnSave(ctx => this.handleIFrameSaves(ctx));
 
