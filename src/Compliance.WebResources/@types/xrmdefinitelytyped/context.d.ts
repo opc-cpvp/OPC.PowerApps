@@ -28,10 +28,6 @@ declare const enum account_accountcategorycode {
   PreferredCustomer = 1,
   Standard = 2,
 }
-declare const enum account_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum account_address1_freighttermscode {
   FOB = 1,
   NoCharge = 2,
@@ -60,6 +56,10 @@ declare const enum account_customertypecode {
   Supplier = 10,
   Vendor = 11,
   Other = 12,
+}
+declare const enum account_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum account_ownershipcode {
   Public = 1,
@@ -633,88 +633,92 @@ declare const enum duplicaterule_baseentitytypecode {
   ModelDrivenAppComponentNodesEdge = 10021,
   ModelDrivenAppComponentNode = 10022,
   ModelDrivenAppSetting = 10023,
-  SettingDefinition = 10024,
-  CanvasAppExtendedMetadata = 10025,
-  ODatav4DataSource = 10026,
-  ProcessStageParameter = 10027,
-  WorkflowBinary = 10028,
-  ConnectionReference = 10029,
-  HelpPage = 10030,
-  BotContent = 10031,
-  ConversationTranscript = 10032,
-  Chatbot = 10033,
-  Chatbotsubcomponent = 10034,
-  PDFSetting = 10038,
-  ServiceConfiguration = 10039,
-  SLAKPI = 10040,
-  KnowledgeFederatedArticle = 10041,
-  KnowledgeFederatedArticleIncident = 10042,
-  Searchprovider = 10043,
-  KnowledgeArticleImage = 10044,
-  KnowledgeInteractionInsight = 10045,
-  KnowledgeSearchInsight = 10046,
-  KnowledgeArticleTemplate = 10047,
-  Catalog = 10048,
-  CatalogAssignment = 10049,
-  InternalCatalogAssignment = 10050,
-  CustomAPI = 10051,
-  CustomAPIRequestParameter = 10052,
-  CustomAPIResponseProperty = 10053,
-  TeamMobileOfflineProfileMembership = 10054,
-  UserMobileOfflineProfileMembership = 10055,
-  DataLakeFolder = 10056,
-  DataLakeFolderPermission = 10057,
-  DataLakeWorkspace = 10058,
-  DataLakeWorkspacePermission = 10059,
-  RichTextAttachment = 10060,
-  NonRelationalDataSource = 10061,
-  SearchTelemetry = 10062,
-  AIBuilderDataset = 10063,
-  AIBuilderDatasetFile = 10064,
-  AIBuilderDatasetRecord = 10065,
-  AIBuilderDatasetsContainer = 10066,
-  AIBuilderFile = 10067,
-  AIBuilderFileAttachedData = 10068,
-  AIFormProcessingDocument = 10069,
-  AIObjectDetectionImage = 10070,
-  AIObjectDetectionLabel = 10071,
-  AIObjectDetectionBoundingBox = 10072,
-  AIObjectDetectionImageMapping = 10073,
-  AnalysisComponent = 10075,
-  AnalysisJob = 10076,
-  AnalysisResult = 10077,
-  AnalysisResultDetail = 10078,
-  SolutionHealthRule = 10079,
-  SolutionHealthRuleArgument = 10080,
-  SolutionHealthRuleSet = 10081,
-  AllegationConcern = 10115,
-  AllegationType = 10116,
-  ChecklistResponse = 10117,
-  ChecklistType = 10118,
-  Complaint = 10119,
-  DispositionAction = 10120,
-  DispositionReason = 10121,
-  Event = 10122,
-  IndividualComplaint = 10123,
-  Industry = 10124,
-  Issue = 10125,
-  Legislation = 10126,
-  Notification_2 = 10127,
-  OPCPriority = 10128,
-  QuestionTemplate = 10129,
-  QuestionType = 10130,
-  Recommendation = 10131,
-  Reminder = 10132,
-  RiskAppetite = 10133,
-  RiskAssessment = 10134,
-  RiskAssessmentCategory = 10135,
-  RiskAssessmentCategoryTemplate = 10136,
-  RiskAssessmentDefinition = 10137,
-  RiskAssessmentDefinitionTemplate = 10138,
-  RiskAssessmentFactorTemplate = 10139,
-  RiskAssessmentType = 10140,
-  Theme = 10141,
-  Topic = 10142,
+  ModelDrivenAppUserSetting = 10024,
+  OrganizationSetting = 10025,
+  SettingDefinition = 10026,
+  CanvasAppExtendedMetadata = 10027,
+  ODatav4DataSource = 10028,
+  ProcessStageParameter = 10029,
+  WorkflowBinary = 10030,
+  ConnectionReference = 10031,
+  HelpPage = 10032,
+  BotContent = 10033,
+  ConversationTranscript = 10034,
+  Chatbot = 10035,
+  Chatbotsubcomponent = 10036,
+  PDFSetting = 10040,
+  ServiceConfiguration = 10041,
+  SLAKPI = 10042,
+  KnowledgeFederatedArticle = 10043,
+  KnowledgeFederatedArticleIncident = 10044,
+  Searchprovider = 10045,
+  KnowledgeArticleImage = 10046,
+  KnowledgeInteractionInsight = 10047,
+  KnowledgeSearchInsight = 10048,
+  KnowledgeArticleTemplate = 10049,
+  Catalog = 10050,
+  CatalogAssignment = 10051,
+  InternalCatalogAssignment = 10052,
+  CustomAPI = 10053,
+  CustomAPIRequestParameter = 10054,
+  CustomAPIResponseProperty = 10055,
+  TeamMobileOfflineProfileMembership = 10056,
+  UserMobileOfflineProfileMembership = 10057,
+  OrganizationDataSyncSubscription = 10058,
+  OrganizationDataSyncSubscriptionEntity = 10059,
+  DataLakeFolder = 10060,
+  DataLakeFolderPermission = 10061,
+  DataLakeWorkspace = 10062,
+  DataLakeWorkspacePermission = 10063,
+  RichTextAttachment = 10064,
+  NonRelationalDataSource = 10065,
+  SearchTelemetry = 10066,
+  AIBuilderDataset = 10067,
+  AIBuilderDatasetFile = 10068,
+  AIBuilderDatasetRecord = 10069,
+  AIBuilderDatasetsContainer = 10070,
+  AIBuilderFile = 10071,
+  AIBuilderFileAttachedData = 10072,
+  AIFormProcessingDocument = 10073,
+  AIObjectDetectionImage = 10074,
+  AIObjectDetectionLabel = 10075,
+  AIObjectDetectionBoundingBox = 10076,
+  AIObjectDetectionImageMapping = 10077,
+  AnalysisComponent = 10079,
+  AnalysisJob = 10080,
+  AnalysisResult = 10081,
+  AnalysisResultDetail = 10082,
+  SolutionHealthRule = 10083,
+  SolutionHealthRuleArgument = 10084,
+  SolutionHealthRuleSet = 10085,
+  AllegationConcern = 10086,
+  AllegationType = 10087,
+  ChecklistResponse = 10088,
+  ChecklistType = 10089,
+  Complaint = 10090,
+  DispositionAction = 10091,
+  DispositionReason = 10092,
+  Event = 10093,
+  IndividualComplaint = 10094,
+  Industry = 10095,
+  Issue = 10096,
+  Legislation = 10097,
+  Notification_2 = 10098,
+  OPCPriority = 10099,
+  QuestionTemplate = 10100,
+  QuestionType = 10101,
+  Recommendation = 10102,
+  Reminder = 10103,
+  RiskAppetite = 10104,
+  RiskAssessment = 10105,
+  RiskAssessmentCategory = 10106,
+  RiskAssessmentCategoryTemplate = 10107,
+  RiskAssessmentDefinition = 10108,
+  RiskAssessmentDefinitionTemplate = 10109,
+  RiskAssessmentFactorTemplate = 10110,
+  RiskAssessmentType = 10111,
+  Theme = 10112,
+  Topic = 10113,
   RevokeInheritedAccessRecordsTracker = 90001,
 }
 declare const enum duplicaterule_statuscode {
@@ -1065,88 +1069,92 @@ declare const enum duplicaterule_matchingentitytypecode {
   ModelDrivenAppComponentNodesEdge = 10021,
   ModelDrivenAppComponentNode = 10022,
   ModelDrivenAppSetting = 10023,
-  SettingDefinition = 10024,
-  CanvasAppExtendedMetadata = 10025,
-  ODatav4DataSource = 10026,
-  ProcessStageParameter = 10027,
-  WorkflowBinary = 10028,
-  ConnectionReference = 10029,
-  HelpPage = 10030,
-  BotContent = 10031,
-  ConversationTranscript = 10032,
-  Chatbot = 10033,
-  Chatbotsubcomponent = 10034,
-  PDFSetting = 10038,
-  ServiceConfiguration = 10039,
-  SLAKPI = 10040,
-  KnowledgeFederatedArticle = 10041,
-  KnowledgeFederatedArticleIncident = 10042,
-  Searchprovider = 10043,
-  KnowledgeArticleImage = 10044,
-  KnowledgeInteractionInsight = 10045,
-  KnowledgeSearchInsight = 10046,
-  KnowledgeArticleTemplate = 10047,
-  Catalog = 10048,
-  CatalogAssignment = 10049,
-  InternalCatalogAssignment = 10050,
-  CustomAPI = 10051,
-  CustomAPIRequestParameter = 10052,
-  CustomAPIResponseProperty = 10053,
-  TeamMobileOfflineProfileMembership = 10054,
-  UserMobileOfflineProfileMembership = 10055,
-  DataLakeFolder = 10056,
-  DataLakeFolderPermission = 10057,
-  DataLakeWorkspace = 10058,
-  DataLakeWorkspacePermission = 10059,
-  RichTextAttachment = 10060,
-  NonRelationalDataSource = 10061,
-  SearchTelemetry = 10062,
-  AIBuilderDataset = 10063,
-  AIBuilderDatasetFile = 10064,
-  AIBuilderDatasetRecord = 10065,
-  AIBuilderDatasetsContainer = 10066,
-  AIBuilderFile = 10067,
-  AIBuilderFileAttachedData = 10068,
-  AIFormProcessingDocument = 10069,
-  AIObjectDetectionImage = 10070,
-  AIObjectDetectionLabel = 10071,
-  AIObjectDetectionBoundingBox = 10072,
-  AIObjectDetectionImageMapping = 10073,
-  AnalysisComponent = 10075,
-  AnalysisJob = 10076,
-  AnalysisResult = 10077,
-  AnalysisResultDetail = 10078,
-  SolutionHealthRule = 10079,
-  SolutionHealthRuleArgument = 10080,
-  SolutionHealthRuleSet = 10081,
-  AllegationConcern = 10115,
-  AllegationType = 10116,
-  ChecklistResponse = 10117,
-  ChecklistType = 10118,
-  Complaint = 10119,
-  DispositionAction = 10120,
-  DispositionReason = 10121,
-  Event = 10122,
-  IndividualComplaint = 10123,
-  Industry = 10124,
-  Issue = 10125,
-  Legislation = 10126,
-  Notification_2 = 10127,
-  OPCPriority = 10128,
-  QuestionTemplate = 10129,
-  QuestionType = 10130,
-  Recommendation = 10131,
-  Reminder = 10132,
-  RiskAppetite = 10133,
-  RiskAssessment = 10134,
-  RiskAssessmentCategory = 10135,
-  RiskAssessmentCategoryTemplate = 10136,
-  RiskAssessmentDefinition = 10137,
-  RiskAssessmentDefinitionTemplate = 10138,
-  RiskAssessmentFactorTemplate = 10139,
-  RiskAssessmentType = 10140,
-  Theme = 10141,
-  Topic = 10142,
+  ModelDrivenAppUserSetting = 10024,
+  OrganizationSetting = 10025,
+  SettingDefinition = 10026,
+  CanvasAppExtendedMetadata = 10027,
+  ODatav4DataSource = 10028,
+  ProcessStageParameter = 10029,
+  WorkflowBinary = 10030,
+  ConnectionReference = 10031,
+  HelpPage = 10032,
+  BotContent = 10033,
+  ConversationTranscript = 10034,
+  Chatbot = 10035,
+  Chatbotsubcomponent = 10036,
+  PDFSetting = 10040,
+  ServiceConfiguration = 10041,
+  SLAKPI = 10042,
+  KnowledgeFederatedArticle = 10043,
+  KnowledgeFederatedArticleIncident = 10044,
+  Searchprovider = 10045,
+  KnowledgeArticleImage = 10046,
+  KnowledgeInteractionInsight = 10047,
+  KnowledgeSearchInsight = 10048,
+  KnowledgeArticleTemplate = 10049,
+  Catalog = 10050,
+  CatalogAssignment = 10051,
+  InternalCatalogAssignment = 10052,
+  CustomAPI = 10053,
+  CustomAPIRequestParameter = 10054,
+  CustomAPIResponseProperty = 10055,
+  TeamMobileOfflineProfileMembership = 10056,
+  UserMobileOfflineProfileMembership = 10057,
+  OrganizationDataSyncSubscription = 10058,
+  OrganizationDataSyncSubscriptionEntity = 10059,
+  DataLakeFolder = 10060,
+  DataLakeFolderPermission = 10061,
+  DataLakeWorkspace = 10062,
+  DataLakeWorkspacePermission = 10063,
+  RichTextAttachment = 10064,
+  NonRelationalDataSource = 10065,
+  SearchTelemetry = 10066,
+  AIBuilderDataset = 10067,
+  AIBuilderDatasetFile = 10068,
+  AIBuilderDatasetRecord = 10069,
+  AIBuilderDatasetsContainer = 10070,
+  AIBuilderFile = 10071,
+  AIBuilderFileAttachedData = 10072,
+  AIFormProcessingDocument = 10073,
+  AIObjectDetectionImage = 10074,
+  AIObjectDetectionLabel = 10075,
+  AIObjectDetectionBoundingBox = 10076,
+  AIObjectDetectionImageMapping = 10077,
+  AnalysisComponent = 10079,
+  AnalysisJob = 10080,
+  AnalysisResult = 10081,
+  AnalysisResultDetail = 10082,
+  SolutionHealthRule = 10083,
+  SolutionHealthRuleArgument = 10084,
+  SolutionHealthRuleSet = 10085,
+  AllegationConcern = 10086,
+  AllegationType = 10087,
+  ChecklistResponse = 10088,
+  ChecklistType = 10089,
+  Complaint = 10090,
+  DispositionAction = 10091,
+  DispositionReason = 10092,
+  Event = 10093,
+  IndividualComplaint = 10094,
+  Industry = 10095,
+  Issue = 10096,
+  Legislation = 10097,
+  Notification_2 = 10098,
+  OPCPriority = 10099,
+  QuestionTemplate = 10100,
+  QuestionType = 10101,
+  Recommendation = 10102,
+  Reminder = 10103,
+  RiskAppetite = 10104,
+  RiskAssessment = 10105,
+  RiskAssessmentCategory = 10106,
+  RiskAssessmentCategoryTemplate = 10107,
+  RiskAssessmentDefinition = 10108,
+  RiskAssessmentDefinitionTemplate = 10109,
+  RiskAssessmentFactorTemplate = 10110,
+  RiskAssessmentType = 10111,
+  Theme = 10112,
+  Topic = 10113,
   RevokeInheritedAccessRecordsTracker = 90001,
 }
 declare const enum duplicaterulecondition_operatorcode {
@@ -1191,6 +1199,16 @@ declare const enum opc_allegation_statecode {
   Active = 0,
   Inactive = 1,
 }
+declare const enum opc_jurisdictions {
+  UnderProvincialJurisdiction = 533950000,
+  MUSHSectormunicipalityuniversityschoolhospitals = 533950001,
+  NotforProfitorCharitableOrganization = 533950002,
+  Condominiumcondocorporationoritsagent = 533950003,
+  FirstNationbandcouncil = 533950004,
+  Individual = 533950005,
+  OnlineorofflinenewspapermagazineradioorTVbroadcaster = 533950006,
+  Politicalparty = 533950007,
+}
 declare const enum opc_allegationdisposition {
   Acceptable = 924340000,
   Unacceptable = 924340001,
@@ -1201,13 +1219,13 @@ declare const enum opc_allegation_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_allegationtype_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_allegationtype_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_allegationtype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_checklistresponse_statecode {
   Active = 0,
@@ -1217,22 +1235,56 @@ declare const enum opc_checklistresponse_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_checklisttype_statuscode {
-  Active = 1,
-  Inactive = 2,
+declare const enum opc_checklisttype_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_complaintstage {
   Intake = 924340000,
 }
-declare const enum opc_checklisttype_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_checklisttype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_respondentandcomplainantrelationship {
   Employee = 533950000,
   Tenant = 533950001,
   Customer = 533950002,
   Patient = 533950003,
+}
+declare const enum opc_nextstep {
+  Transfertoinvestigations = 924340000,
+  Resolved = 924340001,
+  Withdrawn = 924340002,
+  Settled = 924340003,
+  Discontinued = 924340004,
+}
+declare const enum opc_complaintmilestone {
+  Triage = 924340000,
+  Intake = 924340001,
+  EarlyResolution = 924340002,
+  Investigation = 924340003,
+}
+declare const enum opc_complaint_statecode {
+  Active = 0,
+  Inactive = 1,
+}
+declare const enum opc_complaintdisposition {
+  Discontinued = 924340000,
+  Investigationcompleted = 924340001,
+  Nojurisidiction = 924340002,
+  Resolvedatearlyresolution = 924340003,
+  Resolvedatintake = 924340004,
+  Settled = 924340005,
+  Unresponsiveinquirer = 924340006,
+  Withdrawn = 924340007,
+}
+declare const enum opc_closereason {
+  Redirection = 924340000,
+  Duplicate = 924340001,
+  Withdrawn = 924340002,
+  Resolved = 924340003,
+  Createdinerror = 924340004,
 }
 declare const enum opc_yesorno {
   Yes = 924340000,
@@ -1249,42 +1301,15 @@ declare const enum opc_perceivedpriorities {
   Reimbursement = 533950007,
   Timeliness = 533950008,
 }
+declare const enum opc_complaintsource {
+  Onlinecorrespondence = 533950000,
+  Letter = 533950001,
+}
 declare const enum opc_intakedisposition {
   MovetoEarlyResolution = 924340000,
   MovetoInvestigation = 924340001,
   Declinetoinvestigate = 924340002,
   Close = 924340003,
-}
-declare const enum opc_complaintmilestone {
-  Triage = 924340000,
-  Intake = 924340001,
-  EarlyResolution = 924340002,
-  Investigation = 924340003,
-}
-declare const enum opc_complaint_statecode {
-  Active = 0,
-  Inactive = 1,
-}
-declare const enum opc_complaintsource {
-  Onlinecorrespondence = 533950000,
-  Letter = 533950001,
-}
-declare const enum opc_closereason {
-  Redirection = 924340000,
-  Duplicate = 924340001,
-  Withdrawn = 924340002,
-  Resolved = 924340003,
-  Createdinerror = 924340004,
-}
-declare const enum opc_complaintdisposition {
-  Discontinued = 924340000,
-  Investigationcompleted = 924340001,
-  Nojurisidiction = 924340002,
-  Resolvedatearlyresolution = 924340003,
-  Resolvedatintake = 924340004,
-  Settled = 924340005,
-  Unresponsiveinquirer = 924340006,
-  Withdrawn = 924340007,
 }
 declare const enum opc_complaint_statuscode {
   Declined = 924340001,
@@ -1301,18 +1326,15 @@ declare const enum opc_complaint_statuscode {
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
 }
-declare const enum opc_nextstep {
-  Transfertoinvestigations = 924340000,
-  Resolved = 924340001,
-  Withdrawn = 924340002,
-  Settled = 924340003,
-  Discontinued = 924340004,
+declare const enum opc_dispositionaction_statecode {
+  Active = 0,
+  Inactive = 1,
 }
 declare const enum opc_dispositionaction_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionaction_statecode {
+declare const enum opc_dispositionreason_statecode {
   Active = 0,
   Inactive = 1,
 }
@@ -1320,9 +1342,12 @@ declare const enum opc_dispositionreason_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_dispositionreason_statecode {
-  Active = 0,
-  Inactive = 1,
+declare const enum opc_event_instancetypecode {
+  NotRecurring = 0,
+  RecurringMaster = 1,
+  RecurringInstance = 2,
+  RecurringException = 3,
+  RecurringFutureException = 4,
 }
 declare const enum opc_event_prioritycode {
   Low = 0,
@@ -1353,14 +1378,7 @@ declare const enum activitypointer_activitytypecode {
   PhoneCall = 4210,
   Task = 4212,
   RecurringAppointment = 4251,
-  Event = 10122,
-}
-declare const enum opc_event_instancetypecode {
-  NotRecurring = 0,
-  RecurringMaster = 1,
-  RecurringInstance = 2,
-  RecurringException = 3,
-  RecurringFutureException = 4,
+  Event = 10093,
 }
 declare const enum opc_event_statuscode {
   Open = 1,
@@ -1371,11 +1389,6 @@ declare const enum opc_event_statuscode {
 declare const enum opc_individualcomplaint_bp_statecode {
   Active = 0,
   Inactive = 1,
-}
-declare const enum opc_individualcomplaint_bp_statuscode {
-  Active = 1,
-  Finished = 2,
-  Aborted = 3,
 }
 declare const enum processstage_category {
   Qualify = 0,
@@ -1391,6 +1404,11 @@ declare const enum processstage_category {
   Acceptance = 924340002,
   EarlyResoloution = 924340003,
   Investigation = 924340004,
+}
+declare const enum opc_individualcomplaint_bp_statuscode {
+  Active = 1,
+  Finished = 2,
+  Aborted = 3,
 }
 declare const enum opc_industry_statecode {
   Active = 0,
@@ -1425,15 +1443,11 @@ declare const enum opc_notification_statuscode {
   Inactive = 2,
   Read = 924340000,
 }
-declare const enum opc_opcpriority_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_opcpriority_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_questiontemplate_statuscode {
+declare const enum opc_opcpriority_statuscode {
   Active = 1,
   Inactive = 2,
 }
@@ -1441,13 +1455,17 @@ declare const enum opc_questiontemplate_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_questiontype_statuscode {
+declare const enum opc_questiontemplate_statuscode {
   Active = 1,
   Inactive = 2,
 }
 declare const enum opc_questiontype_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_questiontype_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_recommendation_statecode {
   Active = 0,
@@ -1481,13 +1499,13 @@ declare const enum opc_riskassessment_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_riskassessmentcategory_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_riskassessmentcategory_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_riskassessmentcategory_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum opc_riskassessmentcategorytemplate_statecode {
   Active = 0,
@@ -1529,21 +1547,21 @@ declare const enum opc_riskassessmenttype_statuscode {
   Active = 1,
   Inactive = 2,
 }
-declare const enum opc_theme_statuscode {
-  Active = 1,
-  Inactive = 2,
-}
 declare const enum opc_theme_statecode {
   Active = 0,
   Inactive = 1,
 }
-declare const enum opc_topic_statuscode {
+declare const enum opc_theme_statuscode {
   Active = 1,
   Inactive = 2,
 }
 declare const enum opc_topic_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_topic_statuscode {
+  Active = 1,
+  Inactive = 2,
 }
 declare const enum queue_outgoingemaildeliverymethod {
   None = 0,
@@ -1601,9 +1619,9 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10047,
-  Complaint = 10119,
-  Event = 10122,
+  KnowledgeArticleTemplate = 10049,
+  Complaint = 10090,
+  Event = 10093,
 }
 declare const enum sharepointsite_servicetype {
   SharePoint = 0,
@@ -1760,7 +1778,7 @@ declare const enum connection_record2objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-  Event = 10122,
+  Event = 10093,
 }
 declare const enum connection_statecode {
   Active = 0,
@@ -1792,7 +1810,7 @@ declare const enum connection_record1objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-  Event = 10122,
+  Event = 10093,
 }
 declare namespace Form.account.QuickCreate {
   namespace QuickCreate {
@@ -4987,6 +5005,7 @@ declare namespace Form.opc_allegation.Main {
       get(name: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
       get(name: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
       get(name: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
+      get(name: "opc_jurisdiction"): Xrm.OptionSetAttribute<opc_jurisdictions>;
       get(name: "opc_referencenumber"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -5002,6 +5021,7 @@ declare namespace Form.opc_allegation.Main {
       get(name: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
       get(name: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
       get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
+      get(name: "opc_jurisdiction"): Xrm.OptionSetControl<opc_jurisdictions>;
       get(name: "opc_referencenumber"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -5022,6 +5042,7 @@ declare namespace Form.opc_allegation.Main {
     getAttribute(attributeName: "opc_disposition"): Xrm.OptionSetAttribute<opc_allegationdisposition>;
     getAttribute(attributeName: "opc_dispositionactionid"): Xrm.LookupAttribute<"opc_dispositionaction">;
     getAttribute(attributeName: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
+    getAttribute(attributeName: "opc_jurisdiction"): Xrm.OptionSetAttribute<opc_jurisdictions>;
     getAttribute(attributeName: "opc_referencenumber"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
@@ -5032,6 +5053,7 @@ declare namespace Form.opc_allegation.Main {
     getControl(controlName: "opc_disposition"): Xrm.OptionSetControl<opc_allegationdisposition>;
     getControl(controlName: "opc_dispositionactionid"): Xrm.LookupControl<"opc_dispositionaction">;
     getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
+    getControl(controlName: "opc_jurisdiction"): Xrm.OptionSetControl<opc_jurisdictions>;
     getControl(controlName: "opc_referencenumber"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }
@@ -13027,6 +13049,7 @@ interface opc_allegation_Base extends WebEntity {
   modifiedon?: Date | null;
   opc_allegationid?: string | null;
   opc_disposition?: opc_allegationdisposition | null;
+  opc_jurisdiction?: opc_jurisdictions | null;
   opc_name?: string | null;
   opc_referencenumber?: string | null;
   overriddencreatedon?: Date | null;
@@ -13065,6 +13088,7 @@ interface opc_allegation_Select {
   opc_disposition: WebAttribute<opc_allegation_Select, { opc_disposition: opc_allegationdisposition | null }, { opc_disposition_formatted?: string }>;
   opc_dispositionactionid_guid: WebAttribute<opc_allegation_Select, { opc_dispositionactionid_guid: string | null }, { opc_dispositionactionid_formatted?: string }>;
   opc_dispositionreasonid_guid: WebAttribute<opc_allegation_Select, { opc_dispositionreasonid_guid: string | null }, { opc_dispositionreasonid_formatted?: string }>;
+  opc_jurisdiction: WebAttribute<opc_allegation_Select, { opc_jurisdiction: opc_jurisdictions | null }, { opc_jurisdiction_formatted?: string }>;
   opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
   opc_referencenumber: WebAttribute<opc_allegation_Select, { opc_referencenumber: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_allegation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
@@ -13092,6 +13116,7 @@ interface opc_allegation_Filter {
   opc_disposition: opc_allegationdisposition;
   opc_dispositionactionid_guid: XQW.Guid;
   opc_dispositionreasonid_guid: XQW.Guid;
+  opc_jurisdiction: opc_jurisdictions;
   opc_name: string;
   opc_referencenumber: string;
   overriddencreatedon: Date;
@@ -13131,6 +13156,7 @@ interface opc_allegation_FormattedResult {
   opc_disposition_formatted?: string;
   opc_dispositionactionid_formatted?: string;
   opc_dispositionreasonid_formatted?: string;
+  opc_jurisdiction_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;

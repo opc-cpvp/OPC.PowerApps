@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_jurisdictions" localizedName="Jurisdictions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.531</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Jurisdictions" languagecode="1033" />
+  </displaynames>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Under Provincial Jurisdiction" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="MUSH Sector (municipality, university, school, hospitals)" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="Not for Profit or Charitable Organization" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950003">
+      <labels>
+        <label description="Condominium (condo) corporation or its agent" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950004">
+      <labels>
+        <label description="First Nation band council" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950005">
+      <labels>
+        <label description="Individual" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950006">
+      <labels>
+        <label description="Online or offline newspaper, magazine, radio, or TV broadcaster" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950007">
+      <labels>
+        <label description="Political party" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>
