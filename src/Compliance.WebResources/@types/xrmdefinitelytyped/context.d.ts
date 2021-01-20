@@ -417,7 +417,7 @@ declare const enum duplicaterule_baseentitytypecode {
   EmailHash = 4023,
   DisplayStringMap = 4101,
   DisplayString = 4102,
-  Notification = 4110,
+  Notification_2 = 4110,
   ExchangeSyncIdMapping = 4120,
   Activity = 4200,
   Appointment = 4201,
@@ -703,7 +703,7 @@ declare const enum duplicaterule_baseentitytypecode {
   Industry = 10095,
   Issue = 10096,
   Legislation = 10097,
-  Notification_2 = 10098,
+  Notification = 10098,
   OPCPriority = 10099,
   QuestionTemplate = 10100,
   QuestionType = 10101,
@@ -853,7 +853,7 @@ declare const enum duplicaterule_matchingentitytypecode {
   EmailHash = 4023,
   DisplayStringMap = 4101,
   DisplayString = 4102,
-  Notification = 4110,
+  Notification_2 = 4110,
   ExchangeSyncIdMapping = 4120,
   Activity = 4200,
   Appointment = 4201,
@@ -1139,7 +1139,7 @@ declare const enum duplicaterule_matchingentitytypecode {
   Industry = 10095,
   Issue = 10096,
   Legislation = 10097,
-  Notification_2 = 10098,
+  Notification = 10098,
   OPCPriority = 10099,
   QuestionTemplate = 10100,
   QuestionType = 10101,
@@ -1286,9 +1286,23 @@ declare const enum opc_closereason {
   Resolved = 924340003,
   Createdinerror = 924340004,
 }
+declare const enum opc_reasontorequirefurtherinvestigation {
+  Volumeofpages = 533950000,
+  Complexity = 533950001,
+  Highrankfile = 533950002,
+  Litigiousindividual = 533950003,
+  Unresponsiverespondent = 533950004,
+  Distributionoffiles = 533950005,
+  Time = 533950006,
+}
 declare const enum opc_yesorno {
   Yes = 924340000,
   No = 924340001,
+}
+declare const enum opc_erapproval {
+  Approved = 533950000,
+  Approvedwithcomments = 533950001,
+  Requiresrereview = 533950002,
 }
 declare const enum opc_perceivedpriorities {
   Apology = 533950000,
@@ -1305,6 +1319,12 @@ declare const enum opc_complaintsource {
   Onlinecorrespondence = 533950000,
   Letter = 533950001,
 }
+declare const enum opc_erdisposition {
+  UnsuccessfulUnsuitable = 533950000,
+  Resolved = 533950001,
+  Withdrawn = 533950002,
+  Discontinued = 533950003,
+}
 declare const enum opc_intakedisposition {
   MovetoEarlyResolution = 924340000,
   MovetoInvestigation = 924340001,
@@ -1320,11 +1340,29 @@ declare const enum opc_complaint_statuscode {
   Redirected = 924340006,
   Investigationcompleted = 924340007,
   New = 924340010,
-  Initialassessment = 924340011,
+  Underinitialassessment = 924340011,
   Underearlyresolution = 924340012,
   Underinvestigation = 924340013,
   Investigationdiscontinued = 924340014,
   Createdinerror = 924340015,
+  UnsuitableUnsuccessful = 924340016,
+  Underregistrarreview = 924340017,
+  Underreviewforassignment = 924340018,
+  Underreportredaction = 924340019,
+  Underreviewforescalation = 924340020,
+  Underreviewforclosure = 924340021,
+  Underregistrarreview_2 = 924340022,
+}
+declare const enum opc_complaintresolution {
+  Acknowledgement = 533950000,
+  Apology = 533950001,
+  Compensation = 533950002,
+  Providedorconfirmedproperinformationwasprovided = 533950003,
+  Properprocessingofrequest = 533950004,
+  Reimbursement = 533950005,
+  Unresponsiveenquirer = 533950006,
+  Agreementoutsideofourinvolvement = 533950007,
+  Nojurisdiction = 533950008,
 }
 declare const enum opc_dispositionaction_statecode {
   Active = 0,
@@ -1421,6 +1459,17 @@ declare const enum opc_industry_statuscode {
 declare const enum opc_issue_statecode {
   Active = 0,
   Inactive = 1,
+}
+declare const enum opc_issuedisposition {
+  Wellfounded = 533950000,
+  Wellfoundedandresolved = 533950001,
+  Wellfoundedandconditionallyresolved = 533950002,
+  Notwellfounded = 533950003,
+  Resolved = 533950004,
+  Settled = 533950005,
+  Discontinued = 533950006,
+  Withdrawn = 533950007,
+  Nojurisdiction = 533950008,
 }
 declare const enum opc_issue_statuscode {
   Active = 1,
@@ -5463,8 +5512,12 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_complainantlegalrepresentativefirm"): Xrm.LookupAttribute<"account">;
       get(name: "opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetAttribute<opc_perceivedpriorities>;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_complaintreceiveddate"): Xrm.DateAttribute;
+      get(name: "opc_erapproval"): Xrm.OptionSetAttribute<opc_erapproval> | null;
+      get(name: "opc_erdisposition"): Xrm.OptionSetAttribute<opc_erdisposition> | null;
       get(name: "opc_erofficer"): Xrm.LookupAttribute<"systemuser">;
+      get(name: "opc_escalationapproved"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
       get(name: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
@@ -5474,11 +5527,17 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_number"): Xrm.Attribute<string>;
       get(name: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
+      get(name: "opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetAttribute<opc_reasontorequirefurtherinvestigation> | null;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
+      get(name: "opc_reportredactor"): Xrm.LookupAttribute<"systemuser"> | null;
+      get(name: "opc_reportrequested"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_representativeauthorizationprovided"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_requiresfurtherinvestigation"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_resolution"): Xrm.MultiSelectOptionSetAttribute<opc_complaintresolution> | null;
       get(name: "opc_respondentandcomplainantrelationship"): Xrm.OptionSetAttribute<opc_respondentandcomplainantrelationship>;
       get(name: "opc_respondentlegalrepresentative"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_respondentlegalrepresentativefirm"): Xrm.LookupAttribute<"account">;
+      get(name: "opc_respondentreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_respondentrepresentative"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_sladate"): Xrm.DateAttribute;
@@ -5506,19 +5565,31 @@ declare namespace Form.opc_complaint.Main {
       get(name: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
+      get(name: "header_process_opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_erapproval"): Xrm.OptionSetControl<opc_erapproval> | null;
+      get(name: "header_process_opc_erapproval_1"): Xrm.OptionSetControl<opc_erapproval> | null;
+      get(name: "header_process_opc_erdisposition"): Xrm.OptionSetControl<opc_erdisposition> | null;
+      get(name: "header_process_opc_escalationapproved"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_intakedisposition_1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
       get(name: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
       get(name: "header_process_opc_nextstep_1"): Xrm.OptionSetControl<opc_nextstep> | null;
-      get(name: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetControl<opc_reasontorequirefurtherinvestigation> | null;
       get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
+      get(name: "header_process_opc_reportredactor"): Xrm.LookupControl<"systemuser"> | null;
+      get(name: "header_process_opc_reportrequested"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_representativeauthorizationprovided"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_requiresfurtherinvestigation"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_resolution"): Xrm.MultiSelectOptionSetControl<opc_complaintresolution> | null;
       get(name: "header_process_opc_respondentandcomplainantrelationship"): Xrm.OptionSetControl<opc_respondentandcomplainantrelationship> | null;
+      get(name: "header_process_opc_respondentreportdrafted"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_4"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_5"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "opc_accountid"): Xrm.LookupControl<"account">;
@@ -5573,8 +5644,12 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_complainantlegalrepresentativefirm"): Xrm.LookupAttribute<"account">;
     getAttribute(attributeName: "opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetAttribute<opc_perceivedpriorities>;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_complaintreceiveddate"): Xrm.DateAttribute;
+    getAttribute(attributeName: "opc_erapproval"): Xrm.OptionSetAttribute<opc_erapproval> | null;
+    getAttribute(attributeName: "opc_erdisposition"): Xrm.OptionSetAttribute<opc_erdisposition> | null;
     getAttribute(attributeName: "opc_erofficer"): Xrm.LookupAttribute<"systemuser">;
+    getAttribute(attributeName: "opc_escalationapproved"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
     getAttribute(attributeName: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
@@ -5584,11 +5659,17 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
+    getAttribute(attributeName: "opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetAttribute<opc_reasontorequirefurtherinvestigation> | null;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
+    getAttribute(attributeName: "opc_reportredactor"): Xrm.LookupAttribute<"systemuser"> | null;
+    getAttribute(attributeName: "opc_reportrequested"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_representativeauthorizationprovided"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_requiresfurtherinvestigation"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_resolution"): Xrm.MultiSelectOptionSetAttribute<opc_complaintresolution> | null;
     getAttribute(attributeName: "opc_respondentandcomplainantrelationship"): Xrm.OptionSetAttribute<opc_respondentandcomplainantrelationship>;
     getAttribute(attributeName: "opc_respondentlegalrepresentative"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_respondentlegalrepresentativefirm"): Xrm.LookupAttribute<"account">;
+    getAttribute(attributeName: "opc_respondentreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_respondentrepresentative"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_sladate"): Xrm.DateAttribute;
@@ -5611,19 +5692,31 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
+    getControl(controlName: "header_process_opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_erapproval"): Xrm.OptionSetControl<opc_erapproval> | null;
+    getControl(controlName: "header_process_opc_erapproval_1"): Xrm.OptionSetControl<opc_erapproval> | null;
+    getControl(controlName: "header_process_opc_erdisposition"): Xrm.OptionSetControl<opc_erdisposition> | null;
+    getControl(controlName: "header_process_opc_escalationapproved"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_intakedisposition_1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
     getControl(controlName: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
     getControl(controlName: "header_process_opc_nextstep_1"): Xrm.OptionSetControl<opc_nextstep> | null;
-    getControl(controlName: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetControl<opc_reasontorequirefurtherinvestigation> | null;
     getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
+    getControl(controlName: "header_process_opc_reportredactor"): Xrm.LookupControl<"systemuser"> | null;
+    getControl(controlName: "header_process_opc_reportrequested"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_representativeauthorizationprovided"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_requiresfurtherinvestigation"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_resolution"): Xrm.MultiSelectOptionSetControl<opc_complaintresolution> | null;
     getControl(controlName: "header_process_opc_respondentandcomplainantrelationship"): Xrm.OptionSetControl<opc_respondentandcomplainantrelationship> | null;
+    getControl(controlName: "header_process_opc_respondentreportdrafted"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_4"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_5"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_statuscode"): Xrm.OptionSetControl<opc_complaint_statuscode>;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "opc_accountid"): Xrm.LookupControl<"account">;
@@ -5661,13 +5754,23 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_erapproval"): Xrm.OptionSetAttribute<opc_erapproval> | null;
+      get(name: "opc_erdisposition"): Xrm.OptionSetAttribute<opc_erdisposition> | null;
+      get(name: "opc_escalationapproved"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
       get(name: "opc_number"): Xrm.Attribute<string>;
+      get(name: "opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetAttribute<opc_reasontorequirefurtherinvestigation> | null;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
+      get(name: "opc_reportredactor"): Xrm.LookupAttribute<"systemuser"> | null;
+      get(name: "opc_reportrequested"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_representativeauthorizationprovided"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_requiresfurtherinvestigation"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_resolution"): Xrm.MultiSelectOptionSetAttribute<opc_complaintresolution> | null;
       get(name: "opc_respondentandcomplainantrelationship"): Xrm.OptionSetAttribute<opc_respondentandcomplainantrelationship> | null;
+      get(name: "opc_respondentreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -5682,19 +5785,31 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
+      get(name: "header_process_opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_erapproval"): Xrm.OptionSetControl<opc_erapproval> | null;
+      get(name: "header_process_opc_erapproval_1"): Xrm.OptionSetControl<opc_erapproval> | null;
+      get(name: "header_process_opc_erdisposition"): Xrm.OptionSetControl<opc_erdisposition> | null;
+      get(name: "header_process_opc_escalationapproved"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_intakedisposition_1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
       get(name: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
       get(name: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
       get(name: "header_process_opc_nextstep_1"): Xrm.OptionSetControl<opc_nextstep> | null;
-      get(name: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
+      get(name: "header_process_opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetControl<opc_reasontorequirefurtherinvestigation> | null;
       get(name: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
+      get(name: "header_process_opc_reportredactor"): Xrm.LookupControl<"systemuser"> | null;
+      get(name: "header_process_opc_reportrequested"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_representativeauthorizationprovided"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_requiresfurtherinvestigation"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_resolution"): Xrm.MultiSelectOptionSetControl<opc_complaintresolution> | null;
       get(name: "header_process_opc_respondentandcomplainantrelationship"): Xrm.OptionSetControl<opc_respondentandcomplainantrelationship> | null;
+      get(name: "header_process_opc_respondentreportdrafted"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_4"): Xrm.OptionSetControl<boolean> | null;
+      get(name: "header_process_opc_sendcloseletter_5"): Xrm.OptionSetControl<boolean> | null;
       get(name: "opc_complainant"): Xrm.LookupControl<"contact">;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -5717,13 +5832,23 @@ declare namespace Form.opc_complaint.Quick {
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_erapproval"): Xrm.OptionSetAttribute<opc_erapproval> | null;
+    getAttribute(attributeName: "opc_erdisposition"): Xrm.OptionSetAttribute<opc_erdisposition> | null;
+    getAttribute(attributeName: "opc_escalationapproved"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
+    getAttribute(attributeName: "opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetAttribute<opc_reasontorequirefurtherinvestigation> | null;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<opc_yesorno> | null;
+    getAttribute(attributeName: "opc_reportredactor"): Xrm.LookupAttribute<"systemuser"> | null;
+    getAttribute(attributeName: "opc_reportrequested"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_representativeauthorizationprovided"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_requiresfurtherinvestigation"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_resolution"): Xrm.MultiSelectOptionSetAttribute<opc_complaintresolution> | null;
     getAttribute(attributeName: "opc_respondentandcomplainantrelationship"): Xrm.OptionSetAttribute<opc_respondentandcomplainantrelationship> | null;
+    getAttribute(attributeName: "opc_respondentreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
@@ -5733,19 +5858,31 @@ declare namespace Form.opc_complaint.Quick {
     getControl(controlName: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
+    getControl(controlName: "header_process_opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_erapproval"): Xrm.OptionSetControl<opc_erapproval> | null;
+    getControl(controlName: "header_process_opc_erapproval_1"): Xrm.OptionSetControl<opc_erapproval> | null;
+    getControl(controlName: "header_process_opc_erdisposition"): Xrm.OptionSetControl<opc_erdisposition> | null;
+    getControl(controlName: "header_process_opc_escalationapproved"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_intakedisposition"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_intakedisposition_1"): Xrm.OptionSetControl<opc_intakedisposition> | null;
     getControl(controlName: "header_process_opc_legislation"): Xrm.LookupControl<"opc_legislation"> | null;
     getControl(controlName: "header_process_opc_nextstep"): Xrm.OptionSetControl<opc_nextstep> | null;
     getControl(controlName: "header_process_opc_nextstep_1"): Xrm.OptionSetControl<opc_nextstep> | null;
-    getControl(controlName: "header_process_opc_nextstep_2"): Xrm.OptionSetControl<opc_nextstep> | null;
+    getControl(controlName: "header_process_opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetControl<opc_reasontorequirefurtherinvestigation> | null;
     getControl(controlName: "header_process_opc_recommendtoregistrar"): Xrm.OptionSetControl<opc_yesorno> | null;
+    getControl(controlName: "header_process_opc_reportredactor"): Xrm.LookupControl<"systemuser"> | null;
+    getControl(controlName: "header_process_opc_reportrequested"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_representativeauthorizationprovided"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_requiresfurtherinvestigation"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_resolution"): Xrm.MultiSelectOptionSetControl<opc_complaintresolution> | null;
     getControl(controlName: "header_process_opc_respondentandcomplainantrelationship"): Xrm.OptionSetControl<opc_respondentandcomplainantrelationship> | null;
+    getControl(controlName: "header_process_opc_respondentreportdrafted"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_1"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_2"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_sendcloseletter_3"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_4"): Xrm.OptionSetControl<boolean> | null;
+    getControl(controlName: "header_process_opc_sendcloseletter_5"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "opc_complainant"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
@@ -6071,6 +6208,13 @@ declare namespace Form.opc_event.Quick {
 declare namespace Form.opc_individualcomplaint_bp.Main {
   namespace Information {
     namespace Tabs {
+      interface StageStep106 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep106_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface StageStep12 extends Xrm.SectionCollectionBase {
         get(name: "StageStep12_section1"): Xrm.PageSection;
         get(name: string): undefined;
@@ -6078,15 +6222,8 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep23 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep23_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep29 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep29_section1"): Xrm.PageSection;
+      interface StageStep25 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep25_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -6099,29 +6236,22 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep34 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep34_section1"): Xrm.PageSection;
+      interface StageStep32 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep32_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep40 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep40_section1"): Xrm.PageSection;
+      interface StageStep47 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep47_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep45 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep45_section1"): Xrm.PageSection;
-        get(name: string): undefined;
-        get(): Xrm.PageSection[];
-        get(index: number): Xrm.PageSection;
-        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
-      }
-      interface StageStep49 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep49_section1"): Xrm.PageSection;
+      interface StageStep51 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep51_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -6134,8 +6264,57 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
         get(index: number): Xrm.PageSection;
         get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
       }
-      interface StageStep63 extends Xrm.SectionCollectionBase {
-        get(name: "StageStep63_section1"): Xrm.PageSection;
+      interface StageStep61 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep61_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep67 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep67_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep71 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep71_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep77 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep77_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep81 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep81_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep87 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep87_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep92 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep92_section1"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface StageStep98 extends Xrm.SectionCollectionBase {
+        get(name: "StageStep98_section1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -6146,12 +6325,22 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "opc_accountid"): Xrm.LookupAttribute<"opc_complaints">;
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"opc_complaints">;
+      get(name: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_erapproval"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_erdisposition"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_escalationapproved"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_complaints">;
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_reasontorequirefurtherinvestigation"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_reportredactor"): Xrm.LookupAttribute<"opc_complaints">;
+      get(name: "opc_reportrequested"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_representativeauthorizationprovided"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_requiresfurtherinvestigation"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "opc_resolution"): Xrm.LookupAttribute<"opc_complaints">;
       get(name: "opc_respondentandcomplainantrelationship"): Xrm.OptionSetAttribute<number>;
+      get(name: "opc_respondentreportdrafted"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -6165,35 +6354,53 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason2"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason3"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainant"): Xrm.LookupControl<"opc_complaints">;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erapproval"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erapproval1"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erdisposition"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_escalationapproved"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_legislation"): Xrm.LookupControl<"opc_complaints">;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep1"): Xrm.OptionSetControl<number>;
-      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep2"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_reasontorequirefurtherinvestigation"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_recommendtoregistrar"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_reportredactor"): Xrm.LookupControl<"opc_complaints">;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_reportrequested"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_representativeauthorizationprovided"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_requiresfurtherinvestigation"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_resolution"): Xrm.LookupControl<"opc_complaints">;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_respondentandcomplainantrelationship"): Xrm.OptionSetControl<number>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_respondentreportdrafted"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter1"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter2"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter3"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter4"): Xrm.OptionSetControl<boolean>;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter5"): Xrm.OptionSetControl<boolean>;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "StageStep106"): Xrm.PageTab<Tabs.StageStep106>;
       get(name: "StageStep12"): Xrm.PageTab<Tabs.StageStep12>;
-      get(name: "StageStep23"): Xrm.PageTab<Tabs.StageStep23>;
-      get(name: "StageStep29"): Xrm.PageTab<Tabs.StageStep29>;
+      get(name: "StageStep25"): Xrm.PageTab<Tabs.StageStep25>;
       get(name: "StageStep3"): Xrm.PageTab<Tabs.StageStep3>;
-      get(name: "StageStep34"): Xrm.PageTab<Tabs.StageStep34>;
-      get(name: "StageStep40"): Xrm.PageTab<Tabs.StageStep40>;
-      get(name: "StageStep45"): Xrm.PageTab<Tabs.StageStep45>;
-      get(name: "StageStep49"): Xrm.PageTab<Tabs.StageStep49>;
+      get(name: "StageStep32"): Xrm.PageTab<Tabs.StageStep32>;
+      get(name: "StageStep47"): Xrm.PageTab<Tabs.StageStep47>;
+      get(name: "StageStep51"): Xrm.PageTab<Tabs.StageStep51>;
       get(name: "StageStep55"): Xrm.PageTab<Tabs.StageStep55>;
-      get(name: "StageStep63"): Xrm.PageTab<Tabs.StageStep63>;
+      get(name: "StageStep61"): Xrm.PageTab<Tabs.StageStep61>;
+      get(name: "StageStep67"): Xrm.PageTab<Tabs.StageStep67>;
+      get(name: "StageStep71"): Xrm.PageTab<Tabs.StageStep71>;
+      get(name: "StageStep77"): Xrm.PageTab<Tabs.StageStep77>;
+      get(name: "StageStep81"): Xrm.PageTab<Tabs.StageStep81>;
+      get(name: "StageStep87"): Xrm.PageTab<Tabs.StageStep87>;
+      get(name: "StageStep92"): Xrm.PageTab<Tabs.StageStep92>;
+      get(name: "StageStep98"): Xrm.PageTab<Tabs.StageStep98>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -6204,12 +6411,22 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"opc_complaints">;
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"opc_complaints">;
+    getAttribute(attributeName: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_erapproval"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_erdisposition"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_escalationapproved"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_complaints">;
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_reasontorequirefurtherinvestigation"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_recommendtoregistrar"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_reportredactor"): Xrm.LookupAttribute<"opc_complaints">;
+    getAttribute(attributeName: "opc_reportrequested"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_representativeauthorizationprovided"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_requiresfurtherinvestigation"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "opc_resolution"): Xrm.LookupAttribute<"opc_complaints">;
     getAttribute(attributeName: "opc_respondentandcomplainantrelationship"): Xrm.OptionSetAttribute<number>;
+    getAttribute(attributeName: "opc_respondentreportdrafted"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_sendcloseletter"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_accountid"): Xrm.LookupControl<"opc_complaints">;
@@ -6218,19 +6435,31 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason2"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason3"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainant"): Xrm.LookupControl<"opc_complaints">;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erapproval"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erapproval1"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erdisposition"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_escalationapproved"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_intakedisposition1"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_legislation"): Xrm.LookupControl<"opc_complaints">;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep1"): Xrm.OptionSetControl<number>;
-    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_nextstep2"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_reasontorequirefurtherinvestigation"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_recommendtoregistrar"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_reportredactor"): Xrm.LookupControl<"opc_complaints">;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_reportrequested"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_representativeauthorizationprovided"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_requiresfurtherinvestigation"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_resolution"): Xrm.LookupControl<"opc_complaints">;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_respondentandcomplainantrelationship"): Xrm.OptionSetControl<number>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_respondentreportdrafted"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter1"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter2"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter3"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter4"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_sendcloseletter5"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: string): undefined;
   }
 }
@@ -6458,6 +6687,8 @@ declare namespace Form.opc_issue.Main {
       get(name: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
       get(name: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
       get(name: "opc_contact"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_disposition"): Xrm.OptionSetAttribute<opc_issuedisposition>;
+      get(name: "opc_milestoneatdisposition"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
@@ -6467,6 +6698,8 @@ declare namespace Form.opc_issue.Main {
     }
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "header_opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+      get(name: "header_opc_disposition"): Xrm.OptionSetControl<opc_issuedisposition>;
+      get(name: "header_opc_milestoneatdisposition"): Xrm.OptionSetControl<opc_complaintmilestone>;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_accessrequestnumber"): Xrm.StringControl;
       get(name: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
@@ -6490,10 +6723,14 @@ declare namespace Form.opc_issue.Main {
     getAttribute(attributeName: "opc_allegationtypeid"): Xrm.LookupAttribute<"opc_allegationtype">;
     getAttribute(attributeName: "opc_complaintid"): Xrm.LookupAttribute<"opc_complaint">;
     getAttribute(attributeName: "opc_contact"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_disposition"): Xrm.OptionSetAttribute<opc_issuedisposition>;
+    getAttribute(attributeName: "opc_milestoneatdisposition"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "header_opc_complaintid"): Xrm.LookupControl<"opc_complaint">;
+    getControl(controlName: "header_opc_disposition"): Xrm.OptionSetControl<opc_issuedisposition>;
+    getControl(controlName: "header_opc_milestoneatdisposition"): Xrm.OptionSetControl<opc_complaintmilestone>;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_accessrequestnumber"): Xrm.StringControl;
     getControl(controlName: "opc_allegationtypeid"): Xrm.LookupControl<"opc_allegationtype">;
@@ -13643,9 +13880,13 @@ interface opc_complaint_Base extends WebEntity {
   opc_closeddate?: Date | null;
   opc_closereason?: opc_closereason | null;
   opc_complainantperceivedpriorities?: opc_perceivedpriorities | null;
+  opc_complainantreportdrafted?: boolean | null;
   opc_complaintdisposition?: opc_complaintdisposition | null;
   opc_complaintid?: string | null;
   opc_complaintreceiveddate?: Date | null;
+  opc_erapproval?: opc_erapproval | null;
+  opc_erdisposition?: opc_erdisposition | null;
+  opc_escalationapproved?: boolean | null;
   opc_hasaccessallegation?: boolean | null;
   opc_hastlallegation?: boolean | null;
   opc_intakedisposition?: opc_intakedisposition | null;
@@ -13654,9 +13895,15 @@ interface opc_complaint_Base extends WebEntity {
   opc_multiplecomplaintstrategy?: opc_multiplecomplaintstrategy | null;
   opc_nextstep?: opc_nextstep | null;
   opc_number?: string | null;
+  opc_reasontorequirefurtherinvestigation?: opc_reasontorequirefurtherinvestigation | null;
   opc_recommendtoregistrar?: opc_yesorno | null;
+  opc_reportrequested?: boolean | null;
   opc_representativeauthorizationprovided?: boolean | null;
+  opc_requiresfurtherinvestigation?: boolean | null;
+  opc_requiresreport?: boolean | null;
+  opc_resolution?: opc_complaintresolution | null;
   opc_respondentandcomplainantrelationship?: opc_respondentandcomplainantrelationship | null;
+  opc_respondentreportdrafted?: boolean | null;
   opc_sendcloseletter?: boolean | null;
   opc_sladate?: Date | null;
   opc_source?: opc_complaintsource | null;
@@ -13695,6 +13942,7 @@ interface opc_complaint extends opc_complaint_Base, opc_complaint_Relationships 
   opc_intakeofficer_bind$systemusers?: string | null;
   opc_legislation_bind$opc_legislations?: string | null;
   opc_opcpriorityid_bind$opc_opcpriorities?: string | null;
+  opc_reportredactor_bind$systemusers?: string | null;
   opc_respondentlegalrepresentative_bind$contacts?: string | null;
   opc_respondentlegalrepresentativefirm_bind$accounts?: string | null;
   opc_respondentrepresentative_bind$contacts?: string | null;
@@ -13726,10 +13974,14 @@ interface opc_complaint_Select {
   opc_complainantlegalrepresentativefirm_guid: WebAttribute<opc_complaint_Select, { opc_complainantlegalrepresentativefirm_guid: string | null }, { opc_complainantlegalrepresentativefirm_formatted?: string }>;
   opc_complainantperceivedpriorities: WebAttribute<opc_complaint_Select, { opc_complainantperceivedpriorities: opc_perceivedpriorities | null }, { opc_complainantperceivedpriorities_formatted?: string }>;
   opc_complainantrep_guid: WebAttribute<opc_complaint_Select, { opc_complainantrep_guid: string | null }, { opc_complainantrep_formatted?: string }>;
+  opc_complainantreportdrafted: WebAttribute<opc_complaint_Select, { opc_complainantreportdrafted: boolean | null }, {  }>;
   opc_complaintdisposition: WebAttribute<opc_complaint_Select, { opc_complaintdisposition: opc_complaintdisposition | null }, { opc_complaintdisposition_formatted?: string }>;
   opc_complaintid: WebAttribute<opc_complaint_Select, { opc_complaintid: string | null }, {  }>;
   opc_complaintreceiveddate: WebAttribute<opc_complaint_Select, { opc_complaintreceiveddate: Date | null }, { opc_complaintreceiveddate_formatted?: string }>;
+  opc_erapproval: WebAttribute<opc_complaint_Select, { opc_erapproval: opc_erapproval | null }, { opc_erapproval_formatted?: string }>;
+  opc_erdisposition: WebAttribute<opc_complaint_Select, { opc_erdisposition: opc_erdisposition | null }, { opc_erdisposition_formatted?: string }>;
   opc_erofficer_guid: WebAttribute<opc_complaint_Select, { opc_erofficer_guid: string | null }, { opc_erofficer_formatted?: string }>;
+  opc_escalationapproved: WebAttribute<opc_complaint_Select, { opc_escalationapproved: boolean | null }, {  }>;
   opc_hasaccessallegation: WebAttribute<opc_complaint_Select, { opc_hasaccessallegation: boolean | null }, {  }>;
   opc_hastlallegation: WebAttribute<opc_complaint_Select, { opc_hastlallegation: boolean | null }, {  }>;
   opc_intakedisposition: WebAttribute<opc_complaint_Select, { opc_intakedisposition: opc_intakedisposition | null }, { opc_intakedisposition_formatted?: string }>;
@@ -13741,11 +13993,18 @@ interface opc_complaint_Select {
   opc_nextstep: WebAttribute<opc_complaint_Select, { opc_nextstep: opc_nextstep | null }, { opc_nextstep_formatted?: string }>;
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
   opc_opcpriorityid_guid: WebAttribute<opc_complaint_Select, { opc_opcpriorityid_guid: string | null }, { opc_opcpriorityid_formatted?: string }>;
+  opc_reasontorequirefurtherinvestigation: WebAttribute<opc_complaint_Select, { opc_reasontorequirefurtherinvestigation: opc_reasontorequirefurtherinvestigation | null }, { opc_reasontorequirefurtherinvestigation_formatted?: string }>;
   opc_recommendtoregistrar: WebAttribute<opc_complaint_Select, { opc_recommendtoregistrar: opc_yesorno | null }, { opc_recommendtoregistrar_formatted?: string }>;
+  opc_reportredactor_guid: WebAttribute<opc_complaint_Select, { opc_reportredactor_guid: string | null }, { opc_reportredactor_formatted?: string }>;
+  opc_reportrequested: WebAttribute<opc_complaint_Select, { opc_reportrequested: boolean | null }, {  }>;
   opc_representativeauthorizationprovided: WebAttribute<opc_complaint_Select, { opc_representativeauthorizationprovided: boolean | null }, {  }>;
+  opc_requiresfurtherinvestigation: WebAttribute<opc_complaint_Select, { opc_requiresfurtherinvestigation: boolean | null }, {  }>;
+  opc_requiresreport: WebAttribute<opc_complaint_Select, { opc_requiresreport: boolean | null }, {  }>;
+  opc_resolution: WebAttribute<opc_complaint_Select, { opc_resolution: opc_complaintresolution | null }, { opc_resolution_formatted?: string }>;
   opc_respondentandcomplainantrelationship: WebAttribute<opc_complaint_Select, { opc_respondentandcomplainantrelationship: opc_respondentandcomplainantrelationship | null }, { opc_respondentandcomplainantrelationship_formatted?: string }>;
   opc_respondentlegalrepresentative_guid: WebAttribute<opc_complaint_Select, { opc_respondentlegalrepresentative_guid: string | null }, { opc_respondentlegalrepresentative_formatted?: string }>;
   opc_respondentlegalrepresentativefirm_guid: WebAttribute<opc_complaint_Select, { opc_respondentlegalrepresentativefirm_guid: string | null }, { opc_respondentlegalrepresentativefirm_formatted?: string }>;
+  opc_respondentreportdrafted: WebAttribute<opc_complaint_Select, { opc_respondentreportdrafted: boolean | null }, {  }>;
   opc_respondentrepresentative_guid: WebAttribute<opc_complaint_Select, { opc_respondentrepresentative_guid: string | null }, { opc_respondentrepresentative_formatted?: string }>;
   opc_sendcloseletter: WebAttribute<opc_complaint_Select, { opc_sendcloseletter: boolean | null }, {  }>;
   opc_sladate: WebAttribute<opc_complaint_Select, { opc_sladate: Date | null }, { opc_sladate_formatted?: string }>;
@@ -13784,10 +14043,14 @@ interface opc_complaint_Filter {
   opc_complainantlegalrepresentativefirm_guid: XQW.Guid;
   opc_complainantperceivedpriorities: opc_perceivedpriorities;
   opc_complainantrep_guid: XQW.Guid;
+  opc_complainantreportdrafted: boolean;
   opc_complaintdisposition: opc_complaintdisposition;
   opc_complaintid: XQW.Guid;
   opc_complaintreceiveddate: Date;
+  opc_erapproval: opc_erapproval;
+  opc_erdisposition: opc_erdisposition;
   opc_erofficer_guid: XQW.Guid;
+  opc_escalationapproved: boolean;
   opc_hasaccessallegation: boolean;
   opc_hastlallegation: boolean;
   opc_intakedisposition: opc_intakedisposition;
@@ -13799,11 +14062,18 @@ interface opc_complaint_Filter {
   opc_nextstep: opc_nextstep;
   opc_number: string;
   opc_opcpriorityid_guid: XQW.Guid;
+  opc_reasontorequirefurtherinvestigation: opc_reasontorequirefurtherinvestigation;
   opc_recommendtoregistrar: opc_yesorno;
+  opc_reportredactor_guid: XQW.Guid;
+  opc_reportrequested: boolean;
   opc_representativeauthorizationprovided: boolean;
+  opc_requiresfurtherinvestigation: boolean;
+  opc_requiresreport: boolean;
+  opc_resolution: opc_complaintresolution;
   opc_respondentandcomplainantrelationship: opc_respondentandcomplainantrelationship;
   opc_respondentlegalrepresentative_guid: XQW.Guid;
   opc_respondentlegalrepresentativefirm_guid: XQW.Guid;
+  opc_respondentreportdrafted: boolean;
   opc_respondentrepresentative_guid: XQW.Guid;
   opc_sendcloseletter: boolean;
   opc_sladate: Date;
@@ -13849,6 +14119,7 @@ interface opc_complaint_Expand {
   opc_intakeofficer: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { opc_intakeofficer: SystemUser_Result }>;
   opc_legislation: WebExpand<opc_complaint_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
   opc_opcpriorityid: WebExpand<opc_complaint_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { opc_opcpriorityid: opc_opcpriority_Result }>;
+  opc_reportredactor: WebExpand<opc_complaint_Expand, SystemUser_Select, SystemUser_Filter, { opc_reportredactor: SystemUser_Result }>;
   opc_respondentlegalrepresentative: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_respondentlegalrepresentative: Contact_Result }>;
   opc_respondentlegalrepresentativefirm: WebExpand<opc_complaint_Expand, Account_Select, Account_Filter, { opc_respondentlegalrepresentativefirm: Account_Result }>;
   opc_respondentrepresentative: WebExpand<opc_complaint_Expand, Contact_Select, Contact_Filter, { opc_respondentrepresentative: Contact_Result }>;
@@ -13875,6 +14146,8 @@ interface opc_complaint_FormattedResult {
   opc_complainantrep_formatted?: string;
   opc_complaintdisposition_formatted?: string;
   opc_complaintreceiveddate_formatted?: string;
+  opc_erapproval_formatted?: string;
+  opc_erdisposition_formatted?: string;
   opc_erofficer_formatted?: string;
   opc_intakedisposition_formatted?: string;
   opc_intakeofficer_formatted?: string;
@@ -13883,7 +14156,10 @@ interface opc_complaint_FormattedResult {
   opc_multiplecomplaintstrategy_formatted?: string;
   opc_nextstep_formatted?: string;
   opc_opcpriorityid_formatted?: string;
+  opc_reasontorequirefurtherinvestigation_formatted?: string;
   opc_recommendtoregistrar_formatted?: string;
+  opc_reportredactor_formatted?: string;
+  opc_resolution_formatted?: string;
   opc_respondentandcomplainantrelationship_formatted?: string;
   opc_respondentlegalrepresentative_formatted?: string;
   opc_respondentlegalrepresentativefirm_formatted?: string;
@@ -13913,6 +14189,7 @@ interface opc_complaint_Result extends opc_complaint_Base, opc_complaint_Relatio
   opc_intakeofficer_guid: string | null;
   opc_legislation_guid: string | null;
   opc_opcpriorityid_guid: string | null;
+  opc_reportredactor_guid: string | null;
   opc_respondentlegalrepresentative_guid: string | null;
   opc_respondentlegalrepresentativefirm_guid: string | null;
   opc_respondentrepresentative_guid: string | null;
@@ -13935,6 +14212,7 @@ interface opc_complaint_RelatedOne {
   opc_intakeofficer: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
   opc_opcpriorityid: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  opc_reportredactor: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_respondentlegalrepresentative: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   opc_respondentlegalrepresentativefirm: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   opc_respondentrepresentative: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
@@ -14973,7 +15251,9 @@ interface opc_issue_Base extends WebEntity {
   importsequencenumber?: number | null;
   modifiedon?: Date | null;
   opc_accessrequestnumber?: string | null;
+  opc_disposition?: opc_issuedisposition | null;
   opc_issueid?: string | null;
+  opc_milestoneatdisposition?: opc_complaintmilestone | null;
   opc_name?: string | null;
   overriddencreatedon?: Date | null;
   statecode?: opc_issue_statecode | null;
@@ -15007,7 +15287,9 @@ interface opc_issue_Select {
   opc_allegationtypeid_guid: WebAttribute<opc_issue_Select, { opc_allegationtypeid_guid: string | null }, { opc_allegationtypeid_formatted?: string }>;
   opc_complaintid_guid: WebAttribute<opc_issue_Select, { opc_complaintid_guid: string | null }, { opc_complaintid_formatted?: string }>;
   opc_contact_guid: WebAttribute<opc_issue_Select, { opc_contact_guid: string | null }, { opc_contact_formatted?: string }>;
+  opc_disposition: WebAttribute<opc_issue_Select, { opc_disposition: opc_issuedisposition | null }, { opc_disposition_formatted?: string }>;
   opc_issueid: WebAttribute<opc_issue_Select, { opc_issueid: string | null }, {  }>;
+  opc_milestoneatdisposition: WebAttribute<opc_issue_Select, { opc_milestoneatdisposition: opc_complaintmilestone | null }, { opc_milestoneatdisposition_formatted?: string }>;
   opc_name: WebAttribute<opc_issue_Select, { opc_name: string | null }, {  }>;
   overriddencreatedon: WebAttribute<opc_issue_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_issue_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
@@ -15032,7 +15314,9 @@ interface opc_issue_Filter {
   opc_allegationtypeid_guid: XQW.Guid;
   opc_complaintid_guid: XQW.Guid;
   opc_contact_guid: XQW.Guid;
+  opc_disposition: opc_issuedisposition;
   opc_issueid: XQW.Guid;
+  opc_milestoneatdisposition: opc_complaintmilestone;
   opc_name: string;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
@@ -15067,6 +15351,8 @@ interface opc_issue_FormattedResult {
   opc_allegationtypeid_formatted?: string;
   opc_complaintid_formatted?: string;
   opc_contact_formatted?: string;
+  opc_disposition_formatted?: string;
+  opc_milestoneatdisposition_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -18962,6 +19248,7 @@ interface SystemUser_Relationships {
   opc_event_systemuser_owninguser?: opc_event_Result[] | null;
   opc_reminders_users_additionaluserstonotify?: opc_reminder_Result[] | null;
   opc_user_complaints_erofficer?: opc_complaint_Result[] | null;
+  opc_user_complaints_reportredactor?: opc_complaint_Result[] | null;
   queue_primary_user?: Queue_Result[] | null;
   queuemembership_association?: Queue_Result[] | null;
   system_user_accounts?: Account_Result[] | null;
@@ -19450,6 +19737,7 @@ interface SystemUser_Expand {
   opc_event_systemuser_owninguser: WebExpand<SystemUser_Expand, opc_event_Select, opc_event_Filter, { opc_event_systemuser_owninguser: opc_event_Result[] }>;
   opc_reminders_users_additionaluserstonotify: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { opc_reminders_users_additionaluserstonotify: opc_reminder_Result[] }>;
   opc_user_complaints_erofficer: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_user_complaints_erofficer: opc_complaint_Result[] }>;
+  opc_user_complaints_reportredactor: WebExpand<SystemUser_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_user_complaints_reportredactor: opc_complaint_Result[] }>;
   parentsystemuserid: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { parentsystemuserid: SystemUser_Result }>;
   queue_primary_user: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { queue_primary_user: Queue_Result[] }>;
   queueid: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
@@ -19727,6 +20015,7 @@ interface SystemUser_RelatedMany {
   opc_event_systemuser_owninguser: WebMappingRetrieve<opc_event_Select,opc_event_Expand,opc_event_Filter,opc_event_Fixed,opc_event_Result,opc_event_FormattedResult>;
   opc_reminders_users_additionaluserstonotify: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;
   opc_user_complaints_erofficer: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_user_complaints_reportredactor: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   queue_primary_user: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   queuemembership_association: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   system_user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;

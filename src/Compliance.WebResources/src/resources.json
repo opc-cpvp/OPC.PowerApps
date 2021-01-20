@@ -4,6 +4,13 @@
         "common": {
           "hello": "hello in english"
         },
+        "complaint": {
+          "process_flow": {
+            "error": {
+              "approved_rereview": "You can't proceed to next stage as the complaint requires rereview. Please return to the previous stage."
+            }
+          }
+        },
         "contact": {
             "type": {
                 "complainant": "complainant",
@@ -57,6 +64,13 @@
       "fr": {
         "common": {
           "hello": "allo en francais"
+        },
+        "complaint": {
+          "process_flow": {
+            "error": {
+              "approved_rereview": "Il est impossible de procéder à la prochaine phase car la plainte requiert une révision supplémentaire. Veuillez retourner à la phase précédente."
+            }
+          }
         },
         "contact": {
             "type": {

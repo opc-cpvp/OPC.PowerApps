@@ -71,6 +71,19 @@
                         </labels>
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{e6a91c77-e4bc-4fca-b2b1-d196e078f4c9}" locklevel="0">
+                        <labels>
+                          <label description="Disposition" languagecode="1033" />
+                        </labels>
+                        <control id="header_opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{ef5b2a5a-4b9b-47e7-ba5b-ed3bf6fc62b2}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
@@ -108,6 +121,12 @@
                 <label description="Propriétaire" languagecode="1036" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+            <cell id="{cb3e6a19-ab16-4351-a92b-6df5cf770a9d}" locklevel="0">
+              <labels>
+                <label description="Milestone at Disposition" languagecode="1033" />
+              </labels>
+              <control id="header_opc_milestoneatdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_milestoneatdisposition" disabled="true" />
             </cell>
           </row>
         </rows>

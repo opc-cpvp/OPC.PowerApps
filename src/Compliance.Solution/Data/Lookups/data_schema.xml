@@ -332,4 +332,12 @@
       <field displayname="Status Reason" name="statuscode" type="status" />
     </fields>
   </entity>
+  <entity name="team" displayname="Team" etc="9" primaryidfield="teamid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Team Name" name="name" type="string" />
+      <field displayname="Team" name="teamid" type="guid" primaryKey="true" />
+      <field displayname="Team Type" name="teamtype" type="optionsetvalue" />
+    </fields>
+  </entity>
 </entities>

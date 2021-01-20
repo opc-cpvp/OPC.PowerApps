@@ -205,8 +205,8 @@ describe("Allegation - Main", () => {
             formContext.getAttribute("opc_disposition").fireOnChange();
 
             // Assert
-            sinon.assert.match(formContext.getAttribute("opc_dispositionreasonid").getValue(), undefined);
-            sinon.assert.match(formContext.getAttribute("opc_dispositionactionid").getValue(), undefined);
+            sinon.assert.match(formContext.getAttribute("opc_dispositionreasonid").getValue(), null);
+            sinon.assert.match(formContext.getAttribute("opc_dispositionactionid").getValue(), null);
         });
     });
 
@@ -254,7 +254,7 @@ describe("Allegation - Main", () => {
             formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
 
             // Assert
-            sinon.assert.match(formContext.getAttribute("opc_dispositionactionid").getValue(), undefined);
+            sinon.assert.match(formContext.getAttribute("opc_dispositionactionid").getValue(), null);
         });
 
         describe("to 'No Jurisdiction'", () => {

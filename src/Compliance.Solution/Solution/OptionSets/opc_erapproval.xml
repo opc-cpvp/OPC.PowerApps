@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_erapproval" localizedName="ER Approval" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.538</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="ER Approval" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Approved" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Approved with comments" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="Requires re-review" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

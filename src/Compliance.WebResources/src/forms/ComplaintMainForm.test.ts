@@ -7,6 +7,7 @@ import { ContactType } from "../enums";
 import * as resources from "../resources.json";
 import { XrmControlMock } from "../../test/XrmControlMock";
 import i18next from "i18next";
+import { XrmPageBaseMock } from "../../test/XrmPageBaseMock";
 
 import chai from "chai";
 import sinon from "sinon";
@@ -21,6 +22,8 @@ describe("Complaint", () => {
     let mockContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
     let contextSpy: any;
     let form: Complaint.Forms.MainForm;
+    let formContext: XrmPageBaseMock<Form.opc_complaint.Main.Information, undefined>;
+
     const closeReasons: Xrm.Option<any>[] = [
         { text: "Created in error", value: opc_closereason.Createdinerror },
         { text: "Duplicate", value: opc_closereason.Duplicate },
@@ -34,6 +37,7 @@ describe("Complaint", () => {
         mockContext = new XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>();
         contextSpy = sandbox.spy(mockContext);
         form = new Complaint.Forms.MainForm(i18next, contactService);
+        formContext = mockContext.getFormContext();
 
         void i18next.init({
             resources: resources.resources,
@@ -58,7 +62,7 @@ describe("Complaint", () => {
             const getDuplicateDup = sandbox
                 .stub(contactService, "getDuplicateStatus")
                 .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(null);
+            formContext.getAttribute("opc_complainant").setValue();
 
             // Act
             form.initializeComponents(mockContext);
@@ -72,7 +76,7 @@ describe("Complaint", () => {
         describe("and creating a new complaint", () => {
             it("it should set date received to today's date", () => {
                 // Arrange
-                mockContext.getFormContext().ui.setFormType(Xrm.FormType.Create);
+                formContext.ui.setFormType(Xrm.FormType.Create);
 
                 // Act
                 form.initializeComponents(mockContext);
@@ -137,11 +141,11 @@ describe("Complaint", () => {
             const complainantControl = new XrmControlMock(mockContext);
             complainantControl.setName("opc_complainant");
 
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
-            mockContext.getFormContext().getAttribute("opc_complainant").controls.collection.push(complainantControl);
+            formContext.getAttribute("opc_complainant").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainant").controls.collection.push(complainantControl);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
+            formContext.getAttribute("opc_complainant").fireOnChange();
 
             // Assert
             await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
@@ -162,11 +166,11 @@ describe("Complaint", () => {
 
             const complainantControl = new XrmControlMock(mockContext);
             complainantControl.setName("opc_complainant");
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
-            mockContext.getFormContext().getAttribute("opc_complainant").controls.collection.push(complainantControl);
+            formContext.getAttribute("opc_complainant").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainant").controls.collection.push(complainantControl);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
+            formContext.getAttribute("opc_complainant").fireOnChange();
 
             // Assert
             await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
@@ -196,11 +200,11 @@ describe("Complaint", () => {
             const complainantControl = new XrmControlMock(mockContext);
             complainantControl.setName("opc_complainant");
 
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
-            mockContext.getFormContext().getAttribute("opc_complainant").controls.collection.push(complainantControl);
+            formContext.getAttribute("opc_complainant").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainant").controls.collection.push(complainantControl);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
+            formContext.getAttribute("opc_complainant").fireOnChange();
 
             // Assert
             await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
@@ -224,10 +228,10 @@ describe("Complaint", () => {
                 }
             ];
 
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainant").setValue(contactsLookup);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
+            formContext.getAttribute("opc_complainant").fireOnChange();
 
             // Assert
             await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
@@ -246,12 +250,12 @@ describe("Complaint", () => {
                 }
             ];
 
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
-            mockContext.getFormContext().getAttribute("opc_complainantrep").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainant").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainantrep").setValue(contactsLookup);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
+            formContext.getAttribute("opc_complainant").fireOnChange();
+            formContext.getAttribute("opc_complainantrep").fireOnChange();
 
             // Assert
             // Any better way?
@@ -271,24 +275,24 @@ describe("Complaint", () => {
                 }
             ];
 
-            mockContext.getFormContext().getAttribute("opc_complainant").setValue(contactsLookup);
-            mockContext.getFormContext().getAttribute("opc_complainantrep").setValue(contactsLookup);
-            mockContext.getFormContext().getAttribute("opc_complainantlegalrepresentative").setValue(contactsLookup);
-            mockContext.getFormContext().getAttribute("opc_respondentrepresentative").setValue(contactsLookup);
-            mockContext.getFormContext().getAttribute("opc_respondentlegalrepresentative").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainant").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainantrep").setValue(contactsLookup);
+            formContext.getAttribute("opc_complainantlegalrepresentative").setValue(contactsLookup);
+            formContext.getAttribute("opc_respondentrepresentative").setValue(contactsLookup);
+            formContext.getAttribute("opc_respondentlegalrepresentative").setValue(contactsLookup);
 
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantlegalrepresentative");
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_respondentrepresentative");
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_respondentlegalrepresentative");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_complainantlegalrepresentative");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_respondentrepresentative");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_respondentlegalrepresentative");
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_complainantlegalrepresentative").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_respondentrepresentative").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_respondentlegalrepresentative").fireOnChange();
+            formContext.getAttribute("opc_complainant").fireOnChange();
+            formContext.getAttribute("opc_complainantrep").fireOnChange();
+            formContext.getAttribute("opc_complainantlegalrepresentative").fireOnChange();
+            formContext.getAttribute("opc_respondentrepresentative").fireOnChange();
+            formContext.getAttribute("opc_respondentlegalrepresentative").fireOnChange();
 
             // Assert
             await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
@@ -299,18 +303,18 @@ describe("Complaint", () => {
         it("it should remove exsiting notifications when no contacts are found", async () => {
             // Arrange
             const getContactDup = sandbox.stub(contactService, "getPotentialDuplicates").resolves([potentialDuplicate]);
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_complainantlegalrepresentative");
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_respondentrepresentative");
-            mockContext.getFormContext().ui.setFormNotification("Test Notification", "WARNING", "opc_respondentlegalrepresentative");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_complainant");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_complainantrep");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_complainantlegalrepresentative");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_respondentrepresentative");
+            formContext.ui.setFormNotification("Test Notification", "WARNING", "opc_respondentlegalrepresentative");
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_complainantlegalrepresentative").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_respondentrepresentative").fireOnChange();
-            mockContext.getFormContext().getAttribute("opc_respondentlegalrepresentative").fireOnChange();
+            formContext.getAttribute("opc_complainant").fireOnChange();
+            formContext.getAttribute("opc_complainantrep").fireOnChange();
+            formContext.getAttribute("opc_complainantlegalrepresentative").fireOnChange();
+            formContext.getAttribute("opc_respondentrepresentative").fireOnChange();
+            formContext.getAttribute("opc_respondentlegalrepresentative").fireOnChange();
 
             // Assert
             await Promise.all([...getContact.returnValues, ...getContactDup.returnValues]);
@@ -329,7 +333,7 @@ describe("Complaint", () => {
                 sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
+                formContext.getAttribute("opc_complainant").fireOnChange();
 
                 // Assert
                 await Promise.all([...getContact.returnValues]);
@@ -348,7 +352,7 @@ describe("Complaint", () => {
                 sandbox.stub(contactService, "getPotentialDuplicates").resolves([]);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_complainant").fireOnChange();
+                formContext.getAttribute("opc_complainant").fireOnChange();
 
                 // Assert
                 await Promise.all([...getContact.returnValues]);
@@ -359,20 +363,20 @@ describe("Complaint", () => {
 
     describe("when recommending to registrar", () => {
         beforeEach(() => {
-            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.Yes);
+            formContext.getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.Yes);
             form.initializeComponents(mockContext);
         });
 
         describe("and recommending to ER", () => {
             it("acceptance date should be visible", () => {
                 // Arrange
-                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateAttributeMock = formContext.getAttribute("opc_acceptancedate");
                 const acceptancedateControlSpy = sandbox.spy(acceptancedateAttributeMock.controls.get("opc_acceptancedate"));
 
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
+                formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+                formContext.getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
                 acceptancedateControlSpy.getVisible().should.equal(true);
@@ -392,10 +396,10 @@ describe("Complaint", () => {
                         .getFormContext()
                         .getAttribute("opc_intakedisposition")
                         .setValue(opc_intakedisposition.MovetoEarlyResolution);
-                    mockContext.getFormContext().getAttribute("opc_complainantrep").setValue(true);
+                    formContext.getAttribute("opc_complainantrep").setValue(true);
 
                     // Act
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+                    formContext.getAttribute("opc_intakedisposition").fireOnChange();
 
                     // Assert
                     repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("required");
@@ -408,12 +412,12 @@ describe("Complaint", () => {
         describe("and recommending to investigation", () => {
             it("acceptance date should be visible", () => {
                 // Arrange
-                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateAttributeMock = formContext.getAttribute("opc_acceptancedate");
                 const acceptancedateControlSpy = sandbox.spy(acceptancedateAttributeMock.controls.get("opc_acceptancedate"));
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
+                formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+                formContext.getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
                 acceptancedateControlSpy.getVisible().should.equal(true);
@@ -429,11 +433,11 @@ describe("Complaint", () => {
                     const repAuthProvidedControlMockSpy = sandbox.spy(
                         repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
                     );
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
-                    mockContext.getFormContext().getAttribute("opc_complainantrep").setValue(true);
+                    formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
+                    formContext.getAttribute("opc_complainantrep").setValue(true);
 
                     // Act
-                    mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+                    formContext.getAttribute("opc_intakedisposition").fireOnChange();
 
                     // Assert
                     repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("required");
@@ -446,12 +450,12 @@ describe("Complaint", () => {
         describe("and recommending to close", () => {
             it("acceptance date should not be visible", () => {
                 // Arrange
-                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateAttributeMock = formContext.getAttribute("opc_acceptancedate");
                 const acceptancedateControlSpy = sandbox.spy(acceptancedateAttributeMock.controls.get("opc_acceptancedate"));
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
+                formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+                formContext.getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
                 acceptancedateControlSpy.getVisible().should.equal(false);
@@ -459,13 +463,13 @@ describe("Complaint", () => {
 
             it("reason to close should be required", () => {
                 // Arrange
-                const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+                const closeReasonAttribute = formContext.getAttribute("opc_closereason");
                 const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
                 closeReasonAttribute.controls.get("opc_closereason");
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
+                formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+                formContext.getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
                 closeReasonAttributeSpy.getRequiredLevel().should.equal("required");
@@ -473,15 +477,15 @@ describe("Complaint", () => {
 
             it("reasons to close should be [Createdinerror, Duplicate, Redirection]", () => {
                 // Arrange
-                const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+                const closeReasonAttribute = formContext.getAttribute("opc_closereason");
                 const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason");
                 const closeReasonControlSpy = sandbox.spy(closeReasonControl);
                 closeReasonAttribute.setOptions(closeReasons);
 
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
+                formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Close);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+                formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
 
                 // Assert
                 closeReasonControlSpy.getOptions().length.should.equal(3);
@@ -496,12 +500,12 @@ describe("Complaint", () => {
         describe("and recommending to decline", () => {
             it("acceptance date should not be visible", () => {
                 // Arrange
-                const acceptancedateAttributeMock = mockContext.getFormContext().getAttribute("opc_acceptancedate");
+                const acceptancedateAttributeMock = formContext.getAttribute("opc_acceptancedate");
                 const acceptancedateControlSpy = sandbox.spy(acceptancedateAttributeMock.controls.get("opc_acceptancedate"));
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Declinetoinvestigate);
+                formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.Declinetoinvestigate);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").fireOnChange();
+                formContext.getAttribute("opc_intakedisposition").fireOnChange();
 
                 // Assert
                 acceptancedateControlSpy.getVisible().should.equal(false);
@@ -516,13 +520,13 @@ describe("Complaint", () => {
 
         it("reason to close should be required", () => {
             // Arrange
-            const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+            const closeReasonAttribute = formContext.getAttribute("opc_closereason");
             const closeReasonAttributeSpy = sandbox.spy(closeReasonAttribute);
             closeReasonAttribute.controls.get("opc_closereason");
-            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
+            formContext.getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+            formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
 
             // Assert
             closeReasonAttributeSpy.getRequiredLevel().should.equal("required");
@@ -530,14 +534,14 @@ describe("Complaint", () => {
 
         it("reasons to close should be [Redirection, Resolved, Withdrawn]", () => {
             // Arrange
-            const closeReasonAttribute = mockContext.getFormContext().getAttribute("opc_closereason");
+            const closeReasonAttribute = formContext.getAttribute("opc_closereason");
             const closeReasonControl = closeReasonAttribute.controls.get("opc_closereason");
             const closeReasonControlSpy = sandbox.spy(closeReasonControl);
             closeReasonAttribute.setOptions(closeReasons);
-            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
+            formContext.getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+            formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
 
             // Assert
             closeReasonControlSpy.getOptions().length.should.equal(3);
@@ -550,12 +554,12 @@ describe("Complaint", () => {
 
         it("intake disposition should not be required", () => {
             // Arrange
-            const intakeDispositionAttribute = mockContext.getFormContext().getAttribute("opc_intakedisposition");
+            const intakeDispositionAttribute = formContext.getAttribute("opc_intakedisposition");
             const intakeDispositionAttributeSpy = sandbox.spy(intakeDispositionAttribute);
-            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
+            formContext.getAttribute("opc_recommendtoregistrar").setValue(opc_yesorno.No);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_recommendtoregistrar").fireOnChange();
+            formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
 
             // Assert
             intakeDispositionAttributeSpy.getRequiredLevel().should.equal("none");
@@ -573,14 +577,14 @@ describe("Complaint", () => {
 
         it("perceived priorities should be required if stage is intake", () => {
             // Arrange
-            const perceivedPrioritiesAttributeMock = mockContext.getFormContext().getAttribute("opc_complainantperceivedpriorities");
+            const perceivedPrioritiesAttributeMock = formContext.getAttribute("opc_complainantperceivedpriorities");
             const perceivedPrioritiesAttributeSpy = sandbox.spy(perceivedPrioritiesAttributeMock);
             const xrmIntakeStageMock = new XrmStageMock("intake", "intake");
 
-            mockContext.getFormContext().data.process.getActiveProcess().addStage(xrmIntakeStageMock);
+            formContext.data.process.getActiveProcess().addStage(xrmIntakeStageMock);
 
             // Act
-            mockContext.getFormContext().data.process.setActiveStage("intake");
+            formContext.data.process.setActiveStage("intake");
 
             // Assert
             perceivedPrioritiesAttributeSpy.getRequiredLevel().should.equal("required");
@@ -588,14 +592,14 @@ describe("Complaint", () => {
 
         it("perceived priorities should not be required if stage is triage", () => {
             // Arrange
-            const perceivedPrioritiesAttributeMock = mockContext.getFormContext().getAttribute("opc_complainantperceivedpriorities");
+            const perceivedPrioritiesAttributeMock = formContext.getAttribute("opc_complainantperceivedpriorities");
             const perceivedPrioritiesAttributeSpy = sandbox.spy(perceivedPrioritiesAttributeMock);
             const xrmTriageStageMock = new XrmStageMock("triage", "triage");
 
-            mockContext.getFormContext().data.process.getActiveProcess().addStage(xrmTriageStageMock);
+            formContext.data.process.getActiveProcess().addStage(xrmTriageStageMock);
 
             // Act
-            mockContext.getFormContext().data.process.setActiveStage("triage");
+            formContext.data.process.setActiveStage("triage");
 
             // Assert
             perceivedPrioritiesAttributeSpy.getRequiredLevel().should.equal("none");
@@ -613,9 +617,9 @@ describe("Complaint", () => {
 
         it("it should display a form notification", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
+            formContext.getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Applied);
             // Act
-            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+            formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
 
             // Assert
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(1);
@@ -634,10 +638,10 @@ describe("Complaint", () => {
 
         it("it should not display a form notification(if not applied)", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
+            formContext.getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.NotApplied);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+            formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
 
             // Assert
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
@@ -645,10 +649,10 @@ describe("Complaint", () => {
 
         it("it should not display a form notification(if proposed)", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Proposed);
+            formContext.getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Proposed);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+            formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
 
             // Assert
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
@@ -656,10 +660,10 @@ describe("Complaint", () => {
 
         it("it should not display a form notification(if former)", () => {
             // Arrange
-            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Former);
+            formContext.getAttribute("opc_multiplecomplaintstrategy").setValue(opc_multiplecomplaintstrategy.Former);
 
             // Act
-            mockContext.getFormContext().getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+            formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
 
             // Assert
             contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
@@ -677,14 +681,14 @@ describe("Complaint", () => {
         describe("and not recommending to ER or Investigation", () => {
             it("authorization form provided should not be visible", () => {
                 // Arrange
-                const repAuthProvidedAttributeMock = mockContext.getFormContext().getAttribute("opc_representativeauthorizationprovided");
+                const repAuthProvidedAttributeMock = formContext.getAttribute("opc_representativeauthorizationprovided");
                 const repAuthProvidedAttributeMockSpy = sandbox.spy(repAuthProvidedAttributeMock);
                 const repAuthProvidedControlMockSpy = sandbox.spy(
                     repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
                 );
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
+                formContext.getAttribute("opc_complainantrep").fireOnChange();
 
                 // Assert
                 repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("none");
@@ -695,19 +699,19 @@ describe("Complaint", () => {
         describe("and recommending to ER", () => {
             it("authorization form should be mandatory", () => {
                 // Arrange
-                const repAuthProvidedAttributeMock = mockContext.getFormContext().getAttribute("opc_representativeauthorizationprovided");
+                const repAuthProvidedAttributeMock = formContext.getAttribute("opc_representativeauthorizationprovided");
                 const repAuthProvidedAttributeMockSpy = sandbox.spy(repAuthProvidedAttributeMock);
                 const repAuthProvidedControlMockSpy = sandbox.spy(
                     repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
                 );
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
+                formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoEarlyResolution);
                 mockContext
                     .getFormContext()
                     .getAttribute("opc_complainantrep")
                     .setValue([{ name: "opc_complainantrep" }]);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
+                formContext.getAttribute("opc_complainantrep").fireOnChange();
 
                 // Assert
                 repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("required");
@@ -719,25 +723,257 @@ describe("Complaint", () => {
         describe("and recommending to Investigation", () => {
             it("authorization form should be mandatory", () => {
                 // Arrange
-                const repAuthProvidedAttributeMock = mockContext.getFormContext().getAttribute("opc_representativeauthorizationprovided");
+                const repAuthProvidedAttributeMock = formContext.getAttribute("opc_representativeauthorizationprovided");
                 const repAuthProvidedAttributeMockSpy = sandbox.spy(repAuthProvidedAttributeMock);
                 const repAuthProvidedControlMockSpy = sandbox.spy(
                     repAuthProvidedAttributeMock.controls.get("opc_representativeauthorizationprovided")
                 );
-                mockContext.getFormContext().getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
+                formContext.getAttribute("opc_intakedisposition").setValue(opc_intakedisposition.MovetoInvestigation);
                 mockContext
                     .getFormContext()
                     .getAttribute("opc_complainantrep")
                     .setValue([{ name: "opc_complainantrep" }]);
 
                 // Act
-                mockContext.getFormContext().getAttribute("opc_complainantrep").fireOnChange();
+                formContext.getAttribute("opc_complainantrep").fireOnChange();
 
                 // Assert
                 repAuthProvidedAttributeMockSpy.getRequiredLevel().should.equal("required");
                 repAuthProvidedAttributeMockSpy.getValue().should.equal(false);
                 repAuthProvidedControlMockSpy.getVisible().should.equal(true);
             });
+        });
+    });
+
+    describe("when the ER disposition is changed", () => {
+        beforeEach(() => {
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+        });
+
+        afterEach(() => {
+            sandbox.restore();
+        });
+
+        it("to UNSUCCESSFUL UNSUITABLE, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const furtherInvestigationAttrSpy = contextSpy.getFormContext().getAttribute("opc_requiresfurtherinvestigation");
+            const reportRequestedAttrSpy = contextSpy.getFormContext().getAttribute("opc_reportrequested");
+            const resolutionAttrSpy = contextSpy.getFormContext().getAttribute("opc_resolution");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.UnsuccessfulUnsuitable);
+
+            // Act
+            formContext.getAttribute("opc_erdisposition").fireOnChange();
+
+            // Assert
+            furtherInvestigationAttrSpy.controls.get("opc_requiresfurtherinvestigation").getVisible().should.equal(true);
+            reportRequestedAttrSpy.controls.get("opc_reportrequested").getVisible().should.equal(false);
+            resolutionAttrSpy.controls.get("opc_resolution").getVisible().should.equal(false);
+            furtherInvestigationAttrSpy.getRequiredLevel().should.equal("required");
+        });
+
+        it("to RESOLVED, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const furtherInvestigationAttrSpy = contextSpy.getFormContext().getAttribute("opc_requiresfurtherinvestigation");
+            const reportRequestedAttrSpy = contextSpy.getFormContext().getAttribute("opc_reportrequested");
+            const resolutionAttrSpy = contextSpy.getFormContext().getAttribute("opc_resolution");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.Resolved);
+
+            // Act
+            formContext.getAttribute("opc_erdisposition").fireOnChange();
+
+            // Assert
+            furtherInvestigationAttrSpy.controls.get("opc_requiresfurtherinvestigation").getVisible().should.equal(false);
+            reportRequestedAttrSpy.controls.get("opc_reportrequested").getVisible().should.equal(false);
+            resolutionAttrSpy.controls.get("opc_resolution").getVisible().should.equal(true);
+            resolutionAttrSpy.getRequiredLevel().should.equal("required");
+        });
+
+        it("to DISCONTINUED, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const furtherInvestigationAttrSpy = contextSpy.getFormContext().getAttribute("opc_requiresfurtherinvestigation");
+            const reportRequestedAttrSpy = contextSpy.getFormContext().getAttribute("opc_reportrequested");
+            const resolutionAttrSpy = contextSpy.getFormContext().getAttribute("opc_resolution");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.Discontinued);
+
+            // Act
+            formContext.getAttribute("opc_erdisposition").fireOnChange();
+
+            // Assert
+            furtherInvestigationAttrSpy.controls.get("opc_requiresfurtherinvestigation").getVisible().should.equal(false);
+            reportRequestedAttrSpy.controls.get("opc_reportrequested").getVisible().should.equal(true);
+            resolutionAttrSpy.controls.get("opc_resolution").getVisible().should.equal(false);
+            reportRequestedAttrSpy.getRequiredLevel().should.equal("required");
+        });
+
+        it("to WITHDRAWN, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const furtherInvestigationAttrSpy = contextSpy.getFormContext().getAttribute("opc_requiresfurtherinvestigation");
+            const reportRequestedAttrSpy = contextSpy.getFormContext().getAttribute("opc_reportrequested");
+            const resolutionAttrSpy = contextSpy.getFormContext().getAttribute("opc_resolution");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.Withdrawn);
+
+            // Act
+            formContext.getAttribute("opc_erdisposition").fireOnChange();
+
+            // Assert
+            furtherInvestigationAttrSpy.controls.get("opc_requiresfurtherinvestigation").getVisible().should.equal(false);
+            reportRequestedAttrSpy.controls.get("opc_reportrequested").getVisible().should.equal(false);
+            resolutionAttrSpy.controls.get("opc_resolution").getVisible().should.equal(false);
+        });
+    });
+
+    describe("when requires further investigation is changed", () => {
+        beforeEach(() => {
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+        });
+
+        afterEach(() => {
+            sandbox.restore();
+        });
+
+        it("to YES and the ER disposition is DISCONTINUED, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const reasonFurtherInvestigationAttrSpy = contextSpy.getFormContext().getAttribute("opc_reasontorequirefurtherinvestigation");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.Discontinued);
+            contextSpy.getFormContext().getAttribute("opc_requiresfurtherinvestigation").setValue(true);
+
+            // Act
+            formContext.getAttribute("opc_requiresfurtherinvestigation").fireOnChange();
+
+            // Assert
+            reasonFurtherInvestigationAttrSpy.controls.get("opc_reasontorequirefurtherinvestigation").getVisible().should.equal(true);
+            reasonFurtherInvestigationAttrSpy.getRequiredLevel().should.equal("required");
+        });
+
+        it("to NO and the ER disposition is DISCONTINUED, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const reasonFurtherInvestigationAttrSpy = contextSpy.getFormContext().getAttribute("opc_reasontorequirefurtherinvestigation");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.Discontinued);
+            contextSpy.getFormContext().getAttribute("opc_requiresfurtherinvestigation").setValue(false);
+
+            // Act
+            formContext.getAttribute("opc_requiresfurtherinvestigation").fireOnChange();
+
+            // Assert
+            reasonFurtherInvestigationAttrSpy.controls.get("opc_reasontorequirefurtherinvestigation").getVisible().should.equal(false);
+        });
+
+        it("to YES and the ER disposition is UNSUCCESSFUL UNSUITABLE, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const reasonFurtherInvestigationAttrSpy = contextSpy.getFormContext().getAttribute("opc_reasontorequirefurtherinvestigation");
+            const reportRequestedAttrSpy = contextSpy.getFormContext().getAttribute("opc_reportrequested");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.UnsuccessfulUnsuitable);
+            contextSpy.getFormContext().getAttribute("opc_requiresfurtherinvestigation").setValue(true);
+
+            // Act
+            formContext.getAttribute("opc_requiresfurtherinvestigation").fireOnChange();
+
+            // Assert
+            reasonFurtherInvestigationAttrSpy.controls.get("opc_reasontorequirefurtherinvestigation").getVisible().should.equal(true);
+            reportRequestedAttrSpy.controls.get("opc_reportrequested").getVisible().should.equal(false);
+            reasonFurtherInvestigationAttrSpy.getRequiredLevel().should.equal("required");
+        });
+
+        it("to NO and the ER disposition is UNSUCCESSFUL UNSUITABLE, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const reasonFurtherInvestigationAttrSpy = contextSpy.getFormContext().getAttribute("opc_reasontorequirefurtherinvestigation");
+            const reportRequestedAttrSpy = contextSpy.getFormContext().getAttribute("opc_reportrequested");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.UnsuccessfulUnsuitable);
+            contextSpy.getFormContext().getAttribute("opc_requiresfurtherinvestigation").setValue(false);
+
+            // Act
+            formContext.getAttribute("opc_requiresfurtherinvestigation").fireOnChange();
+
+            // Assert
+            reasonFurtherInvestigationAttrSpy.controls.get("opc_reasontorequirefurtherinvestigation").getVisible().should.equal(false);
+            reportRequestedAttrSpy.controls.get("opc_reportrequested").getVisible().should.equal(true);
+            reportRequestedAttrSpy.getRequiredLevel().should.equal("required");
+        });
+    });
+
+    describe("when report requested is changed", () => {
+        beforeEach(() => {
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+        });
+
+        afterEach(() => {
+            sandbox.restore();
+        });
+
+        it("to YES, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const reportRedactorAttrSpy = contextSpy.getFormContext().getAttribute("opc_reportredactor");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.Discontinued);
+            contextSpy.getFormContext().getAttribute("opc_reportrequested").setValue(true);
+
+            // Act
+            formContext.getAttribute("opc_reportrequested").fireOnChange();
+
+            // Assert
+            reportRedactorAttrSpy.controls.get("opc_reportredactor").getVisible().should.equal(true);
+            reportRedactorAttrSpy.getRequiredLevel().should.equal("required");
+        });
+
+        it("to NO, it should ONLY SHOW relevant fields", () => {
+            // Arrange
+            const reportRedactorAttrSpy = contextSpy.getFormContext().getAttribute("opc_reportredactor");
+
+            formContext.getAttribute("opc_erdisposition").setValue(opc_erdisposition.Discontinued);
+            contextSpy.getFormContext().getAttribute("opc_reportrequested").setValue(false);
+
+            // Act
+            formContext.getAttribute("opc_reportrequested").fireOnChange();
+
+            // Assert
+            reportRedactorAttrSpy.controls.get("opc_reportredactor").getVisible().should.equal(false);
+        });
+    });
+
+    describe("when the ER approval is changed", () => {
+        beforeEach(() => {
+            // We are calling initializeComponents to register the events and to be able to call fireOnChange() on the attribute, which will trigger the onchange event. Onchange is a private method.
+            form.initializeComponents(mockContext);
+        });
+
+        afterEach(() => {
+            sandbox.restore();
+        });
+
+        it("to APPROVED REQUIRING REREVIEW, it should prevent the complaint stage from advancing", () => {
+            // Arrange
+            formContext.getAttribute("opc_erapproval").setValue(opc_erapproval.Requiresrereview);
+
+            // Act
+            formContext.getAttribute("opc_erapproval").fireOnChange();
+
+            // Assert
+            contextSpy
+                .getFormContext()
+                .ui.getFormNotification("opc_erapproval")
+                .message.should.equal(i18next.t("complaint:process_flow.error.approved_rereview"));
+        });
+
+        it("to a state other than APPROVED REQUIRING REREVIEW, it should allow the complaint stage to advance", () => {
+            // Arrange
+            formContext.getAttribute("opc_erapproval").setValue(opc_erapproval.Approved);
+
+            // Act
+            formContext.getAttribute("opc_erapproval").fireOnChange();
+
+            // Assert
+            contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
         });
     });
 });

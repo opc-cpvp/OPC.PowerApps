@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.539</Version>
+    <Version>1.0.540</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -123,16 +123,21 @@
       <RootComponent type="9" schemaName="opc_closereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintmilestone" behavior="0" />
+      <RootComponent type="9" schemaName="opc_complaintresolution" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintsource" behavior="0" />
       <RootComponent type="9" schemaName="opc_complaintstage" behavior="0" />
       <RootComponent type="9" schemaName="opc_declinereason" behavior="0" />
       <RootComponent type="9" schemaName="opc_duplicatedetectionresult" behavior="0" />
+      <RootComponent type="9" schemaName="opc_erapproval" behavior="0" />
+      <RootComponent type="9" schemaName="opc_erdisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_intakedisposition" behavior="0" />
+      <RootComponent type="9" schemaName="opc_issuedisposition" behavior="0" />
       <RootComponent type="9" schemaName="opc_jurisdictions" behavior="0" />
       <RootComponent type="9" schemaName="opc_multiplecomplaintstrategy" behavior="0" />
       <RootComponent type="9" schemaName="opc_nextstep" behavior="0" />
       <RootComponent type="9" schemaName="opc_perceivedpriorities" behavior="0" />
       <RootComponent type="9" schemaName="opc_preferredlanguage" behavior="0" />
+      <RootComponent type="9" schemaName="opc_reasontorequirefurtherinvestigation" behavior="0" />
       <RootComponent type="9" schemaName="opc_respondentandcomplainantrelationship" behavior="0" />
       <RootComponent type="9" schemaName="opc_sector" behavior="0" />
       <RootComponent type="9" schemaName="opc_yesorno" behavior="0" />
@@ -160,15 +165,19 @@
       <RootComponent type="29" id="{0e1f06c2-102a-4264-ae27-e8367c257ac4}" behavior="0" />
       <RootComponent type="29" id="{11109486-2e83-453a-9080-b21689eb8a2e}" behavior="0" />
       <RootComponent type="29" id="{32d219f1-f0bc-40b4-bcb0-daffeb1f1f9e}" behavior="0" />
+      <RootComponent type="29" id="{39852fbe-e44a-4257-adda-ba8608e38318}" behavior="0" />
       <RootComponent type="29" id="{3e0e9f7e-183e-4b3e-8b89-e668eb6b48c8}" behavior="0" />
       <RootComponent type="29" id="{45af6c83-33e1-44bf-b7a7-d08b177bd4d9}" behavior="0" />
       <RootComponent type="29" id="{4c5469ba-e771-49f5-8d53-44eee631e859}" behavior="0" />
       <RootComponent type="29" id="{4d3e610e-f448-ea11-a812-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{58495b10-245e-ea11-a811-000d3af464f8}" behavior="0" />
       <RootComponent type="29" id="{5d69364a-d857-ea11-a811-000d3af46cc5}" behavior="0" />
+      <RootComponent type="29" id="{61bf354e-2ac5-48e0-89d3-549cfb26d41c}" behavior="0" />
       <RootComponent type="29" id="{663c0e6a-9046-ea11-a812-000d3af46cc5}" behavior="0" />
       <RootComponent type="29" id="{66c9ed60-1da2-425e-a7ff-cd0df39467b5}" behavior="0" />
       <RootComponent type="29" id="{66ef3f32-9ddc-4b79-9acd-685cb6dd07fa}" behavior="0" />
+      <RootComponent type="29" id="{68ad6841-7799-4c75-b524-8075405ef2e2}" behavior="0" />
+      <RootComponent type="29" id="{71b497ba-7717-4193-bdc2-148bd92679b7}" behavior="0" />
       <RootComponent type="29" id="{74ba29ad-5823-eb11-a813-000d3a0c26f9}" behavior="0" />
       <RootComponent type="29" id="{785b43fc-8414-eb11-a813-000d3a0c2524}" behavior="0" />
       <RootComponent type="29" id="{7eab9db6-db42-ea11-a812-000d3af46757}" behavior="0" />
@@ -188,6 +197,7 @@
       <RootComponent type="29" id="{d927e040-5247-ea11-a812-000d3af46b49}" behavior="0" />
       <RootComponent type="29" id="{da27e040-5247-ea11-a812-000d3af46b49}" behavior="0" />
       <RootComponent type="29" id="{f63f647f-3d95-4f23-b92c-5a1d5ce9dba7}" behavior="0" />
+      <RootComponent type="29" id="{fd3b1591-e36f-4f68-8980-9dc5bdb29e31}" behavior="0" />
       <RootComponent type="50" schemaName=":RibbonDiffXml" behavior="0" />
       <RootComponent type="60" id="{052af8c3-d26f-4e1a-888e-37445d914307}" behavior="0" />
       <RootComponent type="60" id="{176743e5-611a-495f-afae-e42a55fa8baa}" behavior="0" />
