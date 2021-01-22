@@ -13,7 +13,7 @@ if ($ClientSecret -And $AppId) {
 		/solutions:"$Solution" `
 		/mfaAppId:$AppId `
 		/mfaClientSecret:$ClientSecret `
-		/oneFile:"true"
+		/oneFile:"false"
 } else {
 	# Prompt for credentials
 	$cred = Get-Credential
@@ -48,5 +48,5 @@ if ($ClientSecret -And $AppId) {
 		/solutions:$($solution) `
 		/username:$($cred.Username) `
 		/password:$($cred.GetNetworkCredential().Password) `
-		/oneFile:"true"
+		/oneFile:"false"
 }
