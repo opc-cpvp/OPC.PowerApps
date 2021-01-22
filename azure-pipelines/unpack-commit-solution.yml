@@ -17,7 +17,7 @@ parameters:
 variables:
   - group: ${{ parameters.tenant }}
   - name: SolutionName
-    value: 'Compliance' 
+    value: 'Compliance'
 
 steps:
 - checkout: self
@@ -42,11 +42,11 @@ steps:
     localize: false
 
 
-- powershell: |    
+- powershell: |
     npm install jsonlint -g
-    Get-ChildItem src/$(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach { 
+    Get-ChildItem src/$(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach {
       echo "Linting $_.Name"
-      jsonlint $_.FullName --in-place 
+      jsonlint $_.FullName --in-place
     }
   displayName: 'Lint JSON Workflows'
 
@@ -103,14 +103,14 @@ steps:
 - powershell: |
    $branch = "$(Build.SourceBranch)"
    $branch = $branch.Replace("refs/heads/", "")
-   
+
    echo "Committing all CDS solution changes"
    git config user.email "nepasrepondre-noreply@priv.gc.ca"
    git config user.name "opc-buildbot"
    git checkout $branch
    git add --all
    git commit -m "Update Solution - $(SolutionName): $(CommitMessage)"
-   
+
    echo "Push solution changes to the remote repository"
    git -c http.extraheader="AUTHORIZATION: basic $(System.AccessToken)" push --force origin $branch
   displayName: 'Commit Unpacked Solution to the Repository'

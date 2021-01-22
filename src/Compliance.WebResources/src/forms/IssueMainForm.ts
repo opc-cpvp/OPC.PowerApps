@@ -34,7 +34,7 @@ export namespace Issue.Forms {
             formContext.getAttribute("opc_allegationtypeid").addOnChange(x => this.allegationtype_OnChange(x));
             formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
-            // TODO move function call to "contact_preSearch
+            // TODO: Move function call to contact_preSearch.
             this.setComplaint(formContext).catch(e => console.error("error setting complaint", e));
 
             formContext.getControl("opc_contact").addPreSearch(() => this.contact_preSearch(formContext));
@@ -55,11 +55,18 @@ export namespace Issue.Forms {
         private allegationtype_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_allegationtype">, undefined>) {
             const formContext = context.getFormContext() as Form.opc_issue.Main.Information;
 
-            const allegationTypeValue = formContext.getAttribute("opc_allegationtypeid").getValue();
+            const allegationType = formContext.getAttribute("opc_allegationtypeid").getValue();
+            const hasAllegationType = allegationType && allegationType.length > 0;
 
-            const isAccessRequestNumberVisible = allegationTypeValue && allegationTypeValue[0].id === AllegationType.Access;
+            let isAllegationTypeAccess = false;
+            if (hasAllegationType) {
+                const allegationTypeId = allegationType[0].id;
+                isAllegationTypeAccess = allegationTypeId === AllegationType.Access;
+            }
 
-            formContext.getAttribute("opc_accessrequestnumber").controls.forEach(c => XrmHelper.toggle(c, isAccessRequestNumberVisible));
+            XrmHelper.toggle(formContext.getControl("opc_accessrequestnumber"), isAllegationTypeAccess);
+            XrmHelper.toggle(formContext.getControl("opc_contact"), isAllegationTypeAccess);
+            XrmHelper.toggle(formContext.getControl("subgrid_accessrequestdocuments"), isAllegationTypeAccess);
         }
 
         private contact_preSearch(formContext: Form.opc_issue.Main.Information) {

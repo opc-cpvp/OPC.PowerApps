@@ -69,6 +69,7 @@
     <TypeScriptCompile Include="src\bootstrapper.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
+    <TypeScriptCompile Include="src\controls\PowerIFrameControl.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
     <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialog.test.ts" />
@@ -83,6 +84,10 @@
     <TypeScriptCompile Include="src\factories\QueryDispatcher.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\forms\AccessRequestDocumentMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\AccessRequestDocumentMainForm.ts" />
+    <TypeScriptCompile Include="src\forms\AccessRequestDocumentQuickCreateForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\AccessRequestDocumentQuickCreateForm.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\AllegationQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\AllegationQuickCreateForm.ts" />
@@ -90,8 +95,9 @@
     <TypeScriptCompile Include="src\forms\ContactMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\AllegationMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\IssueMainForm.test.ts" />
-    <TypeScriptCompile Include="src\forms\IssueQuickCreateForm.test.ts" /> 
+    <TypeScriptCompile Include="src\forms\IssueQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\PowerForm.ts" />
     <TypeScriptCompile Include="src\forms\ReminderQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
@@ -101,7 +107,9 @@
     <TypeScriptCompile Include="src\forms\NotificationMainForm.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.ts" />
     <TypeScriptCompile Include="src\forms\RiskAssessmentMainForm.ts" />
-    <TypeScriptCompile Include="src\forms\RiskAssessmentsMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\RiskAssessmentMainForm.test.ts" />
+    <TypeScriptCompile Include="src\handlers\Commands\OpenEntityDialogCommandHandler.test.ts" />
+    <TypeScriptCompile Include="src\handlers\Commands\OpenEntityDialogCommandHandler.ts" />
     <TypeScriptCompile Include="src\handlers\Commands\OpenTemplateDialogCommandHandler.test.ts" />
     <TypeScriptCompile Include="src\handlers\Commands\OpenTemplateDialogCommandHandler.ts" />
     <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.test.ts" />
@@ -133,10 +141,14 @@
     <TypeScriptCompile Include="src\tests.ts" />
     <TypeScriptCompile Include="src\utils\NotificationIcons\NotificationIcons.ts" />
     <TypeScriptCompile Include="test\INamedComponent.ts" />
+    <TypeScriptCompile Include="test\XrmCollectionBaseMock.ts" />
     <TypeScriptCompile Include="test\XrmContextMock.ts" />
+    <TypeScriptCompile Include="test\XrmFormNotificationMock.ts" />
     <TypeScriptCompile Include="test\XrmLookupControlMock.ts" />
     <TypeScriptCompile Include="test\XrmPageSectionMock.ts" />
     <TypeScriptCompile Include="test\XrmRoleMock.ts" />
+    <TypeScriptCompile Include="test\XrmSaveEventArgsMock.ts" />
+    <TypeScriptCompile Include="test\XrmThenMock.ts" />
     <TypeScriptCompile Include="test\XrmUserSettingsMock.ts" />
     <TypeScriptCompile Include="test\XrmSaveEventContextMock.ts" />
     <TypeScriptCompile Include="test\XrmNavigationMock.ts" />
@@ -157,6 +169,12 @@
     <TypeScriptCompile Include="test\XrmUIProcessModuleMock.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".eslintignore" />
+    <Content Include=".eslintrc.json" />
+    <Content Include=".huskyrc.json" />
+    <Content Include=".lintstagedrc.json" />
+    <Content Include=".prettierignore" />
+    <Content Include=".prettierrc.json" />
     <Content Include=".yo-rc.json" />
     <Content Include="dist\compliance.min.js" />
     <Content Include="dist\compliance.min.js.map" />

@@ -32,6 +32,8 @@
                             <DisableViewPicker>true</DisableViewPicker>
                             <DefaultViewId>{5BC148F8-EF50-4808-BC46-BB5CAD4C3966}</DefaultViewId>
                             <AllowFilterOff>false</AllowFilterOff>
+                            <useMainFormDialogForCreate>false</useMainFormDialogForCreate>
+                            <useMainFormDialogForEdit>false</useMainFormDialogForEdit>
                           </parameters>
                         </control>
                       </cell>

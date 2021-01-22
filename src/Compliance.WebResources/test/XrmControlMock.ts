@@ -123,5 +123,12 @@ export class XrmControlMock
     getEntityTypes(): string[] {
         throw new Error("Method not implemented.");
     }
+    addOnLookupTagClick(myFunction: (context?: Xrm.OnLookupTagClickContext) => any): void {
+        throw new Error("Method not implemented.");
+    }
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    removeOnLookupTagClick(functionRef: Function): void {
+        throw new Error("Method not implemented.");
+    }
     /* end of LookupControl members */
 }

@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{93645651-8c68-46b0-8e1f-f17f3b74c19b}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{20bc620e-8499-4501-bc9a-ff49e91d9b22}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="Général" languagecode="1036" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{440ee466-05bf-4afd-99c4-0f89f22345df}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="Général" languagecode="1036" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d641683d-c7b3-4ad4-8aa8-6fa42dd99f4c}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{36db8b1d-fb77-482a-9eb7-69555b79db02}" locklevel="0">
+                        <labels>
+                          <label description="Document URL" languagecode="1033" />
+                        </labels>
+                        <control id="opc_documenturl" classid="{71716B6C-711E-476C-8AB8-5D11542BFB47}" datafieldname="opc_documenturl" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d8ef643d-f453-4a25-8a02-ac91bce7fa43}" locklevel="0">
+                        <labels>
+                          <label description="Relevant" languagecode="1033" />
+                        </labels>
+                        <control id="opc_relevant" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_relevant" disabled="false" uniqueid="{e4f18b16-e868-4f31-a9f5-41b1dcd259a7}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e01c4f20-f1c3-41c3-a263-dcdd8f0bed30}" locklevel="0" rowspan="6">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="opc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{fb5e5444-c0ca-4610-8c00-8ca70176fc80}" locklevel="0">
+                        <labels>
+                          <label description="State" languagecode="1033" />
+                        </labels>
+                        <control id="opc_releasedstate" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_releasedstate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{631e18d9-7907-4c41-a0a6-d710768abbc9}" locklevel="0">
+                        <labels>
+                          <label description="Date Released" languagecode="1033" />
+                        </labels>
+                        <control id="opc_datereleased" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_datereleased" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="section_contestation" id="1de5f30e-4ce8-4319-b006-26e7c3ee7c00" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Contestation" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a28aa2d0-3237-4698-9f0d-6ce662e74038}" locklevel="0">
+                        <labels>
+                          <label description="Contested by Complainant" languagecode="1033" />
+                        </labels>
+                        <control id="opc_contestedbycomplainant" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_contestedbycomplainant" disabled="false" uniqueid="{c6776762-f545-49bf-9433-85f6789a0902}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{309c8980-2e2b-48a3-b014-f6de8df7e6e8}" locklevel="0">
+                        <labels>
+                          <label description="Correctly Applied Exemption" languagecode="1033" />
+                        </labels>
+                        <control id="opc_correctlyappliedexemption" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="opc_correctlyappliedexemption" disabled="false" uniqueid="{8f63524e-7f60-49df-a0fa-51f0606116e0}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{149a875f-cd46-4bad-9dca-bdeefb71ffac}" locklevel="0" rowspan="3">
+                        <labels>
+                          <label description="Rationale" languagecode="1033" />
+                        </labels>
+                        <control id="opc_rationale" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="opc_rationale" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{a197ed8e-1e93-4ef6-82d9-5f42737e6069}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{181eea77-527f-4c9b-98cb-f5998b8c6363}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ed8817c6-fdf1-4008-84a7-3c9fe25c6007}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{bea1a695-d77c-42da-bbd1-87df89472256}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{dccd1181-e0d5-443b-b956-c83618fa36b5}" locklevel="0">
+              <labels>
+                <label description="Issue" languagecode="1033" />
+              </labels>
+              <control id="header_opc_issue" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_issue" disabled="false" />
+            </cell>
+            <cell id="{9604f2c0-927d-4b26-9966-07d2c3582d3c}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{18ae52ce-f914-4c7f-a361-81d9760f2846}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{d174cf95-20bf-4b07-a791-9a743ebe2187}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{87d1af5e-68fd-4f48-a812-6a13f5a73c28}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{13ba4d38-e4fa-49ed-a5cb-dd5fc94c7415}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <controlDescriptions>
+        <controlDescription forControl="{e4f18b16-e868-4f31-a9f5-41b1dcd259a7}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_relevant</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_relevant</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_relevant</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_relevant</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{c6776762-f545-49bf-9433-85f6789a0902}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_contestedbycomplainant</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_contestedbycomplainant</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_contestedbycomplainant</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_contestedbycomplainant</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{8f63524e-7f60-49df-a0fa-51f0606116e0}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>opc_correctlyappliedexemption</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_correctlyappliedexemption</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_correctlyappliedexemption</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>opc_correctlyappliedexemption</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{a92f2c54-b3f3-4d6b-ae09-7004eea428fc}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="true" active="true">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{119e11c7-50ec-4d39-9664-0144facb61f8}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

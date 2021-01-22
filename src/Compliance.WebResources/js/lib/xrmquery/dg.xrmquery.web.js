@@ -1055,19 +1055,61 @@ var XQW;
      * @internal
      */
     function getClientUrl() {
+        var url = getClientUrlFromGlobalContext();
+        if (url !== undefined)
+            return url;
+        url = getClientUrlFromUtility();
+        if (url !== undefined)
+            return url;
+        url = getClientUrlFromXrmPage();
+        if (url !== undefined)
+            return url;
+        throw new Error("Context is not available.");
+    }
+    /**
+     * @internal
+     */
+    function getClientUrlFromGlobalContext() {
         try {
             if (GetGlobalContext && GetGlobalContext().getClientUrl) {
                 return GetGlobalContext().getClientUrl();
             }
         }
         catch (e) { }
+        return undefined;
+    }
+    /**
+     * @internal
+     */
+    function getClientUrlFromUtility() {
+        try {
+            if (Xrm && Xrm.Utility && Xrm.Utility.getGlobalContext) {
+                return Xrm.Utility.getGlobalContext().getClientUrl();
+            }
+        }
+        catch (e) { }
+        try {
+            if (window && window.parent && window.parent.window) {
+                var w = (window.parent.window);
+                if (w && w.Xrm && w.Xrm.Utility && w.Xrm.Utility.getGlobalContext) {
+                    return w.Xrm.Utility.getGlobalContext().getClientUrl();
+                }
+            }
+        }
+        catch (e) { }
+        return undefined;
+    }
+    /**
+     * @internal
+     */
+    function getClientUrlFromXrmPage() {
         try {
             if (Xrm && Xrm.Page && Xrm.Page.context) {
                 return Xrm.Page.context.getClientUrl();
             }
         }
         catch (e) { }
-        throw new Error("Context is not available.");
+        return undefined;
     }
     /**
      * Converts a XrmQuery select/filter name to the Web API format

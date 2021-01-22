@@ -77,10 +77,16 @@ export namespace Allegation.Forms {
         private allegationtype_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_allegationtype">, undefined>) {
             const formContext = context.getFormContext() as Form.opc_allegation.Main.Information;
 
-            const allegationTypeValue = formContext.getAttribute("opc_allegationtypeid").getValue();
-            const isReferenceNumberVisible = allegationTypeValue && allegationTypeValue[0].id === AllegationType.Access;
+            const allegationType = formContext.getAttribute("opc_allegationtypeid").getValue();
+            const hasAllegationType = allegationType && allegationType.length > 0;
 
-            formContext.getAttribute("opc_referencenumber").controls.forEach(c => XrmHelper.toggle(c, isReferenceNumberVisible));
+            let isAllegationTypeAccess = false;
+            if (hasAllegationType) {
+                const allegationTypeId = allegationType[0].id;
+                isAllegationTypeAccess = allegationTypeId === AllegationType.Access;
+            }
+
+            formContext.getAttribute("opc_referencenumber").controls.forEach(c => XrmHelper.toggle(c, isAllegationTypeAccess));
         }
 
         private disposition_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_allegationdisposition>, undefined>): void {
