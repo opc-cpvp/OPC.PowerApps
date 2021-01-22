@@ -76,7 +76,7 @@ export namespace Dialogs {
         public async init(): Promise<void> {
             try {
                 let loginHint: string;
-                this._windowContext.parent.document.getElementById("defaultDialogChromeTitle").innerHTML = this._i18n.t(
+                this._windowContext.parent.document.querySelector('[id^="defaultDialogChromeTitle-"]').innerHTML = this._i18n.t(
                     "template:dialog.title"
                 );
                 this._placeholder = this._documentContext.getElementById("dialog") as HTMLDivElement;
