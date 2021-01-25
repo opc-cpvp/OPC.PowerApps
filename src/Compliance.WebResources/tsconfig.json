@@ -32,18 +32,14 @@
                 "transform": "ts-nameof",
                 "type": "raw"
             }
-        ],
-        "typeRoots": [
-            "node_modules/@types",
-            "@types"
         ]
     },
     "include": [
+        "@types/xrmdefinitelytyped/**/*.d.ts",
         "src/**/*.ts"
     ],
     "exclude": [
         "node_modules/**",
-        "@types/**",
         "js/**",
         "dist/**"
     ],

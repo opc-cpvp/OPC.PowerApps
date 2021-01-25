@@ -1,6 +1,4 @@
-﻿/// <reference path="../@types/xrmdefinitelytyped/xrm.d.ts" />
-
-import { XrmCollectionMock } from "./XrmCollectionMock";
+﻿import { XrmCollectionMock } from "./XrmCollectionMock";
 import { XrmStageMock } from "./XrmStageMock";
 
 export class XrmProcessMock implements Xrm.Process {

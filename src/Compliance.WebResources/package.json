@@ -7,9 +7,9 @@
     "name": "opc-cpvp"
   },
   "scripts": {
-    "test": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts",
-    "test:watch": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts --watch --watch-extensions ts",
-    "test:pipeline": "cross-env TS_NODE_COMPILER='ttypescript' mocha -r ts-node/register --file src/tests.ts --reporter mocha-junit-reporter --reporter-options mochaFile=./test-output/test-mocha-results.xml",
+    "test": "cross-env TS_NODE_COMPILER='ttypescript' TS_NODE_FILES=true mocha -r ts-node/register --file src/tests.ts",
+    "test:watch": "cross-env TS_NODE_COMPILER='ttypescript' TS_NODE_FILES=true mocha -r ts-node/register --file src/tests.ts --watch --watch-extensions ts",
+    "test:pipeline": "cross-env TS_NODE_COMPILER='ttypescript' TS_NODE_FILES=true mocha -r ts-node/register --file src/tests.ts --reporter mocha-junit-reporter --reporter-options mochaFile=./test-output/test-mocha-results.xml",
     "build": "webpack --mode development",
     "build:watch": "webpack --watch --mode development",
     "build:prod": "webpack --mode production",
