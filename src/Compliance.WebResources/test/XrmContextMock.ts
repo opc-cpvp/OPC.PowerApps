@@ -1,4 +1,6 @@
-﻿/// <reference path="../@types/xrmextensions/xrmextensions.d.ts" />
+﻿/// <reference path="../typings/xrmdefinitelytyped/xrm.d.ts" />
+/// <reference path="../typings/xrmextensions/xrmextensions.d.ts" />
+
 import { XrmUserSettingsMock } from "./XrmUserSettingsMock";
 
 export class XrmContextMock implements Xrm.context {

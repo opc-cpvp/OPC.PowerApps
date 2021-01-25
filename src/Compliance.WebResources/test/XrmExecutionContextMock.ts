@@ -1,4 +1,6 @@
-﻿import { XrmPageBaseMock } from "./XrmPageBaseMock";
+﻿/// <reference path="../typings/xrmdefinitelytyped/xrm.d.ts" />
+
+import { XrmPageBaseMock } from "./XrmPageBaseMock";
 import { XrmContextMock } from "./XrmContextMock";
 
 export class XrmExecutionContextMock<T, TArgs> implements Xrm.ExecutionContext<T, TArgs> {

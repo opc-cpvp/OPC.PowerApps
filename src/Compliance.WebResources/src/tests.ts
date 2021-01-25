@@ -1,4 +1,6 @@
-/// <reference path="../@types/sinonextensions/sinonextensions.d.ts" />
+/// <reference path="../typings/sinonextensions/sinonextensions.d.ts" />
+/// <reference path="../typings/xrmdefinitelytyped/xrm.d.ts" />
+/// <reference path="../typings/xrmdefinitelytyped/dg.xrmquery.web.d.ts" />
 
 /* Global */
 import "mocha";

@@ -35,7 +35,9 @@
         ]
     },
     "include": [
-        "@types/xrmdefinitelytyped/**/*.d.ts",
+        "typings/xrmdefinitelytyped/_internal/**/*.d.ts",
+        "typings/xrmdefinitelytyped/Form/**/*.d.ts",
+        "typings/xrmdefinitelytyped/Web/**/*.d.ts",
         "src/**/*.ts"
     ],
     "exclude": [
