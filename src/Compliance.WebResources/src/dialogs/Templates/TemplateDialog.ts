@@ -215,7 +215,7 @@ export namespace Dialogs {
         }
 
         private closePage(): void {
-            const button = parent.document.querySelector('[id^="defaultDialogChromeCloseIconButton-"]');
+            const button = parent.document.querySelector<HTMLButtonElement>('[id^="defaultDialogChromeCloseIconButton-"]');
             button.click();
         }
 
