@@ -1985,9 +1985,9 @@
       <record id="06965017-5d23-eb11-a813-000d3af45a96">
         <field name="opc_checklisttypeid" value="e12ce0eb-5a23-eb11-a813-000d3af45a96" lookupentity="opc_checklisttype" lookupentityname="Intake - Time Limit" />
         <field name="opc_conditionalvisibility" value="False" />
-        <field name="opc_name" value="Number of processing days between &amp;quot;ATIP reception date&amp;quot; and &amp;quot;Final response date&amp;quot;" />
-        <field name="opc_nameenglish" value="Number of processing days between &amp;quot;ATIP reception date&amp;quot; and &amp;quot;Final response date&amp;quot;" />
-        <field name="opc_namefrench" value="Number of processing days between &amp;quot;ATIP reception date&amp;quot; and &amp;quot;Final response date&amp;quot; [Fr]" />
+        <field name="opc_name" value="Number of processing days between &amp;quot;ATIP reception date&amp;quot; and &amp;quot;Final response date&amp;quot; minus &amp;quot;Days in clarification&amp;quot;" />
+        <field name="opc_nameenglish" value="Number of processing days between &amp;quot;ATIP reception date&amp;quot; and &amp;quot;Final response date&amp;quot; minus &amp;quot;Days in clarification&amp;quot;" />
+        <field name="opc_namefrench" value="Number of processing days between &amp;quot;ATIP reception date&amp;quot; and &amp;quot;Final response date&amp;quot; minus &amp;quot;Days in clarification&amp;quot; [Fr]" />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="06965017-5d23-eb11-a813-000d3af45a96" />
         <field name="opc_questiontypeid" value="c8f19848-5b23-eb11-a813-000d3af45a96" lookupentity="opc_questiontype" lookupentityname="Calculated Field" />
