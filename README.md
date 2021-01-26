@@ -15,6 +15,12 @@ git clone https://github.com/opc-cpvp/OPC.PowerApps.git
 - Microsoft .NET 4.7+
 - PowerShell v3+
 
+### Early Bound Generator
+We use to `Early Bound Generator` plugin in `XrmToolBox` to configure the early bound generation.
+In the plugin, change the settings path to the `DLaB.EarlyBoundGenerator.DefaultSettings.xml` settings file from the `Compliance.EarlyBound` project. 
+Once the configuration changes are completed, save the changes and select `Create All`. This will generate a `crmscvutil.exe.config` configuration file in `%appdata%\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator`.
+Copy the newly generated file to the `Compliance.EarlyBound` project.
+
 ### Xrm Definitely Typed
 
 To start generating TypeScript type definitions for webresources through the **get_XrmDefinitlyTypes.ps1** script you will need to reinstall the nuget packages using this following command in the Package Manager Console:
