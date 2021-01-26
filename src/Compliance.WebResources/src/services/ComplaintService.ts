@@ -17,6 +17,7 @@ export class ComplaintService implements IComplaintService {
             x.telephone1,
             x.telephone2,
             x.fax,
+            x.address1_composite,
             x.address1_line1,
             x.address1_line2,
             x.address1_line3,
@@ -31,6 +32,7 @@ export class ComplaintService implements IComplaintService {
             x.telephone1,
             x.fax,
             x.websiteurl,
+            x.address1_composite,
             x.address1_line1,
             x.address1_line2,
             x.address1_line3,
@@ -46,6 +48,7 @@ export class ComplaintService implements IComplaintService {
             x.title,
             x.domainname,
             x.internalemailaddress,
+            x.address1_composite,
             x.address1_telephone1,
             x.mobilephone,
             x.parentsystemuserid_guid
