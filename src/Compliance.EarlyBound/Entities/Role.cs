@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	/// <summary>
@@ -472,18 +472,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N role_parent_role
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("role_parent_role", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Role> Referencedrole_parent_role
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Role> Referencedrole_parent_role
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Role>("role_parent_role", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Role>("role_parent_role", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedrole_parent_role");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Role>("role_parent_role", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Role>("role_parent_role", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedrole_parent_role");
 			}
 		}
@@ -492,18 +492,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N role_parent_root_role
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("role_parent_root_role", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Role> Referencedrole_parent_root_role
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Role> Referencedrole_parent_root_role
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Role>("role_parent_root_role", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Role>("role_parent_root_role", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedrole_parent_root_role");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Role>("role_parent_root_role", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Role>("role_parent_root_role", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedrole_parent_root_role");
 			}
 		}
@@ -512,18 +512,18 @@ namespace Compliance.EarlyBound.Entities
 		/// N:N systemuserroles_association
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("systemuserroles_association")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.SystemUser> systemuserroles_association
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.SystemUser> systemuserroles_association
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("systemuserroles_association", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.SystemUser>("systemuserroles_association", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("systemuserroles_association");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("systemuserroles_association", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.SystemUser>("systemuserroles_association", null, value);
 				this.OnPropertyChanged("systemuserroles_association");
 			}
 		}
@@ -532,18 +532,18 @@ namespace Compliance.EarlyBound.Entities
 		/// N:N teamroles_association
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("teamroles_association")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Team> teamroles_association
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Team> teamroles_association
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Team>("teamroles_association", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Team>("teamroles_association", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("teamroles_association");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Team>("teamroles_association", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Team>("teamroles_association", null, value);
 				this.OnPropertyChanged("teamroles_association");
 			}
 		}
@@ -553,18 +553,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businessunitid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_roles")]
-		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_roles
+		public Compliance.EarlyBound.BusinessUnit business_unit_roles
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_roles", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.BusinessUnit>("business_unit_roles", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("business_unit_roles");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_roles", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.BusinessUnit>("business_unit_roles", null, value);
 				this.OnPropertyChanged("business_unit_roles");
 			}
 		}
@@ -574,18 +574,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_role_createdonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_role_createdonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_role_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_role_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_role_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_role_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_role_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_role_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_role_createdonbehalfby");
 			}
 		}
@@ -595,18 +595,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_role_modifiedonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_role_modifiedonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_role_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_role_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_role_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_role_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_role_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_role_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_role_modifiedonbehalfby");
 			}
 		}
@@ -616,12 +616,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_rolebase_createdby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_rolebase_createdby
+		public Compliance.EarlyBound.SystemUser lk_rolebase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_rolebase_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_rolebase_createdby", null);
 			}
 		}
 		
@@ -630,12 +630,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_rolebase_modifiedby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_rolebase_modifiedby
+		public Compliance.EarlyBound.SystemUser lk_rolebase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_rolebase_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_rolebase_modifiedby", null);
 			}
 		}
 		
@@ -644,12 +644,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("parentroleid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("role_parent_role", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.EarlyBound.Entities.Role Referencingrole_parent_role
+		public Compliance.EarlyBound.Role Referencingrole_parent_role
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Role>("role_parent_role", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Role>("role_parent_role", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 		}
 		
@@ -658,12 +658,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("parentrootroleid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("role_parent_root_role", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.EarlyBound.Entities.Role Referencingrole_parent_root_role
+		public Compliance.EarlyBound.Role Referencingrole_parent_root_role
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Role>("role_parent_root_role", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Role>("role_parent_root_role", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 		}
 	}

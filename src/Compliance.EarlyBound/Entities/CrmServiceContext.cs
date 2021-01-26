@@ -12,7 +12,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	/// <summary>
@@ -31,530 +31,530 @@ namespace Compliance.EarlyBound.Entities
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.Annotation"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Annotation"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.Annotation> AnnotationSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.Annotation> AnnotationSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.Annotation>();
+				return this.CreateQuery<Compliance.EarlyBound.Annotation>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.BusinessUnit"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.BusinessUnit"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.BusinessUnit> BusinessUnitSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.BusinessUnit> BusinessUnitSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.BusinessUnit>();
+				return this.CreateQuery<Compliance.EarlyBound.BusinessUnit>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.Contact"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Contact"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.Contact> ContactSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.Contact> ContactSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.Contact>();
+				return this.CreateQuery<Compliance.EarlyBound.Contact>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.DuplicateRule"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.DuplicateRule"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.DuplicateRule> DuplicateRuleSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.DuplicateRule> DuplicateRuleSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.DuplicateRule>();
+				return this.CreateQuery<Compliance.EarlyBound.DuplicateRule>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_accessrequestdocument"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_accessrequestdocument"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_accessrequestdocument> opc_accessrequestdocumentSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_accessrequestdocument> opc_accessrequestdocumentSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_accessrequestdocument>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_accessrequestdocument>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_accountsrelatedindustries"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_accountsrelatedindustries"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_accountsrelatedindustries> opc_accountsrelatedindustriesSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_accountsrelatedindustries> opc_accountsrelatedindustriesSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_accountsrelatedindustries>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_accountsrelatedindustries>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_allegation"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_allegation"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_allegation> opc_allegationSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_allegation> opc_allegationSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_allegation>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_allegation>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_allegationtype"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_allegationtype"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_allegationtype> opc_allegationtypeSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_allegationtype> opc_allegationtypeSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_allegationtype>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_allegationtype>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_ChecklistResponse"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_ChecklistResponse"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_ChecklistResponse> opc_ChecklistResponseSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_ChecklistResponse> opc_ChecklistResponseSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_ChecklistResponse>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_ChecklistResponse>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_ChecklistType"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_ChecklistType"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_ChecklistType> opc_ChecklistTypeSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_ChecklistType> opc_ChecklistTypeSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_ChecklistType>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_ChecklistType>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_complaint"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_complaint"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_complaint> opc_complaintSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_complaint> opc_complaintSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_complaint>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_complaint>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_complaintsrelatedindustries"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_complaintsrelatedindustries"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_complaintsrelatedindustries> opc_complaintsrelatedindustriesSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_complaintsrelatedindustries> opc_complaintsrelatedindustriesSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_complaintsrelatedindustries>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_complaintsrelatedindustries>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_complaintsrelatedtopics"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_complaintsrelatedtopics"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_complaintsrelatedtopics> opc_complaintsrelatedtopicsSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_complaintsrelatedtopics> opc_complaintsrelatedtopicsSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_complaintsrelatedtopics>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_complaintsrelatedtopics>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_dispositionaction"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_dispositionaction"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_dispositionaction> opc_dispositionactionSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_dispositionaction> opc_dispositionactionSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_dispositionaction>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_dispositionaction>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_dispositionreason"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_dispositionreason"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_dispositionreason> opc_dispositionreasonSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_dispositionreason> opc_dispositionreasonSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_dispositionreason>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_dispositionreason>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_event"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_event"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_event> opc_eventSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_event> opc_eventSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_event>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_event>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_individualcomplaint_bp"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_individualcomplaint_bp"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp> opc_individualcomplaint_bpSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_individualcomplaint_bp> opc_individualcomplaint_bpSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_individualcomplaint_bp>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_industry"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_industry"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_industry> opc_industrySet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_industry> opc_industrySet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_industry>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_industry>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_issue"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_issue"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_issue> opc_issueSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_issue> opc_issueSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_issue>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_issue>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_legislation"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_legislation"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_legislation> opc_legislationSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_legislation> opc_legislationSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_legislation>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_legislation>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_notification"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_notification"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_notification> opc_notificationSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_notification> opc_notificationSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_notification>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_notification>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_opcpriority"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_opcpriority"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_opcpriority> opc_opcprioritySet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_opcpriority> opc_opcprioritySet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_opcpriority>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_opcpriority>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_QuestionTemplate"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_QuestionTemplate"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> opc_QuestionTemplateSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_QuestionTemplate> opc_QuestionTemplateSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_QuestionTemplate>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_QuestionTemplate>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_QuestionType"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_QuestionType"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_QuestionType> opc_QuestionTypeSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_QuestionType> opc_QuestionTypeSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_QuestionType>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_QuestionType>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_queues_teams"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_queues_teams"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_queues_teams> opc_queues_teamsSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_queues_teams> opc_queues_teamsSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_queues_teams>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_queues_teams>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_recommendation"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_recommendation"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_recommendation> opc_recommendationSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_recommendation> opc_recommendationSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_recommendation>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_recommendation>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_reminder"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_reminder"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_reminder> opc_reminderSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_reminder> opc_reminderSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_reminder>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_reminder>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_reminder_user"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_reminder_user"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_reminder_user> opc_reminder_userSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_reminder_user> opc_reminder_userSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_reminder_user>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_reminder_user>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_RiskAppetite"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_RiskAppetite"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_RiskAppetite> opc_RiskAppetiteSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_RiskAppetite> opc_RiskAppetiteSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_RiskAppetite>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_RiskAppetite>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_RiskAssessment"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_RiskAssessment"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_RiskAssessment> opc_RiskAssessmentSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_RiskAssessment> opc_RiskAssessmentSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_RiskAssessment>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_RiskAssessment>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_RiskAssessmentCategory"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory> opc_RiskAssessmentCategorySet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_RiskAssessmentCategory> opc_RiskAssessmentCategorySet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_RiskAssessmentCategory>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_RiskAssessmentCategoryTemplate"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate> opc_RiskAssessmentCategoryTemplateSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_RiskAssessmentCategoryTemplate> opc_RiskAssessmentCategoryTemplateSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_RiskAssessmentCategoryTemplate>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_RiskAssessmentDefinition"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition> opc_RiskAssessmentDefinitionSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_RiskAssessmentDefinition> opc_RiskAssessmentDefinitionSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_RiskAssessmentDefinition>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_RiskAssessmentDefinitionTemplate"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate> opc_RiskAssessmentDefinitionTemplateSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_RiskAssessmentDefinitionTemplate> opc_RiskAssessmentDefinitionTemplateSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_RiskAssessmentDefinitionTemplate>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_RiskAssessmentFactorTemplate"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate> opc_RiskAssessmentFactorTemplateSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_RiskAssessmentFactorTemplate> opc_RiskAssessmentFactorTemplateSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_RiskAssessmentFactorTemplate>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_RiskAssessmentType"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_RiskAssessmentType"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_RiskAssessmentType> opc_RiskAssessmentTypeSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_RiskAssessmentType> opc_RiskAssessmentTypeSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_RiskAssessmentType>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_theme"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_theme"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_theme> opc_themeSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_theme> opc_themeSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_theme>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_theme>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.opc_topic"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_topic"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.opc_topic> opc_topicSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_topic> opc_topicSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.opc_topic>();
+				return this.CreateQuery<Compliance.EarlyBound.opc_topic>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.QueueMembership"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.QueueMembership"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.QueueMembership> QueueMembershipSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.QueueMembership> QueueMembershipSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.QueueMembership>();
+				return this.CreateQuery<Compliance.EarlyBound.QueueMembership>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.Role"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Role"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.Role> RoleSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.Role> RoleSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.Role>();
+				return this.CreateQuery<Compliance.EarlyBound.Role>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.SystemUser"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.SystemUser"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.SystemUser> SystemUserSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.SystemUser> SystemUserSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.SystemUser>();
+				return this.CreateQuery<Compliance.EarlyBound.SystemUser>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.Team"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Team"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.Team> TeamSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.Team> TeamSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.Team>();
+				return this.CreateQuery<Compliance.EarlyBound.Team>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.TeamMembership"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.TeamMembership"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.TeamMembership> TeamMembershipSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.TeamMembership> TeamMembershipSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.TeamMembership>();
+				return this.CreateQuery<Compliance.EarlyBound.TeamMembership>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.Entities.UserSettings"/> entities.
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.UserSettings"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<Compliance.EarlyBound.Entities.UserSettings> UserSettingsSet
+		public System.Linq.IQueryable<Compliance.EarlyBound.UserSettings> UserSettingsSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<Compliance.EarlyBound.Entities.UserSettings>();
+				return this.CreateQuery<Compliance.EarlyBound.UserSettings>();
 			}
 		}
 	}

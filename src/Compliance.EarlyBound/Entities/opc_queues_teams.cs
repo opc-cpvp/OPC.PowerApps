@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	/// <summary>

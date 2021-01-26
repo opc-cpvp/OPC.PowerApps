@@ -8,6 +8,6 @@
 
 //------------------------------------------------------------------------------
 
-namespace Compliance.EarlyBound.Actions
+namespace Compliance.EarlyBound
 {
 }

@@ -8,7 +8,7 @@
 
 //------------------------------------------------------------------------------
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]

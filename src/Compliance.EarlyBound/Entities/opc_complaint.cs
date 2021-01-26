@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1244,7 +1244,7 @@ namespace Compliance.EarlyBound.Entities
 		/// Status of the Complaint
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.EarlyBound.Entities.opc_complaintState> StateCode
+		public System.Nullable<Compliance.EarlyBound.opc_complaintState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -1252,7 +1252,7 @@ namespace Compliance.EarlyBound.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.EarlyBound.Entities.opc_complaintState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_complaintState), optionSet.Value)));
+					return ((Compliance.EarlyBound.opc_complaintState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.opc_complaintState), optionSet.Value)));
 				}
 				else
 				{
@@ -1372,18 +1372,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N bpf_opc_complaint_opc_individualcomplaint_bp
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("bpf_opc_complaint_opc_individualcomplaint_bp")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp> bpf_opc_complaint_opc_individualcomplaint_bp
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_individualcomplaint_bp> bpf_opc_complaint_opc_individualcomplaint_bp
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("bpf_opc_complaint_opc_individualcomplaint_bp", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_individualcomplaint_bp>("bpf_opc_complaint_opc_individualcomplaint_bp", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("bpf_opc_complaint_opc_individualcomplaint_bp");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("bpf_opc_complaint_opc_individualcomplaint_bp", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_individualcomplaint_bp>("bpf_opc_complaint_opc_individualcomplaint_bp", null, value);
 				this.OnPropertyChanged("bpf_opc_complaint_opc_individualcomplaint_bp");
 			}
 		}
@@ -1392,18 +1392,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_complaint_allegations_complaint
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_allegations_complaint")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegation> opc_complaint_allegations_complaint
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_allegation> opc_complaint_allegations_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("opc_complaint_allegations_complaint", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_allegation>("opc_complaint_allegations_complaint", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_allegations_complaint");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("opc_complaint_allegations_complaint", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_allegation>("opc_complaint_allegations_complaint", null, value);
 				this.OnPropertyChanged("opc_complaint_allegations_complaint");
 			}
 		}
@@ -1412,18 +1412,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_complaint_Annotations
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_Annotations")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> opc_complaint_Annotations
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Annotation> opc_complaint_Annotations
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("opc_complaint_Annotations", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Annotation>("opc_complaint_Annotations", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_Annotations");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("opc_complaint_Annotations", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Annotation>("opc_complaint_Annotations", null, value);
 				this.OnPropertyChanged("opc_complaint_Annotations");
 			}
 		}
@@ -1432,18 +1432,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_complaint_issues_complaint
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_issues_complaint")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_issue> opc_complaint_issues_complaint
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_issue> opc_complaint_issues_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("opc_complaint_issues_complaint", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_issue>("opc_complaint_issues_complaint", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_issues_complaint");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("opc_complaint_issues_complaint", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_issue>("opc_complaint_issues_complaint", null, value);
 				this.OnPropertyChanged("opc_complaint_issues_complaint");
 			}
 		}
@@ -1452,18 +1452,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_complaint_notifications_complaint
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_notifications_complaint")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_notification> opc_complaint_notifications_complaint
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_notification> opc_complaint_notifications_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("opc_complaint_notifications_complaint", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_notification>("opc_complaint_notifications_complaint", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_notifications_complaint");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("opc_complaint_notifications_complaint", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_notification>("opc_complaint_notifications_complaint", null, value);
 				this.OnPropertyChanged("opc_complaint_notifications_complaint");
 			}
 		}
@@ -1472,18 +1472,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_complaint_opc_events
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_opc_events")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_event> opc_complaint_opc_events
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_event> opc_complaint_opc_events
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_complaint_opc_events", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_event>("opc_complaint_opc_events", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_opc_events");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_complaint_opc_events", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_event>("opc_complaint_opc_events", null, value);
 				this.OnPropertyChanged("opc_complaint_opc_events");
 			}
 		}
@@ -1492,18 +1492,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_complaint_recommendations_complaint
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_recommendations_complaint")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_recommendation> opc_complaint_recommendations_complaint
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_recommendation> opc_complaint_recommendations_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("opc_complaint_recommendations_complaint", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_recommendation>("opc_complaint_recommendations_complaint", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_recommendations_complaint");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("opc_complaint_recommendations_complaint", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_recommendation>("opc_complaint_recommendations_complaint", null, value);
 				this.OnPropertyChanged("opc_complaint_recommendations_complaint");
 			}
 		}
@@ -1512,18 +1512,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_complaint_reminders_complaint
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_reminders_complaint")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_reminder> opc_complaint_reminders_complaint
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_reminder> opc_complaint_reminders_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("opc_complaint_reminders_complaint", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_reminder>("opc_complaint_reminders_complaint", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_reminders_complaint");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("opc_complaint_reminders_complaint", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_reminder>("opc_complaint_reminders_complaint", null, value);
 				this.OnPropertyChanged("opc_complaint_reminders_complaint");
 			}
 		}
@@ -1532,18 +1532,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_RiskAssessment_Complaint_opc_complain
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_RiskAssessment_Complaint_opc_complain")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessment> opc_RiskAssessment_Complaint_opc_complain
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_RiskAssessment> opc_RiskAssessment_Complaint_opc_complain
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("opc_RiskAssessment_Complaint_opc_complain", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_RiskAssessment>("opc_RiskAssessment_Complaint_opc_complain", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_RiskAssessment_Complaint_opc_complain");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("opc_RiskAssessment_Complaint_opc_complain", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_RiskAssessment>("opc_RiskAssessment_Complaint_opc_complain", null, value);
 				this.OnPropertyChanged("opc_RiskAssessment_Complaint_opc_complain");
 			}
 		}
@@ -1552,18 +1552,18 @@ namespace Compliance.EarlyBound.Entities
 		/// N:N opc_complaints_industries_relatedindustries
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaints_industries_relatedindustries")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_industry> opc_complaints_industries_relatedindustries
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_industry> opc_complaints_industries_relatedindustries
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("opc_complaints_industries_relatedindustries", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_industry>("opc_complaints_industries_relatedindustries", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaints_industries_relatedindustries");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("opc_complaints_industries_relatedindustries", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_industry>("opc_complaints_industries_relatedindustries", null, value);
 				this.OnPropertyChanged("opc_complaints_industries_relatedindustries");
 			}
 		}
@@ -1572,18 +1572,18 @@ namespace Compliance.EarlyBound.Entities
 		/// N:N opc_complaints_topics_relatedtopics
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaints_topics_relatedtopics")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_topic> opc_complaints_topics_relatedtopics
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_topic> opc_complaints_topics_relatedtopics
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("opc_complaints_topics_relatedtopics", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_topic>("opc_complaints_topics_relatedtopics", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaints_topics_relatedtopics");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("opc_complaints_topics_relatedtopics", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_topic>("opc_complaints_topics_relatedtopics", null, value);
 				this.OnPropertyChanged("opc_complaints_topics_relatedtopics");
 			}
 		}
@@ -1593,12 +1593,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_complaint")]
-		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_complaint
+		public Compliance.EarlyBound.BusinessUnit business_unit_opc_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_complaint", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.BusinessUnit>("business_unit_opc_complaint", null);
 			}
 		}
 		
@@ -1607,12 +1607,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_complaint_createdby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_complaint_createdby
+		public Compliance.EarlyBound.SystemUser lk_opc_complaint_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_complaint_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_complaint_createdby", null);
 			}
 		}
 		
@@ -1621,18 +1621,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_complaint_createdonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_complaint_createdonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_opc_complaint_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_complaint_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_complaint_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_complaint_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_complaint_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_complaint_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_complaint_createdonbehalfby");
 			}
 		}
@@ -1642,12 +1642,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_complaint_modifiedby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_complaint_modifiedby
+		public Compliance.EarlyBound.SystemUser lk_opc_complaint_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_complaint_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_complaint_modifiedby", null);
 			}
 		}
 		
@@ -1656,18 +1656,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_complaint_modifiedonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_complaint_modifiedonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_opc_complaint_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_complaint_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_complaint_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_complaint_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_complaint_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_complaint_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_complaint_modifiedonbehalfby");
 			}
 		}
@@ -1677,18 +1677,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_intakeofficer")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_intakeofficer_SystemUser")]
-		public Compliance.EarlyBound.Entities.SystemUser opc_complaint_intakeofficer_SystemUser
+		public Compliance.EarlyBound.SystemUser opc_complaint_intakeofficer_SystemUser
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_complaint_intakeofficer_SystemUser", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("opc_complaint_intakeofficer_SystemUser", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_intakeofficer_SystemUser");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_complaint_intakeofficer_SystemUser", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("opc_complaint_intakeofficer_SystemUser", null, value);
 				this.OnPropertyChanged("opc_complaint_intakeofficer_SystemUser");
 			}
 		}
@@ -1698,18 +1698,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_complainant")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_complainant")]
-		public Compliance.EarlyBound.Entities.Contact opc_contact_complaints_complainant
+		public Compliance.EarlyBound.Contact opc_contact_complaints_complainant
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_complainant", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_complainant", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_complainant");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_complainant", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_complainant", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_complainant");
 			}
 		}
@@ -1719,18 +1719,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_complainantlegalrepresentative")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_complainantlegalrep")]
-		public Compliance.EarlyBound.Entities.Contact opc_contact_complaints_complainantlegalrep
+		public Compliance.EarlyBound.Contact opc_contact_complaints_complainantlegalrep
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_complainantlegalrep", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_complainantlegalrep", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_complainantlegalrep");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_complainantlegalrep", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_complainantlegalrep", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_complainantlegalrep");
 			}
 		}
@@ -1740,18 +1740,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_complainantrep")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_complainantreps")]
-		public Compliance.EarlyBound.Entities.Contact opc_contact_complaints_complainantreps
+		public Compliance.EarlyBound.Contact opc_contact_complaints_complainantreps
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_complainantreps", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_complainantreps", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_complainantreps");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_complainantreps", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_complainantreps", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_complainantreps");
 			}
 		}
@@ -1761,18 +1761,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_respondentrepresentative")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_repondentrep")]
-		public Compliance.EarlyBound.Entities.Contact opc_contact_complaints_repondentrep
+		public Compliance.EarlyBound.Contact opc_contact_complaints_repondentrep
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_repondentrep", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_repondentrep", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_repondentrep");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_repondentrep", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_repondentrep", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_repondentrep");
 			}
 		}
@@ -1782,18 +1782,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_respondentlegalrepresentative")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_respondentlegalrep")]
-		public Compliance.EarlyBound.Entities.Contact opc_contact_complaints_respondentlegalrep
+		public Compliance.EarlyBound.Contact opc_contact_complaints_respondentlegalrep
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_respondentlegalrep", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_respondentlegalrep", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_respondentlegalrep");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("opc_contact_complaints_respondentlegalrep", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_complaints_respondentlegalrep", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_respondentlegalrep");
 			}
 		}
@@ -1803,18 +1803,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_legislation")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_legislation_complaints_legislation")]
-		public Compliance.EarlyBound.Entities.opc_legislation opc_legislation_complaints_legislation
+		public Compliance.EarlyBound.opc_legislation opc_legislation_complaints_legislation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_legislation>("opc_legislation_complaints_legislation", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.opc_legislation>("opc_legislation_complaints_legislation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_legislation_complaints_legislation");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_legislation>("opc_legislation_complaints_legislation", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.opc_legislation>("opc_legislation_complaints_legislation", null, value);
 				this.OnPropertyChanged("opc_legislation_complaints_legislation");
 			}
 		}
@@ -1824,18 +1824,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_opcpriorityid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_opcpriority_complaints_opcpriority")]
-		public Compliance.EarlyBound.Entities.opc_opcpriority opc_opcpriority_complaints_opcpriority
+		public Compliance.EarlyBound.opc_opcpriority opc_opcpriority_complaints_opcpriority
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_opcpriority>("opc_opcpriority_complaints_opcpriority", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.opc_opcpriority>("opc_opcpriority_complaints_opcpriority", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_opcpriority_complaints_opcpriority");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_opcpriority>("opc_opcpriority_complaints_opcpriority", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.opc_opcpriority>("opc_opcpriority_complaints_opcpriority", null, value);
 				this.OnPropertyChanged("opc_opcpriority_complaints_opcpriority");
 			}
 		}
@@ -1845,18 +1845,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_erofficer")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_user_complaints_erofficer")]
-		public Compliance.EarlyBound.Entities.SystemUser opc_user_complaints_erofficer
+		public Compliance.EarlyBound.SystemUser opc_user_complaints_erofficer
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_user_complaints_erofficer", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("opc_user_complaints_erofficer", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_user_complaints_erofficer");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_user_complaints_erofficer", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("opc_user_complaints_erofficer", null, value);
 				this.OnPropertyChanged("opc_user_complaints_erofficer");
 			}
 		}
@@ -1866,18 +1866,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_reportredactor")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_user_complaints_reportredactor")]
-		public Compliance.EarlyBound.Entities.SystemUser opc_user_complaints_reportredactor
+		public Compliance.EarlyBound.SystemUser opc_user_complaints_reportredactor
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_user_complaints_reportredactor", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("opc_user_complaints_reportredactor", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_user_complaints_reportredactor");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_user_complaints_reportredactor", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("opc_user_complaints_reportredactor", null, value);
 				this.OnPropertyChanged("opc_user_complaints_reportredactor");
 			}
 		}
@@ -1887,12 +1887,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_complaint")]
-		public Compliance.EarlyBound.Entities.Team team_opc_complaint
+		public Compliance.EarlyBound.Team team_opc_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_complaint", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Team>("team_opc_complaint", null);
 			}
 		}
 		
@@ -1901,12 +1901,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_complaint")]
-		public Compliance.EarlyBound.Entities.SystemUser user_opc_complaint
+		public Compliance.EarlyBound.SystemUser user_opc_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_complaint", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("user_opc_complaint", null);
 			}
 		}
 	}

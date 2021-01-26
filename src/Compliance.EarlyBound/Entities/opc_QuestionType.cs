@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -346,7 +346,7 @@ namespace Compliance.EarlyBound.Entities
 		/// Status of the Question Type
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.EarlyBound.Entities.opc_QuestionTypeState> StateCode
+		public System.Nullable<Compliance.EarlyBound.opc_QuestionTypeState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -354,7 +354,7 @@ namespace Compliance.EarlyBound.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.EarlyBound.Entities.opc_QuestionTypeState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_QuestionTypeState), optionSet.Value)));
+					return ((Compliance.EarlyBound.opc_QuestionTypeState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.opc_QuestionTypeState), optionSet.Value)));
 				}
 				else
 				{
@@ -454,18 +454,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N opc_questiontype_questiontemplates_questionty
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_questiontype_questiontemplates_questionty")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> opc_questiontype_questiontemplates_questionty
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_QuestionTemplate> opc_questiontype_questiontemplates_questionty
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("opc_questiontype_questiontemplates_questionty", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_QuestionTemplate>("opc_questiontype_questiontemplates_questionty", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_questiontype_questiontemplates_questionty");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("opc_questiontype_questiontemplates_questionty", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_QuestionTemplate>("opc_questiontype_questiontemplates_questionty", null, value);
 				this.OnPropertyChanged("opc_questiontype_questiontemplates_questionty");
 			}
 		}
@@ -475,12 +475,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontype_createdby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_questiontype_createdby
+		public Compliance.EarlyBound.SystemUser lk_opc_questiontype_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontype_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_questiontype_createdby", null);
 			}
 		}
 		
@@ -489,18 +489,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontype_createdonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_questiontype_createdonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_opc_questiontype_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontype_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_questiontype_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontype_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontype_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_questiontype_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontype_createdonbehalfby");
 			}
 		}
@@ -510,12 +510,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontype_modifiedby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_questiontype_modifiedby
+		public Compliance.EarlyBound.SystemUser lk_opc_questiontype_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontype_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_questiontype_modifiedby", null);
 			}
 		}
 		
@@ -524,18 +524,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontype_modifiedonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_questiontype_modifiedonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_opc_questiontype_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontype_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_questiontype_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontype_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontype_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_questiontype_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontype_modifiedonbehalfby");
 			}
 		}

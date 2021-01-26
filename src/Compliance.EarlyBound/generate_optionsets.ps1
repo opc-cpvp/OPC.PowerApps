@@ -5,7 +5,7 @@ $crmSvcUtil = Get-ChildItem . -Filter "CrmSvcUtil.exe" -Recurse -ErrorAction Sil
 if ($ConnectionString) {
 	& $crmSvcUtil `
 		/connectionstring:$ConnectionString `
-		/namespace:"Compliance.EarlyBound.Entities" `
+		/namespace:"Compliance.EarlyBound" `
 		/out:"OptionSets\OptionSets.cs" `
 		/SuppressGeneratedCodeAttribute `
 		/codecustomization:"DLaB.CrmSvcUtilExtensions.OptionSet.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" `
@@ -16,7 +16,7 @@ if ($ConnectionString) {
 } else {
 	& $crmSvcUtil `
 		/interactivelogin `
-		/namespace:"Compliance.EarlyBound.Entities" `
+		/namespace:"Compliance.EarlyBound" `
 		/out:"OptionSets\OptionSets.cs" `
 		/SuppressGeneratedCodeAttribute `
 		/codecustomization:"DLaB.CrmSvcUtilExtensions.OptionSet.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" `

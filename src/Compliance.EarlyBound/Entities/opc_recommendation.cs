@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -352,7 +352,7 @@ namespace Compliance.EarlyBound.Entities
 		/// Status of the Recommendation
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.EarlyBound.Entities.opc_recommendationState> StateCode
+		public System.Nullable<Compliance.EarlyBound.opc_recommendationState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -360,7 +360,7 @@ namespace Compliance.EarlyBound.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.EarlyBound.Entities.opc_recommendationState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_recommendationState), optionSet.Value)));
+					return ((Compliance.EarlyBound.opc_recommendationState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.opc_recommendationState), optionSet.Value)));
 				}
 				else
 				{
@@ -461,12 +461,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_recommendation")]
-		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_recommendation
+		public Compliance.EarlyBound.BusinessUnit business_unit_opc_recommendation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_recommendation", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.BusinessUnit>("business_unit_opc_recommendation", null);
 			}
 		}
 		
@@ -475,12 +475,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_recommendation_createdby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_recommendation_createdby
+		public Compliance.EarlyBound.SystemUser lk_opc_recommendation_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_recommendation_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_recommendation_createdby", null);
 			}
 		}
 		
@@ -489,18 +489,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_recommendation_createdonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_recommendation_createdonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_opc_recommendation_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_recommendation_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_recommendation_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_recommendation_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_recommendation_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_recommendation_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_recommendation_createdonbehalfby");
 			}
 		}
@@ -510,12 +510,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_recommendation_modifiedby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_recommendation_modifiedby
+		public Compliance.EarlyBound.SystemUser lk_opc_recommendation_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_recommendation_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_recommendation_modifiedby", null);
 			}
 		}
 		
@@ -524,18 +524,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_recommendation_modifiedonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_recommendation_modifiedonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_opc_recommendation_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_recommendation_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_recommendation_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_recommendation_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_recommendation_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_recommendation_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_recommendation_modifiedonbehalfby");
 			}
 		}
@@ -545,18 +545,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_complaintid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_recommendations_complaint")]
-		public Compliance.EarlyBound.Entities.opc_complaint opc_complaint_recommendations_complaint
+		public Compliance.EarlyBound.opc_complaint opc_complaint_recommendations_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_recommendations_complaint", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.opc_complaint>("opc_complaint_recommendations_complaint", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_recommendations_complaint");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_recommendations_complaint", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.opc_complaint>("opc_complaint_recommendations_complaint", null, value);
 				this.OnPropertyChanged("opc_complaint_recommendations_complaint");
 			}
 		}
@@ -566,12 +566,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_recommendation")]
-		public Compliance.EarlyBound.Entities.Team team_opc_recommendation
+		public Compliance.EarlyBound.Team team_opc_recommendation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_recommendation", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Team>("team_opc_recommendation", null);
 			}
 		}
 		
@@ -580,12 +580,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_recommendation")]
-		public Compliance.EarlyBound.Entities.SystemUser user_opc_recommendation
+		public Compliance.EarlyBound.SystemUser user_opc_recommendation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_recommendation", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("user_opc_recommendation", null);
 			}
 		}
 	}

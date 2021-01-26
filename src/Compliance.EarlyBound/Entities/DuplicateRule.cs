@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -444,7 +444,7 @@ namespace Compliance.EarlyBound.Entities
 		/// Status of the duplicate detection rule.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.EarlyBound.Entities.DuplicateRuleState> StateCode
+		public System.Nullable<Compliance.EarlyBound.DuplicateRuleState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -452,7 +452,7 @@ namespace Compliance.EarlyBound.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.EarlyBound.Entities.DuplicateRuleState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.DuplicateRuleState), optionSet.Value)));
+					return ((Compliance.EarlyBound.DuplicateRuleState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.DuplicateRuleState), optionSet.Value)));
 				}
 				else
 				{
@@ -525,18 +525,18 @@ namespace Compliance.EarlyBound.Entities
 		/// 1:N DuplicateRule_Annotation
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("DuplicateRule_Annotation")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> DuplicateRule_Annotation
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Annotation> DuplicateRule_Annotation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("DuplicateRule_Annotation", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Annotation>("DuplicateRule_Annotation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("DuplicateRule_Annotation");
-				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("DuplicateRule_Annotation", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Annotation>("DuplicateRule_Annotation", null, value);
 				this.OnPropertyChanged("DuplicateRule_Annotation");
 			}
 		}
@@ -546,12 +546,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("BusinessUnit_DuplicateRules")]
-		public Compliance.EarlyBound.Entities.BusinessUnit BusinessUnit_DuplicateRules
+		public Compliance.EarlyBound.BusinessUnit BusinessUnit_DuplicateRules
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("BusinessUnit_DuplicateRules", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.BusinessUnit>("BusinessUnit_DuplicateRules", null);
 			}
 		}
 		
@@ -560,18 +560,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_duplicaterule_createdonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_duplicaterule_createdonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_duplicaterule_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_duplicaterule_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_duplicaterule_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_duplicaterule_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_duplicaterule_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_duplicaterule_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_duplicaterule_createdonbehalfby");
 			}
 		}
@@ -581,18 +581,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_duplicaterule_modifiedonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_duplicaterule_modifiedonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_duplicaterule_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_duplicaterule_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_duplicaterule_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_duplicaterule_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_duplicaterule_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_duplicaterule_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_duplicaterule_modifiedonbehalfby");
 			}
 		}
@@ -602,12 +602,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_duplicaterulebase_createdby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_duplicaterulebase_createdby
+		public Compliance.EarlyBound.SystemUser lk_duplicaterulebase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_duplicaterulebase_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_duplicaterulebase_createdby", null);
 			}
 		}
 		
@@ -616,12 +616,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_duplicaterulebase_modifiedby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_duplicaterulebase_modifiedby
+		public Compliance.EarlyBound.SystemUser lk_duplicaterulebase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_duplicaterulebase_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_duplicaterulebase_modifiedby", null);
 			}
 		}
 		
@@ -630,12 +630,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("SystemUser_DuplicateRules")]
-		public Compliance.EarlyBound.Entities.SystemUser SystemUser_DuplicateRules
+		public Compliance.EarlyBound.SystemUser SystemUser_DuplicateRules
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("SystemUser_DuplicateRules", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("SystemUser_DuplicateRules", null);
 			}
 		}
 		
@@ -644,12 +644,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_DuplicateRules")]
-		public Compliance.EarlyBound.Entities.Team team_DuplicateRules
+		public Compliance.EarlyBound.Team team_DuplicateRules
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_DuplicateRules", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Team>("team_DuplicateRules", null);
 			}
 		}
 	}

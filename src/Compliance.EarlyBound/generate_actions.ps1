@@ -7,7 +7,7 @@ if ($ConnectionString) {
 		/connectionstring:$ConnectionString `
 		/generateActions `
 		/out:"Actions/Actions.cs" `
-		/namespace:"Compliance.EarlyBound.Actions" `
+		/namespace:"Compliance.EarlyBound" `
 		/SuppressGeneratedCodeAttribute `
 		/codecustomization:"DLaB.CrmSvcUtilExtensions.Action.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" `
 		/codegenerationservice:"DLaB.CrmSvcUtilExtensions.Action.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" `
@@ -18,7 +18,7 @@ if ($ConnectionString) {
 		/interactivelogin `
 		/generateActions `
 		/out:"Actions/Actions.cs" `
-		/namespace:"Compliance.EarlyBound.Actions" `
+		/namespace:"Compliance.EarlyBound" `
 		/SuppressGeneratedCodeAttribute `
 		/codecustomization:"DLaB.CrmSvcUtilExtensions.Action.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" `
 		/codegenerationservice:"DLaB.CrmSvcUtilExtensions.Action.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" `

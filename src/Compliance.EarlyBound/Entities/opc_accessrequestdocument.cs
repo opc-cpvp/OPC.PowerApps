@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.EarlyBound.Entities
+namespace Compliance.EarlyBound
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -512,7 +512,7 @@ namespace Compliance.EarlyBound.Entities
 		/// Status of the Access Request Document
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.EarlyBound.Entities.opc_accessrequestdocumentState> StateCode
+		public System.Nullable<Compliance.EarlyBound.opc_accessrequestdocumentState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -520,7 +520,7 @@ namespace Compliance.EarlyBound.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.EarlyBound.Entities.opc_accessrequestdocumentState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_accessrequestdocumentState), optionSet.Value)));
+					return ((Compliance.EarlyBound.opc_accessrequestdocumentState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.opc_accessrequestdocumentState), optionSet.Value)));
 				}
 				else
 				{
@@ -621,12 +621,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_accessrequestdocument")]
-		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_accessrequestdocument
+		public Compliance.EarlyBound.BusinessUnit business_unit_opc_accessrequestdocument
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_accessrequestdocument", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.BusinessUnit>("business_unit_opc_accessrequestdocument", null);
 			}
 		}
 		
@@ -635,12 +635,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_accessrequestdocument_createdby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_accessrequestdocument_createdby
+		public Compliance.EarlyBound.SystemUser lk_opc_accessrequestdocument_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_accessrequestdocument_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_accessrequestdocument_createdby", null);
 			}
 		}
 		
@@ -649,18 +649,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_accessrequestdocument_createdonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_accessrequestdocument_createdonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_opc_accessrequestdocument_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_accessrequestdocument_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_accessrequestdocument_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_accessrequestdocument_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_accessrequestdocument_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_accessrequestdocument_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_accessrequestdocument_createdonbehalfby");
 			}
 		}
@@ -670,12 +670,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_accessrequestdocument_modifiedby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_accessrequestdocument_modifiedby
+		public Compliance.EarlyBound.SystemUser lk_opc_accessrequestdocument_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_accessrequestdocument_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_accessrequestdocument_modifiedby", null);
 			}
 		}
 		
@@ -684,18 +684,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_accessrequestdocument_modifiedonbehalfby")]
-		public Compliance.EarlyBound.Entities.SystemUser lk_opc_accessrequestdocument_modifiedonbehalfby
+		public Compliance.EarlyBound.SystemUser lk_opc_accessrequestdocument_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_accessrequestdocument_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_accessrequestdocument_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_accessrequestdocument_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_accessrequestdocument_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_accessrequestdocument_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_accessrequestdocument_modifiedonbehalfby");
 			}
 		}
@@ -705,18 +705,18 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_issue")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_issue_accessrequestdocuments_issue")]
-		public Compliance.EarlyBound.Entities.opc_issue opc_issue_accessrequestdocuments_issue
+		public Compliance.EarlyBound.opc_issue opc_issue_accessrequestdocuments_issue
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_issue>("opc_issue_accessrequestdocuments_issue", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.opc_issue>("opc_issue_accessrequestdocuments_issue", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_issue_accessrequestdocuments_issue");
-				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_issue>("opc_issue_accessrequestdocuments_issue", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.opc_issue>("opc_issue_accessrequestdocuments_issue", null, value);
 				this.OnPropertyChanged("opc_issue_accessrequestdocuments_issue");
 			}
 		}
@@ -726,12 +726,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_accessrequestdocument")]
-		public Compliance.EarlyBound.Entities.Team team_opc_accessrequestdocument
+		public Compliance.EarlyBound.Team team_opc_accessrequestdocument
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_accessrequestdocument", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Team>("team_opc_accessrequestdocument", null);
 			}
 		}
 		
@@ -740,12 +740,12 @@ namespace Compliance.EarlyBound.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_accessrequestdocument")]
-		public Compliance.EarlyBound.Entities.SystemUser user_opc_accessrequestdocument
+		public Compliance.EarlyBound.SystemUser user_opc_accessrequestdocument
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_accessrequestdocument", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("user_opc_accessrequestdocument", null);
 			}
 		}
 	}

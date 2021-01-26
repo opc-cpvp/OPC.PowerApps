@@ -1,5 +1,5 @@
 ﻿using System;
-using Compliance.EarlyBound.Entities;
+using Compliance.EarlyBound;
 using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;

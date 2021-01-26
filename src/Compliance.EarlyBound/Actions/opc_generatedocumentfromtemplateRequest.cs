@@ -8,7 +8,7 @@
 
 //------------------------------------------------------------------------------
 
-namespace Compliance.EarlyBound.Actions
+namespace Compliance.EarlyBound
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute(Namespace="http://schemas.microsoft.com/xrm/2011/opc/")]
