@@ -173,6 +173,32 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Dummy attribute associated with the note attachment
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dummyfilename")]
+		public string DummyFileName
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("dummyfilename");
+			}
+		}
+		
+		/// <summary>
+		/// Dummy attribute associated with the note regarding
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dummyregarding")]
+		public string DummyRegarding
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("dummyregarding");
+			}
+		}
+		
+		/// <summary>
 		/// File name of the note.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("filename")]
