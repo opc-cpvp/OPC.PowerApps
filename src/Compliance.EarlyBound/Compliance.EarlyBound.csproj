@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -134,170 +134,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\Actions.cs" />
-    <Compile Include="Actions\opc_complaintcheckcomplainantemailaddressesRequest.cs" />
-    <Compile Include="Actions\opc_complaintcheckcomplainantemailaddressesResponse.cs" />
-    <Compile Include="Actions\opc_complaintcheckcomplainantrequiresprivilegedcorrespondenceRequest.cs" />
-    <Compile Include="Actions\opc_complaintcheckcomplainantrequiresprivilegedcorrespondenceResponse.cs" />
-    <Compile Include="Actions\opc_generatedocumentfromtemplateRequest.cs" />
-    <Compile Include="Actions\opc_generatedocumentfromtemplateResponse.cs" />
-    <Compile Include="Actions\opc_IndividualComplaintActionMovetoStageRequest.cs" />
-    <Compile Include="Actions\opc_IndividualComplaintActionMovetoStageResponse.cs" />
-    <Compile Include="Entities\Annotation.cs" />
-    <Compile Include="Entities\BusinessUnit.cs" />
-    <Compile Include="Entities\Contact.cs" />
-    <Compile Include="Entities\CrmServiceContext.cs" />
-    <Compile Include="Entities\DuplicateRule.cs" />
-    <Compile Include="Entities\opc_accessrequestdocument.cs" />
-    <Compile Include="Entities\opc_accountsrelatedindustries.cs" />
-    <Compile Include="Entities\opc_allegation.cs" />
-    <Compile Include="Entities\opc_allegationtype.cs" />
-    <Compile Include="Entities\opc_ChecklistResponse.cs" />
-    <Compile Include="Entities\opc_ChecklistType.cs" />
-    <Compile Include="Entities\opc_complaint.cs" />
-    <Compile Include="Entities\opc_complaintsrelatedindustries.cs" />
-    <Compile Include="Entities\opc_complaintsrelatedtopics.cs" />
-    <Compile Include="Entities\opc_dispositionaction.cs" />
-    <Compile Include="Entities\opc_dispositionreason.cs" />
-    <Compile Include="Entities\opc_event.cs" />
-    <Compile Include="Entities\opc_individualcomplaint_bp.cs" />
-    <Compile Include="Entities\opc_industry.cs" />
-    <Compile Include="Entities\opc_issue.cs" />
-    <Compile Include="Entities\opc_legislation.cs" />
-    <Compile Include="Entities\opc_notification.cs" />
-    <Compile Include="Entities\opc_opcpriority.cs" />
-    <Compile Include="Entities\opc_QuestionTemplate.cs" />
-    <Compile Include="Entities\opc_QuestionType.cs" />
-    <Compile Include="Entities\opc_queues_teams.cs" />
-    <Compile Include="Entities\opc_recommendation.cs" />
-    <Compile Include="Entities\opc_reminder.cs" />
-    <Compile Include="Entities\opc_reminder_user.cs" />
-    <Compile Include="Entities\opc_RiskAppetite.cs" />
-    <Compile Include="Entities\opc_RiskAssessment.cs" />
-    <Compile Include="Entities\opc_RiskAssessmentCategory.cs" />
-    <Compile Include="Entities\opc_RiskAssessmentCategoryTemplate.cs" />
-    <Compile Include="Entities\opc_RiskAssessmentDefinition.cs" />
-    <Compile Include="Entities\opc_RiskAssessmentDefinitionTemplate.cs" />
-    <Compile Include="Entities\opc_RiskAssessmentFactorTemplate.cs" />
-    <Compile Include="Entities\opc_RiskAssessmentType.cs" />
-    <Compile Include="Entities\opc_theme.cs" />
-    <Compile Include="Entities\opc_topic.cs" />
-    <Compile Include="Entities\QueueMembership.cs" />
-    <Compile Include="Entities\Role.cs" />
-    <Compile Include="Entities\SystemUser.cs" />
-    <Compile Include="Entities\Team.cs" />
-    <Compile Include="Entities\TeamMembership.cs" />
-    <Compile Include="Entities\UserSettings.cs" />
-    <Compile Include="OptionSets\activitypointer_DeliveryPriorityCode.cs" />
-    <Compile Include="OptionSets\BusinessUnitAddress1_AddressTypeCode.cs" />
-    <Compile Include="OptionSets\BusinessUnitAddress1_ShippingMethodCode.cs" />
-    <Compile Include="OptionSets\BusinessUnitAddress2_AddressTypeCode.cs" />
-    <Compile Include="OptionSets\BusinessUnitAddress2_ShippingMethodCode.cs" />
-    <Compile Include="OptionSets\ComponentState.cs" />
-    <Compile Include="OptionSets\ContactAccountRoleCode.cs" />
-    <Compile Include="OptionSets\ContactAddress1_AddressTypeCode.cs" />
-    <Compile Include="OptionSets\ContactAddress1_FreightTermsCode.cs" />
-    <Compile Include="OptionSets\ContactAddress1_ShippingMethodCode.cs" />
-    <Compile Include="OptionSets\ContactAddress2_AddressTypeCode.cs" />
-    <Compile Include="OptionSets\ContactAddress2_FreightTermsCode.cs" />
-    <Compile Include="OptionSets\ContactAddress2_ShippingMethodCode.cs" />
-    <Compile Include="OptionSets\ContactAddress3_AddressTypeCode.cs" />
-    <Compile Include="OptionSets\ContactAddress3_FreightTermsCode.cs" />
-    <Compile Include="OptionSets\ContactAddress3_ShippingMethodCode.cs" />
-    <Compile Include="OptionSets\ContactCustomerSizeCode.cs" />
-    <Compile Include="OptionSets\ContactCustomerTypeCode.cs" />
-    <Compile Include="OptionSets\ContactEducationCode.cs" />
-    <Compile Include="OptionSets\ContactFamilyStatusCode.cs" />
-    <Compile Include="OptionSets\ContactGenderCode.cs" />
-    <Compile Include="OptionSets\ContactHasChildrenCode.cs" />
-    <Compile Include="OptionSets\ContactLeadSourceCode.cs" />
-    <Compile Include="OptionSets\ContactPaymentTermsCode.cs" />
-    <Compile Include="OptionSets\ContactPreferredAppointmentDayCode.cs" />
-    <Compile Include="OptionSets\ContactPreferredAppointmentTimeCode.cs" />
-    <Compile Include="OptionSets\ContactPreferredContactMethodCode.cs" />
-    <Compile Include="OptionSets\ContactShippingMethodCode.cs" />
-    <Compile Include="OptionSets\ContactStatusCode.cs" />
-    <Compile Include="OptionSets\ContactTerritoryCode.cs" />
-    <Compile Include="OptionSets\DuplicateRuleBaseEntityTypeCode.cs" />
-    <Compile Include="OptionSets\DuplicateRuleMatchingEntityTypeCode.cs" />
-    <Compile Include="OptionSets\DuplicateRuleStatusCode.cs" />
-    <Compile Include="OptionSets\IsInherited.cs" />
-    <Compile Include="OptionSets\opc_accessrequestdocumentStatusCode.cs" />
-    <Compile Include="OptionSets\opc_AllegationDisposition.cs" />
-    <Compile Include="OptionSets\opc_allegationStatusCode.cs" />
-    <Compile Include="OptionSets\opc_allegationtypeStatusCode.cs" />
-    <Compile Include="OptionSets\opc_ChecklistResponseStatusCode.cs" />
-    <Compile Include="OptionSets\opc_ChecklistTypeStatusCode.cs" />
-    <Compile Include="OptionSets\opc_CloseReason.cs" />
-    <Compile Include="OptionSets\opc_ComplaintDisposition.cs" />
-    <Compile Include="OptionSets\opc_ComplaintMilestone.cs" />
-    <Compile Include="OptionSets\opc_ComplaintResolution.cs" />
-    <Compile Include="OptionSets\opc_ComplaintSource.cs" />
-    <Compile Include="OptionSets\opc_ComplaintStage.cs" />
-    <Compile Include="OptionSets\opc_complaintStatusCode.cs" />
-    <Compile Include="OptionSets\opc_dispositionactionStatusCode.cs" />
-    <Compile Include="OptionSets\opc_dispositionreasonStatusCode.cs" />
-    <Compile Include="OptionSets\opc_DuplicateDetectionResult.cs" />
-    <Compile Include="OptionSets\opc_ERApproval.cs" />
-    <Compile Include="OptionSets\opc_ERDisposition.cs" />
-    <Compile Include="OptionSets\opc_eventInstanceTypeCode.cs" />
-    <Compile Include="OptionSets\opc_eventPriorityCode.cs" />
-    <Compile Include="OptionSets\opc_eventStatusCode.cs" />
-    <Compile Include="OptionSets\opc_individualcomplaint_bpStatusCode.cs" />
-    <Compile Include="OptionSets\opc_industryStatusCode.cs" />
-    <Compile Include="OptionSets\opc_intakedisposition.cs" />
-    <Compile Include="OptionSets\opc_IssueDisposition.cs" />
-    <Compile Include="OptionSets\opc_issueStatusCode.cs" />
-    <Compile Include="OptionSets\opc_Jurisdictions.cs" />
-    <Compile Include="OptionSets\opc_legislationStatusCode.cs" />
-    <Compile Include="OptionSets\opc_MultipleComplaintStrategy.cs" />
-    <Compile Include="OptionSets\opc_NextStep.cs" />
-    <Compile Include="OptionSets\opc_notificationStatusCode.cs" />
-    <Compile Include="OptionSets\opc_opcpriorityStatusCode.cs" />
-    <Compile Include="OptionSets\opc_PerceivedPriorities.cs" />
-    <Compile Include="OptionSets\opc_PreferredLanguage.cs" />
-    <Compile Include="OptionSets\opc_QuestionTemplateStatusCode.cs" />
-    <Compile Include="OptionSets\opc_QuestionTypeStatusCode.cs" />
-    <Compile Include="OptionSets\opc_ReasontoRequireFurtherInvestigation.cs" />
-    <Compile Include="OptionSets\opc_recommendationStatusCode.cs" />
-    <Compile Include="OptionSets\opc_ReleasedState.cs" />
-    <Compile Include="OptionSets\opc_reminderStatusCode.cs" />
-    <Compile Include="OptionSets\opc_RespondentandComplainantRelationship.cs" />
-    <Compile Include="OptionSets\opc_RiskAppetiteStatusCode.cs" />
-    <Compile Include="OptionSets\opc_RiskAssessmentCategoryStatusCode.cs" />
-    <Compile Include="OptionSets\opc_RiskAssessmentCategoryTemplateStatusCode.cs" />
-    <Compile Include="OptionSets\opc_RiskAssessmentDefinitionStatusCode.cs" />
-    <Compile Include="OptionSets\opc_RiskAssessmentDefinitionTemplateStatusCode.cs" />
-    <Compile Include="OptionSets\opc_RiskAssessmentFactorTemplateStatusCode.cs" />
-    <Compile Include="OptionSets\opc_RiskAssessmentStatusCode.cs" />
-    <Compile Include="OptionSets\opc_RiskAssessmentTypeStatusCode.cs" />
-    <Compile Include="OptionSets\opc_themeStatusCode.cs" />
-    <Compile Include="OptionSets\opc_topicStatusCode.cs" />
-    <Compile Include="OptionSets\opc_YesorNo.cs" />
-    <Compile Include="OptionSets\OptionSets.cs" />
-    <Compile Include="OptionSets\Processstage_Category.cs" />
-    <Compile Include="OptionSets\SocialProfile_Community.cs" />
-    <Compile Include="OptionSets\SystemUserAccessMode.cs" />
-    <Compile Include="OptionSets\SystemUserAddress1_AddressTypeCode.cs" />
-    <Compile Include="OptionSets\SystemUserAddress1_ShippingMethodCode.cs" />
-    <Compile Include="OptionSets\SystemUserAddress2_AddressTypeCode.cs" />
-    <Compile Include="OptionSets\SystemUserAddress2_ShippingMethodCode.cs" />
-    <Compile Include="OptionSets\SystemUserCALType.cs" />
-    <Compile Include="OptionSets\SystemUserEmailRouterAccessApproval.cs" />
-    <Compile Include="OptionSets\SystemUserIncomingEmailDeliveryMethod.cs" />
-    <Compile Include="OptionSets\SystemUserInviteStatusCode.cs" />
-    <Compile Include="OptionSets\SystemUserOutgoingEmailDeliveryMethod.cs" />
-    <Compile Include="OptionSets\SystemUserPreferredAddressCode.cs" />
-    <Compile Include="OptionSets\SystemUserPreferredEmailCode.cs" />
-    <Compile Include="OptionSets\SystemUserPreferredPhoneCode.cs" />
-    <Compile Include="OptionSets\TeamMembershipType.cs" />
-    <Compile Include="OptionSets\TeamTeamType.cs" />
-    <Compile Include="OptionSets\UserSettingsDataValidationModeForExportToExcel.cs" />
-    <Compile Include="OptionSets\UserSettingsDefaultSearchExperience.cs" />
-    <Compile Include="OptionSets\UserSettingsEntityFormMode.cs" />
-    <Compile Include="OptionSets\UserSettingsIncomingEmailFilteringMethod.cs" />
-    <Compile Include="OptionSets\UserSettingsReportScriptErrors.cs" />
-    <Compile Include="OptionSets\UserSettingsVisualizationPaneLayout.cs" />
+    <Compile Include="Actions\*.cs" />
+    <Compile Include="Entities\*.cs" />
+    <Compile Include="OptionSets\*.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -308,7 +147,11 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Actions\" />
+    <Folder Include="Entities\" />
+    <Folder Include="OptionSets\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="DLaB.EarlyBoundGenerator.DefaultSettings.xml" />
   </ItemGroup>

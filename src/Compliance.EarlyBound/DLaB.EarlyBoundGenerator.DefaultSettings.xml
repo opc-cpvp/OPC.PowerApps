@@ -14,7 +14,7 @@ retrieveappsetting|
 retrieveappsettinglist|
 saveappsetting</ActionsToSkip>
     <AddDebuggerNonUserCode>true</AddDebuggerNonUserCode>
-    <AddNewFilesToProject>true</AddNewFilesToProject>
+    <AddNewFilesToProject>false</AddNewFilesToProject>
     <AddOptionSetMetadataAttribute>false</AddOptionSetMetadataAttribute>
     <CamelCaseClassNames>false</CamelCaseClassNames>
     <CamelCaseMemberNames>false</CamelCaseMemberNames>
