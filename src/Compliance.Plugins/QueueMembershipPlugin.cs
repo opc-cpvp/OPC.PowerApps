@@ -54,7 +54,7 @@ namespace Compliance.Plugins
             localContext.Trace($"There is {affectedTeamIds.Count()} affected teams ({string.Join(",", affectedTeamIds)})");
             localContext.Trace($"There is {systemuserIds.Count()} affected users ({string.Join(",", systemuserIds)})");
 
-            // If it's a disassociate operation we will need all the teams associated to the user to ensure 
+            // If it's a disassociate operation we will need all the teams associated to the user to ensure
             // the user does not have access through another team
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
@@ -109,7 +109,7 @@ namespace Compliance.Plugins
             localContext.Trace($"There is {affectedTeamIds.Count()} affected teams ({string.Join(",", affectedTeamIds)})");
             localContext.Trace($"There is {queueIds.Count()} affected queues: {string.Join(",", queueIds)}");
 
-            // If it's a disassociate operation we will need all the teams associated to the queue to ensure 
+            // If it's a disassociate operation we will need all the teams associated to the queue to ensure
             // the user does not have access through another team
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {

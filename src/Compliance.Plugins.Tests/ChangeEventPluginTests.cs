@@ -2,11 +2,10 @@
 using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using Xunit;
-using Microsoft.Xrm.Sdk.Query;
 
 namespace Compliance.Plugins.Tests
 {

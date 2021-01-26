@@ -99,6 +99,7 @@
     <Compile Include="FieldChangeTracker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="bin\coretools\CrmSvcUtil.exe.config" />
     <None Include="bin\coretools\LicenseTerms.docx" />
     <None Include="bin\coretools\SolutionPackager.exe.config" />
@@ -134,9 +135,9 @@
     <Folder Include="bin\Release\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Compliance.Entities\Compliance.Entities.csproj">
+    <ProjectReference Include="..\Compliance.EarlyBound\Compliance.EarlyBound.csproj">
       <Project>{e5c2a1bf-f2db-4eca-87b8-85a286a811f3}</Project>
-      <Name>Compliance.Entities</Name>
+      <Name>Compliance.EarlyBound</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

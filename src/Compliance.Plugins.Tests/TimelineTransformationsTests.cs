@@ -3,11 +3,10 @@ using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using Xunit;
-using System.IO;
+using System.Linq;
 using System.Web.Script.Serialization;
+using Xunit;
 
 namespace Compliance.Plugins.Tests
 {

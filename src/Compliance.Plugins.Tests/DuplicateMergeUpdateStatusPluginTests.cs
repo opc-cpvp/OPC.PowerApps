@@ -2,11 +2,9 @@
 using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using Xunit;
 using Microsoft.Xrm.Sdk.Query;
+using System;
+using Xunit;
 
 namespace Compliance.Plugins.Tests
 {
@@ -23,7 +21,7 @@ namespace Compliance.Plugins.Tests
                     return new Contact()
                     {
                         ContactId = Guid.Parse(MasterContactId),
-                        opc_duplicatedetectionresult = new OptionSetValue((int)opc_duplicatedetectionresult.Potentialduplicate)
+                        opc_duplicatedetectionresult = opc_DuplicateDetectionResult.Potentialduplicate
                     };
                 }
             }
@@ -50,7 +48,7 @@ namespace Compliance.Plugins.Tests
                 (
                     Contact.EntityLogicalName, Guid.Parse(MasterContactId), new ColumnSet("contactid", "opc_duplicatedetectionresult")
                 )
-                .ToEntity<Contact>().opc_duplicatedetectionresult.Value.Should().Be((int)opc_duplicatedetectionresult.None);
+                .ToEntity<Contact>().opc_duplicatedetectionresult.Value.Should().Be(opc_DuplicateDetectionResult.None);
             }
         }
     }
