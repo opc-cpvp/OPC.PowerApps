@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	/// <summary>
@@ -132,18 +132,18 @@ namespace Compliance.Entities
 		/// N:N opc_complaints_topics_relatedtopics
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaints_topics_relatedtopics")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_topic> opc_complaints_topics_relatedtopics
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_topic> opc_complaints_topics_relatedtopics
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_topic>("opc_complaints_topics_relatedtopics", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("opc_complaints_topics_relatedtopics", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaints_topics_relatedtopics");
-				this.SetRelatedEntities<Compliance.Entities.opc_topic>("opc_complaints_topics_relatedtopics", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("opc_complaints_topics_relatedtopics", null, value);
 				this.OnPropertyChanged("opc_complaints_topics_relatedtopics");
 			}
 		}

@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -419,7 +419,7 @@ namespace Compliance.Entities
 		/// Status of the Individual Complaint
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.opc_individualcomplaint_bpState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.opc_individualcomplaint_bpState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -427,7 +427,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.opc_individualcomplaint_bpState)(System.Enum.ToObject(typeof(Compliance.Entities.opc_individualcomplaint_bpState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.opc_individualcomplaint_bpState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_individualcomplaint_bpState), optionSet.Value)));
 				}
 				else
 				{
@@ -548,18 +548,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("bpf_opc_complaintid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("bpf_opc_complaint_opc_individualcomplaint_bp")]
-		public Compliance.Entities.opc_complaint bpf_opc_complaint_opc_individualcomplaint_bp
+		public Compliance.EarlyBound.Entities.opc_complaint bpf_opc_complaint_opc_individualcomplaint_bp
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_complaint>("bpf_opc_complaint_opc_individualcomplaint_bp", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("bpf_opc_complaint_opc_individualcomplaint_bp", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("bpf_opc_complaint_opc_individualcomplaint_bp");
-				this.SetRelatedEntity<Compliance.Entities.opc_complaint>("bpf_opc_complaint_opc_individualcomplaint_bp", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("bpf_opc_complaint_opc_individualcomplaint_bp", null, value);
 				this.OnPropertyChanged("bpf_opc_complaint_opc_individualcomplaint_bp");
 			}
 		}
@@ -569,12 +569,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_individualcomplaint_bp_createdby")]
-		public Compliance.Entities.SystemUser lk_opc_individualcomplaint_bp_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_individualcomplaint_bp_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_individualcomplaint_bp_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_individualcomplaint_bp_createdby", null);
 			}
 		}
 		
@@ -583,18 +583,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_individualcomplaint_bp_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_individualcomplaint_bp_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_individualcomplaint_bp_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_individualcomplaint_bp_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_individualcomplaint_bp_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_individualcomplaint_bp_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_individualcomplaint_bp_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_individualcomplaint_bp_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_individualcomplaint_bp_createdonbehalfby");
 			}
 		}
@@ -604,12 +604,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_individualcomplaint_bp_modifiedby")]
-		public Compliance.Entities.SystemUser lk_opc_individualcomplaint_bp_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_individualcomplaint_bp_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_individualcomplaint_bp_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_individualcomplaint_bp_modifiedby", null);
 			}
 		}
 		
@@ -618,18 +618,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_individualcomplaint_bp_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_individualcomplaint_bp_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_individualcomplaint_bp_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_individualcomplaint_bp_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_individualcomplaint_bp_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_individualcomplaint_bp_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_individualcomplaint_bp_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_individualcomplaint_bp_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_individualcomplaint_bp_modifiedonbehalfby");
 			}
 		}

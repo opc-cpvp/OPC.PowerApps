@@ -1,4 +1,4 @@
-using Compliance.Entities;
+using Compliance.EarlyBound.Entities;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;

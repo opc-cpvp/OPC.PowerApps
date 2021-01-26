@@ -83,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DuplicateMergeUpdateStatusPlugin.cs" />
-    <Compile Include="EntityFieldChangeTracker.cs" />
+    <Compile Include="EntityChangeTracker.cs" />
     <Compile Include="QueueMembershipPlugin.cs" />
     <Compile Include="TimelineRecords.cs" />
     <Compile Include="TimelineTransformationsPlugin.cs" />

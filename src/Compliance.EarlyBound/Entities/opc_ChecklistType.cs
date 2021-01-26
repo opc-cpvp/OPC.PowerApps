@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -412,7 +412,7 @@ namespace Compliance.Entities
 		/// Status of the Checklist Type
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.opc_ChecklistTypeState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.opc_ChecklistTypeState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -420,7 +420,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.opc_ChecklistTypeState)(System.Enum.ToObject(typeof(Compliance.Entities.opc_ChecklistTypeState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.opc_ChecklistTypeState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_ChecklistTypeState), optionSet.Value)));
 				}
 				else
 				{
@@ -520,18 +520,18 @@ namespace Compliance.Entities
 		/// 1:N opc_checklisttype_allegationtypes_checklistty
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_checklisttype_allegationtypes_checklistty")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegationtype> opc_checklisttype_allegationtypes_checklistty
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegationtype> opc_checklisttype_allegationtypes_checklistty
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegationtype>("opc_checklisttype_allegationtypes_checklistty", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("opc_checklisttype_allegationtypes_checklistty", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_checklisttype_allegationtypes_checklistty");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegationtype>("opc_checklisttype_allegationtypes_checklistty", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("opc_checklisttype_allegationtypes_checklistty", null, value);
 				this.OnPropertyChanged("opc_checklisttype_allegationtypes_checklistty");
 			}
 		}
@@ -540,18 +540,18 @@ namespace Compliance.Entities
 		/// 1:N opc_checklisttype_questiontemplates_checklist
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_checklisttype_questiontemplates_checklist")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionTemplate> opc_checklisttype_questiontemplates_checklist
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> opc_checklisttype_questiontemplates_checklist
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("opc_checklisttype_questiontemplates_checklist", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("opc_checklisttype_questiontemplates_checklist", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_checklisttype_questiontemplates_checklist");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("opc_checklisttype_questiontemplates_checklist", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("opc_checklisttype_questiontemplates_checklist", null, value);
 				this.OnPropertyChanged("opc_checklisttype_questiontemplates_checklist");
 			}
 		}
@@ -561,12 +561,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_checklisttype")]
-		public Compliance.Entities.BusinessUnit business_unit_opc_checklisttype
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_checklisttype
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_opc_checklisttype", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_checklisttype", null);
 			}
 		}
 		
@@ -575,12 +575,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklisttype_createdby")]
-		public Compliance.Entities.SystemUser lk_opc_checklisttype_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_checklisttype_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_checklisttype_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_checklisttype_createdby", null);
 			}
 		}
 		
@@ -589,18 +589,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklisttype_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_checklisttype_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_checklisttype_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_checklisttype_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_checklisttype_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklisttype_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_checklisttype_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_checklisttype_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_checklisttype_createdonbehalfby");
 			}
 		}
@@ -610,12 +610,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklisttype_modifiedby")]
-		public Compliance.Entities.SystemUser lk_opc_checklisttype_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_checklisttype_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_checklisttype_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_checklisttype_modifiedby", null);
 			}
 		}
 		
@@ -624,18 +624,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklisttype_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_checklisttype_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_checklisttype_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_checklisttype_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_checklisttype_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklisttype_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_checklisttype_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_checklisttype_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_checklisttype_modifiedonbehalfby");
 			}
 		}
@@ -645,12 +645,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_checklisttype")]
-		public Compliance.Entities.Team team_opc_checklisttype
+		public Compliance.EarlyBound.Entities.Team team_opc_checklisttype
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("team_opc_checklisttype", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_checklisttype", null);
 			}
 		}
 		
@@ -659,12 +659,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_checklisttype")]
-		public Compliance.Entities.SystemUser user_opc_checklisttype
+		public Compliance.EarlyBound.Entities.SystemUser user_opc_checklisttype
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("user_opc_checklisttype", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_checklisttype", null);
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Compliance.Entities;
+using Compliance.EarlyBound.Entities;
 using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
@@ -572,7 +572,7 @@ namespace Compliance.Plugins.Tests
                         new object[] { new TimelineRecordTransform() {
                             Language = Language.French,
                             Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified",
-                            Expected = "Should not be modified \"Test French\" should not be modified" 
+                            Expected = "Should not be modified \"Test French\" should not be modified"
                         }},
 
                         // Multi occurence of multilangual strings

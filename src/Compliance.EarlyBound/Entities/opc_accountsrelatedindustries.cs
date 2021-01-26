@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	/// <summary>
@@ -132,18 +132,18 @@ namespace Compliance.Entities
 		/// N:N opc_accounts_industries_relatedindustries
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_accounts_industries_relatedindustries")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_industry> opc_accounts_industries_relatedindustries
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_industry> opc_accounts_industries_relatedindustries
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_industry>("opc_accounts_industries_relatedindustries", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("opc_accounts_industries_relatedindustries", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_accounts_industries_relatedindustries");
-				this.SetRelatedEntities<Compliance.Entities.opc_industry>("opc_accounts_industries_relatedindustries", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("opc_accounts_industries_relatedindustries", null, value);
 				this.OnPropertyChanged("opc_accounts_industries_relatedindustries");
 			}
 		}

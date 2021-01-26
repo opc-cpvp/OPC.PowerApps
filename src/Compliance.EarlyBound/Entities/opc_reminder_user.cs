@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	/// <summary>
@@ -132,18 +132,18 @@ namespace Compliance.Entities
 		/// N:N opc_reminders_users_additionaluserstonotify
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_reminders_users_additionaluserstonotify")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.SystemUser> opc_reminders_users_additionaluserstonotify
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.SystemUser> opc_reminders_users_additionaluserstonotify
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.SystemUser>("opc_reminders_users_additionaluserstonotify", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("opc_reminders_users_additionaluserstonotify", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_reminders_users_additionaluserstonotify");
-				this.SetRelatedEntities<Compliance.Entities.SystemUser>("opc_reminders_users_additionaluserstonotify", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("opc_reminders_users_additionaluserstonotify", null, value);
 				this.OnPropertyChanged("opc_reminders_users_additionaluserstonotify");
 			}
 		}

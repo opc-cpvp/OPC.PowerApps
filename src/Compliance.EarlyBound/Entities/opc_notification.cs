@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -372,7 +372,7 @@ namespace Compliance.Entities
 		/// Status of the Notification
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.opc_notificationState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.opc_notificationState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -380,7 +380,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.opc_notificationState)(System.Enum.ToObject(typeof(Compliance.Entities.opc_notificationState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.opc_notificationState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_notificationState), optionSet.Value)));
 				}
 				else
 				{
@@ -481,12 +481,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_notification")]
-		public Compliance.Entities.BusinessUnit business_unit_opc_notification
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_notification
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_opc_notification", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_notification", null);
 			}
 		}
 		
@@ -495,12 +495,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_createdby")]
-		public Compliance.Entities.SystemUser lk_opc_notification_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_notification_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_notification_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_notification_createdby", null);
 			}
 		}
 		
@@ -509,18 +509,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_notification_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_notification_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_notification_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_notification_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_notification_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_notification_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_notification_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_notification_createdonbehalfby");
 			}
 		}
@@ -530,12 +530,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_modifiedby")]
-		public Compliance.Entities.SystemUser lk_opc_notification_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_notification_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_notification_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_notification_modifiedby", null);
 			}
 		}
 		
@@ -544,18 +544,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_notification_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_notification_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_notification_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_notification_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_notification_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_notification_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_notification_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_notification_modifiedonbehalfby");
 			}
 		}
@@ -565,18 +565,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_complaintid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_notifications_complaint")]
-		public Compliance.Entities.opc_complaint opc_complaint_notifications_complaint
+		public Compliance.EarlyBound.Entities.opc_complaint opc_complaint_notifications_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_complaint>("opc_complaint_notifications_complaint", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_notifications_complaint", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_notifications_complaint");
-				this.SetRelatedEntity<Compliance.Entities.opc_complaint>("opc_complaint_notifications_complaint", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_notifications_complaint", null, value);
 				this.OnPropertyChanged("opc_complaint_notifications_complaint");
 			}
 		}
@@ -586,12 +586,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_notification")]
-		public Compliance.Entities.Team team_opc_notification
+		public Compliance.EarlyBound.Entities.Team team_opc_notification
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("team_opc_notification", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_notification", null);
 			}
 		}
 		
@@ -600,12 +600,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_notification")]
-		public Compliance.Entities.SystemUser user_opc_notification
+		public Compliance.EarlyBound.Entities.SystemUser user_opc_notification
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("user_opc_notification", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_notification", null);
 			}
 		}
 	}

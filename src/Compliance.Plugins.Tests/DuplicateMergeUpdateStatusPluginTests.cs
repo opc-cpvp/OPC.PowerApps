@@ -1,4 +1,4 @@
-﻿using Compliance.Entities;
+﻿using Compliance.EarlyBound.Entities;
 using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;

@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -3404,7 +3404,7 @@ namespace Compliance.Entities
 		/// Shows whether the contact is active or inactive. Inactive contacts are read-only and can't be edited unless they are reactivated.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.ContactState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.ContactState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -3412,7 +3412,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.ContactState)(System.Enum.ToObject(typeof(Compliance.Entities.ContactState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.ContactState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.ContactState), optionSet.Value)));
 				}
 				else
 				{
@@ -3778,18 +3778,18 @@ namespace Compliance.Entities
 		/// 1:N Contact_Annotation
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("Contact_Annotation")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Annotation> Contact_Annotation
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> Contact_Annotation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Annotation>("Contact_Annotation", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("Contact_Annotation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Contact_Annotation");
-				this.SetRelatedEntities<Compliance.Entities.Annotation>("Contact_Annotation", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("Contact_Annotation", null, value);
 				this.OnPropertyChanged("Contact_Annotation");
 			}
 		}
@@ -3798,18 +3798,18 @@ namespace Compliance.Entities
 		/// 1:N contact_customer_contacts
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Contact> Referencedcontact_customer_contacts
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Contact> Referencedcontact_customer_contacts
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Contact>("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedcontact_customer_contacts");
-				this.SetRelatedEntities<Compliance.Entities.Contact>("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedcontact_customer_contacts");
 			}
 		}
@@ -3818,18 +3818,18 @@ namespace Compliance.Entities
 		/// 1:N contact_master_contact
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Contact> Referencedcontact_master_contact
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Contact> Referencedcontact_master_contact
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Contact>("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedcontact_master_contact");
-				this.SetRelatedEntities<Compliance.Entities.Contact>("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedcontact_master_contact");
 			}
 		}
@@ -3838,18 +3838,18 @@ namespace Compliance.Entities
 		/// 1:N contact_opc_events
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_opc_events")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_event> contact_opc_events
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_event> contact_opc_events
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_event>("contact_opc_events", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("contact_opc_events", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("contact_opc_events");
-				this.SetRelatedEntities<Compliance.Entities.opc_event>("contact_opc_events", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("contact_opc_events", null, value);
 				this.OnPropertyChanged("contact_opc_events");
 			}
 		}
@@ -3858,18 +3858,18 @@ namespace Compliance.Entities
 		/// 1:N opc_contact_complaints_complainant
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_complainant")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_contact_complaints_complainant
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_contact_complaints_complainant
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_complainant", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_complainant", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_complainant");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_complainant", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_complainant", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_complainant");
 			}
 		}
@@ -3878,18 +3878,18 @@ namespace Compliance.Entities
 		/// 1:N opc_contact_complaints_complainantlegalrep
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_complainantlegalrep")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_contact_complaints_complainantlegalrep
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_contact_complaints_complainantlegalrep
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_complainantlegalrep", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_complainantlegalrep", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_complainantlegalrep");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_complainantlegalrep", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_complainantlegalrep", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_complainantlegalrep");
 			}
 		}
@@ -3898,18 +3898,18 @@ namespace Compliance.Entities
 		/// 1:N opc_contact_complaints_complainantreps
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_complainantreps")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_contact_complaints_complainantreps
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_contact_complaints_complainantreps
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_complainantreps", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_complainantreps", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_complainantreps");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_complainantreps", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_complainantreps", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_complainantreps");
 			}
 		}
@@ -3918,18 +3918,18 @@ namespace Compliance.Entities
 		/// 1:N opc_contact_complaints_repondentrep
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_repondentrep")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_contact_complaints_repondentrep
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_contact_complaints_repondentrep
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_repondentrep", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_repondentrep", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_repondentrep");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_repondentrep", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_repondentrep", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_repondentrep");
 			}
 		}
@@ -3938,18 +3938,18 @@ namespace Compliance.Entities
 		/// 1:N opc_contact_complaints_respondentlegalrep
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_complaints_respondentlegalrep")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_contact_complaints_respondentlegalrep
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_contact_complaints_respondentlegalrep
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_respondentlegalrep", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_respondentlegalrep", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_complaints_respondentlegalrep");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_contact_complaints_respondentlegalrep", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_contact_complaints_respondentlegalrep", null, value);
 				this.OnPropertyChanged("opc_contact_complaints_respondentlegalrep");
 			}
 		}
@@ -3958,18 +3958,18 @@ namespace Compliance.Entities
 		/// 1:N opc_contact_issues_contact
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_issues_contact")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_issue> opc_contact_issues_contact
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_issue> opc_contact_issues_contact
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_issue>("opc_contact_issues_contact", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("opc_contact_issues_contact", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_contact_issues_contact");
-				this.SetRelatedEntities<Compliance.Entities.opc_issue>("opc_contact_issues_contact", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("opc_contact_issues_contact", null, value);
 				this.OnPropertyChanged("opc_contact_issues_contact");
 			}
 		}
@@ -3979,12 +3979,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_contacts")]
-		public Compliance.Entities.BusinessUnit business_unit_contacts
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_contacts
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_contacts", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_contacts", null);
 			}
 		}
 		
@@ -3993,18 +3993,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("parentcustomerid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.Contact Referencingcontact_customer_contacts
+		public Compliance.EarlyBound.Entities.Contact Referencingcontact_customer_contacts
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Contact>("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencingcontact_customer_contacts");
-				this.SetRelatedEntity<Compliance.Entities.Contact>("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("contact_customer_contacts", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
 				this.OnPropertyChanged("Referencingcontact_customer_contacts");
 			}
 		}
@@ -4014,12 +4014,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("masterid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.Contact Referencingcontact_master_contact
+		public Compliance.EarlyBound.Entities.Contact Referencingcontact_master_contact
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Contact>("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("contact_master_contact", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 		}
 		
@@ -4028,12 +4028,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_owning_user")]
-		public Compliance.Entities.SystemUser contact_owning_user
+		public Compliance.EarlyBound.Entities.SystemUser contact_owning_user
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("contact_owning_user", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("contact_owning_user", null);
 			}
 		}
 		
@@ -4042,18 +4042,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_contact_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_contact_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_contact_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_contact_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_contact_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_contact_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_contact_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_contact_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_contact_createdonbehalfby");
 			}
 		}
@@ -4063,18 +4063,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_contact_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_contact_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_contact_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_contact_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_contact_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_contact_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_contact_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_contact_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_contact_modifiedonbehalfby");
 			}
 		}
@@ -4084,12 +4084,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_contactbase_createdby")]
-		public Compliance.Entities.SystemUser lk_contactbase_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_contactbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_contactbase_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_contactbase_createdby", null);
 			}
 		}
 		
@@ -4098,12 +4098,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_contactbase_modifiedby")]
-		public Compliance.Entities.SystemUser lk_contactbase_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_contactbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_contactbase_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_contactbase_modifiedby", null);
 			}
 		}
 		
@@ -4112,18 +4112,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("preferredsystemuserid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("system_user_contacts")]
-		public Compliance.Entities.SystemUser system_user_contacts
+		public Compliance.EarlyBound.Entities.SystemUser system_user_contacts
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("system_user_contacts", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("system_user_contacts", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("system_user_contacts");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("system_user_contacts", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("system_user_contacts", null, value);
 				this.OnPropertyChanged("system_user_contacts");
 			}
 		}
@@ -4133,12 +4133,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_contacts")]
-		public Compliance.Entities.Team team_contacts
+		public Compliance.EarlyBound.Entities.Team team_contacts
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("team_contacts", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_contacts", null);
 			}
 		}
 	}

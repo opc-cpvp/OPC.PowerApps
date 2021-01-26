@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -412,7 +412,7 @@ namespace Compliance.Entities
 		/// Status of the Disposition Action
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.opc_dispositionactionState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.opc_dispositionactionState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -420,7 +420,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.opc_dispositionactionState)(System.Enum.ToObject(typeof(Compliance.Entities.opc_dispositionactionState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.opc_dispositionactionState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_dispositionactionState), optionSet.Value)));
 				}
 				else
 				{
@@ -520,18 +520,18 @@ namespace Compliance.Entities
 		/// 1:N opc_dispositionaction_allegations_action
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_dispositionaction_allegations_action")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegation> opc_dispositionaction_allegations_action
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegation> opc_dispositionaction_allegations_action
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegation>("opc_dispositionaction_allegations_action", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("opc_dispositionaction_allegations_action", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_dispositionaction_allegations_action");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegation>("opc_dispositionaction_allegations_action", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("opc_dispositionaction_allegations_action", null, value);
 				this.OnPropertyChanged("opc_dispositionaction_allegations_action");
 			}
 		}
@@ -541,12 +541,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_dispositionaction")]
-		public Compliance.Entities.BusinessUnit business_unit_opc_dispositionaction
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_dispositionaction
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_opc_dispositionaction", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_dispositionaction", null);
 			}
 		}
 		
@@ -555,12 +555,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionaction_createdby")]
-		public Compliance.Entities.SystemUser lk_opc_dispositionaction_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_dispositionaction_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_dispositionaction_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_dispositionaction_createdby", null);
 			}
 		}
 		
@@ -569,18 +569,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionaction_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_dispositionaction_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_dispositionaction_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_dispositionaction_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_dispositionaction_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionaction_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_dispositionaction_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_dispositionaction_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionaction_createdonbehalfby");
 			}
 		}
@@ -590,12 +590,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionaction_modifiedby")]
-		public Compliance.Entities.SystemUser lk_opc_dispositionaction_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_dispositionaction_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_dispositionaction_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_dispositionaction_modifiedby", null);
 			}
 		}
 		
@@ -604,18 +604,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionaction_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_dispositionaction_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_dispositionaction_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_dispositionaction_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_dispositionaction_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionaction_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_dispositionaction_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_dispositionaction_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionaction_modifiedonbehalfby");
 			}
 		}
@@ -625,18 +625,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_dispositionreasonid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_dispositionreason_dispositionactions_reas")]
-		public Compliance.Entities.opc_dispositionreason opc_dispositionreason_dispositionactions_reas
+		public Compliance.EarlyBound.Entities.opc_dispositionreason opc_dispositionreason_dispositionactions_reas
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_dispositionreason>("opc_dispositionreason_dispositionactions_reas", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_dispositionreason>("opc_dispositionreason_dispositionactions_reas", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_dispositionreason_dispositionactions_reas");
-				this.SetRelatedEntity<Compliance.Entities.opc_dispositionreason>("opc_dispositionreason_dispositionactions_reas", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_dispositionreason>("opc_dispositionreason_dispositionactions_reas", null, value);
 				this.OnPropertyChanged("opc_dispositionreason_dispositionactions_reas");
 			}
 		}
@@ -646,12 +646,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_dispositionaction")]
-		public Compliance.Entities.Team team_opc_dispositionaction
+		public Compliance.EarlyBound.Entities.Team team_opc_dispositionaction
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("team_opc_dispositionaction", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_dispositionaction", null);
 			}
 		}
 		
@@ -660,12 +660,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_dispositionaction")]
-		public Compliance.Entities.SystemUser user_opc_dispositionaction
+		public Compliance.EarlyBound.Entities.SystemUser user_opc_dispositionaction
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("user_opc_dispositionaction", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_dispositionaction", null);
 			}
 		}
 	}

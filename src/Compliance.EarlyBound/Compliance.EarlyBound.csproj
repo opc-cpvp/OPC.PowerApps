@@ -145,13 +145,12 @@
     <None Include="crmsvcutil.exe.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="generate_actions.ps1" />
+    <None Include="generate_entities.ps1" />
+    <None Include="generate_optionsets.ps1" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Actions\" />
-    <Folder Include="Entities\" />
-    <Folder Include="OptionSets\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DLaB.EarlyBoundGenerator.DefaultSettings.xml" />
   </ItemGroup>

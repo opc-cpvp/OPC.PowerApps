@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -532,7 +532,7 @@ namespace Compliance.Entities
 		/// Status of the Question Template
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.opc_QuestionTemplateState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.opc_QuestionTemplateState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -540,7 +540,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.opc_QuestionTemplateState)(System.Enum.ToObject(typeof(Compliance.Entities.opc_QuestionTemplateState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.opc_QuestionTemplateState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_QuestionTemplateState), optionSet.Value)));
 				}
 				else
 				{
@@ -640,18 +640,18 @@ namespace Compliance.Entities
 		/// 1:N opc_questiontemplate_checklistresponses_quest
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_questiontemplate_checklistresponses_quest")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistResponse> opc_questiontemplate_checklistresponses_quest
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistResponse> opc_questiontemplate_checklistresponses_quest
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("opc_questiontemplate_checklistresponses_quest", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("opc_questiontemplate_checklistresponses_quest", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_questiontemplate_checklistresponses_quest");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("opc_questiontemplate_checklistresponses_quest", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("opc_questiontemplate_checklistresponses_quest", null, value);
 				this.OnPropertyChanged("opc_questiontemplate_checklistresponses_quest");
 			}
 		}
@@ -660,18 +660,18 @@ namespace Compliance.Entities
 		/// 1:N opc_questiontemplate_questiontemplates_parent
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionTemplate> Referencedopc_questiontemplate_questiontemplates_parent
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> Referencedopc_questiontemplate_questiontemplates_parent
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedopc_questiontemplate_questiontemplates_parent");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedopc_questiontemplate_questiontemplates_parent");
 			}
 		}
@@ -681,12 +681,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_questiontemplate")]
-		public Compliance.Entities.BusinessUnit business_unit_opc_questiontemplate
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_questiontemplate
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_opc_questiontemplate", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_questiontemplate", null);
 			}
 		}
 		
@@ -695,12 +695,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_createdby")]
-		public Compliance.Entities.SystemUser lk_opc_questiontemplate_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_questiontemplate_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_questiontemplate_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontemplate_createdby", null);
 			}
 		}
 		
@@ -709,18 +709,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_questiontemplate_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_questiontemplate_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_questiontemplate_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontemplate_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontemplate_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_questiontemplate_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontemplate_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontemplate_createdonbehalfby");
 			}
 		}
@@ -730,12 +730,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_modifiedby")]
-		public Compliance.Entities.SystemUser lk_opc_questiontemplate_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_questiontemplate_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_questiontemplate_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontemplate_modifiedby", null);
 			}
 		}
 		
@@ -744,18 +744,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_questiontemplate_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_questiontemplate_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_questiontemplate_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontemplate_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontemplate_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_questiontemplate_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_questiontemplate_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontemplate_modifiedonbehalfby");
 			}
 		}
@@ -765,18 +765,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_checklisttypeid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_checklisttype_questiontemplates_checklist")]
-		public Compliance.Entities.opc_ChecklistType opc_checklisttype_questiontemplates_checklist
+		public Compliance.EarlyBound.Entities.opc_ChecklistType opc_checklisttype_questiontemplates_checklist
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_ChecklistType>("opc_checklisttype_questiontemplates_checklist", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_ChecklistType>("opc_checklisttype_questiontemplates_checklist", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_checklisttype_questiontemplates_checklist");
-				this.SetRelatedEntity<Compliance.Entities.opc_ChecklistType>("opc_checklisttype_questiontemplates_checklist", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_ChecklistType>("opc_checklisttype_questiontemplates_checklist", null, value);
 				this.OnPropertyChanged("opc_checklisttype_questiontemplates_checklist");
 			}
 		}
@@ -786,18 +786,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_parentquestiontemplateid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.opc_QuestionTemplate Referencingopc_questiontemplate_questiontemplates_parent
+		public Compliance.EarlyBound.Entities.opc_QuestionTemplate Referencingopc_questiontemplate_questiontemplates_parent
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_QuestionTemplate>("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencingopc_questiontemplate_questiontemplates_parent");
-				this.SetRelatedEntity<Compliance.Entities.opc_QuestionTemplate>("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("opc_questiontemplate_questiontemplates_parent", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
 				this.OnPropertyChanged("Referencingopc_questiontemplate_questiontemplates_parent");
 			}
 		}
@@ -807,18 +807,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_questiontypeid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_questiontype_questiontemplates_questionty")]
-		public Compliance.Entities.opc_QuestionType opc_questiontype_questiontemplates_questionty
+		public Compliance.EarlyBound.Entities.opc_QuestionType opc_questiontype_questiontemplates_questionty
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_QuestionType>("opc_questiontype_questiontemplates_questionty", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_QuestionType>("opc_questiontype_questiontemplates_questionty", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_questiontype_questiontemplates_questionty");
-				this.SetRelatedEntity<Compliance.Entities.opc_QuestionType>("opc_questiontype_questiontemplates_questionty", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_QuestionType>("opc_questiontype_questiontemplates_questionty", null, value);
 				this.OnPropertyChanged("opc_questiontype_questiontemplates_questionty");
 			}
 		}
@@ -828,12 +828,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_questiontemplate")]
-		public Compliance.Entities.Team team_opc_questiontemplate
+		public Compliance.EarlyBound.Entities.Team team_opc_questiontemplate
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("team_opc_questiontemplate", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_questiontemplate", null);
 			}
 		}
 		
@@ -842,12 +842,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_questiontemplate")]
-		public Compliance.Entities.SystemUser user_opc_questiontemplate
+		public Compliance.EarlyBound.Entities.SystemUser user_opc_questiontemplate
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("user_opc_questiontemplate", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_questiontemplate", null);
 			}
 		}
 	}

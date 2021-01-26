@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	/// <summary>
@@ -2471,18 +2471,18 @@ namespace Compliance.Entities
 		/// 1:N annotation_owning_user
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("annotation_owning_user")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Annotation> annotation_owning_user
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> annotation_owning_user
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Annotation>("annotation_owning_user", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("annotation_owning_user", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("annotation_owning_user");
-				this.SetRelatedEntities<Compliance.Entities.Annotation>("annotation_owning_user", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("annotation_owning_user", null, value);
 				this.OnPropertyChanged("annotation_owning_user");
 			}
 		}
@@ -2491,18 +2491,18 @@ namespace Compliance.Entities
 		/// 1:N contact_owning_user
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_owning_user")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Contact> contact_owning_user
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Contact> contact_owning_user
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Contact>("contact_owning_user", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("contact_owning_user", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("contact_owning_user");
-				this.SetRelatedEntities<Compliance.Entities.Contact>("contact_owning_user", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("contact_owning_user", null, value);
 				this.OnPropertyChanged("contact_owning_user");
 			}
 		}
@@ -2511,18 +2511,18 @@ namespace Compliance.Entities
 		/// 1:N lk_annotationbase_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_annotationbase_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Annotation> lk_annotationbase_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> lk_annotationbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Annotation>("lk_annotationbase_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("lk_annotationbase_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_annotationbase_createdby");
-				this.SetRelatedEntities<Compliance.Entities.Annotation>("lk_annotationbase_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("lk_annotationbase_createdby", null, value);
 				this.OnPropertyChanged("lk_annotationbase_createdby");
 			}
 		}
@@ -2531,18 +2531,18 @@ namespace Compliance.Entities
 		/// 1:N lk_annotationbase_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_annotationbase_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Annotation> lk_annotationbase_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> lk_annotationbase_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Annotation>("lk_annotationbase_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("lk_annotationbase_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_annotationbase_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.Annotation>("lk_annotationbase_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("lk_annotationbase_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_annotationbase_createdonbehalfby");
 			}
 		}
@@ -2551,18 +2551,18 @@ namespace Compliance.Entities
 		/// 1:N lk_annotationbase_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_annotationbase_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Annotation> lk_annotationbase_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> lk_annotationbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Annotation>("lk_annotationbase_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("lk_annotationbase_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_annotationbase_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.Annotation>("lk_annotationbase_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("lk_annotationbase_modifiedby", null, value);
 				this.OnPropertyChanged("lk_annotationbase_modifiedby");
 			}
 		}
@@ -2571,18 +2571,18 @@ namespace Compliance.Entities
 		/// 1:N lk_annotationbase_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_annotationbase_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Annotation> lk_annotationbase_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> lk_annotationbase_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Annotation>("lk_annotationbase_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("lk_annotationbase_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_annotationbase_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.Annotation>("lk_annotationbase_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("lk_annotationbase_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_annotationbase_modifiedonbehalfby");
 			}
 		}
@@ -2591,18 +2591,18 @@ namespace Compliance.Entities
 		/// 1:N lk_businessunit_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_businessunit_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.BusinessUnit> lk_businessunit_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.BusinessUnit> lk_businessunit_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.BusinessUnit>("lk_businessunit_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.BusinessUnit>("lk_businessunit_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_businessunit_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.BusinessUnit>("lk_businessunit_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.BusinessUnit>("lk_businessunit_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_businessunit_createdonbehalfby");
 			}
 		}
@@ -2611,18 +2611,18 @@ namespace Compliance.Entities
 		/// 1:N lk_businessunit_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_businessunit_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.BusinessUnit> lk_businessunit_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.BusinessUnit> lk_businessunit_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.BusinessUnit>("lk_businessunit_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.BusinessUnit>("lk_businessunit_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_businessunit_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.BusinessUnit>("lk_businessunit_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.BusinessUnit>("lk_businessunit_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_businessunit_modifiedonbehalfby");
 			}
 		}
@@ -2631,18 +2631,18 @@ namespace Compliance.Entities
 		/// 1:N lk_businessunitbase_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_businessunitbase_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.BusinessUnit> lk_businessunitbase_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.BusinessUnit> lk_businessunitbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.BusinessUnit>("lk_businessunitbase_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.BusinessUnit>("lk_businessunitbase_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_businessunitbase_createdby");
-				this.SetRelatedEntities<Compliance.Entities.BusinessUnit>("lk_businessunitbase_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.BusinessUnit>("lk_businessunitbase_createdby", null, value);
 				this.OnPropertyChanged("lk_businessunitbase_createdby");
 			}
 		}
@@ -2651,18 +2651,18 @@ namespace Compliance.Entities
 		/// 1:N lk_businessunitbase_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_businessunitbase_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.BusinessUnit> lk_businessunitbase_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.BusinessUnit> lk_businessunitbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.BusinessUnit>("lk_businessunitbase_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.BusinessUnit>("lk_businessunitbase_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_businessunitbase_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.BusinessUnit>("lk_businessunitbase_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.BusinessUnit>("lk_businessunitbase_modifiedby", null, value);
 				this.OnPropertyChanged("lk_businessunitbase_modifiedby");
 			}
 		}
@@ -2671,18 +2671,18 @@ namespace Compliance.Entities
 		/// 1:N lk_contact_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_contact_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Contact> lk_contact_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Contact> lk_contact_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Contact>("lk_contact_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("lk_contact_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_contact_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.Contact>("lk_contact_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("lk_contact_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_contact_createdonbehalfby");
 			}
 		}
@@ -2691,18 +2691,18 @@ namespace Compliance.Entities
 		/// 1:N lk_contact_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_contact_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Contact> lk_contact_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Contact> lk_contact_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Contact>("lk_contact_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("lk_contact_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_contact_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.Contact>("lk_contact_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("lk_contact_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_contact_modifiedonbehalfby");
 			}
 		}
@@ -2711,18 +2711,18 @@ namespace Compliance.Entities
 		/// 1:N lk_contactbase_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_contactbase_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Contact> lk_contactbase_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Contact> lk_contactbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Contact>("lk_contactbase_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("lk_contactbase_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_contactbase_createdby");
-				this.SetRelatedEntities<Compliance.Entities.Contact>("lk_contactbase_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("lk_contactbase_createdby", null, value);
 				this.OnPropertyChanged("lk_contactbase_createdby");
 			}
 		}
@@ -2731,18 +2731,18 @@ namespace Compliance.Entities
 		/// 1:N lk_contactbase_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_contactbase_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Contact> lk_contactbase_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Contact> lk_contactbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Contact>("lk_contactbase_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("lk_contactbase_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_contactbase_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.Contact>("lk_contactbase_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("lk_contactbase_modifiedby", null, value);
 				this.OnPropertyChanged("lk_contactbase_modifiedby");
 			}
 		}
@@ -2751,18 +2751,18 @@ namespace Compliance.Entities
 		/// 1:N lk_duplicaterule_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_duplicaterule_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.DuplicateRule> lk_duplicaterule_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.DuplicateRule> lk_duplicaterule_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.DuplicateRule>("lk_duplicaterule_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("lk_duplicaterule_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_duplicaterule_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.DuplicateRule>("lk_duplicaterule_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("lk_duplicaterule_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_duplicaterule_createdonbehalfby");
 			}
 		}
@@ -2771,18 +2771,18 @@ namespace Compliance.Entities
 		/// 1:N lk_duplicaterule_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_duplicaterule_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.DuplicateRule> lk_duplicaterule_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.DuplicateRule> lk_duplicaterule_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.DuplicateRule>("lk_duplicaterule_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("lk_duplicaterule_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_duplicaterule_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.DuplicateRule>("lk_duplicaterule_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("lk_duplicaterule_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_duplicaterule_modifiedonbehalfby");
 			}
 		}
@@ -2791,18 +2791,18 @@ namespace Compliance.Entities
 		/// 1:N lk_duplicaterulebase_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_duplicaterulebase_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.DuplicateRule> lk_duplicaterulebase_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.DuplicateRule> lk_duplicaterulebase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.DuplicateRule>("lk_duplicaterulebase_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("lk_duplicaterulebase_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_duplicaterulebase_createdby");
-				this.SetRelatedEntities<Compliance.Entities.DuplicateRule>("lk_duplicaterulebase_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("lk_duplicaterulebase_createdby", null, value);
 				this.OnPropertyChanged("lk_duplicaterulebase_createdby");
 			}
 		}
@@ -2811,18 +2811,18 @@ namespace Compliance.Entities
 		/// 1:N lk_duplicaterulebase_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_duplicaterulebase_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.DuplicateRule> lk_duplicaterulebase_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.DuplicateRule> lk_duplicaterulebase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.DuplicateRule>("lk_duplicaterulebase_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("lk_duplicaterulebase_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_duplicaterulebase_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.DuplicateRule>("lk_duplicaterulebase_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("lk_duplicaterulebase_modifiedby", null, value);
 				this.OnPropertyChanged("lk_duplicaterulebase_modifiedby");
 			}
 		}
@@ -2831,18 +2831,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_accessrequestdocument_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_accessrequestdocument_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_accessrequestdocument> lk_opc_accessrequestdocument_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_accessrequestdocument> lk_opc_accessrequestdocument_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_accessrequestdocument_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_accessrequestdocument_createdby");
 			}
 		}
@@ -2851,18 +2851,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_accessrequestdocument_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_accessrequestdocument_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_accessrequestdocument> lk_opc_accessrequestdocument_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_accessrequestdocument> lk_opc_accessrequestdocument_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_accessrequestdocument_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_accessrequestdocument_createdonbehalfby");
 			}
 		}
@@ -2871,18 +2871,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_accessrequestdocument_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_accessrequestdocument_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_accessrequestdocument> lk_opc_accessrequestdocument_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_accessrequestdocument> lk_opc_accessrequestdocument_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_accessrequestdocument_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_accessrequestdocument_modifiedby");
 			}
 		}
@@ -2891,18 +2891,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_accessrequestdocument_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_accessrequestdocument_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_accessrequestdocument> lk_opc_accessrequestdocument_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_accessrequestdocument> lk_opc_accessrequestdocument_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_accessrequestdocument_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("lk_opc_accessrequestdocument_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_accessrequestdocument_modifiedonbehalfby");
 			}
 		}
@@ -2911,18 +2911,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_allegation_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_allegation_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegation> lk_opc_allegation_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegation> lk_opc_allegation_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegation>("lk_opc_allegation_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("lk_opc_allegation_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_allegation_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegation>("lk_opc_allegation_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("lk_opc_allegation_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_allegation_createdby");
 			}
 		}
@@ -2931,18 +2931,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_allegation_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_allegation_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegation> lk_opc_allegation_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegation> lk_opc_allegation_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegation>("lk_opc_allegation_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("lk_opc_allegation_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_allegation_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegation>("lk_opc_allegation_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("lk_opc_allegation_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_allegation_createdonbehalfby");
 			}
 		}
@@ -2951,18 +2951,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_allegation_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_allegation_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegation> lk_opc_allegation_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegation> lk_opc_allegation_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegation>("lk_opc_allegation_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("lk_opc_allegation_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_allegation_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegation>("lk_opc_allegation_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("lk_opc_allegation_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_allegation_modifiedby");
 			}
 		}
@@ -2971,18 +2971,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_allegation_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_allegation_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegation> lk_opc_allegation_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegation> lk_opc_allegation_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegation>("lk_opc_allegation_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("lk_opc_allegation_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_allegation_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegation>("lk_opc_allegation_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("lk_opc_allegation_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_allegation_modifiedonbehalfby");
 			}
 		}
@@ -2991,18 +2991,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_allegationtype_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_allegationtype_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegationtype> lk_opc_allegationtype_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegationtype> lk_opc_allegationtype_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegationtype>("lk_opc_allegationtype_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("lk_opc_allegationtype_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_allegationtype_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegationtype>("lk_opc_allegationtype_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("lk_opc_allegationtype_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_allegationtype_createdby");
 			}
 		}
@@ -3011,18 +3011,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_allegationtype_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_allegationtype_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegationtype> lk_opc_allegationtype_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegationtype> lk_opc_allegationtype_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegationtype>("lk_opc_allegationtype_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("lk_opc_allegationtype_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_allegationtype_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegationtype>("lk_opc_allegationtype_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("lk_opc_allegationtype_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_allegationtype_createdonbehalfby");
 			}
 		}
@@ -3031,18 +3031,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_allegationtype_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_allegationtype_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegationtype> lk_opc_allegationtype_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegationtype> lk_opc_allegationtype_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegationtype>("lk_opc_allegationtype_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("lk_opc_allegationtype_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_allegationtype_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegationtype>("lk_opc_allegationtype_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("lk_opc_allegationtype_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_allegationtype_modifiedby");
 			}
 		}
@@ -3051,18 +3051,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_allegationtype_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_allegationtype_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegationtype> lk_opc_allegationtype_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegationtype> lk_opc_allegationtype_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegationtype>("lk_opc_allegationtype_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("lk_opc_allegationtype_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_allegationtype_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegationtype>("lk_opc_allegationtype_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("lk_opc_allegationtype_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_allegationtype_modifiedonbehalfby");
 			}
 		}
@@ -3071,18 +3071,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_checklistresponse_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklistresponse_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistResponse> lk_opc_checklistresponse_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistResponse> lk_opc_checklistresponse_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklistresponse_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_checklistresponse_createdby");
 			}
 		}
@@ -3091,18 +3091,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_checklistresponse_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklistresponse_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistResponse> lk_opc_checklistresponse_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistResponse> lk_opc_checklistresponse_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklistresponse_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_checklistresponse_createdonbehalfby");
 			}
 		}
@@ -3111,18 +3111,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_checklistresponse_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklistresponse_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistResponse> lk_opc_checklistresponse_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistResponse> lk_opc_checklistresponse_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklistresponse_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_checklistresponse_modifiedby");
 			}
 		}
@@ -3131,18 +3131,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_checklistresponse_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklistresponse_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistResponse> lk_opc_checklistresponse_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistResponse> lk_opc_checklistresponse_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklistresponse_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("lk_opc_checklistresponse_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_checklistresponse_modifiedonbehalfby");
 			}
 		}
@@ -3151,18 +3151,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_checklisttype_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklisttype_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistType> lk_opc_checklisttype_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistType> lk_opc_checklisttype_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistType>("lk_opc_checklisttype_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("lk_opc_checklisttype_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklisttype_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistType>("lk_opc_checklisttype_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("lk_opc_checklisttype_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_checklisttype_createdby");
 			}
 		}
@@ -3171,18 +3171,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_checklisttype_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklisttype_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistType> lk_opc_checklisttype_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistType> lk_opc_checklisttype_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistType>("lk_opc_checklisttype_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("lk_opc_checklisttype_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklisttype_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistType>("lk_opc_checklisttype_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("lk_opc_checklisttype_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_checklisttype_createdonbehalfby");
 			}
 		}
@@ -3191,18 +3191,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_checklisttype_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklisttype_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistType> lk_opc_checklisttype_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistType> lk_opc_checklisttype_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistType>("lk_opc_checklisttype_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("lk_opc_checklisttype_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklisttype_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistType>("lk_opc_checklisttype_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("lk_opc_checklisttype_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_checklisttype_modifiedby");
 			}
 		}
@@ -3211,18 +3211,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_checklisttype_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_checklisttype_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistType> lk_opc_checklisttype_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistType> lk_opc_checklisttype_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistType>("lk_opc_checklisttype_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("lk_opc_checklisttype_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_checklisttype_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistType>("lk_opc_checklisttype_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("lk_opc_checklisttype_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_checklisttype_modifiedonbehalfby");
 			}
 		}
@@ -3231,18 +3231,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_complaint_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_complaint_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> lk_opc_complaint_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> lk_opc_complaint_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("lk_opc_complaint_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("lk_opc_complaint_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_complaint_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("lk_opc_complaint_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("lk_opc_complaint_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_complaint_createdby");
 			}
 		}
@@ -3251,18 +3251,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_complaint_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_complaint_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> lk_opc_complaint_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> lk_opc_complaint_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("lk_opc_complaint_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("lk_opc_complaint_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_complaint_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("lk_opc_complaint_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("lk_opc_complaint_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_complaint_createdonbehalfby");
 			}
 		}
@@ -3271,18 +3271,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_complaint_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_complaint_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> lk_opc_complaint_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> lk_opc_complaint_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("lk_opc_complaint_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("lk_opc_complaint_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_complaint_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("lk_opc_complaint_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("lk_opc_complaint_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_complaint_modifiedby");
 			}
 		}
@@ -3291,18 +3291,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_complaint_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_complaint_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> lk_opc_complaint_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> lk_opc_complaint_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("lk_opc_complaint_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("lk_opc_complaint_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_complaint_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("lk_opc_complaint_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("lk_opc_complaint_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_complaint_modifiedonbehalfby");
 			}
 		}
@@ -3311,18 +3311,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_dispositionaction_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionaction_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionaction> lk_opc_dispositionaction_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionaction> lk_opc_dispositionaction_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionaction>("lk_opc_dispositionaction_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("lk_opc_dispositionaction_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionaction_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionaction>("lk_opc_dispositionaction_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("lk_opc_dispositionaction_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionaction_createdby");
 			}
 		}
@@ -3331,18 +3331,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_dispositionaction_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionaction_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionaction> lk_opc_dispositionaction_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionaction> lk_opc_dispositionaction_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionaction>("lk_opc_dispositionaction_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("lk_opc_dispositionaction_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionaction_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionaction>("lk_opc_dispositionaction_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("lk_opc_dispositionaction_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionaction_createdonbehalfby");
 			}
 		}
@@ -3351,18 +3351,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_dispositionaction_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionaction_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionaction> lk_opc_dispositionaction_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionaction> lk_opc_dispositionaction_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionaction>("lk_opc_dispositionaction_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("lk_opc_dispositionaction_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionaction_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionaction>("lk_opc_dispositionaction_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("lk_opc_dispositionaction_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionaction_modifiedby");
 			}
 		}
@@ -3371,18 +3371,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_dispositionaction_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionaction_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionaction> lk_opc_dispositionaction_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionaction> lk_opc_dispositionaction_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionaction>("lk_opc_dispositionaction_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("lk_opc_dispositionaction_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionaction_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionaction>("lk_opc_dispositionaction_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("lk_opc_dispositionaction_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionaction_modifiedonbehalfby");
 			}
 		}
@@ -3391,18 +3391,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_dispositionreason_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionreason_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionreason> lk_opc_dispositionreason_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionreason> lk_opc_dispositionreason_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionreason>("lk_opc_dispositionreason_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("lk_opc_dispositionreason_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionreason_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionreason>("lk_opc_dispositionreason_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("lk_opc_dispositionreason_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionreason_createdby");
 			}
 		}
@@ -3411,18 +3411,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_dispositionreason_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionreason_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionreason> lk_opc_dispositionreason_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionreason> lk_opc_dispositionreason_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionreason>("lk_opc_dispositionreason_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("lk_opc_dispositionreason_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionreason_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionreason>("lk_opc_dispositionreason_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("lk_opc_dispositionreason_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionreason_createdonbehalfby");
 			}
 		}
@@ -3431,18 +3431,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_dispositionreason_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionreason_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionreason> lk_opc_dispositionreason_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionreason> lk_opc_dispositionreason_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionreason>("lk_opc_dispositionreason_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("lk_opc_dispositionreason_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionreason_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionreason>("lk_opc_dispositionreason_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("lk_opc_dispositionreason_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionreason_modifiedby");
 			}
 		}
@@ -3451,18 +3451,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_dispositionreason_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_dispositionreason_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionreason> lk_opc_dispositionreason_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionreason> lk_opc_dispositionreason_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionreason>("lk_opc_dispositionreason_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("lk_opc_dispositionreason_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_dispositionreason_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionreason>("lk_opc_dispositionreason_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("lk_opc_dispositionreason_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_dispositionreason_modifiedonbehalfby");
 			}
 		}
@@ -3471,18 +3471,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_individualcomplaint_bp_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_individualcomplaint_bp_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_individualcomplaint_bp> lk_opc_individualcomplaint_bp_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp> lk_opc_individualcomplaint_bp_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_individualcomplaint_bp_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_individualcomplaint_bp_createdby");
 			}
 		}
@@ -3491,18 +3491,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_individualcomplaint_bp_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_individualcomplaint_bp_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_individualcomplaint_bp> lk_opc_individualcomplaint_bp_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp> lk_opc_individualcomplaint_bp_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_individualcomplaint_bp_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_individualcomplaint_bp_createdonbehalfby");
 			}
 		}
@@ -3511,18 +3511,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_individualcomplaint_bp_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_individualcomplaint_bp_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_individualcomplaint_bp> lk_opc_individualcomplaint_bp_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp> lk_opc_individualcomplaint_bp_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_individualcomplaint_bp_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_individualcomplaint_bp_modifiedby");
 			}
 		}
@@ -3531,18 +3531,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_individualcomplaint_bp_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_individualcomplaint_bp_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_individualcomplaint_bp> lk_opc_individualcomplaint_bp_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp> lk_opc_individualcomplaint_bp_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_individualcomplaint_bp_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_individualcomplaint_bp>("lk_opc_individualcomplaint_bp_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_individualcomplaint_bp_modifiedonbehalfby");
 			}
 		}
@@ -3551,18 +3551,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_industry_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_industry_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_industry> lk_opc_industry_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_industry> lk_opc_industry_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_industry>("lk_opc_industry_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("lk_opc_industry_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_industry_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_industry>("lk_opc_industry_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("lk_opc_industry_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_industry_createdby");
 			}
 		}
@@ -3571,18 +3571,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_industry_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_industry_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_industry> lk_opc_industry_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_industry> lk_opc_industry_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_industry>("lk_opc_industry_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("lk_opc_industry_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_industry_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_industry>("lk_opc_industry_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("lk_opc_industry_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_industry_createdonbehalfby");
 			}
 		}
@@ -3591,18 +3591,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_industry_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_industry_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_industry> lk_opc_industry_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_industry> lk_opc_industry_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_industry>("lk_opc_industry_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("lk_opc_industry_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_industry_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_industry>("lk_opc_industry_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("lk_opc_industry_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_industry_modifiedby");
 			}
 		}
@@ -3611,18 +3611,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_industry_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_industry_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_industry> lk_opc_industry_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_industry> lk_opc_industry_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_industry>("lk_opc_industry_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("lk_opc_industry_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_industry_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_industry>("lk_opc_industry_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("lk_opc_industry_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_industry_modifiedonbehalfby");
 			}
 		}
@@ -3631,18 +3631,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_issue_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_issue_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_issue> lk_opc_issue_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_issue> lk_opc_issue_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_issue>("lk_opc_issue_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("lk_opc_issue_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_issue_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_issue>("lk_opc_issue_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("lk_opc_issue_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_issue_createdby");
 			}
 		}
@@ -3651,18 +3651,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_issue_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_issue_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_issue> lk_opc_issue_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_issue> lk_opc_issue_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_issue>("lk_opc_issue_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("lk_opc_issue_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_issue_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_issue>("lk_opc_issue_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("lk_opc_issue_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_issue_createdonbehalfby");
 			}
 		}
@@ -3671,18 +3671,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_issue_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_issue_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_issue> lk_opc_issue_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_issue> lk_opc_issue_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_issue>("lk_opc_issue_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("lk_opc_issue_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_issue_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_issue>("lk_opc_issue_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("lk_opc_issue_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_issue_modifiedby");
 			}
 		}
@@ -3691,18 +3691,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_issue_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_issue_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_issue> lk_opc_issue_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_issue> lk_opc_issue_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_issue>("lk_opc_issue_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("lk_opc_issue_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_issue_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_issue>("lk_opc_issue_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("lk_opc_issue_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_issue_modifiedonbehalfby");
 			}
 		}
@@ -3711,18 +3711,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_legislation_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_legislation_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_legislation> lk_opc_legislation_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_legislation> lk_opc_legislation_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_legislation>("lk_opc_legislation_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("lk_opc_legislation_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_legislation_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_legislation>("lk_opc_legislation_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("lk_opc_legislation_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_legislation_createdby");
 			}
 		}
@@ -3731,18 +3731,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_legislation_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_legislation_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_legislation> lk_opc_legislation_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_legislation> lk_opc_legislation_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_legislation>("lk_opc_legislation_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("lk_opc_legislation_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_legislation_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_legislation>("lk_opc_legislation_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("lk_opc_legislation_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_legislation_createdonbehalfby");
 			}
 		}
@@ -3751,18 +3751,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_legislation_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_legislation_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_legislation> lk_opc_legislation_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_legislation> lk_opc_legislation_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_legislation>("lk_opc_legislation_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("lk_opc_legislation_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_legislation_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_legislation>("lk_opc_legislation_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("lk_opc_legislation_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_legislation_modifiedby");
 			}
 		}
@@ -3771,18 +3771,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_legislation_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_legislation_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_legislation> lk_opc_legislation_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_legislation> lk_opc_legislation_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_legislation>("lk_opc_legislation_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("lk_opc_legislation_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_legislation_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_legislation>("lk_opc_legislation_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("lk_opc_legislation_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_legislation_modifiedonbehalfby");
 			}
 		}
@@ -3791,18 +3791,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_notification_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_notification> lk_opc_notification_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_notification> lk_opc_notification_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_notification>("lk_opc_notification_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("lk_opc_notification_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_notification_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_notification>("lk_opc_notification_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("lk_opc_notification_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_notification_createdby");
 			}
 		}
@@ -3811,18 +3811,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_notification_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_notification> lk_opc_notification_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_notification> lk_opc_notification_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_notification>("lk_opc_notification_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("lk_opc_notification_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_notification_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_notification>("lk_opc_notification_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("lk_opc_notification_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_notification_createdonbehalfby");
 			}
 		}
@@ -3831,18 +3831,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_notification_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_notification> lk_opc_notification_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_notification> lk_opc_notification_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_notification>("lk_opc_notification_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("lk_opc_notification_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_notification_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_notification>("lk_opc_notification_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("lk_opc_notification_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_notification_modifiedby");
 			}
 		}
@@ -3851,18 +3851,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_notification_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_notification> lk_opc_notification_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_notification> lk_opc_notification_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_notification>("lk_opc_notification_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("lk_opc_notification_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_notification_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_notification>("lk_opc_notification_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("lk_opc_notification_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_notification_modifiedonbehalfby");
 			}
 		}
@@ -3871,18 +3871,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_opcpriority_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_opcpriority_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_opcpriority> lk_opc_opcpriority_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_opcpriority> lk_opc_opcpriority_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_opcpriority>("lk_opc_opcpriority_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("lk_opc_opcpriority_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_opcpriority_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_opcpriority>("lk_opc_opcpriority_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("lk_opc_opcpriority_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_opcpriority_createdby");
 			}
 		}
@@ -3891,18 +3891,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_opcpriority_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_opcpriority_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_opcpriority> lk_opc_opcpriority_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_opcpriority> lk_opc_opcpriority_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_opcpriority>("lk_opc_opcpriority_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("lk_opc_opcpriority_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_opcpriority_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_opcpriority>("lk_opc_opcpriority_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("lk_opc_opcpriority_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_opcpriority_createdonbehalfby");
 			}
 		}
@@ -3911,18 +3911,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_opcpriority_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_opcpriority_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_opcpriority> lk_opc_opcpriority_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_opcpriority> lk_opc_opcpriority_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_opcpriority>("lk_opc_opcpriority_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("lk_opc_opcpriority_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_opcpriority_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_opcpriority>("lk_opc_opcpriority_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("lk_opc_opcpriority_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_opcpriority_modifiedby");
 			}
 		}
@@ -3931,18 +3931,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_opcpriority_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_opcpriority_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_opcpriority> lk_opc_opcpriority_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_opcpriority> lk_opc_opcpriority_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_opcpriority>("lk_opc_opcpriority_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("lk_opc_opcpriority_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_opcpriority_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_opcpriority>("lk_opc_opcpriority_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("lk_opc_opcpriority_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_opcpriority_modifiedonbehalfby");
 			}
 		}
@@ -3951,18 +3951,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_questiontemplate_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionTemplate> lk_opc_questiontemplate_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> lk_opc_questiontemplate_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontemplate_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontemplate_createdby");
 			}
 		}
@@ -3971,18 +3971,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_questiontemplate_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionTemplate> lk_opc_questiontemplate_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> lk_opc_questiontemplate_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontemplate_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontemplate_createdonbehalfby");
 			}
 		}
@@ -3991,18 +3991,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_questiontemplate_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionTemplate> lk_opc_questiontemplate_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> lk_opc_questiontemplate_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontemplate_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontemplate_modifiedby");
 			}
 		}
@@ -4011,18 +4011,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_questiontemplate_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionTemplate> lk_opc_questiontemplate_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> lk_opc_questiontemplate_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontemplate_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("lk_opc_questiontemplate_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontemplate_modifiedonbehalfby");
 			}
 		}
@@ -4031,18 +4031,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_questiontype_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontype_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionType> lk_opc_questiontype_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionType> lk_opc_questiontype_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionType>("lk_opc_questiontype_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionType>("lk_opc_questiontype_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontype_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionType>("lk_opc_questiontype_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionType>("lk_opc_questiontype_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontype_createdby");
 			}
 		}
@@ -4051,18 +4051,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_questiontype_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontype_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionType> lk_opc_questiontype_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionType> lk_opc_questiontype_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionType>("lk_opc_questiontype_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionType>("lk_opc_questiontype_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontype_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionType>("lk_opc_questiontype_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionType>("lk_opc_questiontype_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontype_createdonbehalfby");
 			}
 		}
@@ -4071,18 +4071,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_questiontype_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontype_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionType> lk_opc_questiontype_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionType> lk_opc_questiontype_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionType>("lk_opc_questiontype_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionType>("lk_opc_questiontype_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontype_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionType>("lk_opc_questiontype_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionType>("lk_opc_questiontype_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontype_modifiedby");
 			}
 		}
@@ -4091,18 +4091,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_questiontype_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontype_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionType> lk_opc_questiontype_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionType> lk_opc_questiontype_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionType>("lk_opc_questiontype_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionType>("lk_opc_questiontype_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_questiontype_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionType>("lk_opc_questiontype_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionType>("lk_opc_questiontype_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_questiontype_modifiedonbehalfby");
 			}
 		}
@@ -4111,18 +4111,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_recommendation_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_recommendation_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_recommendation> lk_opc_recommendation_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_recommendation> lk_opc_recommendation_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_recommendation>("lk_opc_recommendation_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("lk_opc_recommendation_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_recommendation_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_recommendation>("lk_opc_recommendation_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("lk_opc_recommendation_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_recommendation_createdby");
 			}
 		}
@@ -4131,18 +4131,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_recommendation_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_recommendation_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_recommendation> lk_opc_recommendation_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_recommendation> lk_opc_recommendation_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_recommendation>("lk_opc_recommendation_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("lk_opc_recommendation_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_recommendation_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_recommendation>("lk_opc_recommendation_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("lk_opc_recommendation_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_recommendation_createdonbehalfby");
 			}
 		}
@@ -4151,18 +4151,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_recommendation_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_recommendation_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_recommendation> lk_opc_recommendation_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_recommendation> lk_opc_recommendation_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_recommendation>("lk_opc_recommendation_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("lk_opc_recommendation_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_recommendation_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_recommendation>("lk_opc_recommendation_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("lk_opc_recommendation_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_recommendation_modifiedby");
 			}
 		}
@@ -4171,18 +4171,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_recommendation_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_recommendation_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_recommendation> lk_opc_recommendation_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_recommendation> lk_opc_recommendation_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_recommendation>("lk_opc_recommendation_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("lk_opc_recommendation_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_recommendation_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_recommendation>("lk_opc_recommendation_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("lk_opc_recommendation_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_recommendation_modifiedonbehalfby");
 			}
 		}
@@ -4191,18 +4191,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_reminder_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_reminder_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_reminder> lk_opc_reminder_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_reminder> lk_opc_reminder_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_reminder>("lk_opc_reminder_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("lk_opc_reminder_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_reminder_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_reminder>("lk_opc_reminder_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("lk_opc_reminder_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_reminder_createdby");
 			}
 		}
@@ -4211,18 +4211,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_reminder_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_reminder_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_reminder> lk_opc_reminder_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_reminder> lk_opc_reminder_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_reminder>("lk_opc_reminder_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("lk_opc_reminder_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_reminder_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_reminder>("lk_opc_reminder_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("lk_opc_reminder_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_reminder_createdonbehalfby");
 			}
 		}
@@ -4231,18 +4231,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_reminder_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_reminder_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_reminder> lk_opc_reminder_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_reminder> lk_opc_reminder_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_reminder>("lk_opc_reminder_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("lk_opc_reminder_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_reminder_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_reminder>("lk_opc_reminder_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("lk_opc_reminder_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_reminder_modifiedby");
 			}
 		}
@@ -4251,18 +4251,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_reminder_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_reminder_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_reminder> lk_opc_reminder_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_reminder> lk_opc_reminder_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_reminder>("lk_opc_reminder_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("lk_opc_reminder_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_reminder_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_reminder>("lk_opc_reminder_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("lk_opc_reminder_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_reminder_modifiedonbehalfby");
 			}
 		}
@@ -4271,18 +4271,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskappetite_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskappetite_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAppetite> lk_opc_riskappetite_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAppetite> lk_opc_riskappetite_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("lk_opc_riskappetite_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("lk_opc_riskappetite_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskappetite_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("lk_opc_riskappetite_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("lk_opc_riskappetite_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_riskappetite_createdby");
 			}
 		}
@@ -4291,18 +4291,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskappetite_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskappetite_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAppetite> lk_opc_riskappetite_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAppetite> lk_opc_riskappetite_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("lk_opc_riskappetite_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("lk_opc_riskappetite_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskappetite_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("lk_opc_riskappetite_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("lk_opc_riskappetite_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskappetite_createdonbehalfby");
 			}
 		}
@@ -4311,18 +4311,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskappetite_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskappetite_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAppetite> lk_opc_riskappetite_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAppetite> lk_opc_riskappetite_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("lk_opc_riskappetite_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("lk_opc_riskappetite_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskappetite_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("lk_opc_riskappetite_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("lk_opc_riskappetite_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_riskappetite_modifiedby");
 			}
 		}
@@ -4331,18 +4331,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskappetite_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskappetite_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAppetite> lk_opc_riskappetite_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAppetite> lk_opc_riskappetite_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("lk_opc_riskappetite_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("lk_opc_riskappetite_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskappetite_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("lk_opc_riskappetite_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("lk_opc_riskappetite_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskappetite_modifiedonbehalfby");
 			}
 		}
@@ -4351,18 +4351,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessment_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessment_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessment> lk_opc_riskassessment_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessment> lk_opc_riskassessment_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("lk_opc_riskassessment_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("lk_opc_riskassessment_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessment_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("lk_opc_riskassessment_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("lk_opc_riskassessment_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessment_createdby");
 			}
 		}
@@ -4371,18 +4371,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessment_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessment_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessment> lk_opc_riskassessment_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessment> lk_opc_riskassessment_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("lk_opc_riskassessment_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("lk_opc_riskassessment_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessment_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("lk_opc_riskassessment_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("lk_opc_riskassessment_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessment_createdonbehalfby");
 			}
 		}
@@ -4391,18 +4391,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessment_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessment_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessment> lk_opc_riskassessment_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessment> lk_opc_riskassessment_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("lk_opc_riskassessment_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("lk_opc_riskassessment_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessment_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("lk_opc_riskassessment_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("lk_opc_riskassessment_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessment_modifiedby");
 			}
 		}
@@ -4411,18 +4411,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessment_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessment_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessment> lk_opc_riskassessment_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessment> lk_opc_riskassessment_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("lk_opc_riskassessment_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("lk_opc_riskassessment_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessment_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("lk_opc_riskassessment_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("lk_opc_riskassessment_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessment_modifiedonbehalfby");
 			}
 		}
@@ -4431,18 +4431,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentcategory_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentcategory_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategory> lk_opc_riskassessmentcategory_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory> lk_opc_riskassessmentcategory_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentcategory_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentcategory_createdby");
 			}
 		}
@@ -4451,18 +4451,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentcategory_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentcategory_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategory> lk_opc_riskassessmentcategory_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory> lk_opc_riskassessmentcategory_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentcategory_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentcategory_createdonbehalfby");
 			}
 		}
@@ -4471,18 +4471,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentcategory_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentcategory_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategory> lk_opc_riskassessmentcategory_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory> lk_opc_riskassessmentcategory_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentcategory_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentcategory_modifiedby");
 			}
 		}
@@ -4491,18 +4491,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentcategory_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentcategory_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategory> lk_opc_riskassessmentcategory_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory> lk_opc_riskassessmentcategory_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentcategory_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("lk_opc_riskassessmentcategory_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentcategory_modifiedonbehalfby");
 			}
 		}
@@ -4511,18 +4511,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentcategorytemplate_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentcategorytemplate_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategoryTemplate> lk_opc_riskassessmentcategorytemplate_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate> lk_opc_riskassessmentcategorytemplate_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentcategorytemplate_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentcategorytemplate_createdby");
 			}
 		}
@@ -4531,18 +4531,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentcategorytemplate_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentcategorytemplate_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategoryTemplate> lk_opc_riskassessmentcategorytemplate_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate> lk_opc_riskassessmentcategorytemplate_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentcategorytemplate_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentcategorytemplate_createdonbehalfby");
 			}
 		}
@@ -4551,18 +4551,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentcategorytemplate_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentcategorytemplate_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategoryTemplate> lk_opc_riskassessmentcategorytemplate_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate> lk_opc_riskassessmentcategorytemplate_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentcategorytemplate_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentcategorytemplate_modifiedby");
 			}
 		}
@@ -4571,18 +4571,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategoryTemplate> lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate> lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentcategorytemplate_modifiedonbehalfby");
 			}
 		}
@@ -4591,18 +4591,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentdefinition_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinition_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinition> lk_opc_riskassessmentdefinition_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition> lk_opc_riskassessmentdefinition_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinition_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinition_createdby");
 			}
 		}
@@ -4611,18 +4611,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentdefinition_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinition_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinition> lk_opc_riskassessmentdefinition_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition> lk_opc_riskassessmentdefinition_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinition_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinition_createdonbehalfby");
 			}
 		}
@@ -4631,18 +4631,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentdefinition_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinition_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinition> lk_opc_riskassessmentdefinition_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition> lk_opc_riskassessmentdefinition_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinition_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinition_modifiedby");
 			}
 		}
@@ -4651,18 +4651,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentdefinition_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinition_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinition> lk_opc_riskassessmentdefinition_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition> lk_opc_riskassessmentdefinition_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinition_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("lk_opc_riskassessmentdefinition_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinition_modifiedonbehalfby");
 			}
 		}
@@ -4671,18 +4671,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentdefinitiontemplate_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinitiontemplate_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate> lk_opc_riskassessmentdefinitiontemplate_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate> lk_opc_riskassessmentdefinitiontemplate_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinitiontemplate_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinitiontemplate_createdby");
 			}
 		}
@@ -4691,18 +4691,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate> lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate> lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinitiontemplate_createdonbehalfby");
 			}
 		}
@@ -4711,18 +4711,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentdefinitiontemplate_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinitiontemplate_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate> lk_opc_riskassessmentdefinitiontemplate_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate> lk_opc_riskassessmentdefinitiontemplate_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinitiontemplate_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinitiontemplate_modifiedby");
 			}
 		}
@@ -4731,18 +4731,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate> lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate> lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinitiontemplate_modifiedonbehalfby");
 			}
 		}
@@ -4751,18 +4751,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentfactortemplate_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentfactortemplate_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentFactorTemplate> lk_opc_riskassessmentfactortemplate_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate> lk_opc_riskassessmentfactortemplate_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentfactortemplate_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentfactortemplate_createdby");
 			}
 		}
@@ -4771,18 +4771,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentfactortemplate_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentfactortemplate_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentFactorTemplate> lk_opc_riskassessmentfactortemplate_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate> lk_opc_riskassessmentfactortemplate_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentfactortemplate_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentfactortemplate_createdonbehalfby");
 			}
 		}
@@ -4791,18 +4791,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentfactortemplate_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentfactortemplate_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentFactorTemplate> lk_opc_riskassessmentfactortemplate_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate> lk_opc_riskassessmentfactortemplate_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentfactortemplate_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentfactortemplate_modifiedby");
 			}
 		}
@@ -4811,18 +4811,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmentfactortemplate_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentfactortemplate_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentFactorTemplate> lk_opc_riskassessmentfactortemplate_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate> lk_opc_riskassessmentfactortemplate_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentfactortemplate_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("lk_opc_riskassessmentfactortemplate_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentfactortemplate_modifiedonbehalfby");
 			}
 		}
@@ -4831,18 +4831,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmenttype_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmenttype_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentType> lk_opc_riskassessmenttype_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentType> lk_opc_riskassessmenttype_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmenttype_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmenttype_createdby");
 			}
 		}
@@ -4851,18 +4851,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmenttype_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmenttype_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentType> lk_opc_riskassessmenttype_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentType> lk_opc_riskassessmenttype_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmenttype_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmenttype_createdonbehalfby");
 			}
 		}
@@ -4871,18 +4871,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmenttype_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmenttype_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentType> lk_opc_riskassessmenttype_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentType> lk_opc_riskassessmenttype_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmenttype_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmenttype_modifiedby");
 			}
 		}
@@ -4891,18 +4891,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_riskassessmenttype_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmenttype_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentType> lk_opc_riskassessmenttype_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentType> lk_opc_riskassessmenttype_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmenttype_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("lk_opc_riskassessmenttype_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmenttype_modifiedonbehalfby");
 			}
 		}
@@ -4911,18 +4911,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_theme_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_theme_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_theme> lk_opc_theme_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_theme> lk_opc_theme_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_theme>("lk_opc_theme_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("lk_opc_theme_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_theme_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_theme>("lk_opc_theme_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("lk_opc_theme_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_theme_createdby");
 			}
 		}
@@ -4931,18 +4931,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_theme_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_theme_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_theme> lk_opc_theme_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_theme> lk_opc_theme_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_theme>("lk_opc_theme_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("lk_opc_theme_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_theme_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_theme>("lk_opc_theme_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("lk_opc_theme_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_theme_createdonbehalfby");
 			}
 		}
@@ -4951,18 +4951,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_theme_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_theme_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_theme> lk_opc_theme_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_theme> lk_opc_theme_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_theme>("lk_opc_theme_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("lk_opc_theme_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_theme_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_theme>("lk_opc_theme_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("lk_opc_theme_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_theme_modifiedby");
 			}
 		}
@@ -4971,18 +4971,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_theme_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_theme_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_theme> lk_opc_theme_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_theme> lk_opc_theme_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_theme>("lk_opc_theme_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("lk_opc_theme_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_theme_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_theme>("lk_opc_theme_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("lk_opc_theme_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_theme_modifiedonbehalfby");
 			}
 		}
@@ -4991,18 +4991,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_topic_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_topic_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_topic> lk_opc_topic_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_topic> lk_opc_topic_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_topic>("lk_opc_topic_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("lk_opc_topic_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_topic_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_topic>("lk_opc_topic_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("lk_opc_topic_createdby", null, value);
 				this.OnPropertyChanged("lk_opc_topic_createdby");
 			}
 		}
@@ -5011,18 +5011,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_topic_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_topic_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_topic> lk_opc_topic_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_topic> lk_opc_topic_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_topic>("lk_opc_topic_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("lk_opc_topic_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_topic_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_topic>("lk_opc_topic_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("lk_opc_topic_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_topic_createdonbehalfby");
 			}
 		}
@@ -5031,18 +5031,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_topic_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_topic_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_topic> lk_opc_topic_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_topic> lk_opc_topic_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_topic>("lk_opc_topic_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("lk_opc_topic_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_topic_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_topic>("lk_opc_topic_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("lk_opc_topic_modifiedby", null, value);
 				this.OnPropertyChanged("lk_opc_topic_modifiedby");
 			}
 		}
@@ -5051,18 +5051,18 @@ namespace Compliance.Entities
 		/// 1:N lk_opc_topic_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_topic_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_topic> lk_opc_topic_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_topic> lk_opc_topic_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_topic>("lk_opc_topic_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("lk_opc_topic_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_topic_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_topic>("lk_opc_topic_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("lk_opc_topic_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_topic_modifiedonbehalfby");
 			}
 		}
@@ -5071,18 +5071,18 @@ namespace Compliance.Entities
 		/// 1:N lk_role_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_role_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Role> lk_role_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Role> lk_role_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Role>("lk_role_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Role>("lk_role_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_role_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.Role>("lk_role_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Role>("lk_role_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_role_createdonbehalfby");
 			}
 		}
@@ -5091,18 +5091,18 @@ namespace Compliance.Entities
 		/// 1:N lk_role_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_role_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Role> lk_role_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Role> lk_role_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Role>("lk_role_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Role>("lk_role_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_role_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.Role>("lk_role_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Role>("lk_role_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_role_modifiedonbehalfby");
 			}
 		}
@@ -5111,18 +5111,18 @@ namespace Compliance.Entities
 		/// 1:N lk_rolebase_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_rolebase_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Role> lk_rolebase_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Role> lk_rolebase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Role>("lk_rolebase_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Role>("lk_rolebase_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_rolebase_createdby");
-				this.SetRelatedEntities<Compliance.Entities.Role>("lk_rolebase_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Role>("lk_rolebase_createdby", null, value);
 				this.OnPropertyChanged("lk_rolebase_createdby");
 			}
 		}
@@ -5131,18 +5131,18 @@ namespace Compliance.Entities
 		/// 1:N lk_rolebase_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_rolebase_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Role> lk_rolebase_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Role> lk_rolebase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Role>("lk_rolebase_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Role>("lk_rolebase_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_rolebase_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.Role>("lk_rolebase_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Role>("lk_rolebase_modifiedby", null, value);
 				this.OnPropertyChanged("lk_rolebase_modifiedby");
 			}
 		}
@@ -5151,18 +5151,18 @@ namespace Compliance.Entities
 		/// 1:N lk_systemuser_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.SystemUser> Referencedlk_systemuser_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.SystemUser> Referencedlk_systemuser_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.SystemUser>("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedlk_systemuser_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.SystemUser>("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedlk_systemuser_createdonbehalfby");
 			}
 		}
@@ -5171,18 +5171,18 @@ namespace Compliance.Entities
 		/// 1:N lk_systemuser_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.SystemUser> Referencedlk_systemuser_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.SystemUser> Referencedlk_systemuser_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.SystemUser>("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedlk_systemuser_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.SystemUser>("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedlk_systemuser_modifiedonbehalfby");
 			}
 		}
@@ -5191,18 +5191,18 @@ namespace Compliance.Entities
 		/// 1:N lk_systemuserbase_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuserbase_createdby", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.SystemUser> Referencedlk_systemuserbase_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.SystemUser> Referencedlk_systemuserbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.SystemUser>("lk_systemuserbase_createdby", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuserbase_createdby", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedlk_systemuserbase_createdby");
-				this.SetRelatedEntities<Compliance.Entities.SystemUser>("lk_systemuserbase_createdby", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuserbase_createdby", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedlk_systemuserbase_createdby");
 			}
 		}
@@ -5211,18 +5211,18 @@ namespace Compliance.Entities
 		/// 1:N lk_systemuserbase_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuserbase_modifiedby", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.SystemUser> Referencedlk_systemuserbase_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.SystemUser> Referencedlk_systemuserbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.SystemUser>("lk_systemuserbase_modifiedby", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuserbase_modifiedby", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedlk_systemuserbase_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.SystemUser>("lk_systemuserbase_modifiedby", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuserbase_modifiedby", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedlk_systemuserbase_modifiedby");
 			}
 		}
@@ -5231,18 +5231,18 @@ namespace Compliance.Entities
 		/// 1:N lk_team_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_team_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Team> lk_team_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Team> lk_team_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Team>("lk_team_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_team_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_team_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.Team>("lk_team_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_team_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_team_createdonbehalfby");
 			}
 		}
@@ -5251,18 +5251,18 @@ namespace Compliance.Entities
 		/// 1:N lk_team_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_team_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Team> lk_team_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Team> lk_team_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Team>("lk_team_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_team_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_team_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.Team>("lk_team_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_team_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_team_modifiedonbehalfby");
 			}
 		}
@@ -5271,18 +5271,18 @@ namespace Compliance.Entities
 		/// 1:N lk_teambase_administratorid
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_teambase_administratorid")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Team> lk_teambase_administratorid
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Team> lk_teambase_administratorid
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Team>("lk_teambase_administratorid", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_teambase_administratorid", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_teambase_administratorid");
-				this.SetRelatedEntities<Compliance.Entities.Team>("lk_teambase_administratorid", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_teambase_administratorid", null, value);
 				this.OnPropertyChanged("lk_teambase_administratorid");
 			}
 		}
@@ -5291,18 +5291,18 @@ namespace Compliance.Entities
 		/// 1:N lk_teambase_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_teambase_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Team> lk_teambase_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Team> lk_teambase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Team>("lk_teambase_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_teambase_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_teambase_createdby");
-				this.SetRelatedEntities<Compliance.Entities.Team>("lk_teambase_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_teambase_createdby", null, value);
 				this.OnPropertyChanged("lk_teambase_createdby");
 			}
 		}
@@ -5311,18 +5311,18 @@ namespace Compliance.Entities
 		/// 1:N lk_teambase_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_teambase_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Team> lk_teambase_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Team> lk_teambase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Team>("lk_teambase_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_teambase_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_teambase_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.Team>("lk_teambase_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Team>("lk_teambase_modifiedby", null, value);
 				this.OnPropertyChanged("lk_teambase_modifiedby");
 			}
 		}
@@ -5331,18 +5331,18 @@ namespace Compliance.Entities
 		/// 1:N lk_usersettings_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettings_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.UserSettings> lk_usersettings_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.UserSettings> lk_usersettings_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.UserSettings>("lk_usersettings_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("lk_usersettings_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_usersettings_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.UserSettings>("lk_usersettings_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("lk_usersettings_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_usersettings_createdonbehalfby");
 			}
 		}
@@ -5351,18 +5351,18 @@ namespace Compliance.Entities
 		/// 1:N lk_usersettings_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettings_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.UserSettings> lk_usersettings_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.UserSettings> lk_usersettings_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.UserSettings>("lk_usersettings_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("lk_usersettings_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_usersettings_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.UserSettings>("lk_usersettings_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("lk_usersettings_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_usersettings_modifiedonbehalfby");
 			}
 		}
@@ -5371,18 +5371,18 @@ namespace Compliance.Entities
 		/// 1:N lk_usersettingsbase_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettingsbase_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.UserSettings> lk_usersettingsbase_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.UserSettings> lk_usersettingsbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.UserSettings>("lk_usersettingsbase_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("lk_usersettingsbase_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_usersettingsbase_createdby");
-				this.SetRelatedEntities<Compliance.Entities.UserSettings>("lk_usersettingsbase_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("lk_usersettingsbase_createdby", null, value);
 				this.OnPropertyChanged("lk_usersettingsbase_createdby");
 			}
 		}
@@ -5391,18 +5391,18 @@ namespace Compliance.Entities
 		/// 1:N lk_usersettingsbase_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettingsbase_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.UserSettings> lk_usersettingsbase_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.UserSettings> lk_usersettingsbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.UserSettings>("lk_usersettingsbase_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("lk_usersettingsbase_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_usersettingsbase_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.UserSettings>("lk_usersettingsbase_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("lk_usersettingsbase_modifiedby", null, value);
 				this.OnPropertyChanged("lk_usersettingsbase_modifiedby");
 			}
 		}
@@ -5411,18 +5411,18 @@ namespace Compliance.Entities
 		/// 1:N opc_complaint_intakeofficer_SystemUser
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_intakeofficer_SystemUser")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_complaint_intakeofficer_SystemUser
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_complaint_intakeofficer_SystemUser
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_complaint_intakeofficer_SystemUser", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_intakeofficer_SystemUser", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_intakeofficer_SystemUser");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_complaint_intakeofficer_SystemUser", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_intakeofficer_SystemUser", null, value);
 				this.OnPropertyChanged("opc_complaint_intakeofficer_SystemUser");
 			}
 		}
@@ -5431,18 +5431,18 @@ namespace Compliance.Entities
 		/// 1:N opc_event_systemuser_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_createdby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_event> opc_event_systemuser_createdby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_event> opc_event_systemuser_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_createdby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_createdby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_systemuser_createdby");
-				this.SetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_createdby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_createdby", null, value);
 				this.OnPropertyChanged("opc_event_systemuser_createdby");
 			}
 		}
@@ -5451,18 +5451,18 @@ namespace Compliance.Entities
 		/// 1:N opc_event_systemuser_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_createdonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_event> opc_event_systemuser_createdonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_event> opc_event_systemuser_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_createdonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_systemuser_createdonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_createdonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_createdonbehalfby", null, value);
 				this.OnPropertyChanged("opc_event_systemuser_createdonbehalfby");
 			}
 		}
@@ -5471,18 +5471,18 @@ namespace Compliance.Entities
 		/// 1:N opc_event_systemuser_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_modifiedby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_event> opc_event_systemuser_modifiedby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_event> opc_event_systemuser_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_modifiedby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_modifiedby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_systemuser_modifiedby");
-				this.SetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_modifiedby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_modifiedby", null, value);
 				this.OnPropertyChanged("opc_event_systemuser_modifiedby");
 			}
 		}
@@ -5491,18 +5491,18 @@ namespace Compliance.Entities
 		/// 1:N opc_event_systemuser_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_modifiedonbehalfby")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_event> opc_event_systemuser_modifiedonbehalfby
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_event> opc_event_systemuser_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_modifiedonbehalfby", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_systemuser_modifiedonbehalfby");
-				this.SetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_modifiedonbehalfby", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("opc_event_systemuser_modifiedonbehalfby");
 			}
 		}
@@ -5511,18 +5511,18 @@ namespace Compliance.Entities
 		/// 1:N opc_event_systemuser_owninguser
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_owninguser")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_event> opc_event_systemuser_owninguser
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_event> opc_event_systemuser_owninguser
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_owninguser", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_owninguser", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_systemuser_owninguser");
-				this.SetRelatedEntities<Compliance.Entities.opc_event>("opc_event_systemuser_owninguser", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_event>("opc_event_systemuser_owninguser", null, value);
 				this.OnPropertyChanged("opc_event_systemuser_owninguser");
 			}
 		}
@@ -5531,18 +5531,18 @@ namespace Compliance.Entities
 		/// 1:N opc_RiskAssessment_BypassInitiatedBy_Syst
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_RiskAssessment_BypassInitiatedBy_Syst")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessment> opc_RiskAssessment_BypassInitiatedBy_Syst
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessment> opc_RiskAssessment_BypassInitiatedBy_Syst
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("opc_RiskAssessment_BypassInitiatedBy_Syst", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("opc_RiskAssessment_BypassInitiatedBy_Syst", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_RiskAssessment_BypassInitiatedBy_Syst");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("opc_RiskAssessment_BypassInitiatedBy_Syst", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("opc_RiskAssessment_BypassInitiatedBy_Syst", null, value);
 				this.OnPropertyChanged("opc_RiskAssessment_BypassInitiatedBy_Syst");
 			}
 		}
@@ -5551,18 +5551,18 @@ namespace Compliance.Entities
 		/// 1:N opc_RiskAssessmentCategory_BypassInitiate
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_RiskAssessmentCategory_BypassInitiate")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategory> opc_RiskAssessmentCategory_BypassInitiate
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory> opc_RiskAssessmentCategory_BypassInitiate
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("opc_RiskAssessmentCategory_BypassInitiate", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("opc_RiskAssessmentCategory_BypassInitiate", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_RiskAssessmentCategory_BypassInitiate");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("opc_RiskAssessmentCategory_BypassInitiate", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("opc_RiskAssessmentCategory_BypassInitiate", null, value);
 				this.OnPropertyChanged("opc_RiskAssessmentCategory_BypassInitiate");
 			}
 		}
@@ -5571,18 +5571,18 @@ namespace Compliance.Entities
 		/// 1:N opc_user_complaints_erofficer
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_user_complaints_erofficer")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_user_complaints_erofficer
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_user_complaints_erofficer
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_user_complaints_erofficer", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_user_complaints_erofficer", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_user_complaints_erofficer");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_user_complaints_erofficer", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_user_complaints_erofficer", null, value);
 				this.OnPropertyChanged("opc_user_complaints_erofficer");
 			}
 		}
@@ -5591,18 +5591,18 @@ namespace Compliance.Entities
 		/// 1:N opc_user_complaints_reportredactor
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_user_complaints_reportredactor")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_user_complaints_reportredactor
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_user_complaints_reportredactor
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_user_complaints_reportredactor", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_user_complaints_reportredactor", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_user_complaints_reportredactor");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_user_complaints_reportredactor", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_user_complaints_reportredactor", null, value);
 				this.OnPropertyChanged("opc_user_complaints_reportredactor");
 			}
 		}
@@ -5611,18 +5611,18 @@ namespace Compliance.Entities
 		/// 1:N system_user_contacts
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("system_user_contacts")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Contact> system_user_contacts
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Contact> system_user_contacts
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Contact>("system_user_contacts", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("system_user_contacts", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("system_user_contacts");
-				this.SetRelatedEntities<Compliance.Entities.Contact>("system_user_contacts", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Contact>("system_user_contacts", null, value);
 				this.OnPropertyChanged("system_user_contacts");
 			}
 		}
@@ -5631,18 +5631,18 @@ namespace Compliance.Entities
 		/// 1:N SystemUser_DuplicateRules
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("SystemUser_DuplicateRules")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.DuplicateRule> SystemUser_DuplicateRules
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.DuplicateRule> SystemUser_DuplicateRules
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.DuplicateRule>("SystemUser_DuplicateRules", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("SystemUser_DuplicateRules", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("SystemUser_DuplicateRules");
-				this.SetRelatedEntities<Compliance.Entities.DuplicateRule>("SystemUser_DuplicateRules", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.DuplicateRule>("SystemUser_DuplicateRules", null, value);
 				this.OnPropertyChanged("SystemUser_DuplicateRules");
 			}
 		}
@@ -5651,18 +5651,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_accessrequestdocument
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_accessrequestdocument")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_accessrequestdocument> user_opc_accessrequestdocument
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_accessrequestdocument> user_opc_accessrequestdocument
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("user_opc_accessrequestdocument", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("user_opc_accessrequestdocument", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_accessrequestdocument");
-				this.SetRelatedEntities<Compliance.Entities.opc_accessrequestdocument>("user_opc_accessrequestdocument", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_accessrequestdocument>("user_opc_accessrequestdocument", null, value);
 				this.OnPropertyChanged("user_opc_accessrequestdocument");
 			}
 		}
@@ -5671,18 +5671,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_allegation
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_allegation")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegation> user_opc_allegation
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegation> user_opc_allegation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegation>("user_opc_allegation", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("user_opc_allegation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_allegation");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegation>("user_opc_allegation", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegation>("user_opc_allegation", null, value);
 				this.OnPropertyChanged("user_opc_allegation");
 			}
 		}
@@ -5691,18 +5691,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_allegationtype
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_allegationtype")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_allegationtype> user_opc_allegationtype
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_allegationtype> user_opc_allegationtype
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_allegationtype>("user_opc_allegationtype", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("user_opc_allegationtype", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_allegationtype");
-				this.SetRelatedEntities<Compliance.Entities.opc_allegationtype>("user_opc_allegationtype", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_allegationtype>("user_opc_allegationtype", null, value);
 				this.OnPropertyChanged("user_opc_allegationtype");
 			}
 		}
@@ -5711,18 +5711,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_checklistresponse
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_checklistresponse")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistResponse> user_opc_checklistresponse
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistResponse> user_opc_checklistresponse
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("user_opc_checklistresponse", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("user_opc_checklistresponse", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_checklistresponse");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistResponse>("user_opc_checklistresponse", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistResponse>("user_opc_checklistresponse", null, value);
 				this.OnPropertyChanged("user_opc_checklistresponse");
 			}
 		}
@@ -5731,18 +5731,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_checklisttype
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_checklisttype")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_ChecklistType> user_opc_checklisttype
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_ChecklistType> user_opc_checklisttype
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_ChecklistType>("user_opc_checklisttype", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("user_opc_checklisttype", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_checklisttype");
-				this.SetRelatedEntities<Compliance.Entities.opc_ChecklistType>("user_opc_checklisttype", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_ChecklistType>("user_opc_checklisttype", null, value);
 				this.OnPropertyChanged("user_opc_checklisttype");
 			}
 		}
@@ -5751,18 +5751,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_complaint
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_complaint")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> user_opc_complaint
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> user_opc_complaint
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("user_opc_complaint", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("user_opc_complaint", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_complaint");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("user_opc_complaint", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("user_opc_complaint", null, value);
 				this.OnPropertyChanged("user_opc_complaint");
 			}
 		}
@@ -5771,18 +5771,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_dispositionaction
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_dispositionaction")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionaction> user_opc_dispositionaction
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionaction> user_opc_dispositionaction
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionaction>("user_opc_dispositionaction", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("user_opc_dispositionaction", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_dispositionaction");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionaction>("user_opc_dispositionaction", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionaction>("user_opc_dispositionaction", null, value);
 				this.OnPropertyChanged("user_opc_dispositionaction");
 			}
 		}
@@ -5791,18 +5791,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_dispositionreason
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_dispositionreason")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_dispositionreason> user_opc_dispositionreason
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_dispositionreason> user_opc_dispositionreason
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_dispositionreason>("user_opc_dispositionreason", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("user_opc_dispositionreason", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_dispositionreason");
-				this.SetRelatedEntities<Compliance.Entities.opc_dispositionreason>("user_opc_dispositionreason", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_dispositionreason>("user_opc_dispositionreason", null, value);
 				this.OnPropertyChanged("user_opc_dispositionreason");
 			}
 		}
@@ -5811,18 +5811,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_industry
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_industry")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_industry> user_opc_industry
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_industry> user_opc_industry
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_industry>("user_opc_industry", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("user_opc_industry", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_industry");
-				this.SetRelatedEntities<Compliance.Entities.opc_industry>("user_opc_industry", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("user_opc_industry", null, value);
 				this.OnPropertyChanged("user_opc_industry");
 			}
 		}
@@ -5831,18 +5831,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_issue
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_issue")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_issue> user_opc_issue
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_issue> user_opc_issue
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_issue>("user_opc_issue", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("user_opc_issue", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_issue");
-				this.SetRelatedEntities<Compliance.Entities.opc_issue>("user_opc_issue", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_issue>("user_opc_issue", null, value);
 				this.OnPropertyChanged("user_opc_issue");
 			}
 		}
@@ -5851,18 +5851,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_legislation
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_legislation")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_legislation> user_opc_legislation
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_legislation> user_opc_legislation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_legislation>("user_opc_legislation", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("user_opc_legislation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_legislation");
-				this.SetRelatedEntities<Compliance.Entities.opc_legislation>("user_opc_legislation", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_legislation>("user_opc_legislation", null, value);
 				this.OnPropertyChanged("user_opc_legislation");
 			}
 		}
@@ -5871,18 +5871,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_notification
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_notification")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_notification> user_opc_notification
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_notification> user_opc_notification
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_notification>("user_opc_notification", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("user_opc_notification", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_notification");
-				this.SetRelatedEntities<Compliance.Entities.opc_notification>("user_opc_notification", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_notification>("user_opc_notification", null, value);
 				this.OnPropertyChanged("user_opc_notification");
 			}
 		}
@@ -5891,18 +5891,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_opcpriority
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_opcpriority")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_opcpriority> user_opc_opcpriority
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_opcpriority> user_opc_opcpriority
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_opcpriority>("user_opc_opcpriority", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("user_opc_opcpriority", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_opcpriority");
-				this.SetRelatedEntities<Compliance.Entities.opc_opcpriority>("user_opc_opcpriority", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_opcpriority>("user_opc_opcpriority", null, value);
 				this.OnPropertyChanged("user_opc_opcpriority");
 			}
 		}
@@ -5911,18 +5911,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_questiontemplate
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_questiontemplate")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_QuestionTemplate> user_opc_questiontemplate
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_QuestionTemplate> user_opc_questiontemplate
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("user_opc_questiontemplate", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("user_opc_questiontemplate", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_questiontemplate");
-				this.SetRelatedEntities<Compliance.Entities.opc_QuestionTemplate>("user_opc_questiontemplate", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_QuestionTemplate>("user_opc_questiontemplate", null, value);
 				this.OnPropertyChanged("user_opc_questiontemplate");
 			}
 		}
@@ -5931,18 +5931,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_recommendation
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_recommendation")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_recommendation> user_opc_recommendation
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_recommendation> user_opc_recommendation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_recommendation>("user_opc_recommendation", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("user_opc_recommendation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_recommendation");
-				this.SetRelatedEntities<Compliance.Entities.opc_recommendation>("user_opc_recommendation", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_recommendation>("user_opc_recommendation", null, value);
 				this.OnPropertyChanged("user_opc_recommendation");
 			}
 		}
@@ -5951,18 +5951,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_reminder
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_reminder")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_reminder> user_opc_reminder
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_reminder> user_opc_reminder
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_reminder>("user_opc_reminder", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("user_opc_reminder", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_reminder");
-				this.SetRelatedEntities<Compliance.Entities.opc_reminder>("user_opc_reminder", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("user_opc_reminder", null, value);
 				this.OnPropertyChanged("user_opc_reminder");
 			}
 		}
@@ -5971,18 +5971,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_riskappetite
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskappetite")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAppetite> user_opc_riskappetite
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAppetite> user_opc_riskappetite
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("user_opc_riskappetite", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("user_opc_riskappetite", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_riskappetite");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAppetite>("user_opc_riskappetite", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAppetite>("user_opc_riskappetite", null, value);
 				this.OnPropertyChanged("user_opc_riskappetite");
 			}
 		}
@@ -5991,18 +5991,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_riskassessment
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskassessment")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessment> user_opc_riskassessment
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessment> user_opc_riskassessment
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("user_opc_riskassessment", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("user_opc_riskassessment", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_riskassessment");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessment>("user_opc_riskassessment", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessment>("user_opc_riskassessment", null, value);
 				this.OnPropertyChanged("user_opc_riskassessment");
 			}
 		}
@@ -6011,18 +6011,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_riskassessmentcategory
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskassessmentcategory")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategory> user_opc_riskassessmentcategory
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory> user_opc_riskassessmentcategory
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("user_opc_riskassessmentcategory", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("user_opc_riskassessmentcategory", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_riskassessmentcategory");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategory>("user_opc_riskassessmentcategory", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("user_opc_riskassessmentcategory", null, value);
 				this.OnPropertyChanged("user_opc_riskassessmentcategory");
 			}
 		}
@@ -6031,18 +6031,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_riskassessmentcategorytemplate
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskassessmentcategorytemplate")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentCategoryTemplate> user_opc_riskassessmentcategorytemplate
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate> user_opc_riskassessmentcategorytemplate
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("user_opc_riskassessmentcategorytemplate", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("user_opc_riskassessmentcategorytemplate", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_riskassessmentcategorytemplate");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentCategoryTemplate>("user_opc_riskassessmentcategorytemplate", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategoryTemplate>("user_opc_riskassessmentcategorytemplate", null, value);
 				this.OnPropertyChanged("user_opc_riskassessmentcategorytemplate");
 			}
 		}
@@ -6051,18 +6051,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_riskassessmentdefinition
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskassessmentdefinition")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinition> user_opc_riskassessmentdefinition
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition> user_opc_riskassessmentdefinition
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("user_opc_riskassessmentdefinition", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("user_opc_riskassessmentdefinition", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_riskassessmentdefinition");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinition>("user_opc_riskassessmentdefinition", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinition>("user_opc_riskassessmentdefinition", null, value);
 				this.OnPropertyChanged("user_opc_riskassessmentdefinition");
 			}
 		}
@@ -6071,18 +6071,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_riskassessmentdefinitiontemplate
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskassessmentdefinitiontemplate")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate> user_opc_riskassessmentdefinitiontemplate
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate> user_opc_riskassessmentdefinitiontemplate
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("user_opc_riskassessmentdefinitiontemplate", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("user_opc_riskassessmentdefinitiontemplate", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_riskassessmentdefinitiontemplate");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("user_opc_riskassessmentdefinitiontemplate", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("user_opc_riskassessmentdefinitiontemplate", null, value);
 				this.OnPropertyChanged("user_opc_riskassessmentdefinitiontemplate");
 			}
 		}
@@ -6091,18 +6091,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_riskassessmentfactortemplate
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskassessmentfactortemplate")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentFactorTemplate> user_opc_riskassessmentfactortemplate
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate> user_opc_riskassessmentfactortemplate
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("user_opc_riskassessmentfactortemplate", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("user_opc_riskassessmentfactortemplate", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_riskassessmentfactortemplate");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("user_opc_riskassessmentfactortemplate", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("user_opc_riskassessmentfactortemplate", null, value);
 				this.OnPropertyChanged("user_opc_riskassessmentfactortemplate");
 			}
 		}
@@ -6111,18 +6111,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_riskassessmenttype
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskassessmenttype")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_RiskAssessmentType> user_opc_riskassessmenttype
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_RiskAssessmentType> user_opc_riskassessmenttype
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("user_opc_riskassessmenttype", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("user_opc_riskassessmenttype", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_riskassessmenttype");
-				this.SetRelatedEntities<Compliance.Entities.opc_RiskAssessmentType>("user_opc_riskassessmenttype", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_RiskAssessmentType>("user_opc_riskassessmenttype", null, value);
 				this.OnPropertyChanged("user_opc_riskassessmenttype");
 			}
 		}
@@ -6131,18 +6131,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_theme
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_theme")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_theme> user_opc_theme
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_theme> user_opc_theme
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_theme>("user_opc_theme", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("user_opc_theme", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_theme");
-				this.SetRelatedEntities<Compliance.Entities.opc_theme>("user_opc_theme", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_theme>("user_opc_theme", null, value);
 				this.OnPropertyChanged("user_opc_theme");
 			}
 		}
@@ -6151,18 +6151,18 @@ namespace Compliance.Entities
 		/// 1:N user_opc_topic
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_topic")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_topic> user_opc_topic
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_topic> user_opc_topic
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_topic>("user_opc_topic", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("user_opc_topic", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_opc_topic");
-				this.SetRelatedEntities<Compliance.Entities.opc_topic>("user_opc_topic", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_topic>("user_opc_topic", null, value);
 				this.OnPropertyChanged("user_opc_topic");
 			}
 		}
@@ -6171,18 +6171,18 @@ namespace Compliance.Entities
 		/// 1:N user_parent_user
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.SystemUser> Referenceduser_parent_user
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.SystemUser> Referenceduser_parent_user
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referenceduser_parent_user");
-				this.SetRelatedEntities<Compliance.Entities.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referenceduser_parent_user");
 			}
 		}
@@ -6191,18 +6191,18 @@ namespace Compliance.Entities
 		/// 1:N user_settings
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_settings")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.UserSettings> user_settings
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.UserSettings> user_settings
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.UserSettings>("user_settings", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("user_settings", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_settings");
-				this.SetRelatedEntities<Compliance.Entities.UserSettings>("user_settings", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.UserSettings>("user_settings", null, value);
 				this.OnPropertyChanged("user_settings");
 			}
 		}
@@ -6211,18 +6211,18 @@ namespace Compliance.Entities
 		/// N:N opc_reminders_users_additionaluserstonotify
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_reminders_users_additionaluserstonotify")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_reminder> opc_reminders_users_additionaluserstonotify
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_reminder> opc_reminders_users_additionaluserstonotify
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_reminder>("opc_reminders_users_additionaluserstonotify", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("opc_reminders_users_additionaluserstonotify", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_reminders_users_additionaluserstonotify");
-				this.SetRelatedEntities<Compliance.Entities.opc_reminder>("opc_reminders_users_additionaluserstonotify", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_reminder>("opc_reminders_users_additionaluserstonotify", null, value);
 				this.OnPropertyChanged("opc_reminders_users_additionaluserstonotify");
 			}
 		}
@@ -6231,18 +6231,18 @@ namespace Compliance.Entities
 		/// N:N systemuserroles_association
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("systemuserroles_association")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Role> systemuserroles_association
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Role> systemuserroles_association
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Role>("systemuserroles_association", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Role>("systemuserroles_association", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("systemuserroles_association");
-				this.SetRelatedEntities<Compliance.Entities.Role>("systemuserroles_association", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Role>("systemuserroles_association", null, value);
 				this.OnPropertyChanged("systemuserroles_association");
 			}
 		}
@@ -6251,18 +6251,18 @@ namespace Compliance.Entities
 		/// N:N teammembership_association
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("teammembership_association")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Team> teammembership_association
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Team> teammembership_association
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Team>("teammembership_association", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Team>("teammembership_association", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("teammembership_association");
-				this.SetRelatedEntities<Compliance.Entities.Team>("teammembership_association", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Team>("teammembership_association", null, value);
 				this.OnPropertyChanged("teammembership_association");
 			}
 		}
@@ -6272,18 +6272,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businessunitid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_system_users")]
-		public Compliance.Entities.BusinessUnit business_unit_system_users
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_system_users
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_system_users", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_system_users", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("business_unit_system_users");
-				this.SetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_system_users", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_system_users", null, value);
 				this.OnPropertyChanged("business_unit_system_users");
 			}
 		}
@@ -6293,18 +6293,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.SystemUser Referencinglk_systemuser_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser Referencinglk_systemuser_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencinglk_systemuser_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuser_createdonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
 				this.OnPropertyChanged("Referencinglk_systemuser_createdonbehalfby");
 			}
 		}
@@ -6314,18 +6314,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.SystemUser Referencinglk_systemuser_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser Referencinglk_systemuser_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencinglk_systemuser_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuser_modifiedonbehalfby", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
 				this.OnPropertyChanged("Referencinglk_systemuser_modifiedonbehalfby");
 			}
 		}
@@ -6335,12 +6335,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuserbase_createdby", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.SystemUser Referencinglk_systemuserbase_createdby
+		public Compliance.EarlyBound.Entities.SystemUser Referencinglk_systemuserbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_systemuserbase_createdby", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuserbase_createdby", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 		}
 		
@@ -6349,12 +6349,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_systemuserbase_modifiedby", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.SystemUser Referencinglk_systemuserbase_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser Referencinglk_systemuserbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_systemuserbase_modifiedby", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_systemuserbase_modifiedby", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 		}
 		
@@ -6363,18 +6363,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("parentsystemuserid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.SystemUser Referencinguser_parent_user
+		public Compliance.EarlyBound.Entities.SystemUser Referencinguser_parent_user
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencinguser_parent_user");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
 				this.OnPropertyChanged("Referencinguser_parent_user");
 			}
 		}

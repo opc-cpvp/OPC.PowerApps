@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1325,7 +1325,7 @@ namespace Compliance.Entities
 		/// Status of the activity.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.opc_eventState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.opc_eventState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -1333,7 +1333,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.opc_eventState)(System.Enum.ToObject(typeof(Compliance.Entities.opc_eventState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.opc_eventState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_eventState), optionSet.Value)));
 				}
 				else
 				{
@@ -1529,18 +1529,18 @@ namespace Compliance.Entities
 		/// 1:N opc_event_Annotations
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_Annotations")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Annotation> opc_event_Annotations
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Annotation> opc_event_Annotations
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Annotation>("opc_event_Annotations", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("opc_event_Annotations", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_Annotations");
-				this.SetRelatedEntities<Compliance.Entities.Annotation>("opc_event_Annotations", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Annotation>("opc_event_Annotations", null, value);
 				this.OnPropertyChanged("opc_event_Annotations");
 			}
 		}
@@ -1550,18 +1550,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("regardingobjectid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("contact_opc_events")]
-		public Compliance.Entities.Contact contact_opc_events
+		public Compliance.EarlyBound.Entities.Contact contact_opc_events
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Contact>("contact_opc_events", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("contact_opc_events", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("contact_opc_events");
-				this.SetRelatedEntity<Compliance.Entities.Contact>("contact_opc_events", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("contact_opc_events", null, value);
 				this.OnPropertyChanged("contact_opc_events");
 			}
 		}
@@ -1571,18 +1571,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("regardingobjectid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_opc_events")]
-		public Compliance.Entities.opc_complaint opc_complaint_opc_events
+		public Compliance.EarlyBound.Entities.opc_complaint opc_complaint_opc_events
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_complaint>("opc_complaint_opc_events", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_opc_events", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_opc_events");
-				this.SetRelatedEntity<Compliance.Entities.opc_complaint>("opc_complaint_opc_events", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_opc_events", null, value);
 				this.OnPropertyChanged("opc_complaint_opc_events");
 			}
 		}
@@ -1592,12 +1592,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_businessunit_owningbusinessunit")]
-		public Compliance.Entities.BusinessUnit opc_event_businessunit_owningbusinessunit
+		public Compliance.EarlyBound.Entities.BusinessUnit opc_event_businessunit_owningbusinessunit
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("opc_event_businessunit_owningbusinessunit", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("opc_event_businessunit_owningbusinessunit", null);
 			}
 		}
 		
@@ -1606,12 +1606,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_createdby")]
-		public Compliance.Entities.SystemUser opc_event_systemuser_createdby
+		public Compliance.EarlyBound.Entities.SystemUser opc_event_systemuser_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("opc_event_systemuser_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_event_systemuser_createdby", null);
 			}
 		}
 		
@@ -1620,18 +1620,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_createdonbehalfby")]
-		public Compliance.Entities.SystemUser opc_event_systemuser_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser opc_event_systemuser_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("opc_event_systemuser_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_event_systemuser_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_systemuser_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("opc_event_systemuser_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_event_systemuser_createdonbehalfby", null, value);
 				this.OnPropertyChanged("opc_event_systemuser_createdonbehalfby");
 			}
 		}
@@ -1641,12 +1641,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_modifiedby")]
-		public Compliance.Entities.SystemUser opc_event_systemuser_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser opc_event_systemuser_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("opc_event_systemuser_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_event_systemuser_modifiedby", null);
 			}
 		}
 		
@@ -1655,18 +1655,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser opc_event_systemuser_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser opc_event_systemuser_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("opc_event_systemuser_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_event_systemuser_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_systemuser_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("opc_event_systemuser_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_event_systemuser_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("opc_event_systemuser_modifiedonbehalfby");
 			}
 		}
@@ -1676,12 +1676,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_systemuser_owninguser")]
-		public Compliance.Entities.SystemUser opc_event_systemuser_owninguser
+		public Compliance.EarlyBound.Entities.SystemUser opc_event_systemuser_owninguser
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("opc_event_systemuser_owninguser", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("opc_event_systemuser_owninguser", null);
 			}
 		}
 		
@@ -1690,12 +1690,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_team_owningteam")]
-		public Compliance.Entities.Team opc_event_team_owningteam
+		public Compliance.EarlyBound.Entities.Team opc_event_team_owningteam
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("opc_event_team_owningteam", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("opc_event_team_owningteam", null);
 			}
 		}
 	}

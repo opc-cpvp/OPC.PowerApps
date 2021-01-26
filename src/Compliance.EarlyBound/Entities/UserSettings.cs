@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	/// <summary>
@@ -2038,18 +2038,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businessunitid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_user_settings")]
-		public Compliance.Entities.BusinessUnit business_unit_user_settings
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_user_settings
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_user_settings", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_user_settings", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("business_unit_user_settings");
-				this.SetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_user_settings", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_user_settings", null, value);
 				this.OnPropertyChanged("business_unit_user_settings");
 			}
 		}
@@ -2059,18 +2059,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettings_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_usersettings_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_usersettings_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_usersettings_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_usersettings_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_usersettings_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_usersettings_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_usersettings_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_usersettings_createdonbehalfby");
 			}
 		}
@@ -2080,18 +2080,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettings_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_usersettings_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_usersettings_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_usersettings_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_usersettings_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_usersettings_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_usersettings_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_usersettings_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_usersettings_modifiedonbehalfby");
 			}
 		}
@@ -2101,12 +2101,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettingsbase_createdby")]
-		public Compliance.Entities.SystemUser lk_usersettingsbase_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_usersettingsbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_usersettingsbase_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_usersettingsbase_createdby", null);
 			}
 		}
 		
@@ -2115,12 +2115,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettingsbase_modifiedby")]
-		public Compliance.Entities.SystemUser lk_usersettingsbase_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_usersettingsbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_usersettingsbase_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_usersettingsbase_modifiedby", null);
 			}
 		}
 		
@@ -2129,18 +2129,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("systemuserid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_settings")]
-		public Compliance.Entities.SystemUser user_settings
+		public Compliance.EarlyBound.Entities.SystemUser user_settings
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("user_settings", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_settings", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("user_settings");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("user_settings", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_settings", null, value);
 				this.OnPropertyChanged("user_settings");
 			}
 		}

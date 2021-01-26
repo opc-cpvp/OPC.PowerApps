@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -472,7 +472,7 @@ namespace Compliance.Entities
 		/// Status of the Industry
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.opc_industryState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.opc_industryState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -480,7 +480,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.opc_industryState)(System.Enum.ToObject(typeof(Compliance.Entities.opc_industryState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.opc_industryState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_industryState), optionSet.Value)));
 				}
 				else
 				{
@@ -580,18 +580,18 @@ namespace Compliance.Entities
 		/// 1:N opc_industry_parentindustryid_industries
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_industry> Referencedopc_industry_parentindustryid_industries
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_industry> Referencedopc_industry_parentindustryid_industries
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_industry>("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencedopc_industry_parentindustryid_industries");
-				this.SetRelatedEntities<Compliance.Entities.opc_industry>("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_industry>("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referencedopc_industry_parentindustryid_industries");
 			}
 		}
@@ -600,18 +600,18 @@ namespace Compliance.Entities
 		/// N:N opc_complaints_industries_relatedindustries
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaints_industries_relatedindustries")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.opc_complaint> opc_complaints_industries_relatedindustries
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.opc_complaint> opc_complaints_industries_relatedindustries
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.opc_complaint>("opc_complaints_industries_relatedindustries", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaints_industries_relatedindustries", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaints_industries_relatedindustries");
-				this.SetRelatedEntities<Compliance.Entities.opc_complaint>("opc_complaints_industries_relatedindustries", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaints_industries_relatedindustries", null, value);
 				this.OnPropertyChanged("opc_complaints_industries_relatedindustries");
 			}
 		}
@@ -621,12 +621,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_industry")]
-		public Compliance.Entities.BusinessUnit business_unit_opc_industry
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_industry
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_opc_industry", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_industry", null);
 			}
 		}
 		
@@ -635,12 +635,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_industry_createdby")]
-		public Compliance.Entities.SystemUser lk_opc_industry_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_industry_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_industry_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_industry_createdby", null);
 			}
 		}
 		
@@ -649,18 +649,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_industry_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_industry_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_industry_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_industry_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_industry_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_industry_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_industry_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_industry_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_industry_createdonbehalfby");
 			}
 		}
@@ -670,12 +670,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_industry_modifiedby")]
-		public Compliance.Entities.SystemUser lk_opc_industry_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_industry_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_industry_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_industry_modifiedby", null);
 			}
 		}
 		
@@ -684,18 +684,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_industry_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_industry_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_industry_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_industry_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_industry_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_industry_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_industry_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_industry_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_industry_modifiedonbehalfby");
 			}
 		}
@@ -705,18 +705,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_parentindustryid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
-		public Compliance.Entities.opc_industry Referencingopc_industry_parentindustryid_industries
+		public Compliance.EarlyBound.Entities.opc_industry Referencingopc_industry_parentindustryid_industries
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_industry>("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_industry>("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Referencingopc_industry_parentindustryid_industries");
-				this.SetRelatedEntity<Compliance.Entities.opc_industry>("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_industry>("opc_industry_parentindustryid_industries", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
 				this.OnPropertyChanged("Referencingopc_industry_parentindustryid_industries");
 			}
 		}
@@ -726,12 +726,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_industry")]
-		public Compliance.Entities.Team team_opc_industry
+		public Compliance.EarlyBound.Entities.Team team_opc_industry
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("team_opc_industry", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_industry", null);
 			}
 		}
 		
@@ -740,12 +740,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_industry")]
-		public Compliance.Entities.SystemUser user_opc_industry
+		public Compliance.EarlyBound.Entities.SystemUser user_opc_industry
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("user_opc_industry", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_industry", null);
 			}
 		}
 	}

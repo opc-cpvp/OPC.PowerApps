@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -432,7 +432,7 @@ namespace Compliance.Entities
 		/// Status of the Risk Assessment Definition
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.Entities.opc_RiskAssessmentDefinitionState> StateCode
+		public System.Nullable<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -440,7 +440,7 @@ namespace Compliance.Entities
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.Entities.opc_RiskAssessmentDefinitionState)(System.Enum.ToObject(typeof(Compliance.Entities.opc_RiskAssessmentDefinitionState), optionSet.Value)));
+					return ((Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionState), optionSet.Value)));
 				}
 				else
 				{
@@ -541,12 +541,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_riskassessmentdefinition")]
-		public Compliance.Entities.BusinessUnit business_unit_opc_riskassessmentdefinition
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_opc_riskassessmentdefinition
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_opc_riskassessmentdefinition", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_opc_riskassessmentdefinition", null);
 			}
 		}
 		
@@ -555,12 +555,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinition_createdby")]
-		public Compliance.Entities.SystemUser lk_opc_riskassessmentdefinition_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_riskassessmentdefinition_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_riskassessmentdefinition_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_riskassessmentdefinition_createdby", null);
 			}
 		}
 		
@@ -569,18 +569,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinition_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_riskassessmentdefinition_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_riskassessmentdefinition_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_riskassessmentdefinition_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_riskassessmentdefinition_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinition_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_riskassessmentdefinition_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_riskassessmentdefinition_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinition_createdonbehalfby");
 			}
 		}
@@ -590,12 +590,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinition_modifiedby")]
-		public Compliance.Entities.SystemUser lk_opc_riskassessmentdefinition_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_riskassessmentdefinition_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_riskassessmentdefinition_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_riskassessmentdefinition_modifiedby", null);
 			}
 		}
 		
@@ -604,18 +604,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_riskassessmentdefinition_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_opc_riskassessmentdefinition_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_opc_riskassessmentdefinition_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_riskassessmentdefinition_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_riskassessmentdefinition_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_opc_riskassessmentdefinition_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_opc_riskassessmentdefinition_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_opc_riskassessmentdefinition_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_riskassessmentdefinition_modifiedonbehalfby");
 			}
 		}
@@ -625,18 +625,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_riskassessmentid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_riskassessment_riskassessmentdefinitions_riskassessment")]
-		public Compliance.Entities.opc_RiskAssessment opc_riskassessment_riskassessmentdefinitions_riskassessment
+		public Compliance.EarlyBound.Entities.opc_RiskAssessment opc_riskassessment_riskassessmentdefinitions_riskassessment
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_RiskAssessment>("opc_riskassessment_riskassessmentdefinitions_riskassessment", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_RiskAssessment>("opc_riskassessment_riskassessmentdefinitions_riskassessment", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_riskassessment_riskassessmentdefinitions_riskassessment");
-				this.SetRelatedEntity<Compliance.Entities.opc_RiskAssessment>("opc_riskassessment_riskassessmentdefinitions_riskassessment", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_RiskAssessment>("opc_riskassessment_riskassessmentdefinitions_riskassessment", null, value);
 				this.OnPropertyChanged("opc_riskassessment_riskassessmentdefinitions_riskassessment");
 			}
 		}
@@ -646,18 +646,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_riskassessmentcategory")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_RiskAssessmentDefinition_RiskAssessme")]
-		public Compliance.Entities.opc_RiskAssessmentCategory opc_RiskAssessmentDefinition_RiskAssessme
+		public Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory opc_RiskAssessmentDefinition_RiskAssessme
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_RiskAssessmentCategory>("opc_RiskAssessmentDefinition_RiskAssessme", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("opc_RiskAssessmentDefinition_RiskAssessme", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_RiskAssessmentDefinition_RiskAssessme");
-				this.SetRelatedEntity<Compliance.Entities.opc_RiskAssessmentCategory>("opc_RiskAssessmentDefinition_RiskAssessme", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_RiskAssessmentCategory>("opc_RiskAssessmentDefinition_RiskAssessme", null, value);
 				this.OnPropertyChanged("opc_RiskAssessmentDefinition_RiskAssessme");
 			}
 		}
@@ -667,18 +667,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_riskassessmentdefinitiontemplate")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_RiskAssessmentDefinition_RiskAssessmentDe")]
-		public Compliance.Entities.opc_RiskAssessmentDefinitionTemplate opc_RiskAssessmentDefinition_RiskAssessmentDe
+		public Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate opc_RiskAssessmentDefinition_RiskAssessmentDe
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("opc_RiskAssessmentDefinition_RiskAssessmentDe", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("opc_RiskAssessmentDefinition_RiskAssessmentDe", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_RiskAssessmentDefinition_RiskAssessmentDe");
-				this.SetRelatedEntity<Compliance.Entities.opc_RiskAssessmentDefinitionTemplate>("opc_RiskAssessmentDefinition_RiskAssessmentDe", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_RiskAssessmentDefinitionTemplate>("opc_RiskAssessmentDefinition_RiskAssessmentDe", null, value);
 				this.OnPropertyChanged("opc_RiskAssessmentDefinition_RiskAssessmentDe");
 			}
 		}
@@ -688,18 +688,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_riskassessmentfactortemplate")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_RiskAssessmentDefinition_RiskAssessmentFa")]
-		public Compliance.Entities.opc_RiskAssessmentFactorTemplate opc_RiskAssessmentDefinition_RiskAssessmentFa
+		public Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate opc_RiskAssessmentDefinition_RiskAssessmentFa
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("opc_RiskAssessmentDefinition_RiskAssessmentFa", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("opc_RiskAssessmentDefinition_RiskAssessmentFa", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_RiskAssessmentDefinition_RiskAssessmentFa");
-				this.SetRelatedEntity<Compliance.Entities.opc_RiskAssessmentFactorTemplate>("opc_RiskAssessmentDefinition_RiskAssessmentFa", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_RiskAssessmentFactorTemplate>("opc_RiskAssessmentDefinition_RiskAssessmentFa", null, value);
 				this.OnPropertyChanged("opc_RiskAssessmentDefinition_RiskAssessmentFa");
 			}
 		}
@@ -709,12 +709,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_riskassessmentdefinition")]
-		public Compliance.Entities.Team team_opc_riskassessmentdefinition
+		public Compliance.EarlyBound.Entities.Team team_opc_riskassessmentdefinition
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("team_opc_riskassessmentdefinition", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_opc_riskassessmentdefinition", null);
 			}
 		}
 		
@@ -723,12 +723,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_riskassessmentdefinition")]
-		public Compliance.Entities.SystemUser user_opc_riskassessmentdefinition
+		public Compliance.EarlyBound.Entities.SystemUser user_opc_riskassessmentdefinition
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("user_opc_riskassessmentdefinition", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("user_opc_riskassessmentdefinition", null);
 			}
 		}
 	}

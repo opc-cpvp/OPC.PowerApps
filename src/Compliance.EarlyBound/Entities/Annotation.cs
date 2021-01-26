@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	/// <summary>
@@ -169,32 +169,6 @@ namespace Compliance.Entities
 				this.OnPropertyChanging("DocumentBody");
 				this.SetAttributeValue("documentbody", value);
 				this.OnPropertyChanged("DocumentBody");
-			}
-		}
-		
-		/// <summary>
-		/// Dummy attribute associated with the note attachment
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dummyfilename")]
-		public string DummyFileName
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("dummyfilename");
-			}
-		}
-		
-		/// <summary>
-		/// Dummy attribute associated with the note regarding
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dummyregarding")]
-		public string DummyRegarding
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("dummyregarding");
 			}
 		}
 		
@@ -567,12 +541,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("annotation_owning_user")]
-		public Compliance.Entities.SystemUser annotation_owning_user
+		public Compliance.EarlyBound.Entities.SystemUser annotation_owning_user
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("annotation_owning_user", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("annotation_owning_user", null);
 			}
 		}
 		
@@ -581,12 +555,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_annotations")]
-		public Compliance.Entities.BusinessUnit business_unit_annotations
+		public Compliance.EarlyBound.Entities.BusinessUnit business_unit_annotations
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.BusinessUnit>("business_unit_annotations", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.BusinessUnit>("business_unit_annotations", null);
 			}
 		}
 		
@@ -595,18 +569,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("objectid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("Contact_Annotation")]
-		public Compliance.Entities.Contact Contact_Annotation
+		public Compliance.EarlyBound.Entities.Contact Contact_Annotation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Contact>("Contact_Annotation", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("Contact_Annotation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("Contact_Annotation");
-				this.SetRelatedEntity<Compliance.Entities.Contact>("Contact_Annotation", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.Contact>("Contact_Annotation", null, value);
 				this.OnPropertyChanged("Contact_Annotation");
 			}
 		}
@@ -616,18 +590,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("objectid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("DuplicateRule_Annotation")]
-		public Compliance.Entities.DuplicateRule DuplicateRule_Annotation
+		public Compliance.EarlyBound.Entities.DuplicateRule DuplicateRule_Annotation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.DuplicateRule>("DuplicateRule_Annotation", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.DuplicateRule>("DuplicateRule_Annotation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("DuplicateRule_Annotation");
-				this.SetRelatedEntity<Compliance.Entities.DuplicateRule>("DuplicateRule_Annotation", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.DuplicateRule>("DuplicateRule_Annotation", null, value);
 				this.OnPropertyChanged("DuplicateRule_Annotation");
 			}
 		}
@@ -637,12 +611,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_annotationbase_createdby")]
-		public Compliance.Entities.SystemUser lk_annotationbase_createdby
+		public Compliance.EarlyBound.Entities.SystemUser lk_annotationbase_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_annotationbase_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_annotationbase_createdby", null);
 			}
 		}
 		
@@ -651,18 +625,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_annotationbase_createdonbehalfby")]
-		public Compliance.Entities.SystemUser lk_annotationbase_createdonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_annotationbase_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_annotationbase_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_annotationbase_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_annotationbase_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_annotationbase_createdonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_annotationbase_createdonbehalfby", null, value);
 				this.OnPropertyChanged("lk_annotationbase_createdonbehalfby");
 			}
 		}
@@ -672,12 +646,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_annotationbase_modifiedby")]
-		public Compliance.Entities.SystemUser lk_annotationbase_modifiedby
+		public Compliance.EarlyBound.Entities.SystemUser lk_annotationbase_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_annotationbase_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_annotationbase_modifiedby", null);
 			}
 		}
 		
@@ -686,18 +660,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_annotationbase_modifiedonbehalfby")]
-		public Compliance.Entities.SystemUser lk_annotationbase_modifiedonbehalfby
+		public Compliance.EarlyBound.Entities.SystemUser lk_annotationbase_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.SystemUser>("lk_annotationbase_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_annotationbase_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("lk_annotationbase_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.Entities.SystemUser>("lk_annotationbase_modifiedonbehalfby", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.SystemUser>("lk_annotationbase_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_annotationbase_modifiedonbehalfby");
 			}
 		}
@@ -707,18 +681,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("objectid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_Annotations")]
-		public Compliance.Entities.opc_complaint opc_complaint_Annotations
+		public Compliance.EarlyBound.Entities.opc_complaint opc_complaint_Annotations
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_complaint>("opc_complaint_Annotations", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_Annotations", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_complaint_Annotations");
-				this.SetRelatedEntity<Compliance.Entities.opc_complaint>("opc_complaint_Annotations", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_complaint>("opc_complaint_Annotations", null, value);
 				this.OnPropertyChanged("opc_complaint_Annotations");
 			}
 		}
@@ -728,18 +702,18 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("objectid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_event_Annotations")]
-		public Compliance.Entities.opc_event opc_event_Annotations
+		public Compliance.EarlyBound.Entities.opc_event opc_event_Annotations
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.opc_event>("opc_event_Annotations", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.opc_event>("opc_event_Annotations", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_event_Annotations");
-				this.SetRelatedEntity<Compliance.Entities.opc_event>("opc_event_Annotations", null, value);
+				this.SetRelatedEntity<Compliance.EarlyBound.Entities.opc_event>("opc_event_Annotations", null, value);
 				this.OnPropertyChanged("opc_event_Annotations");
 			}
 		}
@@ -749,12 +723,12 @@ namespace Compliance.Entities
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_annotations")]
-		public Compliance.Entities.Team team_annotations
+		public Compliance.EarlyBound.Entities.Team team_annotations
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.Entities.Team>("team_annotations", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Entities.Team>("team_annotations", null);
 			}
 		}
 	}

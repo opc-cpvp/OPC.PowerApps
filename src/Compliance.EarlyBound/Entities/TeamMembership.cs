@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Compliance.Entities
+namespace Compliance.EarlyBound.Entities
 {
 	
 	/// <summary>
@@ -147,18 +147,18 @@ namespace Compliance.Entities
 		/// N:N teammembership_association
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("teammembership_association")]
-		public System.Collections.Generic.IEnumerable<Compliance.Entities.Team> teammembership_association
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.Entities.Team> teammembership_association
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.Entities.Team>("teammembership_association", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.Entities.Team>("teammembership_association", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("teammembership_association");
-				this.SetRelatedEntities<Compliance.Entities.Team>("teammembership_association", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.Entities.Team>("teammembership_association", null, value);
 				this.OnPropertyChanged("teammembership_association");
 			}
 		}
