@@ -9,7 +9,7 @@ export class StringCalculator {
         const firstParsedValue: number | Date = StringCalculator.parseDateOrNumber(firstValue);
         const secondParsedValue: number | Date = StringCalculator.parseDateOrNumber(secondValue);
 
-        if ((!firstParsedValue && firstParsedValue !== 0) || (!secondParsedValue && secondParsedValue !== 0)) {
+        if (firstParsedValue === null || secondParsedValue === null) {
             return result;
         }
 
