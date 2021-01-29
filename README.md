@@ -16,10 +16,9 @@ git clone https://github.com/opc-cpvp/OPC.PowerApps.git
 - PowerShell v3+
 
 ### Early Bound Generator
-We use to `Early Bound Generator` plugin in `XrmToolBox` to configure the early bound generation.
-In the plugin, change the settings path to the `DLaB.EarlyBoundGenerator.DefaultSettings.xml` settings file from the `Compliance.EarlyBound` project. 
-Once the configuration changes are completed, save the changes and select `Create All`. This will generate a `crmscvutil.exe.config` configuration file in `%appdata%\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator`.
-Copy the newly generated file to the `Compliance.EarlyBound` project.
+We use the `Early Bound Generator` plugin in `XrmToolBox` to configure the early bound generation.
+In the plugin, change the settings path to the `DLaB.EarlyBoundGenerator.DefaultSettings.xml` settings file in the `Compliance.EarlyBound` project. 
+Once the configuration changes are completed, save the changes and select `Create All`. This will generate all the early bounds and add their files to their respective folders. It will also generate a `crmscvutil.exe.config` configuration file in `%appdata%\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator`. Copy the newly generated file to the `Compliance.EarlyBound` project.
 
 ### Xrm Definitely Typed
 
