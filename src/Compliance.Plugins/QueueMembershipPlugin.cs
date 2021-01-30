@@ -26,9 +26,9 @@ namespace Compliance.Plugins
             {
                 // Those are the 3 input parameters for "Associate" and "Disassociate"
                 if ((localContext.PluginExecutionContext.MessageName != PluginMessage.Associate && localContext.PluginExecutionContext.MessageName != PluginMessage.Disassociate) ||
-                !(localContext.PluginExecutionContext.InputParameters["Target"] is EntityReference target) ||
-                !(localContext.PluginExecutionContext.InputParameters["Relationship"] is Relationship relationship) ||
-                !(localContext.PluginExecutionContext.InputParameters["RelatedEntities"] is EntityReferenceCollection refs))
+                !(localContext.PluginExecutionContext.InputParameters[InputParameters.Target] is EntityReference target) ||
+                !(localContext.PluginExecutionContext.InputParameters[InputParameters.Relationship] is Relationship relationship) ||
+                !(localContext.PluginExecutionContext.InputParameters[InputParameters.RelatedEntities] is EntityReferenceCollection refs))
                     return;
 
                 if (relationship.SchemaName == "teammembership_association") HandleTeamMembership(localContext, target, refs);
@@ -54,7 +54,7 @@ namespace Compliance.Plugins
             localContext.Trace($"There is {affectedTeamIds.Count()} affected teams ({string.Join(",", affectedTeamIds)})");
             localContext.Trace($"There is {systemuserIds.Count()} affected users ({string.Join(",", systemuserIds)})");
 
-            // If it's a disassociate operation we will need all the teams associated to the user to ensure 
+            // If it's a disassociate operation we will need all the teams associated to the user to ensure
             // the user does not have access through another team
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {
@@ -109,7 +109,7 @@ namespace Compliance.Plugins
             localContext.Trace($"There is {affectedTeamIds.Count()} affected teams ({string.Join(",", affectedTeamIds)})");
             localContext.Trace($"There is {queueIds.Count()} affected queues: {string.Join(",", queueIds)}");
 
-            // If it's a disassociate operation we will need all the teams associated to the queue to ensure 
+            // If it's a disassociate operation we will need all the teams associated to the queue to ensure
             // the user does not have access through another team
             if (localContext.PluginExecutionContext.MessageName == PluginMessage.Disassociate)
             {

@@ -1,6 +1,4 @@
 using Compliance.Entities;
-using DocumentFormat.OpenXml.Office2013.PowerPoint.Roaming;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.Xrm.Sdk;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,18 +20,18 @@ namespace Compliance.Plugins
             switch (localContext.PluginExecutionContext.MessageName)
             {
                 case PluginMessage.Retrieve:
-                    if (!localContext.PluginExecutionContext.OutputParameters.ContainsKey("BusinessEntity"))
+                    if (!localContext.PluginExecutionContext.OutputParameters.ContainsKey(OutputParameters.BusinessEntity))
                         break;
 
-                    if (localContext.PluginExecutionContext.OutputParameters["BusinessEntity"] is Entity businessEntity)
+                    if (localContext.PluginExecutionContext.OutputParameters[OutputParameters.BusinessEntity] is Entity businessEntity)
                         entities.Entities.Add(businessEntity);
                     break;
 
                 case PluginMessage.RetrieveMultiple:
-                    if (!localContext.PluginExecutionContext.OutputParameters.ContainsKey("BusinessEntityCollection"))
+                    if (!localContext.PluginExecutionContext.OutputParameters.ContainsKey(OutputParameters.BusinessEntityCollection))
                         break;
 
-                    if (localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"] is EntityCollection businessEntityCollection)
+                    if (localContext.PluginExecutionContext.OutputParameters[OutputParameters.BusinessEntityCollection] is EntityCollection businessEntityCollection)
                     {
                         // Sort the the collection as the order in which they come makes a difference
                         // Can't completely squish the Entities property as it's read only, so need to clear and re-add the sorted references
@@ -47,23 +45,23 @@ namespace Compliance.Plugins
                     break;
                 case PluginMessage.RetrieveTimelineWallRecords:
                     // Pre-fetch of results
-                    if (localContext.PluginExecutionContext.InputParameters.ContainsKey("FetchXml"))
+                    if (localContext.PluginExecutionContext.InputParameters.ContainsKey(InputParameters.FetchXml))
                     {
                         var inputParams = localContext.PluginExecutionContext.InputParameters;
 
                         // Remove the state code attribute so we don't see the state on the timeline as it's useless
-                        var newFetchXmlValue = inputParams["FetchXml"]?.ToString().Replace("<attribute name=\"statecode\"/>", "");
+                        var newFetchXmlValue = inputParams[InputParameters.FetchXml]?.ToString().Replace("<attribute name=\"statecode\"/>", "");
 
                         // the params are read only, we need remove and add the param we want to change
-                        inputParams.Remove("FetchXml");
-                        inputParams.Add(new KeyValuePair<string, object>("FetchXml", newFetchXmlValue));
+                        inputParams.Remove(InputParameters.FetchXml);
+                        inputParams.Add(new KeyValuePair<string, object>(InputParameters.FetchXml, newFetchXmlValue));
                     }
 
                     // Post-fetch of results
-                    if (localContext.PluginExecutionContext.OutputParameters.ContainsKey("TimelineWallRecords"))
+                    if (localContext.PluginExecutionContext.OutputParameters.ContainsKey(OutputParameters.TimelineWallRecords))
                     {
                         var serializer = new JavaScriptSerializer();
-                        var timelineWallRecords = serializer.Deserialize<TimelineRecords>(localContext.PluginExecutionContext.OutputParameters["TimelineWallRecords"]?.ToString());
+                        var timelineWallRecords = serializer.Deserialize<TimelineRecords>(localContext.PluginExecutionContext.OutputParameters[OutputParameters.TimelineWallRecords]?.ToString());
 
 
                         // For each event entity, switch out the owner for the created on behalf user
@@ -87,7 +85,7 @@ namespace Compliance.Plugins
                             }
                         }
 
-                        localContext.PluginExecutionContext.OutputParameters["TimelineWallRecords"] = serializer.Serialize(timelineWallRecords);
+                        localContext.PluginExecutionContext.OutputParameters[OutputParameters.TimelineWallRecords] = serializer.Serialize(timelineWallRecords);
                     }
 
                     break;

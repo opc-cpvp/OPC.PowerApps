@@ -29,7 +29,7 @@ namespace Compliance.Plugins
                 if (context.MessageName != PluginMessage.Merge) return;
 
                 // The master record of the merge is referenced through the target entity reference
-                if (!(localContext.PluginExecutionContext.InputParameters["Target"] is EntityReference masterRecordReference))
+                if (!(localContext.PluginExecutionContext.InputParameters[InputParameters.Target] is EntityReference masterRecordReference))
                     return;
 
                 if (masterRecordReference.LogicalName == Contact.EntityLogicalName)

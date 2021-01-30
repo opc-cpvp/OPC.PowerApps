@@ -140,7 +140,7 @@ namespace Compliance.Plugins
             var context = localContext.PluginExecutionContext;
 
             // Pack the translated labels into the name field
-            if (!(localContext.PluginExecutionContext.InputParameters["Target"] is Entity target))
+            if (!(localContext.PluginExecutionContext.InputParameters[InputParameters.Target] is Entity target))
                 return;
 
             var preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(PreImageAlias)) ? context.PreEntityImages[PreImageAlias] : null;
@@ -171,10 +171,10 @@ namespace Compliance.Plugins
         ///
         protected void UnpackNameOnRetrieve(LocalPluginContext localContext)
         {
-            if (!localContext.PluginExecutionContext.OutputParameters.Contains("BusinessEntity"))
+            if (!localContext.PluginExecutionContext.OutputParameters.Contains(OutputParameters.BusinessEntity))
                 return;
 
-            if (!(localContext.PluginExecutionContext.OutputParameters["BusinessEntity"] is Entity businessEntity))
+            if (!(localContext.PluginExecutionContext.OutputParameters[OutputParameters.BusinessEntity] is Entity businessEntity))
                 return;
 
             SetLocalizableValue(localContext, businessEntity);
@@ -185,10 +185,10 @@ namespace Compliance.Plugins
         ///
         protected void UnpackNameOnRetrieveMultiple(LocalPluginContext localContext)
         {
-            if (!localContext.PluginExecutionContext.OutputParameters.Contains("BusinessEntityCollection"))
+            if (!localContext.PluginExecutionContext.OutputParameters.Contains(OutputParameters.BusinessEntityCollection))
                 return;
 
-            if (!(localContext.PluginExecutionContext.OutputParameters["BusinessEntityCollection"] is EntityCollection businessEntityCollection))
+            if (!(localContext.PluginExecutionContext.OutputParameters[OutputParameters.BusinessEntityCollection] is EntityCollection businessEntityCollection))
                 return;
 
             if (businessEntityCollection.Entities == null)
@@ -202,21 +202,21 @@ namespace Compliance.Plugins
 
         protected void UnpackNameOnRetrieveTimelineWallRecords(LocalPluginContext localContext)
         {
-            if (!localContext.PluginExecutionContext.OutputParameters.Contains("TimelineWallRecords")
-                || localContext.PluginExecutionContext.OutputParameters["TimelineWallRecords"] == null)
+            if (!localContext.PluginExecutionContext.OutputParameters.Contains(OutputParameters.TimelineWallRecords)
+                || localContext.PluginExecutionContext.OutputParameters[OutputParameters.TimelineWallRecords] == null)
                 return;
 
             var outputParams = localContext.PluginExecutionContext.OutputParameters;
 
             // Get and replace all timeline wall record names that are meant to be bilingual using a regex pattern
             var languageTimeLineRecords = Regex.Replace(
-                outputParams["TimelineWallRecords"].ToString(),
+                outputParams[OutputParameters.TimelineWallRecords].ToString(),
                 MultilangualStringPattern,
                 m => $"\"{UnpackName(localContext, m.Groups[1].Value)}\"");
 
             // Remove and add as the property is readonly
-            outputParams.Remove("TimelineWallRecords");
-            outputParams.Add(new KeyValuePair<string, object>("TimelineWallRecords", languageTimeLineRecords));
+            outputParams.Remove(OutputParameters.TimelineWallRecords);
+            outputParams.Add(new KeyValuePair<string, object>(OutputParameters.TimelineWallRecords, languageTimeLineRecords));
         }
 
         private void SetLocalizableValue(LocalPluginContext localContext, Entity businessEntity)
