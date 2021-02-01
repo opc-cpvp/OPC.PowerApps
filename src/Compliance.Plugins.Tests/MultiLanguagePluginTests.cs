@@ -69,53 +69,6 @@ namespace Compliance.Plugins.Tests
                 // Assert
                 theme.opc_name.Should().Be(expectedName);
             }
-
-            [Fact]
-            public void should_throw_exception_when_english_name_is_missing()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-
-                var theme = GetMockedMultiLanguageItem();
-
-                theme.opc_nameenglish = string.Empty;
-
-                var inputs = new ParameterCollection { { "Target", theme } };
-
-                pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = PluginMessage.Create;
-
-                // Act
-                Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                act.Should().Throw<InvalidPluginExecutionException>();
-            }
-
-            [Fact]
-            public void should_throw_exception_when_french_name_is_missing()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-
-                var theme = GetMockedMultiLanguageItem();
-
-                theme.opc_namefrench = string.Empty;
-
-                var inputs = new ParameterCollection { { "Target", theme } };
-
-                pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = PluginMessage.Create;
-
-                // Act
-                Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                act.Should().Throw<InvalidPluginExecutionException>();
-            }
-
         }
 
         public class when_updating_multilanguageitem
@@ -176,52 +129,6 @@ namespace Compliance.Plugins.Tests
 
                 // Assert
                 multiLanguageEntity.opc_name.Should().Be(expectedName);
-            }
-
-            [Fact]
-            public void should_throw_exception_when_english_name_is_missing()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-
-                multiLanguageEntity.opc_nameenglish = string.Empty;
-
-                var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
-
-                pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = PluginMessage.Update;
-
-                // Act
-                Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                act.Should().Throw<InvalidPluginExecutionException>();
-            }
-
-            [Fact]
-            public void should_throw_exception_when_french_name_is_missing()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-
-                multiLanguageEntity.opc_namefrench = string.Empty;
-
-                var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
-
-                pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = PluginMessage.Update;
-
-                // Act
-                Action act = () => context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                act.Should().Throw<InvalidPluginExecutionException>();
             }
         }
 
@@ -572,7 +479,7 @@ namespace Compliance.Plugins.Tests
                         new object[] { new TimelineRecordTransform() {
                             Language = Language.French,
                             Initial = "Should not be modified \"|^|Test English|Test French\" should not be modified",
-                            Expected = "Should not be modified \"Test French\" should not be modified" 
+                            Expected = "Should not be modified \"Test French\" should not be modified"
                         }},
 
                         // Multi occurence of multilangual strings
