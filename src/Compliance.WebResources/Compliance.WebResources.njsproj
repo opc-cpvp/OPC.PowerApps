@@ -69,6 +69,7 @@
     <TypeScriptCompile Include="src\bootstrapper.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.ts" />
     <TypeScriptCompile Include="src\controls\Checklist\ChecklistControl.test.ts" />
+    <TypeScriptCompile Include="src\controls\PowerIFrameControl.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.test.ts" />
     <TypeScriptCompile Include="src\controls\RiskAssessment\RiskAssessmentControl.ts" />
     <TypeScriptCompile Include="src\dialogs\Templates\TemplateDialog.test.ts" />
@@ -94,6 +95,7 @@
     <TypeScriptCompile Include="src\forms\IssueMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\IssueQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\NotificationMainForm.test.ts" />
+    <TypeScriptCompile Include="src\forms\PowerForm.ts" />
     <TypeScriptCompile Include="src\forms\ReminderQuickCreateForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ReminderMainForm.test.ts" />
     <TypeScriptCompile Include="src\forms\ComplaintMainForm.test.ts" />
