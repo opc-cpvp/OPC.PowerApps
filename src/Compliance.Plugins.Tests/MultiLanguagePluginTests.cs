@@ -45,7 +45,6 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
                 var metadata = GetMockedMultiLanguageMetadata();
 
                 context.InitializeMetadata(metadata);
