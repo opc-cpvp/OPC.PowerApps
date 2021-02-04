@@ -13,22 +13,11 @@ namespace Compliance.Plugins.Tests
     public class MultiLanguagePluginTests
     {
         private const string Prefix = "|^|";
+        private const string Separator = "|";
         private const string LanguageKey = "uilanguageid";
 
         public class when_creating_multilanguageitem
         {
-            public opc_theme GetMockedMultiLanguageEntity()
-            {
-                return new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_islocalizable = true,
-                    opc_name = "",
-                    opc_nameenglish = "Technology",
-                    opc_namefrench = "Technologie"
-                };
-            }
-
             public EntityMetadata GetMockedMultiLanguageMetadata()
             {
                 var metadata = new EntityMetadata { LogicalName = opc_theme.EntityLogicalName };
@@ -40,7 +29,7 @@ namespace Compliance.Plugins.Tests
                 return metadata;
             }
 
-            [Fact(DisplayName = "translated fields should contain data")]
+            [Fact(DisplayName = "translated fields should be set")]
             public void translated_fields_should_contain_data()
             {
                 // Arrange
@@ -49,49 +38,19 @@ namespace Compliance.Plugins.Tests
 
                 context.InitializeMetadata(metadata);
 
-                var theme = GetMockedMultiLanguageEntity();
+                var theme = new opc_theme { opc_islocalizable = true, opc_nameenglish = "Technology", opc_namefrench = "Technologie" };
 
                 // Act
                 context.ExecutePluginWithTarget<MultiLanguagePlugin>(theme);
 
                 // Assert
-                theme.opc_name.Should().NotBeNullOrWhiteSpace();
-            }
-
-            [Fact(DisplayName = "translated fields should contain both languages")]
-            public void translated_fields_should_contain_both_languages()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var metadata = GetMockedMultiLanguageMetadata();
-
-                context.InitializeMetadata(metadata);
-
-                var theme = GetMockedMultiLanguageEntity();
-                var expectedName = $"{Prefix}{theme.opc_nameenglish}|{theme.opc_namefrench}";
-
-                // Act
-                context.ExecutePluginWithTarget<MultiLanguagePlugin>(theme);
-
-                // Assert
-                theme.opc_name.Should().Be(expectedName);
+                var expected = $"{Prefix}{string.Join(Separator, new[] { theme.opc_nameenglish, theme.opc_namefrench })}";
+                theme.opc_name.Should().Be(expected);
             }
         }
 
         public class when_updating_multilanguageitem
         {
-            public opc_theme GetMockedMultiLanguageEntity()
-            {
-                return new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_islocalizable = true,
-                    opc_name = "Technology|Technologie",
-                    opc_nameenglish = "TechnoEng",
-                    opc_namefrench = "TechnoFra"
-                };
-            }
-
             public EntityMetadata GetMockedMultiLanguageMetadata()
             {
                 var metadata = new EntityMetadata { LogicalName = opc_theme.EntityLogicalName };
@@ -108,90 +67,43 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
                 var metadata = GetMockedMultiLanguageMetadata();
 
                 context.InitializeMetadata(metadata);
 
-                var oldName = "Technology|Technologie";
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
+                var preImageTheme = new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Technology|Technologee", opc_nameenglish = "Technology", opc_namefrench = "Technologee" };
+                var targetTheme = new opc_theme { opc_namefrench = "Technologie" };
+
+                var previous = preImageTheme.opc_name;
+
+                pluginContext.PreEntityImages.Add("PreImage", preImageTheme);
+                pluginContext.InputParameters.Add(InputParameter.Target, targetTheme);
+                pluginContext.MessageName = PluginMessage.Update;
 
                 // Act
-                context.ExecutePluginWithTarget<MultiLanguagePlugin>(multiLanguageEntity, PluginMessage.Update);
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                multiLanguageEntity.opc_name.Should().NotBe(oldName);
-            }
-
-            [Fact(DisplayName = "translated fields should be modified")]
-            public void translated_fields_should_be_modified()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var metadata = GetMockedMultiLanguageMetadata();
-
-                context.InitializeMetadata(metadata);
-
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var expectedName = $"{Prefix}{multiLanguageEntity.opc_nameenglish}|{multiLanguageEntity.opc_namefrench}";
-
-                // Act
-                context.ExecutePluginWithTarget<MultiLanguagePlugin>(multiLanguageEntity, PluginMessage.Update);
-
-                // Assert
-                multiLanguageEntity.opc_name.Should().Be(expectedName);
+                var expected = $"{Prefix}{string.Join(Separator, new[] { preImageTheme.opc_nameenglish, targetTheme.opc_namefrench })}";
+                targetTheme.opc_name.Should().NotBe(previous);
+                targetTheme.opc_name.Should().Be(expected);
             }
         }
 
         public class when_retrieving_multilanguageitem
         {
-            public opc_theme GetMockedMultiLanguageEntity()
-            {
-                return new opc_theme
-                {
-                    Id = Guid.NewGuid(),
-                    opc_islocalizable = true,
-                    opc_name = $"{Prefix}Technology|Technologie",
-                    opc_nameenglish = "Technology",
-                    opc_namefrench = "Technologie"
-                };
-            }
-
-            [Fact(DisplayName = "translated fields should be french when UI is french")]
-            public void translated_fields_should_be_french_when_the_ui_is_in_french()
+            [Fact(DisplayName = "fields shouldn't be translated if opc_islocalizable is false")]
+            public void fields_should_be_english_when_the_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var expectedName = multiLanguageEntity.opc_namefrench;
+                var theme = new opc_theme { opc_islocalizable = false, opc_name = $"{Prefix}Technology{Separator}Technologie" };
+                var expected = theme.opc_name;
 
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
-
-                pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = PluginMessage.Retrieve;
-                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
-
-                // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                multiLanguageEntity.opc_name.Should().Be(expectedName);
-            }
-
-            [Fact(DisplayName = "translated fields should be english when UI is english")]
-            public void translated_fields_should_be_english_when_the_ui_is_in_english()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var expectedName = multiLanguageEntity.opc_nameenglish;
-
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
-
-                pluginContext.OutputParameters = outputs;
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, theme);
                 pluginContext.MessageName = PluginMessage.Retrieve;
                 pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
@@ -199,57 +111,108 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                multiLanguageEntity.opc_name.Should().Be(expectedName);
+                theme.opc_name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should be English when UI is English")]
+            public void translated_fields_should_be_english_when_the_ui_is_english()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var theme = new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Technology{Separator}Technologie", opc_nameenglish = "Technology" };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, theme);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = theme.opc_nameenglish;
+                theme.opc_name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should be French when UI is French")]
+            public void translated_fields_should_be_french_when_the_ui_is_french()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var theme = new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Technology{Separator}Technologie", opc_namefrench = "Technologie" };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, theme);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = theme.opc_namefrench;
+                theme.opc_name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to English when UI is French and the value is empty")]
+            public void translated_fields_should_fallback_to_english_when_the_ui_is_french_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var theme = new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Technology{Separator}", opc_nameenglish = "Technology" };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, theme);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = theme.opc_nameenglish;
+                theme.opc_name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to French when UI is English and the value is empty")]
+            public void translated_fields_should_fallback_to_french_when_the_ui_is_english_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var theme = new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}{Separator}Technologie", opc_namefrench = "Technologie" };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, theme);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = theme.opc_namefrench;
+                theme.opc_name.Should().Be(expected);
             }
         }
 
         public class when_retrieving_multiple_multilanguageitem
         {
-            public EntityCollection GetMultiLanguageEntityCollection()
-            {
-                EntityCollection entityCollectionThemes = new EntityCollection();
-
-                entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Technology", opc_namefrench = "Technologie", opc_name = $"{Prefix}Technology|Technologie" });
-                entityCollectionThemes.Entities.Add(new opc_theme { Id = Guid.NewGuid(), opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques", opc_name = $"{Prefix}Public Services|Services Publiques" });
-
-                return entityCollectionThemes;
-            }
-
-            [Fact(DisplayName = "translated fields should be french when UI is in french")]
-            public void translated_fields_should_be_french_when_ui_is_french()
+            [Fact(DisplayName = "fields shouldn't be translated if opc_islocalizable is false")]
+            public void fields_should_be_english_when_the_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
 
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntityCollection, multiLanguageEntityCollection } };
+                var themes = new EntityCollection();
+                themes.Entities.Add(new opc_theme { opc_islocalizable = false, opc_name = $"{Prefix}Technology{Separator}Technologie" });
+                themes.Entities.Add(new opc_theme { opc_islocalizable = false, opc_name = $"{Prefix}Public Services{Separator}Services Publiques" });
 
-                pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
-                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
-
-                // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                foreach (opc_theme multiLanguageEntity in multiLanguageEntityCollection.Entities)
-                {
-                    multiLanguageEntity.opc_name.Should().Be(multiLanguageEntity.opc_namefrench);
-                }
-            }
-
-            [Fact(DisplayName = "translated fields should be english when UI is english")]
-            public void translated_fields_should_be_english_when_ui_is_english()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-                var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
-
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntityCollection, multiLanguageEntityCollection } };
-
-                pluginContext.OutputParameters = outputs;
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, themes);
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
                 pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
@@ -257,60 +220,127 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                foreach (opc_theme multiLanguageEntity in multiLanguageEntityCollection.Entities)
+                foreach (opc_theme theme in themes.Entities)
+                    theme.opc_name.Should().StartWith(Prefix);
+            }
+
+            [Fact(DisplayName = "translated fields should be English when UI is English")]
+            public void translated_fields_should_be_english_when_the_ui_is_english()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var themes = new EntityCollection();
+                themes.Entities.Add(new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Technology{Separator}Technologie", opc_nameenglish = "Technology" });
+                themes.Entities.Add(new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Public Services{Separator}Services Publiques", opc_nameenglish = "Public Services" });
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, themes);
+                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                foreach (opc_theme theme in themes.Entities)
                 {
-                    multiLanguageEntity.opc_name.Should().Be(multiLanguageEntity.opc_nameenglish);
+                    var expected = theme.opc_nameenglish;
+                    theme.opc_name.Should().Be(expected);
+                }
+            }
+
+            [Fact(DisplayName = "translated fields should be French when UI is French")]
+            public void translated_fields_should_be_french_when_the_ui_is_french()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var themes = new EntityCollection();
+                themes.Entities.Add(new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Technology{Separator}Technologie", opc_namefrench = "Technologie" });
+                themes.Entities.Add(new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Public Services{Separator}Services Publiques", opc_namefrench = "Services Publiques" });
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, themes);
+                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                foreach (opc_theme theme in themes.Entities)
+                {
+                    var expected = theme.opc_namefrench;
+                    theme.opc_name.Should().Be(expected);
+                }
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to English when UI is French and the value is empty")]
+            public void translated_fields_should_fallback_to_english_when_the_ui_is_french_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var themes = new EntityCollection();
+                themes.Entities.Add(new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Technology{Separator}", opc_nameenglish = "Technology" });
+                themes.Entities.Add(new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}Public Services{Separator}", opc_nameenglish = "Public Services" });
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, themes);
+                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                foreach (opc_theme theme in themes.Entities)
+                {
+                    var expected = theme.opc_nameenglish;
+                    theme.opc_name.Should().Be(expected);
+                }
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to French when UI is English and the value is empty")]
+            public void translated_fields_should_fallback_to_french_when_the_ui_is_english_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var themes = new EntityCollection();
+                themes.Entities.Add(new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}{Separator}Technologie", opc_namefrench = "Technologie" });
+                themes.Entities.Add(new opc_theme { opc_islocalizable = true, opc_name = $"{Prefix}{Separator}Services Publiques", opc_namefrench = "Services Publiques" });
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, themes);
+                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                foreach (opc_theme theme in themes.Entities)
+                {
+                    var expected = theme.opc_namefrench;
+                    theme.opc_name.Should().Be(expected);
                 }
             }
         }
 
         public class when_retrieving_multilanguage_relateditem
         {
-            public opc_topic GetMockedMultiLanguageEntity()
-            {
-                return new opc_topic
-                {
-                    Id = Guid.NewGuid(),
-                    opc_islocalizable = true,
-                    opc_name = $"{Prefix}Artificial Intelligence|Intelligence Artificielle",
-                    opc_nameenglish = "Artificial Intelligence",
-                    opc_namefrench = "Intelligence Artificielle",
-                    opc_themeid = new EntityReference() { Name = $"{Prefix}Technology|Technologie" }
-                };
-            }
-
-            [Fact(DisplayName = "translated fields should be french when UI is french")]
-            public void translated_fields_should_be_french_when_ui_is_french()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
-                var expectedName = "Technologie";
-
-                pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = PluginMessage.Retrieve;
-                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
-
-                // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                multiLanguageEntity.opc_themeid.Name.Should().Be(expectedName);
-            }
-
-            [Fact(DisplayName = "translated fields should be english when UI is english")]
+            [Fact(DisplayName = "translated fields should be English when UI is English")]
             public void translated_fields_should_be_english_when_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
-                var expectedName = "Technology";
 
-                pluginContext.OutputParameters = outputs;
+                var topic = new opc_topic { opc_themeid = new EntityReference { Name = $"{Prefix}Technology{Separator}Technologie" } };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, topic);
                 pluginContext.MessageName = PluginMessage.Retrieve;
                 pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
@@ -318,74 +348,97 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                multiLanguageEntity.opc_themeid.Name.Should().Be(expectedName);
+                var expected = "Technology";
+                topic.opc_themeid.Name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should be French when UI is French")]
+            public void translated_fields_should_be_french_when_ui_is_french()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topic = new opc_topic { opc_themeid = new EntityReference { Name = $"{Prefix}Technology{Separator}Technologie" } };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, topic);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = "Technologie";
+                topic.opc_themeid.Name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to English when UI is French and the value is empty")]
+            public void translated_fields_should_fallback_to_english_when_the_ui_is_french_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topic = new opc_topic { opc_themeid = new EntityReference { Name = $"{Prefix}Technology{Separator}" } };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, topic);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = "Technology";
+                topic.opc_themeid.Name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to French when UI is English and the value is empty")]
+            public void translated_fields_should_fallback_to_french_when_the_ui_is_english_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topic = new opc_topic { opc_themeid = new EntityReference { Name = $"{Prefix}{Separator}Technologie" } };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, topic);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = "Technologie";
+                topic.opc_themeid.Name.Should().Be(expected);
             }
         }
 
         public class when_retrieving_multiple_multilanguage_relateditem
         {
-            public EntityCollection GetMultiLanguageEntityCollection()
-            {
-                EntityCollection entityCollectionTopics = new EntityCollection();
-
-                entityCollectionTopics.Entities.Add(new opc_topic
-                {
-                    Id = Guid.NewGuid(),
-                    opc_islocalizable = true,
-                    opc_name = $"{Prefix}Artificial Intelligence|Intelligence Artificielle",
-                    opc_nameenglish = "Artificial Intelligence",
-                    opc_namefrench = "Intelligence Artificielle",
-                    opc_themeid = new EntityReference() { Name = $"{Prefix}Technology|Technologie" },
-                    opc_theme_topics_themeid = new opc_theme { opc_nameenglish = "Technology", opc_namefrench = "Technologie" }
-                });
-
-                entityCollectionTopics.Entities.Add(new opc_topic
-                {
-                    Id = Guid.NewGuid(),
-                    opc_islocalizable = true,
-                    opc_name = $"{Prefix}The Service|Le Service",
-                    opc_nameenglish = "The Service",
-                    opc_namefrench = "Le Service",
-                    opc_themeid = new EntityReference() { Name = $"{Prefix}Public Services|Services Publiques" },
-                    opc_theme_topics_themeid = new opc_theme { opc_nameenglish = "Public Services", opc_namefrench = "Services Publiques" }
-                });
-
-                return entityCollectionTopics;
-            }
-
-            [Fact(DisplayName = "translated fields should be french when UI is french")]
-            public void translated_fields_should_be_french_when_ui_is_french()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-                var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntityCollection, multiLanguageEntityCollection } };
-
-                pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
-                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
-
-                // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                foreach (opc_topic multiLanguageEntity in multiLanguageEntityCollection.Entities)
-                {
-                    multiLanguageEntity.opc_themeid.Name.Should().Be(multiLanguageEntity.opc_theme_topics_themeid.opc_namefrench);
-                }
-            }
-
-            [Fact(DisplayName = "translated fields should be english when UI is english")]
+            [Fact(DisplayName = "translated fields should be English when UI is English")]
             public void translated_fields_should_be_english_when_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntityCollection, multiLanguageEntityCollection } };
 
-                pluginContext.OutputParameters = outputs;
+                var topics = new EntityCollection();
+                topics.Entities.Add(new opc_topic
+                {
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Technology{Separator}Technologie" },
+                    opc_theme_topics_themeid = new opc_theme { opc_nameenglish = "Technology" }
+                });
+
+                topics.Entities.Add(new opc_topic
+                {
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Public Services{Separator}Services Publiques" },
+                    opc_theme_topics_themeid = new opc_theme { opc_nameenglish = "Public Services" }
+                });
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, topics);
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
                 pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
@@ -393,67 +446,122 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                foreach (opc_topic multiLanguageEntity in multiLanguageEntityCollection.Entities)
+                foreach (opc_topic topic in topics.Entities)
+                    topic.opc_themeid.Name.Should().Be(topic.opc_theme_topics_themeid.opc_nameenglish);
+            }
+
+            [Fact(DisplayName = "translated fields should be French when UI is French")]
+            public void translated_fields_should_be_french_when_ui_is_french()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topics = new EntityCollection();
+                topics.Entities.Add(new opc_topic
                 {
-                    multiLanguageEntity.opc_themeid.Name.Should().Be(multiLanguageEntity.opc_theme_topics_themeid.opc_nameenglish);
-                }
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Technology{Separator}Technologie" },
+                    opc_theme_topics_themeid = new opc_theme { opc_namefrench = "Technologie" }
+                });
+
+                topics.Entities.Add(new opc_topic
+                {
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Public Services{Separator}Services Publiques" },
+                    opc_theme_topics_themeid = new opc_theme { opc_namefrench = "Services Publiques" }
+                });
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, topics);
+                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                foreach (opc_topic topic in topics.Entities)
+                    topic.opc_themeid.Name.Should().Be(topic.opc_theme_topics_themeid.opc_namefrench);
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to English when UI is French and the value is empty")]
+            public void translated_fields_should_fallback_to_english_when_the_ui_is_french_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topics = new EntityCollection();
+                topics.Entities.Add(new opc_topic
+                {
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Technology{Separator}" },
+                    opc_theme_topics_themeid = new opc_theme { opc_nameenglish = "Technology" }
+                });
+
+                topics.Entities.Add(new opc_topic
+                {
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}Public Services{Separator}" },
+                    opc_theme_topics_themeid = new opc_theme { opc_nameenglish = "Public Services" }
+                });
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, topics);
+                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                foreach (opc_topic topic in topics.Entities)
+                    topic.opc_themeid.Name.Should().Be(topic.opc_theme_topics_themeid.opc_nameenglish);
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to French when UI is English and the value is empty")]
+            public void translated_fields_should_fallback_to_french_when_the_ui_is_english_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topics = new EntityCollection();
+                topics.Entities.Add(new opc_topic
+                {
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}{Separator}Technologie" },
+                    opc_theme_topics_themeid = new opc_theme { opc_namefrench = "Technologie" }
+                });
+
+                topics.Entities.Add(new opc_topic
+                {
+                    opc_themeid = new EntityReference() { Name = $"{Prefix}{Separator}Services Publiques" },
+                    opc_theme_topics_themeid = new opc_theme { opc_namefrench = "Services Publiques" }
+                });
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, topics);
+                pluginContext.MessageName = PluginMessage.RetrieveMultiple;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                foreach (opc_topic topic in topics.Entities)
+                    topic.opc_themeid.Name.Should().Be(topic.opc_theme_topics_themeid.opc_namefrench);
             }
         }
 
         public class when_retrieving_multilanguage_expandedproperties
         {
-            public opc_topic GetMockedMultiLanguageEntity()
-            {
-                return new opc_topic
-                {
-                    Id = Guid.NewGuid(),
-                    opc_islocalizable = true,
-                    opc_name = $"{Prefix}Artificial Intelligence|Intelligence Artificielle",
-                    opc_nameenglish = "Artificial Intelligence",
-                    opc_namefrench = "Intelligence Artificielle",
-                    opc_theme_topics_themeid = new opc_theme
-                    {
-                        Id = Guid.NewGuid(),
-                        opc_islocalizable = true,
-                        opc_name = $"{Prefix}Computer Science|Informatique",
-                        opc_nameenglish = "Computer Science",
-                        opc_namefrench = "Informatique",
-                    }
-                };
-            }
-
-            [Fact(DisplayName = "translated fields should be french when UI is french")]
-            public void translated_fields_should_be_french_when_ui_is_french()
-            {
-                // Arrange
-                var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
-                var expectedName = "Informatique";
-
-                pluginContext.OutputParameters = outputs;
-                pluginContext.MessageName = PluginMessage.Retrieve;
-                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
-
-                // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
-
-                // Assert
-                multiLanguageEntity.opc_theme_topics_themeid.opc_name.Should().Be(expectedName);
-            }
-
-            [Fact(DisplayName = "translated fields should be english when UI is english")]
+            [Fact(DisplayName = "translated fields should be English when UI is English")]
             public void translated_fields_should_be_english_when_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
-                var expectedName = "Computer Science";
 
-                pluginContext.OutputParameters = outputs;
+                var topic = new opc_topic
+                {
+                    opc_theme_topics_themeid = new opc_theme { opc_name = $"{Prefix}Computer Science{Separator}Informatique" }
+                };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, topic);
                 pluginContext.MessageName = PluginMessage.Retrieve;
                 pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
@@ -461,7 +569,80 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                multiLanguageEntity.opc_theme_topics_themeid.opc_name.Should().Be(expectedName);
+                var expected = "Computer Science";
+                topic.opc_theme_topics_themeid.opc_name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should be French when UI is French")]
+            public void translated_fields_should_be_french_when_ui_is_french()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topic = new opc_topic
+                {
+                    opc_theme_topics_themeid = new opc_theme { opc_name = $"{Prefix}Computer Science{Separator}Informatique" }
+                };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, topic);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = "Informatique";
+                topic.opc_theme_topics_themeid.opc_name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to English when UI is French and the value is empty")]
+            public void translated_fields_should_fallback_to_english_when_the_ui_is_french_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topic = new opc_topic
+                {
+                    opc_theme_topics_themeid = new opc_theme { opc_name = $"{Prefix}Computer Science{Separator}" }
+                };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, topic);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.French);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = "Computer Science";
+                topic.opc_theme_topics_themeid.opc_name.Should().Be(expected);
+            }
+
+            [Fact(DisplayName = "translated fields should fallback to French when UI is English and the value is empty")]
+            public void translated_fields_should_fallback_to_french_when_the_ui_is_english_and_the_value_is_empty()
+            {
+                // Arrange
+                var context = new XrmFakedContext();
+                var pluginContext = context.GetDefaultPluginContext();
+
+                var topic = new opc_topic
+                {
+                    opc_theme_topics_themeid = new opc_theme { opc_name = $"{Prefix}{Separator}Informatique" }
+                };
+
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntity, topic);
+                pluginContext.MessageName = PluginMessage.Retrieve;
+                pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
+
+                // Act
+                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+
+                // Assert
+                var expected = "Informatique";
+                topic.opc_theme_topics_themeid.opc_name.Should().Be(expected);
             }
         }
 
