@@ -133,7 +133,6 @@ namespace Compliance.Plugins.Tests
                             }
                         }
                 }).Entities.Count.Should().Be(0);
-
             }
 
             [Fact(DisplayName = "team queues shouldn't be disassociated from users who are member through another team")]
@@ -178,9 +177,7 @@ namespace Compliance.Plugins.Tests
                             }
                         }
                 }).Entities.Count.Should().Be(1);
-
             }
-
         }
 
         public class when_a_queue_is_associated_to_a_team
@@ -224,7 +221,6 @@ namespace Compliance.Plugins.Tests
                             }
                         }
                 }).Entities.Count.Should().Be(2);
-
             }
 
             [Fact(DisplayName = "queue should not be associated to users who are member through another team")]
@@ -270,7 +266,6 @@ namespace Compliance.Plugins.Tests
                             }
                         }
                 }).Entities.Count.Should().Be(2);
-
             }
         }
 
@@ -317,7 +312,6 @@ namespace Compliance.Plugins.Tests
                             }
                         }
                 }).Entities.Count.Should().Be(0);
-
             }
 
             [Fact(DisplayName = "queue should not be disassociated from users whp are member through another team")]
@@ -364,7 +358,6 @@ namespace Compliance.Plugins.Tests
                             }
                         }
                 }).Entities.Count.Should().Be(1);
-
             }
         }
     }

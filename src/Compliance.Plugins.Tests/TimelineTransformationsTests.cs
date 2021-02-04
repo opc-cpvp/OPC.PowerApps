@@ -3,11 +3,10 @@ using FakeXrmEasy;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using Xunit;
-using System.IO;
+using System.Linq;
 using System.Web.Script.Serialization;
+using Xunit;
 
 namespace Compliance.Plugins.Tests
 {
@@ -166,7 +165,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.OutputParameters = new ParameterCollection { { OutputParameter.BusinessEntityCollection, annotationCollection } };
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, annotationCollection);
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
 
                 // Act
@@ -184,7 +183,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.OutputParameters = new ParameterCollection { { OutputParameter.BusinessEntityCollection, annotationCollection } };
+                pluginContext.OutputParameters.Add(OutputParameter.BusinessEntityCollection, annotationCollection);
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
 
                 // Act
@@ -207,10 +206,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.InputParameters = new ParameterCollection {
-                    { "FetchXml", "<attribute name=\"testAttribute\"/> <attribute name=\"statecode\"/> <attribute name=\"testAttribute2\"/>" },
-                };
-
+                pluginContext.InputParameters.Add(InputParameter.FetchXml, "<attribute name=\"testAttribute\"/> <attribute name=\"statecode\"/> <attribute name=\"testAttribute2\"/>");
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
 
                 // Act
@@ -227,10 +223,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.InputParameters = new ParameterCollection {
-                    { "FetchXml", null },
-                };
-
+                pluginContext.InputParameters.Add(InputParameter.FetchXml, null);
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
 
                 // Act
@@ -335,10 +328,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.OutputParameters = new ParameterCollection {
-                    { OutputParameter.TimelineWallRecords, TimelineRecords },
-                };
-
+                pluginContext.OutputParameters.Add(OutputParameter.TimelineWallRecords, TimelineRecords);
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
 
                 // Act

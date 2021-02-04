@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Compliance.Entities;
+﻿using Compliance.Entities;
 using FakeXrmEasy;
 using FakeXrmEasy.Extensions;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Metadata;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Compliance.Plugins.Tests
@@ -706,9 +705,8 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var outputs = new ParameterCollection { { OutputParameter.TimelineWallRecords, timelineRecordTransform.Initial } };
 
-                pluginContext.OutputParameters = outputs;
+                pluginContext.OutputParameters.Add(OutputParameter.TimelineWallRecords, timelineRecordTransform.Initial);
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
                 pluginContext.SharedVariables.Add(LanguageKey, (int)timelineRecordTransform.Language);
 
@@ -725,9 +723,8 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var outputs = new ParameterCollection { { OutputParameter.TimelineWallRecords, null } };
 
-                pluginContext.OutputParameters = outputs;
+                pluginContext.OutputParameters.Add(OutputParameter.TimelineWallRecords, null);
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
                 pluginContext.SharedVariables.Add(LanguageKey, (int)Language.English);
 
@@ -740,5 +737,3 @@ namespace Compliance.Plugins.Tests
         }
     }
 }
-
-
