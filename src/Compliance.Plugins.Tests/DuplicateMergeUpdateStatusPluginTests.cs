@@ -33,17 +33,12 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
                 context.Initialize(new[] { TestMasterContact });
 
-                pluginContext.InputParameters = new ParameterCollection {
-                    { InputParameter.Target, new EntityReference(Contact.EntityLogicalName, Guid.Parse(MasterContactId)) },
-                };
-
-                pluginContext.MessageName = PluginMessage.Merge;
+                var reference = new EntityReference(Contact.EntityLogicalName, Guid.Parse(MasterContactId));
 
                 // Act
-                context.ExecutePluginWith<DuplicateMergeUpdateStatusPlugin>(pluginContext);
+                context.ExecutePluginWithTargetReference<DuplicateMergeUpdateStatusPlugin>(reference, PluginMessage.Merge);
 
                 // Assert
                 context.GetOrganizationService().Retrieve

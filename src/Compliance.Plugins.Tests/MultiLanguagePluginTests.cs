@@ -52,13 +52,8 @@ namespace Compliance.Plugins.Tests
 
                 var theme = GetMockedMultiLanguageEntity();
 
-                var inputs = new ParameterCollection { { InputParameter.Target, theme } };
-
-                pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = PluginMessage.Create;
-
                 // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+                context.ExecutePluginWithTarget<MultiLanguagePlugin>(theme);
 
                 // Assert
                 theme.opc_name.Should().NotBeNullOrWhiteSpace();
@@ -69,7 +64,6 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
                 var metadata = GetMockedMultiLanguageMetadata();
 
                 context.InitializeMetadata(metadata);
@@ -77,13 +71,8 @@ namespace Compliance.Plugins.Tests
                 var theme = GetMockedMultiLanguageEntity();
                 var expectedName = $"{Prefix}{theme.opc_nameenglish}|{theme.opc_namefrench}";
 
-                var inputs = new ParameterCollection { { InputParameter.Target, theme } };
-
-                pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = PluginMessage.Create;
-
                 // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+                context.ExecutePluginWithTarget<MultiLanguagePlugin>(theme);
 
                 // Assert
                 theme.opc_name.Should().Be(expectedName);
@@ -120,7 +109,6 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
                 var metadata = GetMockedMultiLanguageMetadata();
 
                 context.InitializeMetadata(metadata);
@@ -128,13 +116,8 @@ namespace Compliance.Plugins.Tests
                 var oldName = "Technology|Technologie";
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
 
-                var inputs = new ParameterCollection { { InputParameter.Target, multiLanguageEntity } };
-
-                pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = PluginMessage.Update;
-
                 // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+                context.ExecutePluginWithTarget<MultiLanguagePlugin>(multiLanguageEntity, PluginMessage.Update);
 
                 // Assert
                 multiLanguageEntity.opc_name.Should().NotBe(oldName);
@@ -145,7 +128,6 @@ namespace Compliance.Plugins.Tests
             {
                 // Arrange
                 var context = new XrmFakedContext();
-                var pluginContext = context.GetDefaultPluginContext();
                 var metadata = GetMockedMultiLanguageMetadata();
 
                 context.InitializeMetadata(metadata);
@@ -153,13 +135,8 @@ namespace Compliance.Plugins.Tests
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
                 var expectedName = $"{Prefix}{multiLanguageEntity.opc_nameenglish}|{multiLanguageEntity.opc_namefrench}";
 
-                var inputs = new ParameterCollection { { InputParameter.Target, multiLanguageEntity } };
-
-                pluginContext.InputParameters = inputs;
-                pluginContext.MessageName = PluginMessage.Update;
-
                 // Act
-                context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
+                context.ExecutePluginWithTarget<MultiLanguagePlugin>(multiLanguageEntity, PluginMessage.Update);
 
                 // Assert
                 multiLanguageEntity.opc_name.Should().Be(expectedName);
