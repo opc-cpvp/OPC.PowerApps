@@ -51,7 +51,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.OutputParameters = new ParameterCollection { { "BusinessEntity", annotation } };
+                pluginContext.OutputParameters = new ParameterCollection { { OutputParameter.BusinessEntity, annotation } };
                 pluginContext.MessageName = PluginMessage.Retrieve;
 
                 // Act
@@ -68,7 +68,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.OutputParameters = new ParameterCollection { { "BusinessEntity", annotation } };
+                pluginContext.OutputParameters = new ParameterCollection { { OutputParameter.BusinessEntity, annotation } };
                 pluginContext.MessageName = PluginMessage.Retrieve;
 
                 // Act
@@ -148,7 +148,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.OutputParameters = new ParameterCollection { { "BusinessEntityCollection", annotationCollection } };
+                pluginContext.OutputParameters = new ParameterCollection { { OutputParameter.BusinessEntityCollection, annotationCollection } };
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
 
                 // Act
@@ -166,7 +166,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.OutputParameters = new ParameterCollection { { "BusinessEntityCollection", annotationCollection } };
+                pluginContext.OutputParameters = new ParameterCollection { { OutputParameter.BusinessEntityCollection, annotationCollection } };
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
 
                 // Act
@@ -184,7 +184,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
 
-                pluginContext.OutputParameters = new ParameterCollection { { "BusinessEntityCollection", annotationCollection } };
+                pluginContext.OutputParameters = new ParameterCollection { { OutputParameter.BusinessEntityCollection, annotationCollection } };
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
 
                 // Act
@@ -336,7 +336,7 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
 
                 pluginContext.OutputParameters = new ParameterCollection {
-                    { "TimelineWallRecords", TimelineRecords },
+                    { OutputParameter.TimelineWallRecords, TimelineRecords },
                 };
 
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
@@ -346,7 +346,7 @@ namespace Compliance.Plugins.Tests
 
                 // Assert
                 var serializer = new JavaScriptSerializer();
-                var timelineWallRecords = serializer.Deserialize<TimelineRecords>(pluginContext.OutputParameters["TimelineWallRecords"].ToString());
+                var timelineWallRecords = serializer.Deserialize<TimelineRecords>(pluginContext.OutputParameters[OutputParameter.TimelineWallRecords].ToString());
 
                 foreach (var entity in timelineWallRecords.Entities)
                 {

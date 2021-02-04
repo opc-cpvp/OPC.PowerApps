@@ -30,7 +30,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.MessageName = PluginMessage.Associate;
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference("team", targetTeamGuid) },
+                    { InputParameter.Target, new EntityReference("team", targetTeamGuid) },
                     { "Relationship", new Relationship("teammembership_association") },
                     { "RelatedEntities", new EntityReferenceCollection(new [] { new EntityReference("systemuser", targetUserGuid) }) }
                 };
@@ -72,7 +72,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.MessageName = PluginMessage.Associate;
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference("team", targetTeamGuid) },
+                    { InputParameter.Target, new EntityReference("team", targetTeamGuid) },
                     { "Relationship", new Relationship("teammembership_association") },
                     { "RelatedEntities", new EntityReferenceCollection(new [] { new EntityReference("systemuser", targetUserGuid ) }) }
                 };
@@ -115,7 +115,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.MessageName = PluginMessage.Disassociate;
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference("team", targetTeamGuid) },
+                    { InputParameter.Target, new EntityReference("team", targetTeamGuid) },
                     { "Relationship", new Relationship("teammembership_association") },
                     { "RelatedEntities", new EntityReferenceCollection(new [] { new EntityReference("systemuser", targetUserGuid = Guid.NewGuid()) }) }
                 };
@@ -160,7 +160,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.MessageName = PluginMessage.Disassociate;
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference("team", targetTeamGuid) },
+                    { InputParameter.Target, new EntityReference("team", targetTeamGuid) },
                     { "Relationship", new Relationship("teammembership_association") },
                     { "RelatedEntities", new EntityReferenceCollection(new [] { new EntityReference("systemuser", targetUserGuid) }) }
                 };
@@ -205,7 +205,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.MessageName = PluginMessage.Associate;
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference("team", targetTeamGuid) },
+                    { InputParameter.Target, new EntityReference("team", targetTeamGuid) },
                     { "Relationship", new Relationship("opc_queues_teams_membership") },
                     { "RelatedEntities", new EntityReferenceCollection(new [] { new EntityReference("queue", targetQueueGuid) }) }
                 };
@@ -251,7 +251,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.MessageName = PluginMessage.Associate;
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference("team", targetTeamGuid) },
+                    { InputParameter.Target, new EntityReference("team", targetTeamGuid) },
                     { "Relationship", new Relationship("opc_queues_teams_membership") },
                     { "RelatedEntities", new EntityReferenceCollection(new [] { new EntityReference("queue", targetQueueGuid) }) }
                 };
@@ -298,7 +298,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.MessageName = PluginMessage.Disassociate;
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference("team", targetTeamGuid) },
+                    { InputParameter.Target, new EntityReference("team", targetTeamGuid) },
                     { "Relationship", new Relationship("opc_queues_teams_membership") },
                     { "RelatedEntities", new EntityReferenceCollection( new []{ new EntityReference("queue", targetQueueGuid) } ) }
                 }; ;
@@ -345,7 +345,7 @@ namespace Compliance.Plugins.Tests
 
                 pluginContext.MessageName = PluginMessage.Disassociate;
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference("team", targetTeamGuid) },
+                    { InputParameter.Target, new EntityReference("team", targetTeamGuid) },
                     { "Relationship", new Relationship("opc_queues_teams_membership") },
                     { "RelatedEntities", new EntityReferenceCollection(new [] { new EntityReference("queue", targetQueueGuid) }) }
                 };

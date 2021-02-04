@@ -12,8 +12,6 @@ namespace Compliance.Plugins.Tests
     {
         public class when_creating_complaint
         {
-            public static ComplaintPrefixPlugin pluginInstance = null;
-
             public static IEnumerable<object[]> Legislations
             {
                 get
@@ -23,17 +21,6 @@ namespace Compliance.Plugins.Tests
                         new object[] { new opc_legislation { Id = Guid.NewGuid(), opc_acronym = "PA", opc_name = "Privacy Act" } },
                         new object[] { new opc_legislation { Id = Guid.NewGuid(), opc_acronym = "PIPEDA", opc_name = "Personal Information Protection and Electronic Documents Act" } }
                     };
-                }
-            }
-
-            public static ComplaintPrefixPlugin PluginInstance
-            {
-                get
-                {
-                    if (pluginInstance is null)
-                        pluginInstance = new ComplaintPrefixPlugin();
-
-                    return pluginInstance;
                 }
             }
 
@@ -54,7 +41,7 @@ namespace Compliance.Plugins.Tests
                 context.Initialize(new List<Entity> { complaint, legislation });
 
                 // Act
-                context.ExecutePluginWithTarget(PluginInstance, complaint, "Create");
+                context.ExecutePluginWithTarget<ComplaintPrefixPlugin>(complaint);
 
                 // Assert
                 complaint.opc_number.Should().NotBe(complaintNumber);
@@ -77,7 +64,7 @@ namespace Compliance.Plugins.Tests
                 context.Initialize(new List<Entity> { complaint, legislation });
 
                 // Act
-                context.ExecutePluginWithTarget(PluginInstance, complaint, "Create");
+                context.ExecutePluginWithTarget<ComplaintPrefixPlugin>(complaint);
 
                 // Assert
                 complaint.opc_number.Should().Be($"{legislation.opc_acronym}-{complaintNumber}");

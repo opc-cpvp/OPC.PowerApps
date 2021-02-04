@@ -37,7 +37,7 @@ namespace Compliance.Plugins.Tests
                 context.Initialize(new[] { TestMasterContact });
 
                 pluginContext.InputParameters = new ParameterCollection {
-                    { "Target", new EntityReference(Contact.EntityLogicalName, Guid.Parse(MasterContactId)) },
+                    { InputParameter.Target, new EntityReference(Contact.EntityLogicalName, Guid.Parse(MasterContactId)) },
                 };
 
                 pluginContext.MessageName = PluginMessage.Merge;
