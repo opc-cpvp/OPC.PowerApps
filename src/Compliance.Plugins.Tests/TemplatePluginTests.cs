@@ -47,7 +47,7 @@ namespace Compliance.Plugins.Tests
                 MockSharePointService.Invocations.Clear();
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should retrieve the template")]
             public void it_should_retrieve_the_template()
             {
                 // Arrange
@@ -64,7 +64,7 @@ namespace Compliance.Plugins.Tests
                 MockSharePointService.Verify(x => x.GetDocumentAsStream(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()), Times.Once());
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should generate the document")]
             public void it_should_generate_the_document()
             {
                 // Arrange
@@ -81,7 +81,7 @@ namespace Compliance.Plugins.Tests
                 MockSharePointService.Verify(x => x.GenerateDocumentFromTemplate(It.IsAny<Stream>(), It.IsAny<string>()), Times.Once());
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should add the document to sharepoint")]
             public void it_should_add_the_document_to_sharepoint()
             {
                 // Arrange
@@ -98,7 +98,7 @@ namespace Compliance.Plugins.Tests
                 MockSharePointService.Verify(x => x.AddFileToSharePoint(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<byte[]>()), Times.Once());
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should throw an InvalidPluginExecutionException if there's an exception when retrieving the template")]
             public void it_should_throw_an_InvalidPluginExecutionException_if_there_is_an_exception_when_retrieving_the_template()
             {
                 // Arrange
@@ -118,7 +118,7 @@ namespace Compliance.Plugins.Tests
                 executePluginWith.Should().Throw<InvalidPluginExecutionException>();
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should throw an InvalidPluginExecutionException if there's an exception when generating the document")]
             public void it_should_throw_an_InvalidPluginExecutionException_if_there_is_an_exception_when_generating_the_document()
             {
                 // Arrange
@@ -138,7 +138,7 @@ namespace Compliance.Plugins.Tests
                 executePluginWith.Should().Throw<InvalidPluginExecutionException>();
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should throw an InvalidPluginExecutionException if there's an exception when sending the file to sharepoint")]
             public void it_should_throw_an_InvalidPluginExecutionException_if_there_is_an_exception_when_sending_the_file_to_sharepoint()
             {
                 // Arrange
@@ -158,7 +158,7 @@ namespace Compliance.Plugins.Tests
                 executePluginWith.Should().Throw<InvalidPluginExecutionException>();
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should send a trace log if there's an exception when retrieving the template")]
             public void it_should_send_a_trace_log_if_there_is_an_exception_when_retrieving_the_template()
             {
                 // Arrange
@@ -179,7 +179,7 @@ namespace Compliance.Plugins.Tests
                 context.GetFakeTracingService().DumpTrace().Should().ContainAll("Exception", "Inner Exception", "Stack Trace");
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should send a trace log if there's an exception when generating the document")]
             public void it_should_send_a_trace_log_if_there_is_an_exception_when_generating_the_document()
             {
                 // Arrange
@@ -200,7 +200,7 @@ namespace Compliance.Plugins.Tests
                 context.GetFakeTracingService().DumpTrace().Should().ContainAll("Exception", "Inner Exception", "Stack Trace");
             }
 
-            [Fact]
+            [Fact(DisplayName = "it should send a trace log if there's an exception when sending the file to sharepoint")]
             public void it_should_send_a_trace_log_if_there_is_an_exception_when_sending_the_file_to_sharepoint()
             {
                 // Arrange

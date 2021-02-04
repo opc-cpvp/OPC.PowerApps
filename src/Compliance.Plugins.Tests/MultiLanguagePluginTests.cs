@@ -45,7 +45,7 @@ namespace Compliance.Plugins.Tests
                 return metadata;
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should contain data")]
             public void opc_name_should_contain_data()
             {
                 // Arrange
@@ -69,7 +69,7 @@ namespace Compliance.Plugins.Tests
                 theme.opc_name.Should().NotBeNullOrWhiteSpace();
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should contain both languages separated by a pipe")]
             public void opc_name_should_contain_both_languages_seperated_by_pipe()
             {
                 // Arrange
@@ -125,8 +125,7 @@ namespace Compliance.Plugins.Tests
                 return metadata;
             }
 
-            // opc_name should change
-            [Fact]
+            [Fact(DisplayName = "opc_name should change")]
             public void opc_name_should_change()
             {
                 // Arrange
@@ -151,8 +150,7 @@ namespace Compliance.Plugins.Tests
                 multiLanguageEntity.opc_name.Should().NotBe(oldName);
             }
 
-            // opc_name should contain both languages seperated by pipe
-            [Fact]
+            [Fact(DisplayName = "opc_name should contain both languages seperated by pipe")]
             public void opc_name_should_contain_both_languages_seperated_by_pipe()
             {
                 // Arrange
@@ -192,7 +190,7 @@ namespace Compliance.Plugins.Tests
                 };
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be french when UI is french")]
             public void opc_name_should_be_french_when_ui_is_french()
             {
                 // Arrange
@@ -215,7 +213,7 @@ namespace Compliance.Plugins.Tests
                 multiLanguageEntity.opc_name.Should().Be(expectedName);
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be english when UI is english")]
             public void opc_name_should_be_english_when_ui_is_english()
             {
                 // Arrange
@@ -251,7 +249,7 @@ namespace Compliance.Plugins.Tests
                 return entityCollectionThemes;
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be french when UI is in french")]
             public void opc_names_should_be_french_when_ui_is_french()
             {
                 // Arrange
@@ -275,7 +273,7 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be english when UI is english")]
             public void opc_names_should_be_english_when_ui_is_english()
             {
                 // Arrange
@@ -315,7 +313,7 @@ namespace Compliance.Plugins.Tests
                 };
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be french when UI is french")]
             public void opc_name_should_be_french_when_ui_is_french()
             {
                 // Arrange
@@ -336,7 +334,7 @@ namespace Compliance.Plugins.Tests
                 multiLanguageEntity.opc_themeid.Name.Should().Be(expectedName);
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be english when UI is english")]
             public void opc_name_should_be_english_when_ui_is_english()
             {
                 // Arrange
@@ -389,7 +387,7 @@ namespace Compliance.Plugins.Tests
                 return entityCollectionTopics;
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be french when UI is french")]
             public void opc_names_should_be_french_when_ui_is_french()
             {
                 // Arrange
@@ -412,7 +410,7 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_names should be english when UI is english")]
             public void opc_names_should_be_english_when_ui_is_english()
             {
                 // Arrange
@@ -458,7 +456,7 @@ namespace Compliance.Plugins.Tests
                 };
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be french when UI is french")]
             public void opc_name_should_be_french_when_ui_is_french()
             {
                 // Arrange
@@ -479,7 +477,7 @@ namespace Compliance.Plugins.Tests
                 multiLanguageEntity.opc_theme_topics_themeid.opc_name.Should().Be(expectedName);
             }
 
-            [Fact]
+            [Fact(DisplayName = "opc_name should be english when UI is english")]
             public void opc_name_should_be_english_when_ui_is_english()
             {
                 // Arrange
@@ -555,7 +553,7 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Theory, MemberData(nameof(TimelineRecordTransforms))]
+            [Theory(DisplayName = "TimelineWallRecords should display in the correct language"), MemberData(nameof(TimelineRecordTransforms))]
             public void timeline_records_strings_should_turn_to_correct_language(TimelineRecordTransform timelineRecordTransform)
             {
                 // Arrange
@@ -574,7 +572,7 @@ namespace Compliance.Plugins.Tests
                 pluginContext.OutputParameters["TimelineWallRecords"].Should().Be(timelineRecordTransform.Expected);
             }
 
-            [Fact]
+            [Fact(DisplayName = "TimelineWallRecords should not throw when null")]
             public void timeline_records_should_not_throw_when_null()
             {
                 // Arrange

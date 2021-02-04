@@ -12,7 +12,7 @@ namespace Compliance.Plugins.Tests
     {
         public class when_a_team_is_associated_to_a_user
         {
-            [Fact]
+            [Fact(DisplayName = "team queues should be associated to user")]
             public void team_queues_should_be_associated_to_user()
             {
                 // Arrange
@@ -50,7 +50,7 @@ namespace Compliance.Plugins.Tests
                 }).Entities.Count.Should().Be(1);
             }
 
-            [Fact]
+            [Fact(DisplayName = "team queues shouldn't be associated ot users who are member through another team")]
             public void team_queues_should_not_be_associated_to_users_who_are_member_through_another_team()
             {
                 // Arrange
@@ -95,7 +95,7 @@ namespace Compliance.Plugins.Tests
 
         public class when_a_team_is_dissociated_from_a_user
         {
-            [Fact]
+            [Fact(DisplayName = "team queues should be disassociated from user")]
             public void team_queues_should_be_disassociated_from_user()
             {
                 // Arrange
@@ -136,7 +136,7 @@ namespace Compliance.Plugins.Tests
 
             }
 
-            [Fact]
+            [Fact(DisplayName = "team queues shouldn't be disassociated from users who are member through another team")]
             public void team_queues_should_not_be_disassociated_from_users_who_are_member_through_another_team()
             {
                 // Arrange
@@ -185,7 +185,7 @@ namespace Compliance.Plugins.Tests
 
         public class when_a_queue_is_associated_to_a_team
         {
-            [Fact]
+            [Fact(DisplayName = "queue should be associated to all team members")]
             public void queue_should_be_associated_to_all_team_members()
             {
                 // Arrange
@@ -227,7 +227,7 @@ namespace Compliance.Plugins.Tests
 
             }
 
-            [Fact]
+            [Fact(DisplayName = "queue should not be associated to users who are member through another team")]
             public void queue_should_not_be_associated_to_users_who_are_member_through_another_team()
             {
                 // Arrange
@@ -276,7 +276,7 @@ namespace Compliance.Plugins.Tests
 
         public class when_a_queue_is_disassociated_to_a_team
         {
-            [Fact]
+            [Fact(DisplayName = "queue should be disassociated from all team members")]
             public void queue_should_be_disassociated_from_all_team_members()
             {
                 // Arrange
@@ -320,7 +320,7 @@ namespace Compliance.Plugins.Tests
 
             }
 
-            [Fact]
+            [Fact(DisplayName = "queue should not be disassociated from users whp are member through another team")]
             public void queue_should_not_be_disassociated_from_users_who_are_member_through_another_team()
             {
                 // Arrange

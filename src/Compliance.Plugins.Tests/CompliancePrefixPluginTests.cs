@@ -37,7 +37,7 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Theory, MemberData(nameof(Legislations))]
+            [Theory(DisplayName = "complaint number should change"), MemberData(nameof(Legislations))]
             public void complaint_number_should_change(opc_legislation legislation)
             {
                 // Arrange
@@ -60,7 +60,7 @@ namespace Compliance.Plugins.Tests
                 complaint.opc_number.Should().NotBe(complaintNumber);
             }
 
-            [Theory, MemberData(nameof(Legislations))]
+            [Theory(DisplayName = "complaint number should be prefixed with legislation"), MemberData(nameof(Legislations))]
             public void complaint_number_should_be_prefixed_with_legislation(opc_legislation legislation)
             {
                 // Arrange

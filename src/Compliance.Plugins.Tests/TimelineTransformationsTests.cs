@@ -44,7 +44,7 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Theory, MemberData(nameof(Annotations))]
+            [Theory(DisplayName = "modified by should be replaced with created by"), MemberData(nameof(Annotations))]
             public void modified_by_should_be_replaced_with_created_by(Annotation annotation)
             {
                 // Arrange
@@ -61,7 +61,7 @@ namespace Compliance.Plugins.Tests
                 annotation.ModifiedBy.Should().Be(annotation.CreatedBy);
             }
 
-            [Theory, MemberData(nameof(Annotations))]
+            [Theory(DisplayName = "modified on should be replaced with created on"), MemberData(nameof(Annotations))]
             public void modified_on_should_be_replaced_with_created_on(Annotation annotation)
             {
                 // Arrange
@@ -141,7 +141,7 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Theory, MemberData(nameof(AnnotationCollection))]
+            [Theory(DisplayName = "modified by should be replaced with created by"), MemberData(nameof(AnnotationCollection))]
             public void modified_by_should_be_replaced_with_created_by(EntityCollection annotationCollection)
             {
                 // Arrange
@@ -159,7 +159,7 @@ namespace Compliance.Plugins.Tests
                 annotations.All(a => a.ModifiedBy == a.CreatedBy).Should().BeTrue();
             }
 
-            [Theory, MemberData(nameof(AnnotationCollection))]
+            [Theory(DisplayName = "modified on should be replaced with created on"), MemberData(nameof(AnnotationCollection))]
             public void modified_on_should_be_replaced_with_created_on(EntityCollection annotationCollection)
             {
                 // Arrange
@@ -177,7 +177,7 @@ namespace Compliance.Plugins.Tests
                 annotations.All(a => a.ModifiedOn == a.CreatedOn).Should().BeTrue();
             }
 
-            [Theory, MemberData(nameof(AnnotationCollection))]
+            [Theory(DisplayName = "annotations should be sorted by created in descending order"), MemberData(nameof(AnnotationCollection))]
             public void annotations_should_be_sorted_by_created_in_descending_order(EntityCollection annotationCollection)
             {
                 // Arrange
@@ -200,7 +200,7 @@ namespace Compliance.Plugins.Tests
 
         public class when_retrieving_timeline_wall_records
         {
-            [Fact]
+            [Fact(DisplayName = "state code attribute should be removed from FetchXML")]
             public void state_code_attribute_should_be_removed_from_fetchXml()
             {
                 // Arrange
@@ -220,7 +220,7 @@ namespace Compliance.Plugins.Tests
                 pluginContext.InputParameters["FetchXml"].ToString().Should().NotContain("<attribute name=\"statecode\"/>");
             }
 
-            [Fact]
+            [Fact(DisplayName = "FetchXML shouldn't throw if null")]
             public void fetchXml_should_not_throw_if_null()
             {
                 // Arrange
@@ -328,7 +328,7 @@ namespace Compliance.Plugins.Tests
   'EntityName': 'activitypointer'
 }";
 
-            [Fact]
+            [Fact(DisplayName = "owners should be replaced by created on behalf")]
             public void owners_should_be_replaced_by_created_on_behalf()
             {
                 // Arrange

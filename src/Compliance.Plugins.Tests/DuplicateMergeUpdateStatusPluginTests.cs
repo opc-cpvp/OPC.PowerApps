@@ -28,7 +28,7 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Fact]
+            [Fact(DisplayName = "the master contact records duplicate status should be changed to none")]
             public void the_master_contact_records_duplicate_status_should_be_changed_to_none()
             {
                 // Arrange

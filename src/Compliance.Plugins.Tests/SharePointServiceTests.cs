@@ -12,7 +12,7 @@ namespace Compliance.Plugins.Tests
 
         public class when_sanitizing_the_document_name
         {
-            [Fact]
+            [Fact(DisplayName = "it should remove all illegal characters")]
             public void it_should_remove_all_illegal_characters()
             {
                 // Arrange

@@ -34,7 +34,7 @@ namespace Compliance.Plugins.Tests
                 get => new Entity("systemuser", Guid.Parse(TestUserId));
             }
 
-            [Fact]
+            [Fact(DisplayName = "an event should be created for tracked changed field")]
             public void an_event_should_be_created_for_tracked_changed_field()
             {
                 // Arrange
@@ -74,7 +74,7 @@ namespace Compliance.Plugins.Tests
                 }).Entities.Count.Should().Be(1);
             }
 
-            [Fact]
+            [Fact(DisplayName = "two events should be created for two tracked changed fields")]
             public void two_events_should_be_created_for_two_tracked_changed_fields()
             {
                 // Arrange
@@ -123,7 +123,7 @@ namespace Compliance.Plugins.Tests
                 }).Entities.Count.Should().Be(2);
             }
 
-            [Fact]
+            [Fact(DisplayName = "an event should not be created for tracked field with no changes")]
             public void an_event_should_not_be_created_for_tracked_field_with_no_changes()
             {
                 // Arrange
@@ -152,7 +152,7 @@ namespace Compliance.Plugins.Tests
                 }).Entities.Count.Should().Be(0);
             }
 
-            [Fact]
+            [Fact(DisplayName = "an event should not be created for non tracked changed field")]
             public void an_event_should_not_be_created_for_non_tracked_changed_field()
             {
                 // Arrange
