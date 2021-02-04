@@ -12,7 +12,7 @@
       Verbose="true"
       KeyFile="$(KeyFile)"
       LibraryPath="$(OutputPath)"
-      OutputFile="$(ProjectDir)/bin/ILRepack/$(AssemblyName).dll"
+      OutputFile="$(ProjectDir)bin\ILRepack\$(AssemblyName).dll"
     />
   </Target>
 </Project>
