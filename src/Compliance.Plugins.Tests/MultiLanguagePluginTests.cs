@@ -36,11 +36,9 @@ namespace Compliance.Plugins.Tests
                     LogicalName = "opc_theme"
                 };
 
-                var nameMetadata = new StringAttributeMetadata { LogicalName = "opc_name" };
-                var nameEnglishMetadata = new StringAttributeMetadata { LogicalName = "opc_nameenglish" };
-                var nameFrenchMetadata = new StringAttributeMetadata { LogicalName = "opc_namefrench" };
-
-                metadata.SetAttributeCollection(new List<AttributeMetadata>() { nameMetadata, nameEnglishMetadata, nameFrenchMetadata });
+                metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_name" });
+                metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_nameenglish" });
+                metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_namefrench" });
 
                 return metadata;
             }
@@ -57,7 +55,7 @@ namespace Compliance.Plugins.Tests
 
                 var theme = GetMockedMultiLanguageEntity();
 
-                var inputs = new ParameterCollection { { "Target", theme } };
+                var inputs = new ParameterCollection { { InputParameter.Target, theme } };
 
                 pluginContext.InputParameters = inputs;
                 pluginContext.MessageName = PluginMessage.Create;
@@ -82,7 +80,7 @@ namespace Compliance.Plugins.Tests
                 var theme = GetMockedMultiLanguageEntity();
                 var expectedName = $"{Prefix}{theme.opc_nameenglish}|{theme.opc_namefrench}";
 
-                var inputs = new ParameterCollection { { "Target", theme } };
+                var inputs = new ParameterCollection { { InputParameter.Target, theme } };
 
                 pluginContext.InputParameters = inputs;
                 pluginContext.MessageName = PluginMessage.Create;
@@ -116,11 +114,9 @@ namespace Compliance.Plugins.Tests
                     LogicalName = "opc_theme"
                 };
 
-                var nameMetadata = new StringAttributeMetadata { LogicalName = "opc_name" };
-                var nameEnglishMetadata = new StringAttributeMetadata { LogicalName = "opc_nameenglish" };
-                var nameFrenchMetadata = new StringAttributeMetadata { LogicalName = "opc_namefrench" };
-
-                metadata.SetAttributeCollection(new List<AttributeMetadata>() { nameMetadata, nameEnglishMetadata, nameFrenchMetadata });
+                metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_name" });
+                metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_nameenglish" });
+                metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_namefrench" });
 
                 return metadata;
             }
@@ -138,7 +134,7 @@ namespace Compliance.Plugins.Tests
                 var oldName = "Technology|Technologie";
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
 
-                var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
+                var inputs = new ParameterCollection { { InputParameter.Target, multiLanguageEntity } };
 
                 pluginContext.InputParameters = inputs;
                 pluginContext.MessageName = PluginMessage.Update;
@@ -163,7 +159,7 @@ namespace Compliance.Plugins.Tests
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
                 var expectedName = $"{Prefix}{multiLanguageEntity.opc_nameenglish}|{multiLanguageEntity.opc_namefrench}";
 
-                var inputs = new ParameterCollection { { "Target", multiLanguageEntity } };
+                var inputs = new ParameterCollection { { InputParameter.Target, multiLanguageEntity } };
 
                 pluginContext.InputParameters = inputs;
                 pluginContext.MessageName = PluginMessage.Update;
@@ -200,7 +196,7 @@ namespace Compliance.Plugins.Tests
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
                 var expectedName = multiLanguageEntity.opc_namefrench;
 
-                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.Retrieve;
@@ -223,7 +219,7 @@ namespace Compliance.Plugins.Tests
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
                 var expectedName = multiLanguageEntity.opc_nameenglish;
 
-                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.Retrieve;
@@ -257,7 +253,7 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
 
-                var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntityCollection, multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
@@ -281,7 +277,7 @@ namespace Compliance.Plugins.Tests
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
 
-                var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntityCollection, multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
@@ -320,7 +316,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
                 var expectedName = "Technologie";
 
                 pluginContext.OutputParameters = outputs;
@@ -341,7 +337,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
                 var expectedName = "Technology";
 
                 pluginContext.OutputParameters = outputs;
@@ -394,7 +390,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
-                var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntityCollection, multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
@@ -417,7 +413,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntityCollection = GetMultiLanguageEntityCollection();
-                var outputs = new ParameterCollection { { "BusinessEntityCollection", multiLanguageEntityCollection } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntityCollection, multiLanguageEntityCollection } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveMultiple;
@@ -463,7 +459,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
                 var expectedName = "Informatique";
 
                 pluginContext.OutputParameters = outputs;
@@ -484,7 +480,7 @@ namespace Compliance.Plugins.Tests
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
-                var outputs = new ParameterCollection { { "BusinessEntity", multiLanguageEntity } };
+                var outputs = new ParameterCollection { { OutputParameter.BusinessEntity, multiLanguageEntity } };
                 var expectedName = "Computer Science";
 
                 pluginContext.OutputParameters = outputs;
@@ -559,7 +555,7 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var outputs = new ParameterCollection { { "TimelineWallRecords", timelineRecordTransform.Initial } };
+                var outputs = new ParameterCollection { { OutputParameter.TimelineWallRecords, timelineRecordTransform.Initial } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
@@ -569,7 +565,7 @@ namespace Compliance.Plugins.Tests
                 context.ExecutePluginWith<MultiLanguagePlugin>(pluginContext);
 
                 // Assert
-                pluginContext.OutputParameters["TimelineWallRecords"].Should().Be(timelineRecordTransform.Expected);
+                pluginContext.OutputParameters[OutputParameter.TimelineWallRecords].Should().Be(timelineRecordTransform.Expected);
             }
 
             [Fact(DisplayName = "TimelineWallRecords should not throw when null")]
@@ -578,7 +574,7 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
-                var outputs = new ParameterCollection { { "TimelineWallRecords", null } };
+                var outputs = new ParameterCollection { { OutputParameter.TimelineWallRecords, null } };
 
                 pluginContext.OutputParameters = outputs;
                 pluginContext.MessageName = PluginMessage.RetrieveTimelineWallRecords;
