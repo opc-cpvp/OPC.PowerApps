@@ -160,7 +160,7 @@ namespace Compliance.Plugins
                 .Select(a => a.LogicalName)
                 .ToArray();
 
-            var translatedAttributes = entityAttributes.Where(a => LanguageSuffixes.Values.Any(s => entityAttributes.Contains($"{a}{s}"))).ToArray();
+            var translatedAttributes = entityAttributes.Where(a => LanguageSuffixes.Values.All(s => entityAttributes.Contains($"{a}{s}"))).ToArray();
             foreach (var attribute in translatedAttributes)
             {
                 var translations = new List<object>();
