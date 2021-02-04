@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using Compliance.Entities;
 using FakeXrmEasy;
+using FakeXrmEasy.Extensions;
 using FluentAssertions;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Metadata;
 using Xunit;
 
 namespace Compliance.Plugins.Tests
@@ -15,7 +17,7 @@ namespace Compliance.Plugins.Tests
 
         public class when_creating_multilanguageitem
         {
-            public opc_theme GetMockedMultiLanguageItem()
+            public opc_theme GetMockedMultiLanguageEntity()
             {
                 return new opc_theme
                 {
@@ -27,14 +29,33 @@ namespace Compliance.Plugins.Tests
                 };
             }
 
+            public EntityMetadata GetMockedMultiLanguageMetadata()
+            {
+                var metadata = new EntityMetadata
+                {
+                    LogicalName = "opc_theme"
+                };
+
+                var nameMetadata = new StringAttributeMetadata { LogicalName = "opc_name" };
+                var nameEnglishMetadata = new StringAttributeMetadata { LogicalName = "opc_nameenglish" };
+                var nameFrenchMetadata = new StringAttributeMetadata { LogicalName = "opc_namefrench" };
+
+                metadata.SetAttributeCollection(new List<AttributeMetadata>() { nameMetadata, nameEnglishMetadata, nameFrenchMetadata });
+
+                return metadata;
+            }
+
             [Fact]
             public void opc_name_should_contain_data()
             {
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
+                var metadata = GetMockedMultiLanguageMetadata();
 
-                var theme = GetMockedMultiLanguageItem();
+                context.InitializeMetadata(metadata);
+
+                var theme = GetMockedMultiLanguageEntity();
 
                 var inputs = new ParameterCollection { { "Target", theme } };
 
@@ -54,8 +75,11 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
+                var metadata = GetMockedMultiLanguageMetadata();
 
-                var theme = GetMockedMultiLanguageItem();
+                context.InitializeMetadata(metadata);
+
+                var theme = GetMockedMultiLanguageEntity();
                 var expectedName = $"{Prefix}{theme.opc_nameenglish}|{theme.opc_namefrench}";
 
                 var inputs = new ParameterCollection { { "Target", theme } };
@@ -85,6 +109,22 @@ namespace Compliance.Plugins.Tests
                 };
             }
 
+            public EntityMetadata GetMockedMultiLanguageMetadata()
+            {
+                var metadata = new EntityMetadata
+                {
+                    LogicalName = "opc_theme"
+                };
+
+                var nameMetadata = new StringAttributeMetadata { LogicalName = "opc_name" };
+                var nameEnglishMetadata = new StringAttributeMetadata { LogicalName = "opc_nameenglish" };
+                var nameFrenchMetadata = new StringAttributeMetadata { LogicalName = "opc_namefrench" };
+
+                metadata.SetAttributeCollection(new List<AttributeMetadata>() { nameMetadata, nameEnglishMetadata, nameFrenchMetadata });
+
+                return metadata;
+            }
+
             // opc_name should change
             [Fact]
             public void opc_name_should_change()
@@ -92,6 +132,9 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
+                var metadata = GetMockedMultiLanguageMetadata();
+
+                context.InitializeMetadata(metadata);
 
                 var oldName = "Technology|Technologie";
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
@@ -115,6 +158,9 @@ namespace Compliance.Plugins.Tests
                 // Arrange
                 var context = new XrmFakedContext();
                 var pluginContext = context.GetDefaultPluginContext();
+                var metadata = GetMockedMultiLanguageMetadata();
+
+                context.InitializeMetadata(metadata);
 
                 var multiLanguageEntity = GetMockedMultiLanguageEntity();
                 var expectedName = $"{Prefix}{multiLanguageEntity.opc_nameenglish}|{multiLanguageEntity.opc_namefrench}";

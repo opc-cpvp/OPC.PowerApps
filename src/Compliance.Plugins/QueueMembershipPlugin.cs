@@ -26,9 +26,9 @@ namespace Compliance.Plugins
             {
                 // Those are the 3 input parameters for "Associate" and "Disassociate"
                 if ((localContext.PluginExecutionContext.MessageName != PluginMessage.Associate && localContext.PluginExecutionContext.MessageName != PluginMessage.Disassociate) ||
-                !(localContext.PluginExecutionContext.InputParameters[InputParameters.Target] is EntityReference target) ||
-                !(localContext.PluginExecutionContext.InputParameters[InputParameters.Relationship] is Relationship relationship) ||
-                !(localContext.PluginExecutionContext.InputParameters[InputParameters.RelatedEntities] is EntityReferenceCollection refs))
+                !(localContext.PluginExecutionContext.InputParameters[InputParameter.Target] is EntityReference target) ||
+                !(localContext.PluginExecutionContext.InputParameters[InputParameter.Relationship] is Relationship relationship) ||
+                !(localContext.PluginExecutionContext.InputParameters[InputParameter.RelatedEntities] is EntityReferenceCollection refs))
                     return;
 
                 if (relationship.SchemaName == "teammembership_association") HandleTeamMembership(localContext, target, refs);

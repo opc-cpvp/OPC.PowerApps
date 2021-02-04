@@ -1,4 +1,7 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using Compliance.Entities;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Messages;
+using Microsoft.Xrm.Sdk.Metadata;
 using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Collections.Generic;
@@ -15,20 +18,18 @@ namespace Compliance.Plugins
 
     public partial class MultiLanguagePlugin : PluginBase
     {
-        private const string PreImageAlias = "PreImage";
         private const string IsLocalizableAttribute = "opc_islocalizable";
+        private const string PreImageAlias = "PreImage";
         private const string Prefix = "|^|";
-        private const string NameField = "opc_name";
+        private const string Separator = "|";
         private const string LanguageKey = "uilanguageid";
-        private const string LanguageAttribute = "uilanguageid";
 
         /// <summary>
-        /// Regex to match strings used for the multilangual plugin.
-        /// It first matches the double quote, followed by the prefix,
-        /// then matches anything (inlcuding escaped quotes) until it matches the end of the other double quotes
+        /// Regex to match strings used for the MultiLanguagePlugin.
+        /// It first matches the double quote, followed by the prefix, then matches
+        /// anything (inlcuding escaped quotes) until it matches the end of the other double quotes
         /// </summary>
-        private const string MultilangualStringPattern = "\"(\\|\\^\\|(?:(?=(\\\\?))\\2.)*?)\"";
-
+        private readonly string MultiLanguagePattern = $"\"({Regex.Escape(Prefix)}(?:(?=(\\\\?))\\2.)*?)\"";
         private readonly Dictionary<Language, string> LanguageSuffixes = new Dictionary<Language, string> {
             { Language.English, "english" },
             { Language.French, "french" }
@@ -49,16 +50,16 @@ namespace Compliance.Plugins
                 {
                     case PluginMessage.Create:
                     case PluginMessage.Update:
-                        PackNameTranslations(localContext);
+                        PackTranslations(localContext);
                         break;
                     case PluginMessage.Retrieve:
-                        UnpackNameOnRetrieve(localContext);
+                        UnpackTranslationsOnRetrieve(localContext);
                         break;
                     case PluginMessage.RetrieveMultiple:
-                        UnpackNameOnRetrieveMultiple(localContext);
+                        UnpackTranslationsOnRetrieveMultiple(localContext);
                         break;
                     case PluginMessage.RetrieveTimelineWallRecords:
-                        UnpackNameOnRetrieveTimelineWallRecords(localContext);
+                        UnpackTranslationsOnRetrieveTimelineWallRecords(localContext);
                         break;
                     default:
                         break;
@@ -74,60 +75,50 @@ namespace Compliance.Plugins
 
         private Language GetUserLanguage(LocalPluginContext localContext)
         {
-            // Check the plugin cache to see if the language is set
+            // Check the shared variables to see if the language is set
             if (localContext.PluginExecutionContext.SharedVariables.ContainsKey(LanguageKey))
                 return (Language)(int)localContext.PluginExecutionContext.SharedVariables[LanguageKey];
 
             // Check the user settings to see if the language is set
-            var query = new QueryExpression()
-            {
-                EntityName = Entities.UserSettings.EntityLogicalName,
-                ColumnSet = new ColumnSet(LanguageAttribute),
-                Criteria =
+            var userSettings = localContext.OrganizationService.RetrieveMultiple(
+                new QueryExpression(UserSettings.EntityLogicalName)
                 {
-                    Conditions =
+                    ColumnSet = new ColumnSet("uilanguageid"),
+                    Criteria =
                     {
-                        new ConditionExpression("systemuserid", ConditionOperator.Equal, localContext.PluginExecutionContext.InitiatingUserId)
+                        Conditions =
+                        {
+                            new ConditionExpression("systemuserid", ConditionOperator.Equal, localContext.PluginExecutionContext.InitiatingUserId)
+                        }
                     }
                 }
-            };
-
-            var userSettings = localContext.OrganizationService.RetrieveMultiple(query);
-            if (userSettings.Entities.Any())
-            {
-                // Check if the language is supported
-                var userLanguage = userSettings.Entities.First().GetAttributeValue<int>(LanguageAttribute);
-                if (Enum.IsDefined(typeof(Language), userLanguage) || userLanguage.ToString().Contains(","))
-                {
-                    localContext.PluginExecutionContext.SharedVariables[LanguageKey] = userLanguage;
-                    return (Language)userLanguage;
-                }
-            }
+            )
+            .Entities
+            .Select(e => e.ToEntity<UserSettings>())
+            .FirstOrDefault();
 
             // Fallback to English if no other language was detected / supported
-            var defaultLanguage = Language.English;
-            localContext.PluginExecutionContext.SharedVariables[LanguageKey] = (int)defaultLanguage;
-            return defaultLanguage;
+            if (!Enum.TryParse(userSettings?.UILanguageId?.ToString(), out Language userLanguage))
+                userLanguage = Language.English;
+
+            localContext.PluginExecutionContext.SharedVariables[LanguageKey] = (int)userLanguage;
+            return userLanguage;
         }
 
         ///
         /// Unpack the product name field
         ///
-        protected string UnpackName(LocalPluginContext localContext, string name)
+        protected string UnpackTranslation(LocalPluginContext localContext, string value)
         {
             var language = GetUserLanguage(localContext);
 
-            // Remove identifying prefix
-            name = name.Replace(Prefix, string.Empty);
+            var labels = value.Substring(Prefix.Length).Split(new[] { Separator }, StringSplitOptions.None);
+            var languageIndex = Array.IndexOf(LanguageSuffixes.Keys.ToArray(), language);
 
-            // Split the name
-            var labels = name.Split('|');
+            var label = labels[languageIndex];
 
-            // Get the index of the language
-            var labelIndex = Array.IndexOf(LanguageSuffixes.Keys.ToArray(), language);
-
-            // Return the correct translation
-            return labels[labelIndex];
+            // Return the label in the users language if it's not empty, otherwise return the first not empty value
+            return !string.IsNullOrWhiteSpace(label) ? label : labels.FirstOrDefault(l => !string.IsNullOrWhiteSpace(l));
         }
 
         ///
@@ -135,46 +126,63 @@ namespace Compliance.Plugins
         /// Each translated name is packed into a pipe separated string
         /// This field is unpacked when the Bilingual Item entity is retrieved or related records are retrieved
         ///
-        protected void PackNameTranslations(LocalPluginContext localContext)
+        protected void PackTranslations(LocalPluginContext localContext)
         {
-            var context = localContext.PluginExecutionContext;
-
-            // Pack the translated labels into the name field
-            if (!(localContext.PluginExecutionContext.InputParameters[InputParameters.Target] is Entity target))
+            if (!(localContext.PluginExecutionContext.InputParameters[InputParameter.Target] is Entity target))
                 return;
 
-            var preImageEntity = (context.PreEntityImages != null && context.PreEntityImages.Contains(PreImageAlias)) ? context.PreEntityImages[PreImageAlias] : null;
+            Entity preImage = null;
+            if (localContext.PluginExecutionContext.PreEntityImages.ContainsKey(PreImageAlias))
+                preImage = localContext.PluginExecutionContext.PreEntityImages[PreImageAlias];
 
-            var targetLocalizable = target.Attributes.Contains(IsLocalizableAttribute);
-            var preImageLocalizable = preImageEntity is null ? false : preImageEntity.Attributes.Contains(IsLocalizableAttribute);
+            var attributes = new AttributeCollection();
+            attributes.AddRange(target.Attributes);
 
-            if (!targetLocalizable && !preImageLocalizable)
+            if (preImage != null)
+                attributes.AddRange(preImage.Attributes.Where(a => !attributes.ContainsKey(a.Key)));
+
+            // Check if the entity supports translations
+            if (!attributes.TryGetValue(IsLocalizableAttribute, out _))
                 return;
 
-            var names = new string[LanguageSuffixes.Count];
-            for (var i = 0; i < LanguageSuffixes.Count; i++)
+            // Get the attributes for the current entity
+            var response = localContext.OrganizationService.Execute(
+                new RetrieveEntityRequest()
+                {
+                    EntityFilters = EntityFilters.Attributes,
+                    LogicalName = localContext.PluginExecutionContext.PrimaryEntityName
+                }
+            ) as RetrieveEntityResponse;
+
+            // Filter valid attributes
+            var entityAttributes = response.EntityMetadata.Attributes
+                .Where(a => a.AttributeType == AttributeTypeCode.String || a.AttributeType == AttributeTypeCode.Memo)
+                .Select(a => a.LogicalName)
+                .ToArray();
+
+            var translatedAttributes = entityAttributes.Where(a => LanguageSuffixes.Values.Any(s => entityAttributes.Contains($"{a}{s}"))).ToArray();
+            foreach (var attribute in translatedAttributes)
             {
-                var suffix = LanguageSuffixes.ElementAt(i).Value;
-                var nameAttribute = $"opc_name{suffix}";
-
-                names[i] = GetAttributeValue<string>(nameAttribute, preImageEntity, target);
-                if (string.IsNullOrWhiteSpace(names[i]))
-                    throw new InvalidPluginExecutionException($"PackNameTranslations: An exception occured when trying to concatenate english and french name. The field '{nameAttribute}' of entity '{localContext.PluginExecutionContext.PrimaryEntityName}' must contain a value.");
+                var translations = new List<object>();
+                foreach (var suffix in LanguageSuffixes.Values)
+                {
+                    var translatedAttribute = $"{attribute}{suffix}";
+                    attributes.TryGetValue(translatedAttribute, out var translation);
+                    translations.Add(translation ?? string.Empty);
+                }
+                target[attribute] = $"{Prefix}{string.Join(Separator, translations)}";
             }
-
-            // Store the packed value in the target entity
-            target[NameField] = $"{Prefix}{string.Join("|", names)}";
         }
 
         ///
         ///  Unpack the name field when a Bilingual Item is Retreived
         ///
-        protected void UnpackNameOnRetrieve(LocalPluginContext localContext)
+        protected void UnpackTranslationsOnRetrieve(LocalPluginContext localContext)
         {
-            if (!localContext.PluginExecutionContext.OutputParameters.Contains(OutputParameters.BusinessEntity))
+            if (!localContext.PluginExecutionContext.OutputParameters.ContainsKey(OutputParameter.BusinessEntity))
                 return;
 
-            if (!(localContext.PluginExecutionContext.OutputParameters[OutputParameters.BusinessEntity] is Entity businessEntity))
+            if (!(localContext.PluginExecutionContext.OutputParameters[OutputParameter.BusinessEntity] is Entity businessEntity))
                 return;
 
             SetLocalizableValue(localContext, businessEntity);
@@ -183,82 +191,68 @@ namespace Compliance.Plugins
         ///
         /// Unpack the name field when Bilingual Item are retrieved via Lookup Search or Advanced Find
         ///
-        protected void UnpackNameOnRetrieveMultiple(LocalPluginContext localContext)
+        protected void UnpackTranslationsOnRetrieveMultiple(LocalPluginContext localContext)
         {
-            if (!localContext.PluginExecutionContext.OutputParameters.Contains(OutputParameters.BusinessEntityCollection))
+            if (!localContext.PluginExecutionContext.OutputParameters.ContainsKey(OutputParameter.BusinessEntityCollection))
                 return;
 
-            if (!(localContext.PluginExecutionContext.OutputParameters[OutputParameters.BusinessEntityCollection] is EntityCollection businessEntityCollection))
+            if (!(localContext.PluginExecutionContext.OutputParameters[OutputParameter.BusinessEntityCollection] is EntityCollection businessEntityCollection))
                 return;
 
-            if (businessEntityCollection.Entities == null)
-                return;
-
-            foreach (Entity businessEntity in businessEntityCollection.Entities)
-            {
+            foreach (var businessEntity in businessEntityCollection.Entities)
                 SetLocalizableValue(localContext, businessEntity);
-            }
         }
 
-        protected void UnpackNameOnRetrieveTimelineWallRecords(LocalPluginContext localContext)
+        protected void UnpackTranslationsOnRetrieveTimelineWallRecords(LocalPluginContext localContext)
         {
-            if (!localContext.PluginExecutionContext.OutputParameters.Contains(OutputParameters.TimelineWallRecords)
-                || localContext.PluginExecutionContext.OutputParameters[OutputParameters.TimelineWallRecords] == null)
+            if (!localContext.PluginExecutionContext.OutputParameters.ContainsKey(OutputParameter.TimelineWallRecords))
                 return;
 
-            var outputParams = localContext.PluginExecutionContext.OutputParameters;
+            if (!(localContext.PluginExecutionContext.OutputParameters[OutputParameter.TimelineWallRecords] is string timelineWallRecords))
+                return;
 
             // Get and replace all timeline wall record names that are meant to be bilingual using a regex pattern
             var languageTimeLineRecords = Regex.Replace(
-                outputParams[OutputParameters.TimelineWallRecords].ToString(),
-                MultilangualStringPattern,
-                m => $"\"{UnpackName(localContext, m.Groups[1].Value)}\"");
+                timelineWallRecords,
+                MultiLanguagePattern,
+                m => $"\"{UnpackTranslation(localContext, m.Groups[1].Value)}\"");
 
             // Remove and add as the property is readonly
-            outputParams.Remove(OutputParameters.TimelineWallRecords);
-            outputParams.Add(new KeyValuePair<string, object>(OutputParameters.TimelineWallRecords, languageTimeLineRecords));
+            localContext.PluginExecutionContext.OutputParameters.Remove(OutputParameter.TimelineWallRecords);
+            localContext.PluginExecutionContext.OutputParameters.Add(OutputParameter.TimelineWallRecords, languageTimeLineRecords);
         }
 
         private void SetLocalizableValue(LocalPluginContext localContext, Entity businessEntity)
         {
-            if (businessEntity.Attributes.ContainsKey(NameField) && businessEntity[NameField].ToString().Contains(Prefix))
-                businessEntity[NameField] = UnpackName(localContext, businessEntity.GetAttributeValue<string>(NameField));
+            // Only localize attributes if required
+            var localizableAttributes = businessEntity.Attributes
+                .Where(a => a.Value is string value && value.StartsWith(Prefix))
+                .Select(a => new KeyValuePair<string, string>(a.Key, a.Value.ToString()))
+                .ToArray();
 
-            var attributes = businessEntity.Attributes
-                .Where(x => x.Value is EntityReference entityReference && x.Key.EndsWith("id") && (entityReference.Name?.Contains(Prefix) ?? false));
-
-            var relatedEntities = businessEntity.RelatedEntities
-                .Where(x => x.Key.ToString().Contains("id"))
-                .SelectMany(x => x.Value.Entities
-                    .Where(entity => entity.Contains(NameField) && entity[NameField].ToString().Contains(Prefix))
-                );
-
-            foreach (var attribute in attributes)
+            // Update localizable attributes
+            var hasIsLocalizable = businessEntity.Attributes.TryGetValue(IsLocalizableAttribute, out var isLocalizable);
+            foreach (var attribute in localizableAttributes)
             {
-                var entityReference = (EntityReference)attribute.Value;
-                entityReference.Name = UnpackName(localContext, businessEntity.GetAttributeValue<EntityReference>(attribute.Key).Name);
+                if (hasIsLocalizable && !(bool)isLocalizable)
+                    continue;
+
+                businessEntity[attribute.Key] = UnpackTranslation(localContext, attribute.Value);
             }
 
-            foreach (var entity in relatedEntities)
-            {
-                entity[NameField] = UnpackName(localContext, entity.GetAttributeValue<string>(NameField));
-            }
-        }
+            var entityReferences = businessEntity.Attributes.Values
+                .Where(a => a is EntityReference entityReference && (entityReference.Name?.StartsWith(Prefix) ?? false))
+                .Cast<EntityReference>()
+                .ToArray();
 
-        /// <summary>
-        /// Get a value from the target if present, otherwise from the preImage
-        /// Used only in PackNameTranslation
-        /// </summary>
-        private T GetAttributeValue<T>(string attributeName, Entity preImage, Entity targetImage)
-        {
-            if (targetImage.Contains(attributeName))
-            {
-                return targetImage.GetAttributeValue<T>(attributeName);
-            }
-            else if (preImage != null)
-                return preImage.GetAttributeValue<T>(attributeName);
-            else
-                return default(T);
+            // Update names of entity references
+            foreach (var entityReference in entityReferences)
+                entityReference.Name = UnpackTranslation(localContext, entityReference.Name);
+
+            // Update localizable attributes in related entities
+            var relatedEntities = businessEntity.RelatedEntities.Values.SelectMany(e => e.Entities);
+            foreach (var relatedEntity in relatedEntities)
+                SetLocalizableValue(localContext, relatedEntity);
         }
     }
 }

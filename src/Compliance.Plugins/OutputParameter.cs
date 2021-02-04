@@ -1,6 +1,6 @@
 ﻿namespace Compliance.Plugins
 {
-    public static class OutputParameters
+    public static class OutputParameter
     {
         public const string BusinessEntity = "BusinessEntity";
         public const string BusinessEntityCollection = "BusinessEntityCollection";

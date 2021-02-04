@@ -14,7 +14,7 @@ namespace Compliance.Plugins
 
         protected override void ExecuteCrmPlugin(LocalPluginContext localContext)
         {
-            if (!(localContext.PluginExecutionContext.InputParameters[InputParameters.Target] is Entity target))
+            if (!(localContext.PluginExecutionContext.InputParameters[InputParameter.Target] is Entity target))
                 return;
 
             try

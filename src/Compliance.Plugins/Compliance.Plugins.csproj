@@ -87,8 +87,8 @@
   <ItemGroup>
     <Compile Include="DuplicateMergeUpdateStatusPlugin.cs" />
     <Compile Include="EntityFieldChangeTracker.cs" />
-    <Compile Include="InputParameters.cs" />
-    <Compile Include="OutputParameters.cs" />
+    <Compile Include="InputParameter.cs" />
+    <Compile Include="OutputParameter.cs" />
     <Compile Include="QueueMembershipPlugin.cs" />
     <Compile Include="TimelineRecords.cs" />
     <Compile Include="TimelineTransformationsPlugin.cs" />
