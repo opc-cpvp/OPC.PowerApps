@@ -45,8 +45,8 @@ namespace Compliance.Plugins.Tests
                 return metadata;
             }
 
-            [Fact(DisplayName = "opc_name should contain data")]
-            public void opc_name_should_contain_data()
+            [Fact(DisplayName = "translated fields should contain data")]
+            public void translated_fields_should_contain_data()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -69,8 +69,8 @@ namespace Compliance.Plugins.Tests
                 theme.opc_name.Should().NotBeNullOrWhiteSpace();
             }
 
-            [Fact(DisplayName = "opc_name should contain both languages separated by a pipe")]
-            public void opc_name_should_contain_both_languages_seperated_by_pipe()
+            [Fact(DisplayName = "translated fields should contain both languages")]
+            public void translated_fields_should_contain_both_languages()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -125,8 +125,8 @@ namespace Compliance.Plugins.Tests
                 return metadata;
             }
 
-            [Fact(DisplayName = "opc_name should change")]
-            public void opc_name_should_change()
+            [Fact(DisplayName = "translated fields should change")]
+            public void translated_fields_should_change()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -150,8 +150,8 @@ namespace Compliance.Plugins.Tests
                 multiLanguageEntity.opc_name.Should().NotBe(oldName);
             }
 
-            [Fact(DisplayName = "opc_name should contain both languages seperated by pipe")]
-            public void opc_name_should_contain_both_languages_seperated_by_pipe()
+            [Fact(DisplayName = "translated fields should be modified")]
+            public void translated_fields_should_be_modified()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -190,8 +190,8 @@ namespace Compliance.Plugins.Tests
                 };
             }
 
-            [Fact(DisplayName = "opc_name should be french when UI is french")]
-            public void opc_name_should_be_french_when_ui_is_french()
+            [Fact(DisplayName = "translated fields should be french when UI is french")]
+            public void translated_fields_should_be_french_when_the_ui_is_in_french()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -213,8 +213,8 @@ namespace Compliance.Plugins.Tests
                 multiLanguageEntity.opc_name.Should().Be(expectedName);
             }
 
-            [Fact(DisplayName = "opc_name should be english when UI is english")]
-            public void opc_name_should_be_english_when_ui_is_english()
+            [Fact(DisplayName = "translated fields should be english when UI is english")]
+            public void translated_fields_should_be_english_when_the_ui_is_in_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -249,8 +249,8 @@ namespace Compliance.Plugins.Tests
                 return entityCollectionThemes;
             }
 
-            [Fact(DisplayName = "opc_name should be french when UI is in french")]
-            public void opc_names_should_be_french_when_ui_is_french()
+            [Fact(DisplayName = "translated fields should be french when UI is in french")]
+            public void translated_fields_should_be_french_when_ui_is_french()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -273,8 +273,8 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Fact(DisplayName = "opc_name should be english when UI is english")]
-            public void opc_names_should_be_english_when_ui_is_english()
+            [Fact(DisplayName = "translated fields should be english when UI is english")]
+            public void translated_fields_should_be_english_when_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -313,8 +313,8 @@ namespace Compliance.Plugins.Tests
                 };
             }
 
-            [Fact(DisplayName = "opc_name should be french when UI is french")]
-            public void opc_name_should_be_french_when_ui_is_french()
+            [Fact(DisplayName = "translated fields should be french when UI is french")]
+            public void translated_fields_should_be_french_when_ui_is_french()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -334,8 +334,8 @@ namespace Compliance.Plugins.Tests
                 multiLanguageEntity.opc_themeid.Name.Should().Be(expectedName);
             }
 
-            [Fact(DisplayName = "opc_name should be english when UI is english")]
-            public void opc_name_should_be_english_when_ui_is_english()
+            [Fact(DisplayName = "translated fields should be english when UI is english")]
+            public void translated_fields_should_be_english_when_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -387,8 +387,8 @@ namespace Compliance.Plugins.Tests
                 return entityCollectionTopics;
             }
 
-            [Fact(DisplayName = "opc_name should be french when UI is french")]
-            public void opc_names_should_be_french_when_ui_is_french()
+            [Fact(DisplayName = "translated fields should be french when UI is french")]
+            public void translated_fields_should_be_french_when_ui_is_french()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -410,8 +410,8 @@ namespace Compliance.Plugins.Tests
                 }
             }
 
-            [Fact(DisplayName = "opc_names should be english when UI is english")]
-            public void opc_names_should_be_english_when_ui_is_english()
+            [Fact(DisplayName = "translated fields should be english when UI is english")]
+            public void translated_fields_should_be_english_when_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -456,8 +456,8 @@ namespace Compliance.Plugins.Tests
                 };
             }
 
-            [Fact(DisplayName = "opc_name should be french when UI is french")]
-            public void opc_name_should_be_french_when_ui_is_french()
+            [Fact(DisplayName = "translated fields should be french when UI is french")]
+            public void translated_fields_should_be_french_when_ui_is_french()
             {
                 // Arrange
                 var context = new XrmFakedContext();
@@ -477,8 +477,8 @@ namespace Compliance.Plugins.Tests
                 multiLanguageEntity.opc_theme_topics_themeid.opc_name.Should().Be(expectedName);
             }
 
-            [Fact(DisplayName = "opc_name should be english when UI is english")]
-            public void opc_name_should_be_english_when_ui_is_english()
+            [Fact(DisplayName = "translated fields should be english when UI is english")]
+            public void translated_fields_should_be_english_when_ui_is_english()
             {
                 // Arrange
                 var context = new XrmFakedContext();
