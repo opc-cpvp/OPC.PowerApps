@@ -31,10 +31,7 @@ namespace Compliance.Plugins.Tests
 
             public EntityMetadata GetMockedMultiLanguageMetadata()
             {
-                var metadata = new EntityMetadata
-                {
-                    LogicalName = "opc_theme"
-                };
+                var metadata = new EntityMetadata { LogicalName = opc_theme.EntityLogicalName };
 
                 metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_name" });
                 metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_nameenglish" });
@@ -109,10 +106,7 @@ namespace Compliance.Plugins.Tests
 
             public EntityMetadata GetMockedMultiLanguageMetadata()
             {
-                var metadata = new EntityMetadata
-                {
-                    LogicalName = "opc_theme"
-                };
+                var metadata = new EntityMetadata { LogicalName = opc_theme.EntityLogicalName };
 
                 metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_name" });
                 metadata.SetAttribute(new StringAttributeMetadata { LogicalName = "opc_nameenglish" });
