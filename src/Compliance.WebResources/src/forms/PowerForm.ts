@@ -7,7 +7,7 @@ export abstract class PowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollecti
     public initializeComponents(context: Xrm.ExecutionContext<TForm, any>): void {
         const queryStringParam = context.getContext().getQueryStringParameters();
 
-        if (queryStringParam.parentrecordid) {
+        if (queryStringParam?.parentrecordid) {
             context.getFormContext().ui.controls.forEach(x => {
                 if (x.getEntityTypes?.()?.[0] === queryStringParam.parentrecordtype) {
                     const attribute: Xrm.Attribute<any> = x.getAttribute();
