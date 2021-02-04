@@ -40,4 +40,7 @@ export class XrmStageMock implements Xrm.Stage, INamedComponent {
     getStatus(): Xrm.StageStatus {
         return this._status;
     }
+    getNavigationBehavior(): Xrm.NavigationBehaviorObject {
+        throw new Error("Method not implemented.");
+    }
 }

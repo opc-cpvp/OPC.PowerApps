@@ -35,11 +35,17 @@ export namespace Complaint.Forms {
             formContext.getAttribute("opc_intakedisposition").addOnChange(x => this.intakedisposition_OnChange(x));
             formContext.getAttribute("opc_multiplecomplaintstrategy").addOnChange(x => this.multipleComplaintStrategy_OnChange(x));
             formContext.getAttribute("opc_complainantrep").addOnChange(x => this.complainantRep_OnChange(x));
+            formContext.getAttribute("opc_erdisposition").addOnChange(x => this.erDisposition_OnChange(x));
+            formContext.getAttribute("opc_requiresfurtherinvestigation").addOnChange(x => this.requiresFurtherInvestigation_OnChange(x));
+            formContext.getAttribute("opc_reportrequested").addOnChange(x => this.reportRequested_OnChange(x));
+            formContext.getAttribute("opc_erapproval").addOnChange(x => this.erApproval_OnChange(x));
 
             // Sequence matters
             formContext.getAttribute("opc_recommendtoregistrar").fireOnChange();
             formContext.getAttribute("opc_intakedisposition").fireOnChange();
             formContext.getAttribute("opc_multiplecomplaintstrategy").fireOnChange();
+            formContext.getAttribute("opc_erdisposition").fireOnChange();
+            formContext.getAttribute("opc_erapproval").fireOnChange();
 
             this.setupDuplicateContactChecking(formContext);
 
@@ -297,6 +303,7 @@ export namespace Complaint.Forms {
         private handle_StageStates(formContext: Form.opc_complaint.Main.Information) {
             // Handle all visibility stuff related to process stages
             const currentStage = formContext.data.process.getActiveStage().getName().toLowerCase();
+
             switch (currentStage) {
                 case "acceptance":
                 case "triage":
@@ -356,6 +363,90 @@ export namespace Complaint.Forms {
             // If no value is set, set it to false to not block the save but still block the BPF
             if (!repAuthAttr.getValue()) {
                 repAuthAttr.setValue(false);
+            }
+        }
+
+        private erDisposition_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_erdisposition>, undefined>): void {
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
+            const furtherInvestigationAttr = formContext.getAttribute("opc_requiresfurtherinvestigation");
+            const reasonFurtherInvestigationAttr = formContext.getAttribute("opc_reasontorequirefurtherinvestigation");
+            const reportRequestedAttr = formContext.getAttribute("opc_reportrequested");
+            const reportRedactorAttr = formContext.getAttribute("opc_reportredactor");
+            const resolutionAttr = formContext.getAttribute("opc_resolution");
+
+            const erDisposition = formContext.getAttribute("opc_erdisposition").getValue();
+            const isUnsuccesfulUnsuitable = erDisposition === opc_erdisposition.UnsuccessfulUnsuitable;
+            const isResolved = erDisposition === opc_erdisposition.Resolved;
+            const isDiscontinued = erDisposition === opc_erdisposition.Discontinued;
+
+            // Set field visibility
+            furtherInvestigationAttr.controls.forEach(control => XrmHelper.toggle(control, isUnsuccesfulUnsuitable));
+            reasonFurtherInvestigationAttr.controls.forEach(control => XrmHelper.toggle(control, isUnsuccesfulUnsuitable));
+            reportRequestedAttr.controls.forEach(control => XrmHelper.toggle(control, isDiscontinued || isUnsuccesfulUnsuitable));
+            reportRedactorAttr.controls.forEach(control => XrmHelper.toggle(control, isDiscontinued || isUnsuccesfulUnsuitable));
+            resolutionAttr.controls.forEach(control => XrmHelper.toggle(control, isResolved));
+
+            // Set required level
+            furtherInvestigationAttr.setRequiredLevel(isUnsuccesfulUnsuitable ? "required" : "none");
+            reportRequestedAttr.setRequiredLevel(isDiscontinued || isUnsuccesfulUnsuitable ? "required" : "none");
+            resolutionAttr.setRequiredLevel(isResolved ? "required" : "none");
+
+            // Fire the change events to see if other fields should be visible / required
+            furtherInvestigationAttr.fireOnChange();
+            reportRequestedAttr.fireOnChange();
+        }
+
+        private requiresFurtherInvestigation_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, undefined>): void {
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
+            const furtherInvestigationAttr = formContext.getAttribute("opc_requiresfurtherinvestigation");
+            const reasonFurtherInvestigationAttr = formContext.getAttribute("opc_reasontorequirefurtherinvestigation");
+            const requiresFurtherInvestigation = furtherInvestigationAttr.getValue();
+            const hasRequiresFurtherInvestigation = requiresFurtherInvestigation !== null;
+
+            // Set field visibility and required level
+            reasonFurtherInvestigationAttr.controls.forEach(control => XrmHelper.toggle(control, requiresFurtherInvestigation));
+            furtherInvestigationAttr.setRequiredLevel(!hasRequiresFurtherInvestigation ? "required" : "none");
+            reasonFurtherInvestigationAttr.setRequiredLevel(requiresFurtherInvestigation ? "required" : "none");
+
+            const erDisposition = formContext.getAttribute("opc_erdisposition").getValue();
+            const isUnsuccesfulUnsuitable = erDisposition === opc_erdisposition.UnsuccessfulUnsuitable;
+
+            if (isUnsuccesfulUnsuitable) {
+                const reportRequestedAttr = formContext.getAttribute("opc_reportrequested");
+
+                // Set field visibility and required level
+                reportRequestedAttr.controls.forEach(control =>
+                    XrmHelper.toggle(control, hasRequiresFurtherInvestigation && !requiresFurtherInvestigation)
+                );
+                reportRequestedAttr.setRequiredLevel(
+                    hasRequiresFurtherInvestigation && !requiresFurtherInvestigation ? "required" : "none"
+                );
+
+                reportRequestedAttr.fireOnChange();
+            }
+        }
+
+        private reportRequested_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<boolean>, undefined>): void {
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
+            const reportRequestedAttr = formContext.getAttribute("opc_reportrequested");
+            const reportRedactorAttr = formContext.getAttribute("opc_reportredactor");
+            const reportRequested = reportRequestedAttr.getValue();
+            const hasReportRequested = reportRequested !== null;
+
+            reportRedactorAttr.controls.forEach(control => XrmHelper.toggle(control, reportRequested));
+            reportRequestedAttr.setRequiredLevel(!hasReportRequested ? "required" : "none");
+            reportRedactorAttr.setRequiredLevel(reportRequested ? "required" : "none");
+        }
+
+        private erApproval_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_erapproval>, undefined>): void {
+            const formContext = context.getFormContext() as Form.opc_complaint.Main.Information;
+            const erApprovalAttr = formContext.getAttribute("opc_erapproval");
+            const erApproval = erApprovalAttr.getValue();
+            const isRequireReview = erApproval === opc_erapproval.Requiresrereview;
+
+            XrmHelper.clearNotification(erApprovalAttr);
+            if (isRequireReview) {
+                XrmHelper.setNotification(erApprovalAttr, this._i18n.t("complaint:process_flow.error.approved_rereview"));
             }
         }
     }

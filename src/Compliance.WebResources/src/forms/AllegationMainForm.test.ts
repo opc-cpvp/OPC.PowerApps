@@ -6,7 +6,7 @@ import { XrmPageBaseMock } from "../../test/XrmPageBaseMock";
 import chai from "chai";
 import sinon from "sinon";
 import sinonChai from "sinon-chai";
-import { AllegationType } from "../enums";
+import { AllegationType, DispositionReason } from "../enums";
 
 const sandbox = sinon.createSandbox();
 chai.should();
@@ -166,7 +166,7 @@ describe("Allegation - Main", () => {
             formContext.getAttribute("opc_dispositionactionid").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), false));
         });
 
-        it("to 'Unacceptable', it should SHOW disposition reason and HIDE disposition action", () => {
+        it("to 'unacceptable', it should SHOW disposition reason and HIDE disposition action", () => {
             // Arrange
             formContext.getAttribute("opc_disposition").setValue(opc_allegationdisposition.Unacceptable);
             formContext.getAttribute("opc_dispositionreasonid").controls.get("opc_dispositionreasonid");
@@ -205,8 +205,8 @@ describe("Allegation - Main", () => {
             formContext.getAttribute("opc_disposition").fireOnChange();
 
             // Assert
-            sinon.assert.match(formContext.getAttribute("opc_dispositionreasonid").getValue(), undefined);
-            sinon.assert.match(formContext.getAttribute("opc_dispositionactionid").getValue(), undefined);
+            sinon.assert.match(formContext.getAttribute("opc_dispositionreasonid").getValue(), null);
+            sinon.assert.match(formContext.getAttribute("opc_dispositionactionid").getValue(), null);
         });
     });
 
@@ -254,7 +254,63 @@ describe("Allegation - Main", () => {
             formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
 
             // Assert
-            sinon.assert.match(formContext.getAttribute("opc_dispositionactionid").getValue(), undefined);
+            sinon.assert.match(formContext.getAttribute("opc_dispositionactionid").getValue(), null);
+        });
+
+        describe("to 'No Jurisdiction'", () => {
+            beforeEach(() => {
+                formContext.getAttribute("opc_dispositionreasonid").setValue([{ id: DispositionReason.NoJurisdiction }]);
+            });
+
+            it("it should SHOW Jurisdiction", () => {
+                // Arrange
+                formContext.getControl("opc_jurisdiction").setVisible(false);
+
+                // Act
+                formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
+
+                // Assert
+                formContext.getControl("opc_jurisdiction").getVisible().should.equal(true);
+            });
+
+            it("'Jurisdiction' should be required", () => {
+                // Arrange
+                formContext.getAttribute("opc_jurisdiction").setRequiredLevel("none");
+
+                // Act
+                formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
+
+                // Assert
+                formContext.getAttribute("opc_jurisdiction").getRequiredLevel().should.equal("required");
+            });
+        });
+
+        describe("to something else than 'No Jurisdiction'", () => {
+            beforeEach(() => {
+                formContext.getAttribute("opc_dispositionreasonid").setValue([{ id: "Not 'No Jurisdiction'" }]);
+            });
+
+            it("it should HIDE Jurisdiction", () => {
+                // Arrange
+                formContext.getControl("opc_jurisdiction").setVisible(true);
+
+                // Act
+                formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
+
+                // Assert
+                formContext.getControl("opc_jurisdiction").getVisible().should.equal(false);
+            });
+
+            it("'Jurisdiction' should not be required", () => {
+                // Arrange
+                formContext.getAttribute("opc_jurisdiction").setRequiredLevel("required");
+
+                // Act
+                formContext.getAttribute("opc_dispositionreasonid").fireOnChange();
+
+                // Assert
+                formContext.getAttribute("opc_jurisdiction").getRequiredLevel().should.equal("none");
+            });
         });
     });
 });

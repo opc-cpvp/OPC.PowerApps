@@ -70,34 +70,88 @@
     <steplabels id="{22f58c27-c247-4bf2-be56-5d89b7111754}">
       <label languagecode="1033" description="Reason to close" />
     </steplabels>
-    <steplabels id="{34649765-2943-4b28-aa58-cf2c44af4060}">
-      <label languagecode="1033" description="Investigation" />
-    </steplabels>
-    <steplabels id="{2d52e04d-5524-4a53-9050-8f5c6668a4af}">
-      <label languagecode="1033" description="Next Step" />
-    </steplabels>
-    <steplabels id="{a52e31c9-0cad-4800-b80c-ef45c28726e5}">
-      <label languagecode="1033" description="Close" />
-    </steplabels>
-    <steplabels id="{b694aea4-0e91-4179-af03-0ca3c5723b49}">
-      <label languagecode="1033" description="Close letter sent" />
-    </steplabels>
-    <steplabels id="{681295a9-e97d-479a-9c1d-65386c3f95a8}">
+    <steplabels id="{28602bca-6a9f-4c3a-ac16-59893c59b707}">
       <label languagecode="1033" description="Early Resolution" />
     </steplabels>
-    <steplabels id="{93a9b62e-8b9f-4698-ae4a-e04c9d83b36a}">
-      <label languagecode="1033" description="Next Step" />
+    <steplabels id="{313129f3-b998-4736-8b75-e2b18e7df538}">
+      <label languagecode="1033" description="Disposition" />
     </steplabels>
-    <steplabels id="{62ba6bdd-fb3a-4162-8a2c-4190e6c5e5dc}">
+    <steplabels id="{b7b9ceee-c5ac-433f-9f18-f6bb6e6ca53d}">
+      <label languagecode="1033" description="Requires Further Investigation?" />
+    </steplabels>
+    <steplabels id="{0fff1d52-6d17-4f18-9634-2a8a71d97aee}">
+      <label languagecode="1033" description="Reason to require further investigation?" />
+    </steplabels>
+    <steplabels id="{9c11448b-2d6e-41c0-9e89-a2efa7c69f6d}">
+      <label languagecode="1033" description="Report Requested?" />
+    </steplabels>
+    <steplabels id="{dd87ad5b-9276-434e-a500-4d72b52a8edc}">
+      <label languagecode="1033" description="Report Redactor" />
+    </steplabels>
+    <steplabels id="{3f3e13f4-d57b-43d4-a129-b99880ad85ee}">
+      <label languagecode="1033" description="Resolution" />
+    </steplabels>
+    <steplabels id="{3245cdda-d169-4961-b9ef-da5a0a991d2e}">
+      <label languagecode="1033" description="Review" />
+    </steplabels>
+    <steplabels id="{dede4a3a-5b54-45ba-9544-67649f9d054a}">
+      <label languagecode="1033" description="Escalation Approved?" />
+    </steplabels>
+    <steplabels id="{d6a7eb8f-8573-4e51-9f71-89410f5e5b0f}">
       <label languagecode="1033" description="Investigation" />
     </steplabels>
-    <steplabels id="{f86e9237-da9a-4cc6-95b5-74b5c96d7955}">
+    <steplabels id="{5400aab6-4c80-4502-b3ea-a7a6dbe48ba1}">
       <label languagecode="1033" description="Next Step" />
     </steplabels>
-    <steplabels id="{da76887d-434e-4b18-9f18-4c82ae5daadd}">
+    <steplabels id="{c12b4cbb-5204-41f5-aa25-ac077b3e765b}">
       <label languagecode="1033" description="Close" />
     </steplabels>
-    <steplabels id="{15ddae97-3393-42d3-a49e-ccd446835fb7}">
+    <steplabels id="{e613f7ba-a254-48aa-a53b-97d89b7cbb84}">
+      <label languagecode="1033" description="Close letter sent" />
+    </steplabels>
+    <steplabels id="{9c2ca526-8d47-4535-8493-d768a65f2cb6}">
+      <label languagecode="1033" description="Report Redaction" />
+    </steplabels>
+    <steplabels id="{d94956cb-a41e-4758-9969-39fe7fee9ade}">
+      <label languagecode="1033" description="Respondent Report Drafted?" />
+    </steplabels>
+    <steplabels id="{fc3df42f-10bb-4c2c-bbbe-3e4170c5f85a}">
+      <label languagecode="1033" description="Complainant Report Drafted?" />
+    </steplabels>
+    <steplabels id="{3d80d7e2-ea4a-4d50-8834-ddefa89bc705}">
+      <label languagecode="1033" description="Review" />
+    </steplabels>
+    <steplabels id="{582661d6-0ae8-4ad1-bf78-4b9df2f6c20e}">
+      <label languagecode="1033" description="Approval" />
+    </steplabels>
+    <steplabels id="{e8c99d09-c01b-4bad-9696-2192ddf408f3}">
+      <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{c799e832-2bef-442c-8055-4e95fcccd7db}">
+      <label languagecode="1033" description="Close letter sent" />
+    </steplabels>
+    <steplabels id="{de618122-463a-4805-b5f3-3c17f71a1e70}">
+      <label languagecode="1033" description="Review" />
+    </steplabels>
+    <steplabels id="{3238c7f2-c03e-4180-b6cd-e6e2bf3fde53}">
+      <label languagecode="1033" description="Approval" />
+    </steplabels>
+    <steplabels id="{6aa65f7b-08f0-49c2-92fb-1d76d8b55061}">
+      <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{79302558-ee0c-4bcc-8caa-052cbfc75b3b}">
+      <label languagecode="1033" description="Close letter sent" />
+    </steplabels>
+    <steplabels id="{6fccf473-7b67-4a66-9316-4f85a006211f}">
+      <label languagecode="1033" description="Investigation" />
+    </steplabels>
+    <steplabels id="{12993232-edbd-4284-a609-593b25e1e965}">
+      <label languagecode="1033" description="Next Step" />
+    </steplabels>
+    <steplabels id="{138c9daf-d2a1-412e-8023-7b94df6055e6}">
+      <label languagecode="1033" description="Close" />
+    </steplabels>
+    <steplabels id="{dc2909ed-3597-437d-81c4-a3071144f9ff}">
       <label languagecode="1033" description="Close letter sent" />
     </steplabels>
     <steplabels id="{57863eb5-5caf-47c0-aabf-8b50814a4190}">

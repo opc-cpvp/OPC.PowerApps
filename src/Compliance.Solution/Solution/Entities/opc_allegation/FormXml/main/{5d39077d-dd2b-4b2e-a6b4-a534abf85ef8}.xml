@@ -93,11 +93,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{6f193747-2cde-4b88-adf5-6022e4023971}" showlabel="true" locklevel="0" visible="false">
+                      <cell id="{3ea8c12b-fa0d-4687-a9ec-8b1727fb1280}" locklevel="0">
                         <labels>
-                          <label description="Reference Number" languagecode="1033" />
+                          <label description="Jurisdiction" languagecode="1033" />
                         </labels>
-                        <control id="opc_referencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_referencenumber" disabled="false" />
+                        <control id="opc_jurisdiction" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_jurisdiction" disabled="false" />
                       </cell>
                       <cell showlabel="true" locklevel="0" id="{78b56a71-9e51-45ff-a68c-a12e8bb6e446}">
                         <labels>
@@ -106,10 +106,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell locklevel="0" id="{1be9b038-f6aa-48f7-88a0-856f5c5a25e1}">
+                      <cell id="{6f193747-2cde-4b88-adf5-6022e4023971}" showlabel="true" locklevel="0" visible="false">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Reference Number" languagecode="1033" />
                         </labels>
+                        <control id="opc_referencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_referencenumber" disabled="false" />
                       </cell>
                       <cell locklevel="0" id="{0233867a-1116-4f31-a077-0700a684e760}">
                         <labels>

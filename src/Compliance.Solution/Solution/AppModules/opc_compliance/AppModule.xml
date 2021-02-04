@@ -15,6 +15,7 @@
     <AppModuleComponent type="60" id="{ccaf4946-a563-ea11-a812-000d3af464f8}" />
     <AppModuleComponent type="60" id="{38dd3fd7-365e-ea11-a811-000d3af46fff}" />
     <AppModuleComponent type="60" id="{85c64e3e-e23e-ea11-a812-000d3af46489}" />
+    <AppModuleComponent type="1" schemaName="opc_accessrequestdocument" />
     <AppModuleComponent type="1" schemaName="account" />
     <AppModuleComponent type="60" id="{b028db32-3619-48a5-ac51-cf3f947b0ef3}" />
     <AppModuleComponent type="60" id="{69cff312-cfb6-4289-9631-249ab85d2c62}" />

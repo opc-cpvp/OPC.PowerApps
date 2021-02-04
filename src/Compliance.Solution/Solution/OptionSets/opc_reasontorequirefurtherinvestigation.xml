@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_reasontorequirefurtherinvestigation" localizedName="Reason to Require Further Investigation" description="Reason the complaint requires further investigation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Reason to Require Further Investigation" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="Reason the complaint requires further investigation" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Volume of pages" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Complexity" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="High rank file" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950003">
+      <labels>
+        <label description="Litigious individual" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950004">
+      <labels>
+        <label description="Unresponsive respondent" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950005">
+      <labels>
+        <label description="Distribution of files" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950006">
+      <labels>
+        <label description="Time" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

@@ -39,7 +39,7 @@ export class XrmAttributeMock implements Xrm.Attribute<any>, Xrm.OptionSetAttrib
     }
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     setValue(val?: any): void {
-        this._value = val;
+        this._value = val ?? null;
     }
     getAttributeType(): Xrm.AttributeType {
         throw new Error("Method not implemented.");

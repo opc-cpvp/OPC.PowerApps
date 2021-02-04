@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_complaintresolution" localizedName="Complaint Resolution" description="Reason for resolving the complaint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Complaint Resolution" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="Reason for resolving the complaint" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Acknowledgement" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Apology" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="Compensation" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950003">
+      <labels>
+        <label description="Provided or confirmed proper information was provided" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950004">
+      <labels>
+        <label description="Proper processing of request" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950005">
+      <labels>
+        <label description="Reimbursement" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950006">
+      <labels>
+        <label description="Unresponsive enquirer" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950007">
+      <labels>
+        <label description="Agreement outside of our involvement" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950008">
+      <labels>
+        <label description="No jurisdiction" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

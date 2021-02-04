@@ -5,7 +5,7 @@ import { ContactHelper } from "../../helpers/ContactHelper";
 import { WindowHelper } from "../../helpers/WindowHelper";
 
 @injectable()
-export class MergeContactCommandHandler implements ICommandHandler {
+export class MergeContactCommandHandler implements ICommandHandler<ExtendedXrmPageBase> {
     private readonly _i18n: i18n;
     private readonly _contactService: IContactService;
     private readonly _context: Xrm.context;

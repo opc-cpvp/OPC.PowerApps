@@ -41,3 +41,7 @@ export enum QuestionTypes {
 export enum AllegationType {
     Access = "{9929BA43-3AC7-4869-955F-FA42BCB78C0B}"
 }
+
+export enum DispositionReason {
+    NoJurisdiction = "{2D42B272-A76E-EA11-A811-000D3AF45A96}"
+}

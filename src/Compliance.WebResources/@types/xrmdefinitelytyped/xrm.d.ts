@@ -1267,6 +1267,39 @@ declare namespace Xrm {
   }
 }
 declare namespace Xrm {
+  /**
+   * Interface for the ui of a form.
+   */
+  interface UiModule<T extends TabCollectionBase, U extends ControlCollectionBase> {
+    /**
+     * Access UI controls for the business process flow on the form.
+     */
+    process: UiProcessModule;
+  }
+
+  interface UiProcessModule {
+    /**
+     * Use this method to retrieve the display state for the business process control.
+     */
+    getDisplayState(): CollapsableDisplayState;
+
+    /**
+     * Use this method to expand or collapse the business process flow control.
+     */
+    setDisplayState(val: CollapsableDisplayState): void;
+
+    /**
+     * Use getVisible to retrieve whether the business process control is visible.
+     */
+    getVisible(): boolean;
+
+    /**
+     * Use setVisible to show or hide the business process control.
+     */
+    setVisible(visible: boolean): void;
+  }
+}
+declare namespace Xrm {
   interface SubGridControl<T extends string> extends BaseControl {
     /**
      * Add event handlers to this event to run every time the subgrid refreshes.
@@ -1466,15 +1499,6 @@ declare namespace Xrm {
      * Returns a Process object representing the active process.
      */
     getActiveProcess(): Process;
-
-    /**
-     * Set a Process as the active process.
-     *
-     * @param processId The Id of the process to make the active process.
-     * @param callback A function to call when the operation is complete. This callback function is passed one of the following string
-     *    values to indicate whether the operation succeeded. Is "success" or "invalid".
-     */
-    setActiveProcess(processId: string, callback: (successOrInvalid: string) => any): void;
 
     /**
      * Returns a Stage object representing the active stage.
@@ -1684,14 +1708,6 @@ declare namespace Xrm {
     isInHierarchy(): boolean;
   }
 
-  interface Process {
-    /**
-     * Use this method to get the current status of the process instance
-     * @returns The current status of the process
-     */
-    getStatus(): ProcessStatus;
-  }
-
   interface ProcessStatusChangeContext extends ExecutionContext<Process, any> { }
 
   interface ProcessModule {
@@ -1735,39 +1751,6 @@ declare namespace Xrm {
      * @param callbackFunction A function to call when the operation is complete. This callback function is passed the new status as a string value.
      */
     setStatus(status: ProcessStatus, callbackFunction?: (status: ProcessStatus) => any): ProcessStatus;
-  }
-}
-declare namespace Xrm {
-  /**
-   * Interface for the ui of a form.
-   */
-  interface UiModule<T extends TabCollectionBase, U extends ControlCollectionBase> {
-    /**
-     * Access UI controls for the business process flow on the form.
-     */
-    process: UiProcessModule;
-  }
-
-  interface UiProcessModule {
-    /**
-     * Use this method to retrieve the display state for the business process control.
-     */
-    getDisplayState(): CollapsableDisplayState;
-
-    /**
-     * Use this method to expand or collapse the business process flow control.
-     */
-    setDisplayState(val: CollapsableDisplayState): void;
-
-    /**
-     * Use getVisible to retrieve whether the business process control is visible.
-     */
-    getVisible(): boolean;
-
-    /**
-     * Use setVisible to show or hide the business process control.
-     */
-    setVisible(visible: boolean): void;
   }
 }
 declare namespace Xrm {
@@ -2181,22 +2164,18 @@ declare namespace Xrm {
         savedEntityReference: Lookup[];
     }
 
-    type PageType = "entitylist" | "webresource";
-
     type ViewType = "savedquery" | "userquery";
 
-    interface PageInput {
-        pageType: PageType
-
+    interface EntityList {
         /**
-         *  The data to pass to the web resource.
+         * The type of the page.
          */
-        data?: string;
+        pageType: "entitylist";
 
         /**
          *  The logical name of the entity to load in the list control.
          */
-        entityName?: string;
+        entityName: string;
 
         /**
          * The ID of the view to load. If you don't specify it, navigates to the default main view for the entity.
@@ -2207,11 +2186,85 @@ declare namespace Xrm {
          * Type of view to load. Specify "savedquery" or "userquery".
          */
         viewType?: ViewType;
+    }
+
+    interface EntityRecord {
+        /**
+         * The type of the page.
+         */
+        pageType: "entityrecord";
+
+        /**
+         *  Logical name of the entity to display the form for.
+         */
+        entityName: string;
+
+        /**
+         * ID of the entity record to display the form for. If you don't specify this value, the form will be opened in create mode.
+         */
+        entityId?: string;
+
+        /**
+         * Designates a record that will provide default values based on mapped attribute values.
+         */
+        createFromEntity?: Lookup;
+
+        /**
+         * A dictionary object that passes extra parameters to the form.
+         */
+        data?: object;
+
+        /**
+         * ID of the form instance to be displayed.
+         */
+        formId?: string;
+
+        /**
+         * Indicates whether the form is navigated to from a different entity using cross-entity business process flow.
+         */
+        isCrossEntityNavigate?: boolean;
+
+        /**
+         * Indicates whether there are any offline sync errors.
+         */
+        isOfflineSyncError?: boolean;
+
+        /**
+         * ID of the business process to be displayed on the form.
+         */
+        processId?: string;
+
+        /**
+         * ID of the business process instance to be displayed on the form.
+         */
+        processInstanceId?: string;
+
+        /**
+         * Define a relationship object to display the related records on the form
+         */
+        relationship?: EntityFormRelationship;
+
+        /**
+         * ID of the selected stage in business process instance.
+         */
+        selectedStageId?: string;
+    }
+
+    interface WebResource {
+        /**
+         * The type of the page.
+         */
+        pageType: "webresource";
 
         /**
          * The name of the web resource to load.
          */
-        webresourceName?: string;
+        webresourceName: string;
+
+        /**
+         *  The data to pass to the web resource.
+         */
+        data?: string;
     }
 
     const enum NavigationOptionsTarget {
@@ -2269,7 +2322,7 @@ declare namespace Xrm {
          * @param pageInput Input about the page to navigate to. The object definition changes depending on the type of page to navigate to: entity list or HTML web resource.
          * @param navigationOptions Options for navigating to a page: whether to open inline or in a dialog. If you don't specify this parameter, page is opened inline by default.
          */
-        navigateTo(pageInput: PageInput, navigationOptions: NavigationOptions): Promise<undefined>;
+        navigateTo(pageInput: EntityRecord | EntityList | WebResource, navigationOptions?: NavigationOptions): Promise<undefined>;
 
         /**
          * Displays an alert dialog containing a message and a button.
@@ -2393,7 +2446,7 @@ declare namespace Xrm {
         isAvailableOffline(entityLogicalName: string): boolean;
     }
 
-    interface WebApiResponse extends Response {}
+    interface WebApiResponse extends Response { }
 
     interface WebApiOnline extends WebApiBase {
         /**
@@ -2558,6 +2611,15 @@ declare namespace Xrm {
 
     interface PreStageChangeContext extends ExecutionContext<Stage, StageChangeEventArguments> { }
 
+    interface ProcessInstanceContext {
+        CreatedOnDate: Date,
+        ProccessDefinitionID: string,
+        ProccessDefinitionName: string,
+        ProcessInstanceID: string,
+        ProcessInstanceName: string,
+        StatusCodeName: string
+    }
+
     interface ProcessModule {
         /**
          * Adds a function as an event handler for the OnPreProcessStatusChange event so that it will be called before the business process flow status changes.
@@ -2596,6 +2658,29 @@ declare namespace Xrm {
          * @param handler The function to be removed from the OnPreStageChange event.
          */
         removeOnPreStageChange(handler: (context?: PreStageChangeContext) => any): void;
+
+        /**
+         * Returns all the process instances for the entity record that the calling user has access to.
+         * @param handler The callback function is passed an object with the following attributes
+         *                and their corresponding values as the key: value pair.
+         */
+        getProcessInstances(callbackFunction: (context?: ProcessInstanceContext) => any): void;
+
+        /**
+         * Sets a process instance as the active instance.
+         * @param processInstanceid The Id of the process instance to set as the active instance.
+         * @param callbackFunction A function to call when the operation is complete. This callback function is passed either string "succes" or "invalid" to indicate whether the operation succeeded:
+         */
+        setActiveProcessInstance(processInstanceId: string, callbackFunction?: (succesOrInvalid: "success" | "invalid") => any): void;
+
+        /**
+         * Set a Process as the active process.
+         *
+         * @param processId The Id of the process to make the active process.
+         * @param callback A function to call when the operation is complete. This callback function is passed one of the following string
+         *    values to indicate whether the operation succeeded. Is "success" or "invalid".
+         */
+        setActiveProcess(processId: string, callback?: (successOrInvalid: "success" | "invalid") => any): void;
     }
 
     /**
@@ -2612,8 +2697,6 @@ declare namespace Xrm {
          */
         saveMode?: SaveMode;
     }
-
-    interface OnLoadEventContext extends ExecutionContext<UiModule<TabCollectionBase, ControlCollectionBase>, any> { }
 
     /**
      * Interface for the data of a form.
@@ -2690,17 +2773,12 @@ declare namespace Xrm {
     /**
      * Interface for an standard entity attribute.
      */
-  interface Attribute<T> {
+    interface Attribute<T> {
 
-      /**
-       * Returns a boolean value to indicate whether the value of an attribute is valid.
-       */
-      isValid(): boolean;
-
-      /**
-       * Sets a value for an attribute to determine whether it is valid or invalid with a message.
-       */
-      setIsValid(bool: boolean, message?: string);
+        /**
+         * Returns a boolean value to indicate whether the value of an attribute is valid.
+         */
+        isValid(): boolean;
     }
 
     /**
@@ -2825,6 +2903,17 @@ declare namespace Xrm {
         uniqueName: string;
     }
 
+    interface appProperties {
+        appId: string;
+        displayName: string;
+        uniqueName: string;
+        url: string;
+        webResourceId: string;
+        webResourceName: string;
+        welcomePageId: string;
+        welcomePageName: string;
+    }
+
     interface context {
         /**
          * Returns information about the current user settings.
@@ -2840,6 +2929,31 @@ declare namespace Xrm {
          * Returns the URL of the current business app in Customer Engagement.
          */
         getCurrentAppUrl(): string;
+
+        /**
+         * Returns the name of the current business app in model-driven apps.
+         */
+        getCurrentAppName(): Promise<string>;
+
+        /**
+         * Returns the properties of the current business app in model-driven apps.
+         */
+        getCurrentAppProperties(): Promise<appProperties>;
+
+        /**
+         * Returns the version number of the model-driven apps instance.
+         */
+        getVersion(): string;
+
+        /**
+         * Returns the relative URL with the caching token for the specified web resource.
+         */
+        getWebResourceUrl(webResourceName: string): string;
+
+        /**
+         * Returns a boolean value indicating if the model-driven apps instance is hosted on-premises or online.
+         */
+        isOnPremises(): boolean;
     }
 
     /**
@@ -2992,12 +3106,12 @@ declare namespace Xrm {
     type AddNotificationLevel = "RECOMMENDATION" | "ERROR";
 
     interface actionsObject {
-        message?: string | null;
-        actions?: Function[] | null;
+        message?: string;
+        actions?: Function[];
     }
 
     interface AddNotificationObject {
-        actions?: actionsObject | null;
+        actions?: actionsObject[];
         messages: string[];
         notificationLevel: AddNotificationLevel;
         uniqueId: string;
@@ -3006,7 +3120,38 @@ declare namespace Xrm {
     interface BaseControl {
         addNotification(notification: AddNotificationObject): void;
     }
+
+    interface NavigationBehaviorObject {
+        allowCreateNew(): boolean
+    }
+
+    interface Stage {
+        /**
+         * Returns a navigation behavior object for a stage that can be used to define whether the Create button is available for users to create other entity record in a cross-entity business process flow navigation scenario.
+         */
+        getNavigationBehavior(): NavigationBehaviorObject;
+    }
+
+    interface StageStep {
+        /**
+         * Returns the progress of the action step.
+         */
+        getProgress(): number;
+
+        /**
+         * Updates the progress of the action step.
+         * @param stepProgress number value specifying the step progress:
+         * 0: None
+         * 1: Processing
+         * 2: Completed
+         * 3: Failure
+         * 4: Invalid
+         * @param message An optional message that is set as the Alt text on the icon for the step.
+         */
+        setProgress(stepProgress: number, message?: string): string;
+    }
 }
+
 
 interface Xrm<T extends Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>> extends BaseXrm {
     Device: Xrm.Device;
@@ -3034,5 +3179,69 @@ declare namespace Xrm {
          * Returns an array of strings that represent the GUID values of each of the security role privilege that the user is associated with or any teams that the user is associated with.
          */
         securityRolePrivileges: string[]
+    }
+
+    /**
+     * Interface for an standard entity attribute.
+     */
+    interface Attribute<T> {
+
+        /**
+         * Sets a value for an attribute to determine whether it is valid or invalid with a message.
+         */
+        setIsValid(bool: boolean, message?: string): void;
+    }
+
+    const enum LoadState {
+        InitialLoad = 1,
+        Save = 2,
+        Refresh = 3,
+    }
+
+    interface LoadEventArgs {
+        /**
+         * Gets the state of the data load.
+         */
+        getDataLoadState(): LoadState;
+    }
+
+    interface OnLoadEventContext extends ExecutionContext<UiModule<TabCollectionBase, ControlCollectionBase>, LoadEventArgs> { }
+
+    interface LookupTagValue extends Lookup {
+        /**
+         * The originating lookup field that raised the event.
+         */
+        fieldName: string;
+    }
+
+    interface OnLookupTagClickEventArgs {
+        /**
+         * Gets the selected tag value.
+         */
+        getTagValue(): LookupTagValue;
+
+        /**
+         * Returns a value indicating whether the lookup tag click event has been canceled because the preventDefault method was used in this event hander or a previous event handler.
+         */
+        isDefaultPrevented(): boolean;
+
+        /**
+         * Cancels the lookup tag click event, but all remaining handlers for the event will still be executed.
+         */
+        preventDefault(): void;
+    }
+
+    interface OnLookupTagClickContext extends ExecutionContext<any, OnLookupTagClickEventArgs> { }
+
+    interface LookupControl<T extends string> extends Control<LookupAttribute<T>> {
+        /**
+         * Adds an event handler to the OnLookupTagClick event.
+         */
+        addOnLookupTagClick(myFunction: (context?: OnLookupTagClickContext) => any): void;
+
+        /**
+         * Removes an event handler from the OnLookupTagClick event.
+         */
+        removeOnLookupTagClick(functionRef: Function): void;
     }
 }

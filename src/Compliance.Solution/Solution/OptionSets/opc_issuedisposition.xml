@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_issuedisposition" localizedName="Issue Disposition" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.11</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="Issue Disposition" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Well-founded" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Well-founded and resolved" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="Well-founded and conditionally-resolved" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950003">
+      <labels>
+        <label description="Not well-founded" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950004">
+      <labels>
+        <label description="Resolved" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950005">
+      <labels>
+        <label description="Settled" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950006">
+      <labels>
+        <label description="Discontinued" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950007">
+      <labels>
+        <label description="Withdrawn" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950008">
+      <labels>
+        <label description="No jurisdiction" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>
