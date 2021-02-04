@@ -1,4 +1,4 @@
-﻿using Compliance.Entities;
+﻿using Compliance.EarlyBound;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;
@@ -225,7 +225,7 @@ namespace Compliance.Package.Deployment
                 var team = new Team
                 {
                     Name = name,
-                    TeamType = new OptionSetValue((int)TeamTeamType.AADSecurityGroup),
+                    TeamType = TeamTeamType.AADSecurityGroup,
                     BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id),
                     AzureActiveDirectoryObjectId = azureActiveDirectoryObjectId
                 };
@@ -267,7 +267,7 @@ namespace Compliance.Package.Deployment
                         team = new Team
                         {
                             Name = name,
-                            TeamType = new OptionSetValue((int)TeamTeamType.Owner),
+                            TeamType = TeamTeamType.Owner,
                             BusinessUnitId = new EntityReference(BusinessUnit.EntityLogicalName, _rootBusinessUnit.Id)
                         };
                         teamId = PackageTemplate.CrmSvc.Create(team);

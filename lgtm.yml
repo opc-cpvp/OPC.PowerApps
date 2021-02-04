@@ -19,5 +19,5 @@ extraction:
     index:
       include: src/Compliance.WebResources
       exclude:
-        - src/Compliance.WebResources/@types/xrmdefinitelytyped
+        - src/Compliance.WebResources/typings/xrmdefinitelytyped
         - src/Compliance.WebResources/js
