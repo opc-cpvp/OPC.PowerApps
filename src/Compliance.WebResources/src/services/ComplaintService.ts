@@ -63,6 +63,10 @@ export class ComplaintService implements IComplaintService {
                 x => x.opc_complaint_SharePointDocumentLocations,
                 x => [x.relativeurl, x.sitecollectionid]
             )
+            .expand(
+                x => x.opc_complaint_allegations_complaint,
+                x => [x.opc_allegationid, x.opc_allegationtypeid_guid]
+            )
             .expand(x => x.opc_accountid, accountAttributes)
             .expand(x => x.opc_intakeofficer, userAttributes)
             .expand(x => x.owninguser, userAttributes)
