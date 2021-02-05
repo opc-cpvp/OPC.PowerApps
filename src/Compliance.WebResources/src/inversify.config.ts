@@ -61,7 +61,10 @@ import * as resources from "./resources.json";
 import { OpenEntityDialogCommandHandler } from "./handlers/Commands/OpenEntityDialogCommandHandler";
 import { OpenTemplateDialogCommandHandler } from "./handlers/Commands/OpenTemplateDialogCommandHandler";
 import { MergeContactCommandHandler } from "./handlers/Commands/MergeContactCommandHandler";
+import { OpenReminderDialogCommandHandler } from "./handlers/Commands/OpenReminderDialogCommandHandler";
+import { OpenIssueDialogCommandHandler } from "./handlers/Commands/OpenIssueDialogCommandHandler";
 import { CheckDuplicatesQueryHandler } from "./handlers/Queries/CheckDuplicatesQueryHandler";
+import { HasAccessAllegationQueryHandler } from "./handlers/Queries/HasAccessAllegationQueryHandler";
 
 // Command dispatchers
 import { CommandDispatcher } from "./factories/CommandDispatcher";
@@ -130,7 +133,10 @@ container
     .inSingletonScope();
 container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<OpenTemplateDialogCommandHandler>()).to(OpenTemplateDialogCommandHandler);
 container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<MergeContactCommandHandler>()).to(MergeContactCommandHandler);
+container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<OpenReminderDialogCommandHandler>()).to(OpenReminderDialogCommandHandler);
+container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<OpenIssueDialogCommandHandler>()).to(OpenIssueDialogCommandHandler);
 container.bind<i.IQueryHandler<boolean>>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
+container.bind<i.IQueryHandler<boolean>>(nameof<HasAccessAllegationQueryHandler>()).to(HasAccessAllegationQueryHandler);
 
 // Language
 i18next
