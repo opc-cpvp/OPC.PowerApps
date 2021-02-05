@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="opc_erdisposition" localizedName="ER Disposition" description="Disposition at Early Resolution" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="ER Disposition" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="Disposition at Early Resolution" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="533950000">
+      <labels>
+        <label description="Unsuccessful/Unsuitable" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950001">
+      <labels>
+        <label description="Resolved" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950002">
+      <labels>
+        <label description="Withdrawn" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="533950003">
+      <labels>
+        <label description="Discontinued" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>

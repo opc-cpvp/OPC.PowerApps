@@ -14,10 +14,12 @@ chai.use(sinonChai);
 describe("Issue - QuickCreate", () => {
     let mockContext: XrmExecutionContextMock<Form.opc_issue.QuickCreate.QuickCreate, any>;
     let formContext: XrmPageBaseMock<Form.opc_issue.QuickCreate.QuickCreate, undefined>;
+    let contextSpy: any;
     let form: Issue.Forms.QuickCreate;
 
     function initializeMock() {
         mockContext = new XrmExecutionContextMock<Form.opc_issue.QuickCreate.QuickCreate, any>();
+        contextSpy = sandbox.spy(mockContext);
         form = new Issue.Forms.QuickCreate();
         formContext = mockContext.getFormContext();
     }
@@ -31,7 +33,7 @@ describe("Issue - QuickCreate", () => {
             sandbox.restore();
         });
 
-        it("is changed to 'Access', it should SHOW access request number", () => {
+        it("is changed to 'Access', it should ONLY SHOW relevant fields", () => {
             // Arrange
             formContext.getAttribute("opc_allegationtypeid").setValue([{ id: AllegationType.Access }]);
 
@@ -40,10 +42,11 @@ describe("Issue - QuickCreate", () => {
             formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
             // Assert
-            formContext.getAttribute("opc_accessrequestnumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), true));
+            contextSpy.getFormContext().getControl("opc_accessrequestnumber").getVisible().should.equal(true);
+            contextSpy.getFormContext().getControl("opc_contact").getVisible().should.equal(true);
         });
 
-        it("is changed to other value than 'Access', it should HIDE access request number", () => {
+        it("is changed to other value than 'Access', it should ONLY SHOW relevant fields", () => {
             // Arrange
             formContext.getAttribute("opc_allegationtypeid").setValue([{ id: "Test" }]);
 
@@ -52,16 +55,18 @@ describe("Issue - QuickCreate", () => {
             formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
             // Assert
-            formContext.getAttribute("opc_accessrequestnumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), false));
+            contextSpy.getFormContext().getControl("opc_accessrequestnumber").getVisible().should.equal(false);
+            contextSpy.getFormContext().getControl("opc_contact").getVisible().should.equal(false);
         });
 
-        it("has no value, it should HIDE access request number", () => {
+        it("has no value, it should ONLY SHOW relevant fields", () => {
             // Act
             form.initializeComponents(mockContext);
             formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
             // Assert
-            formContext.getAttribute("opc_accessrequestnumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), false));
+            contextSpy.getFormContext().getControl("opc_accessrequestnumber").getVisible().should.equal(false);
+            contextSpy.getFormContext().getControl("opc_contact").getVisible().should.equal(false);
         });
     });
 });

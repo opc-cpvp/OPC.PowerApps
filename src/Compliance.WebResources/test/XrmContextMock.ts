@@ -1,5 +1,6 @@
-﻿/// <reference path="../@types/xrmdefinitelytyped/xrm.d.ts" />
-/// <reference path="../@types/xrmextensions/xrmextensions.d.ts" />
+﻿/// <reference path="../typings/xrmdefinitelytyped/xrm.d.ts" />
+/// <reference path="../typings/xrmextensions/xrmextensions.d.ts" />
+
 import { XrmUserSettingsMock } from "./XrmUserSettingsMock";
 
 export class XrmContextMock implements Xrm.context {
@@ -24,6 +25,7 @@ export class XrmContextMock implements Xrm.context {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return this._kvps;
     }
+
     getClientUrl(): string {
         throw new Error("Method not implemented.");
     }
@@ -38,5 +40,25 @@ export class XrmContextMock implements Xrm.context {
 
     getCurrentAppUrl(): string {
         return "https://fakeurl";
+    }
+
+    getCurrentAppName(): Promise<string> {
+        throw new Error("Method not implemented.");
+    }
+
+    getCurrentAppProperties(): Promise<Xrm.appProperties> {
+        throw new Error("Method not implemented.");
+    }
+
+    getVersion(): string {
+        throw new Error("Method not implemented.");
+    }
+
+    getWebResourceUrl(webResourceName: string): string {
+        throw new Error("Method not implemented.");
+    }
+
+    isOnPremises(): boolean {
+        throw new Error("Method not implemented.");
     }
 }

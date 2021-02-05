@@ -2,14 +2,14 @@ import { injectable, inject } from "inversify";
 import { ICommandHandler, ExtendedXrmPageBase } from "../../interfaces";
 
 @injectable()
-export class OpenTemplateDialogCommandHandler implements ICommandHandler {
+export class OpenTemplateDialogCommandHandler implements ICommandHandler<ExtendedXrmPageBase> {
     private _xrmNavigation: Xrm.Navigation;
 
     constructor(@inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
         this._xrmNavigation = xrmNavigation;
     }
 
-    execute<TForm extends ExtendedXrmPageBase>(formContext: TForm): void {
+    execute(formContext: ExtendedXrmPageBase): void {
         const complaintId = formContext.data.entity.getId();
         const documentsSubgrid = formContext.getControl("subgrid_documents");
 

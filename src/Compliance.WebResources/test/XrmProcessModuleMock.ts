@@ -27,7 +27,7 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
     getActiveProcess(): XrmProcessMock {
         return this._activeProcess || (this._activeProcess = this._processes.find(p => p.getStatus() === Xrm.ProcessStatus.Active));
     }
-    setActiveProcess(processId: string, callback: (successOrInvalid: string) => any): void {
+    setActiveProcess(processId: string, callback?: (successOrInvalid: "success" | "invalid") => any): void {
         // TODO: Something with the other inactive processes? The class variable might be a temporary workaround
         const process = this._processes.find(p => p.getId() === processId);
         process.setStatus(Xrm.ProcessStatus.Active);
@@ -108,6 +108,12 @@ export class XrmProcessModuleMock implements Xrm.ProcessModule {
         throw new Error("Method not implemented.");
     }
     removeOnPreStageChange(handler: (context?: Xrm.PreStageChangeContext) => any): void {
+        throw new Error("Method not implemented.");
+    }
+    getProcessInstances(callbackFunction: (context?: Xrm.ProcessInstanceContext) => any): void {
+        throw new Error("Method not implemented.");
+    }
+    setActiveProcessInstance(processInstanceId: string, callbackFunction?: (succesOrInvalid: "success" | "invalid") => any): void {
         throw new Error("Method not implemented.");
     }
 }

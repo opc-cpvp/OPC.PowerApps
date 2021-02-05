@@ -4,7 +4,7 @@
       "shared_commondataserviceforapps": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "opc_sharedcommondataserviceforapps_3e099"
+          "connectionReferenceLogicalName": "opc_sharedcommondataserviceforapps_1a2e4"
         },
         "api": {
           "name": "shared_commondataserviceforapps"
@@ -13,7 +13,7 @@
       "shared_sharepointonline": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "opc_sharedsharepointonline_d331a"
+          "connectionReferenceLogicalName": "opc_sharedsharepointonline_b79d5"
         },
         "api": {
           "name": "shared_sharepointonline"

@@ -1,4 +1,4 @@
-﻿using Compliance.Entities;
+﻿using Compliance.EarlyBound;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;
@@ -38,7 +38,7 @@ namespace Compliance.Plugins
                     var contact = new Contact()
                     {
                         Id = masterRecordReference.Id,
-                        opc_duplicatedetectionresult = new OptionSetValue((int)opc_duplicatedetectionresult.None),
+                        opc_duplicatedetectionresult = opc_DuplicateDetectionResult.None,
                     };
                     localContext.OrganizationService.Update(contact);
                 }

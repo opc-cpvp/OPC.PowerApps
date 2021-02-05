@@ -7,11 +7,15 @@
     <RolePrivilege name="prvCreateopc_recommendation" level="Local" />
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
     <RolePrivilege name="prvReadAccount" level="Local" />
+    <RolePrivilege name="prvReadActivity" level="Local" />
     <RolePrivilege name="prvReadContact" level="Local" />
     <RolePrivilege name="prvReadopc_allegation" level="Local" />
     <RolePrivilege name="prvReadopc_complaint" level="Local" />
     <RolePrivilege name="prvReadopc_issue" level="Local" />
     <RolePrivilege name="prvReadopc_recommendation" level="Local" />
+    <RolePrivilege name="prvReadopc_RiskAssessment" level="Local" />
+    <RolePrivilege name="prvReadopc_RiskAssessmentCategory" level="Local" />
+    <RolePrivilege name="prvReadopc_RiskAssessmentDefinition" level="Local" />
     <RolePrivilege name="prvReadPluginAssembly" level="Global" />
     <RolePrivilege name="prvReadPluginType" level="Global" />
     <RolePrivilege name="prvReadSdkMessage" level="Global" />

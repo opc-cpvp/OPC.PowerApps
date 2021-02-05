@@ -14,15 +14,23 @@ export namespace Issue.Forms {
 
             // Register handlers
             formContext.getAttribute("opc_allegationtypeid").addOnChange(x => this.allegationtype_OnChange(x));
+            formContext.getAttribute("opc_allegationtypeid").fireOnChange();
         }
 
         private allegationtype_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_allegationtype">, undefined>) {
             const formContext = context.getFormContext() as Form.opc_issue.QuickCreate.QuickCreate;
 
-            const allegationTypeValue = formContext.getAttribute("opc_allegationtypeid").getValue();
-            const isAccessRequestNumberVisible = allegationTypeValue && allegationTypeValue[0].id === AllegationType.Access;
+            const allegationType = formContext.getAttribute("opc_allegationtypeid").getValue();
+            const hasAllegationType = allegationType && allegationType.length > 0;
 
-            formContext.getAttribute("opc_accessrequestnumber").controls.forEach(c => XrmHelper.toggle(c, isAccessRequestNumberVisible));
+            let isAllegationTypeAccess = false;
+            if (hasAllegationType) {
+                const allegationTypeId = allegationType[0].id;
+                isAllegationTypeAccess = allegationTypeId === AllegationType.Access;
+            }
+
+            XrmHelper.toggle(formContext.getControl("opc_accessrequestnumber"), isAllegationTypeAccess);
+            XrmHelper.toggle(formContext.getControl("opc_contact"), isAllegationTypeAccess);
         }
     }
 }

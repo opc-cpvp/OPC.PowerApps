@@ -3,6 +3,7 @@
   <EntityRelationship Name="account_opc_events" />
   <EntityRelationship Name="activity_pointer_opc_event" />
   <EntityRelationship Name="bpf_opc_complaint_opc_individualcomplaint_bp" />
+  <EntityRelationship Name="business_unit_opc_accessrequestdocument" />
   <EntityRelationship Name="business_unit_opc_allegation" />
   <EntityRelationship Name="business_unit_opc_allegationtype" />
   <EntityRelationship Name="business_unit_opc_checklistresponse" />
@@ -32,6 +33,8 @@
   <EntityRelationship Name="interactionforemail_opc_events" />
   <EntityRelationship Name="knowledgearticle_opc_events" />
   <EntityRelationship Name="knowledgebaserecord_opc_events" />
+  <EntityRelationship Name="lk_opc_accessrequestdocument_createdby" />
+  <EntityRelationship Name="lk_opc_accessrequestdocument_modifiedby" />
   <EntityRelationship Name="lk_opc_allegation_createdby" />
   <EntityRelationship Name="lk_opc_allegation_modifiedby" />
   <EntityRelationship Name="lk_opc_allegationtype_createdby" />
@@ -127,6 +130,7 @@
   <EntityRelationship Name="opc_event_systemuser_owninguser" />
   <EntityRelationship Name="opc_event_team_owningteam" />
   <EntityRelationship Name="opc_industry_parentindustryid_industries" />
+  <EntityRelationship Name="opc_issue_accessrequestdocuments_issue" />
   <EntityRelationship Name="opc_legislation_complaints_legislation" />
   <EntityRelationship Name="opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite" />
   <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />
@@ -155,8 +159,10 @@
   <EntityRelationship Name="opc_RiskAssessmentFactorTemplate_RiskAsse" />
   <EntityRelationship Name="opc_theme_topics_themeid" />
   <EntityRelationship Name="opc_user_complaints_erofficer" />
+  <EntityRelationship Name="opc_user_complaints_reportredactor" />
   <EntityRelationship Name="organization_opc_individualcomplaint_bp" />
   <EntityRelationship Name="organization_opc_questiontype" />
+  <EntityRelationship Name="owner_opc_accessrequestdocument" />
   <EntityRelationship Name="owner_opc_allegation" />
   <EntityRelationship Name="owner_opc_allegationtype" />
   <EntityRelationship Name="owner_opc_checklistresponse" />
@@ -182,6 +188,7 @@
   <EntityRelationship Name="owner_opc_riskassessmenttype" />
   <EntityRelationship Name="owner_opc_theme" />
   <EntityRelationship Name="owner_opc_topic" />
+  <EntityRelationship Name="team_opc_accessrequestdocument" />
   <EntityRelationship Name="team_opc_allegation" />
   <EntityRelationship Name="team_opc_allegationtype" />
   <EntityRelationship Name="team_opc_checklistresponse" />
@@ -207,6 +214,7 @@
   <EntityRelationship Name="team_opc_riskassessmenttype" />
   <EntityRelationship Name="team_opc_theme" />
   <EntityRelationship Name="team_opc_topic" />
+  <EntityRelationship Name="user_opc_accessrequestdocument" />
   <EntityRelationship Name="user_opc_allegation" />
   <EntityRelationship Name="user_opc_allegationtype" />
   <EntityRelationship Name="user_opc_checklistresponse" />

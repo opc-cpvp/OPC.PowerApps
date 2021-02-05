@@ -17,7 +17,7 @@ parameters:
 variables:
   - group: ${{ parameters.tenant }}
   - name: SolutionName
-    value: 'Compliance' 
+    value: 'Compliance'
 
 steps:
 - checkout: self
@@ -42,11 +42,11 @@ steps:
     localize: false
 
 
-- powershell: |    
+- powershell: |
     npm install jsonlint -g
-    Get-ChildItem src/$(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach { 
+    Get-ChildItem src/$(SolutionName).Solution/Solution/Workflows -Filter *.json | foreach {
       echo "Linting $_.Name"
-      jsonlint $_.FullName --in-place 
+      jsonlint $_.FullName --in-place
     }
   displayName: 'Lint JSON Workflows'
 
@@ -74,43 +74,50 @@ steps:
     workingDirectory: 'src/XrmDefinitelyTyped'
 
 - task: NuGetCommand@2
-  displayName: 'Restore CrmSvcUtil.Filter project packages'
+  displayName: 'Restore Compliance.EarlyBound project packages'
   inputs:
     command: 'restore'
-    restoreSolution: '**/CrmSvcUtil.Filter/packages.config'
+    restoreSolution: '**/Compliance.EarlyBound/packages.config'
     feedsToUse: 'select'
     restoreDirectory: '../packages'
 
 - task: MSBuild@1
-  displayName: 'Build CrmSvcUtil.Filter'
+  displayName: 'Build Compliance.EarlyBound'
   inputs:
-    solution: '**/CrmSvcUtil.Filter.csproj'
+    solution: '**/Compliance.EarlyBound.csproj'
+
+- task: PowerShell@2
+  displayName: 'Update C# Early-Bound Actions'
+  inputs:
+    filePath: 'src/Compliance.EarlyBound/generate_actions.ps1'
+    arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)"'
+    workingDirectory: 'src/Compliance.EarlyBound'
 
 - task: PowerShell@2
   displayName: 'Update C# Early-Bound Entities'
   inputs:
-    filePath: 'src/CrmSvcUtil.Filter/generate_earlybound_entities.ps1'
+    filePath: 'src/Compliance.EarlyBound/generate_entities.ps1'
     arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)"'
-    workingDirectory: 'src/CrmSvcUtil.Filter'
+    workingDirectory: 'src/Compliance.EarlyBound'
 
 - task: PowerShell@2
   displayName: 'Update C# Early-Bound Option Sets'
   inputs:
-    filePath: 'src/CrmSvcUtil.Filter/generate_optionset_enums.ps1'
+    filePath: 'src/Compliance.EarlyBound/generate_optionsets.ps1'
     arguments: '-ConnectionString "AuthType=ClientSecret;Url=$(crm.url);ClientId=$(tenant.appId);ClientSecret=$(tenant.secret)"'
-    workingDirectory: 'src/CrmSvcUtil.Filter'
+    workingDirectory: 'src/Compliance.EarlyBound'
 
 - powershell: |
    $branch = "$(Build.SourceBranch)"
    $branch = $branch.Replace("refs/heads/", "")
-   
+
    echo "Committing all CDS solution changes"
    git config user.email "nepasrepondre-noreply@priv.gc.ca"
    git config user.name "opc-buildbot"
    git checkout $branch
    git add --all
    git commit -m "Update Solution - $(SolutionName): $(CommitMessage)"
-   
+
    echo "Push solution changes to the remote repository"
    git -c http.extraheader="AUTHORIZATION: basic $(System.AccessToken)" push --force origin $branch
   displayName: 'Commit Unpacked Solution to the Repository'

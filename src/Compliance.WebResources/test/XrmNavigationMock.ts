@@ -1,7 +1,10 @@
 ﻿import { XrmThenMock } from "./XrmThenMock";
 
 export class XrmNavigationMock implements Xrm.Navigation {
-    navigateTo(pageInput: Xrm.PageInput, navigationOptions: Xrm.NavigationOptions): Promise<undefined> {
+    navigateTo(
+        pageInput: Xrm.EntityRecord | Xrm.EntityList | Xrm.WebResource,
+        navigationOptions?: Xrm.NavigationOptions
+    ): Promise<undefined> {
         return new Promise<undefined>(() => {});
     }
     openAlertDialog(alertStrings: Xrm.AlertStrings, alertOptions?: Xrm.SizeOptions): Promise<undefined> {

@@ -183,8 +183,8 @@ export interface ICommandDispatcher {
     dispatch<TForm extends ExtendedXrmPageBase>(context: TForm, command: string, field?: string): void;
 }
 
-export interface ICommandHandler {
-    execute<TForm extends ExtendedXrmPageBase>(context: TForm, field?: string): void;
+export interface ICommandHandler<TContext extends ExtendedXrmPageBase | Xrm.ExecutionContext<any, any>> {
+    execute(context: TContext, field?: string): void;
 }
 
 export interface IPowerControl {

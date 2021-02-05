@@ -1,4 +1,4 @@
-﻿/// <reference path="../@types/xrmdefinitelytyped/xrm.d.ts" />
+﻿/// <reference path="../typings/xrmdefinitelytyped/xrm.d.ts" />
 
 import { XrmPageBaseMock } from "./XrmPageBaseMock";
 import { XrmContextMock } from "./XrmContextMock";

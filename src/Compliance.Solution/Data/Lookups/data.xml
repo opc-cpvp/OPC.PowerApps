@@ -6206,4 +6206,19 @@
     </records>
     <m2mrelationships />
   </entity>
+  <entity name="team" displayname="Team">
+    <records>
+      <record id="d3ff11e3-6854-eb11-a812-000d3aff0cb4">
+        <field name="name" value="Compliance - Early Resolution Backlog Team" />
+        <field name="teamid" value="d3ff11e3-6854-eb11-a812-000d3aff0cb4" />
+        <field name="teamtype" value="0" />
+      </record>
+      <record id="ed26575e-6954-eb11-a812-000d3aff0cb4">
+        <field name="name" value="Compliance - Early Resolution Review Team" />
+        <field name="teamid" value="ed26575e-6954-eb11-a812-000d3aff0cb4" />
+        <field name="teamtype" value="0" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
 </entities>

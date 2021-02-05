@@ -65,12 +65,61 @@
                         </labels>
                         <control id="opc_contact" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_contact" disabled="false" />
                       </cell>
-                      <cell locklevel="0" id="{08b3aeaa-8cdb-44a2-84a9-a0052d60df22}">
+                      <cell locklevel="0" id="{08b3aeaa-8cdb-44a2-84a9-a0052d60df22}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{e6a91c77-e4bc-4fca-b2b1-d196e078f4c9}" locklevel="0">
+                        <labels>
+                          <label description="Disposition" languagecode="1033" />
+                        </labels>
+                        <control id="header_opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{ef5b2a5a-4b9b-47e7-ba5b-ed3bf6fc62b2}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="section_accessrequestdocuments" showlabel="true" showbar="false" locklevel="0" id="{e518356d-95db-2ca3-7ba2-0edd4d1543ec}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                  <labels>
+                    <label description="Access Request Documents" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{243ec68a-e597-3aa0-dd2a-6024b60138a5}" showlabel="false" colspan="1" auto="true" rowspan="4">
+                        <labels>
+                          <label description="Access Request Documents" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_accessrequestdocuments" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{670285b7-40be-1758-1c2d-7dc172da0e70}">
+                          <parameters>
+                            <ViewId>{BFA85BFF-2D6A-4640-8BAC-4E6C37038377}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>opc_issue_accessrequestdocuments_issue</RelationshipName>
+                            <TargetEntityType>opc_accessrequestdocument</TargetEntityType>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{BFA85BFF-2D6A-4640-8BAC-4E6C37038377}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row height="auto" />
                   </rows>
                 </section>
               </sections>
@@ -109,6 +158,12 @@
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>
+            <cell id="{cb3e6a19-ab16-4351-a92b-6df5cf770a9d}" locklevel="0">
+              <labels>
+                <label description="Milestone at Disposition" languagecode="1033" />
+              </labels>
+              <control id="header_opc_milestoneatdisposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_milestoneatdisposition" disabled="true" />
+            </cell>
           </row>
         </rows>
       </header>
@@ -134,7 +189,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -163,6 +218,71 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <controlDescriptions>
+        <controlDescription forControl="{670285b7-40be-1758-1c2d-7dc172da0e70}">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" formFactor="0">
+            <parameters>
+              <ViewId>{BFA85BFF-2D6A-4640-8BAC-4E6C37038377}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>opc_issue_accessrequestdocuments_issue</RelationshipName>
+              <TargetEntityType>opc_accessrequestdocument</TargetEntityType>
+              <AutoExpand>Auto</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{BFA85BFF-2D6A-4640-8BAC-4E6C37038377}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>All</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>true</EnableChartPicker>
+              <RecordsPerPage>4</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{BFA85BFF-2D6A-4640-8BAC-4E6C37038377}</ViewId>
+                <columnsDefaultView />
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_issue_accessrequestdocuments_issue</RelationshipName>
+                <TargetEntityType>opc_accessrequestdocument</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{BFA85BFF-2D6A-4640-8BAC-4E6C37038377}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">yes</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+              <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{BFA85BFF-2D6A-4640-8BAC-4E6C37038377}</ViewId>
+                <columnsDefaultView />
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_issue_accessrequestdocuments_issue</RelationshipName>
+                <TargetEntityType>opc_accessrequestdocument</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{BFA85BFF-2D6A-4640-8BAC-4E6C37038377}</FilteredViewIds>
+              </data-set>
+              <EnableGroupBy static="true" type="Enum">no</EnableGroupBy>
+              <EnableEditing static="true" type="Enum">yes</EnableEditing>
+              <ReflowBehavior static="true" type="Enum">GridOnly</ReflowBehavior>
+              <ListLayoutDirection static="true" type="Enum">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse static="true" type="Enum">false</EnableSubGridAutoCollapse>
+              <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+              <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
+              <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
       <formLibraries>
         <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{7395e242-80cd-e567-8e35-0c65ccda77b6}" />
       </formLibraries>
@@ -170,6 +290,11 @@
         <event name="onload" application="false" active="false">
           <Handlers>
             <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{a5c67c79-b717-e404-bc12-945480e6a2cd}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onrecordselect" application="false" active="false" relationship="" control="subgrid_accessrequestdocuments">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.CommandDispatcher.dispatch" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{b5a16b9a-476d-80cb-e450-d4a03b175cda}" enabled="true" parameters="&quot;OpenEntityDialogCommandHandler&quot;" passExecutionContext="true" />
           </Handlers>
         </event>
       </events>

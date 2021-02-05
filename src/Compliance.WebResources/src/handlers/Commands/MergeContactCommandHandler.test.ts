@@ -1,6 +1,6 @@
 import { XrmExecutionContextMock } from "../../../test/XrmExecutionContextMock";
 import { ContactService } from "../../services/ContactService";
-import { IBaseContact, ICommandHandler } from "../../interfaces";
+import { ExtendedXrmPageBase, IBaseContact, ICommandHandler } from "../../interfaces";
 import { WindowHelper } from "../../helpers/WindowHelper";
 import { MergeContactCommandHandler } from "./MergeContactCommandHandler";
 import { XrmContextMock } from "../../../test/XrmContextMock";
@@ -48,7 +48,7 @@ describe("Merge Contact Handler", () => {
         emailaddress1: "test@test.com"
     };
 
-    let handler: ICommandHandler;
+    let handler: ICommandHandler<ExtendedXrmPageBase>;
 
     function initializeMock() {
         void i18next.init({

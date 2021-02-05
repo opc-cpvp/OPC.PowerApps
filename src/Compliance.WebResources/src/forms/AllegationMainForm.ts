@@ -3,7 +3,7 @@ import "reflect-metadata";
 import { IAllegationService } from "../interfaces";
 import { PowerForm } from "./PowerForm";
 import { XrmHelper } from "../helpers/XrmHelper";
-import { AllegationType } from "../enums";
+import { AllegationType, DispositionReason } from "../enums";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -53,12 +53,21 @@ export namespace Allegation.Forms {
 
         private dispositionreason_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_dispositionreason">, undefined>): void {
             const formContext = context.getFormContext() as Form.opc_allegation.Main.Information;
-            const value = formContext.getAttribute("opc_dispositionreasonid").getValue();
+            const dispositionReasonValue = formContext.getAttribute("opc_dispositionreasonid").getValue();
+
+            const isDispositionReasonNoJurisdiction =
+                dispositionReasonValue && dispositionReasonValue[0].id === DispositionReason.NoJurisdiction;
+            const opcJurisdictionAttr = formContext.getAttribute("opc_jurisdiction");
+
+            opcJurisdictionAttr.controls.forEach(c => XrmHelper.toggle(c, isDispositionReasonNoJurisdiction));
+            opcJurisdictionAttr.setRequiredLevel(isDispositionReasonNoJurisdiction ? "required" : "none");
 
             // Only try to filter if there is a value
-            if (value) {
+            if (dispositionReasonValue) {
                 // Hardcoding reasons that have an action to save a query roundtrip
-                const isActionAvailable = [/* not a privacy complaint */ "{11DF9980-A76E-EA11-A811-000D3AF45A96}"].includes(value[0].id);
+                const isActionAvailable = [/* not a privacy complaint */ "{11DF9980-A76E-EA11-A811-000D3AF45A96}"].includes(
+                    dispositionReasonValue[0].id
+                );
                 formContext.getAttribute("opc_dispositionactionid").controls.forEach(c => XrmHelper.toggle(c, isActionAvailable));
             } else {
                 formContext.getAttribute("opc_dispositionactionid").controls.forEach(c => XrmHelper.toggleOff(c));
@@ -68,10 +77,16 @@ export namespace Allegation.Forms {
         private allegationtype_OnChange(context: Xrm.ExecutionContext<Xrm.LookupAttribute<"opc_allegationtype">, undefined>) {
             const formContext = context.getFormContext() as Form.opc_allegation.Main.Information;
 
-            const allegationTypeValue = formContext.getAttribute("opc_allegationtypeid").getValue();
-            const isReferenceNumberVisible = allegationTypeValue && allegationTypeValue[0].id === AllegationType.Access;
+            const allegationType = formContext.getAttribute("opc_allegationtypeid").getValue();
+            const hasAllegationType = allegationType && allegationType.length > 0;
 
-            formContext.getAttribute("opc_referencenumber").controls.forEach(c => XrmHelper.toggle(c, isReferenceNumberVisible));
+            let isAllegationTypeAccess = false;
+            if (hasAllegationType) {
+                const allegationTypeId = allegationType[0].id;
+                isAllegationTypeAccess = allegationTypeId === AllegationType.Access;
+            }
+
+            formContext.getAttribute("opc_referencenumber").controls.forEach(c => XrmHelper.toggle(c, isAllegationTypeAccess));
         }
 
         private disposition_OnChange(context: Xrm.ExecutionContext<Xrm.OptionSetAttribute<opc_allegationdisposition>, undefined>): void {

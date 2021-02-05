@@ -32,6 +32,8 @@
                             <DisableViewPicker>true</DisableViewPicker>
                             <DefaultViewId>{5BC148F8-EF50-4808-BC46-BB5CAD4C3966}</DefaultViewId>
                             <AllowFilterOff>false</AllowFilterOff>
+                            <useMainFormDialogForCreate>false</useMainFormDialogForCreate>
+                            <useMainFormDialogForEdit>false</useMainFormDialogForEdit>
                           </parameters>
                         </control>
                       </cell>
@@ -627,6 +629,18 @@
               </labels>
               <control id="header_opc_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_number" disabled="true" uniqueid="{2cc4e1d6-08e5-de49-8dc2-8d7c69832ae7}" />
             </cell>
+            <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}" showlabel="true" locklevel="1" colspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{9b16320b-5e25-7005-203a-488178664a0a}" disabled="false">
+                <parameters>
+                  <AutoResolve>true</AutoResolve>
+                  <DisableMru>false</DisableMru>
+                </parameters>
+              </control>
+            </cell>
             <cell id="{ac6b3448-0919-4aea-97f2-df155cf74881}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Intake Officer" languagecode="1033" />
@@ -637,13 +651,7 @@
               <labels>
                 <label description="ER Officer" languagecode="1033" />
               </labels>
-              <control id="header_opc_erofficer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_erofficer" disabled="false" />
-            </cell>
-            <cell id="{9a1af0ed-0bac-45b9-84ea-dd4285d4ac7d}" showlabel="true" locklevel="0">
-              <labels>
-                <label description="Last Milestone" languagecode="1033" />
-              </labels>
-              <control id="header_opc_lastmilestone" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_lastmilestone" disabled="false" />
+              <control id="header_opc_erofficer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_erofficer" disabled="true" />
             </cell>
             <cell id="{25dd8c2e-4b70-4b13-b17f-fb16f4076e57}" locklevel="0">
               <labels>
@@ -658,23 +666,17 @@
               </labels>
               <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="true" />
             </cell>
-            <cell id="{72e33baa-3d51-45fe-b652-b3d05e9a01ee}" showlabel="true" locklevel="1" colspan="1">
-              <labels>
-                <label description="Owner" languagecode="1033" />
-                <label description="Propriétaire" languagecode="1036" />
-              </labels>
-              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" uniqueid="{9b16320b-5e25-7005-203a-488178664a0a}" disabled="false">
-                <parameters>
-                  <AutoResolve>true</AutoResolve>
-                  <DisableMru>false</DisableMru>
-                </parameters>
-              </control>
-            </cell>
             <cell id="{d04cc08c-ecef-40e2-be0e-cc53639fe48a}" showlabel="true" locklevel="0">
               <labels>
                 <label description="Acceptance Date" languagecode="1033" />
               </labels>
               <control id="header_opc_acceptancedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_acceptancedate" disabled="true" />
+            </cell>
+            <cell id="{9a1af0ed-0bac-45b9-84ea-dd4285d4ac7d}" showlabel="true" locklevel="0">
+              <labels>
+                <label description="Last Milestone" languagecode="1033" />
+              </labels>
+              <control id="header_opc_lastmilestone" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_lastmilestone" disabled="true" />
             </cell>
           </row>
         </rows>

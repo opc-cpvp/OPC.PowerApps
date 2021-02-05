@@ -7,6 +7,7 @@ export class XrmPageEntityMock<T, V> implements Xrm.PageEntity<any> {
 
     private _executionContext: XrmExecutionContextMock<any, any>;
     private _id: string;
+    private _entityName: string;
     private _onSaveHandlers: ((context?: Xrm.SaveEventContext<this>) => any)[] = [];
 
     constructor(executionContext: XrmExecutionContextMock<T, V>) {
@@ -17,6 +18,9 @@ export class XrmPageEntityMock<T, V> implements Xrm.PageEntity<any> {
     /* NEW MEMBERS TO HELP MOCKING */
     setId(id: string): void {
         this._id = id;
+    }
+    setEntityName(entityName: string): void {
+        this._entityName = entityName;
     }
     /* END OF NEW MEMBERS*/
 
@@ -34,7 +38,7 @@ export class XrmPageEntityMock<T, V> implements Xrm.PageEntity<any> {
         throw new Error("Method not implemented.");
     }
     getEntityName(): string {
-        throw new Error("Method not implemented.");
+        return this._entityName;
     }
     getIsDirty(): boolean {
         throw new Error("Method not implemented.");
