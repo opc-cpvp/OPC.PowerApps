@@ -39,7 +39,7 @@ export enum QuestionTypes {
 }
 
 export enum AllegationType {
-    Access = "{9929BA43-3AC7-4869-955F-FA42BCB78C0B}"
+    Access = "9929ba43-3ac7-4869-955f-fa42bcb78c0b"
 }
 
 export enum DispositionReason {
