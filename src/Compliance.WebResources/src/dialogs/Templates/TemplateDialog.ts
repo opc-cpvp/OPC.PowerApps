@@ -255,6 +255,7 @@ export namespace Dialogs {
             complaintElement.appendChild(allegationsElement);
             opcElement.appendChild(complaintElement);
             xmlDocument.appendChild(opcElement);
+
             return xmlDocument;
         }
 
