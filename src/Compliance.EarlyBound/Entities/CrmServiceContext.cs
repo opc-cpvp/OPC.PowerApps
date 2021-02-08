@@ -295,6 +295,30 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_provision"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_provision> opc_provisionSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<Compliance.EarlyBound.opc_provision>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_provisionsissues"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_provisionsissues> opc_provisionsissuesSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<Compliance.EarlyBound.opc_provisionsissues>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_QuestionTemplate"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Compliance.EarlyBound.opc_QuestionTemplate> opc_QuestionTemplateSet

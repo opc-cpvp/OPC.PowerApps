@@ -34,6 +34,7 @@ declare namespace Form.opc_issue.Main {
       get(name: "opc_contact"): Xrm.LookupControl<"contact">;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "subgrid_accessrequestdocuments"): Xrm.BaseControl;
+      get(name: "subgrid_provisions"): Xrm.BaseControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -66,6 +67,7 @@ declare namespace Form.opc_issue.Main {
     getControl(controlName: "opc_contact"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "subgrid_accessrequestdocuments"): Xrm.BaseControl;
+    getControl(controlName: "subgrid_provisions"): Xrm.BaseControl;
     getControl(controlName: string): undefined;
   }
 }

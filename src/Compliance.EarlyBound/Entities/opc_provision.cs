@@ -13,7 +13,7 @@ namespace Compliance.EarlyBound
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	public enum opc_issueState
+	public enum opc_provisionState
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -24,33 +24,33 @@ namespace Compliance.EarlyBound
 	}
 	
 	/// <summary>
-	/// The issues extracted from the initial allegations and how they refer to the law. The issues are not necessarily always extracted form allegations, they can be identified by OPC's Investigators.
+	/// Entity depiction sections of the law.
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("opc_issue")]
-	public partial class opc_issue : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("opc_provision")]
+	public partial class opc_provision : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
 		/// <summary>
 		/// Default Constructor.
 		/// </summary>
 		[System.Diagnostics.DebuggerNonUserCode()]
-		public opc_issue() : 
+		public opc_provision() : 
 				base(EntityLogicalName)
 		{
 		}
 		
-		public const string EntityLogicalName = "opc_issue";
+		public const string EntityLogicalName = "opc_provision";
 		
-		public const string EntitySchemaName = "opc_issue";
+		public const string EntitySchemaName = "opc_provision";
 		
-		public const string PrimaryIdAttribute = "opc_issueid";
+		public const string PrimaryIdAttribute = "opc_provisionid";
 		
 		public const string PrimaryNameAttribute = "opc_name";
 		
-		public const string EntityLogicalCollectionName = "opc_issues";
+		public const string EntityLogicalCollectionName = "opc_provisions";
 		
-		public const string EntitySetName = "opc_issues";
+		public const string EntitySetName = "opc_provisions";
 		
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 		
@@ -187,165 +187,202 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// The Access Request Number of this Issue.
+		/// The description of the provision.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_accessrequestnumber")]
-		public string opc_accessrequestnumber
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_description")]
+		public string opc_description
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("opc_accessrequestnumber");
+				return this.GetAttributeValue<string>("opc_description");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_accessrequestnumber");
-				this.SetAttributeValue("opc_accessrequestnumber", value);
-				this.OnPropertyChanged("opc_accessrequestnumber");
+				this.OnPropertyChanging("opc_description");
+				this.SetAttributeValue("opc_description", value);
+				this.OnPropertyChanged("opc_description");
 			}
 		}
 		
 		/// <summary>
-		/// The allegation type of the issue.
+		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_allegationtypeid")]
-		public Microsoft.Xrm.Sdk.EntityReference opc_allegationtypeid
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_descriptionenglish")]
+		public string opc_descriptionenglish
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("opc_allegationtypeid");
+				return this.GetAttributeValue<string>("opc_descriptionenglish");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_allegationtypeid");
-				this.SetAttributeValue("opc_allegationtypeid", value);
-				this.OnPropertyChanged("opc_allegationtypeid");
+				this.OnPropertyChanging("opc_descriptionenglish");
+				this.SetAttributeValue("opc_descriptionenglish", value);
+				this.OnPropertyChanged("opc_descriptionenglish");
 			}
 		}
 		
 		/// <summary>
-		/// Issues extracted form allegations in relation to the law.
+		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_complaintid")]
-		public Microsoft.Xrm.Sdk.EntityReference opc_complaintid
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_descriptionfrench")]
+		public string opc_descriptionfrench
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("opc_complaintid");
+				return this.GetAttributeValue<string>("opc_descriptionfrench");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_complaintid");
-				this.SetAttributeValue("opc_complaintid", value);
-				this.OnPropertyChanged("opc_complaintid");
+				this.OnPropertyChanging("opc_descriptionfrench");
+				this.SetAttributeValue("opc_descriptionfrench", value);
+				this.OnPropertyChanged("opc_descriptionfrench");
 			}
 		}
 		
 		/// <summary>
-		/// The contact assigned to the issue.
+		/// Determines whether the node in the PCF will be able to be checked to go into the input box.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_contact")]
-		public Microsoft.Xrm.Sdk.EntityReference opc_contact
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_ischeckable")]
+		public System.Nullable<bool> opc_ischeckable
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("opc_contact");
+				return this.GetAttributeValue<System.Nullable<bool>>("opc_ischeckable");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_contact");
-				this.SetAttributeValue("opc_contact", value);
-				this.OnPropertyChanged("opc_contact");
+				this.OnPropertyChanging("opc_ischeckable");
+				this.SetAttributeValue("opc_ischeckable", value);
+				this.OnPropertyChanged("opc_ischeckable");
 			}
 		}
 		
 		/// <summary>
-		/// The issue's disposition
+		/// Whether the provision data is just a heading to give more information about other provisions.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_disposition")]
-		public virtual opc_IssueDisposition? opc_disposition
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_isheading")]
+		public System.Nullable<bool> opc_isheading
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return ((opc_IssueDisposition?)(EntityOptionSetEnum.GetEnum(this, "opc_disposition")));
+				return this.GetAttributeValue<System.Nullable<bool>>("opc_isheading");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_disposition");
-				this.SetAttributeValue("opc_disposition", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
-				this.OnPropertyChanged("opc_disposition");
+				this.OnPropertyChanging("opc_isheading");
+				this.SetAttributeValue("opc_isheading", value);
+				this.OnPropertyChanged("opc_isheading");
 			}
 		}
 		
 		/// <summary>
-		/// Unique identifier for entity instances
+		/// Determines whether the record can be in multiple languages.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_issueid")]
-		public System.Nullable<System.Guid> opc_issueId
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_islocalizable")]
+		public System.Nullable<bool> opc_islocalizable
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<System.Nullable<System.Guid>>("opc_issueid");
+				return this.GetAttributeValue<System.Nullable<bool>>("opc_islocalizable");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_issueId");
-				this.SetAttributeValue("opc_issueid", value);
-				if (value.HasValue)
-				{
-					base.Id = value.Value;
-				}
-				else
-				{
-					base.Id = System.Guid.Empty;
-				}
-				this.OnPropertyChanged("opc_issueId");
-			}
-		}
-		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_issueid")]
-		public override System.Guid Id
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return base.Id;
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.opc_issueId = value;
+				this.OnPropertyChanging("opc_islocalizable");
+				this.SetAttributeValue("opc_islocalizable", value);
+				this.OnPropertyChanged("opc_islocalizable");
 			}
 		}
 		
 		/// <summary>
-		/// The Complaint's milestone when this issue's disposition was set.
+		/// The legislation of the provision.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_milestoneatdisposition")]
-		public virtual opc_ComplaintMilestone? opc_milestoneatdisposition
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_legislationid")]
+		public Microsoft.Xrm.Sdk.EntityReference opc_legislationid
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return ((opc_ComplaintMilestone?)(EntityOptionSetEnum.GetEnum(this, "opc_milestoneatdisposition")));
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("opc_legislationid");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_milestoneatdisposition");
-				this.SetAttributeValue("opc_milestoneatdisposition", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
-				this.OnPropertyChanged("opc_milestoneatdisposition");
+				this.OnPropertyChanging("opc_legislationid");
+				this.SetAttributeValue("opc_legislationid", value);
+				this.OnPropertyChanged("opc_legislationid");
+			}
+		}
+		
+		/// <summary>
+		/// Depicted as the short notation of a provision. 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_marginalnote")]
+		public string opc_marginalnote
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("opc_marginalnote");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_marginalnote");
+				this.SetAttributeValue("opc_marginalnote", value);
+				this.OnPropertyChanged("opc_marginalnote");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_marginalnoteenglish")]
+		public string opc_marginalnoteenglish
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("opc_marginalnoteenglish");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_marginalnoteenglish");
+				this.SetAttributeValue("opc_marginalnoteenglish", value);
+				this.OnPropertyChanged("opc_marginalnoteenglish");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_marginalnotefrench")]
+		public string opc_marginalnotefrench
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("opc_marginalnotefrench");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_marginalnotefrench");
+				this.SetAttributeValue("opc_marginalnotefrench", value);
+				this.OnPropertyChanged("opc_marginalnotefrench");
 			}
 		}
 		
@@ -366,6 +403,109 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("opc_name");
 				this.SetAttributeValue("opc_name", value);
 				this.OnPropertyChanged("opc_name");
+			}
+		}
+		
+		/// <summary>
+		/// Name of the Provision. Will usually be a law label.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_nameenglish")]
+		public string opc_nameenglish
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("opc_nameenglish");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_nameenglish");
+				this.SetAttributeValue("opc_nameenglish", value);
+				this.OnPropertyChanged("opc_nameenglish");
+			}
+		}
+		
+		/// <summary>
+		/// Name of the provision in french. Will usually be a provision label.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_namefrench")]
+		public string opc_namefrench
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("opc_namefrench");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_namefrench");
+				this.SetAttributeValue("opc_namefrench", value);
+				this.OnPropertyChanged("opc_namefrench");
+			}
+		}
+		
+		/// <summary>
+		/// The provision that is the parent of the current provision.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_parentprovisionid")]
+		public Microsoft.Xrm.Sdk.EntityReference opc_parentprovisionid
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("opc_parentprovisionid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_parentprovisionid");
+				this.SetAttributeValue("opc_parentprovisionid", value);
+				this.OnPropertyChanged("opc_parentprovisionid");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier for entity instances
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_provisionid")]
+		public System.Nullable<System.Guid> opc_provisionId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("opc_provisionid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_provisionId");
+				this.SetAttributeValue("opc_provisionid", value);
+				if (value.HasValue)
+				{
+					base.Id = value.Value;
+				}
+				else
+				{
+					base.Id = System.Guid.Empty;
+				}
+				this.OnPropertyChanged("opc_provisionId");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_provisionid")]
+		public override System.Guid Id
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return base.Id;
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.opc_provisionId = value;
 			}
 		}
 		
@@ -449,10 +589,10 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// Status of the Issue
+		/// Status of the Provision
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<Compliance.EarlyBound.opc_issueState> StateCode
+		public System.Nullable<Compliance.EarlyBound.opc_provisionState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -460,7 +600,7 @@ namespace Compliance.EarlyBound
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((Compliance.EarlyBound.opc_issueState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.opc_issueState), optionSet.Value)));
+					return ((Compliance.EarlyBound.opc_provisionState)(System.Enum.ToObject(typeof(Compliance.EarlyBound.opc_provisionState), optionSet.Value)));
 				}
 				else
 				{
@@ -484,15 +624,15 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// Reason for the status of the Issue
+		/// Reason for the status of the Provision
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statuscode")]
-		public virtual opc_issueStatusCode? StatusCode
+		public virtual opc_provisionStatusCode? StatusCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return ((opc_issueStatusCode?)(EntityOptionSetEnum.GetEnum(this, "statuscode")));
+				return ((opc_provisionStatusCode?)(EntityOptionSetEnum.GetEnum(this, "statuscode")));
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
@@ -557,22 +697,22 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// 1:N opc_issue_accessrequestdocuments_issue
+		/// 1:N opc_provision_parentprovisionid_provisions
 		/// </summary>
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_issue_accessrequestdocuments_issue")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_accessrequestdocument> opc_issue_accessrequestdocuments_issue
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_provision_parentprovisionid_provisions", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> Referencedopc_provision_parentprovisionid_provisions
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.opc_accessrequestdocument>("opc_issue_accessrequestdocuments_issue", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("opc_provision_parentprovisionid_provisions", Microsoft.Xrm.Sdk.EntityRole.Referenced);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_issue_accessrequestdocuments_issue");
-				this.SetRelatedEntities<Compliance.EarlyBound.opc_accessrequestdocument>("opc_issue_accessrequestdocuments_issue", null, value);
-				this.OnPropertyChanged("opc_issue_accessrequestdocuments_issue");
+				this.OnPropertyChanging("Referencedopc_provision_parentprovisionid_provisions");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("opc_provision_parentprovisionid_provisions", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.OnPropertyChanged("Referencedopc_provision_parentprovisionid_provisions");
 			}
 		}
 		
@@ -580,194 +720,173 @@ namespace Compliance.EarlyBound
 		/// N:N opc_provisions_issues_provisions
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_provisions_issues_provisions")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> opc_provisions_issues_provisions
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_issue> opc_provisions_issues_provisions
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("opc_provisions_issues_provisions", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_issue>("opc_provisions_issues_provisions", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("opc_provisions_issues_provisions");
-				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("opc_provisions_issues_provisions", null, value);
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_issue>("opc_provisions_issues_provisions", null, value);
 				this.OnPropertyChanged("opc_provisions_issues_provisions");
 			}
 		}
 		
 		/// <summary>
-		/// N:1 business_unit_opc_issue
+		/// N:1 business_unit_opc_provision
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_issue")]
-		public Compliance.EarlyBound.BusinessUnit business_unit_opc_issue
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("business_unit_opc_provision")]
+		public Compliance.EarlyBound.BusinessUnit business_unit_opc_provision
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.BusinessUnit>("business_unit_opc_issue", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.BusinessUnit>("business_unit_opc_provision", null);
 			}
 		}
 		
 		/// <summary>
-		/// N:1 lk_opc_issue_createdby
+		/// N:1 lk_opc_provision_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_issue_createdby")]
-		public Compliance.EarlyBound.SystemUser lk_opc_issue_createdby
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_provision_createdby")]
+		public Compliance.EarlyBound.SystemUser lk_opc_provision_createdby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_issue_createdby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_provision_createdby", null);
 			}
 		}
 		
 		/// <summary>
-		/// N:1 lk_opc_issue_createdonbehalfby
+		/// N:1 lk_opc_provision_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_issue_createdonbehalfby")]
-		public Compliance.EarlyBound.SystemUser lk_opc_issue_createdonbehalfby
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_provision_createdonbehalfby")]
+		public Compliance.EarlyBound.SystemUser lk_opc_provision_createdonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_issue_createdonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_provision_createdonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("lk_opc_issue_createdonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_issue_createdonbehalfby", null, value);
-				this.OnPropertyChanged("lk_opc_issue_createdonbehalfby");
+				this.OnPropertyChanging("lk_opc_provision_createdonbehalfby");
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_provision_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_opc_provision_createdonbehalfby");
 			}
 		}
 		
 		/// <summary>
-		/// N:1 lk_opc_issue_modifiedby
+		/// N:1 lk_opc_provision_modifiedby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_issue_modifiedby")]
-		public Compliance.EarlyBound.SystemUser lk_opc_issue_modifiedby
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_provision_modifiedby")]
+		public Compliance.EarlyBound.SystemUser lk_opc_provision_modifiedby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_issue_modifiedby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_provision_modifiedby", null);
 			}
 		}
 		
 		/// <summary>
-		/// N:1 lk_opc_issue_modifiedonbehalfby
+		/// N:1 lk_opc_provision_modifiedonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_issue_modifiedonbehalfby")]
-		public Compliance.EarlyBound.SystemUser lk_opc_issue_modifiedonbehalfby
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_provision_modifiedonbehalfby")]
+		public Compliance.EarlyBound.SystemUser lk_opc_provision_modifiedonbehalfby
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_issue_modifiedonbehalfby", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_provision_modifiedonbehalfby", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("lk_opc_issue_modifiedonbehalfby");
-				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_issue_modifiedonbehalfby", null, value);
-				this.OnPropertyChanged("lk_opc_issue_modifiedonbehalfby");
+				this.OnPropertyChanging("lk_opc_provision_modifiedonbehalfby");
+				this.SetRelatedEntity<Compliance.EarlyBound.SystemUser>("lk_opc_provision_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_opc_provision_modifiedonbehalfby");
 			}
 		}
 		
 		/// <summary>
-		/// N:1 opc_allegationtype_issues_allegationtype
+		/// N:1 opc_legislation_provisions_legislationid
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_allegationtypeid")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_allegationtype_issues_allegationtype")]
-		public Compliance.EarlyBound.opc_allegationtype opc_allegationtype_issues_allegationtype
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_legislationid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_legislation_provisions_legislationid")]
+		public Compliance.EarlyBound.opc_legislation opc_legislation_provisions_legislationid
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.opc_allegationtype>("opc_allegationtype_issues_allegationtype", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.opc_legislation>("opc_legislation_provisions_legislationid", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_allegationtype_issues_allegationtype");
-				this.SetRelatedEntity<Compliance.EarlyBound.opc_allegationtype>("opc_allegationtype_issues_allegationtype", null, value);
-				this.OnPropertyChanged("opc_allegationtype_issues_allegationtype");
+				this.OnPropertyChanging("opc_legislation_provisions_legislationid");
+				this.SetRelatedEntity<Compliance.EarlyBound.opc_legislation>("opc_legislation_provisions_legislationid", null, value);
+				this.OnPropertyChanged("opc_legislation_provisions_legislationid");
 			}
 		}
 		
 		/// <summary>
-		/// N:1 opc_complaint_issues_complaint
+		/// N:1 opc_provision_parentprovisionid_provisions
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_complaintid")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_complaint_issues_complaint")]
-		public Compliance.EarlyBound.opc_complaint opc_complaint_issues_complaint
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_parentprovisionid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_provision_parentprovisionid_provisions", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
+		public Compliance.EarlyBound.opc_provision Referencingopc_provision_parentprovisionid_provisions
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.opc_complaint>("opc_complaint_issues_complaint", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.opc_provision>("opc_provision_parentprovisionid_provisions", Microsoft.Xrm.Sdk.EntityRole.Referencing);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_complaint_issues_complaint");
-				this.SetRelatedEntity<Compliance.EarlyBound.opc_complaint>("opc_complaint_issues_complaint", null, value);
-				this.OnPropertyChanged("opc_complaint_issues_complaint");
+				this.OnPropertyChanging("Referencingopc_provision_parentprovisionid_provisions");
+				this.SetRelatedEntity<Compliance.EarlyBound.opc_provision>("opc_provision_parentprovisionid_provisions", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.OnPropertyChanged("Referencingopc_provision_parentprovisionid_provisions");
 			}
 		}
 		
 		/// <summary>
-		/// N:1 opc_contact_issues_contact
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_contact")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_contact_issues_contact")]
-		public Compliance.EarlyBound.Contact opc_contact_issues_contact
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_issues_contact", null);
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("opc_contact_issues_contact");
-				this.SetRelatedEntity<Compliance.EarlyBound.Contact>("opc_contact_issues_contact", null, value);
-				this.OnPropertyChanged("opc_contact_issues_contact");
-			}
-		}
-		
-		/// <summary>
-		/// N:1 team_opc_issue
+		/// N:1 team_opc_provision
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningteam")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_issue")]
-		public Compliance.EarlyBound.Team team_opc_issue
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_provision")]
+		public Compliance.EarlyBound.Team team_opc_provision
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.Team>("team_opc_issue", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.Team>("team_opc_provision", null);
 			}
 		}
 		
 		/// <summary>
-		/// N:1 user_opc_issue
+		/// N:1 user_opc_provision
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owninguser")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_issue")]
-		public Compliance.EarlyBound.SystemUser user_opc_issue
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_provision")]
+		public Compliance.EarlyBound.SystemUser user_opc_provision
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("user_opc_issue", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.SystemUser>("user_opc_provision", null);
 			}
 		}
 	}

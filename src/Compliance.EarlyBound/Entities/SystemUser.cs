@@ -3948,6 +3948,86 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// 1:N lk_opc_provision_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_provision_createdby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> lk_opc_provision_createdby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("lk_opc_provision_createdby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_provision_createdby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("lk_opc_provision_createdby", null, value);
+				this.OnPropertyChanged("lk_opc_provision_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_provision_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_provision_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> lk_opc_provision_createdonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("lk_opc_provision_createdonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_provision_createdonbehalfby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("lk_opc_provision_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_opc_provision_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_provision_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_provision_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> lk_opc_provision_modifiedby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("lk_opc_provision_modifiedby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_provision_modifiedby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("lk_opc_provision_modifiedby", null, value);
+				this.OnPropertyChanged("lk_opc_provision_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_provision_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_provision_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> lk_opc_provision_modifiedonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("lk_opc_provision_modifiedonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_provision_modifiedonbehalfby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("lk_opc_provision_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_opc_provision_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N lk_opc_questiontemplate_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_questiontemplate_createdby")]
@@ -5904,6 +5984,26 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("user_opc_opcpriority");
 				this.SetRelatedEntities<Compliance.EarlyBound.opc_opcpriority>("user_opc_opcpriority", null, value);
 				this.OnPropertyChanged("user_opc_opcpriority");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N user_opc_provision
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_provision")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> user_opc_provision
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("user_opc_provision", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("user_opc_provision");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("user_opc_provision", null, value);
+				this.OnPropertyChanged("user_opc_provision");
 			}
 		}
 		
