@@ -16,6 +16,7 @@
   <EntityRelationship Name="business_unit_opc_legislation" />
   <EntityRelationship Name="business_unit_opc_notification" />
   <EntityRelationship Name="business_unit_opc_opcpriority" />
+  <EntityRelationship Name="business_unit_opc_provision" />
   <EntityRelationship Name="business_unit_opc_questiontemplate" />
   <EntityRelationship Name="business_unit_opc_recommendation" />
   <EntityRelationship Name="business_unit_opc_reminder" />
@@ -63,6 +64,8 @@
   <EntityRelationship Name="lk_opc_notification_modifiedby" />
   <EntityRelationship Name="lk_opc_opcpriority_createdby" />
   <EntityRelationship Name="lk_opc_opcpriority_modifiedby" />
+  <EntityRelationship Name="lk_opc_provision_createdby" />
+  <EntityRelationship Name="lk_opc_provision_modifiedby" />
   <EntityRelationship Name="lk_opc_questiontemplate_createdby" />
   <EntityRelationship Name="lk_opc_questiontemplate_modifiedby" />
   <EntityRelationship Name="lk_opc_questiontype_createdby" />
@@ -132,10 +135,13 @@
   <EntityRelationship Name="opc_industry_parentindustryid_industries" />
   <EntityRelationship Name="opc_issue_accessrequestdocuments_issue" />
   <EntityRelationship Name="opc_legislation_complaints_legislation" />
+  <EntityRelationship Name="opc_legislation_provisions_legislationid" />
   <EntityRelationship Name="opc_opc_riskappetite_opc_riskassessmentdefinitiontemplate_RiskAppetite" />
   <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />
   <EntityRelationship Name="opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType" />
   <EntityRelationship Name="opc_opcpriority_complaints_opcpriority" />
+  <EntityRelationship Name="opc_provision_parentprovisionid_provisions" />
+  <EntityRelationship Name="opc_provisions_issues_provisions" />
   <EntityRelationship Name="opc_questiontemplate_checklistresponses_quest" />
   <EntityRelationship Name="opc_questiontemplate_questiontemplates_parent" />
   <EntityRelationship Name="opc_questiontype_questiontemplates_questionty" />
@@ -175,6 +181,7 @@
   <EntityRelationship Name="owner_opc_legislation" />
   <EntityRelationship Name="owner_opc_notification" />
   <EntityRelationship Name="owner_opc_opcpriority" />
+  <EntityRelationship Name="owner_opc_provision" />
   <EntityRelationship Name="owner_opc_questiontemplate" />
   <EntityRelationship Name="owner_opc_recommendation" />
   <EntityRelationship Name="owner_opc_reminder" />
@@ -201,6 +208,7 @@
   <EntityRelationship Name="team_opc_legislation" />
   <EntityRelationship Name="team_opc_notification" />
   <EntityRelationship Name="team_opc_opcpriority" />
+  <EntityRelationship Name="team_opc_provision" />
   <EntityRelationship Name="team_opc_questiontemplate" />
   <EntityRelationship Name="team_opc_recommendation" />
   <EntityRelationship Name="team_opc_reminder" />
@@ -227,6 +235,7 @@
   <EntityRelationship Name="user_opc_legislation" />
   <EntityRelationship Name="user_opc_notification" />
   <EntityRelationship Name="user_opc_opcpriority" />
+  <EntityRelationship Name="user_opc_provision" />
   <EntityRelationship Name="user_opc_questiontemplate" />
   <EntityRelationship Name="user_opc_recommendation" />
   <EntityRelationship Name="user_opc_reminder" />

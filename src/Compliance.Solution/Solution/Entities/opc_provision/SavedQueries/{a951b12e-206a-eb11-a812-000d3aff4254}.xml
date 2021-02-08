@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{a951b12e-206a-eb11-a812-000d3aff4254}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_provisionid">
+          <cell name="opc_name" width="200" />
+          <cell name="opc_description" width="100" />
+          <cell name="opc_marginalnote" width="100" />
+          <cell name="opc_parentprovisionid" width="100" />
+          <cell name="opc_ischeckable" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="opc_provision">
+          <attribute name="opc_name" />
+          <attribute name="opc_provisionid" />
+          <filter type="and">
+            <condition attribute="opc_legislationid" operator="eq" value="{e4307439-e61d-ea11-a810-000d3af464f8}" uiname="Personal Information Protection and Electronic Documents Act" uitype="opc_legislation" />
+          </filter>
+          <attribute name="opc_description" />
+          <attribute name="opc_marginalnote" />
+          <attribute name="opc_parentprovisionid" />
+          <attribute name="opc_ischeckable" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.553</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active PIPEDA Provisions" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="All active provisions under PIPEDA." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>
