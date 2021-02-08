@@ -9,10 +9,15 @@ export class XrmControlMock
     private _options: Xrm.Option<any>[] = [];
     // eslint-disable-next-line @typescript-eslint/ban-types
     private _onPreSearchHandlers: Function[] = [];
+    private _viewSelector: Xrm.ViewSelector;
 
     /* NEW MEMBERS TO HELP MOCKING */
     setOptions(options: Xrm.Option<any>[]): void {
         this._options = options;
+    }
+
+    setViewSelector(viewSelector: Xrm.ViewSelector): void {
+        this._viewSelector = viewSelector;
     }
     /* END OF NEW MEMBERS*/
 
@@ -60,7 +65,7 @@ export class XrmControlMock
         throw new Error("Method not implemented.");
     }
     getViewSelector(): Xrm.ViewSelector {
-        throw new Error("Method not implemented.");
+        return this._viewSelector;
     }
     // eslint-disable-next-line @typescript-eslint/ban-types
     removeOnLoad(reference: Function): void {

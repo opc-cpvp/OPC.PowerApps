@@ -195,6 +195,9 @@
     <Content Include="src\dialogs\Templates\TemplateDialog.html" />
     <Content Include="imgs\Notifications\icon64x64_read_notification.png" />
     <Content Include="imgs\Notifications\icon64x64_unread_notification.png" />
+    <Content Include="test\XrmViewSelectorMock.ts">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="tsconfig.json" />
     <Content Include="webpack.config.js" />
   </ItemGroup>

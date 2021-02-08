@@ -48,10 +48,8 @@ export namespace Issue.Forms {
          * Set the provision view according to the legislation of the parent complaint
          */
         private setProvisionsView(context: Form.opc_issue.Main.Information): void {
-            console.log("Nothing?");
-            console.log(this._complaint);
             if (this._complaint) {
-                const provisionsGrid = context.getControl("subgrid_provisions") as any;
+                const provisionsGrid = context.getControl("") as Xrm.SubGridControl<"">; // TODO: put grid name once entities exist
                 const viewSelector = provisionsGrid.getViewSelector();
 
                 const legislation = this._complaint.opc_legislation?.opc_acronym;
@@ -67,14 +65,15 @@ export namespace Issue.Forms {
                     provisionsViewName = "Active PIPEDA Provisions";
                 }
 
-                console.log("Changing to PIPEDA principles");
-                const ProjectTemplateView = {
-                    entityType: 1039, // SavedQuery
-                    id: provisionsViewId,
-                    name: provisionsViewName
-                };
+                if (provisionsViewId !== "" && provisionsViewName !== "") {
+                    const ProjectTemplateView = {
+                        entityType: "1039", // SavedQuery
+                        id: provisionsViewId,
+                        name: provisionsViewName
+                    };
 
-                viewSelector.setCurrentView(ProjectTemplateView);
+                    viewSelector.setCurrentView(ProjectTemplateView);
+                }
             }
         }
 
