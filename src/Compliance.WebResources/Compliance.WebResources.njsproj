@@ -248,6 +248,9 @@
     <TypeScriptCompile Include="src\handlers\Commands\OpenEntityDialogCommandHandler.ts" />
     <TypeScriptCompile Include="src\handlers\Commands\OpenTemplateDialogCommandHandler.test.ts" />
     <TypeScriptCompile Include="src\handlers\Commands\OpenTemplateDialogCommandHandler.ts" />
+    <TypeScriptCompile Include="src\handlers\Queries\HasAcceptableAllegationQueryHandler.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\handlers\Queries\HasAccessAllegationQueryHandler.ts" />
     <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.test.ts" />
     <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.ts" />
@@ -263,6 +266,9 @@
     <TypeScriptCompile Include="src\index.ts" />
     <TypeScriptCompile Include="src\interfaces.ts" />
     <TypeScriptCompile Include="src\inversify.config.ts" />
+    <TypeScriptCompile Include="src\services\AllegationTypeService.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\services\SharePointService.ts" />
     <TypeScriptCompile Include="src\services\ChecklistService.ts" />
     <TypeScriptCompile Include="src\services\AllegationService.ts" />

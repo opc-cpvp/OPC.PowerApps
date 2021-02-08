@@ -10,6 +10,10 @@ export interface IAllegationService {
     getAllegationDispositionActionFilter(dispositionReason: string): string;
 }
 
+export interface IAllegationTypeService {
+    getAllegationType(id: string): Promise<opc_allegationtype_Result>;
+}
+
 export interface IReminderService {
     hasAdditionalUsersToNotify(id: string): Promise<boolean>;
 }
@@ -146,7 +150,8 @@ export type ComplaintWithRelationships = opc_complaint &
 { opc_accountid: Account_Result } &
 { opc_respondentlegalrepresentativefirm: Account_Result } &
 { opc_respondentrepresentative: Contact_Result } &
-{ opc_respondentlegalrepresentative: Contact_Result };
+{ opc_respondentlegalrepresentative: Contact_Result } &
+{ opc_complaint_allegations_complaint: opc_allegation_Result[] };
 
 export type ExtendedXrmPageBase = Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase> & {
     getAttribute(attributeName: string): Xrm.Attribute<any>;

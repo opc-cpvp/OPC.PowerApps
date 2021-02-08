@@ -7,6 +7,7 @@ import * as i from "./interfaces";
 
 // Services
 import { AllegationService } from "./services/AllegationService";
+import { AllegationTypeService } from "./services/AllegationTypeService";
 import { AuthService } from "./services/AuthService";
 import { ChecklistService } from "./services/ChecklistService";
 import { ComplaintService } from "./services/ComplaintService";
@@ -65,6 +66,7 @@ import { OpenReminderDialogCommandHandler } from "./handlers/Commands/OpenRemind
 import { OpenIssueDialogCommandHandler } from "./handlers/Commands/OpenIssueDialogCommandHandler";
 import { CheckDuplicatesQueryHandler } from "./handlers/Queries/CheckDuplicatesQueryHandler";
 import { HasAccessAllegationQueryHandler } from "./handlers/Queries/HasAccessAllegationQueryHandler";
+import { HasAcceptableAllegationQueryHandler } from "./handlers/Queries/HasAcceptableAllegationQueryHandler";
 
 // Command dispatchers
 import { CommandDispatcher } from "./factories/CommandDispatcher";
@@ -75,6 +77,7 @@ const container = new Container();
 
 // Register Services
 container.bind<i.IAllegationService>(nameof<i.IAllegationService>()).to(AllegationService);
+container.bind<i.IAllegationTypeService>(nameof<i.IAllegationTypeService>()).to(AllegationTypeService);
 container.bind<i.IAuthService>(nameof<i.IAuthService>()).to(AuthService);
 container.bind<i.IChecklistService>(nameof<i.IChecklistService>()).to(ChecklistService);
 container.bind<i.IComplaintService>(nameof<i.IComplaintService>()).to(ComplaintService);
@@ -137,6 +140,7 @@ container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<OpenReminderDialog
 container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<OpenIssueDialogCommandHandler>()).to(OpenIssueDialogCommandHandler);
 container.bind<i.IQueryHandler<boolean>>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
 container.bind<i.IQueryHandler<boolean>>(nameof<HasAccessAllegationQueryHandler>()).to(HasAccessAllegationQueryHandler);
+container.bind<i.IQueryHandler<boolean>>(nameof<HasAcceptableAllegationQueryHandler>()).to(HasAcceptableAllegationQueryHandler);
 
 // Language
 i18next
