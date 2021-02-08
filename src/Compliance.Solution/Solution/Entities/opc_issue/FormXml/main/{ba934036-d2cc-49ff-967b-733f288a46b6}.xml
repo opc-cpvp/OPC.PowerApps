@@ -305,7 +305,7 @@
           <customControl formFactor="2" name="opc_opc.pcf.TreeComponent">
             <parameters>
               <data-set name="tableGrid">
-                <ViewId>{CEAE04A7-F467-EB11-A812-000D3AFF1915}</ViewId>
+                <ViewId>{B490734E-485A-4F91-8F8F-418C00A6914C}</ViewId>
                 <IsUserView>false</IsUserView>
                 <TargetEntityType>opc_provision</TargetEntityType>
                 <EnableViewPicker>false</EnableViewPicker>
