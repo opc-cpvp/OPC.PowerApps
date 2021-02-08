@@ -477,6 +477,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// 1:N opc_legislation_provisions_legislationid
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_legislation_provisions_legislationid")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> opc_legislation_provisions_legislationid
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("opc_legislation_provisions_legislationid", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_legislation_provisions_legislationid");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("opc_legislation_provisions_legislationid", null, value);
+				this.OnPropertyChanged("opc_legislation_provisions_legislationid");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 business_unit_opc_legislation
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]
