@@ -31,8 +31,6 @@ describe("Issue - Main", () => {
         form = new Issue.Forms.MainForm(complaintService, contactService);
         formContext = mockContext.getFormContext();
         formContext.getAttribute("opc_complaintid").setValue([{ id: "" }]);
-        const control = formContext.getControl("subgrid_accessrequestdocuments") as XrmControlMock; // TODO: Change for correct control
-        control.setViewSelector(new XrmViewSelectorMock({ entityType: "1039", id: "", name: "Test View" }, true));
     }
 
     describe("when allegation type", () => {
@@ -85,6 +83,17 @@ describe("Issue - Main", () => {
     describe("when form is loading", () => {
         beforeEach(() => {
             initializeMock();
+            const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
+            control.setViewSelector(
+                new XrmViewSelectorMock(
+                    {
+                        entityType: "1039",
+                        id: "",
+                        name: "Test View"
+                    },
+                    true
+                )
+            );
         });
 
         it("it should ensure contact filtering is properly handled", async () => {
@@ -101,20 +110,28 @@ describe("Issue - Main", () => {
             addPreSearch.should.have.been.calledOnce;
         });
 
-        // TODO: add tests when provision entity exists
         it("it should change the provisions subgrid view according to the parent legislation", async () => {
-            // TODO: Add mocking of LookupControls
             // Arrange
-            // const contactControl = mockContext.getFormContext().getControl("opc_contact");
-            // const addPreSearch = sandbox.stub(contactControl, "addPreSearch").callsFake(sinon.fake());
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves({ opc_legislation: { opc_acronym: "PA" } });
 
             // Act
             await form.initializeComponents(mockContext);
 
             // Assert
-            const control = formContext.getControl("subgrid_accessrequestdocuments") as XrmControlMock; // TODO: change to correct grid
+            const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
             control.getViewSelector().getCurrentView().name.should.equal("Active PA Provisions");
+        });
+
+        it("it should change NOT change the provisions subgrid view if the issue is not related to a complaint", async () => {
+            // Arrange
+            sandbox.stub(complaintService, "getComplaintWithRelationships").resolves([]);
+
+            // Act
+            await form.initializeComponents(mockContext);
+
+            // Assert
+            const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
+            control.getViewSelector().getCurrentView().name.should.equal("Test View");
         });
     });
 });
