@@ -65,7 +65,7 @@ export class ComplaintService implements IComplaintService {
             )
             .expand(
                 x => x.opc_complaint_allegations_complaint,
-                x => [x.opc_allegationid, x.opc_allegationtypeid_guid]
+                x => [x.opc_allegationid, x.opc_allegationtypeid_guid, x.opc_disposition]
             )
             .expand(x => x.opc_accountid, accountAttributes)
             .expand(x => x.opc_intakeofficer, userAttributes)
