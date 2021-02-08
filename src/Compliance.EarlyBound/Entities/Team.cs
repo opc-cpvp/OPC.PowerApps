@@ -966,6 +966,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// 1:N team_opc_provision
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_provision")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_provision> team_opc_provision
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_provision>("team_opc_provision", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("team_opc_provision");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_provision>("team_opc_provision", null, value);
+				this.OnPropertyChanged("team_opc_provision");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N team_opc_questiontemplate
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_questiontemplate")]

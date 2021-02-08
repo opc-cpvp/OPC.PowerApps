@@ -14,6 +14,7 @@ interface opc_legislation_Base extends WebEntity {
 }
 interface opc_legislation_Relationships {
   opc_legislation_complaints_legislation?: opc_complaint_Result[] | null;
+  opc_legislation_provisions_legislationid?: opc_provision_Result[] | null;
 }
 interface opc_legislation extends opc_legislation_Base, opc_legislation_Relationships {
   ownerid_bind$systemusers?: string | null;
@@ -73,6 +74,7 @@ interface opc_legislation_Expand {
   modifiedby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_legislation_complaints_legislation: WebExpand<opc_legislation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_legislation_complaints_legislation: opc_complaint_Result[] }>;
+  opc_legislation_provisions_legislationid: WebExpand<opc_legislation_Expand, opc_provision_Select, opc_provision_Filter, { opc_legislation_provisions_legislationid: opc_provision_Result[] }>;
   ownerid: WebExpand<opc_legislation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_legislation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
@@ -114,6 +116,7 @@ interface opc_legislation_RelatedOne {
 }
 interface opc_legislation_RelatedMany {
   opc_legislation_complaints_legislation: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
+  opc_legislation_provisions_legislationid: WebMappingRetrieve<opc_provision_Select,opc_provision_Expand,opc_provision_Filter,opc_provision_Fixed,opc_provision_Result,opc_provision_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_legislations: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
