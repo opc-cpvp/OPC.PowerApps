@@ -38,6 +38,44 @@ export namespace Issue.Forms {
             this.setComplaint(formContext).catch(e => console.error("error setting complaint", e));
 
             formContext.getControl("opc_contact").addPreSearch(() => this.contact_preSearch(formContext));
+
+            this.setProvisionsView(formContext);
+        }
+
+        /**
+         * Set the provision view according to the legislation of the parent complaint
+         */
+        private setProvisionsView(context: Form.opc_issue.Main.Information): void {
+            if (this._complaint) {
+                const provisionsGrid = context.getControl("subgrid_provisions") as any;
+                const viewSelector = provisionsGrid.getViewSelector();
+
+                const legislation = this._complaint.opc_legislation?.opc_acronym;
+
+                // Not sure if a better way can be used to prevent hardcoding these values
+                let provisionsViewId = "";
+                let provisionsViewName = "";
+                if (legislation === "PA") {
+                    provisionsViewId = "ceae04a7-f467-eb11-a812-000d3aff1915";
+                    provisionsViewName = "Active PA Provisions";
+                } else if (legislation === "PIPEDA") {
+                    provisionsViewId = "a951b12e-206a-eb11-a812-000d3aff4254";
+                    provisionsViewName = "Active PIPEDA Provisions";
+                }
+
+                console.log("Changing to PIPEDA principles");
+                const ProjectTemplateView = {
+                    entityType: 1039, // SavedQuery
+                    id: provisionsViewId,
+                    name: provisionsViewName
+                };
+
+                viewSelector.setCurrentView(ProjectTemplateView);
+
+                // Refresh the grid for the new view
+                // console.log("refreshing");
+                // principlesGrid.refresh(); // I think needed
+            }
         }
 
         private async setComplaint(context: Form.opc_issue.Main.Information): Promise<void> {
