@@ -332,12 +332,26 @@
       <field displayname="Status Reason" name="statuscode" type="status" />
     </fields>
   </entity>
-  <entity name="team" displayname="Team" etc="9" primaryidfield="teamid" primarynamefield="name" disableplugins="false">
+  <entity name="opc_provision" displayname="Provision" etc="10152" primaryidfield="opc_provisionid" primarynamefield="opc_name" disableplugins="false">
     <fields>
-      <field displayname="Description" name="description" type="string" />
-      <field displayname="Team Name" name="name" type="string" />
-      <field displayname="Team" name="teamid" type="guid" primaryKey="true" />
-      <field displayname="Team Type" name="teamtype" type="optionsetvalue" />
+      <field displayname="Description" name="opc_description" type="string" customfield="true" />
+      <field displayname="English Description" name="opc_descriptionenglish" type="string" customfield="true" />
+      <field displayname="English Marginal Note" name="opc_marginalnoteenglish" type="string" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Description" name="opc_descriptionfrench" type="string" customfield="true" />
+      <field displayname="French Marginal Note" name="opc_marginalnotefrench" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Checkable" name="opc_ischeckable" type="bool" customfield="true" />
+      <field displayname="Is Heading" name="opc_isheading" type="bool" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Legislation" name="opc_legislationid" type="entityreference" lookupType="opc_legislation" customfield="true" />
+      <field displayname="Marginal Note" name="opc_marginalnote" type="string" customfield="true" />
+      <field displayname="name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Parent Provision" name="opc_parentprovisionid" type="entityreference" lookupType="opc_provision" customfield="true" />
+      <field displayname="Provision" name="opc_provisionid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
     </fields>
+    <relationships />
   </entity>
 </entities>
