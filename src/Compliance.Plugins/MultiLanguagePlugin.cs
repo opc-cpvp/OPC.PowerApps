@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using Compliance.EarlyBound;
+using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Collections.Generic;
@@ -81,7 +82,7 @@ namespace Compliance.Plugins
             // Check the user settings to see if the language is set
             var query = new QueryExpression()
             {
-                EntityName = Entities.UserSettings.EntityLogicalName,
+                EntityName = UserSettings.EntityLogicalName,
                 ColumnSet = new ColumnSet(LanguageAttribute),
                 Criteria =
                 {

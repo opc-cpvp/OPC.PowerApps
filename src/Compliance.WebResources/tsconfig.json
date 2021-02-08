@@ -32,18 +32,16 @@
                 "transform": "ts-nameof",
                 "type": "raw"
             }
-        ],
-        "typeRoots": [
-            "node_modules/@types",
-            "@types"
         ]
     },
     "include": [
+        "typings/xrmdefinitelytyped/_internal/**/*.d.ts",
+        "typings/xrmdefinitelytyped/Form/**/*.d.ts",
+        "typings/xrmdefinitelytyped/Web/**/*.d.ts",
         "src/**/*.ts"
     ],
     "exclude": [
         "node_modules/**",
-        "@types/**",
         "js/**",
         "dist/**"
     ],

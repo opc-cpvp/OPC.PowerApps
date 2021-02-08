@@ -1,4 +1,4 @@
-using Compliance.Entities;
+using Compliance.EarlyBound;
 using DocumentFormat.OpenXml.Office2013.PowerPoint.Roaming;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.Xrm.Sdk;
