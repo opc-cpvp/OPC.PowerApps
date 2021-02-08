@@ -1,24 +1,31 @@
 import { injectable, inject } from "inversify";
-import { ICommandHandler, ExtendedXrmPageBase } from "../../interfaces";
+import { ICommandHandler, ExtendedXrmPageBase, IComplaintService } from "../../interfaces";
 
 @injectable()
 export class OpenReminderDialogCommandHandler implements ICommandHandler<ExtendedXrmPageBase> {
     private _xrmNavigation: Xrm.Navigation;
+    private _complaintService: IComplaintService;
 
-    constructor(@inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation) {
+    constructor(
+        @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation,
+        @inject(nameof<IComplaintService>()) complaintService: IComplaintService
+    ) {
         this._xrmNavigation = xrmNavigation;
+        this._complaintService = complaintService;
     }
 
-    execute<TForm extends ExtendedXrmPageBase>(formContext: TForm): void {
+    async execute<TForm extends ExtendedXrmPageBase>(formContext: TForm): Promise<void> {
         const parameters: { [key: string]: string } = {};
-        // TODO fix related record shows `No Name` instead of Complaint Number before Save
 
         if (formContext.data.entity.getEntityName() === "opc_allegation") {
+            const complaintId = formContext.getAttribute("opc_complaintid").getValue()[0].id;
+            const complaint = await this._complaintService.getComplaint(complaintId);
             const referenceNumber = formContext.getAttribute("opc_referencenumber").getValue();
             if (referenceNumber) {
                 parameters.opc_name = referenceNumber;
             }
             parameters.opc_complaintid = formContext.getAttribute("opc_complaintid").getValue()[0].id;
+            parameters.opc_complaintidname = complaint.opc_number;
         }
 
         this._xrmNavigation
