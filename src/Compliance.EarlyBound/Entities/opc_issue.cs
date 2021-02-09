@@ -577,6 +577,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// N:N opc_allegations_issues_relatedissues
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_allegations_issues_relatedissues")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_allegation> opc_allegations_issues_relatedissues
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_allegation>("opc_allegations_issues_relatedissues", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_allegations_issues_relatedissues");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_allegation>("opc_allegations_issues_relatedissues", null, value);
+				this.OnPropertyChanged("opc_allegations_issues_relatedissues");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 business_unit_opc_issue
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("owningbusinessunit")]

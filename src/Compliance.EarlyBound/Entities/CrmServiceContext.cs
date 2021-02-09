@@ -115,6 +115,18 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_allegationsrelatedissues"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_allegationsrelatedissues> opc_allegationsrelatedissuesSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<Compliance.EarlyBound.opc_allegationsrelatedissues>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_allegationtype"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Compliance.EarlyBound.opc_allegationtype> opc_allegationtypeSet

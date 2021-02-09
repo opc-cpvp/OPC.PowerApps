@@ -15,6 +15,7 @@ interface opc_issue_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface opc_issue_Relationships {
+  opc_allegations_issues_relatedissues?: opc_allegation_Result[] | null;
   opc_issue_accessrequestdocuments_issue?: opc_accessrequestdocument_Result[] | null;
 }
 interface opc_issue extends opc_issue_Base, opc_issue_Relationships {
@@ -87,6 +88,7 @@ interface opc_issue_Expand {
   createdonbehalfby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
   modifiedby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  opc_allegations_issues_relatedissues: WebExpand<opc_issue_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegations_issues_relatedissues: opc_allegation_Result[] }>;
   opc_allegationtypeid: WebExpand<opc_issue_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_allegationtypeid: opc_allegationtype_Result }>;
   opc_complaintid: WebExpand<opc_issue_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
   opc_contact: WebExpand<opc_issue_Expand, Contact_Select, Contact_Filter, { opc_contact: Contact_Result }>;
@@ -142,6 +144,7 @@ interface opc_issue_RelatedOne {
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_issue_RelatedMany {
+  opc_allegations_issues_relatedissues: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_issue_accessrequestdocuments_issue: WebMappingRetrieve<opc_accessrequestdocument_Select,opc_accessrequestdocument_Expand,opc_accessrequestdocument_Filter,opc_accessrequestdocument_Fixed,opc_accessrequestdocument_Result,opc_accessrequestdocument_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
