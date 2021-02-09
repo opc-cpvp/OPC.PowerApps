@@ -49,7 +49,7 @@ export namespace Issue.Forms {
          */
         private setProvisionsView(context: Form.opc_issue.Main.Information): void {
             if (this._complaint) {
-                const provisionsGrid = context.getControl("subgrid_provisions") as Xrm.SubGridControl<"">; // TODO: put grid name once entities exist
+                const provisionsGrid = context.getControl("subgrid_provisions") as Xrm.SubGridControl<"subgrid_provisions">;
                 const viewSelector = provisionsGrid.getViewSelector();
 
                 const legislation = this._complaint.opc_legislation?.opc_acronym;
