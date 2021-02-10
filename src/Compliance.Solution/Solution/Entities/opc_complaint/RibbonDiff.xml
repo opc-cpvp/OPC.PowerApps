@@ -2,6 +2,11 @@
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CustomActions>
     <HideCustomAction HideActionId="opc.Mscrm.Form.opc_complaint.WordTemplate.Hide" Location="Mscrm.Form.opc_complaint.WordTemplate" />
+    <CustomAction Id="opc.opc_complaint.Button.CreateReminder.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Management.Controls._children" Sequence="25">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:opc.opc_complaint.Button.CreateReminder.Alt" Command="opc.opc_complaint.Command.OpenReminderDialogPage" Id="opc.opc_complaint.Button.CreateReminder" LabelText="$LocLabels:opc.opc_complaint.Button.CreateReminder.LabelText" Sequence="25" TemplateAlias="isv" />
+      </CommandUIDefinition>
+    </CustomAction>
     <CustomAction Id="opc.opc_complaint.Button.Merge.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Management.Controls._children" Sequence="20">
       <CommandUIDefinition>
         <FlyoutAnchor Alt="$LocLabels:opc.opc_complaint.Button.Merge.Alt" Command="opc.opc_complaint.Command.Blank" Id="opc.opc_complaint.Button.Merge" Image16by16="/_imgs/ribbon/MergeRecords_16.png" Image32by32="/_imgs/ribbon/MergeRecords_32.png" LabelText="$LocLabels:opc.opc_complaint.Button.Merge.LabelText" Sequence="20" TemplateAlias="o2" ToolTipTitle="$LocLabels:opc.opc_complaint.Button.Merge.ToolTipTitle" ToolTipDescription="$LocLabels:opc.opc_complaint.Button.Merge.ToolTipDescription" ModernImage="$webresource:opc_compliance/imgs/MergeRecords.svg">
@@ -105,6 +110,18 @@
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
+    <CommandDefinition Id="opc.opc_complaint.Command.OpenReminderDialogPage">
+      <EnableRules>
+        <EnableRule Id="opc.opc_complaint.EnableRule.HasAccessAllegation" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="OpenReminderDialogCommandHandler" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
     <CommandDefinition Id="opc.opc_complaint.Command.OpenTemplateDialogPage">
       <EnableRules />
       <DisplayRules />
@@ -173,6 +190,13 @@
           <CrmParameter Value="PrimaryControl" />
         </CustomRule>
       </EnableRule>
+      <EnableRule Id="opc.opc_complaint.EnableRule.HasAccessAllegation">
+        <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
+          <StringParameter Value="HasAccessAllegationQueryHandler" />
+          <StringParameter />
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
       <EnableRule Id="opc.opc_complaint.EnableRule.RepresentativeDuplicateExists">
         <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
           <StringParameter Value="CheckDuplicatesQueryHandler" />
@@ -197,6 +221,16 @@
     </EnableRules>
   </RuleDefinitions>
   <LocLabels>
+    <LocLabel Id="opc.opc_complaint.Button.CreateReminder.Alt">
+      <Titles>
+        <Title description="Button to open Create Reminder Form." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_complaint.Button.CreateReminder.LabelText">
+      <Titles>
+        <Title description="New Reminder" languagecode="1033" />
+      </Titles>
+    </LocLabel>
     <LocLabel Id="opc.opc_complaint.Button.Merge.Alt">
       <Titles>
         <Title description="Merge likely duplicates" languagecode="1033" />

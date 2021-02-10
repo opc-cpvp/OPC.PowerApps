@@ -1,14 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <CustomActions />
+  <CustomActions>
+    <CustomAction Id="opc.opc_allegation.Button.CreateIssue.CustomAction" Location="Mscrm.Form.opc_allegation.MainTab.Actions.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:opc.opc_allegation.Button.CreateIssue.Alt" Command="opc.opc_allegation.Command.OpenIssueDialogPage" Id="opc.opc_allegation.Button.CreateIssue" LabelText="$LocLabels:opc.opc_allegation.Button.CreateIssue.LabelText" Sequence="10" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="opc.opc_allegation.Button.CreateReminder.CustomAction" Location="Mscrm.Form.opc_allegation.MainTab.Actions.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:opc.opc_allegation.Button.CreateReminder.Alt" Command="opc.opc_allegation.Command.OpenReminderDialogPage" Id="opc.opc_allegation.Button.CreateReminder" LabelText="$LocLabels:opc.opc_allegation.Button.CreateReminder.LabelText" Sequence="10" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="opc.opc_allegation.GridButton.CreateIssue.CustomAction" Location="Mscrm.SubGrid.opc_allegation.MainTab.Management.Controls._children" Sequence="115">
+      <CommandUIDefinition>
+        <Button Command="opc.opc_allegation.Command.OpenIssueDialogPage" Id="opc.opc_allegation.GridButton.CreateIssue" LabelText="$LocLabels:opc.opc_allegation.GridButton.CreateIssue.LabelText" Sequence="115" TemplateAlias="o2" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
   <Templates>
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
-  <CommandDefinitions />
+  <CommandDefinitions>
+    <CommandDefinition Id="opc.opc_allegation.Command.OpenIssueDialogPage">
+      <EnableRules>
+        <EnableRule Id="opc.opc_allegation.EnableRule.IsAllegationAcceptable" />
+        <EnableRule Id="Mscrm.AnySelection" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="OpenIssueDialogCommandHandler" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="opc.opc_allegation.Command.OpenReminderDialogPage">
+      <EnableRules>
+        <EnableRule Id="opc.opc_allegation.EnableRule.IsAccessAllegation" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="OpenReminderDialogCommandHandler" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
   <RuleDefinitions>
     <TabDisplayRules />
     <DisplayRules />
-    <EnableRules />
+    <EnableRules>
+      <EnableRule Id="opc.opc_allegation.EnableRule.IsAccessAllegation">
+        <ValueRule Field="opc_allegationtypeid" Value="9929ba43-3ac7-4869-955f-fa42bcb78c0b" Default="false" InvertResult="false" />
+      </EnableRule>
+      <EnableRule Id="opc.opc_allegation.EnableRule.IsAllegationAcceptable">
+        <OrRule>
+          <Or>
+            <ValueRule Field="opc_disposition" Value="924340000" Default="false" InvertResult="false" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
+              <StringParameter Value="HasAcceptableAllegationQueryHandler" />
+              <StringParameter />
+              <CrmParameter Value="PrimaryControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+    </EnableRules>
   </RuleDefinitions>
-  <LocLabels />
+  <LocLabels>
+    <LocLabel Id="opc.opc_allegation.Button.CreateIssue.Alt">
+      <Titles>
+        <Title description="Button to open Create Issue." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_allegation.Button.CreateIssue.LabelText">
+      <Titles>
+        <Title description="New Issue" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_allegation.Button.CreateReminder.Alt">
+      <Titles>
+        <Title description="Button to open Create Reminder Form." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_allegation.Button.CreateReminder.LabelText">
+      <Titles>
+        <Title description="New Reminder" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="opc.opc_allegation.GridButton.CreateIssue.LabelText">
+      <Titles>
+        <Title description="New Issue" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
 </RibbonDiffXml>
