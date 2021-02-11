@@ -308,6 +308,29 @@ interface opc_ChecklistType_Create extends opc_ChecklistType {
 }
 interface opc_ChecklistType_Update extends opc_ChecklistType {
 }
+interface opc_checklisttype_legislationallegationtype_Base extends WebEntity {
+}
+interface opc_checklisttype_legislationallegationtype_Fixed extends WebEntity_Fixed {
+  opc_checklisttype_legislationallegationtypeid: string;
+}
+interface opc_checklisttype_legislationallegationtype extends opc_checklisttype_legislationallegationtype_Base, opc_checklisttype_legislationallegationtype_Relationships {
+}
+interface opc_checklisttype_legislationallegationtype_Relationships {
+}
+interface opc_checklisttype_legislationallegationtype_Result extends opc_checklisttype_legislationallegationtype_Base, opc_checklisttype_legislationallegationtype_Relationships {
+}
+interface opc_checklisttype_legislationallegationtype_FormattedResult {
+}
+interface opc_checklisttype_legislationallegationtype_Select {
+}
+interface opc_checklisttype_legislationallegationtype_Expand {
+}
+interface opc_checklisttype_legislationallegationtype_Filter {
+}
+interface opc_checklisttype_legislationallegationtype_Create extends opc_checklisttype_legislationallegationtype {
+}
+interface opc_checklisttype_legislationallegationtype_Update extends opc_checklisttype_legislationallegationtype {
+}
 interface opc_complaint_Base extends WebEntity {
 }
 interface opc_complaint_Fixed extends WebEntity_Fixed {
@@ -538,6 +561,29 @@ interface opc_legislation_Create extends opc_legislation {
 }
 interface opc_legislation_Update extends opc_legislation {
 }
+interface opc_legislationallegationtype_Base extends WebEntity {
+}
+interface opc_legislationallegationtype_Fixed extends WebEntity_Fixed {
+  opc_legislationallegationtypeid: string;
+}
+interface opc_legislationallegationtype extends opc_legislationallegationtype_Base, opc_legislationallegationtype_Relationships {
+}
+interface opc_legislationallegationtype_Relationships {
+}
+interface opc_legislationallegationtype_Result extends opc_legislationallegationtype_Base, opc_legislationallegationtype_Relationships {
+}
+interface opc_legislationallegationtype_FormattedResult {
+}
+interface opc_legislationallegationtype_Select {
+}
+interface opc_legislationallegationtype_Expand {
+}
+interface opc_legislationallegationtype_Filter {
+}
+interface opc_legislationallegationtype_Create extends opc_legislationallegationtype {
+}
+interface opc_legislationallegationtype_Update extends opc_legislationallegationtype {
+}
 interface opc_notification_Base extends WebEntity {
 }
 interface opc_notification_Fixed extends WebEntity_Fixed {
@@ -583,6 +629,29 @@ interface opc_opcpriority_Filter {
 interface opc_opcpriority_Create extends opc_opcpriority {
 }
 interface opc_opcpriority_Update extends opc_opcpriority {
+}
+interface opc_personalinformationtype_Base extends WebEntity {
+}
+interface opc_personalinformationtype_Fixed extends WebEntity_Fixed {
+  opc_personalinformationtypeid: string;
+}
+interface opc_personalinformationtype extends opc_personalinformationtype_Base, opc_personalinformationtype_Relationships {
+}
+interface opc_personalinformationtype_Relationships {
+}
+interface opc_personalinformationtype_Result extends opc_personalinformationtype_Base, opc_personalinformationtype_Relationships {
+}
+interface opc_personalinformationtype_FormattedResult {
+}
+interface opc_personalinformationtype_Select {
+}
+interface opc_personalinformationtype_Expand {
+}
+interface opc_personalinformationtype_Filter {
+}
+interface opc_personalinformationtype_Create extends opc_personalinformationtype {
+}
+interface opc_personalinformationtype_Update extends opc_personalinformationtype {
 }
 interface opc_QuestionTemplate_Base extends WebEntity {
 }

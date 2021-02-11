@@ -60,6 +60,7 @@
     <AppModuleComponent type="1" schemaName="opc_industry" />
     <AppModuleComponent type="1" schemaName="opc_issue" />
     <AppModuleComponent type="1" schemaName="opc_notification" />
+    <AppModuleComponent type="1" schemaName="opc_personalinformationtype" />
     <AppModuleComponent type="1" schemaName="opc_questiontemplate" />
     <AppModuleComponent type="1" schemaName="opc_questiontype" />
     <AppModuleComponent type="1" schemaName="queue" />

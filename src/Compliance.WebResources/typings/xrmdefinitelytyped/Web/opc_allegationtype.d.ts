@@ -4,6 +4,7 @@ interface opc_allegationtype_Base extends WebEntity {
   modifiedon?: Date | null;
   opc_acronym?: string | null;
   opc_allegationtypeid?: string | null;
+  opc_description?: string | null;
   opc_descriptionenglish?: string | null;
   opc_descriptionfrench?: string | null;
   opc_islocalizable?: boolean | null;
@@ -20,9 +21,9 @@ interface opc_allegationtype_Base extends WebEntity {
 interface opc_allegationtype_Relationships {
   opc_allegationtype_allegations_allegationtype?: opc_allegation_Result[] | null;
   opc_allegationtype_issues_allegationtype?: opc_issue_Result[] | null;
+  opc_allegationtype_legislation_allegationtype?: opc_legislationallegationtype_Result[] | null;
 }
 interface opc_allegationtype extends opc_allegationtype_Base, opc_allegationtype_Relationships {
-  opc_checklisttypeid_bind$opc_checklisttypes?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -40,7 +41,7 @@ interface opc_allegationtype_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_allegationtype_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_acronym: WebAttribute<opc_allegationtype_Select, { opc_acronym: string | null }, {  }>;
   opc_allegationtypeid: WebAttribute<opc_allegationtype_Select, { opc_allegationtypeid: string | null }, {  }>;
-  opc_checklisttypeid_guid: WebAttribute<opc_allegationtype_Select, { opc_checklisttypeid_guid: string | null }, { opc_checklisttypeid_formatted?: string }>;
+  opc_description: WebAttribute<opc_allegationtype_Select, { opc_description: string | null }, {  }>;
   opc_descriptionenglish: WebAttribute<opc_allegationtype_Select, { opc_descriptionenglish: string | null }, {  }>;
   opc_descriptionfrench: WebAttribute<opc_allegationtype_Select, { opc_descriptionfrench: string | null }, {  }>;
   opc_islocalizable: WebAttribute<opc_allegationtype_Select, { opc_islocalizable: boolean | null }, {  }>;
@@ -68,7 +69,7 @@ interface opc_allegationtype_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_acronym: string;
   opc_allegationtypeid: XQW.Guid;
-  opc_checklisttypeid_guid: XQW.Guid;
+  opc_description: string;
   opc_descriptionenglish: string;
   opc_descriptionfrench: string;
   opc_islocalizable: boolean;
@@ -93,7 +94,7 @@ interface opc_allegationtype_Expand {
   modifiedonbehalfby: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_allegationtype_allegations_allegationtype: WebExpand<opc_allegationtype_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegationtype_allegations_allegationtype: opc_allegation_Result[] }>;
   opc_allegationtype_issues_allegationtype: WebExpand<opc_allegationtype_Expand, opc_issue_Select, opc_issue_Filter, { opc_allegationtype_issues_allegationtype: opc_issue_Result[] }>;
-  opc_checklisttypeid: WebExpand<opc_allegationtype_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { opc_checklisttypeid: opc_ChecklistType_Result }>;
+  opc_allegationtype_legislation_allegationtype: WebExpand<opc_allegationtype_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { opc_allegationtype_legislation_allegationtype: opc_legislationallegationtype_Result[] }>;
   ownerid: WebExpand<opc_allegationtype_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_allegationtype_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_allegationtype_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
@@ -105,7 +106,6 @@ interface opc_allegationtype_FormattedResult {
   modifiedby_formatted?: string;
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
-  opc_checklisttypeid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -120,7 +120,6 @@ interface opc_allegationtype_Result extends opc_allegationtype_Base, opc_allegat
   createdonbehalfby_guid: string | null;
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
-  opc_checklisttypeid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
@@ -131,7 +130,6 @@ interface opc_allegationtype_RelatedOne {
   createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  opc_checklisttypeid: WebMappingRetrieve<opc_ChecklistType_Select,opc_ChecklistType_Expand,opc_ChecklistType_Filter,opc_ChecklistType_Fixed,opc_ChecklistType_Result,opc_ChecklistType_FormattedResult>;
   ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
@@ -139,6 +137,7 @@ interface opc_allegationtype_RelatedOne {
 interface opc_allegationtype_RelatedMany {
   opc_allegationtype_allegations_allegationtype: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
   opc_allegationtype_issues_allegationtype: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  opc_allegationtype_legislation_allegationtype: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_allegationtypes: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;

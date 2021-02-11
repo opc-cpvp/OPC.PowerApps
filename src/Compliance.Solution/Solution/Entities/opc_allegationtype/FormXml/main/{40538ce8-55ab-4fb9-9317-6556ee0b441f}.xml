@@ -67,25 +67,11 @@
                     <row />
                     <row />
                     <row>
-                      <cell id="{4995ea97-fb9c-42db-91b4-c8edc9ff67fb}" showlabel="true" locklevel="0">
+                      <cell id="{5d0d2271-adea-4544-b7fc-0620735fb309}" showlabel="true" visible="false">
                         <labels>
-                          <label description="Checklist Type" languagecode="1033" />
+                          <label description="name" languagecode="1033" />
                         </labels>
-                        <control id="opc_checklisttypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_checklisttypeid" disabled="false" />
-                      </cell>
-                      <cell id="{c92a15eb-b766-55eb-4c69-416ba232508b}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{be93034c-aca2-4a89-b470-db219f248c63}">
-                        <labels>
-                          <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
-                        </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
                       </cell>
                       <cell id="{b0ed9244-1147-836b-c31c-e71378a37111}" showlabel="false">
                         <labels>
@@ -93,19 +79,44 @@
                         </labels>
                       </cell>
                     </row>
+                  </rows>
+                </section>
+                <section name="section_legislations" id="32a92a04-7fd2-4967-9772-a13cefd823f2" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Legislations" languagecode="1033" />
+                  </labels>
+                  <rows>
                     <row>
-                      <cell id="{5d0d2271-adea-4544-b7fc-0620735fb309}" showlabel="true" visible="false">
+                      <cell locklevel="0" id="{de95fdc9-a973-4d1f-b10d-c11505c1b0a2}" rowspan="6" colspan="1" showlabel="false" auto="false">
                         <labels>
-                          <label description="name" languagecode="1033" />
+                          <label description="Legislations" languagecode="1033" />
                         </labels>
-                        <control id="opc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="true" />
-                      </cell>
-                      <cell showlabel="true" locklevel="0" id="{00ee08ad-4193-4876-8451-34a1c44c3437}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
+                        <control id="subgrid_legislations" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{247a4b42-c7a6-25de-807d-cc74079d8796}">
+                          <parameters>
+                            <TargetEntityType>opc_legislationallegationtype</TargetEntityType>
+                            <ViewId>{6EEC0137-954F-40F2-92A8-015420A3109E}</ViewId>
+                            <ViewIds>{6EEC0137-954F-40F2-92A8-015420A3109E}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_allegationtype_legislation_allegationtype</RelationshipName>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -130,6 +141,13 @@
               <labels>
                 <label description="" languagecode="1033" />
               </labels>
+            </cell>
+            <cell id="{be93034c-aca2-4a89-b470-db219f248c63}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
             </cell>
           </row>
         </rows>
@@ -185,6 +203,7 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
+      <controlDescriptions />
       <DisplayConditions Order="0" FallbackForm="true" />
     </form>
     <IsCustomizable>1</IsCustomizable>

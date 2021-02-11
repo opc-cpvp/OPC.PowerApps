@@ -457,6 +457,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// 1:N opc_legislation_allegationtypes_leglislation
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_legislation_allegationtypes_leglislation")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_legislationallegationtype> opc_legislation_allegationtypes_leglislation
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("opc_legislation_allegationtypes_leglislation", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_legislation_allegationtypes_leglislation");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("opc_legislation_allegationtypes_leglislation", null, value);
+				this.OnPropertyChanged("opc_legislation_allegationtypes_leglislation");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N opc_legislation_complaints_legislation
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_legislation_complaints_legislation")]

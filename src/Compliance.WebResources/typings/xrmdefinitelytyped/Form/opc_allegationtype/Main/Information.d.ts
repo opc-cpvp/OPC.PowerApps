@@ -4,7 +4,6 @@ declare namespace Form.opc_allegationtype.Main {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_acronym"): Xrm.Attribute<string>;
-      get(name: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
       get(name: "opc_descriptionenglish"): Xrm.Attribute<string>;
       get(name: "opc_descriptionfrench"): Xrm.Attribute<string>;
       get(name: "opc_name"): Xrm.Attribute<string>;
@@ -17,14 +16,14 @@ declare namespace Form.opc_allegationtype.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_acronym"): Xrm.StringControl;
-      get(name: "opc_checklisttypeid"): Xrm.LookupControl<"opc_checklisttype">;
       get(name: "opc_descriptionenglish"): Xrm.StringControl;
       get(name: "opc_descriptionfrench"): Xrm.StringControl;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_nameenglish"): Xrm.StringControl;
       get(name: "opc_namefrench"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+      get(name: "subgrid_legislations"): Xrm.SubGridControl<"opc_legislationallegationtype">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -39,7 +38,6 @@ declare namespace Form.opc_allegationtype.Main {
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_acronym"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_checklisttypeid"): Xrm.LookupAttribute<"opc_checklisttype">;
     getAttribute(attributeName: "opc_descriptionenglish"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_descriptionfrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
@@ -47,14 +45,14 @@ declare namespace Form.opc_allegationtype.Main {
     getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_acronym"): Xrm.StringControl;
-    getControl(controlName: "opc_checklisttypeid"): Xrm.LookupControl<"opc_checklisttype">;
     getControl(controlName: "opc_descriptionenglish"): Xrm.StringControl;
     getControl(controlName: "opc_descriptionfrench"): Xrm.StringControl;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
+    getControl(controlName: "subgrid_legislations"): Xrm.SubGridControl<"opc_legislationallegationtype">;
     getControl(controlName: string): undefined;
   }
 }

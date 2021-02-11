@@ -926,6 +926,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// 1:N team_opc_legislationallegationtype
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_legislationallegationtype")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_legislationallegationtype> team_opc_legislationallegationtype
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("team_opc_legislationallegationtype", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("team_opc_legislationallegationtype");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("team_opc_legislationallegationtype", null, value);
+				this.OnPropertyChanged("team_opc_legislationallegationtype");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N team_opc_notification
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_notification")]
@@ -962,6 +982,26 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("team_opc_opcpriority");
 				this.SetRelatedEntities<Compliance.EarlyBound.opc_opcpriority>("team_opc_opcpriority", null, value);
 				this.OnPropertyChanged("team_opc_opcpriority");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N team_opc_personalinformationtype
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("team_opc_personalinformationtype")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_personalinformationtype> team_opc_personalinformationtype
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("team_opc_personalinformationtype", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("team_opc_personalinformationtype");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("team_opc_personalinformationtype", null, value);
+				this.OnPropertyChanged("team_opc_personalinformationtype");
 			}
 		}
 		

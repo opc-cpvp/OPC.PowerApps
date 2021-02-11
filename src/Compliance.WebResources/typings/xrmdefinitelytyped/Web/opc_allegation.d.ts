@@ -22,6 +22,7 @@ interface opc_allegation extends opc_allegation_Base, opc_allegation_Relationshi
   opc_complaintid_bind$opc_complaints?: string | null;
   opc_dispositionactionid_bind$opc_dispositionactions?: string | null;
   opc_dispositionreasonid_bind$opc_dispositionreasons?: string | null;
+  opc_typeofpersonalinformation_bind$opc_personalinformationtypes?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -46,6 +47,7 @@ interface opc_allegation_Select {
   opc_jurisdiction: WebAttribute<opc_allegation_Select, { opc_jurisdiction: opc_jurisdictions | null }, { opc_jurisdiction_formatted?: string }>;
   opc_name: WebAttribute<opc_allegation_Select, { opc_name: string | null }, {  }>;
   opc_referencenumber: WebAttribute<opc_allegation_Select, { opc_referencenumber: string | null }, {  }>;
+  opc_typeofpersonalinformation_guid: WebAttribute<opc_allegation_Select, { opc_typeofpersonalinformation_guid: string | null }, { opc_typeofpersonalinformation_formatted?: string }>;
   overriddencreatedon: WebAttribute<opc_allegation_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<opc_allegation_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<opc_allegation_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -74,6 +76,7 @@ interface opc_allegation_Filter {
   opc_jurisdiction: opc_jurisdictions;
   opc_name: string;
   opc_referencenumber: string;
+  opc_typeofpersonalinformation_guid: XQW.Guid;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -95,6 +98,7 @@ interface opc_allegation_Expand {
   opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
   opc_dispositionactionid: WebExpand<opc_allegation_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionactionid: opc_dispositionaction_Result }>;
   opc_dispositionreasonid: WebExpand<opc_allegation_Expand, opc_dispositionreason_Select, opc_dispositionreason_Filter, { opc_dispositionreasonid: opc_dispositionreason_Result }>;
+  opc_typeofpersonalinformation: WebExpand<opc_allegation_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { opc_typeofpersonalinformation: opc_personalinformationtype_Result }>;
   ownerid: WebExpand<opc_allegation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_allegation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
@@ -112,6 +116,7 @@ interface opc_allegation_FormattedResult {
   opc_dispositionactionid_formatted?: string;
   opc_dispositionreasonid_formatted?: string;
   opc_jurisdiction_formatted?: string;
+  opc_typeofpersonalinformation_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -130,6 +135,7 @@ interface opc_allegation_Result extends opc_allegation_Base, opc_allegation_Rela
   opc_complaintid_guid: string | null;
   opc_dispositionactionid_guid: string | null;
   opc_dispositionreasonid_guid: string | null;
+  opc_typeofpersonalinformation_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
@@ -144,6 +150,7 @@ interface opc_allegation_RelatedOne {
   opc_complaintid: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
   opc_dispositionactionid: WebMappingRetrieve<opc_dispositionaction_Select,opc_dispositionaction_Expand,opc_dispositionaction_Filter,opc_dispositionaction_Fixed,opc_dispositionaction_Result,opc_dispositionaction_FormattedResult>;
   opc_dispositionreasonid: WebMappingRetrieve<opc_dispositionreason_Select,opc_dispositionreason_Expand,opc_dispositionreason_Filter,opc_dispositionreason_Fixed,opc_dispositionreason_Result,opc_dispositionreason_FormattedResult>;
+  opc_typeofpersonalinformation: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
   ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;

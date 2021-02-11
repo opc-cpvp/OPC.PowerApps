@@ -392,6 +392,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// The type of personal information
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_typeofpersonalinformation")]
+		public Microsoft.Xrm.Sdk.EntityReference opc_typeofpersonalinformation
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("opc_typeofpersonalinformation");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_typeofpersonalinformation");
+				this.SetAttributeValue("opc_typeofpersonalinformation", value);
+				this.OnPropertyChanged("opc_typeofpersonalinformation");
+			}
+		}
+		
+		/// <summary>
 		/// Date and time that the record was migrated.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("overriddencreatedon")]
@@ -763,6 +783,27 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("opc_dispositionreason_allegations_reason");
 				this.SetRelatedEntity<Compliance.EarlyBound.opc_dispositionreason>("opc_dispositionreason_allegations_reason", null, value);
 				this.OnPropertyChanged("opc_dispositionreason_allegations_reason");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 opc_personalinfotype_allegation_personalinfo
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_typeofpersonalinformation")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_personalinfotype_allegation_personalinfo")]
+		public Compliance.EarlyBound.opc_personalinformationtype opc_personalinfotype_allegation_personalinfo
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<Compliance.EarlyBound.opc_personalinformationtype>("opc_personalinfotype_allegation_personalinfo", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_personalinfotype_allegation_personalinfo");
+				this.SetRelatedEntity<Compliance.EarlyBound.opc_personalinformationtype>("opc_personalinfotype_allegation_personalinfo", null, value);
+				this.OnPropertyChanged("opc_personalinfotype_allegation_personalinfo");
 			}
 		}
 		
