@@ -2034,9 +2034,9 @@
       <record id="e811a594-ff6b-eb11-a812-000d3aff470c">
         <field name="opc_checklisttypeid" value="25d50151-ff6b-eb11-a812-000d3aff470c" lookupentity="opc_checklisttype" lookupentityname="|^|PIPEDA Access and U&amp;D|PIPEDA Access and U&amp;D" />
         <field name="opc_conditionalvisibility" value="False" />
-        <field name="opc_name" value="|^|Was the PI collected in the context of employment of a FWUB? (could be determined by sector identified and relation with respondent field)|Was the PI collected in the context of employment of a FWUB? (could be determined by sector identified and relation with respondent field)" />
-        <field name="opc_nameenglish" value="Was the PI collected in the context of employment of a FWUB? (could be determined by sector identified and relation with respondent field)" />
-        <field name="opc_namefrench" value="Was the PI collected in the context of employment of a FWUB? (could be determined by sector identified and relation with respondent field)" />
+        <field name="opc_name" value="|^|Was the PI collected in the context of employment of a FWUB?|Was the PI collected in the context of employment of a FWUB?" />
+        <field name="opc_nameenglish" value="Was the PI collected in the context of employment of a FWUB?" />
+        <field name="opc_namefrench" value="Was the PI collected in the context of employment of a FWUB?" />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="e811a594-ff6b-eb11-a812-000d3aff470c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="|^|Two Options|Deux options" />
@@ -2049,9 +2049,9 @@
       <record id="6252b49c-ff6b-eb11-a812-000d3aff470c">
         <field name="opc_checklisttypeid" value="25d50151-ff6b-eb11-a812-000d3aff470c" lookupentity="opc_checklisttype" lookupentityname="|^|PIPEDA Access and U&amp;D|PIPEDA Access and U&amp;D" />
         <field name="opc_conditionalvisibility" value="False" />
-        <field name="opc_name" value="|^|Does it pertain to a provincial organization of the MUSH sector? (could be determined by sector identified in complaint/company)|Does it pertain to a provincial organization of the MUSH sector? (could be determined by sector identified in complaint/company)" />
-        <field name="opc_nameenglish" value="Does it pertain to a provincial organization of the MUSH sector? (could be determined by sector identified in complaint/company)" />
-        <field name="opc_namefrench" value="Does it pertain to a provincial organization of the MUSH sector? (could be determined by sector identified in complaint/company)" />
+        <field name="opc_name" value="|^|Does it pertain to a provincial organization of the MUSH sector?|Does it pertain to a provincial organization of the MUSH sector?" />
+        <field name="opc_nameenglish" value="Does it pertain to a provincial organization of the MUSH sector?" />
+        <field name="opc_namefrench" value="Does it pertain to a provincial organization of the MUSH sector?" />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="6252b49c-ff6b-eb11-a812-000d3aff470c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="|^|Two Options|Deux options" />
@@ -2064,9 +2064,9 @@
       <record id="1063d535-006c-eb11-a812-000d3aff470c">
         <field name="opc_checklisttypeid" value="25d50151-ff6b-eb11-a812-000d3aff470c" lookupentity="opc_checklisttype" lookupentityname="|^|PIPEDA Access and U&amp;D|PIPEDA Access and U&amp;D" />
         <field name="opc_conditionalvisibility" value="False" />
-        <field name="opc_name" value="|^|Does it pertain to a not-for-profit or charitable organization? (could be determined by sector identified in complaint/company)|Does it pertain to a not-for-profit or charitable organization? (could be determined by sector identified in complaint/company)" />
-        <field name="opc_nameenglish" value="Does it pertain to a not-for-profit or charitable organization? (could be determined by sector identified in complaint/company)" />
-        <field name="opc_namefrench" value="Does it pertain to a not-for-profit or charitable organization? (could be determined by sector identified in complaint/company)" />
+        <field name="opc_name" value="|^|Does it pertain to a not-for-profit or charitable organization?|Does it pertain to a not-for-profit or charitable organization?" />
+        <field name="opc_nameenglish" value="Does it pertain to a not-for-profit or charitable organization?" />
+        <field name="opc_namefrench" value="Does it pertain to a not-for-profit or charitable organization?" />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_questiontemplateid" value="1063d535-006c-eb11-a812-000d3aff470c" />
         <field name="opc_questiontypeid" value="7815fa86-1157-ea11-a811-000d3af46cc5" lookupentity="opc_questiontype" lookupentityname="|^|Two Options|Deux options" />
