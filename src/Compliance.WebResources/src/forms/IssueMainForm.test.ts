@@ -110,7 +110,7 @@ describe("Issue - Main", () => {
             addPreSearch.should.have.been.calledOnce;
         });
 
-        it("it should change the provisions subgrid view according to the parent legislation", async () => {
+        it("it should change the provisions subgrid view to PA when the parent legislation is PA", async () => {
             // Arrange
             sandbox.stub(complaintService, "getComplaintWithRelationships").resolves({ opc_legislation: { opc_acronym: "PA" } });
 
@@ -120,6 +120,18 @@ describe("Issue - Main", () => {
             // Assert
             const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
             control.getViewSelector().getCurrentView().name.should.equal("Active PA Provisions");
+        });
+
+        it("it should change the provisions subgrid view to PIPEDA when the parent legislation is PIPEDA", async () => {
+            // Arrange
+            sandbox.stub(complaintService, "getComplaintWithRelationships").resolves({ opc_legislation: { opc_acronym: "PIPEDA" } });
+
+            // Act
+            await form.initializeComponents(mockContext);
+
+            // Assert
+            const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
+            control.getViewSelector().getCurrentView().name.should.equal("Active PIPEDA Provisions");
         });
 
         it("it should change NOT change the provisions subgrid view if the issue is not related to a complaint", async () => {
