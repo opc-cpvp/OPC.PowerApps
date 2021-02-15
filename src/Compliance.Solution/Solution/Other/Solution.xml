@@ -424,10 +424,6 @@
         <Required key="36" type="66" schemaName="opc_opc.pcf.TreeComponent" displayName="opc_opc.pcf.TreeComponent" solution="opc_OPCPowerAppsPCFControls (1.0.42)" />
         <Dependent key="19" type="60" displayName="Information" parentDisplayName="Issue" id="{ba934036-d2cc-49ff-967b-733f288a46b6}" />
       </MissingDependency>
-      <MissingDependency>
-        <Required key="37" type="2" schemaName="subject" displayName="Subject" parentSchemaName="opc_event" parentDisplayName="Event" solution="msdynce_ActivitiesPatch (9.0.21013.210112003)" />
-        <Dependent key="37" type="2" schemaName="subject" displayName="Subject" parentSchemaName="opc_event" parentDisplayName="Event" />
-      </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>
 </ImportExportXml>

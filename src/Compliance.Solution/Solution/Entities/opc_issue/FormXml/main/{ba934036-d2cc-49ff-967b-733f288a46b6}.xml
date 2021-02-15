@@ -311,7 +311,7 @@
                 <EnableViewPicker>false</EnableViewPicker>
                 <FilteredViewIds>{CEAE04A7-F467-EB11-A812-000D3AFF1915},{B490734E-485A-4F91-8F8F-418C00A6914C},{94372691-0667-EB11-A812-000D3AFF1915}</FilteredViewIds>
               </data-set>
-              <treeEntityName static="true" type="SingleLine.Text">opc_provisions</treeEntityName>
+              <treeEntityCollectionName static="true" type="SingleLine.Text">opc_provisions</treeEntityCollectionName>
               <treeEntityAttribute static="true" type="SingleLine.Text">opc_parentprovisionid</treeEntityAttribute>
               <nameAttribute static="true" type="SingleLine.Text">opc_name</nameAttribute>
               <idAttribute static="true" type="SingleLine.Text">opc_provisionid</idAttribute>
