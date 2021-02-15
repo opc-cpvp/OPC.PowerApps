@@ -19,7 +19,6 @@ export abstract class PowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollecti
                     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                     ctrl.getAttribute().getValue()[0].id === `{${queryStringParam.parentrecordid.toUpperCase()}}`
                 ) {
-                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                     const attribute = ctrl.getAttribute() as Xrm.Attribute<any>;
                     const attributeValue = attribute.getValue();
 
