@@ -1,4 +1,4 @@
-@types/xrmdefinitelytyped
+typings/xrmdefinitelytyped
 dist
 js/lib/xrmquery
 node_modules

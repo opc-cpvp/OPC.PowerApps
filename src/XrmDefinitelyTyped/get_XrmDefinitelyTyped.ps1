@@ -7,13 +7,13 @@ if ($ClientSecret -And $AppId) {
     # Export XRM TypeScript definitions
     & $xdtexe /url:"$Url/XRMServices/2011/Organization.svc" `
 		/method:"ClientSecret" `
-		/out:"../$Solution.WebResources/@types/xrmdefinitelytyped" `
+		/out:"../$Solution.WebResources/typings/xrmdefinitelytyped" `
 		/jsLib:"../$Solution.WebResources/js/lib/xrmquery" `
 		/web:"" `
 		/solutions:"$Solution" `
 		/mfaAppId:$AppId `
 		/mfaClientSecret:$ClientSecret `
-		/oneFile:"true"
+		/oneFile:"false"
 } else {
 	# Prompt for credentials
 	$cred = Get-Credential
@@ -42,11 +42,11 @@ if ($ClientSecret -And $AppId) {
 
 	# Export XRM TypeScript definitions
 	& $xdtexe /url:$($conn.ConnectedOrgPublishedEndpoints["OrganizationService"]) `
-		/out:$('"../{0}.WebResources/@types/xrmdefinitelytyped"' -f $solution) `
+		/out:$('"../{0}.WebResources/typings/xrmdefinitelytyped"' -f $solution) `
 		/jsLib:$('"../{0}.WebResources/js/lib/xrmquery"' -f $solution) `
 		/web:"" `
 		/solutions:$($solution) `
 		/username:$($cred.Username) `
 		/password:$($cred.GetNetworkCredential().Password) `
-		/oneFile:"true"
+		/oneFile:"false"
 }

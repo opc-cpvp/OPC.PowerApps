@@ -188,7 +188,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Compliance.Entities\Compliance.Entities.csproj">
+    <ProjectReference Include="..\Compliance.EarlyBound\Compliance.EarlyBound.csproj">
       <Project>{e5c2a1bf-f2db-4eca-87b8-85a286a811f3}</Project>
       <Name>Compliance.Entities</Name>
     </ProjectReference>
