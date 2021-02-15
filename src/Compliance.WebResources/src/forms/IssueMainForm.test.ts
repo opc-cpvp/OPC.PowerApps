@@ -5,11 +5,11 @@ import { ComplaintService } from "../services/ComplaintService";
 import { AllegationType } from "../enums";
 import { XrmPageBaseMock } from "../../test/XrmPageBaseMock";
 import { XrmViewSelectorMock } from "../../test/XrmViewSelectorMock";
+import { XrmControlMock } from "../../test/XrmControlMock";
 
 import chai from "chai";
 import sinon from "sinon";
 import sinonChai from "sinon-chai";
-import { XrmControlMock } from "../../test/XrmControlMock";
 
 const sandbox = sinon.createSandbox();
 chai.should();
@@ -87,7 +87,7 @@ describe("Issue - Main", () => {
             control.setViewSelector(
                 new XrmViewSelectorMock(
                     {
-                        entityType: "1039",
+                        entityType: "1039", // SavedQuery
                         id: "",
                         name: "Test View"
                     },
