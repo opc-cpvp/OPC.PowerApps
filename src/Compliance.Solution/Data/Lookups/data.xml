@@ -2354,6 +2354,89 @@
     </records>
     <m2mrelationships />
   </entity>
+    <entity name="duplicaterule" displayname="Duplicate Detection Rule">	
+    <records>	
+      <record id="0c16fb72-201d-4581-9ed9-1d4ac969af81">	
+        <field name="baseentityname" value="contact" />	
+        <field name="baseentitytypecode" value="2" />	
+        <field name="iscasesensitive" value="False" />	
+        <field name="description" value="Detects contact records that have the same values in the First Name and Last Name fields." />	
+        <field name="duplicateruleid" value="0c16fb72-201d-4581-9ed9-1d4ac969af81" />	
+        <field name="excludeinactiverecords" value="False" />	
+        <field name="matchingentityname" value="contact" />	
+        <field name="matchingentitytypecode" value="2" />	
+        <field name="name" value="Contacts with the same first name and last name" />	
+        <field name="statecode" value="0" />	
+        <field name="statuscode" value="0" />	
+      </record>	
+      <record id="7fc828b5-5703-4320-95ae-38b835f9091b">	
+        <field name="baseentityname" value="contact" />	
+        <field name="baseentitytypecode" value="2" />	
+        <field name="iscasesensitive" value="False" />	
+        <field name="description" value="Detects contact records that have the same value in the Business Phone field." />	
+        <field name="duplicateruleid" value="7fc828b5-5703-4320-95ae-38b835f9091b" />	
+        <field name="excludeinactiverecords" value="False" />	
+        <field name="matchingentityname" value="contact" />	
+        <field name="matchingentitytypecode" value="2" />	
+        <field name="name" value="Contacts with the same business phone number" />	
+        <field name="statecode" value="0" />	
+        <field name="statuscode" value="0" />	
+      </record>	
+      <record id="e4e8866a-97c2-4938-8b71-8743731e59c8">	
+        <field name="baseentityname" value="account" />	
+        <field name="baseentitytypecode" value="1" />	
+        <field name="iscasesensitive" value="False" />	
+        <field name="description" value="Detects account records that have the same value in the Phone field." />	
+        <field name="duplicateruleid" value="e4e8866a-97c2-4938-8b71-8743731e59c8" />	
+        <field name="excludeinactiverecords" value="False" />	
+        <field name="matchingentityname" value="account" />	
+        <field name="matchingentitytypecode" value="1" />	
+        <field name="name" value="Accounts with the same phone number" />	
+        <field name="statecode" value="0" />	
+        <field name="statuscode" value="0" />	
+      </record>	
+      <record id="4e396448-6fb4-4dab-9ace-af6aef4f0977">	
+        <field name="baseentityname" value="account" />	
+        <field name="baseentitytypecode" value="1" />	
+        <field name="iscasesensitive" value="False" />	
+        <field name="description" value="Detects account records that have the same value in the email address field." />	
+        <field name="duplicateruleid" value="4e396448-6fb4-4dab-9ace-af6aef4f0977" />	
+        <field name="excludeinactiverecords" value="False" />	
+        <field name="matchingentityname" value="account" />	
+        <field name="matchingentitytypecode" value="1" />	
+        <field name="name" value="Accounts with the same e-mail address" />	
+        <field name="statecode" value="0" />	
+        <field name="statuscode" value="0" />	
+      </record>	
+      <record id="d8d2e6cc-3a9b-48f8-a0c6-b9a1f10b9fb4">	
+        <field name="baseentityname" value="account" />	
+        <field name="baseentitytypecode" value="1" />	
+        <field name="iscasesensitive" value="False" />	
+        <field name="description" value="Detects account records that have the same value in the Account Name attribute." />	
+        <field name="duplicateruleid" value="d8d2e6cc-3a9b-48f8-a0c6-b9a1f10b9fb4" />	
+        <field name="excludeinactiverecords" value="False" />	
+        <field name="matchingentityname" value="account" />	
+        <field name="matchingentitytypecode" value="1" />	
+        <field name="name" value="Accounts with the same Account Name" />	
+        <field name="statecode" value="0" />	
+        <field name="statuscode" value="0" />	
+      </record>	
+      <record id="7b1003be-b33e-4c83-b8ae-f56c63487a2b">	
+        <field name="baseentityname" value="contact" />	
+        <field name="baseentitytypecode" value="2" />	
+        <field name="iscasesensitive" value="False" />	
+        <field name="description" value="Detects contact records that have the same value in the email address field." />	
+        <field name="duplicateruleid" value="7b1003be-b33e-4c83-b8ae-f56c63487a2b" />	
+        <field name="excludeinactiverecords" value="False" />	
+        <field name="matchingentityname" value="contact" />	
+        <field name="matchingentitytypecode" value="2" />	
+        <field name="name" value="Contacts with the same e-mail address" />	
+        <field name="statecode" value="0" />	
+        <field name="statuscode" value="0" />	
+      </record>	
+    </records>	
+    <m2mrelationships />	
+  </entity>
   <entity name="duplicaterulecondition" displayname="Duplicate Rule Condition">
     <records>
       <record id="62c238bb-bca2-ea11-a812-000d3a0c2a5b">
