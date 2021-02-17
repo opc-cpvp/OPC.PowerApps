@@ -3,6 +3,7 @@ import "reflect-metadata";
 import { XrmHelper } from "../helpers/XrmHelper";
 import { IPowerForm } from "../interfaces";
 import { AllegationType } from "../enums";
+import { StringHelper } from "../helpers/StringHelper";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -26,7 +27,7 @@ export namespace Issue.Forms {
             let isAllegationTypeAccess = false;
             if (hasAllegationType) {
                 const allegationTypeId = allegationType[0].id;
-                isAllegationTypeAccess = allegationTypeId === AllegationType.Access;
+                isAllegationTypeAccess = StringHelper.formatGuid(allegationTypeId) === AllegationType.Access;
             }
 
             XrmHelper.toggle(formContext.getControl("opc_accessrequestnumber"), isAllegationTypeAccess);
