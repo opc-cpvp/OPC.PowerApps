@@ -6,8 +6,11 @@ export interface IComplaintService {
 }
 
 export interface IAllegationService {
+    getAllegation(id: string): Promise<opc_allegation_Result>;
     getAllegationDispositionFilter(disposition: opc_allegationdisposition): string;
     getAllegationDispositionActionFilter(dispositionReason: string): string;
+    getAllegationWithIssues(id: string): Promise<AllegationWithIssues>;
+    updateAllegation(allegationId: string, issueId: string): void;
 }
 
 export interface IAllegationTypeService {
@@ -129,6 +132,8 @@ export interface TemplateEnvironmentVariable {
     tokenScope: string[];
     authorityBaseUrl: string;
 }
+
+export type AllegationWithIssues = opc_allegation & { opc_allegations_issues_relatedissues?: opc_issue_Result[] };
 
 export type AllegationWithChecklistResponse = opc_allegation &
     opc_allegation_FormattedResult & { opc_allegation_checklistresponses_allegation?: opc_ChecklistResponse_Result[] };
