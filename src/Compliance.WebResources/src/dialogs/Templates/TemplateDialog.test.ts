@@ -60,7 +60,7 @@ describe("TemplateDialog", () => {
         global.Option = window.Option;
         h1Element = windowContext.document.createElement("h1");
         divElement = windowContext.document.createElement("div");
-        h1Element.id = "defaultDialogChromeTitle";
+        h1Element.id = "defaultDialogChromeTitle-1";
         divElement.id = "dialog";
         windowContext.document.body.appendChild(h1Element);
         windowContext.document.body.appendChild(divElement);
