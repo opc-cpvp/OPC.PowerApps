@@ -205,6 +205,7 @@ export namespace Controls {
             cr: { opc_questiontemplateid: opc_QuestionTemplate_Result } & opc_ChecklistResponse_Result,
             inputType: string
         ) {
+            // The reason why we check if input is of type number and its value is null is because we want to save 0 as the default value of a number field instead of null. It will help with calculated fields.
             const questionHtml = /* HTML */ `<label for="q-${cr.opc_checklistresponseid}"
                     >${cr.opc_questiontemplateid.opc_sequence} -
                     ${this._isCurrentLanguageEnglish
@@ -214,8 +215,8 @@ export namespace Controls {
                 <input
                     id="q-${cr.opc_checklistresponseid}"
                     type="${inputType}"
-                    class="form-control"
-                    value="${cr.opc_response || ""}"
+                    class="form-control${inputType === "number" && !cr.opc_response ? " dirty" : ""}"
+                    value="${cr.opc_response || (inputType === "number" ? "0" : "")}"
                     data-responseid="${cr.opc_checklistresponseid}"
                 />`;
             element.insertAdjacentHTML("beforeend", questionHtml);

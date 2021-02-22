@@ -76,7 +76,7 @@ export namespace Dialogs {
         public async init(): Promise<void> {
             try {
                 let loginHint: string;
-                this._windowContext.parent.document.getElementById("defaultDialogChromeTitle").innerHTML = this._i18n.t(
+                this._windowContext.parent.document.querySelector('[id^="defaultDialogChromeTitle-"]').innerHTML = this._i18n.t(
                     "template:dialog.title"
                 );
                 this._placeholder = this._documentContext.getElementById("dialog") as HTMLDivElement;
@@ -215,7 +215,7 @@ export namespace Dialogs {
         }
 
         private closePage(): void {
-            const button = parent.document.getElementById("defaultDialogChromeCloseIconButton") as HTMLButtonElement;
+            const button = parent.document.querySelector<HTMLButtonElement>('[id^="defaultDialogChromeCloseIconButton-"]');
             button.click();
         }
 
@@ -322,6 +322,11 @@ export namespace Dialogs {
 
                             // For each question of type Two Options, change the numeral values to something easier to understand.
                             checklistResponses.forEach(x => {
+                                if (x.opc_response === null) {
+                                    const index = x.opc_name.indexOf("-");
+                                    x.opc_response = `{Response ${x.opc_name.substring(0, index).trim()}}`;
+                                }
+
                                 if (
                                     this._questionTemplates.find(y => y.opc_questiontemplateid === x.opc_questiontemplateid_guid)
                                         .opc_questiontypeid_guid !== QuestionTypes.TwoOptions
