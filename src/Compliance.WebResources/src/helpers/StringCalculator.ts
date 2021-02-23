@@ -9,7 +9,7 @@ export class StringCalculator {
         const firstParsedValue: number | Date = StringCalculator.parseDateOrNumber(firstValue);
         const secondParsedValue: number | Date = StringCalculator.parseDateOrNumber(secondValue);
 
-        if (!firstParsedValue || !secondParsedValue) {
+        if (firstParsedValue === null || secondParsedValue === null) {
             return result;
         }
 
@@ -52,10 +52,10 @@ export class StringCalculator {
 
         if (DateHelper.isISODate(value)) {
             parsedValue = new Date(value);
-        } else if (isNaN(Number.parseInt(value))) {
-            return null;
-        } else {
+        } else if (!isNaN(Number.parseInt(value))) {
             parsedValue = Number.parseInt(value);
+        } else {
+            parsedValue = null;
         }
 
         return parsedValue;

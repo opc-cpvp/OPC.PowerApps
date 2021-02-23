@@ -261,6 +261,16 @@
         </NavBarAreas>
       </Navigation>
       <controlDescriptions />
+      <formLibraries>
+        <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{dd283469-b71d-5023-c2c9-531b1b7915b8}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="compliance.Bootstrapper.FormFactory.createForm" libraryName="opc_compliance/js/compliance.min.js" handlerUniqueId="{152eca04-6938-88ab-c0a4-14bcb429d50e}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
       <DisplayConditions Order="0" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
