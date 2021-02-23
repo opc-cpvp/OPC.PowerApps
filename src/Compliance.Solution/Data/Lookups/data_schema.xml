@@ -310,4 +310,31 @@
       <field displayname="Team Type" name="teamtype" type="optionsetvalue" />
     </fields>
   </entity>
+  <entity name="opc_legislationallegationtype" displayname="Legislation/Allegation Type" etc="10123" primaryidfield="opc_legislationallegationtypeid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Allegation Type" name="opc_allegationtype" type="entityreference" lookupType="opc_allegationtype" customfield="true" />
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Legislation Allegation Type" name="opc_legislationallegationtypeid" type="guid" primaryKey="true" />
+      <field displayname="Leglislation" name="opc_leglislation" type="entityreference" lookupType="opc_legislation" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships>
+      <relationship name="opc_checklisttype_legislationallegationtype" manyToMany="true" relatedEntityName="opc_checklisttype_legislationallegationtype" m2mTargetEntity="opc_checklisttype" m2mTargetEntityPrimaryKey="opc_checklisttypeid" />
+    </relationships>
+  </entity>
+  <entity name="opc_personalinformationtype" displayname="Personal Information Type" etc="10128" primaryidfield="opc_personalinformationtypeid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
+      <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
+      <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+      <field displayname="Personal Information Type" name="opc_personalinformationtypeid" type="guid" primaryKey="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+  </entity>
 </entities>
