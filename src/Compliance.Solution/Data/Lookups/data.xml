@@ -8255,22 +8255,6 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
-      <record id="652e9cd7-42db-4c16-961d-2648ef589b06">
-        <field name="opc_description" value="[Amendments]" />
-        <field name="opc_descriptionenglish" value="[Amendments]" />
-        <field name="opc_nameenglish" value="PIPEDA 52 to 57" />
-        <field name="opc_descriptionfrench" value="[Modifications]" />
-        <field name="opc_namefrench" value="LPRPDE 52 to 57" />
-        <field name="opc_ischeckable" value="True" />
-        <field name="opc_isheading" value="False" />
-        <field name="opc_islocalizable" value="True" />
-        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
-        <field name="opc_name" value="PIPEDA 52 to 57" />
-        <field name="opc_parentprovisionid" value="41727a37-4bca-405a-b21f-366dc3ce977a" lookupentity="opc_provision" lookupentityname="Amendments to the Canada Evidence Act" />
-        <field name="opc_provisionid" value="652e9cd7-42db-4c16-961d-2648ef589b06" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-      </record>
       <record id="c1f3a5d3-e5d8-481b-bd65-26cc75b1fe46">
         <field name="opc_nameenglish" value="PA 73.1" />
         <field name="opc_namefrench" value="PA 73.1" />
@@ -9244,18 +9228,6 @@
         <field name="opc_name" value="PIPEDA 9(2.1)(a)(ii)" />
         <field name="opc_parentprovisionid" value="068606b8-a914-4d5b-8060-9275e9a682ba" lookupentity="opc_provision" lookupentityname="PIPEDA 9(2.1)(a)" />
         <field name="opc_provisionid" value="cc1d2a4c-e87b-48c2-87de-35e5345391fd" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-      </record>
-      <record id="41727a37-4bca-405a-b21f-366dc3ce977a">
-        <field name="opc_nameenglish" value="Amendments to the Canada Evidence Act" />
-        <field name="opc_namefrench" value="Modification de la Loi sur la preuve au Canada" />
-        <field name="opc_ischeckable" value="False" />
-        <field name="opc_isheading" value="True" />
-        <field name="opc_islocalizable" value="True" />
-        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
-        <field name="opc_name" value="Amendments to the Canada Evidence Act" />
-        <field name="opc_provisionid" value="41727a37-4bca-405a-b21f-366dc3ce977a" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -11735,22 +11707,6 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
-      <record id="d2c09c2c-f9fa-4887-806f-5ea743bfca8f">
-        <field name="opc_description" value="[Amendments]" />
-        <field name="opc_descriptionenglish" value="[Amendments]" />
-        <field name="opc_nameenglish" value="PIPEDA 58 and 59" />
-        <field name="opc_descriptionfrench" value="[Modifications]" />
-        <field name="opc_namefrench" value="LPRPDE 58 and 59" />
-        <field name="opc_ischeckable" value="True" />
-        <field name="opc_isheading" value="False" />
-        <field name="opc_islocalizable" value="True" />
-        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
-        <field name="opc_name" value="PIPEDA 58 and 59" />
-        <field name="opc_parentprovisionid" value="5f6d2ecc-c5d0-4b44-a2e6-d13fa0e7ea90" lookupentity="opc_provision" lookupentityname="Amendments to the Statutory Instruments Act" />
-        <field name="opc_provisionid" value="d2c09c2c-f9fa-4887-806f-5ea743bfca8f" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-      </record>
       <record id="22ebe086-97ac-4ab0-a5c8-5eda9cb95df8">
         <field name="opc_description" value="from individuals who have not been given access to personal information in an alternative format pursuant to a request made under subsection 17(3);" />
         <field name="opc_descriptionenglish" value="from individuals who have not been given access to personal information in an alternative format pursuant to a request made under subsection 17(3);" />
@@ -13672,18 +13628,6 @@
         <field name="opc_name" value="PA 13(1)" />
         <field name="opc_parentprovisionid" value="2bfd3a1a-3f42-4ab7-a9a3-94c92eb055d7" lookupentity="opc_provision" lookupentityname="PA 13" />
         <field name="opc_provisionid" value="90359f08-b3af-4b5e-b6da-80702a90238d" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-      </record>
-      <record id="e280cae2-75f6-40e5-be19-808814e1e4f4">
-        <field name="opc_nameenglish" value="Amendments to the Statute Revision Act" />
-        <field name="opc_namefrench" value="Modification de la Loi sur la r&amp;#233;vision des lois" />
-        <field name="opc_ischeckable" value="False" />
-        <field name="opc_isheading" value="True" />
-        <field name="opc_islocalizable" value="True" />
-        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
-        <field name="opc_name" value="Amendments to the Statute Revision Act" />
-        <field name="opc_provisionid" value="e280cae2-75f6-40e5-be19-808814e1e4f4" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
@@ -16621,22 +16565,6 @@
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
-      <record id="21612230-b46b-4ffb-99f6-b13baa049bbb">
-        <field name="opc_description" value="[Amendments]" />
-        <field name="opc_descriptionenglish" value="[Amendments]" />
-        <field name="opc_nameenglish" value="PIPEDA 60 to 71" />
-        <field name="opc_descriptionfrench" value="[Modifications]" />
-        <field name="opc_namefrench" value="LPRPDE 60 to 71" />
-        <field name="opc_ischeckable" value="True" />
-        <field name="opc_isheading" value="False" />
-        <field name="opc_islocalizable" value="True" />
-        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
-        <field name="opc_name" value="PIPEDA 60 to 71" />
-        <field name="opc_parentprovisionid" value="e280cae2-75f6-40e5-be19-808814e1e4f4" lookupentity="opc_provision" lookupentityname="Amendments to the Statute Revision Act" />
-        <field name="opc_provisionid" value="21612230-b46b-4ffb-99f6-b13baa049bbb" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-      </record>
       <record id="351a9021-bee1-46b9-ab78-b1619f810615">
         <field name="opc_description" value="Any person to whom powers set out in subsection&amp;#160;(1) are delegated shall be given a certificate of the delegation and the delegate shall produce the certificate, on request, to the person in charge of any premises to be entered under paragraph&amp;#160;(1)(d)." />
         <field name="opc_descriptionenglish" value="Any person to whom powers set out in subsection&amp;#160;(1) are delegated shall be given a certificate of the delegation and the delegate shall produce the certificate, on request, to the person in charge of any premises to be entered under paragraph&amp;#160;(1)(d)." />
@@ -18670,18 +18598,6 @@
         <field name="opc_name" value="PA 64(1)" />
         <field name="opc_parentprovisionid" value="24328e19-cac9-4eb9-9329-68490e65d718" lookupentity="opc_provision" lookupentityname="PA 64" />
         <field name="opc_provisionid" value="576fe876-1cd0-453e-8226-d0ff124dd61b" />
-        <field name="statecode" value="0" />
-        <field name="statuscode" value="1" />
-      </record>
-      <record id="5f6d2ecc-c5d0-4b44-a2e6-d13fa0e7ea90">
-        <field name="opc_nameenglish" value="Amendments to the Statutory Instruments Act" />
-        <field name="opc_namefrench" value="Modification de la Loi sur les textes r&amp;#233;glementaires" />
-        <field name="opc_ischeckable" value="False" />
-        <field name="opc_isheading" value="True" />
-        <field name="opc_islocalizable" value="True" />
-        <field name="opc_legislationid" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
-        <field name="opc_name" value="Amendments to the Statutory Instruments Act" />
-        <field name="opc_provisionid" value="5f6d2ecc-c5d0-4b44-a2e6-d13fa0e7ea90" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
