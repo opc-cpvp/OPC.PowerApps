@@ -288,6 +288,36 @@
       <field displayname="Status" name="statecode" type="state" />
     </fields>
   </entity>
+  <entity name="duplicaterule" displayname="Duplicate Detection Rule" etc="4414" primaryidfield="duplicateruleid" primarynamefield="name" disableplugins="false">
+    <fields>
+      <field displayname="Base Record Type" name="baseentityname" type="string" />
+      <field displayname="Base Record Type" name="baseentitytypecode" type="optionsetvalue" />
+      <field displayname="Base Record Type Match Code Table" name="baseentitymatchcodetable" type="string" />
+      <field displayname="Case Sensitive" name="iscasesensitive" type="bool" />
+      <field displayname="Description" name="description" type="string" />
+      <field displayname="Duplicate Detection Rule" name="duplicateruleid" type="guid" primaryKey="true" />
+      <field displayname="Exclude Inactive Records" name="excludeinactiverecords" type="bool" />
+      <field displayname="Matching Record Type" name="matchingentityname" type="string" />
+      <field displayname="Matching Record Type" name="matchingentitytypecode" type="optionsetvalue" />
+      <field displayname="Matching Record Type Match Code Table" name="matchingentitymatchcodetable" type="string" />
+      <field displayname="Rule Name" name="name" type="string" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+    <relationships />
+  </entity>
+  <entity name="duplicaterulecondition" displayname="Duplicate Rule Condition" etc="4416" primaryidfield="duplicateruleconditionid" primarynamefield="" disableplugins="false">
+    <fields>
+      <field displayname="Base Field" name="baseattributename" type="string" />
+      <field updateCompare="true" displayname="Duplicate Rule Condition" name="duplicateruleconditionid" type="guid" primaryKey="true" />
+      <field displayname="Ignore Blank Values" name="ignoreblankvalues" type="bool" />
+      <field updateCompare="true" displayname="Matching Field" name="matchingattributename" type="string" />
+      <field displayname="Operator Code" name="operatorcode" type="optionsetvalue" />
+      <field displayname="Operator Parameter" name="operatorparam" type="number" />
+      <field updateCompare="true" displayname="Regarding" name="regardingobjectid" type="entityreference" lookupType="duplicaterule" />
+    </fields>
+    <relationships />
+  </entity>
   <entity name="opc_industry" displayname="Industry" etc="10117" primaryidfield="opc_industryid" primarynamefield="opc_name" disableplugins="false">
     <fields>
       <field displayname="English Name" name="opc_nameenglish" type="string" customfield="true" />
