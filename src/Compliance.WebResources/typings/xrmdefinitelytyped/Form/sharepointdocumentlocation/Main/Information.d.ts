@@ -17,7 +17,7 @@ declare namespace Form.sharepointdocumentlocation.Main {
       get(name: "name"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "parentsiteorlocation"): Xrm.LookupAttribute<"sharepointdocumentlocation" | "sharepointsite">;
-      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "kbarticle" | "knowledgearticle" | "msdyn_knowledgearticletemplate" | "opc_complaint">;
+      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "kbarticle" | "knowledgearticle" | "lead" | "msdyn_knowledgearticletemplate" | "msdyn_playbookactivity" | "opc_complaint" | "opportunity" | "product" | "quote" | "salesliterature">;
       get(name: "relativeurl"): Xrm.Attribute<string>;
       get(name: "statecode"): Xrm.OptionSetAttribute<sharepointdocumentlocation_statecode>;
       get(name: string): undefined;
@@ -33,7 +33,7 @@ declare namespace Form.sharepointdocumentlocation.Main {
       get(name: "name"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "parentsiteorlocation"): Xrm.LookupControl<"sharepointdocumentlocation" | "sharepointsite">;
-      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "kbarticle" | "knowledgearticle" | "msdyn_knowledgearticletemplate" | "opc_complaint">;
+      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "kbarticle" | "knowledgearticle" | "lead" | "msdyn_knowledgearticletemplate" | "msdyn_playbookactivity" | "opc_complaint" | "opportunity" | "product" | "quote" | "salesliterature">;
       get(name: "relativeurl"): Xrm.StringControl;
       get(name: "urloption"): Xrm.OptionSetControl<number>;
       get(name: string): undefined;
@@ -56,7 +56,7 @@ declare namespace Form.sharepointdocumentlocation.Main {
     getAttribute(attributeName: "name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "parentsiteorlocation"): Xrm.LookupAttribute<"sharepointdocumentlocation" | "sharepointsite">;
-    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "kbarticle" | "knowledgearticle" | "msdyn_knowledgearticletemplate" | "opc_complaint">;
+    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "kbarticle" | "knowledgearticle" | "lead" | "msdyn_knowledgearticletemplate" | "msdyn_playbookactivity" | "opc_complaint" | "opportunity" | "product" | "quote" | "salesliterature">;
     getAttribute(attributeName: "relativeurl"): Xrm.Attribute<string>;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<sharepointdocumentlocation_statecode>;
     getAttribute(attributeName: string): undefined;
@@ -67,7 +67,7 @@ declare namespace Form.sharepointdocumentlocation.Main {
     getControl(controlName: "name"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "parentsiteorlocation"): Xrm.LookupControl<"sharepointdocumentlocation" | "sharepointsite">;
-    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "kbarticle" | "knowledgearticle" | "msdyn_knowledgearticletemplate" | "opc_complaint">;
+    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "kbarticle" | "knowledgearticle" | "lead" | "msdyn_knowledgearticletemplate" | "msdyn_playbookactivity" | "opc_complaint" | "opportunity" | "product" | "quote" | "salesliterature">;
     getControl(controlName: "relativeurl"): Xrm.StringControl;
     getControl(controlName: "urloption"): Xrm.OptionSetControl<number>;
     getControl(controlName: string): undefined;

@@ -5,7 +5,7 @@ declare namespace Form.opc_event.Quick {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "prioritycode"): Xrm.OptionSetAttribute<opc_event_prioritycode>;
-      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "interactionforemail" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "bookableresourcebooking" | "bookableresourcebookingheader" | "bulkoperation" | "campaign" | "campaignactivity" | "contact" | "contract" | "entitlement" | "entitlementtemplate" | "incident" | "interactionforemail" | "invoice" | "knowledgearticle" | "knowledgebaserecord" | "lead" | "msdyn_customerasset" | "msdyn_playbookinstance" | "msdyn_postalbum" | "opc_complaint" | "opportunity" | "quote" | "salesorder" | "site">;
       get(name: "scheduledend"): Xrm.DateAttribute;
       get(name: "statecode"): Xrm.OptionSetAttribute<opc_event_statecode>;
       get(name: "subject"): Xrm.Attribute<string>;
@@ -17,7 +17,7 @@ declare namespace Form.opc_event.Quick {
     interface Controls extends Xrm.ControlCollectionBase {
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "prioritycode"): Xrm.OptionSetControl<opc_event_prioritycode>;
-      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "interactionforemail" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "bookableresourcebooking" | "bookableresourcebookingheader" | "bulkoperation" | "campaign" | "campaignactivity" | "contact" | "contract" | "entitlement" | "entitlementtemplate" | "incident" | "interactionforemail" | "invoice" | "knowledgearticle" | "knowledgebaserecord" | "lead" | "msdyn_customerasset" | "msdyn_playbookinstance" | "msdyn_postalbum" | "opc_complaint" | "opportunity" | "quote" | "salesorder" | "site">;
       get(name: "scheduledend"): Xrm.DateControl;
       get(name: "statecode"): Xrm.OptionSetControl<opc_event_statecode>;
       get(name: "subject"): Xrm.StringControl;
@@ -36,14 +36,14 @@ declare namespace Form.opc_event.Quick {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "prioritycode"): Xrm.OptionSetAttribute<opc_event_prioritycode>;
-    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "interactionforemail" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "bookableresourcebooking" | "bookableresourcebookingheader" | "bulkoperation" | "campaign" | "campaignactivity" | "contact" | "contract" | "entitlement" | "entitlementtemplate" | "incident" | "interactionforemail" | "invoice" | "knowledgearticle" | "knowledgebaserecord" | "lead" | "msdyn_customerasset" | "msdyn_playbookinstance" | "msdyn_postalbum" | "opc_complaint" | "opportunity" | "quote" | "salesorder" | "site">;
     getAttribute(attributeName: "scheduledend"): Xrm.DateAttribute;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_event_statecode>;
     getAttribute(attributeName: "subject"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "prioritycode"): Xrm.OptionSetControl<opc_event_prioritycode>;
-    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "interactionforemail" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
+    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "bookableresourcebooking" | "bookableresourcebookingheader" | "bulkoperation" | "campaign" | "campaignactivity" | "contact" | "contract" | "entitlement" | "entitlementtemplate" | "incident" | "interactionforemail" | "invoice" | "knowledgearticle" | "knowledgebaserecord" | "lead" | "msdyn_customerasset" | "msdyn_playbookinstance" | "msdyn_postalbum" | "opc_complaint" | "opportunity" | "quote" | "salesorder" | "site">;
     getControl(controlName: "scheduledend"): Xrm.DateControl;
     getControl(controlName: "statecode"): Xrm.OptionSetControl<opc_event_statecode>;
     getControl(controlName: "subject"): Xrm.StringControl;

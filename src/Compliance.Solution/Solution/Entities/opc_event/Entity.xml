@@ -296,6 +296,7 @@
             <LookupType id="00000000-0000-0000-0000-000000000000">8</LookupType>
             <LookupType id="00000000-0000-0000-0000-000000000000">1</LookupType>
             <LookupType id="00000000-0000-0000-0000-000000000000">2</LookupType>
+            <LookupType id="00000000-0000-0000-0000-000000000000">4</LookupType>
           </LookupTypes>
           <displaynames>
             <displayname description="BCC" languagecode="1033" />
@@ -342,6 +343,7 @@
             <LookupType id="00000000-0000-0000-0000-000000000000">8</LookupType>
             <LookupType id="00000000-0000-0000-0000-000000000000">1</LookupType>
             <LookupType id="00000000-0000-0000-0000-000000000000">2</LookupType>
+            <LookupType id="00000000-0000-0000-0000-000000000000">4</LookupType>
           </LookupTypes>
           <displaynames>
             <displayname description="CC" languagecode="1033" />
@@ -810,6 +812,7 @@
             <LookupType id="00000000-0000-0000-0000-000000000000">8</LookupType>
             <LookupType id="00000000-0000-0000-0000-000000000000">1</LookupType>
             <LookupType id="00000000-0000-0000-0000-000000000000">2</LookupType>
+            <LookupType id="00000000-0000-0000-0000-000000000000">4</LookupType>
           </LookupTypes>
           <displaynames>
             <displayname description="From" languagecode="1033" />
@@ -895,7 +898,7 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_instancetypecode">
             <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>1.0.567</IntroducedVersion>
+            <IntroducedVersion>1.0.591</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Appointment Type" languagecode="1033" />
@@ -980,7 +983,7 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_isbilled">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.567</IntroducedVersion>
+            <IntroducedVersion>1.0.591</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Is Billed" languagecode="1033" />
@@ -1046,7 +1049,7 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_ismapiprivate">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.567</IntroducedVersion>
+            <IntroducedVersion>1.0.591</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Is Private" languagecode="1033" />
@@ -1154,7 +1157,7 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_isworkflowcreated">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.567</IntroducedVersion>
+            <IntroducedVersion>1.0.591</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Is Workflow Created" languagecode="1033" />
@@ -1263,7 +1266,7 @@
           <AppDefaultValue>0</AppDefaultValue>
           <optionset Name="opc_event_leftvoicemail">
             <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.567</IntroducedVersion>
+            <IntroducedVersion>1.0.591</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Left Voice Mail" languagecode="1033" />
@@ -2066,7 +2069,7 @@
           <AppDefaultValue>1</AppDefaultValue>
           <optionset Name="opc_event_prioritycode">
             <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>1.0.567</IntroducedVersion>
+            <IntroducedVersion>1.0.591</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Priority" languagecode="1033" />
@@ -2259,6 +2262,7 @@
           <LookupStyle>multi</LookupStyle>
           <LookupTypes>
             <LookupType id="00000000-0000-0000-0000-000000000000">8</LookupType>
+            <LookupType id="00000000-0000-0000-0000-000000000000">4000</LookupType>
           </LookupTypes>
           <displaynames>
             <displayname description="Resources" languagecode="1033" />
@@ -2517,6 +2521,46 @@
             <Description description="Identificateur unique spécifiant l’ID de série périodique d’une instance." languagecode="1036" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="ServiceId">
+          <Type>lookup</Type>
+          <Name>serviceid</Name>
+          <LogicalName>serviceid</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>0</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>5.0.0.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <LookupStyle>single</LookupStyle>
+          <LookupTypes />
+          <displaynames>
+            <displayname description="Service" languagecode="1033" />
+            <displayname description="Service" languagecode="1036" />
+          </displaynames>
+          <Descriptions>
+            <Description description="Unique identifier of an associated service." languagecode="1033" />
+            <Description description="Identificateur unique d'un service associé." languagecode="1036" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="SLAId">
           <Type>lookup</Type>
           <Name>slaid</Name>
@@ -2715,7 +2759,7 @@
           <IsLocalizable>0</IsLocalizable>
           <optionset Name="opc_event_statecode">
             <OptionSetType>state</OptionSetType>
-            <IntroducedVersion>1.0.567</IntroducedVersion>
+            <IntroducedVersion>1.0.591</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Activity Status" languagecode="1033" />
@@ -2793,7 +2837,7 @@
           <IsLocalizable>0</IsLocalizable>
           <optionset Name="opc_event_statuscode">
             <OptionSetType>status</OptionSetType>
-            <IntroducedVersion>1.0.567</IntroducedVersion>
+            <IntroducedVersion>1.0.591</IntroducedVersion>
             <IsCustomizable>1</IsCustomizable>
             <displaynames>
               <displayname description="Status Reason" languagecode="1033" />
@@ -2958,6 +3002,7 @@
             <LookupType id="00000000-0000-0000-0000-000000000000">8</LookupType>
             <LookupType id="00000000-0000-0000-0000-000000000000">1</LookupType>
             <LookupType id="00000000-0000-0000-0000-000000000000">2</LookupType>
+            <LookupType id="00000000-0000-0000-0000-000000000000">4</LookupType>
           </LookupTypes>
           <displaynames>
             <displayname description="To" languagecode="1033" />
@@ -3078,7 +3123,7 @@
       <IsReplicationUserFiltered>1</IsReplicationUserFiltered>
       <IsMailMergeEnabled>0</IsMailMergeEnabled>
       <IsVisibleInMobile>0</IsVisibleInMobile>
-      <IsVisibleInMobileClient>0</IsVisibleInMobileClient>
+      <IsVisibleInMobileClient>1</IsVisibleInMobileClient>
       <IsReadOnlyInMobileClient>0</IsReadOnlyInMobileClient>
       <IsOfflineInMobileClient>1</IsOfflineInMobileClient>
       <DaysSinceRecordLastModified>0</DaysSinceRecordLastModified>

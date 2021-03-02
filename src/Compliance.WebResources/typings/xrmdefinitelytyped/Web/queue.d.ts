@@ -29,6 +29,7 @@ interface Queue_Base extends WebEntity {
 }
 interface Queue_Relationships {
   opc_queues_teams_membership?: Team_Result[] | null;
+  queue_PostFollows?: PostFollow_Result[] | null;
   queue_activity_parties?: ActivityParty_Result[] | null;
   queue_entries?: QueueItem_Result[] | null;
   queue_system_user?: SystemUser_Result[] | null;
@@ -140,6 +141,7 @@ interface Queue_Expand {
   opc_queues_teams_membership: WebExpand<Queue_Expand, Team_Select, Team_Filter, { opc_queues_teams_membership: Team_Result[] }>;
   ownerid: WebExpand<Queue_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   primaryuserid: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { primaryuserid: SystemUser_Result }>;
+  queue_PostFollows: WebExpand<Queue_Expand, PostFollow_Select, PostFollow_Filter, { queue_PostFollows: PostFollow_Result[] }>;
   queue_activity_parties: WebExpand<Queue_Expand, ActivityParty_Select, ActivityParty_Filter, { queue_activity_parties: ActivityParty_Result[] }>;
   queue_entries: WebExpand<Queue_Expand, QueueItem_Select, QueueItem_Filter, { queue_entries: QueueItem_Result[] }>;
   queue_system_user: WebExpand<Queue_Expand, SystemUser_Select, SystemUser_Filter, { queue_system_user: SystemUser_Result[] }>;
@@ -198,6 +200,7 @@ interface Queue_RelatedOne {
 }
 interface Queue_RelatedMany {
   opc_queues_teams_membership: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
+  queue_PostFollows: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
   queue_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   queue_entries: WebMappingRetrieve<QueueItem_Select,QueueItem_Expand,QueueItem_Filter,QueueItem_Fixed,QueueItem_Result,QueueItem_FormattedResult>;
   queue_system_user: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;

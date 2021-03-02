@@ -19,7 +19,7 @@ interface opc_legislationallegationtype_Relationships {
 }
 interface opc_legislationallegationtype extends opc_legislationallegationtype_Base, opc_legislationallegationtype_Relationships {
   opc_allegationtype_bind$opc_allegationtypes?: string | null;
-  opc_leglislation_bind$opc_legislations?: string | null;
+  opc_legislation_bind$opc_legislations?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
@@ -37,8 +37,8 @@ interface opc_legislationallegationtype_Select {
   modifiedonbehalfby_guid: WebAttribute<opc_legislationallegationtype_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
   opc_allegationtype_guid: WebAttribute<opc_legislationallegationtype_Select, { opc_allegationtype_guid: string | null }, { opc_allegationtype_formatted?: string }>;
   opc_islocalizable: WebAttribute<opc_legislationallegationtype_Select, { opc_islocalizable: boolean | null }, {  }>;
+  opc_legislation_guid: WebAttribute<opc_legislationallegationtype_Select, { opc_legislation_guid: string | null }, { opc_legislation_formatted?: string }>;
   opc_legislationallegationtypeid: WebAttribute<opc_legislationallegationtype_Select, { opc_legislationallegationtypeid: string | null }, {  }>;
-  opc_leglislation_guid: WebAttribute<opc_legislationallegationtype_Select, { opc_leglislation_guid: string | null }, { opc_leglislation_formatted?: string }>;
   opc_name: WebAttribute<opc_legislationallegationtype_Select, { opc_name: string | null }, {  }>;
   opc_nameenglish: WebAttribute<opc_legislationallegationtype_Select, { opc_nameenglish: string | null }, {  }>;
   opc_namefrench: WebAttribute<opc_legislationallegationtype_Select, { opc_namefrench: string | null }, {  }>;
@@ -63,8 +63,8 @@ interface opc_legislationallegationtype_Filter {
   modifiedonbehalfby_guid: XQW.Guid;
   opc_allegationtype_guid: XQW.Guid;
   opc_islocalizable: boolean;
+  opc_legislation_guid: XQW.Guid;
   opc_legislationallegationtypeid: XQW.Guid;
-  opc_leglislation_guid: XQW.Guid;
   opc_name: string;
   opc_nameenglish: string;
   opc_namefrench: string;
@@ -86,7 +86,7 @@ interface opc_legislationallegationtype_Expand {
   modifiedonbehalfby: WebExpand<opc_legislationallegationtype_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_allegationtype: WebExpand<opc_legislationallegationtype_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_allegationtype: opc_allegationtype_Result }>;
   opc_checklisttype_legislationallegationtype: WebExpand<opc_legislationallegationtype_Expand, opc_ChecklistType_Select, opc_ChecklistType_Filter, { opc_checklisttype_legislationallegationtype: opc_ChecklistType_Result[] }>;
-  opc_leglislation: WebExpand<opc_legislationallegationtype_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_leglislation: opc_legislation_Result }>;
+  opc_legislation: WebExpand<opc_legislationallegationtype_Expand, opc_legislation_Select, opc_legislation_Filter, { opc_legislation: opc_legislation_Result }>;
   ownerid: WebExpand<opc_legislationallegationtype_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_legislationallegationtype_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_legislationallegationtype_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
@@ -99,7 +99,7 @@ interface opc_legislationallegationtype_FormattedResult {
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
   opc_allegationtype_formatted?: string;
-  opc_leglislation_formatted?: string;
+  opc_legislation_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -115,7 +115,7 @@ interface opc_legislationallegationtype_Result extends opc_legislationallegation
   modifiedby_guid: string | null;
   modifiedonbehalfby_guid: string | null;
   opc_allegationtype_guid: string | null;
-  opc_leglislation_guid: string | null;
+  opc_legislation_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
@@ -127,7 +127,7 @@ interface opc_legislationallegationtype_RelatedOne {
   modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   opc_allegationtype: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
-  opc_leglislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
   ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owningteam: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;

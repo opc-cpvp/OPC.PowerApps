@@ -35,15 +35,24 @@ interface QueueItem extends QueueItem_Base, QueueItem_Relationships {
 interface QueueItem_Create extends QueueItem {
   objectid_activitypointer_bind$activitypointers?: string | null;
   objectid_appointment_bind$appointments?: string | null;
+  objectid_bulkoperation_bind$bulkoperations?: string | null;
+  objectid_campaignactivity_bind$campaignactivities?: string | null;
+  objectid_campaignresponse_bind$campaignresponses?: string | null;
   objectid_email_bind$emails?: string | null;
   objectid_fax_bind$faxes?: string | null;
+  objectid_incident_bind$incidents?: string | null;
   objectid_knowledgearticle_bind$knowledgearticles?: string | null;
   objectid_letter_bind$letters?: string | null;
+  objectid_msdyn_iotalert_bind$msdyn_iotalerts?: string | null;
   objectid_msdyn_knowledgearticletemplate_bind$msdyn_knowledgearticletemplates?: string | null;
+  objectid_msfp_alert_bind$msfp_alerts?: string | null;
+  objectid_msfp_surveyinvite_bind$msfp_surveyinvites?: string | null;
+  objectid_msfp_surveyresponse_bind$msfp_surveyresponses?: string | null;
   objectid_opc_complaint_bind$opc_complaints?: string | null;
   objectid_opc_event_bind$opc_events?: string | null;
   objectid_phonecall_bind$phonecalls?: string | null;
   objectid_recurringappointmentmaster_bind$recurringappointmentmasters?: string | null;
+  objectid_serviceappointment_bind$serviceappointments?: string | null;
   objectid_socialactivity_bind$socialactivities?: string | null;
   objectid_task_bind$tasks?: string | null;
   queueid_bind$queues?: string | null;

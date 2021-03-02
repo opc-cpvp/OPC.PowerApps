@@ -20,10 +20,12 @@ interface Team_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface Team_Relationships {
+  OwningTeam_postfollows?: PostFollow_Result[] | null;
   opc_event_team_owningteam?: opc_event_Result[] | null;
   opc_queues_teams_membership?: Queue_Result[] | null;
   team_DuplicateRules?: DuplicateRule_Result[] | null;
   team_accounts?: Account_Result[] | null;
+  team_bulkoperationlog?: BulkOperationLog_Result[] | null;
   team_connections1?: Connection_Result[] | null;
   team_connections2?: Connection_Result[] | null;
   team_contacts?: Contact_Result[] | null;
@@ -72,6 +74,7 @@ interface Team extends Team_Base, Team_Relationships {
 interface Team_Create extends Team {
   associatedteamtemplateid_bind$teamtemplates?: string | null;
   regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
+  regardingobjectid_opportunity_bind$opportunities?: string | null;
 }
 interface Team_Update extends Team {
 }
@@ -138,6 +141,7 @@ interface Team_Filter {
   versionnumber: number;
 }
 interface Team_Expand {
+  OwningTeam_postfollows: WebExpand<Team_Expand, PostFollow_Select, PostFollow_Filter, { OwningTeam_postfollows: PostFollow_Result[] }>;
   administratorid: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { administratorid: SystemUser_Result }>;
   createdby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
   createdonbehalfby: WebExpand<Team_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
@@ -148,6 +152,7 @@ interface Team_Expand {
   queueid: WebExpand<Team_Expand, Queue_Select, Queue_Filter, { queueid: Queue_Result }>;
   team_DuplicateRules: WebExpand<Team_Expand, DuplicateRule_Select, DuplicateRule_Filter, { team_DuplicateRules: DuplicateRule_Result[] }>;
   team_accounts: WebExpand<Team_Expand, Account_Select, Account_Filter, { team_accounts: Account_Result[] }>;
+  team_bulkoperationlog: WebExpand<Team_Expand, BulkOperationLog_Select, BulkOperationLog_Filter, { team_bulkoperationlog: BulkOperationLog_Result[] }>;
   team_connections1: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections1: Connection_Result[] }>;
   team_connections2: WebExpand<Team_Expand, Connection_Select, Connection_Filter, { team_connections2: Connection_Result[] }>;
   team_contacts: WebExpand<Team_Expand, Contact_Select, Contact_Filter, { team_contacts: Contact_Result[] }>;
@@ -225,10 +230,12 @@ interface Team_RelatedOne {
   queueid: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
 }
 interface Team_RelatedMany {
+  OwningTeam_postfollows: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
   opc_event_team_owningteam: WebMappingRetrieve<opc_event_Select,opc_event_Expand,opc_event_Filter,opc_event_Fixed,opc_event_Result,opc_event_FormattedResult>;
   opc_queues_teams_membership: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   team_DuplicateRules: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
   team_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  team_bulkoperationlog: WebMappingRetrieve<BulkOperationLog_Select,BulkOperationLog_Expand,BulkOperationLog_Filter,BulkOperationLog_Fixed,BulkOperationLog_Result,BulkOperationLog_FormattedResult>;
   team_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   team_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   team_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;

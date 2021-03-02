@@ -227,6 +227,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// The legislation
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_legislation")]
+		public Microsoft.Xrm.Sdk.EntityReference opc_legislation
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("opc_legislation");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_legislation");
+				this.SetAttributeValue("opc_legislation", value);
+				this.OnPropertyChanged("opc_legislation");
+			}
+		}
+		
+		/// <summary>
 		/// Unique identifier for entity instances
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_legislationallegationtypeid")]
@@ -266,26 +286,6 @@ namespace Compliance.EarlyBound
 			set
 			{
 				this.opc_legislationallegationtypeId = value;
-			}
-		}
-		
-		/// <summary>
-		/// The legislation
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_leglislation")]
-		public Microsoft.Xrm.Sdk.EntityReference opc_leglislation
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("opc_leglislation");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("opc_leglislation");
-				this.SetAttributeValue("opc_leglislation", value);
-				this.OnPropertyChanged("opc_leglislation");
 			}
 		}
 		
@@ -662,23 +662,23 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// N:1 opc_legislation_allegationtypes_leglislation
+		/// N:1 opc_legislation_allegationtypes_legislation
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_leglislation")]
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_legislation_allegationtypes_leglislation")]
-		public Compliance.EarlyBound.opc_legislation opc_legislation_allegationtypes_leglislation
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_legislation")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_legislation_allegationtypes_legislation")]
+		public Compliance.EarlyBound.opc_legislation opc_legislation_allegationtypes_legislation
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<Compliance.EarlyBound.opc_legislation>("opc_legislation_allegationtypes_leglislation", null);
+				return this.GetRelatedEntity<Compliance.EarlyBound.opc_legislation>("opc_legislation_allegationtypes_legislation", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_legislation_allegationtypes_leglislation");
-				this.SetRelatedEntity<Compliance.EarlyBound.opc_legislation>("opc_legislation_allegationtypes_leglislation", null, value);
-				this.OnPropertyChanged("opc_legislation_allegationtypes_leglislation");
+				this.OnPropertyChanging("opc_legislation_allegationtypes_legislation");
+				this.SetRelatedEntity<Compliance.EarlyBound.opc_legislation>("opc_legislation_allegationtypes_legislation", null, value);
+				this.OnPropertyChanged("opc_legislation_allegationtypes_legislation");
 			}
 		}
 		

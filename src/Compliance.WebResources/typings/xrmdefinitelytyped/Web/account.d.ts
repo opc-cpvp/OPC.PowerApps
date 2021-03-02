@@ -95,6 +95,13 @@ interface Account_Base extends WebEntity {
   numberofemployees?: number | null;
   onholdtime?: number | null;
   opc_sector?: opc_sector | null;
+  opendeals?: number | null;
+  opendeals_date?: Date | null;
+  opendeals_state?: number | null;
+  openrevenue?: number | null;
+  openrevenue_base?: number | null;
+  openrevenue_date?: Date | null;
+  openrevenue_state?: number | null;
   overriddencreatedon?: Date | null;
   ownershipcode?: account_ownershipcode | null;
   participatesinworkflow?: boolean | null;
@@ -114,6 +121,7 @@ interface Account_Base extends WebEntity {
   statecode?: account_statecode | null;
   statuscode?: account_statuscode | null;
   stockexchange?: string | null;
+  teamsfollowed?: number | null;
   telephone1?: string | null;
   telephone2?: string | null;
   telephone3?: string | null;
@@ -130,6 +138,9 @@ interface Account_Base extends WebEntity {
 interface Account_Relationships {
   Account_SharepointDocument?: SharePointDocument_Result[] | null;
   Account_SharepointDocumentLocation?: SharePointDocumentLocation_Result[] | null;
+  CreatedAccount_BulkOperationLogs2?: BulkOperationLog_Result[] | null;
+  SourceAccount_BulkOperationLogs?: BulkOperationLog_Result[] | null;
+  account_PostFollows?: PostFollow_Result[] | null;
   account_activity_parties?: ActivityParty_Result[] | null;
   account_connections1?: Connection_Result[] | null;
   account_connections2?: Connection_Result[] | null;
@@ -143,16 +154,21 @@ interface Account_Relationships {
   opc_accounts_industries_relatedindustries?: opc_industry_Result[] | null;
 }
 interface Account extends Account_Base, Account_Relationships {
+  defaultpricelevelid_bind$pricelevels?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
   parentaccountid_bind$accounts?: string | null;
+  preferredequipmentid_bind$equipments?: string | null;
+  preferredserviceid_bind$services?: string | null;
   preferredsystemuserid_bind$systemusers?: string | null;
   primarycontactid_bind$contacts?: string | null;
   sla_account_sla_bind$slas?: string | null;
   stageid_processstage_bind$processstages?: string | null;
+  territoryid_bind$territories?: string | null;
   transactioncurrencyid_bind$transactioncurrencies?: string | null;
 }
 interface Account_Create extends Account {
+  originatingleadid_bind$leads?: string | null;
 }
 interface Account_Update extends Account {
 }
@@ -226,6 +242,7 @@ interface Account_Select {
   creditonhold: WebAttribute<Account_Select, { creditonhold: boolean | null }, {  }>;
   customersizecode: WebAttribute<Account_Select, { customersizecode: account_customersizecode | null }, { customersizecode_formatted?: string }>;
   customertypecode: WebAttribute<Account_Select, { customertypecode: account_customertypecode | null }, { customertypecode_formatted?: string }>;
+  defaultpricelevelid_guid: WebAttribute<Account_Select, { defaultpricelevelid_guid: string | null }, { defaultpricelevelid_formatted?: string }>;
   description: WebAttribute<Account_Select, { description: string | null }, {  }>;
   donotbulkemail: WebAttribute<Account_Select, { donotbulkemail: boolean | null }, {  }>;
   donotbulkpostalmail: WebAttribute<Account_Select, { donotbulkpostalmail: boolean | null }, {  }>;
@@ -260,6 +277,14 @@ interface Account_Select {
   numberofemployees: WebAttribute<Account_Select, { numberofemployees: number | null }, {  }>;
   onholdtime: WebAttribute<Account_Select, { onholdtime: number | null }, {  }>;
   opc_sector: WebAttribute<Account_Select, { opc_sector: opc_sector | null }, { opc_sector_formatted?: string }>;
+  opendeals: WebAttribute<Account_Select, { opendeals: number | null }, {  }>;
+  opendeals_date: WebAttribute<Account_Select, { opendeals_date: Date | null }, { opendeals_date_formatted?: string }>;
+  opendeals_state: WebAttribute<Account_Select, { opendeals_state: number | null }, {  }>;
+  openrevenue: WebAttribute<Account_Select, { openrevenue: number | null; transactioncurrencyid_guid: string | null }, { openrevenue_formatted?: string; transactioncurrencyid_formatted?: string }>;
+  openrevenue_base: WebAttribute<Account_Select, { openrevenue_base: number | null; transactioncurrencyid_guid: string | null }, { openrevenue_base_formatted?: string; transactioncurrencyid_formatted?: string }>;
+  openrevenue_date: WebAttribute<Account_Select, { openrevenue_date: Date | null }, { openrevenue_date_formatted?: string }>;
+  openrevenue_state: WebAttribute<Account_Select, { openrevenue_state: number | null }, {  }>;
+  originatingleadid_guid: WebAttribute<Account_Select, { originatingleadid_guid: string | null }, { originatingleadid_formatted?: string }>;
   overriddencreatedon: WebAttribute<Account_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<Account_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   ownershipcode: WebAttribute<Account_Select, { ownershipcode: account_ownershipcode | null }, { ownershipcode_formatted?: string }>;
@@ -272,6 +297,8 @@ interface Account_Select {
   preferredappointmentdaycode: WebAttribute<Account_Select, { preferredappointmentdaycode: account_preferredappointmentdaycode | null }, { preferredappointmentdaycode_formatted?: string }>;
   preferredappointmenttimecode: WebAttribute<Account_Select, { preferredappointmenttimecode: account_preferredappointmenttimecode | null }, { preferredappointmenttimecode_formatted?: string }>;
   preferredcontactmethodcode: WebAttribute<Account_Select, { preferredcontactmethodcode: account_preferredcontactmethodcode | null }, { preferredcontactmethodcode_formatted?: string }>;
+  preferredequipmentid_guid: WebAttribute<Account_Select, { preferredequipmentid_guid: string | null }, { preferredequipmentid_formatted?: string }>;
+  preferredserviceid_guid: WebAttribute<Account_Select, { preferredserviceid_guid: string | null }, { preferredserviceid_formatted?: string }>;
   preferredsystemuserid_guid: WebAttribute<Account_Select, { preferredsystemuserid_guid: string | null }, { preferredsystemuserid_formatted?: string }>;
   primarycontactid_guid: WebAttribute<Account_Select, { primarycontactid_guid: string | null }, { primarycontactid_formatted?: string }>;
   primarysatoriid: WebAttribute<Account_Select, { primarysatoriid: string | null }, {  }>;
@@ -288,10 +315,12 @@ interface Account_Select {
   statecode: WebAttribute<Account_Select, { statecode: account_statecode | null }, { statecode_formatted?: string }>;
   statuscode: WebAttribute<Account_Select, { statuscode: account_statuscode | null }, { statuscode_formatted?: string }>;
   stockexchange: WebAttribute<Account_Select, { stockexchange: string | null }, {  }>;
+  teamsfollowed: WebAttribute<Account_Select, { teamsfollowed: number | null }, {  }>;
   telephone1: WebAttribute<Account_Select, { telephone1: string | null }, {  }>;
   telephone2: WebAttribute<Account_Select, { telephone2: string | null }, {  }>;
   telephone3: WebAttribute<Account_Select, { telephone3: string | null }, {  }>;
   territorycode: WebAttribute<Account_Select, { territorycode: account_territorycode | null }, { territorycode_formatted?: string }>;
+  territoryid_guid: WebAttribute<Account_Select, { territoryid_guid: string | null }, { territoryid_formatted?: string }>;
   tickersymbol: WebAttribute<Account_Select, { tickersymbol: string | null }, {  }>;
   timespentbymeonemailandmeetings: WebAttribute<Account_Select, { timespentbymeonemailandmeetings: string | null }, {  }>;
   timezoneruleversionnumber: WebAttribute<Account_Select, { timezoneruleversionnumber: number | null }, {  }>;
@@ -371,6 +400,7 @@ interface Account_Filter {
   creditonhold: boolean;
   customersizecode: account_customersizecode;
   customertypecode: account_customertypecode;
+  defaultpricelevelid_guid: XQW.Guid;
   description: string;
   donotbulkemail: boolean;
   donotbulkpostalmail: boolean;
@@ -405,6 +435,14 @@ interface Account_Filter {
   numberofemployees: number;
   onholdtime: number;
   opc_sector: opc_sector;
+  opendeals: number;
+  opendeals_date: Date;
+  opendeals_state: number;
+  openrevenue: number;
+  openrevenue_base: number;
+  openrevenue_date: Date;
+  openrevenue_state: number;
+  originatingleadid_guid: XQW.Guid;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   ownershipcode: account_ownershipcode;
@@ -417,6 +455,8 @@ interface Account_Filter {
   preferredappointmentdaycode: account_preferredappointmentdaycode;
   preferredappointmenttimecode: account_preferredappointmenttimecode;
   preferredcontactmethodcode: account_preferredcontactmethodcode;
+  preferredequipmentid_guid: XQW.Guid;
+  preferredserviceid_guid: XQW.Guid;
   preferredsystemuserid_guid: XQW.Guid;
   primarycontactid_guid: XQW.Guid;
   primarysatoriid: string;
@@ -433,10 +473,12 @@ interface Account_Filter {
   statecode: account_statecode;
   statuscode: account_statuscode;
   stockexchange: string;
+  teamsfollowed: number;
   telephone1: string;
   telephone2: string;
   telephone3: string;
   territorycode: account_territorycode;
+  territoryid_guid: XQW.Guid;
   tickersymbol: string;
   timespentbymeonemailandmeetings: string;
   timezoneruleversionnumber: number;
@@ -449,6 +491,9 @@ interface Account_Filter {
 interface Account_Expand {
   Account_SharepointDocument: WebExpand<Account_Expand, SharePointDocument_Select, SharePointDocument_Filter, { Account_SharepointDocument: SharePointDocument_Result[] }>;
   Account_SharepointDocumentLocation: WebExpand<Account_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { Account_SharepointDocumentLocation: SharePointDocumentLocation_Result[] }>;
+  CreatedAccount_BulkOperationLogs2: WebExpand<Account_Expand, BulkOperationLog_Select, BulkOperationLog_Filter, { CreatedAccount_BulkOperationLogs2: BulkOperationLog_Result[] }>;
+  SourceAccount_BulkOperationLogs: WebExpand<Account_Expand, BulkOperationLog_Select, BulkOperationLog_Filter, { SourceAccount_BulkOperationLogs: BulkOperationLog_Result[] }>;
+  account_PostFollows: WebExpand<Account_Expand, PostFollow_Select, PostFollow_Filter, { account_PostFollows: PostFollow_Result[] }>;
   account_activity_parties: WebExpand<Account_Expand, ActivityParty_Select, ActivityParty_Filter, { account_activity_parties: ActivityParty_Result[] }>;
   account_connections1: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections1: Connection_Result[] }>;
   account_connections2: WebExpand<Account_Expand, Connection_Select, Connection_Filter, { account_connections2: Connection_Result[] }>;
@@ -497,6 +542,7 @@ interface Account_FormattedResult {
   creditlimit_formatted?: string;
   customersizecode_formatted?: string;
   customertypecode_formatted?: string;
+  defaultpricelevelid_formatted?: string;
   industrycode_formatted?: string;
   lastonholdtime_formatted?: string;
   lastusedincampaign_formatted?: string;
@@ -508,6 +554,11 @@ interface Account_FormattedResult {
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
   opc_sector_formatted?: string;
+  opendeals_date_formatted?: string;
+  openrevenue_base_formatted?: string;
+  openrevenue_date_formatted?: string;
+  openrevenue_formatted?: string;
+  originatingleadid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   ownershipcode_formatted?: string;
@@ -519,6 +570,8 @@ interface Account_FormattedResult {
   preferredappointmentdaycode_formatted?: string;
   preferredappointmenttimecode_formatted?: string;
   preferredcontactmethodcode_formatted?: string;
+  preferredequipmentid_formatted?: string;
+  preferredserviceid_formatted?: string;
   preferredsystemuserid_formatted?: string;
   primarycontactid_formatted?: string;
   revenue_base_formatted?: string;
@@ -529,6 +582,7 @@ interface Account_FormattedResult {
   statecode_formatted?: string;
   statuscode_formatted?: string;
   territorycode_formatted?: string;
+  territoryid_formatted?: string;
   transactioncurrencyid_formatted?: string;
 }
 interface Account_Result extends Account_Base, Account_Relationships {
@@ -536,19 +590,24 @@ interface Account_Result extends Account_Base, Account_Relationships {
   createdby_guid: string | null;
   createdbyexternalparty_guid: string | null;
   createdonbehalfby_guid: string | null;
+  defaultpricelevelid_guid: string | null;
   masterid_guid: string | null;
   modifiedby_guid: string | null;
   modifiedbyexternalparty_guid: string | null;
   modifiedonbehalfby_guid: string | null;
+  originatingleadid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
   owninguser_guid: string | null;
   parentaccountid_guid: string | null;
+  preferredequipmentid_guid: string | null;
+  preferredserviceid_guid: string | null;
   preferredsystemuserid_guid: string | null;
   primarycontactid_guid: string | null;
   slaid_guid: string | null;
   slainvokedid_guid: string | null;
+  territoryid_guid: string | null;
   transactioncurrencyid_guid: string | null;
 }
 interface Account_RelatedOne {
@@ -567,6 +626,9 @@ interface Account_RelatedOne {
 interface Account_RelatedMany {
   Account_SharepointDocument: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   Account_SharepointDocumentLocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  CreatedAccount_BulkOperationLogs2: WebMappingRetrieve<BulkOperationLog_Select,BulkOperationLog_Expand,BulkOperationLog_Filter,BulkOperationLog_Fixed,BulkOperationLog_Result,BulkOperationLog_FormattedResult>;
+  SourceAccount_BulkOperationLogs: WebMappingRetrieve<BulkOperationLog_Select,BulkOperationLog_Expand,BulkOperationLog_Filter,BulkOperationLog_Fixed,BulkOperationLog_Result,BulkOperationLog_FormattedResult>;
+  account_PostFollows: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
   account_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   account_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   account_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;

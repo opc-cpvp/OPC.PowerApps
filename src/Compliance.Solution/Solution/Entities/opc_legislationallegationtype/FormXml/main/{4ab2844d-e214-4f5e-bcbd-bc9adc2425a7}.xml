@@ -30,11 +30,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{c78465a6-2bc7-479e-8ca8-dd73f4985638}" locklevel="0">
+                      <cell id="{201838b1-c517-bdc1-e278-b757ddb4c91b}" showlabel="true" locklevel="0">
                         <labels>
-                          <label description="Leglislation" languagecode="1033" />
+                          <label description="Legislation" languagecode="1033" />
                         </labels>
-                        <control id="opc_leglislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_leglislation" disabled="false" />
+                        <control id="opc_legislation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_legislation" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -148,9 +148,6 @@
           </row>
         </rows>
       </footer>
-      <DisplayConditions Order="0" FallbackForm="true">
-        <Everyone />
-      </DisplayConditions>
       <controlDescriptions>
         <controlDescription forControl="{084f6f7c-4867-45c8-894d-ab73de49e77f}">
           <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
@@ -175,6 +172,39 @@
           </customControl>
         </controlDescription>
       </controlDescriptions>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

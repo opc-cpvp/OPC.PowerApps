@@ -7,7 +7,7 @@
   <Mode>1</Mode>
   <Scope>4</Scope>
   <OnDemand>0</OnDemand>
-  <TriggerOnUpdateAttributeList>opc_leglislation,opc_allegationtype</TriggerOnUpdateAttributeList>
+  <TriggerOnUpdateAttributeList>opc_legislation,opc_allegationtype</TriggerOnUpdateAttributeList>
   <TriggerOnCreate>1</TriggerOnCreate>
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>

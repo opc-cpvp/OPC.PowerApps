@@ -64,6 +64,7 @@ declare namespace Form.systemuser.Main {
       get(name: "address2_stateorprovince"): Xrm.Attribute<string> | null;
       get(name: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
       get(name: "caltype"): Xrm.OptionSetAttribute<systemuser_caltype>;
+      get(name: "cdm_company"): Xrm.LookupAttribute<"cdm_company">;
       get(name: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
       get(name: "domainname"): Xrm.Attribute<string>;
       get(name: "fullname"): Xrm.Attribute<string> | null;
@@ -80,6 +81,8 @@ declare namespace Form.systemuser.Main {
       get(name: "preferredaddresscode"): Xrm.OptionSetAttribute<systemuser_preferredaddresscode>;
       get(name: "preferredphonecode"): Xrm.OptionSetAttribute<systemuser_preferredphonecode>;
       get(name: "queueid"): Xrm.LookupAttribute<"queue">;
+      get(name: "siteid"): Xrm.LookupAttribute<"site">;
+      get(name: "territoryid"): Xrm.LookupAttribute<"territory">;
       get(name: "title"): Xrm.Attribute<string>;
       get(name: "windowsliveid"): Xrm.Attribute<string>;
       get(name: string): undefined;
@@ -114,6 +117,7 @@ declare namespace Form.systemuser.Main {
       get(name: "address2_composite_compositionLinkControl_address2_stateorprovince"): Xrm.StringControl | null;
       get(name: "businessunitid"): Xrm.LookupControl<"businessunit">;
       get(name: "caltype"): Xrm.OptionSetControl<systemuser_caltype>;
+      get(name: "cdm_company"): Xrm.LookupControl<"cdm_company">;
       get(name: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
       get(name: "domainname"): Xrm.StringControl;
       get(name: "footer_isdisabled"): Xrm.OptionSetControl<boolean>;
@@ -131,6 +135,8 @@ declare namespace Form.systemuser.Main {
       get(name: "preferredaddresscode"): Xrm.OptionSetControl<systemuser_preferredaddresscode>;
       get(name: "preferredphonecode"): Xrm.OptionSetControl<systemuser_preferredphonecode>;
       get(name: "queueid"): Xrm.LookupControl<"queue">;
+      get(name: "siteid"): Xrm.LookupControl<"site">;
+      get(name: "territoryid"): Xrm.LookupControl<"territory">;
       get(name: "title"): Xrm.StringControl;
       get(name: "windowsliveid"): Xrm.StringControl;
       get(name: string): undefined;
@@ -173,6 +179,7 @@ declare namespace Form.systemuser.Main {
     getAttribute(attributeName: "address2_stateorprovince"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: "businessunitid"): Xrm.LookupAttribute<"businessunit">;
     getAttribute(attributeName: "caltype"): Xrm.OptionSetAttribute<systemuser_caltype>;
+    getAttribute(attributeName: "cdm_company"): Xrm.LookupAttribute<"cdm_company">;
     getAttribute(attributeName: "defaultmailbox"): Xrm.LookupAttribute<"mailbox">;
     getAttribute(attributeName: "domainname"): Xrm.Attribute<string>;
     getAttribute(attributeName: "fullname"): Xrm.Attribute<string> | null;
@@ -189,6 +196,8 @@ declare namespace Form.systemuser.Main {
     getAttribute(attributeName: "preferredaddresscode"): Xrm.OptionSetAttribute<systemuser_preferredaddresscode>;
     getAttribute(attributeName: "preferredphonecode"): Xrm.OptionSetAttribute<systemuser_preferredphonecode>;
     getAttribute(attributeName: "queueid"): Xrm.LookupAttribute<"queue">;
+    getAttribute(attributeName: "siteid"): Xrm.LookupAttribute<"site">;
+    getAttribute(attributeName: "territoryid"): Xrm.LookupAttribute<"territory">;
     getAttribute(attributeName: "title"): Xrm.Attribute<string>;
     getAttribute(attributeName: "windowsliveid"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
@@ -218,6 +227,7 @@ declare namespace Form.systemuser.Main {
     getControl(controlName: "address2_composite_compositionLinkControl_address2_stateorprovince"): Xrm.StringControl | null;
     getControl(controlName: "businessunitid"): Xrm.LookupControl<"businessunit">;
     getControl(controlName: "caltype"): Xrm.OptionSetControl<systemuser_caltype>;
+    getControl(controlName: "cdm_company"): Xrm.LookupControl<"cdm_company">;
     getControl(controlName: "defaultmailbox"): Xrm.LookupControl<"mailbox">;
     getControl(controlName: "domainname"): Xrm.StringControl;
     getControl(controlName: "footer_isdisabled"): Xrm.OptionSetControl<boolean>;
@@ -235,6 +245,8 @@ declare namespace Form.systemuser.Main {
     getControl(controlName: "preferredaddresscode"): Xrm.OptionSetControl<systemuser_preferredaddresscode>;
     getControl(controlName: "preferredphonecode"): Xrm.OptionSetControl<systemuser_preferredphonecode>;
     getControl(controlName: "queueid"): Xrm.LookupControl<"queue">;
+    getControl(controlName: "siteid"): Xrm.LookupControl<"site">;
+    getControl(controlName: "territoryid"): Xrm.LookupControl<"territory">;
     getControl(controlName: "title"): Xrm.StringControl;
     getControl(controlName: "windowsliveid"): Xrm.StringControl;
     getControl(controlName: string): undefined;

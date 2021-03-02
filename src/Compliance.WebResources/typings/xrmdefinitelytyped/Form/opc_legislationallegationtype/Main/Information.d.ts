@@ -13,7 +13,7 @@ declare namespace Form.opc_legislationallegationtype.Main {
     interface Attributes extends Xrm.AttributeCollectionBase {
       get(name: "opc_allegationtype"): Xrm.LookupAttribute<"opc_allegationtype">;
       get(name: "opc_islocalizable"): Xrm.Attribute<any>;
-      get(name: "opc_leglislation"): Xrm.LookupAttribute<"opc_legislation">;
+      get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
       get(name: "opc_name"): Xrm.Attribute<string>;
       get(name: "opc_nameenglish"): Xrm.Attribute<string>;
       get(name: "opc_namefrench"): Xrm.Attribute<string>;
@@ -27,7 +27,7 @@ declare namespace Form.opc_legislationallegationtype.Main {
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_allegationtype"): Xrm.LookupControl<"opc_allegationtype">;
       get(name: "opc_islocalizable"): Xrm.Control<Xrm.Attribute<any>>;
-      get(name: "opc_leglislation"): Xrm.LookupControl<"opc_legislation">;
+      get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: "opc_name"): Xrm.StringControl;
       get(name: "opc_nameenglish"): Xrm.StringControl;
       get(name: "opc_namefrench"): Xrm.StringControl;
@@ -48,7 +48,7 @@ declare namespace Form.opc_legislationallegationtype.Main {
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
     getAttribute(attributeName: "opc_allegationtype"): Xrm.LookupAttribute<"opc_allegationtype">;
     getAttribute(attributeName: "opc_islocalizable"): Xrm.Attribute<any>;
-    getAttribute(attributeName: "opc_leglislation"): Xrm.LookupAttribute<"opc_legislation">;
+    getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_nameenglish"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
@@ -57,7 +57,7 @@ declare namespace Form.opc_legislationallegationtype.Main {
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_allegationtype"): Xrm.LookupControl<"opc_allegationtype">;
     getControl(controlName: "opc_islocalizable"): Xrm.Control<Xrm.Attribute<any>>;
-    getControl(controlName: "opc_leglislation"): Xrm.LookupControl<"opc_legislation">;
+    getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: "opc_name"): Xrm.StringControl;
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;

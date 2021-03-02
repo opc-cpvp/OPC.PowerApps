@@ -38,15 +38,23 @@ interface SharePointDocument_Base extends WebEntity {
 }
 interface SharePointDocument_Relationships {
   regardingobjectid_account?: Account_Result | null;
+  regardingobjectid_contact?: Contact_Result | null;
   regardingobjectid_opc_complaint?: opc_complaint_Result | null;
 }
 interface SharePointDocument extends SharePointDocument_Base, SharePointDocument_Relationships {
   businessunitid_bind$businessunits?: string | null;
   regardingobjectid_account_bind$accounts?: string | null;
+  regardingobjectid_contact_bind$contacts?: string | null;
   regardingobjectid_kbarticle_bind$kbarticles?: string | null;
   regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
+  regardingobjectid_lead_bind$leads?: string | null;
   regardingobjectid_msdyn_knowledgearticletemplate_bind$msdyn_knowledgearticletemplates?: string | null;
+  regardingobjectid_msdyn_playbookactivity_bind$msdyn_playbookactivities?: string | null;
   regardingobjectid_opc_complaint_bind$opc_complaints?: string | null;
+  regardingobjectid_opportunity_bind$opportunities?: string | null;
+  regardingobjectid_product_bind$products?: string | null;
+  regardingobjectid_quote_bind$quotes?: string | null;
+  regardingobjectid_salesliterature_bind$salesliteratures?: string | null;
 }
 interface SharePointDocument_Create extends SharePointDocument {
   ownerid_bind$systemusers?: string | null;
@@ -161,6 +169,7 @@ interface SharePointDocument_Expand {
   modifiedonbehalfby: WebExpand<SharePointDocument_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   ownerid: WebExpand<SharePointDocument_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   regardingobjectid_account: WebExpand<SharePointDocument_Expand, Account_Select, Account_Filter, { regardingobjectid_account: Account_Result }>;
+  regardingobjectid_contact: WebExpand<SharePointDocument_Expand, Contact_Select, Contact_Filter, { regardingobjectid_contact: Contact_Result }>;
   regardingobjectid_opc_complaint: WebExpand<SharePointDocument_Expand, opc_complaint_Select, opc_complaint_Filter, { regardingobjectid_opc_complaint: opc_complaint_Result }>;
 }
 interface SharePointDocument_FormattedResult {
@@ -205,6 +214,7 @@ interface SharePointDocument_RelatedOne {
   modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   ownerid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult> & WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   regardingobjectid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  regardingobjectid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   regardingobjectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface SharePointDocument_RelatedMany {

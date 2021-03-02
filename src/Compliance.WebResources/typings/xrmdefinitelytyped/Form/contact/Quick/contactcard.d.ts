@@ -33,6 +33,7 @@ declare namespace Form.contact.Quick {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "contactcasessgrid"): Xrm.SubGridControl<"incident">;
       get(name: "emailaddress1"): Xrm.StringControl;
       get(name: "fullname"): Xrm.StringControl | null;
       get(name: "header_process_birthdate"): Xrm.DateControl | null;
@@ -50,6 +51,7 @@ declare namespace Form.contact.Quick {
       get(name: "header_process_websiteurl"): Xrm.StringControl | null;
       get(name: "mobilephone"): Xrm.StringControl;
       get(name: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
+      get(name: "subgrid_Entitlement"): Xrm.SubGridControl<"entitlement">;
       get(name: "telephone1"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -81,6 +83,7 @@ declare namespace Form.contact.Quick {
     getAttribute(attributeName: "telephone1"): Xrm.Attribute<string>;
     getAttribute(attributeName: "websiteurl"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "contactcasessgrid"): Xrm.SubGridControl<"incident">;
     getControl(controlName: "emailaddress1"): Xrm.StringControl;
     getControl(controlName: "fullname"): Xrm.StringControl | null;
     getControl(controlName: "header_process_birthdate"): Xrm.DateControl | null;
@@ -98,6 +101,7 @@ declare namespace Form.contact.Quick {
     getControl(controlName: "header_process_websiteurl"): Xrm.StringControl | null;
     getControl(controlName: "mobilephone"): Xrm.StringControl;
     getControl(controlName: "parentcustomerid"): Xrm.LookupControl<"account" | "contact">;
+    getControl(controlName: "subgrid_Entitlement"): Xrm.SubGridControl<"entitlement">;
     getControl(controlName: "telephone1"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }

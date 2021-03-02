@@ -67,11 +67,30 @@ interface opc_event extends opc_event_Base, opc_event_Relationships {
   ownerid_opc_event_bind$systemusers?: string | null;
   ownerid_opc_event_bind$teams?: string | null;
   regardingobjectid_account_opc_event_bind$accounts?: string | null;
+  regardingobjectid_bookableresourcebooking_opc_event_bind$bookableresourcebookings?: string | null;
+  regardingobjectid_bookableresourcebookingheader_opc_event_bind$bookableresourcebookingheaders?: string | null;
+  regardingobjectid_bulkoperation_opc_event_bind$bulkoperations?: string | null;
+  regardingobjectid_campaign_opc_event_bind$campaigns?: string | null;
+  regardingobjectid_campaignactivity_opc_event_bind$campaignactivities?: string | null;
   regardingobjectid_contact_opc_event_bind$contacts?: string | null;
+  regardingobjectid_contract_opc_event_bind$contracts?: string | null;
+  regardingobjectid_entitlement_opc_event_bind$entitlements?: string | null;
+  regardingobjectid_entitlementtemplate_opc_event_bind$entitlementtemplates?: string | null;
+  regardingobjectid_incident_opc_event_bind$incidents?: string | null;
+  regardingobjectid_invoice_opc_event_bind$invoices?: string | null;
   regardingobjectid_knowledgearticle_opc_event_bind$knowledgearticles?: string | null;
   regardingobjectid_knowledgebaserecord_opc_event_bind$knowledgebaserecords?: string | null;
+  regardingobjectid_lead_opc_event_bind$leads?: string | null;
+  regardingobjectid_msdyn_customerasset_opc_event_bind$msdyn_customerassets?: string | null;
+  regardingobjectid_msdyn_playbookinstance_opc_event_bind$msdyn_playbookinstances?: string | null;
+  regardingobjectid_msdyn_postalbum_opc_event_bind$msdyn_postalbums?: string | null;
   regardingobjectid_new_interactionforemail_opc_event_bind$interactionforemails?: string | null;
   regardingobjectid_opc_complaint_opc_event_bind$opc_complaints?: string | null;
+  regardingobjectid_opportunity_opc_event_bind$opportunities?: string | null;
+  regardingobjectid_quote_opc_event_bind$quotes?: string | null;
+  regardingobjectid_salesorder_opc_event_bind$salesorders?: string | null;
+  regardingobjectid_site_opc_event_bind$sites?: string | null;
+  serviceid_opc_event_bind$services?: string | null;
   sla_activitypointer_sla_opc_event_bind$slas?: string | null;
   transactioncurrencyid_opc_event_bind$transactioncurrencies?: string | null;
 }
@@ -137,6 +156,7 @@ interface opc_event_Select {
   sendermailboxid_guid: WebAttribute<opc_event_Select, { sendermailboxid_guid: string | null }, { sendermailboxid_formatted?: string }>;
   senton: WebAttribute<opc_event_Select, { senton: Date | null }, { senton_formatted?: string }>;
   seriesid: WebAttribute<opc_event_Select, { seriesid: string | null }, {  }>;
+  serviceid_guid: WebAttribute<opc_event_Select, { serviceid_guid: string | null }, { serviceid_formatted?: string }>;
   slaid_guid: WebAttribute<opc_event_Select, { slaid_guid: string | null }, { slaid_formatted?: string }>;
   slainvokedid_guid: WebAttribute<opc_event_Select, { slainvokedid_guid: string | null }, { slainvokedid_formatted?: string }>;
   sortdate: WebAttribute<opc_event_Select, { sortdate: Date | null }, { sortdate_formatted?: string }>;
@@ -208,6 +228,7 @@ interface opc_event_Filter {
   sendermailboxid_guid: XQW.Guid;
   senton: Date;
   seriesid: XQW.Guid;
+  serviceid_guid: XQW.Guid;
   slaid_guid: XQW.Guid;
   slainvokedid_guid: XQW.Guid;
   sortdate: Date;
@@ -273,6 +294,7 @@ interface opc_event_FormattedResult {
   scheduledstart_formatted?: string;
   sendermailboxid_formatted?: string;
   senton_formatted?: string;
+  serviceid_formatted?: string;
   slaid_formatted?: string;
   slainvokedid_formatted?: string;
   sortdate_formatted?: string;
@@ -302,6 +324,7 @@ interface opc_event_Result extends opc_event_Base, opc_event_Relationships {
   requiredattendees_guid: string | null;
   resources_guid: string | null;
   sendermailboxid_guid: string | null;
+  serviceid_guid: string | null;
   slaid_guid: string | null;
   slainvokedid_guid: string | null;
   to_guid: string | null;

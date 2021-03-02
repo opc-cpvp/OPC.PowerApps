@@ -1,12 +1,20 @@
 declare namespace Form.account.Main {
   namespace Account {
     namespace Tabs {
+      interface AssetsAndLocationsTab extends Xrm.SectionCollectionBase {
+        get(name: "AssetsAndLocationsSection"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
       interface DETAILS_TAB extends Xrm.SectionCollectionBase {
         get(name: "BILLING"): Xrm.PageSection;
         get(name: "COMPANY_PROFILE"): Xrm.PageSection;
         get(name: "CONTACT_PREFERENCES"): Xrm.PageSection;
         get(name: "ChildAccounts"): Xrm.PageSection;
         get(name: "DETAILS_TAB_section_6"): Xrm.PageSection;
+        get(name: "MARKETING"): Xrm.PageSection;
         get(name: "SHIPPING"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
@@ -20,6 +28,13 @@ declare namespace Form.account.Main {
         get(name: "SOCIAL_PANE_TAB"): Xrm.PageSection;
         get(name: "SUMMARY_TAB_section_6"): Xrm.PageSection;
         get(name: "Summary_section_6"): Xrm.PageSection;
+        get(name: string): undefined;
+        get(): Xrm.PageSection[];
+        get(index: number): Xrm.PageSection;
+        get(chooser: (item: Xrm.PageSection, index: number) => boolean): Xrm.PageSection[];
+      }
+      interface documents_sharepoint extends Xrm.SectionCollectionBase {
+        get(name: "documents_sharepoint_section"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -45,11 +60,14 @@ declare namespace Form.account.Main {
       get(name: "donotfax"): Xrm.OptionSetAttribute<boolean>;
       get(name: "donotphone"): Xrm.OptionSetAttribute<boolean>;
       get(name: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+      get(name: "donotsendmm"): Xrm.OptionSetAttribute<boolean>;
       get(name: "fax"): Xrm.Attribute<string>;
       get(name: "followemail"): Xrm.OptionSetAttribute<boolean>;
       get(name: "industrycode"): Xrm.OptionSetAttribute<account_industrycode>;
+      get(name: "lastusedincampaign"): Xrm.DateAttribute;
       get(name: "name"): Xrm.Attribute<string>;
       get(name: "numberofemployees"): Xrm.NumberAttribute;
+      get(name: "originatingleadid"): Xrm.LookupAttribute<"lead">;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "ownershipcode"): Xrm.OptionSetAttribute<account_ownershipcode>;
       get(name: "parentaccountid"): Xrm.LookupAttribute<"account">;
@@ -71,6 +89,9 @@ declare namespace Form.account.Main {
       get(name: "ActionCards"): Xrm.BaseControl;
       get(name: "ChildAccounts"): Xrm.SubGridControl<"account">;
       get(name: "Contacts"): Xrm.SubGridControl<"contact">;
+      get(name: "DocumentsSubGrid"): Xrm.SubGridControl<"sharepointdocument">;
+      get(name: "accountcasessgrid"): Xrm.SubGridControl<"incident">;
+      get(name: "accountopportunitiesgrid"): Xrm.SubGridControl<"opportunity">;
       get(name: "address1_composite"): Xrm.StringControl | null;
       get(name: "address1_composite_compositionLinkControl_address1_city"): Xrm.StringControl | null;
       get(name: "address1_composite_compositionLinkControl_address1_country"): Xrm.StringControl | null;
@@ -89,21 +110,26 @@ declare namespace Form.account.Main {
       get(name: "donotfax"): Xrm.OptionSetControl<boolean>;
       get(name: "donotphone"): Xrm.OptionSetControl<boolean>;
       get(name: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+      get(name: "donotsendmm"): Xrm.OptionSetControl<boolean>;
       get(name: "fax"): Xrm.StringControl;
       get(name: "followemail"): Xrm.OptionSetControl<boolean>;
       get(name: "header_numberofemployees"): Xrm.NumberControl;
       get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "header_revenue"): Xrm.NumberControl;
       get(name: "industrycode"): Xrm.OptionSetControl<account_industrycode>;
+      get(name: "lastusedincampaign"): Xrm.DateControl;
       get(name: "mapcontrol"): Xrm.BaseControl;
       get(name: "name"): Xrm.StringControl;
+      get(name: "name1"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "notescontrol"): Xrm.BaseControl;
+      get(name: "originatingleadid"): Xrm.LookupControl<"lead">;
       get(name: "ownershipcode"): Xrm.OptionSetControl<account_ownershipcode>;
       get(name: "parentaccountid"): Xrm.LookupControl<"account">;
       get(name: "paymenttermscode"): Xrm.OptionSetControl<account_paymenttermscode>;
       get(name: "preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
       get(name: "primarycontactid"): Xrm.LookupControl<"contact">;
       get(name: "sic"): Xrm.StringControl;
+      get(name: "subgrid_Entitlement"): Xrm.SubGridControl<"entitlement">;
       get(name: "telephone1"): Xrm.StringControl;
       get(name: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;
@@ -114,8 +140,10 @@ declare namespace Form.account.Main {
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
+      get(name: "AssetsAndLocationsTab"): Xrm.PageTab<Tabs.AssetsAndLocationsTab>;
       get(name: "DETAILS_TAB"): Xrm.PageTab<Tabs.DETAILS_TAB>;
       get(name: "SUMMARY_TAB"): Xrm.PageTab<Tabs.SUMMARY_TAB>;
+      get(name: "documents_sharepoint"): Xrm.PageTab<Tabs.documents_sharepoint>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
@@ -141,11 +169,14 @@ declare namespace Form.account.Main {
     getAttribute(attributeName: "donotfax"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "donotphone"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "donotpostalmail"): Xrm.OptionSetAttribute<boolean>;
+    getAttribute(attributeName: "donotsendmm"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "fax"): Xrm.Attribute<string>;
     getAttribute(attributeName: "followemail"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "industrycode"): Xrm.OptionSetAttribute<account_industrycode>;
+    getAttribute(attributeName: "lastusedincampaign"): Xrm.DateAttribute;
     getAttribute(attributeName: "name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "numberofemployees"): Xrm.NumberAttribute;
+    getAttribute(attributeName: "originatingleadid"): Xrm.LookupAttribute<"lead">;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "ownershipcode"): Xrm.OptionSetAttribute<account_ownershipcode>;
     getAttribute(attributeName: "parentaccountid"): Xrm.LookupAttribute<"account">;
@@ -162,6 +193,9 @@ declare namespace Form.account.Main {
     getControl(controlName: "ActionCards"): Xrm.BaseControl;
     getControl(controlName: "ChildAccounts"): Xrm.SubGridControl<"account">;
     getControl(controlName: "Contacts"): Xrm.SubGridControl<"contact">;
+    getControl(controlName: "DocumentsSubGrid"): Xrm.SubGridControl<"sharepointdocument">;
+    getControl(controlName: "accountcasessgrid"): Xrm.SubGridControl<"incident">;
+    getControl(controlName: "accountopportunitiesgrid"): Xrm.SubGridControl<"opportunity">;
     getControl(controlName: "address1_composite"): Xrm.StringControl | null;
     getControl(controlName: "address1_composite_compositionLinkControl_address1_city"): Xrm.StringControl | null;
     getControl(controlName: "address1_composite_compositionLinkControl_address1_country"): Xrm.StringControl | null;
@@ -180,21 +214,26 @@ declare namespace Form.account.Main {
     getControl(controlName: "donotfax"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "donotphone"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "donotpostalmail"): Xrm.OptionSetControl<boolean>;
+    getControl(controlName: "donotsendmm"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "fax"): Xrm.StringControl;
     getControl(controlName: "followemail"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "header_numberofemployees"): Xrm.NumberControl;
     getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "header_revenue"): Xrm.NumberControl;
     getControl(controlName: "industrycode"): Xrm.OptionSetControl<account_industrycode>;
+    getControl(controlName: "lastusedincampaign"): Xrm.DateControl;
     getControl(controlName: "mapcontrol"): Xrm.BaseControl;
     getControl(controlName: "name"): Xrm.StringControl;
+    getControl(controlName: "name1"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
+    getControl(controlName: "originatingleadid"): Xrm.LookupControl<"lead">;
     getControl(controlName: "ownershipcode"): Xrm.OptionSetControl<account_ownershipcode>;
     getControl(controlName: "parentaccountid"): Xrm.LookupControl<"account">;
     getControl(controlName: "paymenttermscode"): Xrm.OptionSetControl<account_paymenttermscode>;
     getControl(controlName: "preferredcontactmethodcode"): Xrm.OptionSetControl<account_preferredcontactmethodcode>;
     getControl(controlName: "primarycontactid"): Xrm.LookupControl<"contact">;
     getControl(controlName: "sic"): Xrm.StringControl;
+    getControl(controlName: "subgrid_Entitlement"): Xrm.SubGridControl<"entitlement">;
     getControl(controlName: "telephone1"): Xrm.StringControl;
     getControl(controlName: "tickersymbol"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "transactioncurrencyid"): Xrm.LookupControl<"transactioncurrency">;

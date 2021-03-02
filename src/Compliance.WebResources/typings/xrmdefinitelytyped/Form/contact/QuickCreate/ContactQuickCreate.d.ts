@@ -17,6 +17,7 @@ declare namespace Form.contact.QuickCreate {
       get(name: "address1_line2"): Xrm.Attribute<string>;
       get(name: "address1_postalcode"): Xrm.Attribute<string>;
       get(name: "birthdate"): Xrm.DateAttribute | null;
+      get(name: "businesscard"): Xrm.Attribute<any>;
       get(name: "description"): Xrm.Attribute<string>;
       get(name: "emailaddress1"): Xrm.Attribute<string>;
       get(name: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode> | null;
@@ -42,6 +43,7 @@ declare namespace Form.contact.QuickCreate {
       get(name: "address1_line1"): Xrm.StringControl;
       get(name: "address1_line2"): Xrm.StringControl;
       get(name: "address1_postalcode"): Xrm.StringControl;
+      get(name: "businesscard"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "description"): Xrm.StringControl;
       get(name: "emailaddress1"): Xrm.StringControl;
       get(name: "firstname"): Xrm.StringControl;
@@ -82,6 +84,7 @@ declare namespace Form.contact.QuickCreate {
     getAttribute(attributeName: "address1_line2"): Xrm.Attribute<string>;
     getAttribute(attributeName: "address1_postalcode"): Xrm.Attribute<string>;
     getAttribute(attributeName: "birthdate"): Xrm.DateAttribute | null;
+    getAttribute(attributeName: "businesscard"): Xrm.Attribute<any>;
     getAttribute(attributeName: "description"): Xrm.Attribute<string>;
     getAttribute(attributeName: "emailaddress1"): Xrm.Attribute<string>;
     getAttribute(attributeName: "familystatuscode"): Xrm.OptionSetAttribute<contact_familystatuscode> | null;
@@ -102,6 +105,7 @@ declare namespace Form.contact.QuickCreate {
     getControl(controlName: "address1_line1"): Xrm.StringControl;
     getControl(controlName: "address1_line2"): Xrm.StringControl;
     getControl(controlName: "address1_postalcode"): Xrm.StringControl;
+    getControl(controlName: "businesscard"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "description"): Xrm.StringControl;
     getControl(controlName: "emailaddress1"): Xrm.StringControl;
     getControl(controlName: "firstname"): Xrm.StringControl;

@@ -13,7 +13,7 @@ interface opc_legislation_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface opc_legislation_Relationships {
-  opc_legislation_allegationtypes_leglislation?: opc_legislationallegationtype_Result[] | null;
+  opc_legislation_allegationtypes_legislation?: opc_legislationallegationtype_Result[] | null;
   opc_legislation_complaints_legislation?: opc_complaint_Result[] | null;
 }
 interface opc_legislation extends opc_legislation_Base, opc_legislation_Relationships {
@@ -73,7 +73,7 @@ interface opc_legislation_Expand {
   createdonbehalfby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
   modifiedby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_legislation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-  opc_legislation_allegationtypes_leglislation: WebExpand<opc_legislation_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { opc_legislation_allegationtypes_leglislation: opc_legislationallegationtype_Result[] }>;
+  opc_legislation_allegationtypes_legislation: WebExpand<opc_legislation_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { opc_legislation_allegationtypes_legislation: opc_legislationallegationtype_Result[] }>;
   opc_legislation_complaints_legislation: WebExpand<opc_legislation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_legislation_complaints_legislation: opc_complaint_Result[] }>;
   ownerid: WebExpand<opc_legislation_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_legislation_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
@@ -115,7 +115,7 @@ interface opc_legislation_RelatedOne {
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_legislation_RelatedMany {
-  opc_legislation_allegationtypes_leglislation: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
+  opc_legislation_allegationtypes_legislation: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
   opc_legislation_complaints_legislation: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface WebEntitiesRetrieve {

@@ -26,6 +26,8 @@ declare namespace Form.systemuser.AppointmentBook {
       get(name: "personalemailaddress"): Xrm.Attribute<string>;
       get(name: "positionid"): Xrm.LookupAttribute<"position">;
       get(name: "preferredphonecode"): Xrm.OptionSetAttribute<systemuser_preferredphonecode>;
+      get(name: "siteid"): Xrm.LookupAttribute<"site">;
+      get(name: "territoryid"): Xrm.LookupAttribute<"territory">;
       get(name: "title"): Xrm.Attribute<string>;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -48,6 +50,8 @@ declare namespace Form.systemuser.AppointmentBook {
       get(name: "personalemailaddress"): Xrm.StringControl;
       get(name: "positionid"): Xrm.LookupControl<"position">;
       get(name: "preferredphonecode"): Xrm.OptionSetControl<systemuser_preferredphonecode>;
+      get(name: "siteid"): Xrm.LookupControl<"site">;
+      get(name: "territoryid"): Xrm.LookupControl<"territory">;
       get(name: "title"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -78,6 +82,8 @@ declare namespace Form.systemuser.AppointmentBook {
     getAttribute(attributeName: "personalemailaddress"): Xrm.Attribute<string>;
     getAttribute(attributeName: "positionid"): Xrm.LookupAttribute<"position">;
     getAttribute(attributeName: "preferredphonecode"): Xrm.OptionSetAttribute<systemuser_preferredphonecode>;
+    getAttribute(attributeName: "siteid"): Xrm.LookupAttribute<"site">;
+    getAttribute(attributeName: "territoryid"): Xrm.LookupAttribute<"territory">;
     getAttribute(attributeName: "title"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "address1_telephone1"): Xrm.StringControl;
@@ -95,6 +101,8 @@ declare namespace Form.systemuser.AppointmentBook {
     getControl(controlName: "personalemailaddress"): Xrm.StringControl;
     getControl(controlName: "positionid"): Xrm.LookupControl<"position">;
     getControl(controlName: "preferredphonecode"): Xrm.OptionSetControl<systemuser_preferredphonecode>;
+    getControl(controlName: "siteid"): Xrm.LookupControl<"site">;
+    getControl(controlName: "territoryid"): Xrm.LookupControl<"territory">;
     getControl(controlName: "title"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }

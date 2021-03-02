@@ -56,10 +56,14 @@
     <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001003}" />
     <AppModuleComponent type="1" schemaName="opc_dispositionaction" />
     <AppModuleComponent type="1" schemaName="opc_dispositionreason" />
+    <AppModuleComponent type="1" schemaName="opc_event" />
     <AppModuleComponent type="1" schemaName="opc_individualcomplaint_bp" />
     <AppModuleComponent type="1" schemaName="opc_industry" />
     <AppModuleComponent type="1" schemaName="opc_issue" />
+    <AppModuleComponent type="1" schemaName="opc_legislation" />
+    <AppModuleComponent type="1" schemaName="opc_legislationallegationtype" />
     <AppModuleComponent type="1" schemaName="opc_notification" />
+    <AppModuleComponent type="1" schemaName="opc_opcpriority" />
     <AppModuleComponent type="1" schemaName="opc_personalinformationtype" />
     <AppModuleComponent type="1" schemaName="opc_questiontemplate" />
     <AppModuleComponent type="1" schemaName="opc_questiontype" />

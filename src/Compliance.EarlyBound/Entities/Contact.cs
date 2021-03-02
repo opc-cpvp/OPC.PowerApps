@@ -1738,6 +1738,46 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Stores Image of the Business Card
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businesscard")]
+		public string BusinessCard
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("businesscard");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("BusinessCard");
+				this.SetAttributeValue("businesscard", value);
+				this.OnPropertyChanged("BusinessCard");
+			}
+		}
+		
+		/// <summary>
+		/// Stores Business Card Control Properties.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businesscardattributes")]
+		public string BusinessCardAttributes
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("businesscardattributes");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("BusinessCardAttributes");
+				this.SetAttributeValue("businesscardattributes", value);
+				this.OnPropertyChanged("BusinessCardAttributes");
+			}
+		}
+		
+		/// <summary>
 		/// Type a callback phone number for this contact.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("callback")]
@@ -1989,6 +2029,26 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("CustomerTypeCode");
 				this.SetAttributeValue("customertypecode", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
 				this.OnPropertyChanged("CustomerTypeCode");
+			}
+		}
+		
+		/// <summary>
+		/// Choose the default price list associated with the contact to make sure the correct product prices for this customer are applied in sales opportunities, quotes, and orders.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defaultpricelevelid")]
+		public Microsoft.Xrm.Sdk.EntityReference DefaultPriceLevelId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defaultpricelevelid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DefaultPriceLevelId");
+				this.SetAttributeValue("defaultpricelevelid", value);
+				this.OnPropertyChanged("DefaultPriceLevelId");
 			}
 		}
 		
@@ -2883,6 +2943,46 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Describes whether contact is opted out or not
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("msdyn_gdproptout")]
+		public System.Nullable<bool> msdyn_gdproptout
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("msdyn_gdproptout");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("msdyn_gdproptout");
+				this.SetAttributeValue("msdyn_gdproptout", value);
+				this.OnPropertyChanged("msdyn_gdproptout");
+			}
+		}
+		
+		/// <summary>
+		/// Whether or not the contact belongs to the associated account
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("msdyn_orgchangestatus")]
+		public virtual Contactmsdyn_orgchangestatus? msdyn_orgchangestatus
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((Contactmsdyn_orgchangestatus?)(EntityOptionSetEnum.GetEnum(this, "msdyn_orgchangestatus")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("msdyn_orgchangestatus");
+				this.SetAttributeValue("msdyn_orgchangestatus", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("msdyn_orgchangestatus");
+			}
+		}
+		
+		/// <summary>
 		/// Type the contact's nickname.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("nickname")]
@@ -3012,6 +3112,26 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("opc_requireprivilegedcorrespondence");
 				this.SetAttributeValue("opc_requireprivilegedcorrespondence", value);
 				this.OnPropertyChanged("opc_requireprivilegedcorrespondence");
+			}
+		}
+		
+		/// <summary>
+		/// Shows the lead that the contact was created if the contact was created by converting a lead in Microsoft Dynamics 365. This is used to relate the contact to the data on the originating lead for use in reporting and analytics.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("originatingleadid")]
+		public Microsoft.Xrm.Sdk.EntityReference OriginatingLeadId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("originatingleadid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("OriginatingLeadId");
+				this.SetAttributeValue("originatingleadid", value);
+				this.OnPropertyChanged("OriginatingLeadId");
 			}
 		}
 		
@@ -3244,6 +3364,46 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("PreferredContactMethodCode");
 				this.SetAttributeValue("preferredcontactmethodcode", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
 				this.OnPropertyChanged("PreferredContactMethodCode");
+			}
+		}
+		
+		/// <summary>
+		/// Choose the contact's preferred service facility or equipment to make sure services are scheduled correctly for the customer.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("preferredequipmentid")]
+		public Microsoft.Xrm.Sdk.EntityReference PreferredEquipmentId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("preferredequipmentid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("PreferredEquipmentId");
+				this.SetAttributeValue("preferredequipmentid", value);
+				this.OnPropertyChanged("PreferredEquipmentId");
+			}
+		}
+		
+		/// <summary>
+		/// Choose the contact's preferred service to make sure services are scheduled correctly for the customer.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("preferredserviceid")]
+		public Microsoft.Xrm.Sdk.EntityReference PreferredServiceId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("preferredserviceid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("PreferredServiceId");
+				this.SetAttributeValue("preferredserviceid", value);
+				this.OnPropertyChanged("PreferredServiceId");
 			}
 		}
 		
@@ -3492,6 +3652,26 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("Suffix");
 				this.SetAttributeValue("suffix", value);
 				this.OnPropertyChanged("Suffix");
+			}
+		}
+		
+		/// <summary>
+		/// Number of users or conversations followed the record
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("teamsfollowed")]
+		public System.Nullable<int> TeamsFollowed
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("teamsfollowed");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TeamsFollowed");
+				this.SetAttributeValue("teamsfollowed", value);
+				this.OnPropertyChanged("TeamsFollowed");
 			}
 		}
 		
