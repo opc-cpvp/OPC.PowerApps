@@ -6416,7 +6416,7 @@
         <field name="opc_namefrench" value="PA - Acc&amp;#232;s" />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="46c6ed7e-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Access |PA - Acc&amp;#232;s" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6427,7 +6427,7 @@
         <field name="opc_namefrench" value="PIPEDA - Acc&amp;#232;s " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="f763e687-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Access |PIPEDA - Acc&amp;#232;s " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6438,7 +6438,7 @@
         <field name="opc_namefrench" value="PA - Exactitude " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="9c7ad8b9-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Accuracy |PA - Exactitude " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6449,7 +6449,7 @@
         <field name="opc_namefrench" value="PIPEDA - Exactitude " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="3a5805c0-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Accuracy |PIPEDA - Exactitude " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6460,7 +6460,7 @@
         <field name="opc_namefrench" value="PA - Collecte " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="6c2a24cd-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Collection |PA - Collecte " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6471,7 +6471,7 @@
         <field name="opc_namefrench" value="PIPEDA - Collecte " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="1b663cd9-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Collection |PIPEDA - Collecte " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6482,7 +6482,7 @@
         <field name="opc_namefrench" value="PA - Consentement " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="100be0e6-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Consent |PA - Consentement " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6493,7 +6493,7 @@
         <field name="opc_namefrench" value="PIPEDA - Consentement " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="120be0e6-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Consent |PIPEDA - Consentement " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6504,7 +6504,7 @@
         <field name="opc_namefrench" value="PA - Correction/annotation " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="6481faf5-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Correction - Notation |PA - Correction/annotation " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6515,7 +6515,7 @@
         <field name="opc_namefrench" value="PIPEDA - Correction/annotation " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="6681faf5-5963-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Correction - Notation |PIPEDA - Correction/annotation " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6526,7 +6526,7 @@
         <field name="opc_namefrench" value="PA - Refus d&amp;#39;acc&amp;#232;s " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="3d77d203-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Denial of Access |PA - Refus d&amp;#39;acc&amp;#232;s " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6537,7 +6537,7 @@
         <field name="opc_namefrench" value="PIPEDA - Refus d&amp;#39;acc&amp;#232;s " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="3f77d203-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Denial of Access |PIPEDA - Refus d&amp;#39;acc&amp;#232;s " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6548,7 +6548,7 @@
         <field name="opc_namefrench" value="PA - Avis de prorogation " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="6c36310e-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Extension Notice |PA - Avis de prorogation " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6559,7 +6559,7 @@
         <field name="opc_namefrench" value="PIPEDA - Avis de prorogation " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="5e8b4819-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Extension Notice |PIPEDA - Avis de prorogation " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6570,7 +6570,7 @@
         <field name="opc_namefrench" value="PA - Frais " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="6be27d20-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Fees |PA - Frais " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6581,7 +6581,7 @@
         <field name="opc_namefrench" value="PIPEDA - Frais " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="6de27d20-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Fees |PIPEDA - Frais " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6592,7 +6592,7 @@
         <field name="opc_namefrench" value="PA - PA - Correction/d&amp;#233;lais " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="6046d042-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - PA - Correction / Time Limits |PA - PA - Correction/d&amp;#233;lais " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6603,7 +6603,7 @@
         <field name="opc_namefrench" value="PA - PA - R&amp;#233;pertoire " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="34d74b4a-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - PA - Index |PA - PA - R&amp;#233;pertoire " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6614,7 +6614,7 @@
         <field name="opc_namefrench" value="PA - PA - Langue " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="5a941851-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - PA - Language |PA - PA - Langue " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6625,7 +6625,7 @@
         <field name="opc_namefrench" value="PA - PA- Autre " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="62941851-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - PA - Other |PA - PA- Autre " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6636,7 +6636,7 @@
         <field name="opc_namefrench" value="PA - PA - Politiques " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="cb89155d-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - PA - Policy |PA - PA - Politiques " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6647,7 +6647,7 @@
         <field name="opc_namefrench" value="PIPEDA - PIPEDA - Responsabilit&amp;#233; " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="3c49d26c-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - PIPEDA - Accountability |PIPEDA - PIPEDA - Responsabilit&amp;#233; " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6658,7 +6658,7 @@
         <field name="opc_namefrench" value="PIPEDA - PIPEDA - Fins appropriees " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="9c41b073-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - PIPEDA - Appropriate purposes |PIPEDA - PIPEDA - Fins appropriees " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6669,7 +6669,7 @@
         <field name="opc_namefrench" value="PIPEDA - PIPEDA - Possibilit&amp;#233; de porter plainte " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="9f41b073-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - PIPEDA - Challenging Compliance |PIPEDA - PIPEDA - Possibilit&amp;#233; de porter plainte " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6680,7 +6680,7 @@
         <field name="opc_namefrench" value="PIPEDA - PIPEDA - Determination des fins de la collecte des renseignements personnels " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="cc2d0d9d-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - PIPEDA - Identifying Purposes |PIPEDA - PIPEDA - Determination des fins de la collecte des renseignements personnels " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6691,7 +6691,7 @@
         <field name="opc_namefrench" value="PIPEDA - PIPEDA - Transparence " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="b76f0ea9-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - PIPEDA - Openness |PIPEDA - PIPEDA - Transparence " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6702,7 +6702,7 @@
         <field name="opc_namefrench" value="PIPEDA - PIPEDA - Repr&amp;#233;sailles " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="5953c1b0-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - PIPEDA- Retaliation |PIPEDA - PIPEDA - Repr&amp;#233;sailles " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6713,7 +6713,7 @@
         <field name="opc_namefrench" value="PA - Conservation et retrait " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="1d13e1bd-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Retention and Disposal |PA - Conservation et retrait " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6724,7 +6724,7 @@
         <field name="opc_namefrench" value="PIPEDA - Conservation et retrait " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="1f13e1bd-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Retention and Disposal |PIPEDA - Conservation et retrait " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6735,7 +6735,7 @@
         <field name="opc_namefrench" value="PA - Safeguards " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="283ea3cb-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Safeguards |PA - Safeguards " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6746,7 +6746,7 @@
         <field name="opc_namefrench" value="PIPEDA - Safeguards " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="2a3ea3cb-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Safeguards |PIPEDA - Safeguards " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6757,7 +6757,7 @@
         <field name="opc_namefrench" value="PA - D&amp;#233;lais " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="da89a2d7-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Time Limits |PA - D&amp;#233;lais " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6768,7 +6768,7 @@
         <field name="opc_namefrench" value="PIPEDA - D&amp;#233;lais " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="725001de-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Time Limits |PIPEDA - D&amp;#233;lais " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6779,7 +6779,7 @@
         <field name="opc_namefrench" value="PA - Utilisation et communication " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="4c308fe4-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
+        <field name="opc_legislation" value="7ec56b15-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Privacy Act" />
         <field name="opc_name" value="|^|PA - Use and Disclosure |PA - Utilisation et communication " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
@@ -6790,7 +6790,7 @@
         <field name="opc_namefrench" value="PIPEDA - Utilisation et communication " />
         <field name="opc_islocalizable" value="True" />
         <field name="opc_legislationallegationtypeid" value="54308fe4-5a63-eb11-a812-000d3aff137b" />
-        <field name="opc_leglislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
+        <field name="opc_legislation" value="e4307439-e61d-ea11-a810-000d3af464f8" lookupentity="opc_legislation" lookupentityname="Personal Information Protection and Electronic Documents Act" />
         <field name="opc_name" value="|^|PIPEDA - Use and Disclosure |PIPEDA - Utilisation et communication " />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />

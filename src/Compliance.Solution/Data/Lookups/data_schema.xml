@@ -347,7 +347,7 @@
       <field displayname="French Name" name="opc_namefrench" type="string" customfield="true" />
       <field displayname="Is Localizable" name="opc_islocalizable" type="bool" customfield="true" />
       <field displayname="Legislation Allegation Type" name="opc_legislationallegationtypeid" type="guid" primaryKey="true" />
-      <field displayname="Leglislation" name="opc_leglislation" type="entityreference" lookupType="opc_legislation" customfield="true" />
+      <field displayname="Legislation" name="opc_legislation" type="entityreference" lookupType="opc_legislation" customfield="true" />
       <field displayname="Name" name="opc_name" type="string" customfield="true" />
       <field displayname="Status" name="statecode" type="state" />
       <field displayname="Status Reason" name="statuscode" type="status" />
