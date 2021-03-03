@@ -9,7 +9,7 @@ declare const enum queueitem_objecttypecode {
   SocialActivity = 4216,
   RecurringAppointment = 4251,
   KnowledgeArticle = 9953,
-  KnowledgeArticleTemplate = 10007,
-  Complaint = 12748,
-  Event = 12751,
+  KnowledgeArticleTemplate = 10011,
+  Complaint = 10354,
+  Event = 10357,
 }

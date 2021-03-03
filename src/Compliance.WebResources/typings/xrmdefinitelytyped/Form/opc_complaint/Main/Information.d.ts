@@ -77,6 +77,8 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_memberofparliamentinvolved"): Xrm.Attribute<any>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
       get(name: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
+      get(name: "opc_noticeofdeemrefusaldate"): Xrm.DateAttribute;
+      get(name: "opc_noticeofinvestigationdate"): Xrm.DateAttribute;
       get(name: "opc_number"): Xrm.Attribute<string>;
       get(name: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
       get(name: "opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetAttribute<opc_reasontorequirefurtherinvestigation> | null;
@@ -155,6 +157,8 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
+      get(name: "opc_noticeofdeemrefusaldate"): Xrm.DateControl;
+      get(name: "opc_noticeofinvestigationdate"): Xrm.DateControl;
       get(name: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
       get(name: "opc_respondentandcomplainantrelationship"): Xrm.OptionSetControl<opc_respondentandcomplainantrelationship>;
       get(name: "opc_respondentlegalrepresentative"): Xrm.LookupControl<"contact">;
@@ -209,6 +213,8 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_memberofparliamentinvolved"): Xrm.Attribute<any>;
     getAttribute(attributeName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetAttribute<opc_multiplecomplaintstrategy>;
     getAttribute(attributeName: "opc_nextstep"): Xrm.OptionSetAttribute<opc_nextstep> | null;
+    getAttribute(attributeName: "opc_noticeofdeemrefusaldate"): Xrm.DateAttribute;
+    getAttribute(attributeName: "opc_noticeofinvestigationdate"): Xrm.DateAttribute;
     getAttribute(attributeName: "opc_number"): Xrm.Attribute<string>;
     getAttribute(attributeName: "opc_opcpriorityid"): Xrm.LookupAttribute<"opc_opcpriority">;
     getAttribute(attributeName: "opc_reasontorequirefurtherinvestigation"): Xrm.MultiSelectOptionSetAttribute<opc_reasontorequirefurtherinvestigation> | null;
@@ -282,6 +288,8 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
+    getControl(controlName: "opc_noticeofdeemrefusaldate"): Xrm.DateControl;
+    getControl(controlName: "opc_noticeofinvestigationdate"): Xrm.DateControl;
     getControl(controlName: "opc_opcpriorityid"): Xrm.LookupControl<"opc_opcpriority">;
     getControl(controlName: "opc_respondentandcomplainantrelationship"): Xrm.OptionSetControl<opc_respondentandcomplainantrelationship>;
     getControl(controlName: "opc_respondentlegalrepresentative"): Xrm.LookupControl<"contact">;

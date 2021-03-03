@@ -762,6 +762,46 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Date where the complaint has been deemed refused by the respondent if not contacted by them in the 30 day window applied when the first notice of investigation has been sent.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_noticeofdeemrefusaldate")]
+		public System.Nullable<System.DateTime> opc_noticeofdeemrefusaldate
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("opc_noticeofdeemrefusaldate");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_noticeofdeemrefusaldate");
+				this.SetAttributeValue("opc_noticeofdeemrefusaldate", value);
+				this.OnPropertyChanged("opc_noticeofdeemrefusaldate");
+			}
+		}
+		
+		/// <summary>
+		/// Date in which a notice of investigation has been sent to the respondent.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_noticeofinvestigationdate")]
+		public System.Nullable<System.DateTime> opc_noticeofinvestigationdate
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("opc_noticeofinvestigationdate");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_noticeofinvestigationdate");
+				this.SetAttributeValue("opc_noticeofinvestigationdate", value);
+				this.OnPropertyChanged("opc_noticeofinvestigationdate");
+			}
+		}
+		
+		/// <summary>
 		/// The complaint number
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("opc_number")]

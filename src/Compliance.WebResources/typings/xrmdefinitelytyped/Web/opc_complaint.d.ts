@@ -23,6 +23,8 @@ interface opc_complaint_Base extends WebEntity {
   opc_memberofparliamentinvolved?: boolean | null;
   opc_multiplecomplaintstrategy?: opc_multiplecomplaintstrategy | null;
   opc_nextstep?: opc_nextstep | null;
+  opc_noticeofdeemrefusaldate?: Date | null;
+  opc_noticeofinvestigationdate?: Date | null;
   opc_number?: string | null;
   opc_reasontorequirefurtherinvestigation?: opc_reasontorequirefurtherinvestigation | null;
   opc_recommendtoregistrar?: opc_yesorno | null;
@@ -120,6 +122,8 @@ interface opc_complaint_Select {
   opc_memberofparliamentinvolved: WebAttribute<opc_complaint_Select, { opc_memberofparliamentinvolved: boolean | null }, {  }>;
   opc_multiplecomplaintstrategy: WebAttribute<opc_complaint_Select, { opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy | null }, { opc_multiplecomplaintstrategy_formatted?: string }>;
   opc_nextstep: WebAttribute<opc_complaint_Select, { opc_nextstep: opc_nextstep | null }, { opc_nextstep_formatted?: string }>;
+  opc_noticeofdeemrefusaldate: WebAttribute<opc_complaint_Select, { opc_noticeofdeemrefusaldate: Date | null }, { opc_noticeofdeemrefusaldate_formatted?: string }>;
+  opc_noticeofinvestigationdate: WebAttribute<opc_complaint_Select, { opc_noticeofinvestigationdate: Date | null }, { opc_noticeofinvestigationdate_formatted?: string }>;
   opc_number: WebAttribute<opc_complaint_Select, { opc_number: string | null }, {  }>;
   opc_opcpriorityid_guid: WebAttribute<opc_complaint_Select, { opc_opcpriorityid_guid: string | null }, { opc_opcpriorityid_formatted?: string }>;
   opc_reasontorequirefurtherinvestigation: WebAttribute<opc_complaint_Select, { opc_reasontorequirefurtherinvestigation: opc_reasontorequirefurtherinvestigation | null }, { opc_reasontorequirefurtherinvestigation_formatted?: string }>;
@@ -189,6 +193,8 @@ interface opc_complaint_Filter {
   opc_memberofparliamentinvolved: boolean;
   opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy;
   opc_nextstep: opc_nextstep;
+  opc_noticeofdeemrefusaldate: Date;
+  opc_noticeofinvestigationdate: Date;
   opc_number: string;
   opc_opcpriorityid_guid: XQW.Guid;
   opc_reasontorequirefurtherinvestigation: opc_reasontorequirefurtherinvestigation;
@@ -284,6 +290,8 @@ interface opc_complaint_FormattedResult {
   opc_legislation_formatted?: string;
   opc_multiplecomplaintstrategy_formatted?: string;
   opc_nextstep_formatted?: string;
+  opc_noticeofdeemrefusaldate_formatted?: string;
+  opc_noticeofinvestigationdate_formatted?: string;
   opc_opcpriorityid_formatted?: string;
   opc_reasontorequirefurtherinvestigation_formatted?: string;
   opc_recommendtoregistrar_formatted?: string;

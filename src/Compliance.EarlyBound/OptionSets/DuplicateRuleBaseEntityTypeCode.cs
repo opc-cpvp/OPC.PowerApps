@@ -16,7 +16,7 @@ namespace Compliance.EarlyBound
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AccessRequestDocument = 12743,
+		AccessRequestDocument = 10349,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Account = 1,
@@ -49,64 +49,64 @@ namespace Compliance.EarlyBound
 		AdvancedSimilarityRule = 9949,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDataset = 10468,
+		AIBuilderDataset = 10014,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetFile = 10469,
+		AIBuilderDatasetFile = 10015,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetRecord = 10762,
+		AIBuilderDatasetRecord = 10016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderDatasetsContainer = 10470,
+		AIBuilderDatasetsContainer = 10017,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFile = 10471,
+		AIBuilderFile = 10018,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIBuilderFileAttachedData = 10472,
+		AIBuilderFileAttachedData = 10019,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIConfiguration = 402,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIFormProcessingDocument = 10009,
+		AIFormProcessingDocument = 10020,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AIModel = 401,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionBoundingBox = 10012,
+		AIObjectDetectionBoundingBox = 10023,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImage = 10010,
+		AIObjectDetectionImage = 10021,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionImageMapping = 10013,
+		AIObjectDetectionImageMapping = 10024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AIObjectDetectionLabel = 10011,
+		AIObjectDetectionLabel = 10022,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AITemplate = 400,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationConcern = 12744,
+		AllegationConcern = 10350,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AllegationType = 12745,
+		AllegationType = 10351,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisComponent = 10029,
+		AnalysisComponent = 10030,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisJob = 10030,
+		AnalysisJob = 10031,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResult = 10031,
+		AnalysisResult = 10032,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		AnalysisResultDetail = 10032,
+		AnalysisResultDetail = 10033,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Announcement = 132,
@@ -115,7 +115,7 @@ namespace Compliance.EarlyBound
 		AnnualFiscalCalendar = 2000,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApiSettings = 10049,
+		ApiSettings = 10012,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppConfigMaster = 9011,
@@ -133,7 +133,7 @@ namespace Compliance.EarlyBound
 		ApplicationRibbons = 1120,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ApplicationUser = 11581,
+		ApplicationUser = 10187,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		AppModuleComponent = 9007,
@@ -184,7 +184,7 @@ namespace Compliance.EarlyBound
 		AzureServiceConnection = 9936,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		BotContent = 12213,
+		BotContent = 10276,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		BulkDeleteFailure = 4425,
@@ -217,19 +217,19 @@ namespace Compliance.EarlyBound
 		CanvasApp = 300,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CanvasAppExtendedMetadata = 11766,
+		CanvasAppExtendedMetadata = 10256,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessRecordsTracker = 12104,
+		CascadeGrantRevokeAccessRecordsTracker = 10260,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CascadeGrantRevokeAccessVersionTracker = 12105,
+		CascadeGrantRevokeAccessVersionTracker = 10261,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Catalog = 12207,
+		Catalog = 10270,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CatalogAssignment = 12208,
+		CatalogAssignment = 10271,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Category = 9959,
@@ -250,16 +250,16 @@ namespace Compliance.EarlyBound
 		ChannelPropertyGroup = 1234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbot = 12220,
+		Chatbot = 10278,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Chatbotsubcomponent = 12221,
+		Chatbotsubcomponent = 10279,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistResponse = 12746,
+		ChecklistResponse = 10352,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ChecklistType = 12747,
+		ChecklistType = 10353,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Clientupdate = 36,
@@ -271,19 +271,19 @@ namespace Compliance.EarlyBound
 		Comment = 8005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Complaint = 12748,
+		Complaint = 10354,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayer = 10002,
+		ComponentLayer = 10004,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ComponentLayerDataSource = 10003,
+		ComponentLayerDataSource = 10005,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Connection = 3234,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConnectionReference = 11765,
+		ConnectionReference = 10028,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ConnectionRole = 3231,
@@ -298,19 +298,19 @@ namespace Compliance.EarlyBound
 		Contact = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ConversationTranscript = 12214,
+		ConversationTranscript = 10277,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Currency = 9105,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPI = 12210,
+		CustomAPI = 10273,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIRequestParameter = 12211,
+		CustomAPIRequestParameter = 10274,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		CustomAPIResponseProperty = 12212,
+		CustomAPIResponseProperty = 10275,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		CustomControl = 9753,
@@ -331,16 +331,16 @@ namespace Compliance.EarlyBound
 		DataImport = 4410,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolder = 12172,
+		DataLakeFolder = 10266,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeFolderPermission = 12173,
+		DataLakeFolderPermission = 10267,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspace = 11579,
+		DataLakeWorkspace = 10185,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DataLakeWorkspacePermission = 11580,
+		DataLakeWorkspacePermission = 10186,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DataMap = 4411,
@@ -367,10 +367,10 @@ namespace Compliance.EarlyBound
 		DisplayStringMap = 4101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionAction = 12749,
+		DispositionAction = 10355,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		DispositionReason = 12750,
+		DispositionReason = 10356,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		DocumentLocation = 9508,
@@ -433,7 +433,7 @@ namespace Compliance.EarlyBound
 		EnvironmentVariableValue = 381,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Event = 12751,
+		Event = 10357,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExchangeSyncIdMapping = 4120,
@@ -445,7 +445,7 @@ namespace Compliance.EarlyBound
 		ExpiredProcess = 955,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ExportSolutionUpload = 11918,
+		ExportSolutionUpload = 10258,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ExternalParty = 3008,
@@ -493,7 +493,7 @@ namespace Compliance.EarlyBound
 		GoalMetric = 9603,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		HelpPage = 10016,
+		HelpPage = 10029,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		HierarchyRule = 8840,
@@ -529,10 +529,10 @@ namespace Compliance.EarlyBound
 		IndexedArticle = 126,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		IndividualComplaint = 12752,
+		IndividualComplaint = 10358,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Industry = 12753,
+		Industry = 10359,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		IntegrationStatus = 3000,
@@ -544,7 +544,7 @@ namespace Compliance.EarlyBound
 		InternalAddress = 1003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		InternalCatalogAssignment = 12209,
+		InternalCatalogAssignment = 10272,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		InterProcessLock = 4011,
@@ -553,10 +553,13 @@ namespace Compliance.EarlyBound
 		InvalidDependency = 7107,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Issue = 12754,
+		Issue = 10360,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ISVConfig = 4705,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KeyVaultReference = 10346,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticle = 9953,
@@ -565,10 +568,10 @@ namespace Compliance.EarlyBound
 		KnowledgeArticleCategory = 9960,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleImage = 10006,
+		KnowledgeArticleImage = 10010,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeArticleTemplate = 10007,
+		KnowledgeArticleTemplate = 10011,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticleViews = 9955,
@@ -577,16 +580,16 @@ namespace Compliance.EarlyBound
 		KnowledgeBaseRecord = 9930,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticle = 12225,
+		KnowledgeFederatedArticle = 10283,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeFederatedArticleIncident = 12226,
+		KnowledgeFederatedArticleIncident = 10284,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeInteractionInsight = 12170,
+		KnowledgeInteractionInsight = 10264,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		KnowledgeSearchInsight = 12171,
+		KnowledgeSearchInsight = 10265,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeSearchModel = 9947,
@@ -598,7 +601,7 @@ namespace Compliance.EarlyBound
 		LanguageProvisioningState = 9875,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Legislation = 12755,
+		Legislation = 10361,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Letter = 4207,
@@ -634,6 +637,9 @@ namespace Compliance.EarlyBound
 		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ManagedIdentity = 10347,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ManagedProperty = 9812,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -652,19 +658,19 @@ namespace Compliance.EarlyBound
 		ModeldrivenApp = 9006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNode = 11702,
+		ModelDrivenAppComponentNode = 10252,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppComponentNodesEdge = 11701,
+		ModelDrivenAppComponentNodesEdge = 10251,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppElement = 11700,
+		ModelDrivenAppElement = 10250,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppSetting = 11703,
+		ModelDrivenAppSetting = 10253,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ModelDrivenAppUserSetting = 12676,
+		ModelDrivenAppUserSetting = 10343,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		MonthlyFiscalCalendar = 2003,
@@ -682,19 +688,22 @@ namespace Compliance.EarlyBound
 		NewProcess = 950,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		NonRelationalDataSource = 11549,
+		NonRelationalDataSource = 10097,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Note = 5,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Notification_12756 = 12756,
+		Notification_10348 = 10348,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification_10362 = 10362,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Notification_4110 = 4110,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ODatav4DataSource = 10008,
+		ODatav4DataSource = 10013,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OfficeDocument = 4490,
@@ -706,7 +715,7 @@ namespace Compliance.EarlyBound
 		OfflineCommandDefinition = 9870,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OPCPriority = 12757,
+		OPCPriority = 10363,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OptionSet = 9809,
@@ -715,10 +724,10 @@ namespace Compliance.EarlyBound
 		Organization = 1019,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationDataSyncSubscription = 12608,
+		OrganizationDataSyncSubscription = 10341,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationDataSyncSubscriptionEntity = 12609,
+		OrganizationDataSyncSubscriptionEntity = 10342,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OrganizationInsightsMetric = 9699,
@@ -727,7 +736,7 @@ namespace Compliance.EarlyBound
 		OrganizationInsightsNotification = 9690,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		OrganizationSetting = 12607,
+		OrganizationSetting = 10340,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		OrganizationStatistic = 4708,
@@ -742,13 +751,13 @@ namespace Compliance.EarlyBound
 		OwnerMapping = 4420,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Package = 12137,
+		Package = 10262,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PartnerApplication = 1095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		PDFSetting = 11857,
+		PDFSetting = 10257,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		PersonalDocumentTemplate = 9941,
@@ -808,13 +817,13 @@ namespace Compliance.EarlyBound
 		ProcessStage = 4724,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProcessStageParameter = 10626,
+		ProcessStageParameter = 10026,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ProcessTrigger = 4712,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ProvisionLanguageForUser = 12205,
+		ProvisionLanguageForUser = 10268,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Publisher = 7101,
@@ -826,10 +835,10 @@ namespace Compliance.EarlyBound
 		QuarterlyFiscalCalendar = 2002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionTemplate = 12758,
+		QuestionTemplate = 10364,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		QuestionType = 12759,
+		QuestionType = 10365,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Queue = 2020,
@@ -844,7 +853,7 @@ namespace Compliance.EarlyBound
 		QueueMemberCount = 2024,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Recommendation = 12760,
+		Recommendation = 10366,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RecordCreationandUpdateRule = 9300,
@@ -871,7 +880,7 @@ namespace Compliance.EarlyBound
 		RelationshipRoleMap = 4501,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Reminder = 12761,
+		Reminder = 10367,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ReplicationBacklog = 1140,
@@ -892,7 +901,7 @@ namespace Compliance.EarlyBound
 		ReportVisibility = 9103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RevokeInheritedAccessRecordsTracker = 12366,
+		RevokeInheritedAccessRecordsTracker = 10330,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RibbonClientMetadata = 4579,
@@ -916,31 +925,31 @@ namespace Compliance.EarlyBound
 		RibbonTabToCommandMapping = 1113,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RichTextAttachment = 12041,
+		RichTextAttachment = 10259,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAppetite = 12762,
+		RiskAppetite = 10368,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessment = 12763,
+		RiskAssessment = 10369,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategory = 12764,
+		RiskAssessmentCategory = 10370,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentCategoryTemplate = 12765,
+		RiskAssessmentCategoryTemplate = 10371,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinition = 12766,
+		RiskAssessmentDefinition = 10372,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentDefinitionTemplate = 12767,
+		RiskAssessmentDefinitionTemplate = 10373,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentFactorTemplate = 12768,
+		RiskAssessmentFactorTemplate = 10374,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		RiskAssessmentType = 12769,
+		RiskAssessmentType = 10375,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		RoleTemplate = 1037,
@@ -1003,10 +1012,10 @@ namespace Compliance.EarlyBound
 		SdkMessageResponseField = 4611,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Searchprovider = 12227,
+		Searchprovider = 10285,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SearchTelemetry = 12231,
+		SearchTelemetry = 10286,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SecurityRole = 1036,
@@ -1015,7 +1024,7 @@ namespace Compliance.EarlyBound
 		SemiannualFiscalCalendar = 2001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		ServiceConfiguration = 11547,
+		ServiceConfiguration = 10095,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ServiceEndpoint = 4618,
@@ -1024,7 +1033,7 @@ namespace Compliance.EarlyBound
 		ServicePlan = 101,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SettingDefinition = 11704,
+		SettingDefinition = 10254,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SharePointData = 9509,
@@ -1048,7 +1057,7 @@ namespace Compliance.EarlyBound
 		SLAItem = 9751,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SLAKPI = 11548,
+		SLAKPI = 10096,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SLAKPIInstance = 9752,
@@ -1069,31 +1078,31 @@ namespace Compliance.EarlyBound
 		SolutionComponent = 7103,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentAttributeConfiguration = 10056,
+		SolutionComponentAttributeConfiguration = 10002,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentConfiguration = 10494,
+		SolutionComponentConfiguration = 10003,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentDataSource = 10005,
+		SolutionComponentDataSource = 10009,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionComponentDefinition = 7104,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentRelationshipConfiguration = 11612,
+		SolutionComponentRelationshipConfiguration = 10220,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionComponentSummary = 10004,
+		SolutionComponentSummary = 10008,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRule = 10033,
+		SolutionHealthRule = 10034,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleArgument = 10034,
+		SolutionHealthRuleArgument = 10035,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SolutionHealthRuleSet = 10035,
+		SolutionHealthRuleSet = 10036,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SolutionHistory = 10000,
@@ -1105,7 +1114,7 @@ namespace Compliance.EarlyBound
 		SolutionHistoryDataSource = 10001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		StageSolutionUpload = 10600,
+		StageSolutionUpload = 10006,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		StatusMap = 1075,
@@ -1165,7 +1174,7 @@ namespace Compliance.EarlyBound
 		SystemJob = 4700,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		SystemUserAuthorizationChangeTracker = 12606,
+		SystemUserAuthorizationChangeTracker = 10339,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		SystemUserBusinessUnitEntityMap = 42,
@@ -1183,7 +1192,7 @@ namespace Compliance.EarlyBound
 		Team = 9,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		TeamMobileOfflineProfileMembership = 12777,
+		TeamMobileOfflineProfileMembership = 10344,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		TeamProfiles = 1203,
@@ -1201,7 +1210,7 @@ namespace Compliance.EarlyBound
 		TextAnalyticsEntityMapping = 9945,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Theme_12770 = 12770,
+		Theme_10376 = 10376,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Theme_2015 = 2015,
@@ -1219,7 +1228,7 @@ namespace Compliance.EarlyBound
 		TimeZoneRule = 4811,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		Topic = 12771,
+		Topic = 10377,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Trace = 8050,
@@ -1273,7 +1282,7 @@ namespace Compliance.EarlyBound
 		UserMapping = 2016,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		UserMobileOfflineProfileMembership = 12778,
+		UserMobileOfflineProfileMembership = 10345,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		UserSearchFacet = 52,
@@ -1303,7 +1312,7 @@ namespace Compliance.EarlyBound
 		WizardPage = 4802,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		WorkflowBinary = 10015,
+		WorkflowBinary = 10027,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		WorkflowWaitSubscription = 4702,

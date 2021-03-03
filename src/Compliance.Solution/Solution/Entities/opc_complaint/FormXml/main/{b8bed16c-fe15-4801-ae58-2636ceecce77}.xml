@@ -72,6 +72,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{f830cba6-b3d0-4a39-bdab-5ef0785999ac}" locklevel="0">
+                        <labels>
+                          <label description="Notice of investigation date" languagecode="1033" />
+                        </labels>
+                        <control id="opc_noticeofinvestigationdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_noticeofinvestigationdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1d83f368-a750-45f9-816c-379c0eaeb731}" locklevel="0">
+                        <labels>
+                          <label description="Notice of deem refusal date" languagecode="1033" />
+                        </labels>
+                        <control id="opc_noticeofdeemrefusaldate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="opc_noticeofdeemrefusaldate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell showlabel="false" locklevel="0" id="{30cb9c9e-4979-47d5-a89c-f6a6b79ed677}" rowspan="7" colspan="1" auto="false">
                         <labels>
                           <label description="Topics" languagecode="1033" />
