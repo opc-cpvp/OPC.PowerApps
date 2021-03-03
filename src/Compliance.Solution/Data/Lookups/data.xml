@@ -6833,82 +6833,82 @@
   <entity name="opc_personalinformationtype" displayname="Personal Information Type">
     <records>
       <record id="3114374a-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(a) information relating to the race, national or ethnic origin, colour, religion, age or marital status of the individual" />
-        <field name="opc_namefrench" value="a) les renseignements relatifs &amp;#224; sa race, &amp;#224; son origine nationale ou ethnique, &amp;#224; sa couleur, &amp;#224; sa religion, &amp;#224; son &amp;#226;ge ou &amp;#224; sa situation de famille" />
+        <field name="opc_nameenglish" value="Information relating to the race, national or ethnic origin, colour, religion, age or marital status of the individual" />
+        <field name="opc_namefrench" value="Les renseignements relatifs &amp;#224; sa race, &amp;#224; son origine nationale ou ethnique, &amp;#224; sa couleur, &amp;#224; sa religion, &amp;#224; son &amp;#226;ge ou &amp;#224; sa situation de famille" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(a) information relating to the race, national or ethnic origin, colour, religion, age or marital status of the individual|a) les renseignements relatifs &amp;#224; sa race, &amp;#224; son origine nationale ou ethnique, &amp;#224; sa couleur, &amp;#224; sa religion, &amp;#224; son &amp;#226;ge ou &amp;#224; sa situation de famille" />
+        <field name="opc_name" value="|^|Information relating to the race, national or ethnic origin, colour, religion, age or marital status of the individual|Les renseignements relatifs &amp;#224; sa race, &amp;#224; son origine nationale ou ethnique, &amp;#224; sa couleur, &amp;#224; sa religion, &amp;#224; son &amp;#226;ge ou &amp;#224; sa situation de famille" />
         <field name="opc_personalinformationtypeid" value="3114374a-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="b4683151-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(b) information relating to the education or the medical, criminal or employment history of the individual or information relating to financial transactions in which the individual has been involved" />
-        <field name="opc_namefrench" value="b) les renseignements relatifs &amp;#224; son &amp;#233;ducation, &amp;#224; son dossier m&amp;#233;dical, &amp;#224; son casier judiciaire, &amp;#224; ses ant&amp;#233;c&amp;#233;dents professionnels ou &amp;#224; des op&amp;#233;rations financi&amp;#232;res auxquelles il a particip&amp;#233;" />
+        <field name="opc_nameenglish" value="Information relating to the education or the medical, criminal or employment history of the individual or information relating to financial transactions in which the individual has been involved" />
+        <field name="opc_namefrench" value="Les renseignements relatifs &amp;#224; son &amp;#233;ducation, &amp;#224; son dossier m&amp;#233;dical, &amp;#224; son casier judiciaire, &amp;#224; ses ant&amp;#233;c&amp;#233;dents professionnels ou &amp;#224; des op&amp;#233;rations financi&amp;#232;res auxquelles il a particip&amp;#233;" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(b) information relating to the education or the medical, criminal or employment history of the individual or information relating to financial transactions in which the individual has been involved|b) les renseignements relatifs &amp;#224; son &amp;#233;ducation, &amp;#224; son dossier m&amp;#233;dical, &amp;#224; son casier judiciaire, &amp;#224; ses ant&amp;#233;c&amp;#233;dents professionnels ou &amp;#224; des op&amp;#233;rations financi&amp;#232;res auxquelles il a particip&amp;#233;" />
+        <field name="opc_name" value="|^|Information relating to the education or the medical, criminal or employment history of the individual or information relating to financial transactions in which the individual has been involved|Les renseignements relatifs &amp;#224; son &amp;#233;ducation, &amp;#224; son dossier m&amp;#233;dical, &amp;#224; son casier judiciaire, &amp;#224; ses ant&amp;#233;c&amp;#233;dents professionnels ou &amp;#224; des op&amp;#233;rations financi&amp;#232;res auxquelles il a particip&amp;#233;" />
         <field name="opc_personalinformationtypeid" value="b4683151-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="69995457-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(c) any identifying number, symbol or other particular assigned to the individual" />
-        <field name="opc_namefrench" value="c) tout num&amp;#233;ro ou symbole, ou toute autre indication identificatrice, qui lui est propre" />
+        <field name="opc_nameenglish" value="Any identifying number, symbol or other particular assigned to the individual" />
+        <field name="opc_namefrench" value="Tout num&amp;#233;ro ou symbole, ou toute autre indication identificatrice, qui lui est propre" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(c) any identifying number, symbol or other particular assigned to the individual|c) tout num&amp;#233;ro ou symbole, ou toute autre indication identificatrice, qui lui est propre" />
+        <field name="opc_name" value="|^|Any identifying number, symbol or other particular assigned to the individual|Tout num&amp;#233;ro ou symbole, ou toute autre indication identificatrice, qui lui est propre" />
         <field name="opc_personalinformationtypeid" value="69995457-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="15717c6f-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(d) the address, fingerprints or blood type of the individual" />
-        <field name="opc_namefrench" value="d) son adresse, ses empreintes digitales ou son groupe sanguin" />
+        <field name="opc_nameenglish" value="The address, fingerprints or blood type of the individual" />
+        <field name="opc_namefrench" value="Son adresse, ses empreintes digitales ou son groupe sanguin" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(d) the address, fingerprints or blood type of the individual|d) son adresse, ses empreintes digitales ou son groupe sanguin" />
+        <field name="opc_name" value="|^|The address, fingerprints or blood type of the individual|Son adresse, ses empreintes digitales ou son groupe sanguin" />
         <field name="opc_personalinformationtypeid" value="15717c6f-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="16717c6f-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(e) the personal opinions or views of the individual except where they are about another individual or about a proposal for a grant, an award or a prize to be made to another individual by a government institution or a part of a government institution specified in the regulations" />
-        <field name="opc_namefrench" value="e) ses opinions ou ses id&amp;#233;es personnelles, &amp;#224; l’exclusion de celles qui portent sur un autre individu ou sur une proposition de subvention, de r&amp;#233;compense ou de prix &amp;#224; octroyer &amp;#224; un autre individu par une institution f&amp;#233;d&amp;#233;rale, ou subdivision de celle-ci vis&amp;#233;e par r&amp;#232;glement" />
+        <field name="opc_nameenglish" value="The personal opinions or views of the individual except where they are about another individual or about a proposal for a grant, an award or a prize to be made to another individual by a government institution or a part of a government institution specified in the regulations" />
+        <field name="opc_namefrench" value="Ses opinions ou ses id&amp;#233;es personnelles, &amp;#224; l’exclusion de celles qui portent sur un autre individu ou sur une proposition de subvention, de r&amp;#233;compense ou de prix &amp;#224; octroyer &amp;#224; un autre individu par une institution f&amp;#233;d&amp;#233;rale, ou subdivision de celle-ci vis&amp;#233;e par r&amp;#232;glement" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(e) the personal opinions or views of the individual except where they are about another individual or about a proposal for a grant, an award or a prize to be made to another individual by a government institution or a part of a government institution specified in the regulations|e) ses opinions ou ses id&amp;#233;es personnelles, &amp;#224; l’exclusion de celles qui portent sur un autre individu ou sur une proposition de subvention, de r&amp;#233;compense ou de prix &amp;#224; octroyer &amp;#224; un autre individu par une institution f&amp;#233;d&amp;#233;rale, ou subdivision de celle-ci vis&amp;#233;e par r&amp;#232;glement" />
+        <field name="opc_name" value="|^|The personal opinions or views of the individual except where they are about another individual or about a proposal for a grant, an award or a prize to be made to another individual by a government institution or a part of a government institution specified in the regulations|Ses opinions ou ses id&amp;#233;es personnelles, &amp;#224; l’exclusion de celles qui portent sur un autre individu ou sur une proposition de subvention, de r&amp;#233;compense ou de prix &amp;#224; octroyer &amp;#224; un autre individu par une institution f&amp;#233;d&amp;#233;rale, ou subdivision de celle-ci vis&amp;#233;e par r&amp;#232;glement" />
         <field name="opc_personalinformationtypeid" value="16717c6f-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="4abead78-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(f) correspondence sent to a government institution by the individual that is implicitly or explicitly of a private or confidential nature, and replies to such correspondence that would reveal the contents of the original correspondence" />
-        <field name="opc_namefrench" value="f) toute correspondance de nature, implicitement ou explicitement, priv&amp;#233;e ou confidentielle envoy&amp;#233;e par lui &amp;#224; une institution f&amp;#233;d&amp;#233;rale, ainsi que les r&amp;#233;ponses de l’institution dans la mesure o&amp;#249; elles r&amp;#233;v&amp;#232;lent le contenu de la correspondance de l’exp&amp;#233;diteur" />
+        <field name="opc_nameenglish" value="Correspondence sent to a government institution by the individual that is implicitly or explicitly of a private or confidential nature, and replies to such correspondence that would reveal the contents of the original correspondence" />
+        <field name="opc_namefrench" value="Toute correspondance de nature, implicitement ou explicitement, priv&amp;#233;e ou confidentielle envoy&amp;#233;e par lui &amp;#224; une institution f&amp;#233;d&amp;#233;rale, ainsi que les r&amp;#233;ponses de l’institution dans la mesure o&amp;#249; elles r&amp;#233;v&amp;#232;lent le contenu de la correspondance de l’exp&amp;#233;diteur" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(f) correspondence sent to a government institution by the individual that is implicitly or explicitly of a private or confidential nature, and replies to such correspondence that would reveal the contents of the original correspondence|f) toute correspondance de nature, implicitement ou explicitement, priv&amp;#233;e ou confidentielle envoy&amp;#233;e par lui &amp;#224; une institution f&amp;#233;d&amp;#233;rale, ainsi que les r&amp;#233;ponses de l’institution dans la mesure o&amp;#249; elles r&amp;#233;v&amp;#232;lent le contenu de la correspondance de l’exp&amp;#233;diteur" />
+        <field name="opc_name" value="|^|Correspondence sent to a government institution by the individual that is implicitly or explicitly of a private or confidential nature, and replies to such correspondence that would reveal the contents of the original correspondence|Toute correspondance de nature, implicitement ou explicitement, priv&amp;#233;e ou confidentielle envoy&amp;#233;e par lui &amp;#224; une institution f&amp;#233;d&amp;#233;rale, ainsi que les r&amp;#233;ponses de l’institution dans la mesure o&amp;#249; elles r&amp;#233;v&amp;#232;lent le contenu de la correspondance de l’exp&amp;#233;diteur" />
         <field name="opc_personalinformationtypeid" value="4abead78-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="4bbead78-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(g) the views or opinions of another individual about the individual" />
-        <field name="opc_namefrench" value="g) les id&amp;#233;es ou opinions d’autrui sur lui" />
+        <field name="opc_nameenglish" value="The views or opinions of another individual about the individual" />
+        <field name="opc_namefrench" value="Les id&amp;#233;es ou opinions d’autrui sur lui" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(g) the views or opinions of another individual about the individual|g) les id&amp;#233;es ou opinions d’autrui sur lui" />
+        <field name="opc_name" value="|^|The views or opinions of another individual about the individual|Les id&amp;#233;es ou opinions d’autrui sur lui" />
         <field name="opc_personalinformationtypeid" value="4bbead78-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="11b86b82-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(h) the views or opinions of another individual about a proposal for a grant, an award or a prize to be made to the individual by an institution or a part of an institution referred to in paragraph (e), but excluding the name of the other individual where it appears with the views or opinions of the other individual" />
-        <field name="opc_namefrench" value="h) les id&amp;#233;es ou opinions d’un autre individu qui portent sur une proposition de subvention, de r&amp;#233;compense ou de prix &amp;#224; lui octroyer par une institution, ou subdivision de celle-ci, vis&amp;#233;e &amp;#224; l’alin&amp;#233;a e), &amp;#224; l’exclusion du nom de cet autre individu si ce nom est mentionn&amp;#233; avec les id&amp;#233;es ou opinions" />
+        <field name="opc_nameenglish" value="The views or opinions of another individual about a proposal for a grant, an award or a prize to be made to the individual by an institution or a part of an institution referred to in paragraph (e), but excluding the name of the other individual where it appears with the views or opinions of the other individual" />
+        <field name="opc_namefrench" value="Les id&amp;#233;es ou opinions d’un autre individu qui portent sur une proposition de subvention, de r&amp;#233;compense ou de prix &amp;#224; lui octroyer par une institution, ou subdivision de celle-ci, vis&amp;#233;e &amp;#224; l’alin&amp;#233;a e), &amp;#224; l’exclusion du nom de cet autre individu si ce nom est mentionn&amp;#233; avec les id&amp;#233;es ou opinions" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(h) the views or opinions of another individual about a proposal for a grant, an award or a prize to be made to the individual by an institution or a part of an institution referred to in paragraph (e), but excluding the name of the other individual where it appears with the views or opinions of the other individual|h) les id&amp;#233;es ou opinions d’un autre individu qui portent sur une proposition de subvention, de r&amp;#233;compense ou de prix &amp;#224; lui octroyer par une institution, ou subdivision de celle-ci, vis&amp;#233;e &amp;#224; l’alin&amp;#233;a e), &amp;#224; l’exclusion du nom de cet autre individu si ce nom est mentionn&amp;#233; avec les id&amp;#233;es ou opinions" />
+        <field name="opc_name" value="|^|The views or opinions of another individual about a proposal for a grant, an award or a prize to be made to the individual by an institution or a part of an institution referred to in paragraph (e), but excluding the name of the other individual where it appears with the views or opinions of the other individual|Les id&amp;#233;es ou opinions d’un autre individu qui portent sur une proposition de subvention, de r&amp;#233;compense ou de prix &amp;#224; lui octroyer par une institution, ou subdivision de celle-ci, vis&amp;#233;e &amp;#224; l’alin&amp;#233;a e), &amp;#224; l’exclusion du nom de cet autre individu si ce nom est mentionn&amp;#233; avec les id&amp;#233;es ou opinions" />
         <field name="opc_personalinformationtypeid" value="11b86b82-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
       </record>
       <record id="12b86b82-4b6b-eb11-a812-000d3aff470c">
-        <field name="opc_nameenglish" value="(i) the name of the individual where it appears with other personal information relating to the individual or where the disclosure of the name itself would reveal information about the individual" />
-        <field name="opc_namefrench" value="i) son nom lorsque celui-ci est mentionn&amp;#233; avec d’autres renseignements personnels le concernant ou lorsque la seule divulgation du nom r&amp;#233;v&amp;#233;lerait des renseignements &amp;#224; son sujet" />
+        <field name="opc_nameenglish" value="The name of the individual where it appears with other personal information relating to the individual or where the disclosure of the name itself would reveal information about the individual" />
+        <field name="opc_namefrench" value="Son nom lorsque celui-ci est mentionn&amp;#233; avec d’autres renseignements personnels le concernant ou lorsque la seule divulgation du nom r&amp;#233;v&amp;#233;lerait des renseignements &amp;#224; son sujet" />
         <field name="opc_islocalizable" value="True" />
-        <field name="opc_name" value="|^|(i) the name of the individual where it appears with other personal information relating to the individual or where the disclosure of the name itself would reveal information about the individual|i) son nom lorsque celui-ci est mentionn&amp;#233; avec d’autres renseignements personnels le concernant ou lorsque la seule divulgation du nom r&amp;#233;v&amp;#233;lerait des renseignements &amp;#224; son sujet" />
+        <field name="opc_name" value="|^|The name of the individual where it appears with other personal information relating to the individual or where the disclosure of the name itself would reveal information about the individual|Son nom lorsque celui-ci est mentionn&amp;#233; avec d’autres renseignements personnels le concernant ou lorsque la seule divulgation du nom r&amp;#233;v&amp;#233;lerait des renseignements &amp;#224; son sujet" />
         <field name="opc_personalinformationtypeid" value="12b86b82-4b6b-eb11-a812-000d3aff470c" />
         <field name="statecode" value="0" />
         <field name="statuscode" value="1" />
