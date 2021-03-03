@@ -53,6 +53,11 @@ export namespace Complaint.Forms {
             if (formContext.ui.getFormType() === Xrm.FormType.Create) {
                 formContext.getAttribute("opc_complaintreceiveddate").setValue(new Date());
             }
+
+            // Show the notice deem refusal if the complaint as an acceptable Time Limit allegation only
+            if (formContext.getAttribute("opc_hastlallegation").getValue) {
+                formContext.getControl("opc_noticeofdeemrefusaldate").setVisible(true);
+            }
         }
 
         private setupDuplicateContactChecking(formContext: Form.opc_complaint.Main.Information) {
