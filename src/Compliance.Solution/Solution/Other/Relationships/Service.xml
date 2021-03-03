@@ -3,7 +3,7 @@
   <EntityRelationship Name="opc_event_service_serviceid">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.595</IntroducedVersion>
+    <IntroducedVersion>1.0.597</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>opc_event</ReferencingEntityName>
     <ReferencedEntityName>Service</ReferencedEntityName>

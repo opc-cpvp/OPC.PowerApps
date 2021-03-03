@@ -1,36 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <EntityRelationship Name="opc_personalinfotype_allegation_personalinfo">
-    <EntityRelationshipType>OneToMany</EntityRelationshipType>
+  <EntityRelationship Name="opc_allegations_personalinformationtypes">
+    <EntityRelationshipType>ManyToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <IntroducedVersion>1.0.597</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
-    <ReferencingEntityName>opc_allegation</ReferencingEntityName>
-    <ReferencedEntityName>opc_personalinformationtype</ReferencedEntityName>
-    <CascadeAssign>NoCascade</CascadeAssign>
-    <CascadeDelete>RemoveLink</CascadeDelete>
-    <CascadeReparent>NoCascade</CascadeReparent>
-    <CascadeShare>NoCascade</CascadeShare>
-    <CascadeUnshare>NoCascade</CascadeUnshare>
-    <CascadeRollupView>NoCascade</CascadeRollupView>
+    <FirstEntityName>opc_personalinformationtype</FirstEntityName>
+    <SecondEntityName>opc_allegation</SecondEntityName>
+    <IntersectEntityName>opc_allegations_personalinformationtypes</IntersectEntityName>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>opc_typeofpersonalinformation</ReferencingAttributeName>
-    <RelationshipDescription>
-      <Descriptions>
-        <Description description="The type of personal information" languagecode="1033" />
-      </Descriptions>
-    </RelationshipDescription>
     <EntityRelationshipRoles>
       <EntityRelationshipRole>
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>opc_typeofpersonalinformation</NavigationPropertyName>
-        <RelationshipRoleType>1</RelationshipRoleType>
+        <NavigationPropertyName>opc_allegations_personalinformationtypes</NavigationPropertyName>
+        <AssociationRoleOrdinal>1</AssociationRoleOrdinal>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>opc_personalinfotype_allegation_personalinfo</NavigationPropertyName>
-        <RelationshipRoleType>0</RelationshipRoleType>
+        <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
+        <NavPaneArea>Details</NavPaneArea>
+        <NavPaneOrder>10000</NavPaneOrder>
+        <NavigationPropertyName>opc_allegations_personalinformationtypes</NavigationPropertyName>
+        <AssociationRoleOrdinal>2</AssociationRoleOrdinal>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>

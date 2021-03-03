@@ -18,7 +18,6 @@ declare namespace Form.opc_allegation.Main {
       get(name: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
       get(name: "opc_jurisdiction"): Xrm.OptionSetAttribute<opc_jurisdictions>;
       get(name: "opc_referencenumber"): Xrm.Attribute<string>;
-      get(name: "opc_typeofpersonalinformation"): Xrm.LookupAttribute<"opc_personalinformationtype">;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
@@ -35,7 +34,7 @@ declare namespace Form.opc_allegation.Main {
       get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
       get(name: "opc_jurisdiction"): Xrm.OptionSetControl<opc_jurisdictions>;
       get(name: "opc_referencenumber"): Xrm.StringControl;
-      get(name: "opc_typeofpersonalinformation"): Xrm.LookupControl<"opc_personalinformationtype">;
+      get(name: "subgrid_personalinformationtype"): Xrm.BaseControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -57,7 +56,6 @@ declare namespace Form.opc_allegation.Main {
     getAttribute(attributeName: "opc_dispositionreasonid"): Xrm.LookupAttribute<"opc_dispositionreason">;
     getAttribute(attributeName: "opc_jurisdiction"): Xrm.OptionSetAttribute<opc_jurisdictions>;
     getAttribute(attributeName: "opc_referencenumber"): Xrm.Attribute<string>;
-    getAttribute(attributeName: "opc_typeofpersonalinformation"): Xrm.LookupAttribute<"opc_personalinformationtype">;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
     getControl(controlName: "WebResource_checklist"): Xrm.WebResourceControl;
@@ -69,7 +67,7 @@ declare namespace Form.opc_allegation.Main {
     getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
     getControl(controlName: "opc_jurisdiction"): Xrm.OptionSetControl<opc_jurisdictions>;
     getControl(controlName: "opc_referencenumber"): Xrm.StringControl;
-    getControl(controlName: "opc_typeofpersonalinformation"): Xrm.LookupControl<"opc_personalinformationtype">;
+    getControl(controlName: "subgrid_personalinformationtype"): Xrm.BaseControl;
     getControl(controlName: string): undefined;
   }
 }

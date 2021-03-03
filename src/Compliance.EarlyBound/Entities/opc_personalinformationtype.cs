@@ -497,22 +497,22 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// 1:N opc_personalinfotype_allegation_personalinfo
+		/// N:N opc_allegations_personalinformationtypes
 		/// </summary>
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_personalinfotype_allegation_personalinfo")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_allegation> opc_personalinfotype_allegation_personalinfo
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_allegations_personalinformationtypes")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_allegation> opc_allegations_personalinformationtypes
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.opc_allegation>("opc_personalinfotype_allegation_personalinfo", null);
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_allegation>("opc_allegations_personalinformationtypes", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("opc_personalinfotype_allegation_personalinfo");
-				this.SetRelatedEntities<Compliance.EarlyBound.opc_allegation>("opc_personalinfotype_allegation_personalinfo", null, value);
-				this.OnPropertyChanged("opc_personalinfotype_allegation_personalinfo");
+				this.OnPropertyChanging("opc_allegations_personalinformationtypes");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_allegation>("opc_allegations_personalinformationtypes", null, value);
+				this.OnPropertyChanged("opc_allegations_personalinformationtypes");
 			}
 		}
 		

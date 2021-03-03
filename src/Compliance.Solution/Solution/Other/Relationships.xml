@@ -116,6 +116,7 @@
   <EntityRelationship Name="opc_account_complaints_respondentlegalfirm" />
   <EntityRelationship Name="opc_accounts_industries_relatedindustries" />
   <EntityRelationship Name="opc_allegation_checklistresponses_allegation" />
+  <EntityRelationship Name="opc_allegations_personalinformationtypes" />
   <EntityRelationship Name="opc_allegationtype_allegations_allegationtype" />
   <EntityRelationship Name="opc_allegationtype_issues_allegationtype" />
   <EntityRelationship Name="opc_allegationtype_legislation_allegationtype" />
@@ -159,7 +160,6 @@
   <EntityRelationship Name="opc_opc_riskassessmentcategorytemplate_opc_riskassessmentcategory_RiskAssessmentCategoryTemplate" />
   <EntityRelationship Name="opc_opc_riskassessmenttype_opc_riskassessmentcategory_RiskAssessmentType" />
   <EntityRelationship Name="opc_opcpriority_complaints_opcpriority" />
-  <EntityRelationship Name="opc_personalinfotype_allegation_personalinfo" />
   <EntityRelationship Name="opc_questiontemplate_checklistresponses_quest" />
   <EntityRelationship Name="opc_questiontemplate_questiontemplates_parent" />
   <EntityRelationship Name="opc_questiontype_questiontemplates_questionty" />

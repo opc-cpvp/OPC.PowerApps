@@ -239,6 +239,29 @@ interface opc_allegation_Create extends opc_allegation {
 }
 interface opc_allegation_Update extends opc_allegation {
 }
+interface opc_allegations_personalinformationtypes_Base extends WebEntity {
+}
+interface opc_allegations_personalinformationtypes_Fixed extends WebEntity_Fixed {
+  opc_allegations_personalinformationtypesid: string;
+}
+interface opc_allegations_personalinformationtypes extends opc_allegations_personalinformationtypes_Base, opc_allegations_personalinformationtypes_Relationships {
+}
+interface opc_allegations_personalinformationtypes_Relationships {
+}
+interface opc_allegations_personalinformationtypes_Result extends opc_allegations_personalinformationtypes_Base, opc_allegations_personalinformationtypes_Relationships {
+}
+interface opc_allegations_personalinformationtypes_FormattedResult {
+}
+interface opc_allegations_personalinformationtypes_Select {
+}
+interface opc_allegations_personalinformationtypes_Expand {
+}
+interface opc_allegations_personalinformationtypes_Filter {
+}
+interface opc_allegations_personalinformationtypes_Create extends opc_allegations_personalinformationtypes {
+}
+interface opc_allegations_personalinformationtypes_Update extends opc_allegations_personalinformationtypes {
+}
 interface opc_allegationtype_Base extends WebEntity {
 }
 interface opc_allegationtype_Fixed extends WebEntity_Fixed {

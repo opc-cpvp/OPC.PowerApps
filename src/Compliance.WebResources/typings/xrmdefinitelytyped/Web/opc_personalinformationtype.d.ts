@@ -15,7 +15,7 @@ interface opc_personalinformationtype_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface opc_personalinformationtype_Relationships {
-  opc_personalinfotype_allegation_personalinfo?: opc_allegation_Result[] | null;
+  opc_allegations_personalinformationtypes?: opc_allegation_Result[] | null;
 }
 interface opc_personalinformationtype extends opc_personalinformationtype_Base, opc_personalinformationtype_Relationships {
   ownerid_bind$systemusers?: string | null;
@@ -78,7 +78,7 @@ interface opc_personalinformationtype_Expand {
   createdonbehalfby: WebExpand<opc_personalinformationtype_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
   modifiedby: WebExpand<opc_personalinformationtype_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_personalinformationtype_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-  opc_personalinfotype_allegation_personalinfo: WebExpand<opc_personalinformationtype_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_personalinfotype_allegation_personalinfo: opc_allegation_Result[] }>;
+  opc_allegations_personalinformationtypes: WebExpand<opc_personalinformationtype_Expand, opc_allegation_Select, opc_allegation_Filter, { opc_allegations_personalinformationtypes: opc_allegation_Result[] }>;
   ownerid: WebExpand<opc_personalinformationtype_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_personalinformationtype_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_personalinformationtype_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
@@ -119,7 +119,7 @@ interface opc_personalinformationtype_RelatedOne {
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_personalinformationtype_RelatedMany {
-  opc_personalinfotype_allegation_personalinfo: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
+  opc_allegations_personalinformationtypes: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_personalinformationtypes: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
