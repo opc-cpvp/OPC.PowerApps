@@ -19,6 +19,6 @@ declare const enum queueitem_objecttypecode {
   CustomerVoicealert = 10220,
   CustomerVoicesurveyinvite = 10229,
   CustomerVoicesurveyresponse = 10231,
-  Complaint = 10506,
-  Event = 10509,
+  Complaint = 10543,
+  Event = 10546,
 }

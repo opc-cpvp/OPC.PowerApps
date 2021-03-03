@@ -58,7 +58,7 @@
             },
             "parameters": {
               "entityName": "opc_legislationallegationtypes",
-              "$filter": "statecode eq 0 and _opc_leglislation_value eq @{outputs('Get_Legislation_from_Complaint')?['body/_opc_legislation_value']} and _opc_allegationtype_value eq @{triggerOutputs()?['body/_opc_allegationtypeid_value']}",
+              "$filter": "statecode eq 0 and _opc_legislation_value eq @{outputs('Get_Legislation_from_Complaint')?['body/_opc_legislation_value']} and _opc_allegationtype_value eq @{triggerOutputs()?['body/_opc_allegationtypeid_value']}",
               "$top": 1
             },
             "authentication": "@parameters('$authentication')"
