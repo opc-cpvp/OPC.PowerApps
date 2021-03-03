@@ -70,6 +70,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_erdisposition"): Xrm.OptionSetAttribute<opc_erdisposition> | null;
       get(name: "opc_erofficer"): Xrm.LookupAttribute<"systemuser">;
       get(name: "opc_escalationapproved"): Xrm.OptionSetAttribute<boolean> | null;
+      get(name: "opc_hastlallegation"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
       get(name: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
       get(name: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
@@ -154,6 +155,7 @@ declare namespace Form.opc_complaint.Main {
       get(name: "opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetControl<opc_perceivedpriorities>;
       get(name: "opc_complainantrep"): Xrm.LookupControl<"contact">;
       get(name: "opc_complaintreceiveddate"): Xrm.DateControl;
+      get(name: "opc_hastlallegation"): Xrm.OptionSetControl<boolean>;
       get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
       get(name: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;
@@ -206,6 +208,7 @@ declare namespace Form.opc_complaint.Main {
     getAttribute(attributeName: "opc_erdisposition"): Xrm.OptionSetAttribute<opc_erdisposition> | null;
     getAttribute(attributeName: "opc_erofficer"): Xrm.LookupAttribute<"systemuser">;
     getAttribute(attributeName: "opc_escalationapproved"): Xrm.OptionSetAttribute<boolean> | null;
+    getAttribute(attributeName: "opc_hastlallegation"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_intakedisposition"): Xrm.OptionSetAttribute<opc_intakedisposition> | null;
     getAttribute(attributeName: "opc_intakeofficer"): Xrm.LookupAttribute<"systemuser">;
     getAttribute(attributeName: "opc_lastmilestone"): Xrm.OptionSetAttribute<opc_complaintmilestone>;
@@ -285,6 +288,7 @@ declare namespace Form.opc_complaint.Main {
     getControl(controlName: "opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetControl<opc_perceivedpriorities>;
     getControl(controlName: "opc_complainantrep"): Xrm.LookupControl<"contact">;
     getControl(controlName: "opc_complaintreceiveddate"): Xrm.DateControl;
+    getControl(controlName: "opc_hastlallegation"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: "opc_memberofparliamentinvolved"): Xrm.Control<Xrm.Attribute<any>>;
     getControl(controlName: "opc_multiplecomplaintstrategy"): Xrm.OptionSetControl<opc_multiplecomplaintstrategy>;

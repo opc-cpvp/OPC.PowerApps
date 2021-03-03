@@ -80,7 +80,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{1d83f368-a750-45f9-816c-379c0eaeb731}" locklevel="0">
+                      <cell id="{1d83f368-a750-45f9-816c-379c0eaeb731}" locklevel="0" visible="false">
                         <labels>
                           <label description="Notice of deem refusal date" languagecode="1033" />
                         </labels>
@@ -121,6 +121,14 @@
                     <row />
                     <row />
                     <row />
+                    <row>
+                      <cell id="{61fce535-a9a9-4699-80d8-380dd3962ce9}" locklevel="0" visible="false">
+                        <labels>
+                          <label description="Has TL Allegation" languagecode="1033" />
+                        </labels>
+                        <control id="opc_hastlallegation" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="opc_hastlallegation" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="section_complainant" id="6fe830aa-faa9-474a-8a7d-e4829162960e" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
