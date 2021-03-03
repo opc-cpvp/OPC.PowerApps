@@ -55,7 +55,7 @@ export namespace Complaint.Forms {
             }
 
             // Show the notice deem refusal if the complaint as an acceptable Time Limit allegation only
-            if (formContext.getAttribute("opc_hastlallegation").getValue) {
+            if (formContext.getAttribute("opc_hastlallegation").getValue()) {
                 formContext.getControl("opc_noticeofdeemrefusaldate").setVisible(true);
             }
         }
