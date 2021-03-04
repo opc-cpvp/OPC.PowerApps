@@ -75,36 +75,36 @@ describe("Complaint", () => {
 
         it("it should show the deem refusal field if the complaint has TL Allegation", () => {
             // Arrange
+            formContext.getControl("opc_noticeofdeemrefusaldate").setVisible(false);
             formContext.getAttribute("opc_hastlallegation").setValue(true);
 
             // Act
             form.initializeComponents(mockContext);
 
             // Assert
-            // getDuplicateDup.should.not.have.been.called;
-            // await Promise.all(getDuplicateDup.returnValues);
-            // contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
-
-            formContext.getAttribute("opc_noticeofdeemrefusaldate").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), true));
+            formContext.getControl("opc_noticeofdeemrefusaldate").getVisible().should.equal(true);
         });
 
         it("it should NOT show the deem refusal field if the complaint doesn't have TL allegation", () => {
             // Arrange
-            // const getDuplicateDup = sandbox
-            //     .stub(contactService, "getDuplicateStatus")
-            //     .resolves({ opc_duplicatedetectionresult: opc_duplicatedetectionresult.Potentialduplicate });
-            // formContext.getAttribute("opc_complainant").setValue();
             formContext.getAttribute("opc_hastlallegation").setValue(false);
 
             // Act
             form.initializeComponents(mockContext);
 
             // Assert
-            // getDuplicateDup.should.not.have.been.called;
-            // await Promise.all(getDuplicateDup.returnValues);
-            // contextSpy.getFormContext().ui.getFormNotificationsLength().should.equal(0);
+            formContext.getControl("opc_noticeofdeemrefusaldate").getVisible().should.equal(false);
+        });
 
-            formContext.getAttribute("opc_noticeofdeemrefusaldate").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), false));
+        it("it should NOT show the deem refusal field if the complaint TL allegation does not have a value", () => {
+            // Arrange
+            formContext.getControl("opc_noticeofdeemrefusaldate").setVisible(true);
+
+            // Act
+            form.initializeComponents(mockContext);
+
+            // Assert
+            formContext.getControl("opc_noticeofdeemrefusaldate").getVisible().should.equal(false);
         });
 
         describe("and creating a new complaint", () => {

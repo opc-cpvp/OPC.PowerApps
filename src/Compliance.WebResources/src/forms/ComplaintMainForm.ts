@@ -55,7 +55,9 @@ export namespace Complaint.Forms {
             }
 
             // Show the notice deem refusal if the complaint as an acceptable Time Limit allegation only
-            formContext.getControl("opc_noticeofdeemrefusaldate").setVisible(formContext.getAttribute("opc_hastlallegation").getValue());
+            formContext
+                .getControl("opc_noticeofdeemrefusaldate")
+                .setVisible(formContext.getAttribute("opc_hastlallegation")?.getValue() ?? false);
         }
 
         private setupDuplicateContactChecking(formContext: Form.opc_complaint.Main.Information) {
