@@ -101,6 +101,14 @@
                         <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_respondentandcomplainantrelationship" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="opc_respondentandcomplainantrelationship" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="true" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{12eb969b-77ff-44f9-aeda-3004abc29247}" showlabel="true" visible="true" labelid="{9bacf758-a318-43ab-89df-02c6536c4563}">
+                        <labels>
+                          <label description="Complainant Perceived Priorities" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainantperceivedpriorities" classid="{4aa28ab7-9c13-4f57-a73d-ad894d048b5f}" datafieldname="opc_complainantperceivedpriorities" relationship="bpf_opc_complaint_opc_individualcomplaint_bp" isrequired="false" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>
