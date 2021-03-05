@@ -1,14 +1,15 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IComplaintService, IContactService, ComplaintWithRelationships } from "../interfaces";
+import { IComplaintService, IContactService, ComplaintWithRelationships } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 import { AllegationType } from "../enums";
+import { PowerForm } from "./PowerForm";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Issue.Forms {
     @injectable()
-    export class MainForm implements IPowerForm<Form.opc_issue.Main.Information> {
+    export class MainForm extends PowerForm<Form.opc_issue.Main.Information> {
         private _complaintService: IComplaintService;
         private _contactService: IContactService;
 
@@ -18,6 +19,7 @@ export namespace Issue.Forms {
             @inject(nameof<IComplaintService>()) complaintService: IComplaintService,
             @inject(nameof<IContactService>()) contactService: IContactService
         ) {
+            super();
             this._complaintService = complaintService;
             this._contactService = contactService;
         }
@@ -30,6 +32,8 @@ export namespace Issue.Forms {
         public async initializeComponents(
             initializationContext: Xrm.ExecutionContext<Form.opc_issue.Main.Information, any>
         ): Promise<void> {
+            super.initializeComponents(initializationContext);
+
             const formContext = initializationContext.getFormContext() as Form.opc_issue.Main.Information;
 
             // Register handlers

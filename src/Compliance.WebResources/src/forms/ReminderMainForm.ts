@@ -1,18 +1,20 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IReminderService } from "../interfaces";
+import { IReminderService } from "../interfaces";
 import { i18n } from "i18next";
 import { XrmHelper } from "../helpers/XrmHelper";
+import { PowerForm } from "./PowerForm";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Reminder.Forms {
     @injectable()
-    export class MainForm implements IPowerForm<Form.opc_reminder.Main.Information> {
+    export class MainForm extends PowerForm<Form.opc_reminder.Main.Information> {
         private readonly _i18n: i18n;
         private readonly _reminderService: IReminderService;
 
         constructor(@inject(nameof<i18n>()) i18n: i18n, @inject(nameof<IReminderService>()) reminderService: IReminderService) {
+            super();
             this._i18n = i18n;
             this._reminderService = reminderService;
         }
@@ -23,6 +25,8 @@ export namespace Reminder.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_reminder.Main.Information, any>): void {
+            super.initializeComponents(initializationContext);
+
             const formContext = initializationContext.getFormContext() as Form.opc_reminder.Main.Information;
 
             // Register handlers
