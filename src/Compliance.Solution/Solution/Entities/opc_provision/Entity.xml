@@ -380,7 +380,7 @@
             <displayname description="English Description" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The English description of the provision" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_descriptionfrench">
@@ -420,7 +420,7 @@
             <displayname description="French Description" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The French description of the provision" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_ischeckable">
