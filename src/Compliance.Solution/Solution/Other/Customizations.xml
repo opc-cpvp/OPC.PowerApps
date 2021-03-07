@@ -8,6 +8,7 @@
   <RibbonDiffXml />
   <EntityMaps />
   <EntityRelationships />
+  <EnvironmentVariables />
   <OrganizationSettings />
   <optionsets />
   <Dashboards />
