@@ -2,10 +2,7 @@
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EntityRelationship Name="account_opc_events" />
   <EntityRelationship Name="activity_pointer_opc_event" />
-  <EntityRelationship Name="bookableresourcebooking_opc_events" />
-  <EntityRelationship Name="bookableresourcebookingheader_opc_events" />
   <EntityRelationship Name="bpf_opc_complaint_opc_individualcomplaint_bp" />
-  <EntityRelationship Name="bulkoperation_opc_events" />
   <EntityRelationship Name="business_unit_opc_accessrequestdocument" />
   <EntityRelationship Name="business_unit_opc_allegation" />
   <EntityRelationship Name="business_unit_opc_allegationtype" />
@@ -34,18 +31,10 @@
   <EntityRelationship Name="business_unit_opc_riskassessmenttype" />
   <EntityRelationship Name="business_unit_opc_theme" />
   <EntityRelationship Name="business_unit_opc_topic" />
-  <EntityRelationship Name="campaign_opc_events" />
-  <EntityRelationship Name="campaignactivity_opc_events" />
   <EntityRelationship Name="contact_opc_events" />
-  <EntityRelationship Name="contract_opc_events" />
-  <EntityRelationship Name="entitlement_opc_events" />
-  <EntityRelationship Name="entitlementtemplate_opc_events" />
-  <EntityRelationship Name="incident_opc_events" />
   <EntityRelationship Name="interactionforemail_opc_events" />
-  <EntityRelationship Name="invoice_opc_events" />
   <EntityRelationship Name="knowledgearticle_opc_events" />
   <EntityRelationship Name="knowledgebaserecord_opc_events" />
-  <EntityRelationship Name="lead_opc_events" />
   <EntityRelationship Name="lk_opc_accessrequestdocument_createdby" />
   <EntityRelationship Name="lk_opc_accessrequestdocument_modifiedby" />
   <EntityRelationship Name="lk_opc_allegation_createdby" />
@@ -108,9 +97,6 @@
   <EntityRelationship Name="lk_opc_theme_modifiedby" />
   <EntityRelationship Name="lk_opc_topic_createdby" />
   <EntityRelationship Name="lk_opc_topic_modifiedby" />
-  <EntityRelationship Name="msdyn_customerasset_opc_events" />
-  <EntityRelationship Name="msdyn_playbookinstance_opc_events" />
-  <EntityRelationship Name="msdyn_postalbum_opc_events" />
   <EntityRelationship Name="opc_account_complaints_complainantlegalfirm" />
   <EntityRelationship Name="opc_account_complaints_respondent" />
   <EntityRelationship Name="opc_account_complaints_respondentlegalfirm" />
@@ -145,7 +131,6 @@
   <EntityRelationship Name="opc_event_businessunit_owningbusinessunit" />
   <EntityRelationship Name="opc_event_mailbox_sendermailboxid" />
   <EntityRelationship Name="opc_event_owner_ownerid" />
-  <EntityRelationship Name="opc_event_service_serviceid" />
   <EntityRelationship Name="opc_event_sla_slaid" />
   <EntityRelationship Name="opc_event_sla_slainvokedid" />
   <EntityRelationship Name="opc_event_systemuser_createdby" />
@@ -184,7 +169,6 @@
   <EntityRelationship Name="opc_theme_topics_themeid" />
   <EntityRelationship Name="opc_user_complaints_erofficer" />
   <EntityRelationship Name="opc_user_complaints_reportredactor" />
-  <EntityRelationship Name="opportunity_opc_events" />
   <EntityRelationship Name="organization_opc_individualcomplaint_bp" />
   <EntityRelationship Name="organization_opc_questiontype" />
   <EntityRelationship Name="owner_opc_accessrequestdocument" />
@@ -215,9 +199,6 @@
   <EntityRelationship Name="owner_opc_riskassessmenttype" />
   <EntityRelationship Name="owner_opc_theme" />
   <EntityRelationship Name="owner_opc_topic" />
-  <EntityRelationship Name="quote_opc_events" />
-  <EntityRelationship Name="salesorder_opc_events" />
-  <EntityRelationship Name="site_opc_events" />
   <EntityRelationship Name="team_opc_accessrequestdocument" />
   <EntityRelationship Name="team_opc_allegation" />
   <EntityRelationship Name="team_opc_allegationtype" />

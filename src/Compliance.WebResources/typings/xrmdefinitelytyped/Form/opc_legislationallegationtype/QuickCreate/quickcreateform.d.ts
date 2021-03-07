@@ -1,8 +1,10 @@
-declare namespace Form.account.InteractionCentricDashboard {
-  namespace AccountsDashboard {
+declare namespace Form.opc_legislationallegationtype.QuickCreate {
+  namespace quickcreateform {
     namespace Tabs {
-      interface StreamsContainer extends Xrm.SectionCollectionBase {
-        get(name: "Streams"): Xrm.PageSection;
+      interface tab_1 extends Xrm.SectionCollectionBase {
+        get(name: "tab_1_column_1_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_2_section_1"): Xrm.PageSection;
+        get(name: "tab_1_column_3_section_1"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
         get(index: number): Xrm.PageSection;
@@ -10,35 +12,35 @@ declare namespace Form.account.InteractionCentricDashboard {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "opc_allegationtype"): Xrm.LookupAttribute<"opc_allegationtype">;
+      get(name: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
       get(name: string): undefined;
       get(): Xrm.Attribute<any>[];
       get(index: number): Xrm.Attribute<any>;
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "Component2316e00"): Xrm.SubGridControl<"account">;
-      get(name: "Component666c4a4"): Xrm.SubGridControl<"account">;
-      get(name: "Componentc4e86d7"): Xrm.SubGridControl<"account">;
-      get(name: "Component{c25c1ba2-33b6-0760-d1cc-7621224bdaa7}"): Xrm.BaseControl;
+      get(name: "opc_allegationtype"): Xrm.LookupControl<"opc_allegationtype">;
+      get(name: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
       get(chooser: (item: Xrm.BaseControl, index: number) => boolean): Xrm.BaseControl[];
     }
     interface Tabs extends Xrm.TabCollectionBase {
-      get(name: "StreamsContainer"): Xrm.PageTab<Tabs.StreamsContainer>;
+      get(name: "tab_1"): Xrm.PageTab<Tabs.tab_1>;
       get(name: string): undefined;
       get(): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
       get(index: number): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>;
       get(chooser: (item: Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>, index: number) => boolean): Xrm.PageTab<Xrm.Collection<Xrm.PageSection>>[];
     }
   }
-  interface AccountsDashboard extends Xrm.PageBase<AccountsDashboard.Attributes,AccountsDashboard.Tabs,AccountsDashboard.Controls> {
+  interface quickcreateform extends Xrm.PageBase<quickcreateform.Attributes,quickcreateform.Tabs,quickcreateform.Controls> {
+    getAttribute(attributeName: "opc_allegationtype"): Xrm.LookupAttribute<"opc_allegationtype">;
+    getAttribute(attributeName: "opc_legislation"): Xrm.LookupAttribute<"opc_legislation">;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "Component2316e00"): Xrm.SubGridControl<"account">;
-    getControl(controlName: "Component666c4a4"): Xrm.SubGridControl<"account">;
-    getControl(controlName: "Componentc4e86d7"): Xrm.SubGridControl<"account">;
-    getControl(controlName: "Component{c25c1ba2-33b6-0760-d1cc-7621224bdaa7}"): Xrm.BaseControl;
+    getControl(controlName: "opc_allegationtype"): Xrm.LookupControl<"opc_allegationtype">;
+    getControl(controlName: "opc_legislation"): Xrm.LookupControl<"opc_legislation">;
     getControl(controlName: string): undefined;
   }
 }

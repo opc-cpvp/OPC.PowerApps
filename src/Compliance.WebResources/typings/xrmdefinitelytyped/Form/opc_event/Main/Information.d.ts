@@ -8,7 +8,7 @@ declare namespace Form.opc_event.Main {
       get(name: "opc_namefrench"): Xrm.Attribute<string>;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "prioritycode"): Xrm.OptionSetAttribute<opc_event_prioritycode>;
-      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "bookableresourcebooking" | "bookableresourcebookingheader" | "bulkoperation" | "campaign" | "campaignactivity" | "contact" | "contract" | "entitlement" | "entitlementtemplate" | "incident" | "interactionforemail" | "invoice" | "knowledgearticle" | "knowledgebaserecord" | "lead" | "msdyn_customerasset" | "msdyn_playbookinstance" | "msdyn_postalbum" | "opc_complaint" | "opportunity" | "quote" | "salesorder" | "site">;
+      get(name: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "interactionforemail" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
       get(name: "scheduledend"): Xrm.DateAttribute;
       get(name: "statecode"): Xrm.OptionSetAttribute<opc_event_statecode>;
       get(name: "subject"): Xrm.Attribute<string>;
@@ -27,7 +27,7 @@ declare namespace Form.opc_event.Main {
       get(name: "opc_nameenglish"): Xrm.StringControl;
       get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "bookableresourcebooking" | "bookableresourcebookingheader" | "bulkoperation" | "campaign" | "campaignactivity" | "contact" | "contract" | "entitlement" | "entitlementtemplate" | "incident" | "interactionforemail" | "invoice" | "knowledgearticle" | "knowledgebaserecord" | "lead" | "msdyn_customerasset" | "msdyn_playbookinstance" | "msdyn_postalbum" | "opc_complaint" | "opportunity" | "quote" | "salesorder" | "site">;
+      get(name: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "interactionforemail" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
       get(name: "subject"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -47,7 +47,7 @@ declare namespace Form.opc_event.Main {
     getAttribute(attributeName: "opc_namefrench"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "prioritycode"): Xrm.OptionSetAttribute<opc_event_prioritycode>;
-    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "bookableresourcebooking" | "bookableresourcebookingheader" | "bulkoperation" | "campaign" | "campaignactivity" | "contact" | "contract" | "entitlement" | "entitlementtemplate" | "incident" | "interactionforemail" | "invoice" | "knowledgearticle" | "knowledgebaserecord" | "lead" | "msdyn_customerasset" | "msdyn_playbookinstance" | "msdyn_postalbum" | "opc_complaint" | "opportunity" | "quote" | "salesorder" | "site">;
+    getAttribute(attributeName: "regardingobjectid"): Xrm.LookupAttribute<"account" | "contact" | "interactionforemail" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
     getAttribute(attributeName: "scheduledend"): Xrm.DateAttribute;
     getAttribute(attributeName: "statecode"): Xrm.OptionSetAttribute<opc_event_statecode>;
     getAttribute(attributeName: "subject"): Xrm.Attribute<string>;
@@ -61,7 +61,7 @@ declare namespace Form.opc_event.Main {
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
-    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "bookableresourcebooking" | "bookableresourcebookingheader" | "bulkoperation" | "campaign" | "campaignactivity" | "contact" | "contract" | "entitlement" | "entitlementtemplate" | "incident" | "interactionforemail" | "invoice" | "knowledgearticle" | "knowledgebaserecord" | "lead" | "msdyn_customerasset" | "msdyn_playbookinstance" | "msdyn_postalbum" | "opc_complaint" | "opportunity" | "quote" | "salesorder" | "site">;
+    getControl(controlName: "regardingobjectid"): Xrm.LookupControl<"account" | "contact" | "interactionforemail" | "knowledgearticle" | "knowledgebaserecord" | "opc_complaint">;
     getControl(controlName: "subject"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }

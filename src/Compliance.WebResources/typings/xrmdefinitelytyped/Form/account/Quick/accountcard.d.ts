@@ -2,8 +2,6 @@ declare namespace Form.account.Quick {
   namespace accountcard {
     namespace Tabs {
       interface general extends Xrm.SectionCollectionBase {
-        get(name: "Cases"): Xrm.PageSection;
-        get(name: "Entitlements"): Xrm.PageSection;
         get(name: "information"): Xrm.PageSection;
         get(name: string): undefined;
         get(): Xrm.PageSection[];
@@ -21,10 +19,8 @@ declare namespace Form.account.Quick {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "accountcasessgrid"): Xrm.SubGridControl<"incident">;
       get(name: "emailaddress1"): Xrm.StringControl;
       get(name: "name"): Xrm.StringControl;
-      get(name: "subgrid_Entitlement"): Xrm.SubGridControl<"entitlement">;
       get(name: "telephone1"): Xrm.StringControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -44,10 +40,8 @@ declare namespace Form.account.Quick {
     getAttribute(attributeName: "name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "telephone1"): Xrm.Attribute<string>;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "accountcasessgrid"): Xrm.SubGridControl<"incident">;
     getControl(controlName: "emailaddress1"): Xrm.StringControl;
     getControl(controlName: "name"): Xrm.StringControl;
-    getControl(controlName: "subgrid_Entitlement"): Xrm.SubGridControl<"entitlement">;
     getControl(controlName: "telephone1"): Xrm.StringControl;
     getControl(controlName: string): undefined;
   }

@@ -81,7 +81,6 @@ interface SystemUser_Base extends WebEntity {
   mobilealertemail?: string | null;
   mobilephone?: string | null;
   modifiedon?: Date | null;
-  msdyn_gdproptout?: boolean | null;
   nickname?: string | null;
   organizationid?: string | null;
   outgoingemaildeliverymethod?: systemuser_outgoingemaildeliverymethod | null;
@@ -115,7 +114,6 @@ interface SystemUser_Relationships {
   SystemUser_DuplicateRules?: DuplicateRule_Result[] | null;
   contact_owning_user?: Contact_Result[] | null;
   createdby_connection?: Connection_Result[] | null;
-  lk_PostFollow_createdby?: PostFollow_Result[] | null;
   lk_accountbase_createdby?: Account_Result[] | null;
   lk_accountbase_createdonbehalfby?: Account_Result[] | null;
   lk_accountbase_modifiedby?: Account_Result[] | null;
@@ -262,11 +260,6 @@ interface SystemUser_Relationships {
   lk_opc_topic_createdonbehalfby?: opc_topic_Result[] | null;
   lk_opc_topic_modifiedby?: opc_topic_Result[] | null;
   lk_opc_topic_modifiedonbehalfby?: opc_topic_Result[] | null;
-  lk_post_createdby?: Post_Result[] | null;
-  lk_post_createdonbehalfby?: Post_Result[] | null;
-  lk_post_modifiedby?: Post_Result[] | null;
-  lk_post_modifiedonbehalfby?: Post_Result[] | null;
-  lk_postfollow_createdonbehalfby?: PostFollow_Result[] | null;
   lk_queue_createdonbehalfby?: Queue_Result[] | null;
   lk_queue_modifiedonbehalfby?: Queue_Result[] | null;
   lk_queuebase_createdby?: Queue_Result[] | null;
@@ -314,12 +307,10 @@ interface SystemUser_Relationships {
   system_user_accounts?: Account_Result[] | null;
   system_user_activity_parties?: ActivityParty_Result[] | null;
   system_user_contacts?: Contact_Result[] | null;
-  systemuser_PostFollows?: PostFollow_Result[] | null;
   systemuser_connections1?: Connection_Result[] | null;
   systemuser_connections2?: Connection_Result[] | null;
   teammembership_association?: Team_Result[] | null;
   user_accounts?: Account_Result[] | null;
-  user_bulkoperationlog?: BulkOperationLog_Result[] | null;
   user_environmentvariabledefinition?: EnvironmentVariableDefinition_Result[] | null;
   user_environmentvariablevalue?: EnvironmentVariableValue_Result[] | null;
   user_opc_accessrequestdocument?: opc_accessrequestdocument_Result[] | null;
@@ -350,7 +341,6 @@ interface SystemUser_Relationships {
   user_opc_riskassessmenttype?: opc_RiskAssessmentType_Result[] | null;
   user_opc_theme?: opc_theme_Result[] | null;
   user_opc_topic?: opc_topic_Result[] | null;
-  user_owner_postfollows?: PostFollow_Result[] | null;
   user_parent_user?: SystemUser_Result[] | null;
   user_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
   user_sharepointsite?: SharePointSite_Result[] | null;
@@ -358,12 +348,10 @@ interface SystemUser_Relationships {
 interface SystemUser extends SystemUser_Base, SystemUser_Relationships {
   businessunitid_bind$businessunits?: string | null;
   calendarid_bind$calendars?: string | null;
-  cdm_Company_bind$cdm_companies?: string | null;
   mobileofflineprofileid_bind$mobileofflineprofiles?: string | null;
   parentsystemuserid_bind$systemusers?: string | null;
   positionid_bind$positions?: string | null;
   queueid_bind$queues?: string | null;
-  siteid_bind$sites?: string | null;
   stageid_processstage_bind$processstages?: string | null;
   territoryid_bind$territories?: string | null;
   transactioncurrencyid_bind$transactioncurrencies?: string | null;
@@ -425,7 +413,6 @@ interface SystemUser_Select {
   businessunitid_guid: WebAttribute<SystemUser_Select, { businessunitid_guid: string | null }, { businessunitid_formatted?: string }>;
   calendarid_guid: WebAttribute<SystemUser_Select, { calendarid_guid: string | null }, { calendarid_formatted?: string }>;
   caltype: WebAttribute<SystemUser_Select, { caltype: systemuser_caltype | null }, { caltype_formatted?: string }>;
-  cdm_company_guid: WebAttribute<SystemUser_Select, { cdm_company_guid: string | null }, { cdm_company_formatted?: string }>;
   createdby_guid: WebAttribute<SystemUser_Select, { createdby_guid: string | null }, { createdby_formatted?: string }>;
   createdon: WebAttribute<SystemUser_Select, { createdon: Date | null }, { createdon_formatted?: string }>;
   createdonbehalfby_guid: WebAttribute<SystemUser_Select, { createdonbehalfby_guid: string | null }, { createdonbehalfby_formatted?: string }>;
@@ -464,7 +451,6 @@ interface SystemUser_Select {
   modifiedby_guid: WebAttribute<SystemUser_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<SystemUser_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<SystemUser_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  msdyn_gdproptout: WebAttribute<SystemUser_Select, { msdyn_gdproptout: boolean | null }, {  }>;
   nickname: WebAttribute<SystemUser_Select, { nickname: string | null }, {  }>;
   organizationid: WebAttribute<SystemUser_Select, { organizationid: string | null }, {  }>;
   outgoingemaildeliverymethod: WebAttribute<SystemUser_Select, { outgoingemaildeliverymethod: systemuser_outgoingemaildeliverymethod | null }, { outgoingemaildeliverymethod_formatted?: string }>;
@@ -483,7 +469,6 @@ interface SystemUser_Select {
   salutation: WebAttribute<SystemUser_Select, { salutation: string | null }, {  }>;
   setupuser: WebAttribute<SystemUser_Select, { setupuser: boolean | null }, {  }>;
   sharepointemailaddress: WebAttribute<SystemUser_Select, { sharepointemailaddress: string | null }, {  }>;
-  siteid_guid: WebAttribute<SystemUser_Select, { siteid_guid: string | null }, { siteid_formatted?: string }>;
   skills: WebAttribute<SystemUser_Select, { skills: string | null }, {  }>;
   stageid: WebAttribute<SystemUser_Select, { stageid: string | null }, {  }>;
   systemuserid: WebAttribute<SystemUser_Select, { systemuserid: string | null }, {  }>;
@@ -553,7 +538,6 @@ interface SystemUser_Filter {
   businessunitid_guid: XQW.Guid;
   calendarid_guid: XQW.Guid;
   caltype: systemuser_caltype;
-  cdm_company_guid: XQW.Guid;
   createdby_guid: XQW.Guid;
   createdon: Date;
   createdonbehalfby_guid: XQW.Guid;
@@ -592,7 +576,6 @@ interface SystemUser_Filter {
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
-  msdyn_gdproptout: boolean;
   nickname: string;
   organizationid: XQW.Guid;
   outgoingemaildeliverymethod: systemuser_outgoingemaildeliverymethod;
@@ -611,7 +594,6 @@ interface SystemUser_Filter {
   salutation: string;
   setupuser: boolean;
   sharepointemailaddress: string;
-  siteid_guid: XQW.Guid;
   skills: string;
   stageid: XQW.Guid;
   systemuserid: XQW.Guid;
@@ -634,7 +616,6 @@ interface SystemUser_Expand {
   createdby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
   createdby_connection: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { createdby_connection: Connection_Result[] }>;
   createdonbehalfby: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
-  lk_PostFollow_createdby: WebExpand<SystemUser_Expand, PostFollow_Select, PostFollow_Filter, { lk_PostFollow_createdby: PostFollow_Result[] }>;
   lk_accountbase_createdby: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { lk_accountbase_createdby: Account_Result[] }>;
   lk_accountbase_createdonbehalfby: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { lk_accountbase_createdonbehalfby: Account_Result[] }>;
   lk_accountbase_modifiedby: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { lk_accountbase_modifiedby: Account_Result[] }>;
@@ -781,11 +762,6 @@ interface SystemUser_Expand {
   lk_opc_topic_createdonbehalfby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_createdonbehalfby: opc_topic_Result[] }>;
   lk_opc_topic_modifiedby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_modifiedby: opc_topic_Result[] }>;
   lk_opc_topic_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { lk_opc_topic_modifiedonbehalfby: opc_topic_Result[] }>;
-  lk_post_createdby: WebExpand<SystemUser_Expand, Post_Select, Post_Filter, { lk_post_createdby: Post_Result[] }>;
-  lk_post_createdonbehalfby: WebExpand<SystemUser_Expand, Post_Select, Post_Filter, { lk_post_createdonbehalfby: Post_Result[] }>;
-  lk_post_modifiedby: WebExpand<SystemUser_Expand, Post_Select, Post_Filter, { lk_post_modifiedby: Post_Result[] }>;
-  lk_post_modifiedonbehalfby: WebExpand<SystemUser_Expand, Post_Select, Post_Filter, { lk_post_modifiedonbehalfby: Post_Result[] }>;
-  lk_postfollow_createdonbehalfby: WebExpand<SystemUser_Expand, PostFollow_Select, PostFollow_Filter, { lk_postfollow_createdonbehalfby: PostFollow_Result[] }>;
   lk_queue_createdonbehalfby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queue_createdonbehalfby: Queue_Result[] }>;
   lk_queue_modifiedonbehalfby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queue_modifiedonbehalfby: Queue_Result[] }>;
   lk_queuebase_createdby: WebExpand<SystemUser_Expand, Queue_Select, Queue_Filter, { lk_queuebase_createdby: Queue_Result[] }>;
@@ -837,12 +813,10 @@ interface SystemUser_Expand {
   system_user_accounts: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { system_user_accounts: Account_Result[] }>;
   system_user_activity_parties: WebExpand<SystemUser_Expand, ActivityParty_Select, ActivityParty_Filter, { system_user_activity_parties: ActivityParty_Result[] }>;
   system_user_contacts: WebExpand<SystemUser_Expand, Contact_Select, Contact_Filter, { system_user_contacts: Contact_Result[] }>;
-  systemuser_PostFollows: WebExpand<SystemUser_Expand, PostFollow_Select, PostFollow_Filter, { systemuser_PostFollows: PostFollow_Result[] }>;
   systemuser_connections1: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections1: Connection_Result[] }>;
   systemuser_connections2: WebExpand<SystemUser_Expand, Connection_Select, Connection_Filter, { systemuser_connections2: Connection_Result[] }>;
   teammembership_association: WebExpand<SystemUser_Expand, Team_Select, Team_Filter, { teammembership_association: Team_Result[] }>;
   user_accounts: WebExpand<SystemUser_Expand, Account_Select, Account_Filter, { user_accounts: Account_Result[] }>;
-  user_bulkoperationlog: WebExpand<SystemUser_Expand, BulkOperationLog_Select, BulkOperationLog_Filter, { user_bulkoperationlog: BulkOperationLog_Result[] }>;
   user_environmentvariabledefinition: WebExpand<SystemUser_Expand, EnvironmentVariableDefinition_Select, EnvironmentVariableDefinition_Filter, { user_environmentvariabledefinition: EnvironmentVariableDefinition_Result[] }>;
   user_environmentvariablevalue: WebExpand<SystemUser_Expand, EnvironmentVariableValue_Select, EnvironmentVariableValue_Filter, { user_environmentvariablevalue: EnvironmentVariableValue_Result[] }>;
   user_opc_accessrequestdocument: WebExpand<SystemUser_Expand, opc_accessrequestdocument_Select, opc_accessrequestdocument_Filter, { user_opc_accessrequestdocument: opc_accessrequestdocument_Result[] }>;
@@ -873,7 +847,6 @@ interface SystemUser_Expand {
   user_opc_riskassessmenttype: WebExpand<SystemUser_Expand, opc_RiskAssessmentType_Select, opc_RiskAssessmentType_Filter, { user_opc_riskassessmenttype: opc_RiskAssessmentType_Result[] }>;
   user_opc_theme: WebExpand<SystemUser_Expand, opc_theme_Select, opc_theme_Filter, { user_opc_theme: opc_theme_Result[] }>;
   user_opc_topic: WebExpand<SystemUser_Expand, opc_topic_Select, opc_topic_Filter, { user_opc_topic: opc_topic_Result[] }>;
-  user_owner_postfollows: WebExpand<SystemUser_Expand, PostFollow_Select, PostFollow_Filter, { user_owner_postfollows: PostFollow_Result[] }>;
   user_parent_user: WebExpand<SystemUser_Expand, SystemUser_Select, SystemUser_Filter, { user_parent_user: SystemUser_Result[] }>;
   user_sharepointdocumentlocation: WebExpand<SystemUser_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { user_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
   user_sharepointsite: WebExpand<SystemUser_Expand, SharePointSite_Select, SharePointSite_Filter, { user_sharepointsite: SharePointSite_Result[] }>;
@@ -887,7 +860,6 @@ interface SystemUser_FormattedResult {
   businessunitid_formatted?: string;
   calendarid_formatted?: string;
   caltype_formatted?: string;
-  cdm_company_formatted?: string;
   createdby_formatted?: string;
   createdon_formatted?: string;
   createdonbehalfby_formatted?: string;
@@ -908,7 +880,6 @@ interface SystemUser_FormattedResult {
   preferredemailcode_formatted?: string;
   preferredphonecode_formatted?: string;
   queueid_formatted?: string;
-  siteid_formatted?: string;
   territoryid_formatted?: string;
   transactioncurrencyid_formatted?: string;
 }
@@ -916,7 +887,6 @@ interface SystemUser_Result extends SystemUser_Base, SystemUser_Relationships {
   "@odata.etag": string;
   businessunitid_guid: string | null;
   calendarid_guid: string | null;
-  cdm_company_guid: string | null;
   createdby_guid: string | null;
   createdonbehalfby_guid: string | null;
   defaultmailbox_guid: string | null;
@@ -926,7 +896,6 @@ interface SystemUser_Result extends SystemUser_Base, SystemUser_Relationships {
   parentsystemuserid_guid: string | null;
   positionid_guid: string | null;
   queueid_guid: string | null;
-  siteid_guid: string | null;
   territoryid_guid: string | null;
   transactioncurrencyid_guid: string | null;
 }
@@ -942,7 +911,6 @@ interface SystemUser_RelatedMany {
   SystemUser_DuplicateRules: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
   contact_owning_user: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   createdby_connection: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
-  lk_PostFollow_createdby: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
   lk_accountbase_createdby: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   lk_accountbase_createdonbehalfby: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   lk_accountbase_modifiedby: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
@@ -1089,11 +1057,6 @@ interface SystemUser_RelatedMany {
   lk_opc_topic_createdonbehalfby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
   lk_opc_topic_modifiedby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
   lk_opc_topic_modifiedonbehalfby: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
-  lk_post_createdby: WebMappingRetrieve<Post_Select,Post_Expand,Post_Filter,Post_Fixed,Post_Result,Post_FormattedResult>;
-  lk_post_createdonbehalfby: WebMappingRetrieve<Post_Select,Post_Expand,Post_Filter,Post_Fixed,Post_Result,Post_FormattedResult>;
-  lk_post_modifiedby: WebMappingRetrieve<Post_Select,Post_Expand,Post_Filter,Post_Fixed,Post_Result,Post_FormattedResult>;
-  lk_post_modifiedonbehalfby: WebMappingRetrieve<Post_Select,Post_Expand,Post_Filter,Post_Fixed,Post_Result,Post_FormattedResult>;
-  lk_postfollow_createdonbehalfby: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
   lk_queue_createdonbehalfby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   lk_queue_modifiedonbehalfby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
   lk_queuebase_createdby: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
@@ -1141,12 +1104,10 @@ interface SystemUser_RelatedMany {
   system_user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
   system_user_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   system_user_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
-  systemuser_PostFollows: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
   systemuser_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   systemuser_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   teammembership_association: WebMappingRetrieve<Team_Select,Team_Expand,Team_Filter,Team_Fixed,Team_Result,Team_FormattedResult>;
   user_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
-  user_bulkoperationlog: WebMappingRetrieve<BulkOperationLog_Select,BulkOperationLog_Expand,BulkOperationLog_Filter,BulkOperationLog_Fixed,BulkOperationLog_Result,BulkOperationLog_FormattedResult>;
   user_environmentvariabledefinition: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
   user_environmentvariablevalue: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
   user_opc_accessrequestdocument: WebMappingRetrieve<opc_accessrequestdocument_Select,opc_accessrequestdocument_Expand,opc_accessrequestdocument_Filter,opc_accessrequestdocument_Fixed,opc_accessrequestdocument_Result,opc_accessrequestdocument_FormattedResult>;
@@ -1177,7 +1138,6 @@ interface SystemUser_RelatedMany {
   user_opc_riskassessmenttype: WebMappingRetrieve<opc_RiskAssessmentType_Select,opc_RiskAssessmentType_Expand,opc_RiskAssessmentType_Filter,opc_RiskAssessmentType_Fixed,opc_RiskAssessmentType_Result,opc_RiskAssessmentType_FormattedResult>;
   user_opc_theme: WebMappingRetrieve<opc_theme_Select,opc_theme_Expand,opc_theme_Filter,opc_theme_Fixed,opc_theme_Result,opc_theme_FormattedResult>;
   user_opc_topic: WebMappingRetrieve<opc_topic_Select,opc_topic_Expand,opc_topic_Filter,opc_topic_Fixed,opc_topic_Result,opc_topic_FormattedResult>;
-  user_owner_postfollows: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
   user_parent_user: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
   user_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   user_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;

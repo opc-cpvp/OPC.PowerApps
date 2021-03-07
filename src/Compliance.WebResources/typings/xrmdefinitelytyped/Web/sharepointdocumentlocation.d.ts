@@ -23,7 +23,6 @@ interface SharePointDocumentLocation_Relationships {
   parentsiteorlocation_sharepointdocumentlocation?: SharePointDocumentLocation_Result | null;
   parentsiteorlocation_sharepointsite?: SharePointSite_Result | null;
   regardingobjectid_account?: Account_Result | null;
-  regardingobjectid_contact?: Contact_Result | null;
   regardingobjectid_opc_complaint?: opc_complaint_Result | null;
   sharepointdocumentlocation_parent_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
 }
@@ -33,17 +32,10 @@ interface SharePointDocumentLocation extends SharePointDocumentLocation_Base, Sh
   parentsiteorlocation_sharepointdocumentlocation_bind$sharepointdocumentlocations?: string | null;
   parentsiteorlocation_sharepointsite_bind$sharepointsites?: string | null;
   regardingobjectid_account_bind$accounts?: string | null;
-  regardingobjectid_contact_bind$contacts?: string | null;
   regardingobjectid_kbarticle_bind$kbarticles?: string | null;
   regardingobjectid_knowledgearticle_bind$knowledgearticles?: string | null;
-  regardingobjectid_lead_bind$leads?: string | null;
   regardingobjectid_msdyn_knowledgearticletemplate_bind$msdyn_knowledgearticletemplates?: string | null;
-  regardingobjectid_msdyn_playbookactivity_bind$msdyn_playbookactivities?: string | null;
   regardingobjectid_opc_complaint_bind$opc_complaints?: string | null;
-  regardingobjectid_opportunity_bind$opportunities?: string | null;
-  regardingobjectid_product_bind$products?: string | null;
-  regardingobjectid_quote_bind$quotes?: string | null;
-  regardingobjectid_salesliterature_bind$salesliteratures?: string | null;
 }
 interface SharePointDocumentLocation_Create extends SharePointDocumentLocation {
 }
@@ -124,7 +116,6 @@ interface SharePointDocumentLocation_Expand {
   parentsiteorlocation_sharepointdocumentlocation: WebExpand<SharePointDocumentLocation_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { parentsiteorlocation_sharepointdocumentlocation: SharePointDocumentLocation_Result }>;
   parentsiteorlocation_sharepointsite: WebExpand<SharePointDocumentLocation_Expand, SharePointSite_Select, SharePointSite_Filter, { parentsiteorlocation_sharepointsite: SharePointSite_Result }>;
   regardingobjectid_account: WebExpand<SharePointDocumentLocation_Expand, Account_Select, Account_Filter, { regardingobjectid_account: Account_Result }>;
-  regardingobjectid_contact: WebExpand<SharePointDocumentLocation_Expand, Contact_Select, Contact_Filter, { regardingobjectid_contact: Contact_Result }>;
   regardingobjectid_opc_complaint: WebExpand<SharePointDocumentLocation_Expand, opc_complaint_Select, opc_complaint_Filter, { regardingobjectid_opc_complaint: opc_complaint_Result }>;
   sharepointdocumentlocation_parent_sharepointdocumentlocation: WebExpand<SharePointDocumentLocation_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { sharepointdocumentlocation_parent_sharepointdocumentlocation: SharePointDocumentLocation_Result[] }>;
 }
@@ -173,7 +164,6 @@ interface SharePointDocumentLocation_RelatedOne {
   parentsiteorlocation_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
   parentsiteorlocation_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
   regardingobjectid_account: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
-  regardingobjectid_contact: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
   regardingobjectid_opc_complaint: WebMappingRetrieve<opc_complaint_Select,opc_complaint_Expand,opc_complaint_Filter,opc_complaint_Fixed,opc_complaint_Result,opc_complaint_FormattedResult>;
 }
 interface SharePointDocumentLocation_RelatedMany {

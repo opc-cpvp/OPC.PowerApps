@@ -85,8 +85,6 @@ interface Contact_Base extends WebEntity {
   assistantphone?: string | null;
   birthdate?: Date | null;
   business2?: string | null;
-  businesscard?: string | null;
-  businesscardattributes?: string | null;
   callback?: string | null;
   childrensnames?: string | null;
   company?: string | null;
@@ -140,8 +138,6 @@ interface Contact_Base extends WebEntity {
   middlename?: string | null;
   mobilephone?: string | null;
   modifiedon?: Date | null;
-  msdyn_gdproptout?: boolean | null;
-  msdyn_orgchangestatus?: contact_msdyn_orgchangestatus | null;
   nickname?: string | null;
   numberofchildren?: number | null;
   onholdtime?: number | null;
@@ -165,7 +161,6 @@ interface Contact_Base extends WebEntity {
   statuscode?: contact_statuscode | null;
   subscriptionid?: string | null;
   suffix?: string | null;
-  teamsfollowed?: number | null;
   telephone1?: string | null;
   telephone2?: string | null;
   telephone3?: string | null;
@@ -179,12 +174,7 @@ interface Contact_Base extends WebEntity {
   websiteurl?: string | null;
 }
 interface Contact_Relationships {
-  CreatedContact_BulkOperationLogs?: BulkOperationLog_Result[] | null;
-  SourceContact_BulkOperationLogs?: BulkOperationLog_Result[] | null;
   account_primary_contact?: Account_Result[] | null;
-  contact_PostFollows?: PostFollow_Result[] | null;
-  contact_SharePointDocumentLocations?: SharePointDocumentLocation_Result[] | null;
-  contact_SharePointDocuments?: SharePointDocument_Result[] | null;
   contact_activity_parties?: ActivityParty_Result[] | null;
   contact_connections1?: Connection_Result[] | null;
   contact_connections2?: Connection_Result[] | null;
@@ -201,20 +191,16 @@ interface Contact_Relationships {
   parentcustomerid_contact?: Contact_Result | null;
 }
 interface Contact extends Contact_Base, Contact_Relationships {
-  defaultpricelevelid_bind$pricelevels?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
   parentcustomerid_account_bind$accounts?: string | null;
   parentcustomerid_contact_bind$contacts?: string | null;
-  preferredequipmentid_bind$equipments?: string | null;
-  preferredserviceid_bind$services?: string | null;
   preferredsystemuserid_bind$systemusers?: string | null;
   sla_contact_sla_bind$slas?: string | null;
   stageid_processstage_bind$processstages?: string | null;
   transactioncurrencyid_bind$transactioncurrencies?: string | null;
 }
 interface Contact_Create extends Contact {
-  originatingleadid_bind$leads?: string | null;
 }
 interface Contact_Update extends Contact {
 }
@@ -306,8 +292,6 @@ interface Contact_Select {
   assistantphone: WebAttribute<Contact_Select, { assistantphone: string | null }, {  }>;
   birthdate: WebAttribute<Contact_Select, { birthdate: Date | null }, { birthdate_formatted?: string }>;
   business2: WebAttribute<Contact_Select, { business2: string | null }, {  }>;
-  businesscard: WebAttribute<Contact_Select, { businesscard: string | null }, {  }>;
-  businesscardattributes: WebAttribute<Contact_Select, { businesscardattributes: string | null }, {  }>;
   callback: WebAttribute<Contact_Select, { callback: string | null }, {  }>;
   childrensnames: WebAttribute<Contact_Select, { childrensnames: string | null }, {  }>;
   company: WebAttribute<Contact_Select, { company: string | null }, {  }>;
@@ -321,7 +305,6 @@ interface Contact_Select {
   creditonhold: WebAttribute<Contact_Select, { creditonhold: boolean | null }, {  }>;
   customersizecode: WebAttribute<Contact_Select, { customersizecode: contact_customersizecode | null }, { customersizecode_formatted?: string }>;
   customertypecode: WebAttribute<Contact_Select, { customertypecode: contact_customertypecode | null }, { customertypecode_formatted?: string }>;
-  defaultpricelevelid_guid: WebAttribute<Contact_Select, { defaultpricelevelid_guid: string | null }, { defaultpricelevelid_formatted?: string }>;
   department: WebAttribute<Contact_Select, { department: string | null }, {  }>;
   description: WebAttribute<Contact_Select, { description: string | null }, {  }>;
   donotbulkemail: WebAttribute<Contact_Select, { donotbulkemail: boolean | null }, {  }>;
@@ -369,8 +352,6 @@ interface Contact_Select {
   modifiedbyexternalparty_guid: WebAttribute<Contact_Select, { modifiedbyexternalparty_guid: string | null }, { modifiedbyexternalparty_formatted?: string }>;
   modifiedon: WebAttribute<Contact_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<Contact_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
-  msdyn_gdproptout: WebAttribute<Contact_Select, { msdyn_gdproptout: boolean | null }, {  }>;
-  msdyn_orgchangestatus: WebAttribute<Contact_Select, { msdyn_orgchangestatus: contact_msdyn_orgchangestatus | null }, { msdyn_orgchangestatus_formatted?: string }>;
   nickname: WebAttribute<Contact_Select, { nickname: string | null }, {  }>;
   numberofchildren: WebAttribute<Contact_Select, { numberofchildren: number | null }, {  }>;
   onholdtime: WebAttribute<Contact_Select, { onholdtime: number | null }, {  }>;
@@ -378,7 +359,6 @@ interface Contact_Select {
   opc_multiplecomplaintstrategy: WebAttribute<Contact_Select, { opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy | null }, { opc_multiplecomplaintstrategy_formatted?: string }>;
   opc_preferredlanguage: WebAttribute<Contact_Select, { opc_preferredlanguage: opc_preferredlanguage | null }, { opc_preferredlanguage_formatted?: string }>;
   opc_requireprivilegedcorrespondence: WebAttribute<Contact_Select, { opc_requireprivilegedcorrespondence: boolean | null }, {  }>;
-  originatingleadid_guid: WebAttribute<Contact_Select, { originatingleadid_guid: string | null }, { originatingleadid_formatted?: string }>;
   overriddencreatedon: WebAttribute<Contact_Select, { overriddencreatedon: Date | null }, { overriddencreatedon_formatted?: string }>;
   ownerid_guid: WebAttribute<Contact_Select, { ownerid_guid: string | null }, { ownerid_formatted?: string }>;
   owningbusinessunit_guid: WebAttribute<Contact_Select, { owningbusinessunit_guid: string | null }, { owningbusinessunit_formatted?: string }>;
@@ -392,8 +372,6 @@ interface Contact_Select {
   preferredappointmentdaycode: WebAttribute<Contact_Select, { preferredappointmentdaycode: contact_preferredappointmentdaycode | null }, { preferredappointmentdaycode_formatted?: string }>;
   preferredappointmenttimecode: WebAttribute<Contact_Select, { preferredappointmenttimecode: contact_preferredappointmenttimecode | null }, { preferredappointmenttimecode_formatted?: string }>;
   preferredcontactmethodcode: WebAttribute<Contact_Select, { preferredcontactmethodcode: contact_preferredcontactmethodcode | null }, { preferredcontactmethodcode_formatted?: string }>;
-  preferredequipmentid_guid: WebAttribute<Contact_Select, { preferredequipmentid_guid: string | null }, { preferredequipmentid_formatted?: string }>;
-  preferredserviceid_guid: WebAttribute<Contact_Select, { preferredserviceid_guid: string | null }, { preferredserviceid_formatted?: string }>;
   preferredsystemuserid_guid: WebAttribute<Contact_Select, { preferredsystemuserid_guid: string | null }, { preferredsystemuserid_formatted?: string }>;
   processid: WebAttribute<Contact_Select, { processid: string | null }, {  }>;
   salutation: WebAttribute<Contact_Select, { salutation: string | null }, {  }>;
@@ -406,7 +384,6 @@ interface Contact_Select {
   statuscode: WebAttribute<Contact_Select, { statuscode: contact_statuscode | null }, { statuscode_formatted?: string }>;
   subscriptionid: WebAttribute<Contact_Select, { subscriptionid: string | null }, {  }>;
   suffix: WebAttribute<Contact_Select, { suffix: string | null }, {  }>;
-  teamsfollowed: WebAttribute<Contact_Select, { teamsfollowed: number | null }, {  }>;
   telephone1: WebAttribute<Contact_Select, { telephone1: string | null }, {  }>;
   telephone2: WebAttribute<Contact_Select, { telephone2: string | null }, {  }>;
   telephone3: WebAttribute<Contact_Select, { telephone3: string | null }, {  }>;
@@ -507,8 +484,6 @@ interface Contact_Filter {
   assistantphone: string;
   birthdate: Date;
   business2: string;
-  businesscard: string;
-  businesscardattributes: string;
   callback: string;
   childrensnames: string;
   company: string;
@@ -522,7 +497,6 @@ interface Contact_Filter {
   creditonhold: boolean;
   customersizecode: contact_customersizecode;
   customertypecode: contact_customertypecode;
-  defaultpricelevelid_guid: XQW.Guid;
   department: string;
   description: string;
   donotbulkemail: boolean;
@@ -570,8 +544,6 @@ interface Contact_Filter {
   modifiedbyexternalparty_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
-  msdyn_gdproptout: boolean;
-  msdyn_orgchangestatus: contact_msdyn_orgchangestatus;
   nickname: string;
   numberofchildren: number;
   onholdtime: number;
@@ -579,7 +551,6 @@ interface Contact_Filter {
   opc_multiplecomplaintstrategy: opc_multiplecomplaintstrategy;
   opc_preferredlanguage: opc_preferredlanguage;
   opc_requireprivilegedcorrespondence: boolean;
-  originatingleadid_guid: XQW.Guid;
   overriddencreatedon: Date;
   ownerid_guid: XQW.Guid;
   owningbusinessunit_guid: XQW.Guid;
@@ -593,8 +564,6 @@ interface Contact_Filter {
   preferredappointmentdaycode: contact_preferredappointmentdaycode;
   preferredappointmenttimecode: contact_preferredappointmenttimecode;
   preferredcontactmethodcode: contact_preferredcontactmethodcode;
-  preferredequipmentid_guid: XQW.Guid;
-  preferredserviceid_guid: XQW.Guid;
   preferredsystemuserid_guid: XQW.Guid;
   processid: XQW.Guid;
   salutation: string;
@@ -607,7 +576,6 @@ interface Contact_Filter {
   statuscode: contact_statuscode;
   subscriptionid: XQW.Guid;
   suffix: string;
-  teamsfollowed: number;
   telephone1: string;
   telephone2: string;
   telephone3: string;
@@ -621,12 +589,7 @@ interface Contact_Filter {
   websiteurl: string;
 }
 interface Contact_Expand {
-  CreatedContact_BulkOperationLogs: WebExpand<Contact_Expand, BulkOperationLog_Select, BulkOperationLog_Filter, { CreatedContact_BulkOperationLogs: BulkOperationLog_Result[] }>;
-  SourceContact_BulkOperationLogs: WebExpand<Contact_Expand, BulkOperationLog_Select, BulkOperationLog_Filter, { SourceContact_BulkOperationLogs: BulkOperationLog_Result[] }>;
   account_primary_contact: WebExpand<Contact_Expand, Account_Select, Account_Filter, { account_primary_contact: Account_Result[] }>;
-  contact_PostFollows: WebExpand<Contact_Expand, PostFollow_Select, PostFollow_Filter, { contact_PostFollows: PostFollow_Result[] }>;
-  contact_SharePointDocumentLocations: WebExpand<Contact_Expand, SharePointDocumentLocation_Select, SharePointDocumentLocation_Filter, { contact_SharePointDocumentLocations: SharePointDocumentLocation_Result[] }>;
-  contact_SharePointDocuments: WebExpand<Contact_Expand, SharePointDocument_Select, SharePointDocument_Filter, { contact_SharePointDocuments: SharePointDocument_Result[] }>;
   contact_activity_parties: WebExpand<Contact_Expand, ActivityParty_Select, ActivityParty_Filter, { contact_activity_parties: ActivityParty_Result[] }>;
   contact_connections1: WebExpand<Contact_Expand, Connection_Select, Connection_Filter, { contact_connections1: Connection_Result[] }>;
   contact_connections2: WebExpand<Contact_Expand, Connection_Select, Connection_Filter, { contact_connections2: Connection_Result[] }>;
@@ -681,7 +644,6 @@ interface Contact_FormattedResult {
   creditlimit_formatted?: string;
   customersizecode_formatted?: string;
   customertypecode_formatted?: string;
-  defaultpricelevelid_formatted?: string;
   educationcode_formatted?: string;
   familystatuscode_formatted?: string;
   gendercode_formatted?: string;
@@ -694,11 +656,9 @@ interface Contact_FormattedResult {
   modifiedbyexternalparty_formatted?: string;
   modifiedon_formatted?: string;
   modifiedonbehalfby_formatted?: string;
-  msdyn_orgchangestatus_formatted?: string;
   opc_duplicatedetectionresult_formatted?: string;
   opc_multiplecomplaintstrategy_formatted?: string;
   opc_preferredlanguage_formatted?: string;
-  originatingleadid_formatted?: string;
   overriddencreatedon_formatted?: string;
   ownerid_formatted?: string;
   owningbusinessunit_formatted?: string;
@@ -710,8 +670,6 @@ interface Contact_FormattedResult {
   preferredappointmentdaycode_formatted?: string;
   preferredappointmenttimecode_formatted?: string;
   preferredcontactmethodcode_formatted?: string;
-  preferredequipmentid_formatted?: string;
-  preferredserviceid_formatted?: string;
   preferredsystemuserid_formatted?: string;
   shippingmethodcode_formatted?: string;
   slaid_formatted?: string;
@@ -727,20 +685,16 @@ interface Contact_Result extends Contact_Base, Contact_Relationships {
   createdby_guid: string | null;
   createdbyexternalparty_guid: string | null;
   createdonbehalfby_guid: string | null;
-  defaultpricelevelid_guid: string | null;
   masterid_guid: string | null;
   modifiedby_guid: string | null;
   modifiedbyexternalparty_guid: string | null;
   modifiedonbehalfby_guid: string | null;
-  originatingleadid_guid: string | null;
   ownerid_guid: string | null;
   owningbusinessunit_guid: string | null;
   owningteam_guid: string | null;
   owninguser_guid: string | null;
   parentcontactid_guid: string | null;
   parentcustomerid_guid: string | null;
-  preferredequipmentid_guid: string | null;
-  preferredserviceid_guid: string | null;
   preferredsystemuserid_guid: string | null;
   slaid_guid: string | null;
   slainvokedid_guid: string | null;
@@ -760,12 +714,7 @@ interface Contact_RelatedOne {
   preferredsystemuserid: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface Contact_RelatedMany {
-  CreatedContact_BulkOperationLogs: WebMappingRetrieve<BulkOperationLog_Select,BulkOperationLog_Expand,BulkOperationLog_Filter,BulkOperationLog_Fixed,BulkOperationLog_Result,BulkOperationLog_FormattedResult>;
-  SourceContact_BulkOperationLogs: WebMappingRetrieve<BulkOperationLog_Select,BulkOperationLog_Expand,BulkOperationLog_Filter,BulkOperationLog_Fixed,BulkOperationLog_Result,BulkOperationLog_FormattedResult>;
   account_primary_contact: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
-  contact_PostFollows: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
-  contact_SharePointDocumentLocations: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
-  contact_SharePointDocuments: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
   contact_activity_parties: WebMappingRetrieve<ActivityParty_Select,ActivityParty_Expand,ActivityParty_Filter,ActivityParty_Fixed,ActivityParty_Result,ActivityParty_FormattedResult>;
   contact_connections1: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
   contact_connections2: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;

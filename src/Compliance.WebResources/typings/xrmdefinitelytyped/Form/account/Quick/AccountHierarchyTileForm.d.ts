@@ -10,8 +10,6 @@ declare namespace Form.account.Quick {
       }
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
-      get(name: "opendeals"): Xrm.NumberAttribute;
-      get(name: "openrevenue"): Xrm.NumberAttribute;
       get(name: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
       get(name: "primarycontactid"): Xrm.LookupAttribute<"contact">;
       get(name: string): undefined;
@@ -20,8 +18,6 @@ declare namespace Form.account.Quick {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "opendeals"): Xrm.NumberControl;
-      get(name: "openrevenue"): Xrm.NumberControl;
       get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "primarycontactid"): Xrm.LookupControl<"contact">;
       get(name: string): undefined;
@@ -38,13 +34,9 @@ declare namespace Form.account.Quick {
     }
   }
   interface AccountHierarchyTileForm extends Xrm.PageBase<AccountHierarchyTileForm.Attributes,AccountHierarchyTileForm.Tabs,AccountHierarchyTileForm.Controls> {
-    getAttribute(attributeName: "opendeals"): Xrm.NumberAttribute;
-    getAttribute(attributeName: "openrevenue"): Xrm.NumberAttribute;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: "primarycontactid"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "opendeals"): Xrm.NumberControl;
-    getControl(controlName: "openrevenue"): Xrm.NumberControl;
     getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "primarycontactid"): Xrm.LookupControl<"contact">;
     getControl(controlName: string): undefined;

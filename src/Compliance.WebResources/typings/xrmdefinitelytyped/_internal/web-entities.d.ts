@@ -1251,52 +1251,6 @@ interface TeamMembership_Create extends TeamMembership {
 }
 interface TeamMembership_Update extends TeamMembership {
 }
-interface BulkOperationLog_Base extends WebEntity {
-}
-interface BulkOperationLog_Fixed extends WebEntity_Fixed {
-  bulkoperationlogid: string;
-}
-interface BulkOperationLog extends BulkOperationLog_Base, BulkOperationLog_Relationships {
-}
-interface BulkOperationLog_Relationships {
-}
-interface BulkOperationLog_Result extends BulkOperationLog_Base, BulkOperationLog_Relationships {
-}
-interface BulkOperationLog_FormattedResult {
-}
-interface BulkOperationLog_Select {
-}
-interface BulkOperationLog_Expand {
-}
-interface BulkOperationLog_Filter {
-}
-interface BulkOperationLog_Create extends BulkOperationLog {
-}
-interface BulkOperationLog_Update extends BulkOperationLog {
-}
-interface Post_Base extends WebEntity {
-}
-interface Post_Fixed extends WebEntity_Fixed {
-  postid: string;
-}
-interface Post extends Post_Base, Post_Relationships {
-}
-interface Post_Relationships {
-}
-interface Post_Result extends Post_Base, Post_Relationships {
-}
-interface Post_FormattedResult {
-}
-interface Post_Select {
-}
-interface Post_Expand {
-}
-interface Post_Filter {
-}
-interface Post_Create extends Post {
-}
-interface Post_Update extends Post {
-}
 interface Connection_Base extends WebEntity {
 }
 interface Connection_Fixed extends WebEntity_Fixed {
@@ -1319,27 +1273,4 @@ interface Connection_Filter {
 interface Connection_Create extends Connection {
 }
 interface Connection_Update extends Connection {
-}
-interface PostFollow_Base extends WebEntity {
-}
-interface PostFollow_Fixed extends WebEntity_Fixed {
-  postfollowid: string;
-}
-interface PostFollow extends PostFollow_Base, PostFollow_Relationships {
-}
-interface PostFollow_Relationships {
-}
-interface PostFollow_Result extends PostFollow_Base, PostFollow_Relationships {
-}
-interface PostFollow_FormattedResult {
-}
-interface PostFollow_Select {
-}
-interface PostFollow_Expand {
-}
-interface PostFollow_Filter {
-}
-interface PostFollow_Create extends PostFollow {
-}
-interface PostFollow_Update extends PostFollow {
 }

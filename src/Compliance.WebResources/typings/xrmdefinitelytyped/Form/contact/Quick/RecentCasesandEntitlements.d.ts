@@ -30,7 +30,6 @@ declare namespace Form.contact.Quick {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
-      get(name: "contactcasessgrid"): Xrm.SubGridControl<"incident">;
       get(name: "header_process_birthdate"): Xrm.DateControl | null;
       get(name: "header_process_emailaddress1"): Xrm.StringControl | null;
       get(name: "header_process_familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode> | null;
@@ -44,7 +43,6 @@ declare namespace Form.contact.Quick {
       get(name: "header_process_spousesname"): Xrm.StringControl | null;
       get(name: "header_process_telephone1"): Xrm.StringControl | null;
       get(name: "header_process_websiteurl"): Xrm.StringControl | null;
-      get(name: "subgrid_Entitlement"): Xrm.SubGridControl<"entitlement">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -73,7 +71,6 @@ declare namespace Form.contact.Quick {
     getAttribute(attributeName: "telephone1"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: "websiteurl"): Xrm.Attribute<string> | null;
     getAttribute(attributeName: string): undefined;
-    getControl(controlName: "contactcasessgrid"): Xrm.SubGridControl<"incident">;
     getControl(controlName: "header_process_birthdate"): Xrm.DateControl | null;
     getControl(controlName: "header_process_emailaddress1"): Xrm.StringControl | null;
     getControl(controlName: "header_process_familystatuscode"): Xrm.OptionSetControl<contact_familystatuscode> | null;
@@ -87,7 +84,6 @@ declare namespace Form.contact.Quick {
     getControl(controlName: "header_process_spousesname"): Xrm.StringControl | null;
     getControl(controlName: "header_process_telephone1"): Xrm.StringControl | null;
     getControl(controlName: "header_process_websiteurl"): Xrm.StringControl | null;
-    getControl(controlName: "subgrid_Entitlement"): Xrm.SubGridControl<"entitlement">;
     getControl(controlName: string): undefined;
   }
 }

@@ -6,7 +6,7 @@
       <LocalizedName description="Compliance" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.597</Version>
+    <Version>1.0.600</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>officeoftheprivacycommissioner</UniqueName>
@@ -254,6 +254,7 @@
       <RootComponent type="60" id="{d7ea7bb0-e0d9-49f9-8409-7df03ad34691}" behavior="0" />
       <RootComponent type="60" id="{d99b07af-7b87-491f-a7d6-89a9d6a717ce}" behavior="0" />
       <RootComponent type="60" id="{e04a2da4-a478-4dfe-a3e9-3f83b55ef1a4}" behavior="0" />
+      <RootComponent type="60" id="{e05fd2da-457f-eb11-a812-000d3ae872a4}" behavior="0" />
       <RootComponent type="60" id="{e2aa2ccf-1057-ea11-a811-000d3af45c52}" behavior="0" />
       <RootComponent type="60" id="{e890788c-d225-4e9f-9c9d-41781b2f52e3}" behavior="0" />
       <RootComponent type="60" id="{ec29b747-fbc2-44a1-97ef-b2e70e4b72cf}" behavior="0" />
@@ -315,7 +316,7 @@
         <Dependent key="35" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>
-        <Required key="23" type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.21023.10002)" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
+        <Required key="23" type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.21013.10004)" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
         <Dependent key="35" type="80" schemaName="opc_compliance" displayName="Compliance" />
       </MissingDependency>
       <MissingDependency>

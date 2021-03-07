@@ -1058,26 +1058,6 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// This is default company for a user.
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("cdm_company")]
-		public Microsoft.Xrm.Sdk.EntityReference cdm_Company
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("cdm_company");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("cdm_Company");
-				this.SetAttributeValue("cdm_company", value);
-				this.OnPropertyChanged("cdm_Company");
-			}
-		}
-		
-		/// <summary>
 		/// Unique identifier of the user who created the user.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
@@ -1753,26 +1733,6 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// Describes whether user is opted out or not
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("msdyn_gdproptout")]
-		public System.Nullable<bool> msdyn_gdproptout
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<bool>>("msdyn_gdproptout");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("msdyn_gdproptout");
-				this.SetAttributeValue("msdyn_gdproptout", value);
-				this.OnPropertyChanged("msdyn_gdproptout");
-			}
-		}
-		
-		/// <summary>
 		/// Nickname of the user.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("nickname")]
@@ -2122,26 +2082,6 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("SharePointEmailAddress");
 				this.SetAttributeValue("sharepointemailaddress", value);
 				this.OnPropertyChanged("SharePointEmailAddress");
-			}
-		}
-		
-		/// <summary>
-		/// Site at which the user is located.
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("siteid")]
-		public Microsoft.Xrm.Sdk.EntityReference SiteId
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("siteid");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("SiteId");
-				this.SetAttributeValue("siteid", value);
-				this.OnPropertyChanged("SiteId");
 			}
 		}
 		
