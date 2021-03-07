@@ -61,6 +61,9 @@
     <steplabels id="{70128683-b6c8-4755-8a14-7696e98785f2}">
       <label languagecode="1033" description="Respondent and Complainant Relationship" />
     </steplabels>
+    <steplabels id="{12eb969b-77ff-44f9-aeda-3004abc29247}">
+      <label languagecode="1033" description="Complainant Perceived Priorities" />
+    </steplabels>
     <steplabels id="{f4dd2c83-cf58-4328-a1c7-515dc7a977a8}">
       <label languagecode="1033" description="Acceptance" />
     </steplabels>
