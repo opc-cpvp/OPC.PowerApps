@@ -7,12 +7,16 @@ export class XrmControlMock
     implements Xrm.Control<XrmAttributeMock>, Xrm.OptionSetControl<any>, XrmLookupControlMock, Xrm.SubGridControl<any> {
     private _isDisabled: boolean;
     private _options: Xrm.Option<any>[] = [];
+    private _grid: Xrm.Grid<any>;
     // eslint-disable-next-line @typescript-eslint/ban-types
     private _onPreSearchHandlers: Function[] = [];
 
     /* NEW MEMBERS TO HELP MOCKING */
     setOptions(options: Xrm.Option<any>[]): void {
         this._options = options;
+    }
+    setGrid(grid: Xrm.Grid<any>): void {
+        this._grid = grid;
     }
     /* END OF NEW MEMBERS*/
 
@@ -57,7 +61,7 @@ export class XrmControlMock
         throw new Error("Method not implemented.");
     }
     getGrid(): Xrm.Grid<any> {
-        throw new Error("Method not implemented.");
+        return this._grid;
     }
     getViewSelector(): Xrm.ViewSelector {
         throw new Error("Method not implemented.");
@@ -131,4 +135,16 @@ export class XrmControlMock
         throw new Error("Method not implemented.");
     }
     /* end of LookupControl members */
+
+    /* GridControl members */
+    getRows(): Xrm.Collection<Xrm.GridRow<any>> {
+        throw new Error("Method not implemented.");
+    }
+    getSelectedRows(): Xrm.Collection<Xrm.GridRow<any>> {
+        throw new Error("Method not implemented.");
+    }
+    getTotalRecordCount(): number {
+        throw new Error("Method not implemented.");
+    }
+    /* End of GridControl members */
 }
