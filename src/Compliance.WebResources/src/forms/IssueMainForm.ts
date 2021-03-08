@@ -2,7 +2,7 @@ import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IComplaintService, IContactService, ComplaintWithRelationships } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
-import { AllegationType } from "../enums";
+import { AllegationType, EntityTypeCodes } from "../enums";
 import { PowerForm } from "./PowerForm";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
@@ -71,7 +71,7 @@ export namespace Issue.Forms {
 
                 if (provisionsViewId !== "" && provisionsViewName !== "") {
                     const ProjectTemplateView = {
-                        entityType: "1039", // SavedQuery
+                        entityType: EntityTypeCodes.SavedQuery,
                         id: provisionsViewId,
                         name: provisionsViewName
                     };
