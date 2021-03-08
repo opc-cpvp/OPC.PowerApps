@@ -45,6 +45,8 @@ import ReminderQuickCreateForm = require("./forms/ReminderQuickCreateForm");
 import ReminderQuickCreate = ReminderQuickCreateForm.Reminder;
 import RiskAssessmentMainForm = require("./forms/RiskAssessmentMainForm");
 import RiskAssessment = RiskAssessmentMainForm.RiskAssessment;
+import IndustryMainForm = require("./forms/IndustryMainForm");
+import Industry = IndustryMainForm.Industry;
 
 // Controls
 import { Controls as ChecklistCtrl } from "./controls/Checklist/ChecklistControl";
@@ -113,6 +115,7 @@ container
     .bind<i.IPowerForm<Form.opc_reminder.QuickCreate.QuickCreate>>("opc_reminder_quickcreate")
     .to(ReminderQuickCreate.Forms.QuickCreate);
 container.bind<i.IPowerForm<Form.opc_riskassessment.Main.Information>>("opc_riskassessment_information").to(RiskAssessment.Forms.MainForm);
+container.bind<i.IPowerForm<Form.opc_industry.Main.Information>>("opc_industry_information").to(Industry.Forms.MainForm);
 
 // Register controls
 container.bind<ChecklistCtrl.ChecklistControl>(nameof<ChecklistCtrl.ChecklistControl>()).to(ChecklistCtrl.ChecklistControl);

@@ -1,14 +1,15 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, IUserService } from "../interfaces";
+import { IUserService } from "../interfaces";
 import { i18n } from "i18next";
 import { XrmHelper } from "../helpers/XrmHelper";
+import { PowerForm } from "./PowerForm";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Contact.Forms {
     @injectable()
-    export class MainForm implements IPowerForm<Form.contact.Main.ComplianceContact> {
+    export class MainForm extends PowerForm<Form.contact.Main.ComplianceContact> {
         private readonly _userService: IUserService;
         private readonly _xrmNavigation: Xrm.Navigation;
         private readonly _xrmContext: Xrm.context;
@@ -23,6 +24,7 @@ export namespace Contact.Forms {
             @inject(nameof<Xrm.Navigation>()) xrmNavigation: Xrm.Navigation,
             @inject(nameof<Xrm.context>()) xrmContext: Xrm.context
         ) {
+            super();
             this._i18n = i18n;
             this._userService = userService;
             this._xrmNavigation = xrmNavigation;
@@ -35,6 +37,8 @@ export namespace Contact.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.contact.Main.ComplianceContact, any>): void {
+            super.initializeComponents(initializationContext);
+
             const formContext = initializationContext.getFormContext() as Form.contact.Main.ComplianceContact;
 
             // Register handlers

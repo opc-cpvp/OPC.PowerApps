@@ -17,19 +17,22 @@ export class ComplaintService implements IComplaintService {
             x.telephone1,
             x.telephone2,
             x.fax,
+            x.address1_composite,
             x.address1_line1,
             x.address1_line2,
             x.address1_line3,
             x.address1_city,
             x.address1_stateorprovince,
             x.address1_postalcode,
-            x.address1_country
+            x.address1_country,
+            x.opc_requireprivilegedcorrespondence
         ];
         const accountAttributes = (x: Account_Select): WebAttribute<Account_Select, any, any>[] => [
             x.name,
             x.telephone1,
             x.fax,
             x.websiteurl,
+            x.address1_composite,
             x.address1_line1,
             x.address1_line2,
             x.address1_line3,
@@ -45,8 +48,10 @@ export class ComplaintService implements IComplaintService {
             x.title,
             x.domainname,
             x.internalemailaddress,
+            x.address1_composite,
             x.address1_telephone1,
-            x.mobilephone
+            x.mobilephone,
+            x.parentsystemuserid_guid
         ];
 
         return XrmQuery.retrieve(x => x.opc_complaints, id)

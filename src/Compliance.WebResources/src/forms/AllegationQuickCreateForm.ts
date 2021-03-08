@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import "reflect-metadata";
-import { IPowerForm } from "../interfaces";
+import { PowerForm } from "./PowerForm";
 import { XrmHelper } from "../helpers/XrmHelper";
 import { AllegationType } from "../enums";
 
@@ -8,13 +8,15 @@ import { AllegationType } from "../enums";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Allegation.Forms {
     @injectable()
-    export class QuickCreate implements IPowerForm<Form.opc_allegation.QuickCreate.QuickCreate> {
+    export class QuickCreate extends PowerForm<Form.opc_allegation.QuickCreate.QuickCreate> {
         /**
          * Handle the form OnLoad event.
          *
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_allegation.QuickCreate.QuickCreate, any>): void {
+            super.initializeComponents(initializationContext);
+
             const formContext = initializationContext.getFormContext() as Form.opc_allegation.QuickCreate.QuickCreate;
 
             formContext.getAttribute("opc_allegationtypeid").addOnChange(x => this.allegationtype_OnChange(x));

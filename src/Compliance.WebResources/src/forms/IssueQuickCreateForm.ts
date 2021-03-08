@@ -1,7 +1,7 @@
 import { injectable } from "inversify";
 import "reflect-metadata";
 import { XrmHelper } from "../helpers/XrmHelper";
-import { IPowerForm } from "../interfaces";
+import { PowerForm } from "./PowerForm";
 import { AllegationType } from "../enums";
 import { StringHelper } from "../helpers/StringHelper";
 
@@ -9,8 +9,10 @@ import { StringHelper } from "../helpers/StringHelper";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Issue.Forms {
     @injectable()
-    export class QuickCreate implements IPowerForm<Form.opc_issue.QuickCreate.QuickCreate> {
+    export class QuickCreate extends PowerForm<Form.opc_issue.QuickCreate.QuickCreate> {
         initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_issue.QuickCreate.QuickCreate, any>): void {
+            super.initializeComponents(initializationContext);
+
             const formContext = initializationContext.getFormContext() as Form.opc_issue.QuickCreate.QuickCreate;
 
             // Register handlers
