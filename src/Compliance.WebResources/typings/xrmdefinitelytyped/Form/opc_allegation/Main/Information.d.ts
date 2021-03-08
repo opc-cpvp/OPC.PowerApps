@@ -34,6 +34,7 @@ declare namespace Form.opc_allegation.Main {
       get(name: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
       get(name: "opc_jurisdiction"): Xrm.OptionSetControl<opc_jurisdictions>;
       get(name: "opc_referencenumber"): Xrm.StringControl;
+      get(name: "subgrid_personalinformationtype"): Xrm.BaseControl;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -66,6 +67,7 @@ declare namespace Form.opc_allegation.Main {
     getControl(controlName: "opc_dispositionreasonid"): Xrm.LookupControl<"opc_dispositionreason">;
     getControl(controlName: "opc_jurisdiction"): Xrm.OptionSetControl<opc_jurisdictions>;
     getControl(controlName: "opc_referencenumber"): Xrm.StringControl;
+    getControl(controlName: "subgrid_personalinformationtype"): Xrm.BaseControl;
     getControl(controlName: string): undefined;
   }
 }

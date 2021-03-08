@@ -188,6 +188,10 @@ interface SystemUser_Relationships {
   lk_opc_legislation_createdonbehalfby?: opc_legislation_Result[] | null;
   lk_opc_legislation_modifiedby?: opc_legislation_Result[] | null;
   lk_opc_legislation_modifiedonbehalfby?: opc_legislation_Result[] | null;
+  lk_opc_legislationallegationtype_createdby?: opc_legislationallegationtype_Result[] | null;
+  lk_opc_legislationallegationtype_createdonbehalfby?: opc_legislationallegationtype_Result[] | null;
+  lk_opc_legislationallegationtype_modifiedby?: opc_legislationallegationtype_Result[] | null;
+  lk_opc_legislationallegationtype_modifiedonbehalfby?: opc_legislationallegationtype_Result[] | null;
   lk_opc_notification_createdby?: opc_notification_Result[] | null;
   lk_opc_notification_createdonbehalfby?: opc_notification_Result[] | null;
   lk_opc_notification_modifiedby?: opc_notification_Result[] | null;
@@ -196,6 +200,10 @@ interface SystemUser_Relationships {
   lk_opc_opcpriority_createdonbehalfby?: opc_opcpriority_Result[] | null;
   lk_opc_opcpriority_modifiedby?: opc_opcpriority_Result[] | null;
   lk_opc_opcpriority_modifiedonbehalfby?: opc_opcpriority_Result[] | null;
+  lk_opc_personalinformationtype_createdby?: opc_personalinformationtype_Result[] | null;
+  lk_opc_personalinformationtype_createdonbehalfby?: opc_personalinformationtype_Result[] | null;
+  lk_opc_personalinformationtype_modifiedby?: opc_personalinformationtype_Result[] | null;
+  lk_opc_personalinformationtype_modifiedonbehalfby?: opc_personalinformationtype_Result[] | null;
   lk_opc_questiontemplate_createdby?: opc_QuestionTemplate_Result[] | null;
   lk_opc_questiontemplate_createdonbehalfby?: opc_QuestionTemplate_Result[] | null;
   lk_opc_questiontemplate_modifiedby?: opc_QuestionTemplate_Result[] | null;
@@ -316,8 +324,10 @@ interface SystemUser_Relationships {
   user_opc_industry?: opc_industry_Result[] | null;
   user_opc_issue?: opc_issue_Result[] | null;
   user_opc_legislation?: opc_legislation_Result[] | null;
+  user_opc_legislationallegationtype?: opc_legislationallegationtype_Result[] | null;
   user_opc_notification?: opc_notification_Result[] | null;
   user_opc_opcpriority?: opc_opcpriority_Result[] | null;
+  user_opc_personalinformationtype?: opc_personalinformationtype_Result[] | null;
   user_opc_questiontemplate?: opc_QuestionTemplate_Result[] | null;
   user_opc_recommendation?: opc_recommendation_Result[] | null;
   user_opc_reminder?: opc_reminder_Result[] | null;
@@ -680,6 +690,10 @@ interface SystemUser_Expand {
   lk_opc_legislation_createdonbehalfby: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { lk_opc_legislation_createdonbehalfby: opc_legislation_Result[] }>;
   lk_opc_legislation_modifiedby: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { lk_opc_legislation_modifiedby: opc_legislation_Result[] }>;
   lk_opc_legislation_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { lk_opc_legislation_modifiedonbehalfby: opc_legislation_Result[] }>;
+  lk_opc_legislationallegationtype_createdby: WebExpand<SystemUser_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { lk_opc_legislationallegationtype_createdby: opc_legislationallegationtype_Result[] }>;
+  lk_opc_legislationallegationtype_createdonbehalfby: WebExpand<SystemUser_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { lk_opc_legislationallegationtype_createdonbehalfby: opc_legislationallegationtype_Result[] }>;
+  lk_opc_legislationallegationtype_modifiedby: WebExpand<SystemUser_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { lk_opc_legislationallegationtype_modifiedby: opc_legislationallegationtype_Result[] }>;
+  lk_opc_legislationallegationtype_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { lk_opc_legislationallegationtype_modifiedonbehalfby: opc_legislationallegationtype_Result[] }>;
   lk_opc_notification_createdby: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { lk_opc_notification_createdby: opc_notification_Result[] }>;
   lk_opc_notification_createdonbehalfby: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { lk_opc_notification_createdonbehalfby: opc_notification_Result[] }>;
   lk_opc_notification_modifiedby: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { lk_opc_notification_modifiedby: opc_notification_Result[] }>;
@@ -688,6 +702,10 @@ interface SystemUser_Expand {
   lk_opc_opcpriority_createdonbehalfby: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { lk_opc_opcpriority_createdonbehalfby: opc_opcpriority_Result[] }>;
   lk_opc_opcpriority_modifiedby: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { lk_opc_opcpriority_modifiedby: opc_opcpriority_Result[] }>;
   lk_opc_opcpriority_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { lk_opc_opcpriority_modifiedonbehalfby: opc_opcpriority_Result[] }>;
+  lk_opc_personalinformationtype_createdby: WebExpand<SystemUser_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { lk_opc_personalinformationtype_createdby: opc_personalinformationtype_Result[] }>;
+  lk_opc_personalinformationtype_createdonbehalfby: WebExpand<SystemUser_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { lk_opc_personalinformationtype_createdonbehalfby: opc_personalinformationtype_Result[] }>;
+  lk_opc_personalinformationtype_modifiedby: WebExpand<SystemUser_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { lk_opc_personalinformationtype_modifiedby: opc_personalinformationtype_Result[] }>;
+  lk_opc_personalinformationtype_modifiedonbehalfby: WebExpand<SystemUser_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { lk_opc_personalinformationtype_modifiedonbehalfby: opc_personalinformationtype_Result[] }>;
   lk_opc_questiontemplate_createdby: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { lk_opc_questiontemplate_createdby: opc_QuestionTemplate_Result[] }>;
   lk_opc_questiontemplate_createdonbehalfby: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { lk_opc_questiontemplate_createdonbehalfby: opc_QuestionTemplate_Result[] }>;
   lk_opc_questiontemplate_modifiedby: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { lk_opc_questiontemplate_modifiedby: opc_QuestionTemplate_Result[] }>;
@@ -812,8 +830,10 @@ interface SystemUser_Expand {
   user_opc_industry: WebExpand<SystemUser_Expand, opc_industry_Select, opc_industry_Filter, { user_opc_industry: opc_industry_Result[] }>;
   user_opc_issue: WebExpand<SystemUser_Expand, opc_issue_Select, opc_issue_Filter, { user_opc_issue: opc_issue_Result[] }>;
   user_opc_legislation: WebExpand<SystemUser_Expand, opc_legislation_Select, opc_legislation_Filter, { user_opc_legislation: opc_legislation_Result[] }>;
+  user_opc_legislationallegationtype: WebExpand<SystemUser_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { user_opc_legislationallegationtype: opc_legislationallegationtype_Result[] }>;
   user_opc_notification: WebExpand<SystemUser_Expand, opc_notification_Select, opc_notification_Filter, { user_opc_notification: opc_notification_Result[] }>;
   user_opc_opcpriority: WebExpand<SystemUser_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { user_opc_opcpriority: opc_opcpriority_Result[] }>;
+  user_opc_personalinformationtype: WebExpand<SystemUser_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { user_opc_personalinformationtype: opc_personalinformationtype_Result[] }>;
   user_opc_questiontemplate: WebExpand<SystemUser_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { user_opc_questiontemplate: opc_QuestionTemplate_Result[] }>;
   user_opc_recommendation: WebExpand<SystemUser_Expand, opc_recommendation_Select, opc_recommendation_Filter, { user_opc_recommendation: opc_recommendation_Result[] }>;
   user_opc_reminder: WebExpand<SystemUser_Expand, opc_reminder_Select, opc_reminder_Filter, { user_opc_reminder: opc_reminder_Result[] }>;
@@ -965,6 +985,10 @@ interface SystemUser_RelatedMany {
   lk_opc_legislation_createdonbehalfby: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
   lk_opc_legislation_modifiedby: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
   lk_opc_legislation_modifiedonbehalfby: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  lk_opc_legislationallegationtype_createdby: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
+  lk_opc_legislationallegationtype_createdonbehalfby: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
+  lk_opc_legislationallegationtype_modifiedby: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
+  lk_opc_legislationallegationtype_modifiedonbehalfby: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
   lk_opc_notification_createdby: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
   lk_opc_notification_createdonbehalfby: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
   lk_opc_notification_modifiedby: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
@@ -973,6 +997,10 @@ interface SystemUser_RelatedMany {
   lk_opc_opcpriority_createdonbehalfby: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
   lk_opc_opcpriority_modifiedby: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
   lk_opc_opcpriority_modifiedonbehalfby: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  lk_opc_personalinformationtype_createdby: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
+  lk_opc_personalinformationtype_createdonbehalfby: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
+  lk_opc_personalinformationtype_modifiedby: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
+  lk_opc_personalinformationtype_modifiedonbehalfby: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
   lk_opc_questiontemplate_createdby: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
   lk_opc_questiontemplate_createdonbehalfby: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
   lk_opc_questiontemplate_modifiedby: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
@@ -1093,8 +1121,10 @@ interface SystemUser_RelatedMany {
   user_opc_industry: WebMappingRetrieve<opc_industry_Select,opc_industry_Expand,opc_industry_Filter,opc_industry_Fixed,opc_industry_Result,opc_industry_FormattedResult>;
   user_opc_issue: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
   user_opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  user_opc_legislationallegationtype: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
   user_opc_notification: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
   user_opc_opcpriority: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  user_opc_personalinformationtype: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
   user_opc_questiontemplate: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
   user_opc_recommendation: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
   user_opc_reminder: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;

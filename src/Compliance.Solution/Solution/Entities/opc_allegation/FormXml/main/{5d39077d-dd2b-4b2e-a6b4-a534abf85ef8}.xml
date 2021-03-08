@@ -26,7 +26,7 @@
                         </labels>
                         <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
                       </cell>
-                      <cell id="{0c26b11e-eb81-9e66-3341-ce9b81331a70}" showlabel="false">
+                      <cell id="{eb8ce567-7761-d6e4-17cd-66eb56835ee4}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -39,7 +39,7 @@
                         </labels>
                         <control id="opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
                       </cell>
-                      <cell id="{d6c0208e-d9e8-29ac-97a0-e4088b171570}" showlabel="false">
+                      <cell id="{3b310d36-15bb-30e4-d0ee-aebd0a5abc3d}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -61,7 +61,7 @@
                           </parameters>
                         </control>
                       </cell>
-                      <cell id="{ca335eb6-6056-cc23-b59b-d0d1e845c598}" showlabel="false">
+                      <cell id="{09a00ce2-ea14-854e-c751-067269466159}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -86,7 +86,7 @@
                           </parameters>
                         </control>
                       </cell>
-                      <cell id="{10a99520-5693-b779-646c-16b5348cd8ac}" showlabel="false">
+                      <cell id="{817b88bd-ad0b-d3a2-0b32-e54194b49b16}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -99,7 +99,7 @@
                         </labels>
                         <control id="opc_jurisdiction" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_jurisdiction" disabled="false" />
                       </cell>
-                      <cell showlabel="true" locklevel="0" id="{78b56a71-9e51-45ff-a68c-a12e8bb6e446}">
+                      <cell id="{8de1e289-5140-440d-68e1-7d0a9eec4955}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -112,12 +112,44 @@
                         </labels>
                         <control id="opc_referencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_referencenumber" disabled="false" />
                       </cell>
-                      <cell locklevel="0" id="{0233867a-1116-4f31-a077-0700a684e760}">
+                      <cell id="{d23ce52d-1e4c-acad-ada8-2d49bebe946b}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
                     </row>
+                    <row>
+                      <cell locklevel="0" id="{0cbfcf50-c536-4dcf-80e9-8c1441111cb8}" rowspan="6" colspan="2" auto="false" showlabel="false">
+                        <labels>
+                          <label description="Personal Information Type" languagecode="1033" />
+                        </labels>
+                        <control id="subgrid_personalinformationtype" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{63b019bb-a3a2-c768-886a-aed45e13cdbb}">
+                          <parameters>
+                            <TargetEntityType>opc_personalinformationtype</TargetEntityType>
+                            <ViewId>{0BC26C6D-2F0F-4DC8-8B69-38572FFBEF4D}</ViewId>
+                            <ViewIds>{0BC26C6D-2F0F-4DC8-8B69-38572FFBEF4D}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>opc_allegations_personalinformationtypes</RelationshipName>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
                 <section name="section_checklist_responses" id="b98a32cd-c4bf-4c25-b19d-bf871bcd7a85" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
@@ -236,7 +268,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar />
+        <NavBar></NavBar>
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>
@@ -270,7 +302,64 @@
           </NavBarArea>
         </NavBarAreas>
       </Navigation>
-      <controlDescriptions />
+      <controlDescriptions>
+        <controlDescription forControl="{63b019bb-a3a2-c768-886a-aed45e13cdbb}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+            <parameters />
+          </customControl>
+          <customControl formFactor="0" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{0BC26C6D-2F0F-4DC8-8B69-38572FFBEF4D}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_allegations_personalinformationtypes</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_personalinformationtype</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{0BC26C6D-2F0F-4DC8-8B69-38572FFBEF4D}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_personalinformationtype</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_allegations_personalinformationtypes</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_allegations_personalinformationtypes</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">Type of Personal Information</labelText>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{0BC26C6D-2F0F-4DC8-8B69-38572FFBEF4D}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_allegations_personalinformationtypes</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_personalinformationtype</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{0BC26C6D-2F0F-4DC8-8B69-38572FFBEF4D}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_personalinformationtype</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_allegations_personalinformationtypes</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_allegations_personalinformationtypes</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">Type of Personal Information</labelText>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="opc_opc.pcf.TagPickerGridComponent">
+            <parameters>
+              <data-set name="tagData">
+                <ViewId>{0BC26C6D-2F0F-4DC8-8B69-38572FFBEF4D}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>opc_allegations_personalinformationtypes</RelationshipName>
+                <RelationshipRoleOrdinal>2</RelationshipRoleOrdinal>
+                <TargetEntityType>opc_personalinformationtype</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{0BC26C6D-2F0F-4DC8-8B69-38572FFBEF4D}</FilteredViewIds>
+              </data-set>
+              <relatedEntity static="true" type="SingleLine.Text">opc_personalinformationtype</relatedEntity>
+              <relationshipName static="true" type="SingleLine.Text">opc_allegations_personalinformationtypes</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_allegations_personalinformationtypes</relationshipEntity>
+              <labelText static="true" type="SingleLine.Text">Type of Personal Information</labelText>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
       <formLibraries>
         <Library name="opc_compliance/js/compliance.min.js" libraryUniqueId="{895c08e2-3ddd-e23d-ad1d-628020cac6de}" />
       </formLibraries>

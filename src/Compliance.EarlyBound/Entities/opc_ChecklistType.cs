@@ -517,26 +517,6 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// 1:N opc_checklisttype_allegationtypes_checklistty
-		/// </summary>
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_checklisttype_allegationtypes_checklistty")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_allegationtype> opc_checklisttype_allegationtypes_checklistty
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.opc_allegationtype>("opc_checklisttype_allegationtypes_checklistty", null);
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("opc_checklisttype_allegationtypes_checklistty");
-				this.SetRelatedEntities<Compliance.EarlyBound.opc_allegationtype>("opc_checklisttype_allegationtypes_checklistty", null, value);
-				this.OnPropertyChanged("opc_checklisttype_allegationtypes_checklistty");
-			}
-		}
-		
-		/// <summary>
 		/// 1:N opc_checklisttype_questiontemplates_checklist
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_checklisttype_questiontemplates_checklist")]
@@ -553,6 +533,26 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("opc_checklisttype_questiontemplates_checklist");
 				this.SetRelatedEntities<Compliance.EarlyBound.opc_QuestionTemplate>("opc_checklisttype_questiontemplates_checklist", null, value);
 				this.OnPropertyChanged("opc_checklisttype_questiontemplates_checklist");
+			}
+		}
+		
+		/// <summary>
+		/// N:N opc_checklisttype_legislationallegationtype
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_checklisttype_legislationallegationtype")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_legislationallegationtype> opc_checklisttype_legislationallegationtype
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("opc_checklisttype_legislationallegationtype", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_checklisttype_legislationallegationtype");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("opc_checklisttype_legislationallegationtype", null, value);
+				this.OnPropertyChanged("opc_checklisttype_legislationallegationtype");
 			}
 		}
 		

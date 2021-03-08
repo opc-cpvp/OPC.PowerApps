@@ -137,6 +137,7 @@ interface opc_event_Select {
   sendermailboxid_guid: WebAttribute<opc_event_Select, { sendermailboxid_guid: string | null }, { sendermailboxid_formatted?: string }>;
   senton: WebAttribute<opc_event_Select, { senton: Date | null }, { senton_formatted?: string }>;
   seriesid: WebAttribute<opc_event_Select, { seriesid: string | null }, {  }>;
+  serviceid_guid: WebAttribute<opc_event_Select, { serviceid_guid: string | null }, { serviceid_formatted?: string }>;
   slaid_guid: WebAttribute<opc_event_Select, { slaid_guid: string | null }, { slaid_formatted?: string }>;
   slainvokedid_guid: WebAttribute<opc_event_Select, { slainvokedid_guid: string | null }, { slainvokedid_formatted?: string }>;
   sortdate: WebAttribute<opc_event_Select, { sortdate: Date | null }, { sortdate_formatted?: string }>;
@@ -208,6 +209,7 @@ interface opc_event_Filter {
   sendermailboxid_guid: XQW.Guid;
   senton: Date;
   seriesid: XQW.Guid;
+  serviceid_guid: XQW.Guid;
   slaid_guid: XQW.Guid;
   slainvokedid_guid: XQW.Guid;
   sortdate: Date;
@@ -273,6 +275,7 @@ interface opc_event_FormattedResult {
   scheduledstart_formatted?: string;
   sendermailboxid_formatted?: string;
   senton_formatted?: string;
+  serviceid_formatted?: string;
   slaid_formatted?: string;
   slainvokedid_formatted?: string;
   sortdate_formatted?: string;
@@ -302,6 +305,7 @@ interface opc_event_Result extends opc_event_Base, opc_event_Relationships {
   requiredattendees_guid: string | null;
   resources_guid: string | null;
   sendermailboxid_guid: string | null;
+  serviceid_guid: string | null;
   slaid_guid: string | null;
   slainvokedid_guid: string | null;
   to_guid: string | null;

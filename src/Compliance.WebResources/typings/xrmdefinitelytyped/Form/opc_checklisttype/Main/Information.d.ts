@@ -27,7 +27,7 @@ declare namespace Form.opc_checklisttype.Main {
       get(name: "opc_nameenglish"): Xrm.StringControl;
       get(name: "opc_namefrench"): Xrm.StringControl;
       get(name: "opc_type"): Xrm.OptionSetControl<opc_complaintstage>;
-      get(name: "subgrid_allegation_types"): Xrm.SubGridControl<"opc_allegationtype">;
+      get(name: "subgrid_legislationsallegationtypes"): Xrm.SubGridControl<"opc_legislationallegationtype">;
       get(name: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
@@ -54,7 +54,7 @@ declare namespace Form.opc_checklisttype.Main {
     getControl(controlName: "opc_nameenglish"): Xrm.StringControl;
     getControl(controlName: "opc_namefrench"): Xrm.StringControl;
     getControl(controlName: "opc_type"): Xrm.OptionSetControl<opc_complaintstage>;
-    getControl(controlName: "subgrid_allegation_types"): Xrm.SubGridControl<"opc_allegationtype">;
+    getControl(controlName: "subgrid_legislationsallegationtypes"): Xrm.SubGridControl<"opc_legislationallegationtype">;
     getControl(controlName: "subgrid_question_templates"): Xrm.SubGridControl<"opc_questiontemplate">;
     getControl(controlName: string): undefined;
   }

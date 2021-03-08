@@ -6,5 +6,5 @@ declare const enum activitypointer_activitytypecode {
   PhoneCall = 4210,
   Task = 4212,
   RecurringAppointment = 4251,
-  Event = 12751,
+  Event = 10097,
 }
