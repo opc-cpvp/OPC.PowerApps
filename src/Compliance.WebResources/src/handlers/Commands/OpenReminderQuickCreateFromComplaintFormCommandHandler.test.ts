@@ -12,7 +12,7 @@ const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-describe.only("OpenReminderQuickCreate from Complaint Form Command Handler", () => {
+describe("OpenReminderQuickCreate from Complaint Form Command Handler", () => {
     describe("when command is executed", () => {
         let mockExecutionContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
         let mockNavigation: XrmNavigationMock;

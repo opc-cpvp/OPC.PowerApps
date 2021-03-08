@@ -17,7 +17,7 @@ const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-describe.only("OpenIssueQuickCreate from Allegation Grid Command Handler", () => {
+describe("OpenIssueQuickCreate from Allegation Grid Command Handler", () => {
     describe("when command is executed", () => {
         let mockExecutionContext: XrmExecutionContextMock<Form.opc_complaint.Main.Information, any>;
         let mockGrid: XrmGridControlMock<any>;

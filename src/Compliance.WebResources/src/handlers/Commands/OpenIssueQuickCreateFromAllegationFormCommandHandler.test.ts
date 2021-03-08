@@ -13,7 +13,7 @@ const sandbox = sinon.createSandbox();
 chai.should();
 chai.use(sinonChai);
 
-describe.only("OpenIssueQuickCreate from Allegation Command Handler", () => {
+describe("OpenIssueQuickCreate from Allegation Command Handler", () => {
     describe("when command is executed", () => {
         let mockExecutionContext: XrmExecutionContextMock<Form.opc_allegation.Main.Information, any>;
         let mockNavigation: XrmNavigationMock;
