@@ -62,8 +62,10 @@ import * as resources from "./resources.json";
 import { OpenEntityDialogCommandHandler } from "./handlers/Commands/OpenEntityDialogCommandHandler";
 import { OpenTemplateDialogCommandHandler } from "./handlers/Commands/OpenTemplateDialogCommandHandler";
 import { MergeContactCommandHandler } from "./handlers/Commands/MergeContactCommandHandler";
-import { OpenReminderDialogCommandHandler } from "./handlers/Commands/OpenReminderDialogCommandHandler";
-import { OpenIssueDialogCommandHandler } from "./handlers/Commands/OpenIssueDialogCommandHandler";
+import { OpenReminderQuickCreateFromAllegationFormCommandHandler } from "./handlers/Commands/OpenReminderQuickCreateFromAllegationFormCommandHandler";
+import { OpenReminderQuickCreateFromComplaintFormCommandHandler } from "./handlers/Commands/OpenReminderQuickCreateFromComplaintFormCommandHandler";
+import { OpenIssueQuickCreateFromAllegationFormCommandHandler } from "./handlers/Commands/OpenIssueQuickCreateFromAllegationFormCommandHandler";
+import { OpenIssueQuickCreateFromAllegationGridCommandHandler } from "./handlers/Commands/OpenIssueQuickCreateFromAllegationGridCommandHandler";
 import { CheckDuplicatesQueryHandler } from "./handlers/Queries/CheckDuplicatesQueryHandler";
 import { HasAccessAllegationQueryHandler } from "./handlers/Queries/HasAccessAllegationQueryHandler";
 import { HasAcceptableAllegationQueryHandler } from "./handlers/Queries/HasAcceptableAllegationQueryHandler";
@@ -136,8 +138,18 @@ container
     .inSingletonScope();
 container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<OpenTemplateDialogCommandHandler>()).to(OpenTemplateDialogCommandHandler);
 container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<MergeContactCommandHandler>()).to(MergeContactCommandHandler);
-container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<OpenReminderDialogCommandHandler>()).to(OpenReminderDialogCommandHandler);
-container.bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof<OpenIssueDialogCommandHandler>()).to(OpenIssueDialogCommandHandler);
+container
+    .bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof(OpenReminderQuickCreateFromAllegationFormCommandHandler))
+    .to(OpenReminderQuickCreateFromAllegationFormCommandHandler);
+container
+    .bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof(OpenReminderQuickCreateFromComplaintFormCommandHandler))
+    .to(OpenReminderQuickCreateFromComplaintFormCommandHandler);
+container
+    .bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof(OpenIssueQuickCreateFromAllegationFormCommandHandler))
+    .to(OpenIssueQuickCreateFromAllegationFormCommandHandler);
+container
+    .bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof(OpenIssueQuickCreateFromAllegationGridCommandHandler))
+    .to(OpenIssueQuickCreateFromAllegationGridCommandHandler);
 container.bind<i.IQueryHandler<boolean>>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
 container.bind<i.IQueryHandler<boolean>>(nameof<HasAccessAllegationQueryHandler>()).to(HasAccessAllegationQueryHandler);
 container.bind<i.IQueryHandler<boolean>>(nameof<HasAcceptableAllegationQueryHandler>()).to(HasAcceptableAllegationQueryHandler);

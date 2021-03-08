@@ -242,12 +242,32 @@
     <TypeScriptCompile Include="src\forms\ReminderMainForm.ts" />
     <TypeScriptCompile Include="src\forms\RiskAssessmentMainForm.ts" />
     <TypeScriptCompile Include="src\forms\RiskAssessmentMainForm.test.ts" />
-    <TypeScriptCompile Include="src\handlers\Commands\OpenIssueDialogCommandHandler.ts" />
-    <TypeScriptCompile Include="src\handlers\Commands\OpenReminderDialogCommandHandler.ts" />
+    <TypeScriptCompile Include="src\handlers\Commands\OpenIssueQuickCreateFromAllegationFormCommandHandler.test.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\handlers\Commands\OpenIssueQuickCreateFromAllegationFormCommandHandler.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\handlers\Commands\OpenIssueQuickCreateFromAllegationGridCommandHandler.test.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\handlers\Commands\OpenIssueQuickCreateFromAllegationGridCommandHandler.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\handlers\Commands\OpenEntityDialogCommandHandler.test.ts" />
     <TypeScriptCompile Include="src\handlers\Commands\OpenEntityDialogCommandHandler.ts" />
+    <TypeScriptCompile Include="src\handlers\Commands\OpenReminderQuickCreateFromComplaintFormCommandHandler.test.ts" />
+    <TypeScriptCompile Include="src\handlers\Commands\OpenReminderQuickCreateFromAllegationFormCommandHandler.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\handlers\Commands\OpenReminderQuickCreateFromComplaintFormCommandHandler.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\handlers\Commands\OpenTemplateDialogCommandHandler.test.ts" />
     <TypeScriptCompile Include="src\handlers\Commands\OpenTemplateDialogCommandHandler.ts" />
+    <TypeScriptCompile Include="src\handlers\Commands\OpenReminderQuickCreateFromAllegationFormCommandHandler.test.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\handlers\Queries\HasAcceptableAllegationQueryHandler.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -287,6 +307,10 @@
     <TypeScriptCompile Include="test\XrmCollectionBaseMock.ts" />
     <TypeScriptCompile Include="test\XrmContextMock.ts" />
     <TypeScriptCompile Include="test\XrmFormNotificationMock.ts" />
+    <TypeScriptCompile Include="test\XrmGridControlMock.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="test\XrmGridRowControlMock.ts" />
     <TypeScriptCompile Include="test\XrmLookupControlMock.ts" />
     <TypeScriptCompile Include="test\XrmPageSectionMock.ts" />
     <TypeScriptCompile Include="test\XrmRoleMock.ts" />

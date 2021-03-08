@@ -28,6 +28,10 @@ import "./controls/RiskAssessment/RiskAssessmentControl.test";
 import "./handlers/Commands/MergeContactCommandHandler.test";
 import "./handlers/Commands/OpenEntityDialogCommandHandler.test";
 import "./handlers/Commands/OpenTemplateDialogCommandHandler.test";
+import "./handlers/Commands/OpenReminderQuickCreateFromAllegationFormCommandHandler.test";
+import "./handlers/Commands/OpenReminderQuickCreateFromComplaintFormCommandHandler.test";
+import "./handlers/Commands/OpenIssueQuickCreateFromAllegationFormCommandHandler.test";
+import "./handlers/Commands/OpenIssueQuickCreateFromAllegationGridCommandHandler.test";
 
 /* Query Handlers */
 import "./handlers/Queries/CheckDuplicatesQueryHandler.test";

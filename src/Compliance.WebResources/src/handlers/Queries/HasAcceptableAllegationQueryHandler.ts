@@ -9,7 +9,11 @@ export class HasAcceptableAllegationQueryHandler implements IQueryHandler<boolea
         this._complaintService = complaintService;
     }
 
-    public async executeAsync<TForm extends ExtendedXrmPageBase>(field: string, context: TForm): Promise<boolean> {
+    public async executeAsync<TForm extends ExtendedXrmPageBase>(
+        field: string,
+        context: TForm,
+        selectedItemsIds: string[]
+    ): Promise<boolean> {
         if (context.data.entity.getEntityName() !== "opc_complaint") {
             return false;
         }
@@ -18,7 +22,8 @@ export class HasAcceptableAllegationQueryHandler implements IQueryHandler<boolea
 
         const complaint = await this._complaintService.getComplaintWithRelationships(complaintId);
         const allegations = complaint.opc_complaint_allegations_complaint;
-
-        return allegations.some(x => x.opc_disposition === opc_allegationdisposition.Acceptable);
+        return allegations.some(
+            x => selectedItemsIds?.includes(x.opc_allegationid) && x.opc_disposition === opc_allegationdisposition.Acceptable
+        );
     }
 }
