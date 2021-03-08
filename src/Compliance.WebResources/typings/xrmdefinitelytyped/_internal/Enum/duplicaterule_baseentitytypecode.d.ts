@@ -428,5 +428,8 @@ declare const enum duplicaterule_baseentitytypecode {
   TeamMobileOfflineProfileMembership = 10119,
   UserMobileOfflineProfileMembership = 10120,
   AccessRequestDocument = 10122,
+  KeyVaultReference = 10123,
+  ManagedIdentity = 10124,
+  Notification_3 = 10125,
   RevokeInheritedAccessRecordsTracker = 90001,
 }

@@ -4,7 +4,7 @@
     <HideCustomAction HideActionId="opc.Mscrm.Form.opc_complaint.WordTemplate.Hide" Location="Mscrm.Form.opc_complaint.WordTemplate" />
     <CustomAction Id="opc.opc_complaint.Button.CreateReminder.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Management.Controls._children" Sequence="25">
       <CommandUIDefinition>
-        <Button Alt="$LocLabels:opc.opc_complaint.Button.CreateReminder.Alt" Command="opc.opc_complaint.Command.OpenReminderDialogPage" Id="opc.opc_complaint.Button.CreateReminder" LabelText="$LocLabels:opc.opc_complaint.Button.CreateReminder.LabelText" Sequence="25" TemplateAlias="isv" />
+        <Button Alt="$LocLabels:opc.opc_complaint.Button.CreateReminder.Alt" Command="opc.opc_complaint.Command.OpenReminderQuickCreate" Id="opc.opc_complaint.Button.CreateReminder" LabelText="$LocLabels:opc.opc_complaint.Button.CreateReminder.LabelText" Sequence="25" TemplateAlias="isv" />
       </CommandUIDefinition>
     </CustomAction>
     <CustomAction Id="opc.opc_complaint.Button.Merge.CustomAction" Location="Mscrm.Form.opc_complaint.MainTab.Management.Controls._children" Sequence="20">
@@ -110,7 +110,7 @@
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
-    <CommandDefinition Id="opc.opc_complaint.Command.OpenReminderDialogPage">
+    <CommandDefinition Id="opc.opc_complaint.Command.OpenReminderQuickCreate">
       <EnableRules>
         <EnableRule Id="opc.opc_complaint.EnableRule.HasAccessAllegation" />
       </EnableRules>
@@ -118,7 +118,7 @@
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
           <CrmParameter Value="PrimaryControl" />
-          <StringParameter Value="OpenReminderDialogCommandHandler" />
+          <StringParameter Value="OpenReminderQuickCreateFromComplaintFormCommandHandler" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>

@@ -3,17 +3,17 @@
   <CustomActions>
     <CustomAction Id="opc.opc_allegation.Button.CreateIssue.CustomAction" Location="Mscrm.Form.opc_allegation.MainTab.Actions.Controls._children" Sequence="10">
       <CommandUIDefinition>
-        <Button Alt="$LocLabels:opc.opc_allegation.Button.CreateIssue.Alt" Command="opc.opc_allegation.Command.OpenIssueDialogPage" Id="opc.opc_allegation.Button.CreateIssue" LabelText="$LocLabels:opc.opc_allegation.Button.CreateIssue.LabelText" Sequence="10" TemplateAlias="o1" />
+        <Button Alt="$LocLabels:opc.opc_allegation.Button.CreateIssue.Alt" Command="opc.opc_allegation.Command.OpenIssueQuickCreateFromAllegationForm" Id="opc.opc_allegation.Button.CreateIssue" LabelText="$LocLabels:opc.opc_allegation.Button.CreateIssue.LabelText" Sequence="10" TemplateAlias="o1" />
       </CommandUIDefinition>
     </CustomAction>
     <CustomAction Id="opc.opc_allegation.Button.CreateReminder.CustomAction" Location="Mscrm.Form.opc_allegation.MainTab.Actions.Controls._children" Sequence="10">
       <CommandUIDefinition>
-        <Button Alt="$LocLabels:opc.opc_allegation.Button.CreateReminder.Alt" Command="opc.opc_allegation.Command.OpenReminderDialogPage" Id="opc.opc_allegation.Button.CreateReminder" LabelText="$LocLabels:opc.opc_allegation.Button.CreateReminder.LabelText" Sequence="10" TemplateAlias="o1" />
+        <Button Alt="$LocLabels:opc.opc_allegation.Button.CreateReminder.Alt" Command="opc.opc_allegation.Command.OpenReminderQuickCreateForm" Id="opc.opc_allegation.Button.CreateReminder" LabelText="$LocLabels:opc.opc_allegation.Button.CreateReminder.LabelText" Sequence="10" TemplateAlias="o1" />
       </CommandUIDefinition>
     </CustomAction>
     <CustomAction Id="opc.opc_allegation.GridButton.CreateIssue.CustomAction" Location="Mscrm.SubGrid.opc_allegation.MainTab.Management.Controls._children" Sequence="115">
       <CommandUIDefinition>
-        <Button Command="opc.opc_allegation.Command.OpenIssueDialogPage" Id="opc.opc_allegation.GridButton.CreateIssue" LabelText="$LocLabels:opc.opc_allegation.GridButton.CreateIssue.LabelText" Sequence="115" TemplateAlias="o2" />
+        <Button Command="opc.opc_allegation.Command.OpenIssueQuickCreateFromAllegationGrid" Id="opc.opc_allegation.GridButton.CreateIssue" LabelText="$LocLabels:opc.opc_allegation.GridButton.CreateIssue.LabelText" Sequence="115" TemplateAlias="o2" />
       </CommandUIDefinition>
     </CustomAction>
   </CustomActions>
@@ -21,20 +21,31 @@
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
   <CommandDefinitions>
-    <CommandDefinition Id="opc.opc_allegation.Command.OpenIssueDialogPage">
+    <CommandDefinition Id="opc.opc_allegation.Command.OpenIssueQuickCreateFromAllegationForm">
       <EnableRules>
-        <EnableRule Id="opc.opc_allegation.EnableRule.IsAllegationAcceptable" />
-        <EnableRule Id="Mscrm.AnySelection" />
+        <EnableRule Id="opc.opc_allegation.EnableRule.IsAcceptableDisposition" />
       </EnableRules>
       <DisplayRules />
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
           <CrmParameter Value="PrimaryControl" />
-          <StringParameter Value="OpenIssueDialogCommandHandler" />
+          <StringParameter Value="OpenIssueQuickCreateFromAllegationFormCommandHandler" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
-    <CommandDefinition Id="opc.opc_allegation.Command.OpenReminderDialogPage">
+    <CommandDefinition Id="opc.opc_allegation.Command.OpenIssueQuickCreateFromAllegationGrid">
+      <EnableRules>
+        <EnableRule Id="opc.opc_allegation.EnableRule.HasAcceptableDispositionSelected" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="OpenIssueQuickCreateFromAllegationGridCommandHandler" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="opc.opc_allegation.Command.OpenReminderQuickCreateForm">
       <EnableRules>
         <EnableRule Id="opc.opc_allegation.EnableRule.IsAccessAllegation" />
       </EnableRules>
@@ -42,7 +53,7 @@
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
           <CrmParameter Value="PrimaryControl" />
-          <StringParameter Value="OpenReminderDialogCommandHandler" />
+          <StringParameter Value="OpenReminderQuickCreateFromAllegationFormCommandHandler" />
         </JavaScriptFunction>
       </Actions>
     </CommandDefinition>
@@ -51,22 +62,22 @@
     <TabDisplayRules />
     <DisplayRules />
     <EnableRules>
+      <EnableRule Id="opc.opc_allegation.EnableRule.HasAcceptableDispositionSelected">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Default="false" InvertResult="false" />
+        <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
+          <StringParameter Value="HasAcceptableAllegationQueryHandler" />
+          <StringParameter />
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="SelectedControlSelectedItemIds" />
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlAllItemIds" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="opc.opc_allegation.EnableRule.IsAcceptableDisposition">
+        <ValueRule Field="opc_disposition" Value="924340000" Default="false" InvertResult="false" />
+      </EnableRule>
       <EnableRule Id="opc.opc_allegation.EnableRule.IsAccessAllegation">
         <ValueRule Field="opc_allegationtypeid" Value="9929ba43-3ac7-4869-955f-fa42bcb78c0b" Default="false" InvertResult="false" />
-      </EnableRule>
-      <EnableRule Id="opc.opc_allegation.EnableRule.IsAllegationAcceptable">
-        <OrRule>
-          <Or>
-            <ValueRule Field="opc_disposition" Value="924340000" Default="false" InvertResult="false" />
-          </Or>
-          <Or>
-            <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
-              <StringParameter Value="HasAcceptableAllegationQueryHandler" />
-              <StringParameter />
-              <CrmParameter Value="PrimaryControl" />
-            </CustomRule>
-          </Or>
-        </OrRule>
       </EnableRule>
     </EnableRules>
   </RuleDefinitions>
@@ -78,7 +89,7 @@
     </LocLabel>
     <LocLabel Id="opc.opc_allegation.Button.CreateIssue.LabelText">
       <Titles>
-        <Title description="New Issue" languagecode="1033" />
+        <Title description="Associate New Issue" languagecode="1033" />
       </Titles>
     </LocLabel>
     <LocLabel Id="opc.opc_allegation.Button.CreateReminder.Alt">
@@ -93,7 +104,7 @@
     </LocLabel>
     <LocLabel Id="opc.opc_allegation.GridButton.CreateIssue.LabelText">
       <Titles>
-        <Title description="New Issue" languagecode="1033" />
+        <Title description="Associate New Issue" languagecode="1033" />
       </Titles>
     </LocLabel>
   </LocLabels>

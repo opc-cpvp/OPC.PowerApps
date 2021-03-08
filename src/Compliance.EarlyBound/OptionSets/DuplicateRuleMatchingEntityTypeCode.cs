@@ -556,6 +556,9 @@ namespace Compliance.EarlyBound
 		ISVConfig = 4705,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		KeyVaultReference = 10123,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		KnowledgeArticle = 9953,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -631,6 +634,9 @@ namespace Compliance.EarlyBound
 		MailMergeTemplate = 9106,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
+		ManagedIdentity = 10124,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
 		ManagedProperty = 9812,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -686,6 +692,9 @@ namespace Compliance.EarlyBound
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Notification_10098 = 10098,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Notification_10125 = 10125,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		Notification_4110 = 4110,
