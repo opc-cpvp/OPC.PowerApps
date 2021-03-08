@@ -10,8 +10,13 @@ export class QueryDispatcher implements IQueryDispatcher {
     constructor(container: interfaces.Container) {
         this._container = container;
     }
-    async dispatchAsync<TForm extends ExtendedXrmPageBase, TReturn>(command: string, field: string, context: TForm): Promise<TReturn> {
+    async dispatchAsync<TForm extends ExtendedXrmPageBase, TReturn>(
+        command: string,
+        field: string,
+        context: TForm,
+        selectedIds?: string[]
+    ): Promise<TReturn> {
         const handler = this._container.get<IQueryHandler<TReturn>>(command);
-        return await handler.executeAsync(field, context);
+        return await handler.executeAsync(field, context, selectedIds);
     }
 }

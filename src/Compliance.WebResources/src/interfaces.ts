@@ -182,11 +182,16 @@ export interface IPowerForm<TForm extends Xrm.PageBase<Xrm.AttributeCollectionBa
 }
 
 export interface IQueryDispatcher {
-    dispatchAsync<TForm extends ExtendedXrmPageBase, TReturn>(command: string, field: string, context: TForm): Promise<TReturn>;
+    dispatchAsync<TForm extends ExtendedXrmPageBase, TReturn>(
+        command: string,
+        field: string,
+        context: TForm,
+        selectedItemIds?: string[]
+    ): Promise<TReturn>;
 }
 
 export interface IQueryHandler<TReturn> {
-    executeAsync<TForm extends ExtendedXrmPageBase>(field: string, context: TForm): Promise<TReturn>;
+    executeAsync<TForm extends ExtendedXrmPageBase>(field: string, context: TForm, selectedItemsIds?: string[]): Promise<TReturn>;
 }
 
 export interface ICommandDispatcher {
