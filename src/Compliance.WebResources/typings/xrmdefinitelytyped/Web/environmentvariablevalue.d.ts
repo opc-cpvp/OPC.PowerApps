@@ -24,11 +24,11 @@ interface EnvironmentVariableValue_Relationships {
   EnvironmentVariableDefinitionId?: EnvironmentVariableDefinition_Result | null;
 }
 interface EnvironmentVariableValue extends EnvironmentVariableValue_Base, EnvironmentVariableValue_Relationships {
-  EnvironmentVariableDefinitionId_bind$environmentvariabledefinitions?: string | null;
   ownerid_bind$systemusers?: string | null;
   ownerid_bind$teams?: string | null;
 }
 interface EnvironmentVariableValue_Create extends EnvironmentVariableValue {
+  EnvironmentVariableDefinitionId_bind$environmentvariabledefinitions?: string | null;
 }
 interface EnvironmentVariableValue_Update extends EnvironmentVariableValue {
 }

@@ -1,0 +1,134 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "opc_sharedcommondataserviceforapps_8121b"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "Eastern Standard Time",
+            "schedule": {
+              "hours": [
+                "3"
+              ]
+            }
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Apply_to_each_complaint": {
+          "foreach": "@outputs('Get_Complaints_with_notice_of_investigation_or_deem_refusal')?['body/value']",
+          "actions": {
+            "If_notice_of_deem_refusal_date_exists,_create_deem_refusal_notification": {
+              "actions": {
+                "Deem_Refusal": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "opc_notifications",
+                      "item/opc_notifybyemail": true,
+                      "item/opc_name": "Date de refus réputée atteinte / Deem Refusal Date Met",
+                      "item/opc_complaintid@odata.bind": "@items('Apply_to_each_complaint')?['@odata.id']",
+                      "item/ownerid@odata.bind": "@items('Apply_to_each_complaint')?['_ownerid_value']",
+                      "item/statuscode": 1
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "else": {
+                "actions": {
+                  "Notice_of_Investigation": {
+                    "runAfter": {},
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "CreateRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "opc_notifications",
+                        "item/opc_notifybyemail": true,
+                        "item/opc_name": "Date de notification de l'enquête respectée / Notice of Investigation Date Met ",
+                        "item/opc_complaintid@odata.bind": "@items('Apply_to_each_complaint')?['@odata.id']",
+                        "item/ownerid@odata.bind": "@items('Apply_to_each_complaint')?['_ownerid_value']",
+                        "item/statuscode": 1
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@items('Apply_to_each_complaint')?['opc_noticeofdeemrefusaldate']",
+                    "@null"
+                  ]
+                }
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Get_Complaints_with_notice_of_investigation_or_deem_refusal": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "Get_Complaints_with_notice_of_investigation_or_deem_refusal": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "opc_complaints",
+              "$select": "ownerid, opc_noticeofdeemrefusaldate, opc_noticeofinvestigationdate",
+              "$filter": "(statecode eq 0 and statuscode ne 924340021) and ((opc_noticeofinvestigationdate ge @{subtractFromTime(utcNow('yyyy-MM-ddT00:00:00Z'), 30, 'Day')} and opc_noticeofinvestigationdate le @{subtractFromTime(utcNow('yyyy-MM-ddT23:59:59Z'), 30, 'Day')}) or (opc_noticeofdeemrefusaldate ge @{subtractFromTime(utcNow('yyyy-MM-ddT00:00:00Z'), 30, 'Day')} and opc_noticeofdeemrefusaldate le @{subtractFromTime(utcNow('yyyy-MM-ddT23:59:59Z'), 30, 'Day')})) "
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}

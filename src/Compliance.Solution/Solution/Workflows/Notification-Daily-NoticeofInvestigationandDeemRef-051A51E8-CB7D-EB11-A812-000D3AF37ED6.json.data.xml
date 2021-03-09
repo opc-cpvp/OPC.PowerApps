@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{051a51e8-cb7d-eb11-a812-000d3af37ed6}" Name="Notification - Daily - Notice of Investigation and Deem Refusal" Description="Sends notifications when the notice of Investigation or notice of deem refusal dates have hit the 30 day old mark for Investigators to act on the complaints." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/Notification-Daily-NoticeofInvestigationandDeemRef-051A51E8-CB7D-EB11-A812-000D3AF37ED6.json</JsonFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>5</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.599</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <PrimaryEntity>none</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Notification - Daily - Notice of Investigation and Deem Refusal" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Sends notifications when the notice of Investigation or notice of deem refusal dates have hit the 30 day old mark for Investigators to act on the complaints." />
+  </Descriptions>
+</Workflow>

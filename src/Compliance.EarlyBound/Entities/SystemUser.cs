@@ -1038,7 +1038,7 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// License type of user.
+		/// License type of user. This is used only in the on-premises version of the product. Online licenses are managed through Microsoft 365 Office Portal
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("caltype")]
 		public virtual SystemUserCALType? CALType
