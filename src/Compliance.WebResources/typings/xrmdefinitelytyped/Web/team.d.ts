@@ -6,7 +6,7 @@ interface Team_Base extends WebEntity {
   exchangerate?: number | null;
   importsequencenumber?: number | null;
   isdefault?: boolean | null;
-  membershiptype?: _team_membershiptype | null;
+  membershiptype?: team_membershiptype | null;
   modifiedon?: Date | null;
   name?: string | null;
   organizationid?: string | null;
@@ -40,8 +40,10 @@ interface Team_Relationships {
   team_opc_industry?: opc_industry_Result[] | null;
   team_opc_issue?: opc_issue_Result[] | null;
   team_opc_legislation?: opc_legislation_Result[] | null;
+  team_opc_legislationallegationtype?: opc_legislationallegationtype_Result[] | null;
   team_opc_notification?: opc_notification_Result[] | null;
   team_opc_opcpriority?: opc_opcpriority_Result[] | null;
+  team_opc_personalinformationtype?: opc_personalinformationtype_Result[] | null;
   team_opc_provision?: opc_provision_Result[] | null;
   team_opc_questiontemplate?: opc_QuestionTemplate_Result[] | null;
   team_opc_recommendation?: opc_recommendation_Result[] | null;
@@ -86,7 +88,7 @@ interface Team_Select {
   exchangerate: WebAttribute<Team_Select, { exchangerate: number | null }, {  }>;
   importsequencenumber: WebAttribute<Team_Select, { importsequencenumber: number | null }, {  }>;
   isdefault: WebAttribute<Team_Select, { isdefault: boolean | null }, {  }>;
-  membershiptype: WebAttribute<Team_Select, { membershiptype: _team_membershiptype | null }, { membershiptype_formatted?: string }>;
+  membershiptype: WebAttribute<Team_Select, { membershiptype: team_membershiptype | null }, { membershiptype_formatted?: string }>;
   modifiedby_guid: WebAttribute<Team_Select, { modifiedby_guid: string | null }, { modifiedby_formatted?: string }>;
   modifiedon: WebAttribute<Team_Select, { modifiedon: Date | null }, { modifiedon_formatted?: string }>;
   modifiedonbehalfby_guid: WebAttribute<Team_Select, { modifiedonbehalfby_guid: string | null }, { modifiedonbehalfby_formatted?: string }>;
@@ -117,7 +119,7 @@ interface Team_Filter {
   exchangerate: any;
   importsequencenumber: number;
   isdefault: boolean;
-  membershiptype: _team_membershiptype;
+  membershiptype: team_membershiptype;
   modifiedby_guid: XQW.Guid;
   modifiedon: Date;
   modifiedonbehalfby_guid: XQW.Guid;
@@ -163,8 +165,10 @@ interface Team_Expand {
   team_opc_industry: WebExpand<Team_Expand, opc_industry_Select, opc_industry_Filter, { team_opc_industry: opc_industry_Result[] }>;
   team_opc_issue: WebExpand<Team_Expand, opc_issue_Select, opc_issue_Filter, { team_opc_issue: opc_issue_Result[] }>;
   team_opc_legislation: WebExpand<Team_Expand, opc_legislation_Select, opc_legislation_Filter, { team_opc_legislation: opc_legislation_Result[] }>;
+  team_opc_legislationallegationtype: WebExpand<Team_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { team_opc_legislationallegationtype: opc_legislationallegationtype_Result[] }>;
   team_opc_notification: WebExpand<Team_Expand, opc_notification_Select, opc_notification_Filter, { team_opc_notification: opc_notification_Result[] }>;
   team_opc_opcpriority: WebExpand<Team_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { team_opc_opcpriority: opc_opcpriority_Result[] }>;
+  team_opc_personalinformationtype: WebExpand<Team_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { team_opc_personalinformationtype: opc_personalinformationtype_Result[] }>;
   team_opc_provision: WebExpand<Team_Expand, opc_provision_Select, opc_provision_Filter, { team_opc_provision: opc_provision_Result[] }>;
   team_opc_questiontemplate: WebExpand<Team_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { team_opc_questiontemplate: opc_QuestionTemplate_Result[] }>;
   team_opc_recommendation: WebExpand<Team_Expand, opc_recommendation_Select, opc_recommendation_Filter, { team_opc_recommendation: opc_recommendation_Result[] }>;
@@ -243,8 +247,10 @@ interface Team_RelatedMany {
   team_opc_industry: WebMappingRetrieve<opc_industry_Select,opc_industry_Expand,opc_industry_Filter,opc_industry_Fixed,opc_industry_Result,opc_industry_FormattedResult>;
   team_opc_issue: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
   team_opc_legislation: WebMappingRetrieve<opc_legislation_Select,opc_legislation_Expand,opc_legislation_Filter,opc_legislation_Fixed,opc_legislation_Result,opc_legislation_FormattedResult>;
+  team_opc_legislationallegationtype: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
   team_opc_notification: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
   team_opc_opcpriority: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
+  team_opc_personalinformationtype: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
   team_opc_provision: WebMappingRetrieve<opc_provision_Select,opc_provision_Expand,opc_provision_Filter,opc_provision_Fixed,opc_provision_Result,opc_provision_FormattedResult>;
   team_opc_questiontemplate: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
   team_opc_recommendation: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;

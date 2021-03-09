@@ -12,6 +12,7 @@
         <row name="result" id="opc_allegationtypeid">
           <cell name="opc_acronym" width="100" />
           <cell name="opc_name" width="300" />
+          <cell name="opc_description" width="300" />
         </row>
       </grid>
     </layoutxml>
@@ -26,6 +27,7 @@
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
           <attribute name="opc_acronym" />
+          <attribute name="opc_description" />
         </entity>
       </fetch>
     </fetchxml>

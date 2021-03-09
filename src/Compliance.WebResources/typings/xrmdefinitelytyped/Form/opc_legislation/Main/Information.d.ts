@@ -19,9 +19,9 @@ declare namespace Form.opc_legislation.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: "opc_acronym"): Xrm.StringControl;
       get(name: "opc_name"): Xrm.StringControl;
-      get(name: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
       get(name: string): undefined;
       get(): Xrm.BaseControl[];
       get(index: number): Xrm.BaseControl;
@@ -40,9 +40,9 @@ declare namespace Form.opc_legislation.Main {
     getAttribute(attributeName: "opc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "ownerid"): Xrm.LookupAttribute<"systemuser" | "team">;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "header_ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: "opc_acronym"): Xrm.StringControl;
     getControl(controlName: "opc_name"): Xrm.StringControl;
-    getControl(controlName: "ownerid"): Xrm.LookupControl<"systemuser" | "team">;
     getControl(controlName: string): undefined;
   }
 }

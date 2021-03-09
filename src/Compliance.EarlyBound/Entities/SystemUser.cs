@@ -3788,6 +3788,86 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// 1:N lk_opc_legislationallegationtype_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_legislationallegationtype_createdby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_legislationallegationtype> lk_opc_legislationallegationtype_createdby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("lk_opc_legislationallegationtype_createdby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_legislationallegationtype_createdby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("lk_opc_legislationallegationtype_createdby", null, value);
+				this.OnPropertyChanged("lk_opc_legislationallegationtype_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_legislationallegationtype_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_legislationallegationtype_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_legislationallegationtype> lk_opc_legislationallegationtype_createdonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("lk_opc_legislationallegationtype_createdonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_legislationallegationtype_createdonbehalfby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("lk_opc_legislationallegationtype_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_opc_legislationallegationtype_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_legislationallegationtype_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_legislationallegationtype_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_legislationallegationtype> lk_opc_legislationallegationtype_modifiedby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("lk_opc_legislationallegationtype_modifiedby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_legislationallegationtype_modifiedby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("lk_opc_legislationallegationtype_modifiedby", null, value);
+				this.OnPropertyChanged("lk_opc_legislationallegationtype_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_legislationallegationtype_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_legislationallegationtype_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_legislationallegationtype> lk_opc_legislationallegationtype_modifiedonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("lk_opc_legislationallegationtype_modifiedonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_legislationallegationtype_modifiedonbehalfby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("lk_opc_legislationallegationtype_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_opc_legislationallegationtype_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N lk_opc_notification_createdby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_notification_createdby")]
@@ -3944,6 +4024,86 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("lk_opc_opcpriority_modifiedonbehalfby");
 				this.SetRelatedEntities<Compliance.EarlyBound.opc_opcpriority>("lk_opc_opcpriority_modifiedonbehalfby", null, value);
 				this.OnPropertyChanged("lk_opc_opcpriority_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_personalinformationtype_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_personalinformationtype_createdby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_personalinformationtype> lk_opc_personalinformationtype_createdby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("lk_opc_personalinformationtype_createdby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_personalinformationtype_createdby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("lk_opc_personalinformationtype_createdby", null, value);
+				this.OnPropertyChanged("lk_opc_personalinformationtype_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_personalinformationtype_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_personalinformationtype_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_personalinformationtype> lk_opc_personalinformationtype_createdonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("lk_opc_personalinformationtype_createdonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_personalinformationtype_createdonbehalfby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("lk_opc_personalinformationtype_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_opc_personalinformationtype_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_personalinformationtype_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_personalinformationtype_modifiedby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_personalinformationtype> lk_opc_personalinformationtype_modifiedby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("lk_opc_personalinformationtype_modifiedby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_personalinformationtype_modifiedby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("lk_opc_personalinformationtype_modifiedby", null, value);
+				this.OnPropertyChanged("lk_opc_personalinformationtype_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_opc_personalinformationtype_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_opc_personalinformationtype_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_personalinformationtype> lk_opc_personalinformationtype_modifiedonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("lk_opc_personalinformationtype_modifiedonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_opc_personalinformationtype_modifiedonbehalfby");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("lk_opc_personalinformationtype_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_opc_personalinformationtype_modifiedonbehalfby");
 			}
 		}
 		
@@ -5948,6 +6108,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// 1:N user_opc_legislationallegationtype
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_legislationallegationtype")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_legislationallegationtype> user_opc_legislationallegationtype
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("user_opc_legislationallegationtype", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("user_opc_legislationallegationtype");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_legislationallegationtype>("user_opc_legislationallegationtype", null, value);
+				this.OnPropertyChanged("user_opc_legislationallegationtype");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N user_opc_notification
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_notification")]
@@ -5984,6 +6164,26 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("user_opc_opcpriority");
 				this.SetRelatedEntities<Compliance.EarlyBound.opc_opcpriority>("user_opc_opcpriority", null, value);
 				this.OnPropertyChanged("user_opc_opcpriority");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N user_opc_personalinformationtype
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_opc_personalinformationtype")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_personalinformationtype> user_opc_personalinformationtype
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("user_opc_personalinformationtype", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("user_opc_personalinformationtype");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("user_opc_personalinformationtype", null, value);
+				this.OnPropertyChanged("user_opc_personalinformationtype");
 			}
 		}
 		
