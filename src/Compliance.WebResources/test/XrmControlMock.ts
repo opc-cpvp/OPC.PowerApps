@@ -135,16 +135,4 @@ export class XrmControlMock
         throw new Error("Method not implemented.");
     }
     /* end of LookupControl members */
-
-    /* GridControl members */
-    getRows(): Xrm.Collection<Xrm.GridRow<any>> {
-        throw new Error("Method not implemented.");
-    }
-    getSelectedRows(): Xrm.Collection<Xrm.GridRow<any>> {
-        throw new Error("Method not implemented.");
-    }
-    getTotalRecordCount(): number {
-        throw new Error("Method not implemented.");
-    }
-    /* End of GridControl members */
 }
