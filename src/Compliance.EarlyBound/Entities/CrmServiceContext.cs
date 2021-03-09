@@ -115,6 +115,18 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_allegations_personalinformationtypes"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_allegations_personalinformationtypes> opc_allegations_personalinformationtypesSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<Compliance.EarlyBound.opc_allegations_personalinformationtypes>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_allegationsrelatedissues"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Compliance.EarlyBound.opc_allegationsrelatedissues> opc_allegationsrelatedissuesSet
@@ -159,6 +171,18 @@ namespace Compliance.EarlyBound
 			get
 			{
 				return this.CreateQuery<Compliance.EarlyBound.opc_ChecklistType>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_checklisttype_legislationallegationtype"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_checklisttype_legislationallegationtype> opc_checklisttype_legislationallegationtypeSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<Compliance.EarlyBound.opc_checklisttype_legislationallegationtype>();
 			}
 		}
 		
@@ -283,6 +307,18 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_legislationallegationtype"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_legislationallegationtype> opc_legislationallegationtypeSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<Compliance.EarlyBound.opc_legislationallegationtype>();
+			}
+		}
+		
+		/// <summary>
 		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_notification"/> entities.
 		/// </summary>
 		public System.Linq.IQueryable<Compliance.EarlyBound.opc_notification> opc_notificationSet
@@ -303,6 +339,18 @@ namespace Compliance.EarlyBound
 			get
 			{
 				return this.CreateQuery<Compliance.EarlyBound.opc_opcpriority>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="Compliance.EarlyBound.opc_personalinformationtype"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<Compliance.EarlyBound.opc_personalinformationtype> opc_personalinformationtypeSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<Compliance.EarlyBound.opc_personalinformationtype>();
 			}
 		}
 		

@@ -8,6 +8,7 @@
   <RibbonDiffXml />
   <EntityMaps />
   <EntityRelationships />
+  <EnvironmentVariables />
   <OrganizationSettings />
   <optionsets />
   <Dashboards />
@@ -19,13 +20,6 @@
   <AppModules />
   <EntityDataProviders />
   <connectionreferences>
-    <connectionreference connectionreferencelogicalname="opc_sharedcommondataserviceforapps_1a2e4">
-      <connectionreferencedisplayname>Common Data Service (current environment)</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
     <connectionreference connectionreferencelogicalname="opc_sharedsharepointonline_b79d5">
       <connectionreferencedisplayname>SharePoint</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
@@ -33,23 +27,9 @@
       <statecode>0</statecode>
       <statuscode>1</statuscode>
     </connectionreference>
-    <connectionreference connectionreferencelogicalname="opc_sharedcommondataserviceforapps_3e099">
+    <connectionreference connectionreferencelogicalname="opc_sharedcommondataserviceforapps_1a2e4">
       <connectionreferencedisplayname>Common Data Service (current environment)</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
-    <connectionreference connectionreferencelogicalname="opc_sharedsharepointonline_d331a">
-      <connectionreferencedisplayname>SharePoint</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
-    <connectionreference connectionreferencelogicalname="opc_sharedsharepointonline_d69d7">
-      <connectionreferencedisplayname>SharePoint</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
       <iscustomizable>1</iscustomizable>
       <statecode>0</statecode>
       <statuscode>1</statuscode>

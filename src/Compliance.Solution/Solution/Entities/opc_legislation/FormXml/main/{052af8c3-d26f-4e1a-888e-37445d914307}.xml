@@ -46,12 +46,10 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{c05fd116-769c-460e-a36a-0883d57641d8}">
+                      <cell locklevel="0" id="{6dd4dea2-531e-4d18-bb56-bded0aa9963c}">
                         <labels>
-                          <label description="Owner" languagecode="1033" />
-                          <label description="Propriétaire" languagecode="1036" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
                       </cell>
                       <cell id="{ab217a02-a7d6-cb2b-3755-5531b0da6cbc}" showlabel="false">
                         <labels>
@@ -84,6 +82,13 @@
                 <label description="" languagecode="1033" />
               </labels>
             </cell>
+            <cell id="{c05fd116-769c-460e-a36a-0883d57641d8}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+                <label description="Propriétaire" languagecode="1036" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
           </row>
         </rows>
       </header>
@@ -109,7 +114,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

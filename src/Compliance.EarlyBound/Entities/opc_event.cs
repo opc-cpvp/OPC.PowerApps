@@ -1249,6 +1249,26 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
+		/// Unique identifier of an associated service.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("serviceid")]
+		public Microsoft.Xrm.Sdk.EntityReference ServiceId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("serviceid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ServiceId");
+				this.SetAttributeValue("serviceid", value);
+				this.OnPropertyChanged("ServiceId");
+			}
+		}
+		
+		/// <summary>
 		/// Choose the service level agreement (SLA) that you want to apply to the case record.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("slaid")]
