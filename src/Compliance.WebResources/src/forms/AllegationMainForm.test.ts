@@ -91,6 +91,7 @@ describe("Allegation - Main", () => {
     describe("when allegation type ", () => {
         beforeEach(() => {
             initializeMock();
+            form.initializeComponents(mockContext);
         });
 
         afterEach(() => {
@@ -102,7 +103,7 @@ describe("Allegation - Main", () => {
             formContext.getAttribute("opc_allegationtypeid").setValue([{ id: AllegationType.Access }]);
 
             // Act
-            form.initializeComponents(mockContext);
+            formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
             // Assert
             formContext.getAttribute("opc_referencenumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), true));
@@ -113,7 +114,7 @@ describe("Allegation - Main", () => {
             formContext.getAttribute("opc_allegationtypeid").setValue([{ id: "Test" }]);
 
             // Act
-            form.initializeComponents(mockContext);
+            formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
             // Assert
             formContext.getAttribute("opc_referencenumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), false));
@@ -121,7 +122,7 @@ describe("Allegation - Main", () => {
 
         it("has no value, it should HIDE access request number", () => {
             // Act
-            form.initializeComponents(mockContext);
+            formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
             // Assert
             formContext.getAttribute("opc_referencenumber").controls.forEach(ctrl => sinon.assert.match(ctrl.getVisible(), false));
