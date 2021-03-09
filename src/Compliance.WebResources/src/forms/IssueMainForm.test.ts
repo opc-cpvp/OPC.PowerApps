@@ -2,7 +2,7 @@ import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
 import { Issue } from "./IssueMainForm";
 import { ContactService } from "../services/ContactService";
 import { ComplaintService } from "../services/ComplaintService";
-import { AllegationType } from "../enums";
+import { AllegationType, EntityTypeCodes } from "../enums";
 import { XrmPageBaseMock } from "../../test/XrmPageBaseMock";
 import { XrmViewSelectorMock } from "../../test/XrmViewSelectorMock";
 import { XrmControlMock } from "../../test/XrmControlMock";
@@ -87,7 +87,7 @@ describe("Issue - Main", () => {
             control.setViewSelector(
                 new XrmViewSelectorMock(
                     {
-                        entityType: "1039", // SavedQuery
+                        entityType: EntityTypeCodes.SavedQuery,
                         id: "",
                         name: "Test View"
                     },

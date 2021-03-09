@@ -40,7 +40,6 @@ export namespace Issue.Forms {
             formContext.getAttribute("opc_allegationtypeid").addOnChange(x => this.allegationtype_OnChange(x));
             formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
-            // TODO: Move function call to contact_preSearch. (GFG: we may not want this anymore as the value is required in multiple places)
             await this.setComplaint(formContext).catch(e => console.error("error setting complaint", e));
 
             formContext.getControl("opc_contact").addPreSearch(() => this.contact_preSearch(formContext));
