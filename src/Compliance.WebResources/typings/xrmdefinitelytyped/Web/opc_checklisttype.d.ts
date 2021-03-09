@@ -16,7 +16,7 @@ interface opc_ChecklistType_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface opc_ChecklistType_Relationships {
-  opc_checklisttype_allegationtypes_checklistty?: opc_allegationtype_Result[] | null;
+  opc_checklisttype_legislationallegationtype?: opc_legislationallegationtype_Result[] | null;
   opc_checklisttype_questiontemplates_checklist?: opc_QuestionTemplate_Result[] | null;
 }
 interface opc_ChecklistType extends opc_ChecklistType_Base, opc_ChecklistType_Relationships {
@@ -82,7 +82,7 @@ interface opc_ChecklistType_Expand {
   createdonbehalfby: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
   modifiedby: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_ChecklistType_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-  opc_checklisttype_allegationtypes_checklistty: WebExpand<opc_ChecklistType_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_checklisttype_allegationtypes_checklistty: opc_allegationtype_Result[] }>;
+  opc_checklisttype_legislationallegationtype: WebExpand<opc_ChecklistType_Expand, opc_legislationallegationtype_Select, opc_legislationallegationtype_Filter, { opc_checklisttype_legislationallegationtype: opc_legislationallegationtype_Result[] }>;
   opc_checklisttype_questiontemplates_checklist: WebExpand<opc_ChecklistType_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { opc_checklisttype_questiontemplates_checklist: opc_QuestionTemplate_Result[] }>;
   ownerid: WebExpand<opc_ChecklistType_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_ChecklistType_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
@@ -125,7 +125,7 @@ interface opc_ChecklistType_RelatedOne {
   owninguser: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
 }
 interface opc_ChecklistType_RelatedMany {
-  opc_checklisttype_allegationtypes_checklistty: WebMappingRetrieve<opc_allegationtype_Select,opc_allegationtype_Expand,opc_allegationtype_Filter,opc_allegationtype_Fixed,opc_allegationtype_Result,opc_allegationtype_FormattedResult>;
+  opc_checklisttype_legislationallegationtype: WebMappingRetrieve<opc_legislationallegationtype_Select,opc_legislationallegationtype_Expand,opc_legislationallegationtype_Filter,opc_legislationallegationtype_Fixed,opc_legislationallegationtype_Result,opc_legislationallegationtype_FormattedResult>;
   opc_checklisttype_questiontemplates_checklist: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
 }
 interface WebEntitiesRetrieve {

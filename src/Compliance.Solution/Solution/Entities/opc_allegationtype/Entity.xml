@@ -381,10 +381,10 @@
             <Description description="Identificateur unique des instances d'entité" languagecode="1036" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="opc_checklisttypeid">
-          <Type>lookup</Type>
-          <Name>opc_checklisttypeid</Name>
-          <LogicalName>opc_checklisttypeid</LogicalName>
+        <attribute PhysicalName="opc_description">
+          <Type>nvarchar</Type>
+          <Name>opc_description</Name>
+          <LogicalName>opc_description</LogicalName>
           <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
@@ -392,9 +392,9 @@
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsAuditEnabled>1</IsAuditEnabled>
           <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.150</IntroducedVersion>
+          <IntroducedVersion>1.0.0.0</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
           <IsRenameable>1</IsRenameable>
           <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -411,13 +411,14 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
+          <Format>textarea</Format>
+          <MaxLength>2000</MaxLength>
+          <Length>4000</Length>
           <displaynames>
-            <displayname description="Checklist Type" languagecode="1033" />
+            <displayname description="Description" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The type of checklist generated for this Allegation Type" languagecode="1033" />
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="opc_descriptionenglish">

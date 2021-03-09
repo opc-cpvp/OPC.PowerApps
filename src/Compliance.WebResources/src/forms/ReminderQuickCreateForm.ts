@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm } from "../interfaces";
+import { PowerForm } from "./PowerForm";
 import { i18n } from "i18next";
 import { XrmHelper } from "../helpers/XrmHelper";
 
@@ -8,10 +8,11 @@ import { XrmHelper } from "../helpers/XrmHelper";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Reminder.Forms {
     @injectable()
-    export class QuickCreate implements IPowerForm<Form.opc_reminder.QuickCreate.QuickCreate> {
+    export class QuickCreate extends PowerForm<Form.opc_reminder.QuickCreate.QuickCreate> {
         private readonly _i18n: i18n;
 
         constructor(@inject(nameof<i18n>()) i18n: i18n) {
+            super();
             this._i18n = i18n;
         }
 
@@ -21,6 +22,8 @@ export namespace Reminder.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_reminder.QuickCreate.QuickCreate, any>): void {
+            super.initializeComponents(initializationContext);
+
             const formContext = initializationContext.getFormContext() as Form.opc_reminder.QuickCreate.QuickCreate;
 
             // Register handlers

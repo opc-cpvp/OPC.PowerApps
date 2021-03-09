@@ -5,7 +5,7 @@
   </LocalizedNames>
   <FormId>{ccaf4946-a563-ea11-a812-000d3af464f8}</FormId>
   <IsCustomizable>1</IsCustomizable>
-  <IsDefault>1</IsDefault>
+  <IsDefault>0</IsDefault>
   <FormXml>
     <forms type="dashboard">
       <form>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{028dfab7-d338-4782-8925-2b3f213e7317}</savedqueryid>
+    <layoutxml>
+      <grid name="opc_legislationallegationtypes" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="opc_legislationallegationtype" id="opc_legislationallegationtypeid">
+          <cell name="opc_name" width="300" />
+          <cell name="opc_legislation" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+          <cell name="opc_allegationtype" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="opc_legislationallegationtype">
+          <attribute name="opc_name" />
+          <attribute name="createdon" />
+          <order attribute="opc_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="opc_allegationtype" />
+          <attribute name="opc_legislation" />
+          <attribute name="opc_legislationallegationtypeid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Legislation Allegation Type Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

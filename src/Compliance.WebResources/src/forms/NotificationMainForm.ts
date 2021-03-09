@@ -1,14 +1,15 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { IPowerForm, INotificationService } from "../interfaces";
+import { INotificationService } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
 import { WindowHelper } from "../helpers/WindowHelper";
+import { PowerForm } from "./PowerForm";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export namespace Notification.Forms {
     @injectable()
-    export class MainForm implements IPowerForm<Form.opc_notification.Main.Information> {
+    export class MainForm extends PowerForm<Form.opc_notification.Main.Information> {
         private _notificationService: INotificationService;
         private readonly _context: Xrm.context;
 
@@ -16,6 +17,7 @@ export namespace Notification.Forms {
             @inject(nameof<INotificationService>()) notificationService: INotificationService,
             @inject(nameof<Xrm.context>()) context: Xrm.context
         ) {
+            super();
             this._notificationService = notificationService;
             this._context = context;
         }
@@ -26,6 +28,8 @@ export namespace Notification.Forms {
          * @event OnLoad
          */
         public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_notification.Main.Information, any>): void {
+            super.initializeComponents(initializationContext);
+
             const formContext = initializationContext.getFormContext() as Form.opc_notification.Main.Information;
             const notificationIdValue = formContext.data.entity.getId();
             const complaintIdValue = formContext.getAttribute("opc_complaintid").getValue();
