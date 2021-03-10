@@ -1504,7 +1504,7 @@
           <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
           <Behavior>1</Behavior>
           <displaynames>
-            <displayname description="Notice of deem refusal date" languagecode="1033" />
+            <displayname description="Notice of Deem Refusal Date" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Date where the complaint has been deemed refused by the respondent if not contacted by them in the 30 day window applied when the first notice of investigation has been sent." languagecode="1033" />
@@ -1544,7 +1544,7 @@
           <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
           <Behavior>1</Behavior>
           <displaynames>
-            <displayname description="Notice of investigation date" languagecode="1033" />
+            <displayname description="Notice of Investigation Date" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Date in which a notice of investigation has been sent to the respondent." languagecode="1033" />
