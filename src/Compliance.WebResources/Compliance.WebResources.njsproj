@@ -276,6 +276,9 @@
     <TypeScriptCompile Include="src\handlers\Queries\HasAcceptableAllegationQueryHandler.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\handlers\Queries\HasAccessAllegationQueryHandler.test.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\handlers\Queries\HasAccessAllegationQueryHandler.ts" />
     <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.test.ts" />
     <TypeScriptCompile Include="src\handlers\Queries\CheckDuplicatesQueryHandler.ts" />
