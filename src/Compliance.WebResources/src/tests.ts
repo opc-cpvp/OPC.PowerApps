@@ -35,6 +35,7 @@ import "./handlers/Commands/OpenIssueQuickCreateFromAllegationGridCommandHandler
 
 /* Query Handlers */
 import "./handlers/Queries/CheckDuplicatesQueryHandler.test";
+import "./handlers/Queries/HasAcceptableAllegationQueryHandler.test";
 
 /* Dialogs */
 import "./dialogs/Templates/TemplateDialog.test";

@@ -270,6 +270,9 @@
     <TypeScriptCompile Include="src\handlers\Commands\OpenReminderQuickCreateFromAllegationFormCommandHandler.test.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\handlers\Queries\HasAcceptableAllegationQueryHandler.test.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\handlers\Queries\HasAcceptableAllegationQueryHandler.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
