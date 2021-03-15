@@ -6,6 +6,7 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "opc_accountid"): Xrm.LookupAttribute<"account"> | null;
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"contact">;
+      get(name: "opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetAttribute<opc_perceivedpriorities> | null;
       get(name: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
       get(name: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
       get(name: "opc_erapproval"): Xrm.OptionSetAttribute<opc_erapproval> | null;
@@ -38,6 +39,7 @@ declare namespace Form.opc_complaint.Quick {
       get(name: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
       get(name: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
+      get(name: "header_process_opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetControl<opc_perceivedpriorities> | null;
       get(name: "header_process_opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean> | null;
       get(name: "header_process_opc_erapproval"): Xrm.OptionSetControl<opc_erapproval> | null;
       get(name: "header_process_opc_erapproval_1"): Xrm.OptionSetControl<opc_erapproval> | null;
@@ -84,6 +86,7 @@ declare namespace Form.opc_complaint.Quick {
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"account"> | null;
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<opc_closereason> | null;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"contact">;
+    getAttribute(attributeName: "opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetAttribute<opc_perceivedpriorities> | null;
     getAttribute(attributeName: "opc_complainantrep"): Xrm.LookupAttribute<"contact">;
     getAttribute(attributeName: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean> | null;
     getAttribute(attributeName: "opc_erapproval"): Xrm.OptionSetAttribute<opc_erapproval> | null;
@@ -111,6 +114,7 @@ declare namespace Form.opc_complaint.Quick {
     getControl(controlName: "header_process_opc_closereason_2"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_closereason_3"): Xrm.OptionSetControl<opc_closereason> | null;
     getControl(controlName: "header_process_opc_complainant"): Xrm.LookupControl<"contact"> | null;
+    getControl(controlName: "header_process_opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetControl<opc_perceivedpriorities> | null;
     getControl(controlName: "header_process_opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean> | null;
     getControl(controlName: "header_process_opc_erapproval"): Xrm.OptionSetControl<opc_erapproval> | null;
     getControl(controlName: "header_process_opc_erapproval_1"): Xrm.OptionSetControl<opc_erapproval> | null;

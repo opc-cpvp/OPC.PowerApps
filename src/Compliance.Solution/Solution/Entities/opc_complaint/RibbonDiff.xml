@@ -111,9 +111,7 @@
       </Actions>
     </CommandDefinition>
     <CommandDefinition Id="opc.opc_complaint.Command.OpenReminderQuickCreate">
-      <EnableRules>
-        <EnableRule Id="opc.opc_complaint.EnableRule.HasAccessAllegation" />
-      </EnableRules>
+      <EnableRules />
       <DisplayRules />
       <Actions>
         <JavaScriptFunction FunctionName="compliance.Bootstrapper.CommandDispatcher.dispatch" Library="$webresource:opc_compliance/js/compliance.min.js">
@@ -187,13 +185,6 @@
         <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
           <StringParameter Value="CheckDuplicatesQueryHandler" />
           <StringParameter Value="opc_complainantlegalrepresentative" />
-          <CrmParameter Value="PrimaryControl" />
-        </CustomRule>
-      </EnableRule>
-      <EnableRule Id="opc.opc_complaint.EnableRule.HasAccessAllegation">
-        <CustomRule FunctionName="compliance.Bootstrapper.QueryDispatcher.dispatchAsync" Library="$webresource:opc_compliance/js/compliance.min.js" Default="false" InvertResult="false">
-          <StringParameter Value="HasAccessAllegationQueryHandler" />
-          <StringParameter />
           <CrmParameter Value="PrimaryControl" />
         </CustomRule>
       </EnableRule>

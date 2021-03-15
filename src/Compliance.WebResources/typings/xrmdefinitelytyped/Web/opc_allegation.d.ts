@@ -16,8 +16,8 @@ interface opc_allegation_Base extends WebEntity {
 }
 interface opc_allegation_Relationships {
   opc_allegation_checklistresponses_allegation?: opc_ChecklistResponse_Result[] | null;
-  opc_allegations_personalinformationtypes?: opc_personalinformationtype_Result[] | null;
   opc_allegations_issues_relatedissues?: opc_issue_Result[] | null;
+  opc_allegations_personalinformationtypes?: opc_personalinformationtype_Result[] | null;
 }
 interface opc_allegation extends opc_allegation_Base, opc_allegation_Relationships {
   opc_allegationtypeid_bind$opc_allegationtypes?: string | null;
@@ -93,8 +93,8 @@ interface opc_allegation_Expand {
   modifiedby: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
   modifiedonbehalfby: WebExpand<opc_allegation_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
   opc_allegation_checklistresponses_allegation: WebExpand<opc_allegation_Expand, opc_ChecklistResponse_Select, opc_ChecklistResponse_Filter, { opc_allegation_checklistresponses_allegation: opc_ChecklistResponse_Result[] }>;
-  opc_allegations_personalinformationtypes: WebExpand<opc_allegation_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { opc_allegations_personalinformationtypes: opc_personalinformationtype_Result[] }>;
   opc_allegations_issues_relatedissues: WebExpand<opc_allegation_Expand, opc_issue_Select, opc_issue_Filter, { opc_allegations_issues_relatedissues: opc_issue_Result[] }>;
+  opc_allegations_personalinformationtypes: WebExpand<opc_allegation_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { opc_allegations_personalinformationtypes: opc_personalinformationtype_Result[] }>;
   opc_allegationtypeid: WebExpand<opc_allegation_Expand, opc_allegationtype_Select, opc_allegationtype_Filter, { opc_allegationtypeid: opc_allegationtype_Result }>;
   opc_complaintid: WebExpand<opc_allegation_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
   opc_dispositionactionid: WebExpand<opc_allegation_Expand, opc_dispositionaction_Select, opc_dispositionaction_Filter, { opc_dispositionactionid: opc_dispositionaction_Result }>;
@@ -154,8 +154,8 @@ interface opc_allegation_RelatedOne {
 }
 interface opc_allegation_RelatedMany {
   opc_allegation_checklistresponses_allegation: WebMappingRetrieve<opc_ChecklistResponse_Select,opc_ChecklistResponse_Expand,opc_ChecklistResponse_Filter,opc_ChecklistResponse_Fixed,opc_ChecklistResponse_Result,opc_ChecklistResponse_FormattedResult>;
-  opc_allegations_personalinformationtypes: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
   opc_allegations_issues_relatedissues: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;
+  opc_allegations_personalinformationtypes: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_allegations: WebMappingRetrieve<opc_allegation_Select,opc_allegation_Expand,opc_allegation_Filter,opc_allegation_Fixed,opc_allegation_Result,opc_allegation_FormattedResult>;

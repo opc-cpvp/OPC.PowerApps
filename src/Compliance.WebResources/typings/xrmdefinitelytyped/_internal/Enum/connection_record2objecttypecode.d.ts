@@ -20,5 +20,5 @@ declare const enum connection_record2objecttypecode {
   Goal = 9600,
   KnowledgeBaseRecord = 9930,
   KnowledgeArticle = 9953,
-  Event = 10097,
+  Event = 10134,
 }

@@ -599,26 +599,6 @@ namespace Compliance.EarlyBound
 		}
 		
 		/// <summary>
-		/// N:N opc_allegations_personalinformationtypes
-		/// </summary>
-		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_allegations_personalinformationtypes")]
-		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_personalinformationtype> opc_allegations_personalinformationtypes
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("opc_allegations_personalinformationtypes", null);
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("opc_allegations_personalinformationtypes");
-				this.SetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("opc_allegations_personalinformationtypes", null, value);
-				this.OnPropertyChanged("opc_allegations_personalinformationtypes");
-			}
-		}
-		
-		/// <summary>
 		/// N:N opc_allegations_issues_relatedissues
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_allegations_issues_relatedissues")]
@@ -635,6 +615,26 @@ namespace Compliance.EarlyBound
 				this.OnPropertyChanging("opc_allegations_issues_relatedissues");
 				this.SetRelatedEntities<Compliance.EarlyBound.opc_issue>("opc_allegations_issues_relatedissues", null, value);
 				this.OnPropertyChanged("opc_allegations_issues_relatedissues");
+			}
+		}
+		
+		/// <summary>
+		/// N:N opc_allegations_personalinformationtypes
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("opc_allegations_personalinformationtypes")]
+		public System.Collections.Generic.IEnumerable<Compliance.EarlyBound.opc_personalinformationtype> opc_allegations_personalinformationtypes
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("opc_allegations_personalinformationtypes", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("opc_allegations_personalinformationtypes");
+				this.SetRelatedEntities<Compliance.EarlyBound.opc_personalinformationtype>("opc_allegations_personalinformationtypes", null, value);
+				this.OnPropertyChanged("opc_allegations_personalinformationtypes");
 			}
 		}
 		

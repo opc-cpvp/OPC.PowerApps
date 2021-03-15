@@ -118,6 +118,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "opc_accountid"): Xrm.LookupAttribute<"opc_complaints">;
       get(name: "opc_closereason"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_complainant"): Xrm.LookupAttribute<"opc_complaints">;
+      get(name: "opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetAttribute<number>;
       get(name: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean>;
       get(name: "opc_erapproval"): Xrm.OptionSetAttribute<number>;
       get(name: "opc_erdisposition"): Xrm.OptionSetAttribute<number>;
@@ -147,6 +148,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason2"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason3"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainant"): Xrm.LookupControl<"opc_complaints">;
+      get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erapproval"): Xrm.OptionSetControl<number>;
       get(name: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erapproval1"): Xrm.OptionSetControl<number>;
@@ -204,6 +206,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getAttribute(attributeName: "opc_accountid"): Xrm.LookupAttribute<"opc_complaints">;
     getAttribute(attributeName: "opc_closereason"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_complainant"): Xrm.LookupAttribute<"opc_complaints">;
+    getAttribute(attributeName: "opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetAttribute<number>;
     getAttribute(attributeName: "opc_complainantreportdrafted"): Xrm.OptionSetAttribute<boolean>;
     getAttribute(attributeName: "opc_erapproval"): Xrm.OptionSetAttribute<number>;
     getAttribute(attributeName: "opc_erdisposition"): Xrm.OptionSetAttribute<number>;
@@ -228,6 +231,7 @@ declare namespace Form.opc_individualcomplaint_bp.Main {
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason2"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_closereason3"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainant"): Xrm.LookupControl<"opc_complaints">;
+    getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainantperceivedpriorities"): Xrm.MultiSelectOptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_complainantreportdrafted"): Xrm.OptionSetControl<boolean>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erapproval"): Xrm.OptionSetControl<number>;
     getControl(controlName: "bpf_opc_complaint_opc_individualcomplaint_bp:opc_erapproval1"): Xrm.OptionSetControl<number>;
