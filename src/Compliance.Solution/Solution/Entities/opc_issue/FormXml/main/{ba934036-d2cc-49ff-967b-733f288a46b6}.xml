@@ -26,10 +26,29 @@
                         </labels>
                         <control id="opc_name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_name" disabled="false" />
                       </cell>
-                      <cell id="{66d05c04-2360-bd95-b565-0a3aecbed017}" showlabel="false">
+                      <cell locklevel="0" id="{1c4d66ba-5bbf-4a89-a3d8-4aa7d046b577}" rowspan="7" colspan="1" auto="false" showlabel="true">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Provisions" languagecode="1033" />
                         </labels>
+                        <control id="subgrid_provisions" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{b485820b-6c5b-1b77-59c9-180209013627}">
+                          <parameters>
+                            <TargetEntityType>opc_provision</TargetEntityType>
+                            <ViewId>{CEAE04A7-F467-EB11-A812-000D3AFF1915}</ViewId>
+                            <ViewIds>{CEAE04A7-F467-EB11-A812-000D3AFF1915},{B490734E-485A-4F91-8F8F-418C00A6914C},{94372691-0667-EB11-A812-000D3AFF1915}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                            <IsUserView>false</IsUserView>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RelationshipName />
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -39,11 +58,6 @@
                         </labels>
                         <control id="opc_allegationtypeid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_allegationtypeid" disabled="false" />
                       </cell>
-                      <cell locklevel="0" id="{6d7f8602-dcc7-49cb-8350-c02efa30bd11}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{81c03006-e970-49d3-a515-8f75c6fadbd6}" locklevel="0" visible="false">
@@ -51,11 +65,6 @@
                           <label description="Access Request Number" languagecode="1033" />
                         </labels>
                         <control id="opc_accessrequestnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="opc_accessrequestnumber" disabled="false" />
-                      </cell>
-                      <cell locklevel="0" id="{aa065188-eee6-42b3-a31d-2c8e704531c2}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
                       </cell>
                     </row>
                     <row>
@@ -65,11 +74,6 @@
                         </labels>
                         <control id="opc_contact" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="opc_contact" disabled="false" />
                       </cell>
-                      <cell locklevel="0" id="{08b3aeaa-8cdb-44a2-84a9-a0052d60df22}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
                     </row>
                     <row>
                       <cell id="{e6a91c77-e4bc-4fca-b2b1-d196e078f4c9}" locklevel="0">
@@ -78,7 +82,16 @@
                         </labels>
                         <control id="header_opc_disposition" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="opc_disposition" disabled="false" />
                       </cell>
-                      <cell locklevel="0" id="{ef5b2a5a-4b9b-47e7-ba5b-ed3bf6fc62b2}">
+                    </row>
+                    <row>
+                      <cell id="{8a5477ea-9b4e-6c91-ba39-8a00960ce552}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{64cb4cd4-e1a3-8ac0-212b-dda0e5d9296c}" showlabel="false">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -279,6 +292,35 @@
               <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
               <HideNestedGridColumnHeader static="true" type="Enum">no</HideNestedGridColumnHeader>
               <EnableJumpBar static="true" type="Enum">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{b485820b-6c5b-1b77-59c9-180209013627}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" formFactor="0">
+            <parameters />
+          </customControl>
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" formFactor="1">
+            <parameters />
+          </customControl>
+          <customControl formFactor="2" name="opc_opc.pcf.TreeComponent">
+            <parameters>
+              <data-set name="tableGrid">
+                <ViewId>{B490734E-485A-4F91-8F8F-418C00A6914C}</ViewId>
+                <IsUserView>false</IsUserView>
+                <TargetEntityType>opc_provision</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{CEAE04A7-F467-EB11-A812-000D3AFF1915},{B490734E-485A-4F91-8F8F-418C00A6914C},{94372691-0667-EB11-A812-000D3AFF1915}</FilteredViewIds>
+              </data-set>
+              <treeEntityCollectionName static="true" type="SingleLine.Text">opc_provisions</treeEntityCollectionName>
+              <treeEntityAttribute static="true" type="SingleLine.Text">opc_parentprovisionid</treeEntityAttribute>
+              <nameAttribute static="true" type="SingleLine.Text">opc_name</nameAttribute>
+              <idAttribute static="true" type="SingleLine.Text">opc_provisionid</idAttribute>
+              <relationshipName static="true" type="SingleLine.Text">opc_provisions_issues_provisions</relationshipName>
+              <relationshipEntity static="true" type="SingleLine.Text">opc_provisionsissues</relationshipEntity>
+              <descriptionAttribute static="true" type="SingleLine.Text">opc_description</descriptionAttribute>
+              <extraTitleDetailsAttribute static="true" type="SingleLine.Text">opc_marginalnote</extraTitleDetailsAttribute>
+              <isCheckableAttribute static="true" type="SingleLine.Text">opc_ischeckable</isCheckableAttribute>
+              <maxNameDisplayLength static="true" type="Whole.None">10</maxNameDisplayLength>
             </parameters>
           </customControl>
         </controlDescription>

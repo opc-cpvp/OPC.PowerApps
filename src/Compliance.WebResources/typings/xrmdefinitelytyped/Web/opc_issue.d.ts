@@ -16,6 +16,7 @@ interface opc_issue_Base extends WebEntity {
 }
 interface opc_issue_Relationships {
   opc_issue_accessrequestdocuments_issue?: opc_accessrequestdocument_Result[] | null;
+  opc_provisions_issues_provisions?: opc_provision_Result[] | null;
 }
 interface opc_issue extends opc_issue_Base, opc_issue_Relationships {
   opc_allegationtypeid_bind$opc_allegationtypes?: string | null;
@@ -91,6 +92,7 @@ interface opc_issue_Expand {
   opc_complaintid: WebExpand<opc_issue_Expand, opc_complaint_Select, opc_complaint_Filter, { opc_complaintid: opc_complaint_Result }>;
   opc_contact: WebExpand<opc_issue_Expand, Contact_Select, Contact_Filter, { opc_contact: Contact_Result }>;
   opc_issue_accessrequestdocuments_issue: WebExpand<opc_issue_Expand, opc_accessrequestdocument_Select, opc_accessrequestdocument_Filter, { opc_issue_accessrequestdocuments_issue: opc_accessrequestdocument_Result[] }>;
+  opc_provisions_issues_provisions: WebExpand<opc_issue_Expand, opc_provision_Select, opc_provision_Filter, { opc_provisions_issues_provisions: opc_provision_Result[] }>;
   ownerid: WebExpand<opc_issue_Expand, SystemUser_Select & Team_Select, SystemUser_Filter & Team_Filter, { ownerid: SystemUser_Result } & { ownerid: Team_Result }>;
   owningteam: WebExpand<opc_issue_Expand, Team_Select, Team_Filter, { owningteam: Team_Result }>;
   owninguser: WebExpand<opc_issue_Expand, SystemUser_Select, SystemUser_Filter, { owninguser: SystemUser_Result }>;
@@ -143,6 +145,7 @@ interface opc_issue_RelatedOne {
 }
 interface opc_issue_RelatedMany {
   opc_issue_accessrequestdocuments_issue: WebMappingRetrieve<opc_accessrequestdocument_Select,opc_accessrequestdocument_Expand,opc_accessrequestdocument_Filter,opc_accessrequestdocument_Fixed,opc_accessrequestdocument_Result,opc_accessrequestdocument_FormattedResult>;
+  opc_provisions_issues_provisions: WebMappingRetrieve<opc_provision_Select,opc_provision_Expand,opc_provision_Filter,opc_provision_Fixed,opc_provision_Result,opc_provision_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   opc_issues: WebMappingRetrieve<opc_issue_Select,opc_issue_Expand,opc_issue_Filter,opc_issue_Fixed,opc_issue_Result,opc_issue_FormattedResult>;

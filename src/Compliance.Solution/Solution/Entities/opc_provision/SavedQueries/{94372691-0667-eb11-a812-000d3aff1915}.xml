@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{94372691-0667-eb11-a812-000d3aff1915}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="opc_name" select="1" icon="1" preview="1">
+        <row name="result" id="opc_provisionid">
+          <cell name="opc_name" width="200" />
+          <cell name="opc_description" width="100" />
+          <cell name="opc_marginalnote" width="100" />
+          <cell name="opc_parentprovisionid" width="100" />
+          <cell name="opc_ischeckable" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="opc_provision">
+          <attribute name="opc_name" />
+          <attribute name="opc_provisionid" />
+          <attribute name="opc_ischeckable" />
+          <attribute name="opc_parentprovisionid" />
+          <filter type="and">
+            <condition attribute="opc_isheading" operator="eq" value="0" />
+          </filter>
+          <attribute name="opc_description" />
+          <attribute name="opc_marginalnote" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.553</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Provisions without headings" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="All active provisions excluding the ones tagged as a heading." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

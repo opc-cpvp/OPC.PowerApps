@@ -2,8 +2,10 @@ import { XrmExecutionContextMock } from "../../test/XrmExecutionContextMock";
 import { Issue } from "./IssueMainForm";
 import { ContactService } from "../services/ContactService";
 import { ComplaintService } from "../services/ComplaintService";
-import { AllegationType } from "../enums";
+import { AllegationType, EntityTypeCodes } from "../enums";
 import { XrmPageBaseMock } from "../../test/XrmPageBaseMock";
+import { XrmViewSelectorMock } from "../../test/XrmViewSelectorMock";
+import { XrmControlMock } from "../../test/XrmControlMock";
 
 import chai from "chai";
 import sinon from "sinon";
@@ -41,12 +43,12 @@ describe("Issue - Main", () => {
             sandbox.restore();
         });
 
-        it("is changed to 'Access', it should ONLY SHOW releveant fields", () => {
+        it("is changed to 'Access', it should ONLY SHOW releveant fields", async () => {
             // Arrange
             formContext.getAttribute("opc_allegationtypeid").setValue([{ id: AllegationType.Access }]);
 
             // Act
-            form.initializeComponents(mockContext);
+            await form.initializeComponents(mockContext);
 
             // Assert
             contextSpy.getFormContext().getControl("opc_accessrequestnumber").getVisible().should.equal(true);
@@ -54,12 +56,12 @@ describe("Issue - Main", () => {
             contextSpy.getFormContext().getControl("subgrid_accessrequestdocuments").getVisible().should.equal(true);
         });
 
-        it("is changed to value other than 'Access', it should ONLY SHOW releveant fields", () => {
+        it("is changed to value other than 'Access', it should ONLY SHOW releveant fields", async () => {
             // Arrange
             formContext.getAttribute("opc_allegationtypeid").setValue([{ id: "Test" }]);
 
             // Act
-            form.initializeComponents(mockContext);
+            await form.initializeComponents(mockContext);
 
             // Assert
             contextSpy.getFormContext().getControl("opc_accessrequestnumber").getVisible().should.equal(false);
@@ -67,9 +69,9 @@ describe("Issue - Main", () => {
             contextSpy.getFormContext().getControl("subgrid_accessrequestdocuments").getVisible().should.equal(false);
         });
 
-        it("has no value, it should ONLY SHOW releveant fields", () => {
+        it("has no value, it should ONLY SHOW releveant fields", async () => {
             // Act
-            form.initializeComponents(mockContext);
+            await form.initializeComponents(mockContext);
 
             // Assert
             contextSpy.getFormContext().getControl("opc_accessrequestnumber").getVisible().should.equal(false);
@@ -81,20 +83,67 @@ describe("Issue - Main", () => {
     describe("when form is loading", () => {
         beforeEach(() => {
             initializeMock();
-            sandbox.stub(complaintService, "getComplaintWithRelationships").resolves([]);
+            const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
+            control.setViewSelector(
+                new XrmViewSelectorMock(
+                    {
+                        entityType: EntityTypeCodes.SavedQuery,
+                        id: "",
+                        name: "Test View"
+                    },
+                    true
+                )
+            );
         });
 
-        it("it should ensure contact filtering is properly handled", () => {
+        it("it should ensure contact filtering is properly handled", async () => {
             // TODO: Add mocking of LookupControls
             // Arrange
+            sandbox.stub(complaintService, "getComplaintWithRelationships").resolves([]);
             const contactControl = mockContext.getFormContext().getControl("opc_contact");
             const addPreSearch = sandbox.stub(contactControl, "addPreSearch").callsFake(sinon.fake());
 
             // Act
-            form.initializeComponents(mockContext);
+            await form.initializeComponents(mockContext);
 
             // Assert
             addPreSearch.should.have.been.calledOnce;
+        });
+
+        it("it should change the provisions subgrid view to PA when the parent legislation is PA", async () => {
+            // Arrange
+            sandbox.stub(complaintService, "getComplaintWithRelationships").resolves({ opc_legislation: { opc_acronym: "PA" } });
+
+            // Act
+            await form.initializeComponents(mockContext);
+
+            // Assert
+            const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
+            control.getViewSelector().getCurrentView().name.should.equal("Active PA Provisions");
+        });
+
+        it("it should change the provisions subgrid view to PIPEDA when the parent legislation is PIPEDA", async () => {
+            // Arrange
+            sandbox.stub(complaintService, "getComplaintWithRelationships").resolves({ opc_legislation: { opc_acronym: "PIPEDA" } });
+
+            // Act
+            await form.initializeComponents(mockContext);
+
+            // Assert
+            const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
+            control.getViewSelector().getCurrentView().name.should.equal("Active PIPEDA Provisions");
+        });
+
+        it("it should change NOT change the provisions subgrid view if the issue is not related to a complaint", async () => {
+            // Arrange
+            sandbox.stub(complaintService, "getComplaintWithRelationships").resolves([]);
+
+            // Act
+            await form.initializeComponents(mockContext);
+
+            // Assert
+            const control = formContext.getControl("subgrid_provisions") as XrmControlMock;
+            control.getViewSelector().getCurrentView().name.should.equal("Test View");
         });
     });
 });
