@@ -5,7 +5,7 @@
 
     // Format Guid without brackets and to lower case
     public static formatGuid(guid: string): string {
-        const regex = new RegExp("^{?(.*?)}$");
+        const regex = new RegExp("^{(.*?)}$");
         const result = regex.exec(guid);
 
         if (result) {
