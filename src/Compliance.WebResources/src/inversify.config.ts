@@ -69,7 +69,6 @@ import { OpenReminderQuickCreateFromComplaintFormCommandHandler } from "./handle
 import { OpenIssueQuickCreateFromAllegationFormCommandHandler } from "./handlers/Commands/OpenIssueQuickCreateFromAllegationFormCommandHandler";
 import { OpenIssueQuickCreateFromAllegationGridCommandHandler } from "./handlers/Commands/OpenIssueQuickCreateFromAllegationGridCommandHandler";
 import { CheckDuplicatesQueryHandler } from "./handlers/Queries/CheckDuplicatesQueryHandler";
-import { HasAccessAllegationQueryHandler } from "./handlers/Queries/HasAccessAllegationQueryHandler";
 import { HasAcceptableAllegationQueryHandler } from "./handlers/Queries/HasAcceptableAllegationQueryHandler";
 
 // Command dispatchers
@@ -154,7 +153,6 @@ container
     .bind<i.ICommandHandler<ExtendedXrmPageBase>>(nameof(OpenIssueQuickCreateFromAllegationGridCommandHandler))
     .to(OpenIssueQuickCreateFromAllegationGridCommandHandler);
 container.bind<i.IQueryHandler<boolean>>(nameof<CheckDuplicatesQueryHandler>()).to(CheckDuplicatesQueryHandler);
-container.bind<i.IQueryHandler<boolean>>(nameof<HasAccessAllegationQueryHandler>()).to(HasAccessAllegationQueryHandler);
 container.bind<i.IQueryHandler<boolean>>(nameof<HasAcceptableAllegationQueryHandler>()).to(HasAcceptableAllegationQueryHandler);
 
 // Language
