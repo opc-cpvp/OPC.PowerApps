@@ -44,6 +44,7 @@ interface Team_Relationships {
   team_opc_notification?: opc_notification_Result[] | null;
   team_opc_opcpriority?: opc_opcpriority_Result[] | null;
   team_opc_personalinformationtype?: opc_personalinformationtype_Result[] | null;
+  team_opc_provision?: opc_provision_Result[] | null;
   team_opc_questiontemplate?: opc_QuestionTemplate_Result[] | null;
   team_opc_recommendation?: opc_recommendation_Result[] | null;
   team_opc_reminder?: opc_reminder_Result[] | null;
@@ -168,6 +169,7 @@ interface Team_Expand {
   team_opc_notification: WebExpand<Team_Expand, opc_notification_Select, opc_notification_Filter, { team_opc_notification: opc_notification_Result[] }>;
   team_opc_opcpriority: WebExpand<Team_Expand, opc_opcpriority_Select, opc_opcpriority_Filter, { team_opc_opcpriority: opc_opcpriority_Result[] }>;
   team_opc_personalinformationtype: WebExpand<Team_Expand, opc_personalinformationtype_Select, opc_personalinformationtype_Filter, { team_opc_personalinformationtype: opc_personalinformationtype_Result[] }>;
+  team_opc_provision: WebExpand<Team_Expand, opc_provision_Select, opc_provision_Filter, { team_opc_provision: opc_provision_Result[] }>;
   team_opc_questiontemplate: WebExpand<Team_Expand, opc_QuestionTemplate_Select, opc_QuestionTemplate_Filter, { team_opc_questiontemplate: opc_QuestionTemplate_Result[] }>;
   team_opc_recommendation: WebExpand<Team_Expand, opc_recommendation_Select, opc_recommendation_Filter, { team_opc_recommendation: opc_recommendation_Result[] }>;
   team_opc_reminder: WebExpand<Team_Expand, opc_reminder_Select, opc_reminder_Filter, { team_opc_reminder: opc_reminder_Result[] }>;
@@ -249,6 +251,7 @@ interface Team_RelatedMany {
   team_opc_notification: WebMappingRetrieve<opc_notification_Select,opc_notification_Expand,opc_notification_Filter,opc_notification_Fixed,opc_notification_Result,opc_notification_FormattedResult>;
   team_opc_opcpriority: WebMappingRetrieve<opc_opcpriority_Select,opc_opcpriority_Expand,opc_opcpriority_Filter,opc_opcpriority_Fixed,opc_opcpriority_Result,opc_opcpriority_FormattedResult>;
   team_opc_personalinformationtype: WebMappingRetrieve<opc_personalinformationtype_Select,opc_personalinformationtype_Expand,opc_personalinformationtype_Filter,opc_personalinformationtype_Fixed,opc_personalinformationtype_Result,opc_personalinformationtype_FormattedResult>;
+  team_opc_provision: WebMappingRetrieve<opc_provision_Select,opc_provision_Expand,opc_provision_Filter,opc_provision_Fixed,opc_provision_Result,opc_provision_FormattedResult>;
   team_opc_questiontemplate: WebMappingRetrieve<opc_QuestionTemplate_Select,opc_QuestionTemplate_Expand,opc_QuestionTemplate_Filter,opc_QuestionTemplate_Fixed,opc_QuestionTemplate_Result,opc_QuestionTemplate_FormattedResult>;
   team_opc_recommendation: WebMappingRetrieve<opc_recommendation_Select,opc_recommendation_Expand,opc_recommendation_Filter,opc_recommendation_Fixed,opc_recommendation_Result,opc_recommendation_FormattedResult>;
   team_opc_reminder: WebMappingRetrieve<opc_reminder_Select,opc_reminder_Expand,opc_reminder_Filter,opc_reminder_Fixed,opc_reminder_Result,opc_reminder_FormattedResult>;

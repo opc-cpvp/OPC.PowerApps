@@ -101,6 +101,7 @@
       <RootComponent type="1" schemaName="opc_notification" behavior="0" />
       <RootComponent type="1" schemaName="opc_opcpriority" behavior="0" />
       <RootComponent type="1" schemaName="opc_personalinformationtype" behavior="0" />
+      <RootComponent type="1" schemaName="opc_provision" behavior="0" />
       <RootComponent type="1" schemaName="opc_questiontemplate" behavior="0" />
       <RootComponent type="1" schemaName="opc_questiontype" behavior="0" />
       <RootComponent type="1" schemaName="opc_recommendation" behavior="0" />
@@ -207,6 +208,7 @@
       <RootComponent type="60" id="{052af8c3-d26f-4e1a-888e-37445d914307}" behavior="0" />
       <RootComponent type="60" id="{176743e5-611a-495f-afae-e42a55fa8baa}" behavior="0" />
       <RootComponent type="60" id="{1cbf8f5e-c678-490d-b775-2aa77928d800}" behavior="0" />
+      <RootComponent type="60" id="{1dbb60e1-224b-4b58-9ff6-70bc3207cf9b}" behavior="0" />
       <RootComponent type="60" id="{2421900a-34a0-4671-8c68-7098c5af205c}" behavior="0" />
       <RootComponent type="60" id="{29b01990-098b-450b-9b2b-f7098a24074e}" behavior="0" />
       <RootComponent type="60" id="{2af2552c-229b-4aff-a057-e5950f8dbaa8}" behavior="0" />
@@ -430,6 +432,10 @@
       <MissingDependency>
         <Required key="37" type="66" schemaName="opc_opc.pcf.TagPickerGridComponent" displayName="opc_opc.pcf.TagPickerGridComponent" solution="opc_OPCPowerAppsPCFControls (1.0.42)" />
         <Dependent key="20" type="60" displayName="Information" parentDisplayName="Complaint" id="{b8bed16c-fe15-4801-ae58-2636ceecce77}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="36" type="66" schemaName="opc_opc.pcf.TreeComponent" displayName="opc_opc.pcf.TreeComponent" solution="opc_OPCPowerAppsPCFControls (1.0.42)" />
+        <Dependent key="19" type="60" displayName="Information" parentDisplayName="Issue" id="{ba934036-d2cc-49ff-967b-733f288a46b6}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

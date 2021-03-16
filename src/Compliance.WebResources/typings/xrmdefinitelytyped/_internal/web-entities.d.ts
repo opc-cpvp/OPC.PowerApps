@@ -653,6 +653,52 @@ interface opc_opcpriority_Create extends opc_opcpriority {
 }
 interface opc_opcpriority_Update extends opc_opcpriority {
 }
+interface opc_provision_Base extends WebEntity {
+}
+interface opc_provision_Fixed extends WebEntity_Fixed {
+  opc_provisionid: string;
+}
+interface opc_provision extends opc_provision_Base, opc_provision_Relationships {
+}
+interface opc_provision_Relationships {
+}
+interface opc_provision_Result extends opc_provision_Base, opc_provision_Relationships {
+}
+interface opc_provision_FormattedResult {
+}
+interface opc_provision_Select {
+}
+interface opc_provision_Expand {
+}
+interface opc_provision_Filter {
+}
+interface opc_provision_Create extends opc_provision {
+}
+interface opc_provision_Update extends opc_provision {
+}
+interface opc_provisionsissues_Base extends WebEntity {
+}
+interface opc_provisionsissues_Fixed extends WebEntity_Fixed {
+  opc_provisionsissuesid: string;
+}
+interface opc_provisionsissues extends opc_provisionsissues_Base, opc_provisionsissues_Relationships {
+}
+interface opc_provisionsissues_Relationships {
+}
+interface opc_provisionsissues_Result extends opc_provisionsissues_Base, opc_provisionsissues_Relationships {
+}
+interface opc_provisionsissues_FormattedResult {
+}
+interface opc_provisionsissues_Select {
+}
+interface opc_provisionsissues_Expand {
+}
+interface opc_provisionsissues_Filter {
+}
+interface opc_provisionsissues_Create extends opc_provisionsissues {
+}
+interface opc_provisionsissues_Update extends opc_provisionsissues {
+}
 interface opc_personalinformationtype_Base extends WebEntity {
 }
 interface opc_personalinformationtype_Fixed extends WebEntity_Fixed {

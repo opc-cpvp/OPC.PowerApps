@@ -45,3 +45,7 @@ export enum AllegationType {
 export enum DispositionReason {
     NoJurisdiction = "{2D42B272-A76E-EA11-A811-000D3AF45A96}"
 }
+
+export enum EntityTypeCodes {
+    SavedQuery = "1039"
+}

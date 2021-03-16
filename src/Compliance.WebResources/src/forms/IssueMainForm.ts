@@ -2,7 +2,7 @@ import { injectable, inject } from "inversify";
 import "reflect-metadata";
 import { IComplaintService, IContactService, ComplaintWithRelationships } from "../interfaces";
 import { XrmHelper } from "../helpers/XrmHelper";
-import { AllegationType } from "../enums";
+import { AllegationType, EntityTypeCodes } from "../enums";
 import { PowerForm } from "./PowerForm";
 
 // @see https://github.com/typescript-eslint/typescript-eslint/issues/2573
@@ -29,7 +29,9 @@ export namespace Issue.Forms {
          *
          * @event OnLoad
          */
-        public initializeComponents(initializationContext: Xrm.ExecutionContext<Form.opc_issue.Main.Information, any>): void {
+        public async initializeComponents(
+            initializationContext: Xrm.ExecutionContext<Form.opc_issue.Main.Information, any>
+        ): Promise<void> {
             super.initializeComponents(initializationContext);
 
             const formContext = initializationContext.getFormContext() as Form.opc_issue.Main.Information;
@@ -38,10 +40,44 @@ export namespace Issue.Forms {
             formContext.getAttribute("opc_allegationtypeid").addOnChange(x => this.allegationtype_OnChange(x));
             formContext.getAttribute("opc_allegationtypeid").fireOnChange();
 
-            // TODO: Move function call to contact_preSearch.
-            this.setComplaint(formContext).catch(e => console.error("error setting complaint", e));
+            await this.setComplaint(formContext).catch(e => console.error("error setting complaint", e));
 
             formContext.getControl("opc_contact").addPreSearch(() => this.contact_preSearch(formContext));
+
+            this.setProvisionsView(formContext);
+        }
+
+        /**
+         * Set the provision view according to the legislation of the parent complaint
+         */
+        private setProvisionsView(context: Form.opc_issue.Main.Information): void {
+            if (this._complaint) {
+                const provisionsGrid = context.getControl("subgrid_provisions") as Xrm.SubGridControl<"subgrid_provisions">;
+                const viewSelector = provisionsGrid.getViewSelector();
+
+                const legislation = this._complaint.opc_legislation?.opc_acronym;
+
+                // Not sure if a better way can be used to prevent hardcoding these values
+                let provisionsViewId = "";
+                let provisionsViewName = "";
+                if (legislation === "PA") {
+                    provisionsViewId = "ceae04a7-f467-eb11-a812-000d3aff1915";
+                    provisionsViewName = "Active PA Provisions";
+                } else if (legislation === "PIPEDA") {
+                    provisionsViewId = "a951b12e-206a-eb11-a812-000d3aff4254";
+                    provisionsViewName = "Active PIPEDA Provisions";
+                }
+
+                if (provisionsViewId !== "" && provisionsViewName !== "") {
+                    const ProjectTemplateView = {
+                        entityType: EntityTypeCodes.SavedQuery,
+                        id: provisionsViewId,
+                        name: provisionsViewName
+                    };
+
+                    viewSelector.setCurrentView(ProjectTemplateView);
+                }
+            }
         }
 
         private async setComplaint(context: Form.opc_issue.Main.Information): Promise<void> {
